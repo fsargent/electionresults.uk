@@ -74,34 +74,30 @@
     were elected on less.
   </p>
 
-  <h2>Browse by council</h2>
+  <h2>Year-over-year flips</h2>
   <p class="muted">
-    Every UK council as one hexagon, geographically arranged. Each is
-    coloured by the share of seats elected below the proportional
-    quota in its <strong>most recent</strong> election we have data for
-    (a council that polled in 2025 shows 2025; a London Borough that
-    last polled in 2022 shows 2022). Hover for details; click to drill
-    in.
+    Each council that changed plurality party between consecutive cycles,
+    coloured by the party that took control. Councils that haven't
+    flipped (or that we only have one cycle for) stay grey. Hover for
+    the cycle and the party transition; click to see the council's full
+    history.
   </p>
   <div class="map-and-scale">
     <CouncilHexMap
-      {fills}
-      title="UK councils — most recent poll, shaded by % of seats below the proportional quota"
+      fills={flipFills}
+      title="UK councils — most recent party-control flip, coloured by the incoming party"
     />
     <div class="legend">
-      <span class="legend-label">% below quota</span>
-      <div class="legend-bar">
-        {#each [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as t (t)}
-          <span class="legend-cell" style:background-color={belowQuotaColor(t)}></span>
-        {/each}
-      </div>
-      <div class="legend-ticks">
-        <span>0%</span><span>50%</span><span>100%</span>
-      </div>
-      <p class="muted small">
-        One hex = one council. Geographic position is approximate
-        (cartogram, not a literal map).
-      </p>
+      <span class="legend-label">Incoming party (latest flip)</span>
+      <ul class="party-legend">
+        <li><span class="swatch" style:background-color={partyColor('Labour Party')}></span> Labour</li>
+        <li><span class="swatch" style:background-color={partyColor('Conservative and Unionist Party')}></span> Conservative</li>
+        <li><span class="swatch" style:background-color={partyColor('Liberal Democrats')}></span> Liberal Democrats</li>
+        <li><span class="swatch" style:background-color={partyColor('Reform UK')}></span> Reform UK</li>
+        <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> Green</li>
+        <li><span class="swatch" style:background-color={partyColor('Independent')}></span> Independent / other</li>
+        <li><span class="swatch grey"></span> No flip in our data</li>
+      </ul>
     </div>
   </div>
 
@@ -141,34 +137,39 @@
     </tbody>
   </table>
 
-  <h2>Year-over-year flips</h2>
+  <h2>Below the proportional quota</h2>
   <p class="muted">
-    Each council that changed plurality party between consecutive cycles,
-    coloured by the party that took control. Councils that haven't
-    flipped (or that we only have one cycle for) stay grey. Hover for
-    the cycle and the party transition; click to see the council's full
-    history.
+    Where seats are won on less support than a proportional method would
+    require. The map shows every UK council shaded by the share of its
+    seats that fell below the proportional quota in its most recent
+    cycle (darker = worse); the table below picks out the ten thinnest
+    individual mandates anywhere in the data.
   </p>
   <div class="map-and-scale">
     <CouncilHexMap
-      fills={flipFills}
-      title="UK councils — most recent party-control flip, coloured by the incoming party"
+      {fills}
+      title="UK councils — most recent poll, shaded by % of seats below the proportional quota"
     />
     <div class="legend">
-      <span class="legend-label">Incoming party (latest flip)</span>
-      <ul class="party-legend">
-        <li><span class="swatch" style:background-color={partyColor('Labour Party')}></span> Labour</li>
-        <li><span class="swatch" style:background-color={partyColor('Conservative and Unionist Party')}></span> Conservative</li>
-        <li><span class="swatch" style:background-color={partyColor('Liberal Democrats')}></span> Liberal Democrats</li>
-        <li><span class="swatch" style:background-color={partyColor('Reform UK')}></span> Reform UK</li>
-        <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> Green</li>
-        <li><span class="swatch" style:background-color={partyColor('Independent')}></span> Independent / other</li>
-        <li><span class="swatch grey"></span> No flip in our data</li>
-      </ul>
+      <span class="legend-label">% below quota</span>
+      <div class="legend-bar">
+        {#each [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as t (t)}
+          <span class="legend-cell" style:background-color={belowQuotaColor(t)}></span>
+        {/each}
+      </div>
+      <div class="legend-ticks">
+        <span>0%</span><span>50%</span><span>100%</span>
+      </div>
+      <p class="muted small">
+        One hex = one council. Geographic position is approximate
+        (cartogram, not a literal map). A council that polled in 2025
+        shows 2025; a London Borough that last polled in 2022 shows
+        2022.
+      </p>
     </div>
   </div>
 
-  <h2>Ten least popular winners</h2>
+  <h3>Ten least popular winners</h3>
   <p class="muted">
     The seats furthest below the proportional quota anywhere in the data
     — councillors elected on the smallest share of valid ballots cast in
