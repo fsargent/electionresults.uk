@@ -167,10 +167,8 @@
     {/each}
   </ul>
   <p>
-    For the 2026-05-07 cycle (when published): <em>Democracy Club</em> CSV
-    ingest under their published redistribution licence (attribution
-    required), and the eventual Commons Library 2026 LEH as the canonical
-    re-baseline.
+    For the 2026-05-07 cycle, the eventual Commons Library Local Election
+    Handbook for that year will be the canonical source.
   </p>
 
   <h2>Reproducibility</h2>
