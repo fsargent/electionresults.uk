@@ -36,20 +36,20 @@
   <p>
     We deliberately avoid the words "majority" and "minority" as system
     labels. They imply that FPTP and bloc vote have a numerical threshold
-    a winner must clear &mdash; which they do not. A candidate wins under
-    these methods by being top of the poll, full stop, regardless of share.
-    Instead we report each elected candidate's share against the
-    <strong>proportional quota</strong> &mdash; the share that would be
-    needed to be guaranteed that seat under
-    <a href="https://stv.vote" rel="external noopener">STV</a> &mdash;
-    and call out the gap.
+    a winner must clear &mdash; which they do not. A candidate wins
+    under these methods by being top of the poll, full stop, regardless
+    of share. Instead we report each elected candidate's share against
+    the <strong>proportional quota</strong> &mdash; the share that would
+    be needed to be guaranteed that seat under a voting method that
+    allocates seats in proportion to votes &mdash; and call out the gap.
   </p>
   <p>
-    Scotland's councils elect their councillors by the
-    <a href="https://stv.vote" rel="external noopener">Single Transferable Vote</a>.
-    Scottish council results do not produce the gaps the figures on this
-    site do. The contrast is the rhetorical hook of the project, and the
-    editorial frame throughout.
+    Where seats are allocated proportionally to votes, results like the
+    ones on this site do not occur: the proportional quota is the floor
+    that any common proportional method requires. The contrast between
+    First-Past-the-Post / bloc vote and a proportional alternative is
+    the rhetorical hook of the project, and the editorial frame
+    throughout.
   </p>
 
   <h2>Winning percentage</h2>
@@ -90,11 +90,15 @@
 
   <h2>Proportional quota and "under par"</h2>
   <p>
-    The <strong>Droop quota</strong> is the share of valid first-preference
-    ballots a candidate would need to be guaranteed a seat under STV:
-    <code>quota = 1 / (seats + 1)</code>. For a 1-seat ward this collapses
-    to 50% (and matches the AV majority threshold); for 2 seats it is
-    33.3%; for 3 seats, 25%.
+    The <strong>Droop quota</strong> is the share of valid ballots a
+    candidate would need to be guaranteed a seat under any common
+    proportional voting method:
+    <code>quota = 1 / (seats + 1)</code>. For a 1-seat ward this
+    collapses to 50% (a true majority); for 2 seats it is 33.3%; for 3
+    seats, 25%. The name comes from H.&nbsp;R.&nbsp;Droop's 1869 paper
+    on proportional election methods; the figure is used, in the same
+    or near-identical form, by every preferential and party-list system
+    we are aware of.
   </p>
   <p>
     For each race we compute <code>under_par = quota − winning_pct</code>.

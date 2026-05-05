@@ -28,10 +28,10 @@ export function raceWinningPct(r: Race): number {
 /**
  * Droop quota: 1 / (seats + 1).
  *
- * This is the share of valid first-preference ballots a candidate would need
- * to be guaranteed a seat under STV. We use it as the "fair" benchmark for
- * single-member and multi-member ward results alike — for single-member it
- * collapses to 50% (the AV majority threshold).
+ * This is the share of valid ballots a candidate would need to be guaranteed
+ * a seat under any common proportional method. We use it as the "fair"
+ * benchmark for single-member and multi-member ward results alike — for
+ * single-member it collapses to 50%.
  */
 export function quotaForSeats(seats: number): number {
   if (!Number.isFinite(seats) || seats < 1) return 0.5;

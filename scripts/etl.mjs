@@ -306,7 +306,7 @@ CREATE TABLE races (
   invalid_votes INTEGER,
   valid_ballots INTEGER NOT NULL,
   winning_pct REAL NOT NULL,
-  -- Droop quota: 1 / (seats + 1) — share needed to be guaranteed a seat under STV
+  -- Droop quota: 1 / (seats + 1) — share needed to be guaranteed a seat under PR
   quota REAL NOT NULL,
   -- quota - winning_pct (positive = below par)
   under_par REAL NOT NULL,

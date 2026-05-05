@@ -42,11 +42,10 @@
   <section class="frame">
     <h2>How to read this page</h2>
     <p>
-      Each race below shows the share of valid ballots the marginal elected
-      candidate actually won, and compares it to the
-      <strong>proportional quota</strong>: the share that would be needed to
-      be guaranteed that seat under
-      <a href="https://stv.vote" rel="external noopener">STV</a>
+      Each race below shows the share of valid ballots the marginal
+      elected candidate actually won, and compares it to the
+      <strong>proportional quota</strong>: the share that would be needed
+      to be guaranteed that seat under any proportional voting method
       (the Droop quota, <code>1 / (seats + 1)</code>). For a 1-seat ward
       the quota is 50%; for 2 seats, 33.3%; for 3 seats, 25%.
     </p>
@@ -102,7 +101,7 @@
           </span>
         </span>
         <span class="stat">
-          <span class="stat-label">Proportional quota (STV)</span>
+          <span class="stat-label">Proportional quota</span>
           <span class="stat-value pct">{pct(race.quota)}</span>
         </span>
         <span class="stat">

@@ -24,7 +24,7 @@ export interface Race {
   candidates: Candidate[];
   /** marginal-elected-candidate share of valid ballots; computed by ETL */
   winningPct: number;
-  /** Droop quota — share that would be needed under STV: 1 / (seats + 1) */
+  /** Droop quota — share needed under a proportional method: 1 / (seats + 1) */
   quota: number;
   /** quota − winningPct; positive = below par */
   underPar: number;

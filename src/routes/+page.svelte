@@ -7,7 +7,7 @@
   <title>electionresults.uk — auditing how UK councils elect on under-quota support</title>
   <meta
     name="description"
-    content="A volunteer audit of UK local-election results. Each ward is compared to the proportional quota — the share that would be needed to win one seat under STV. We surface every seat the actual winner took on less."
+    content="A volunteer audit of UK local-election results. Each ward is compared to the proportional quota — the share that would be needed to win one seat under any proportional method. We surface every seat the actual winner took on less."
   />
   <link rel="canonical" href="https://electionresults.uk/" />
 </svelte:head>
@@ -22,12 +22,12 @@
   <h1>How many of your councillors won with less support than a fair count would require?</h1>
 
   <p class="lede">
-    First-Past-the-Post and bloc vote let a candidate win on whatever share
-    the vote-splitting produces — there is no minimum threshold. We compare
-    every elected councillor's share of valid ballots to the
-    <strong>proportional quota</strong> &mdash; the share that would be
-    needed to be guaranteed that seat under
-    <a href="https://stv.vote" rel="external noopener">STV</a>
+    First-Past-the-Post and bloc vote let a candidate win on whatever
+    share the vote-splitting produces &mdash; there is no minimum
+    threshold. We compare every elected councillor's share of valid
+    ballots to the <strong>proportional quota</strong> &mdash; the share
+    that would be needed to be guaranteed that seat under any
+    proportional voting method
     (1&nbsp;÷&nbsp;(seats&nbsp;+&nbsp;1)). Of the
     <strong>{num(data.totals.seats)}</strong> seats elected across the
     <strong>{num(data.totals.races)}</strong> races in
@@ -38,12 +38,12 @@
   </p>
 
   <p>
-    Scotland's councils elect their councillors by the
-    <a href="https://stv.vote" rel="external noopener">Single Transferable Vote</a>.
-    Scottish councils <em>do not</em> produce ward results like the ones below.
-    The figures below are not unusual; they are how this voting method works.
-    See <a href="/methodology">the methodology page</a> for how every number
-    is derived and how to verify it yourself.
+    Where seats are allocated in proportion to votes, results like the
+    ones below do not occur &mdash; the proportional quota is the floor
+    that any common proportional method requires. The figures below are
+    not unusual; they are how First-Past-the-Post and bloc vote work.
+    See <a href="/methodology">the methodology page</a> for how every
+    number is derived and how to verify it yourself.
   </p>
 
   <h2>Ten seats furthest below the proportional quota</h2>

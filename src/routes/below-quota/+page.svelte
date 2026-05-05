@@ -27,7 +27,7 @@
   <title>Below-quota seats — electionresults.uk</title>
   <meta
     name="description"
-    content="Every council ward where the elected councillor (or, in multi-seat wards, the most-marginal of the elected councillors) won less than the proportional quota that would be needed to be guaranteed that seat under STV."
+    content="Every council ward where the elected councillor (or, in multi-seat wards, the most-marginal of the elected councillors) won less than the proportional quota that would be needed to be guaranteed that seat under any proportional voting method."
   />
   <link rel="canonical" href="https://electionresults.uk/below-quota" />
 </svelte:head>
@@ -38,10 +38,9 @@
     Every ward in the cohort where the marginal elected councillor won
     less of the valid ballots than the
     <strong>proportional quota</strong> &mdash; the share that would be
-    needed to be guaranteed that seat under
-    <a href="https://stv.vote" rel="external noopener">STV</a>
-    (1&nbsp;÷&nbsp;(seats&nbsp;+&nbsp;1)). {num(data.rows.length)}
-    seats qualify.
+    needed to be guaranteed that seat under any proportional voting
+    method (1&nbsp;÷&nbsp;(seats&nbsp;+&nbsp;1)).
+    {num(data.rows.length)} seats qualify.
   </p>
   <p class="muted">
     Sorted by the gap (under par) descending &mdash; the seats furthest

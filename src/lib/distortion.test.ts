@@ -198,8 +198,8 @@ describe('isBelowQuota', () => {
 
   it('does NOT flag a 2-seat race won at 35% (quota 33.3%) — above par', () => {
     // Honesty: under the old <50% "minority" rule this would be flagged.
-    // Under the proportional quota it is not — STV would have elected this
-    // candidate too with comparable first-preference support.
+    // Under the proportional quota it is not — a proportional method would
+    // have elected this candidate too with comparable support.
     const r = race({
       seats: 2,
       validBallots: 1000,
