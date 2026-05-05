@@ -1,0 +1,121 @@
+import snapshot from './data/generated.json';
+import type { Race, CouncilSummary, Candidate } from './types';
+
+interface SnapshotMarginal {
+  candidateName: string;
+  party: string;
+  partyAbbrev: string | null;
+  votes: number;
+  winningPct: number;
+  wardName: string;
+  wardSlug: string;
+  council: string;
+  councilSlug: string;
+  seats: number;
+  validBallots: number;
+}
+
+interface Snapshot {
+  generatedAt: string;
+  source: string;
+  cycleLabel: string;
+  totals: {
+    councils: number;
+    races: number;
+    seats: number;
+    minoritySeats: number;
+  };
+  councils: CouncilSummary[];
+  races: Race[];
+  marginalWinners: SnapshotMarginal[];
+}
+
+const data = snapshot as unknown as Snapshot;
+
+export const generatedAt = data.generatedAt;
+export const cycleLabel = data.cycleLabel;
+export const sourceLabel = data.source;
+export const totals = data.totals;
+
+export const allCouncils: CouncilSummary[] = data.councils;
+export const allRaces: Race[] = data.races;
+export const allMarginalWinners: SnapshotMarginal[] = data.marginalWinners;
+
+export function councilBySlug(slug: string): CouncilSummary | undefined {
+  return allCouncils.find((c) => c.councilSlug === slug);
+}
+
+export function racesByCouncil(slug: string): Race[] {
+  return allRaces
+    .filter((r) => r.councilSlug === slug)
+    .sort((a, b) => a.winningPct - b.winningPct || a.wardName.localeCompare(b.wardName));
+}
+
+export function topMinorityWinners(limit: number): SnapshotMarginal[] {
+  return allMarginalWinners.filter((m) => m.winningPct < 0.5).slice(0, limit);
+}
+
+/**
+ * Roll up marginal winners into one row per race (race-as-unit, not
+ * candidate-as-unit). For multi-member wards, the lowest-share elected
+ * candidate is the row, matching raceWinningPct.
+ */
+export interface RaceLeaderboardRow {
+  wardName: string;
+  wardSlug: string;
+  council: string;
+  councilSlug: string;
+  seats: number;
+  validBallots: number;
+  winningPct: number;
+  marginalCandidate: string;
+  marginalParty: string;
+  marginalPartyAbbrev: string | null;
+  marginalVotes: number;
+}
+
+export function raceLeaderboard(): RaceLeaderboardRow[] {
+  const byWard = new Map<string, RaceLeaderboardRow>();
+  for (const m of allMarginalWinners) {
+    const key = `${m.councilSlug}::${m.wardSlug}`;
+    const existing = byWard.get(key);
+    if (!existing || m.winningPct < existing.winningPct) {
+      byWard.set(key, {
+        wardName: m.wardName,
+        wardSlug: m.wardSlug,
+        council: m.council,
+        councilSlug: m.councilSlug,
+        seats: m.seats,
+        validBallots: m.validBallots,
+        winningPct: m.winningPct,
+        marginalCandidate: m.candidateName,
+        marginalParty: m.party,
+        marginalPartyAbbrev: m.partyAbbrev,
+        marginalVotes: m.votes
+      });
+    }
+  }
+  return [...byWard.values()].sort(
+    (a, b) => a.winningPct - b.winningPct || a.marginalVotes - b.marginalVotes
+  );
+}
+
+export function partyOptions(): string[] {
+  const set = new Set<string>();
+  for (const m of allMarginalWinners) {
+    if (m.partyAbbrev) set.add(m.partyAbbrev);
+  }
+  return [...set].sort();
+}
+
+export function councilOptions(): { slug: string; council: string }[] {
+  return allCouncils.map((c) => ({ slug: c.councilSlug, council: c.council }));
+}
+
+export function raceCount(): number {
+  return totals.races;
+}
+
+export function electedFromRace(race: Race): Candidate[] {
+  return race.candidates.filter((c) => c.elected);
+}
