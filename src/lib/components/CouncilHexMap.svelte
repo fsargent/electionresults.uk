@@ -73,14 +73,12 @@
   type Tooltip = { x: number; y: number; primary: string; secondary: string | null };
   let tooltip: Tooltip | null = $state(null);
 
-  function showTooltip(event: MouseEvent | FocusEvent, item: (typeof items)[number]) {
-    // Position relative to the page (not viewport) so the tooltip stays
-    // anchored if the user scrolls while hovering. clientX/Y + scrollX/Y.
-    const x = 'clientX' in event ? event.clientX : 0;
-    const y = 'clientY' in event ? event.clientY : 0;
+  function showTooltip(event: MouseEvent, item: (typeof items)[number]) {
+    // Position in page coordinates so the tooltip stays anchored if the
+    // user scrolls while hovering.
     tooltip = {
-      x: x + window.scrollX,
-      y: y + window.scrollY,
+      x: event.clientX + window.scrollX,
+      y: event.clientY + window.scrollY,
       primary: item.primary,
       secondary: item.secondary
     };
@@ -109,19 +107,16 @@
   >
     {#each items as item (item.slug)}
       {#if item.href}
-        <a
-          href={item.href}
-          onmouseenter={(e) => showTooltip(e, item)}
-          onmouseleave={hideTooltip}
-          onfocus={(e) => showTooltip(e, item)}
-          onblur={hideTooltip}
-        >
+        <a href={item.href} tabindex="-1">
           <polygon
+            role="presentation"
             points={item.points}
             fill={item.color}
             stroke={STROKE}
             stroke-width="0.8"
             stroke-linejoin="round"
+            onmouseenter={(e) => showTooltip(e, item)}
+            onmouseleave={hideTooltip}
           ><title>{item.title}</title></polygon>
         </a>
       {:else}
