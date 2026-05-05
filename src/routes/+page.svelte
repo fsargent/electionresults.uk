@@ -33,8 +33,8 @@
 
 <div class="banner">
   Pre-launch preview · five English local-election cycles ingested
-  (2021–2025). The 2026-05-07 results will appear as Democracy Club data
-  lands.
+  (2021–2025). The 2026-05-07 results will appear as the source data
+  for that cycle is published.
 </div>
 
 <main class="wide">

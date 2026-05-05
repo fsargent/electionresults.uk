@@ -17,9 +17,9 @@
     <p>
       A volunteer audit of UK local elections, built in partnership with
       <a href="https://www.makevotesmatter.co.uk/">Make Votes Matter</a>.
-      Source data published under Open Parliament Licence (House of Commons
-      Library) and Democracy Club's redistribution licence. Methodology and
-      raw data are <a href="/data">open for inspection</a>.
+      Source data: House of Commons Library Local Election Handbooks,
+      published under the Open Parliament Licence. Methodology and raw
+      data are <a href="/data">open for inspection</a>.
     </p>
     <p class="muted">
       <strong>Note on framing.</strong> Named winners on this site appear as

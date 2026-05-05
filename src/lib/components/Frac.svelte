@@ -20,11 +20,14 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    vertical-align: -0.4em;
+    /* Align the geometric centre of the fraction with the surrounding
+       text's vertical centre, not its baseline (which would leave the
+       fraction sagging below the line). */
+    vertical-align: middle;
     margin: 0 0.15em;
     font-style: italic;
-    line-height: 1.05;
-    font-size: 0.95em;
+    line-height: 1;
+    font-size: 0.85em;
   }
   .num,
   .denom {
