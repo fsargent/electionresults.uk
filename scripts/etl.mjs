@@ -665,10 +665,12 @@ for (const [slug, views] of viewsByCouncil) {
       oldPartySeatTo,
       voteSwingNew,
       seatSwingNew,
-      // Disproportion score: how much bigger the seat swing was than the
-      // vote swing (in percentage points). Highest = the most egregious
-      // FPTP-volatility examples.
-      disproportionScore: seatSwingNew - voteSwingNew
+      // Disproportion score: seat-swing-per-unit-vote-swing. Higher =
+      // smaller vote shift produced a bigger seat shift, which is the
+      // FPTP-volatility story Felix wants to lead with. Floor at 1pp on
+      // the denominator so we don't divide by zero (and so a 0pp vote
+      // shift with a big seat shift still ranks).
+      disproportionScore: seatSwingNew / Math.max(voteSwingNew, 0.01)
     });
   }
 }

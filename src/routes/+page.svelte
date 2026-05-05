@@ -86,34 +86,6 @@
     </div>
   </div>
 
-  <h2>All councils</h2>
-  <p class="muted">
-    {num(data.allCouncils.length)} councils with at least one cycle of
-    data. Click a name for the council overview, with every cycle and
-    cross-cycle party-control changes.
-  </p>
-  <ul class="all-councils">
-    {#each data.allCouncils as c (c.councilSlug)}
-      <li><a href={`/${c.councilSlug}`}>{c.council}</a></li>
-    {/each}
-  </ul>
-
-  <h2>Council elections by year</h2>
-  <ul class="cycle-list">
-    {#each data.cycles as c (c.year)}
-      <li>
-        <a href={`/${c.year}`} class="cycle">
-          <span class="cycle-year">{c.year}</span>
-          <span class="cycle-date">{c.electionDateLabel}</span>
-          <span class="cycle-stats">
-            {num(c.councilCount)} councils · {num(c.raceCount)} races ·
-            <span class="warn">{pct(c.belowQuotaShare)} below quota</span>
-          </span>
-        </a>
-      </li>
-    {/each}
-  </ul>
-
   <h2>Ten biggest flips</h2>
   <p class="muted">
     Councils where the largest party (by seats won) changed between
@@ -150,13 +122,14 @@
     </tbody>
   </table>
 
-  <h2>Ten worst seats across all cycles</h2>
+  <h2>Ten least popular winners</h2>
   <p class="muted">
-    The seats furthest below the proportional quota anywhere in the data.
-    Click a ward to jump to its race in context.
+    The seats furthest below the proportional quota anywhere in the data
+    — councillors elected on the smallest share of valid ballots cast in
+    their ward. Click a ward to jump to its race in context.
   </p>
 
-  <table aria-label="Ten worst seats across all cycles">
+  <table aria-label="Ten least popular winners across all cycles">
     <thead>
       <tr>
         <th>Year</th>
@@ -198,6 +171,33 @@
     across all cycles.
   </p>
 
+  <h2>All councils</h2>
+  <p class="muted">
+    {num(data.allCouncils.length)} councils with at least one cycle of
+    data. Click a name for the council overview, with every cycle and
+    cross-cycle party-control changes.
+  </p>
+  <ul class="all-councils">
+    {#each data.allCouncils as c (c.councilSlug)}
+      <li><a href={`/${c.councilSlug}`}>{c.council}</a></li>
+    {/each}
+  </ul>
+
+  <h2>Council elections by year</h2>
+  <ul class="cycle-list">
+    {#each data.cycles as c (c.year)}
+      <li>
+        <a href={`/${c.year}`} class="cycle">
+          <span class="cycle-year">{c.year}</span>
+          <span class="cycle-date">{c.electionDateLabel}</span>
+          <span class="cycle-stats">
+            {num(c.councilCount)} councils · {num(c.raceCount)} races ·
+            <span class="warn">{pct(c.belowQuotaShare)} below quota</span>
+          </span>
+        </a>
+      </li>
+    {/each}
+  </ul>
 </main>
 
 <style>

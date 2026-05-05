@@ -23,7 +23,7 @@
   <p class="muted"><a href="/">← All councils</a></p>
   <h1>{history.council}</h1>
   <p class="muted">
-    Every cycle in the LEH dataset for this council, most recent first.
+    Every election cycle we have data for, most recent first.
   </p>
 
   <h2>Cycles</h2>
@@ -129,7 +129,7 @@
     </p>
   {:else}
     <p class="muted">
-      Only one cycle in the LEH dataset for this council so far — no
+      Only one cycle of data for this council so far — no
       between-cycle comparison possible yet.
     </p>
   {/if}
