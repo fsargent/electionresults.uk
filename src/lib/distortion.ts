@@ -51,3 +51,41 @@ export function underPar(r: Race): number {
 export function isBelowQuota(r: Race): boolean {
   return underPar(r) > 0;
 }
+
+/**
+ * D'Hondt seat allocation. Given parties with vote totals and a fixed number
+ * of seats to fill, allocates seats one at a time to the party with the
+ * highest quotient `votes / (currentSeats + 1)`. Ties are broken by raw vote
+ * count, then alphabetically by party name (deterministic).
+ *
+ * Returns a Map keyed by party name with the seat count.
+ */
+export function dhondt(
+  parties: { name: string; votes: number }[],
+  totalSeats: number
+): Map<string, number> {
+  const seats = new Map<string, number>();
+  for (const p of parties) seats.set(p.name, 0);
+  if (totalSeats <= 0) return seats;
+
+  for (let i = 0; i < totalSeats; i++) {
+    let bestName: string | null = null;
+    let bestQ = -Infinity;
+    let bestVotes = -Infinity;
+    for (const p of parties) {
+      const q = p.votes / (seats.get(p.name)! + 1);
+      if (
+        q > bestQ ||
+        (q === bestQ && p.votes > bestVotes) ||
+        (q === bestQ && p.votes === bestVotes && (bestName === null || p.name < bestName))
+      ) {
+        bestQ = q;
+        bestVotes = p.votes;
+        bestName = p.name;
+      }
+    }
+    if (bestName === null) break;
+    seats.set(bestName, seats.get(bestName)! + 1);
+  }
+  return seats;
+}

@@ -1,6 +1,9 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
+  import Frac from '$lib/components/Frac.svelte';
+  import { partyColor } from '$lib/party-colors';
+  const partyColorOf = (name: string) => partyColor(name);
   let { data } = $props();
   const council = $derived(data.council);
   const races = $derived(data.races);
@@ -56,7 +59,7 @@
       elected candidate actually won, and compares it to the
       <strong>proportional quota</strong>: the share that would be needed
       to be guaranteed that seat under any proportional voting method
-      (the Droop quota, <code>1 / (seats + 1)</code>). For a 1-seat ward
+      (the Droop quota, <Frac num="1" denom="seats + 1" />). For a 1-seat ward
       the quota is 50%; for 2 seats, 33.3%; for 3 seats, 25%.
     </p>
     <p>
@@ -69,6 +72,114 @@
       <a href="/methodology">methodology page</a> for derivations.
     </p>
   </section>
+
+  {#if data.partyView && data.partyView.rows.length > 1}
+    {@const view = data.partyView}
+    <h2 id="party-view">If votes were counted by party</h2>
+    <p>
+      Across the {data.council.raceCount} ward{data.council.raceCount === 1 ? '' : 's'} in
+      this cycle, parties received the vote totals below. The
+      <strong>D'Hondt</strong> column shows what each party would have won
+      if the {view.totalSeats} seat{view.totalSeats === 1 ? '' : 's'} had
+      been allocated to the same total votes proportionally
+      (<a href="/methodology">methodology, with caveats</a>). The
+      <strong>Δ</strong> column is the FPTP minus D'Hondt seat count
+      &mdash; positive numbers are parties FPTP over-represented in this
+      council, negative are parties FPTP under-represented.
+    </p>
+
+    <table class="party-view" aria-describedby="party-view">
+      <thead>
+        <tr>
+          <th>Party</th>
+          <th class="num">Votes</th>
+          <th class="num">Vote %</th>
+          <th class="num">FPTP seats</th>
+          <th class="num">FPTP %</th>
+          <th class="num">D'Hondt seats</th>
+          <th class="num">D'Hondt %</th>
+          <th class="num">Δ</th>
+        </tr>
+      </thead>
+      <tbody>
+        {#each view.rows as row (row.party)}
+          <tr>
+            <td><Party name={row.party} /></td>
+            <td class="num">{num(row.votes)}</td>
+            <td class="num pct">{pct(row.voteShare)}</td>
+            <td class="num">{row.fptpSeats}</td>
+            <td class="num pct">{pct(row.fptpSeatShare)}</td>
+            <td class="num">{row.dhondtSeats}</td>
+            <td class="num pct">{pct(row.dhondtSeatShare)}</td>
+            <td
+              class="num delta"
+              class:over={row.seatDelta > 0}
+              class:under={row.seatDelta < 0}
+            >{row.seatDelta > 0 ? `+${row.seatDelta}` : row.seatDelta}</td>
+          </tr>
+        {/each}
+        <tr class="totals">
+          <td>Total</td>
+          <td class="num">{num(view.totalVotes)}</td>
+          <td class="num pct">100.0%</td>
+          <td class="num">{view.totalSeats}</td>
+          <td class="num pct">100.0%</td>
+          <td class="num">{view.totalSeats}</td>
+          <td class="num pct">100.0%</td>
+          <td class="num">0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="bars-heading">Vote share vs seat share</h3>
+    <p class="muted">
+      Two horizontal bars: the top stack is each party's share of votes
+      cast in this council; the bottom is each party's share of seats won
+      under FPTP. A divergence between the two is the indictment of the
+      method.
+    </p>
+    <div class="bars" aria-label="Vote share vs FPTP seat share by party">
+      <div class="bar-row">
+        <span class="bar-label">Vote share</span>
+        <div class="bar">
+          {#each view.rows.filter((r) => r.voteShare > 0) as r (r.party)}
+            <span
+              class="seg"
+              style:width={`${r.voteShare * 100}%`}
+              style:background-color={partyColorOf(r.party)}
+              title={`${r.party}: ${pct(r.voteShare)} of votes`}
+            ></span>
+          {/each}
+        </div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Seat share (FPTP)</span>
+        <div class="bar">
+          {#each view.rows.filter((r) => r.fptpSeats > 0) as r (r.party)}
+            <span
+              class="seg"
+              style:width={`${r.fptpSeatShare * 100}%`}
+              style:background-color={partyColorOf(r.party)}
+              title={`${r.party}: ${r.fptpSeats} of ${view.totalSeats} seats`}
+            ></span>
+          {/each}
+        </div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Seat share (D'Hondt)</span>
+        <div class="bar">
+          {#each view.rows.filter((r) => r.dhondtSeats > 0) as r (r.party)}
+            <span
+              class="seg"
+              style:width={`${r.dhondtSeatShare * 100}%`}
+              style:background-color={partyColorOf(r.party)}
+              title={`${r.party}: ${r.dhondtSeats} of ${view.totalSeats} seats`}
+            ></span>
+          {/each}
+        </div>
+      </div>
+    </div>
+  {/if}
 
   <h2 id="wards">Wards in this council</h2>
   <p class="muted">
@@ -246,6 +357,52 @@
     font-size: 0.95rem;
   }
   .race-meta { margin: 0.6rem 0 0; }
+
+  table.party-view td.delta.over { color: var(--warn); font-weight: 700; }
+  table.party-view td.delta.under { color: #2a7f4f; }
+  @media (prefers-color-scheme: dark) {
+    table.party-view td.delta.under { color: #6dbb9d; }
+  }
+  table.party-view tr.totals td {
+    border-top: 2px solid var(--rule);
+    font-weight: 600;
+  }
+
+  .bars-heading { margin-top: 1.5rem; }
+  .bars {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0.8rem 0 1.5rem;
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .bar-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .bar {
+    display: flex;
+    height: 1.4rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar .seg {
+    display: block;
+    height: 100%;
+    transition: filter 0.1s;
+  }
+  .bar .seg:hover { filter: brightness(1.15); }
+  @media (max-width: 600px) {
+    .bar-row { grid-template-columns: 1fr; }
+  }
+
   .year-badge {
     font-size: 0.65em;
     font-weight: 500;

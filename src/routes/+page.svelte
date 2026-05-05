@@ -1,6 +1,7 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
+  import Frac from '$lib/components/Frac.svelte';
   let { data } = $props();
 </script>
 
@@ -19,7 +20,7 @@
   lands.
 </div>
 
-<main>
+<main class="wide">
   <h1>How many UK councillors won with less support than a fair count would require?</h1>
 
   <p class="lede">
@@ -28,7 +29,7 @@
     threshold. We compare every elected councillor's share of valid
     ballots to the <strong>proportional quota</strong>: the share that
     would be needed to be guaranteed that seat under any proportional
-    voting method (1&nbsp;÷&nbsp;(seats&nbsp;+&nbsp;1)). Across five
+    voting method (<Frac num="1" denom="seats + 1" />). Across five
     cycles &mdash; <strong>{num(data.totals.councils)}</strong>
     council&times;cycle pairs, <strong>{num(data.totals.races)}</strong>
     ward races, <strong>{num(data.totals.seats)}</strong> seats elected
@@ -118,6 +119,13 @@
 <style>
   .lede {
     font-size: 1.15rem;
+  }
+  /* Wider main for the worst-seats table; constrain prose blocks for
+     readability rather than letting them stretch the full 96ch. */
+  h1,
+  .lede,
+  .frame {
+    max-width: 72ch;
   }
   .cycle-list {
     list-style: none;

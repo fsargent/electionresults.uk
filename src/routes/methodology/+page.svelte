@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Frac from '$lib/components/Frac.svelte';
   let { data } = $props();
   const sourceLabel = $derived(data.sourceLabel);
   const cycles = $derived(data.cycles);
@@ -93,7 +94,7 @@
     The <strong>Droop quota</strong> is the share of valid ballots a
     candidate would need to be guaranteed a seat under any common
     proportional voting method:
-    <code>quota = 1 / (seats + 1)</code>. For a 1-seat ward this
+    <code>quota</code> = <Frac num="1" denom="seats + 1" />. For a 1-seat ward this
     collapses to 50% (a true majority); for 2 seats it is 33.3%; for 3
     seats, 25%. The name comes from H.&nbsp;R.&nbsp;Droop's 1869 paper
     on proportional election methods; the figure is used, in the same

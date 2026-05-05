@@ -3,7 +3,8 @@ import {
   councilForYearAndSlug,
   racesForYearAndCouncil,
   allCouncilEntries,
-  cycleByYear
+  cycleByYear,
+  partyViewForYearAndCouncil
 } from '$lib/data';
 
 export const prerender = true;
@@ -23,5 +24,6 @@ export function load({ params }: { params: { year: string; council: string } }) 
   const races = racesForYearAndCouncil(year, params.council).map((race) => ({
     race
   }));
-  return { council, races, cycle };
+  const partyView = partyViewForYearAndCouncil(year, params.council) ?? null;
+  return { council, races, cycle, partyView };
 }

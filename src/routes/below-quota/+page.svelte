@@ -1,6 +1,7 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
+  import Frac from '$lib/components/Frac.svelte';
   let { data } = $props();
 
   let yearFilter = $state('');
@@ -42,7 +43,7 @@
     councillor won less of the valid ballots than the
     <strong>proportional quota</strong> &mdash; the share that would be
     needed to be guaranteed that seat under any proportional voting
-    method (1&nbsp;÷&nbsp;(seats&nbsp;+&nbsp;1)).
+    method (<Frac num="1" denom="seats + 1" />).
     {num(data.rows.length)} seats qualify.
   </p>
   <p class="muted">

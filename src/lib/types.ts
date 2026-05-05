@@ -47,6 +47,27 @@ export interface CouncilSummary {
   belowQuotaShare: number;
 }
 
+export interface PartyViewRow {
+  party: string;
+  votes: number;
+  voteShare: number;
+  fptpSeats: number;
+  fptpSeatShare: number;
+  dhondtSeats: number;
+  dhondtSeatShare: number;
+  /** fptpSeats − dhondtSeats; positive = over-represented by FPTP */
+  seatDelta: number;
+}
+
+export interface PartyView {
+  year: number;
+  council: string;
+  councilSlug: string;
+  totalSeats: number;
+  totalVotes: number;
+  rows: PartyViewRow[];
+}
+
 export interface CycleSummary {
   year: number;
   electionDate: string;

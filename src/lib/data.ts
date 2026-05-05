@@ -1,5 +1,11 @@
 import snapshot from './data/generated.json';
-import type { Race, CouncilSummary, CycleSummary, Candidate } from './types';
+import type {
+  Race,
+  CouncilSummary,
+  CycleSummary,
+  Candidate,
+  PartyView
+} from './types';
 
 interface SnapshotMarginal {
   year: number;
@@ -32,6 +38,7 @@ interface Snapshot {
   councils: CouncilSummary[];
   races: Race[];
   marginalWinners: SnapshotMarginal[];
+  partyViews: PartyView[];
 }
 
 const data = snapshot as unknown as Snapshot;
@@ -46,6 +53,16 @@ export const allCycles: CycleSummary[] = [...data.cycles].sort(
 export const allCouncils: CouncilSummary[] = data.councils;
 export const allRaces: Race[] = data.races;
 export const allMarginalWinners: SnapshotMarginal[] = data.marginalWinners;
+export const allPartyViews: PartyView[] = data.partyViews;
+
+export function partyViewForYearAndCouncil(
+  year: number,
+  slug: string
+): PartyView | undefined {
+  return allPartyViews.find(
+    (v) => v.year === year && v.councilSlug === slug
+  );
+}
 
 export function cycleByYear(year: number): CycleSummary | undefined {
   return allCycles.find((c) => c.year === year);

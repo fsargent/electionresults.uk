@@ -242,6 +242,34 @@ function quotaForSeats(seats) {
   return Number.isFinite(seats) && seats >= 1 ? 1 / (seats + 1) : 0.5;
 }
 
+// D'Hondt seat allocation, mirrors src/lib/distortion.ts. Pure function so
+// the snapshot is identical to a runtime call on the same inputs.
+function dhondt(parties, totalSeats) {
+  const seats = new Map();
+  for (const p of parties) seats.set(p.name, 0);
+  if (totalSeats <= 0) return seats;
+  for (let i = 0; i < totalSeats; i++) {
+    let bestName = null;
+    let bestQ = -Infinity;
+    let bestVotes = -Infinity;
+    for (const p of parties) {
+      const q = p.votes / (seats.get(p.name) + 1);
+      if (
+        q > bestQ ||
+        (q === bestQ && p.votes > bestVotes) ||
+        (q === bestQ && p.votes === bestVotes && (bestName === null || p.name < bestName))
+      ) {
+        bestQ = q;
+        bestVotes = p.votes;
+        bestName = p.name;
+      }
+    }
+    if (bestName === null) break;
+    seats.set(bestName, seats.get(bestName) + 1);
+  }
+  return seats;
+}
+
 // Stable synthetic ward key for cycles (notably 2023) where the source has
 // no ward code. council slug + ward slug uniquely identifies a race within
 // a council, which is enough for our purposes — we never join across years
@@ -469,6 +497,80 @@ const councils = [...councilMap.values()].map((s) => ({
 }));
 councils.sort((a, b) => b.year - a.year || a.council.localeCompare(b.council));
 
+// --- Per-(year, council) party totals + D'Hondt proxy --------------------
+// Sums candidate votes by party across all wards in the council in this
+// cycle, then applies D'Hondt to the same total-seats target to surface
+// what proportional allocation would have looked like.
+//
+// Caveat: in multi-member wards (bloc vote), each voter casts up to N
+// votes, so parties that ran a full slate get systematically inflated
+// totals vs parties that ran fewer candidates. Treat the D'Hondt column
+// as a proxy, not a strict counterfactual. We document this on the
+// methodology page.
+const partyViewByCouncil = new Map(); // key: `${year}::${councilSlug}`
+for (const r of allRaces) {
+  const key = `${r.year}::${r.councilSlug}`;
+  if (!partyViewByCouncil.has(key)) {
+    partyViewByCouncil.set(key, {
+      year: r.year,
+      council: r.council,
+      councilSlug: r.councilSlug,
+      partyTotals: new Map(),
+      totalSeats: 0,
+      totalVotes: 0
+    });
+  }
+  const view = partyViewByCouncil.get(key);
+  view.totalSeats += r.candidates.filter((c) => c.elected).length;
+  for (const c of r.candidates) {
+    if (!c.party) continue;
+    view.totalVotes += c.votes;
+    if (!view.partyTotals.has(c.party)) {
+      view.partyTotals.set(c.party, { votes: 0, fptpSeats: 0 });
+    }
+    const t = view.partyTotals.get(c.party);
+    t.votes += c.votes;
+    if (c.elected) t.fptpSeats += 1;
+  }
+}
+
+const partyViews = [];
+for (const view of partyViewByCouncil.values()) {
+  const partyArr = [...view.partyTotals.entries()].map(([name, t]) => ({
+    name,
+    votes: t.votes,
+    fptpSeats: t.fptpSeats
+  }));
+  const dhondtSeats = dhondt(
+    partyArr.map((p) => ({ name: p.name, votes: p.votes })),
+    view.totalSeats
+  );
+  const rows = partyArr
+    .map((p) => {
+      const dhondtSeatCount = dhondtSeats.get(p.name) ?? 0;
+      return {
+        party: p.name,
+        votes: p.votes,
+        voteShare: view.totalVotes > 0 ? p.votes / view.totalVotes : 0,
+        fptpSeats: p.fptpSeats,
+        fptpSeatShare: view.totalSeats > 0 ? p.fptpSeats / view.totalSeats : 0,
+        dhondtSeats: dhondtSeatCount,
+        dhondtSeatShare:
+          view.totalSeats > 0 ? dhondtSeatCount / view.totalSeats : 0,
+        seatDelta: p.fptpSeats - dhondtSeatCount
+      };
+    })
+    .sort((a, b) => b.votes - a.votes);
+  partyViews.push({
+    year: view.year,
+    council: view.council,
+    councilSlug: view.councilSlug,
+    totalSeats: view.totalSeats,
+    totalVotes: view.totalVotes,
+    rows
+  });
+}
+
 // --- Marginal-winner roll-up (one row per elected candidacy across all years)
 const marginal = [];
 for (const r of allRaces) {
@@ -568,6 +670,25 @@ CREATE TABLE candidates (
 );
 CREATE INDEX idx_races_council ON races(year, council_slug);
 CREATE INDEX idx_candidates_race ON candidates(year, council_slug, ward_slug);
+
+CREATE TABLE party_view (
+  year INTEGER NOT NULL,
+  council_slug TEXT NOT NULL,
+  party TEXT NOT NULL,
+  votes INTEGER NOT NULL,
+  vote_share REAL NOT NULL,
+  fptp_seats INTEGER NOT NULL,
+  fptp_seat_share REAL NOT NULL,
+  -- D'Hondt seat count if total council seats were allocated proportionally
+  -- to party vote totals (a proxy for what list-PR would deliver — see
+  -- methodology for the bloc-vote inflation caveat).
+  dhondt_seats INTEGER NOT NULL,
+  dhondt_seat_share REAL NOT NULL,
+  -- fptp_seats - dhondt_seats; positive = over-represented by FPTP
+  seat_delta INTEGER NOT NULL,
+  PRIMARY KEY (year, council_slug, party),
+  FOREIGN KEY (year, council_slug) REFERENCES councils(year, council_slug)
+);
 `);
 
 const insCycle = db.prepare(`
@@ -586,6 +707,10 @@ const insCand = db.prepare(`
 INSERT INTO candidates (year, council_slug, ward_slug, rank, candidate_name, party, votes, elected, elected_source)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
+const insPartyView = db.prepare(`
+INSERT INTO party_view (year, council_slug, party, votes, vote_share, fptp_seats, fptp_seat_share, dhondt_seats, dhondt_seat_share, seat_delta)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+`);
 
 const tx = db.transaction(() => {
   for (const c of cycleSummaries) {
@@ -602,6 +727,14 @@ const tx = db.transaction(() => {
     );
     for (const cand of r.candidates) {
       insCand.run(r.year, r.councilSlug, r.wardSlug, cand.rank, cand.name, cand.party, cand.votes, cand.elected ? 1 : 0, cand.electedSource ? 1 : 0);
+    }
+  }
+  for (const view of partyViews) {
+    for (const row of view.rows) {
+      insPartyView.run(
+        view.year, view.councilSlug, row.party, row.votes, row.voteShare,
+        row.fptpSeats, row.fptpSeatShare, row.dhondtSeats, row.dhondtSeatShare, row.seatDelta
+      );
     }
   }
 });
@@ -716,7 +849,8 @@ const snapshot = {
     underPar: r.underPar,
     isBelowQuota: r.isBelowQuota
   })),
-  marginalWinners: marginal
+  marginalWinners: marginal,
+  partyViews
 };
 writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot));
 console.log(`[etl] wrote ${SNAPSHOT_PATH}`);

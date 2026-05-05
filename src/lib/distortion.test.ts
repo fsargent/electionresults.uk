@@ -6,7 +6,8 @@ import {
   electedWinningPcts,
   quotaForSeats,
   underPar,
-  isBelowQuota
+  isBelowQuota,
+  dhondt
 } from './distortion';
 import type { Race, Candidate } from './types';
 
@@ -180,6 +181,65 @@ describe('underPar', () => {
       ]
     });
     expect(underPar(r)).toBeCloseTo(-0.2, 6);
+  });
+});
+
+describe('dhondt', () => {
+  it('allocates 0 seats when totalSeats is 0', () => {
+    const seats = dhondt([{ name: 'A', votes: 100 }], 0);
+    expect(seats.get('A')).toBe(0);
+  });
+
+  it('reproduces the canonical Wikipedia example (5 seats, 4 parties)', () => {
+    // From https://en.wikipedia.org/wiki/D%27Hondt_method#Example
+    // Party A: 100,000  → 4 seats
+    // Party B:  80,000  → 3 seats
+    // Party C:  30,000  → 1 seat
+    // Party D:  20,000  → 0 seats
+    // (8 seats total)
+    const seats = dhondt(
+      [
+        { name: 'A', votes: 100_000 },
+        { name: 'B', votes: 80_000 },
+        { name: 'C', votes: 30_000 },
+        { name: 'D', votes: 20_000 }
+      ],
+      8
+    );
+    expect(seats.get('A')).toBe(4);
+    expect(seats.get('B')).toBe(3);
+    expect(seats.get('C')).toBe(1);
+    expect(seats.get('D')).toBe(0);
+  });
+
+  it('exposes FPTP distortion: party with 35% of votes does not win 56% of seats', () => {
+    // Two parties contesting a council with 25 seats. FPTP can give the
+    // 35%-vote party 56% of seats by winning lots of close races; D'Hondt
+    // mirrors the vote share much more closely.
+    const seats = dhondt(
+      [
+        { name: 'A', votes: 35 },
+        { name: 'B', votes: 33 },
+        { name: 'C', votes: 32 }
+      ],
+      25
+    );
+    expect(seats.get('A')).toBe(9); // 36%
+    expect(seats.get('B')).toBe(8); // 32%
+    expect(seats.get('C')).toBe(8); // 32%
+  });
+
+  it('breaks ties deterministically by party name', () => {
+    // Two parties with identical vote totals competing for 1 seat.
+    const seats = dhondt(
+      [
+        { name: 'Beta', votes: 100 },
+        { name: 'Alpha', votes: 100 }
+      ],
+      1
+    );
+    expect(seats.get('Alpha')).toBe(1);
+    expect(seats.get('Beta')).toBe(0);
   });
 });
 
