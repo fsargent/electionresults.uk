@@ -3,6 +3,7 @@
   import Party from '$lib/components/Party.svelte';
   import Frac from '$lib/components/Frac.svelte';
   import PartyBars from '$lib/components/PartyBars.svelte';
+  import SeatChart from '$lib/components/SeatChart.svelte';
   let { data } = $props();
   const council = $derived(data.council);
   const races = $derived(data.races);
@@ -130,6 +131,28 @@
         </tr>
       </tbody>
     </table>
+
+    <h3 class="bars-heading">Council seats: actual vs proportional</h3>
+    <p class="muted">
+      One square per seat, coloured by the party that won it. The top
+      grid shows the actual First-Past-the-Post outcome; the bottom
+      grid shows what a proportional method would have produced from
+      the same vote totals. Hover any seat for details.
+    </p>
+    <div class="seat-charts">
+      <SeatChart
+        label="Actual seats"
+        segments={view.rows
+          .filter((r) => r.fptpSeats > 0)
+          .map((r) => ({ party: r.party, seats: r.fptpSeats }))}
+      />
+      <SeatChart
+        label="Proportional"
+        segments={view.rows
+          .filter((r) => r.dhondtSeats > 0)
+          .map((r) => ({ party: r.party, seats: r.dhondtSeats }))}
+      />
+    </div>
 
     <h3 class="bars-heading">Vote share vs seat share</h3>
     <p class="muted">
@@ -363,6 +386,11 @@
   .bars {
     display: grid;
     gap: 0.4rem;
+    margin: 0.8rem 0 1.5rem;
+  }
+  .seat-charts {
+    display: grid;
+    gap: 1.2rem;
     margin: 0.8rem 0 1.5rem;
   }
 
