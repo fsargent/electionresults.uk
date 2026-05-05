@@ -129,11 +129,12 @@ export function wardHistoryForCouncil(slug: string): WardHistory {
       validBallots: r.validBallots
     });
   }
-  const years = [...yearsSet].sort((a, b) => b - a);
+  // Years go left-to-right ascending so the latest cycle is on the right.
+  const years = [...yearsSet].sort((a, b) => a - b);
   const rows: WardHistoryRow[] = [...byWard.entries()]
     .map(([wardName, perYear]) => ({
       wardName,
-      cells: [...perYear.values()].sort((a, b) => b.year - a.year)
+      cells: [...perYear.values()].sort((a, b) => a.year - b.year)
     }))
     .sort((a, b) => a.wardName.localeCompare(b.wardName));
   return { years, rows };
