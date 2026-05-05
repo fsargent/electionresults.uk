@@ -20,8 +20,8 @@
   <p class="lede">
     This page documents every formula, source, and editorial choice on the
     site. Read it before you cite us. If you find an error, mail
-    <a href="mailto:errata@electionresults.uk">errata@electionresults.uk</a>
-    and we will publish a correction with date, diff, and impact.
+    <a href="mailto:felix.sargent@gmail.com">felix.sargent@gmail.com</a>
+    and a correction will be published with date, diff, and impact.
   </p>
 
   <h2>Editorial frame</h2>

@@ -15,11 +15,13 @@
 <footer>
   <div class="inner">
     <p>
-      A volunteer audit of UK local elections, built in partnership with
+      Built by <a href="https://felixsargent.com">Felix Sargent</a> in
+      partnership with
       <a href="https://www.makevotesmatter.co.uk/">Make Votes Matter</a>.
       Source data: House of Commons Library Local Election Handbooks,
       published under the Open Parliament Licence. Methodology and raw
-      data are <a href="/data">open for inspection</a>.
+      data are <a href="/data">open for inspection</a>. Errata:
+      <a href="mailto:felix.sargent@gmail.com">felix.sargent@gmail.com</a>.
     </p>
     <p class="muted">
       <strong>Note on framing.</strong> Named winners on this site appear as
