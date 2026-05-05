@@ -64,7 +64,13 @@
     the quota framing is still the right benchmark for the system as a
     whole. We deliberately don't single out one preferred method
     elsewhere on the site &mdash; the editorial argument is against
-    the distortion, not for any particular fix.
+    the distortion, not for one particular replacement.
+  </p>
+  <p>
+    Picking the right replacement is exactly what a
+    <a href="https://www.open-britain.co.uk/ncer" rel="external noopener">National
+    Commission on Electoral Representation</a> would be for. The data
+    on this site documents the case for one.
   </p>
 
   <h2>Winning percentage</h2>

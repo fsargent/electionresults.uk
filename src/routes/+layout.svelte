@@ -32,5 +32,10 @@
       majority support. The voting method is the subject; individuals are not.
       See <a href="/methodology">methodology</a> for the full editorial frame.
     </p>
+    <p class="muted">
+      Want a fix? Back the call for a
+      <a href="https://www.open-britain.co.uk/ncer" rel="external noopener">National
+      Commission on Electoral Representation</a>.
+    </p>
   </div>
 </footer>
