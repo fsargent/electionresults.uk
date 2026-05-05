@@ -21,7 +21,9 @@
       <a href="https://www.makevotesmatter.co.uk/">Make Votes Matter</a>.
       Source data: House of Commons Library Local Election Handbooks,
       published under the Open Parliament Licence. Methodology and raw
-      data are <a href="/data">open for inspection</a>. Errata:
+      data are <a href="/data">open for inspection</a>; full source on
+      <a href="https://github.com/fsargent/electionresults.uk">GitHub</a>.
+      Errata:
       <a href="mailto:felix.sargent@gmail.com">felix.sargent@gmail.com</a>.
     </p>
     <p class="muted">
