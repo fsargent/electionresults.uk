@@ -1,7 +1,22 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
+  import CouncilMap from '$lib/components/CouncilMap.svelte';
+  import { belowQuotaColor } from '$lib/below-quota-color';
   let { data } = $props();
+
+  const fills = $derived(
+    Object.fromEntries(
+      data.councils.map((c) => [
+        c.councilSlug,
+        {
+          color: belowQuotaColor(c.belowQuotaShare),
+          href: `/${c.year}/${c.councilSlug}`,
+          title: `${c.council} — ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`
+        }
+      ])
+    )
+  );
 </script>
 
 <svelte:head>
@@ -37,6 +52,33 @@
     <div class="kpi">
       <span class="figure warn">{pct(data.cycle.belowQuotaShare)}</span>
       <span class="label">elected below the proportional quota</span>
+    </div>
+  </div>
+
+  <h2>Map</h2>
+  <p class="muted">
+    Each council that polled in {data.cycle.electionDateLabel} shaded by
+    the share of its seats elected below the proportional quota — darker
+    is worse. Pre-2013 boundaries; post-2013 unitary creations
+    (Buckinghamshire, Cumberland, North Yorkshire, etc.) are shown on
+    their predecessor councils' shapes. Hover for a council name; click
+    to drill in.
+  </p>
+  <div class="map-and-scale">
+    <CouncilMap {fills} legendLabel={`${data.cycle.electionDateLabel} cohort: % of seats elected below the proportional quota`} />
+    <div class="legend">
+      <span class="legend-label">% below quota</span>
+      <div class="legend-bar">
+        {#each [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as t}
+          <span class="legend-cell" style:background-color={belowQuotaColor(t)}></span>
+        {/each}
+      </div>
+      <div class="legend-ticks">
+        <span>0%</span><span>50%</span><span>100%</span>
+      </div>
+      <p class="muted small">
+        Councils not in this cohort are shown grey.
+      </p>
     </div>
   </div>
 
@@ -118,6 +160,44 @@
     color: var(--muted);
   }
   .warn { color: var(--warn); }
+  .map-and-scale {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(8rem, 12rem);
+    gap: 1.25rem;
+    align-items: start;
+    margin: 1rem 0 2rem;
+  }
+  @media (max-width: 640px) {
+    .map-and-scale { grid-template-columns: 1fr; }
+  }
+  .legend {
+    font-size: 0.85rem;
+  }
+  .legend-label {
+    display: block;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+  }
+  .legend-bar {
+    display: flex;
+    width: 100%;
+    height: 0.9rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .legend-cell { display: block; flex: 1; }
+  .legend-ticks {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-top: 0.2rem;
+  }
+  .small { font-size: 0.78rem; }
   .council-list {
     columns: 18rem 2;
     gap: 1.5rem;
