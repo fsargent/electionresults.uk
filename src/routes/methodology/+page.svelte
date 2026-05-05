@@ -1,7 +1,7 @@
 <script lang="ts">
   let { data } = $props();
   const sourceLabel = $derived(data.sourceLabel);
-  const cycleLabel = $derived(data.cycleLabel);
+  const cycles = $derived(data.cycles);
 </script>
 
 <svelte:head>
@@ -120,25 +120,29 @@
   </p>
 
   <h2>Sources</h2>
+  <p>
+    All cycles below are ingested from the
+    <strong>Local Election Handbook</strong> (LEH) for the relevant year,
+    published by the House of Commons Library under the Open Parliament
+    Licence. Workbooks live in the repo at <code>{sourceLabel}</code>;
+    the per-year ETL adapter normalises sheet-name and column-name drift
+    across years.
+  </p>
   <ul>
-    <li>
-      <strong>{cycleLabel}</strong> · House of Commons Library,
-      Local Election Handbook (Open Parliament Licence). File in the repo:
-      <code>{sourceLabel}</code>.
-    </li>
-    <li>
-      For the 2026-05-07 cycle (when published): <em>Democracy Club</em> CSV
-      ingest under their published redistribution licence (attribution
-      required), and the eventual Commons Library 2026 Local Election
-      Handbook as the canonical re-baseline.
-    </li>
-    <li>
-      Cycle-comparator data for 2022 (London Boroughs), 2023 (halves
-      councils), and 2024 (thirds councils): Commons Library briefings
-      CBP-9558, CBP-9858, CBP-9966 respectively. Not yet ingested in this
-      preview build.
-    </li>
+    {#each cycles as c (c.year)}
+      <li>
+        <strong>{c.electionDateLabel}</strong> &middot;
+        {c.councilCount} councils, {c.raceCount} races,
+        {c.seatCount} seats elected.
+      </li>
+    {/each}
   </ul>
+  <p>
+    For the 2026-05-07 cycle (when published): <em>Democracy Club</em> CSV
+    ingest under their published redistribution licence (attribution
+    required), and the eventual Commons Library 2026 LEH as the canonical
+    re-baseline.
+  </p>
 
   <h2>Reproducibility</h2>
   <p>

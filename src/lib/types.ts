@@ -1,13 +1,14 @@
 export interface Candidate {
   name: string;
   party: string;
-  partyAbbrev: string | null;
   votes: number;
   elected: boolean;
   rank: number;
 }
 
 export interface Race {
+  year: number;
+  electionDate: string;
   wardName: string;
   wardSlug: string;
   wardCode: string;
@@ -33,6 +34,8 @@ export interface Race {
 }
 
 export interface CouncilSummary {
+  year: number;
+  electionDate: string;
   council: string;
   councilSlug: string;
   authorityType: string;
@@ -44,3 +47,13 @@ export interface CouncilSummary {
   belowQuotaShare: number;
 }
 
+export interface CycleSummary {
+  year: number;
+  electionDate: string;
+  electionDateLabel: string;
+  raceCount: number;
+  seatCount: number;
+  belowQuotaSeatCount: number;
+  belowQuotaShare: number;
+  councilCount: number;
+}

@@ -4,22 +4,31 @@
   let { data } = $props();
   const council = $derived(data.council);
   const races = $derived(data.races);
+  const cycle = $derived(data.cycle);
   const belowQuotaRaces = $derived(races.filter((r) => r.race.isBelowQuota).length);
 </script>
 
 <svelte:head>
-  <title>{council.council} — election results audit | electionresults.uk</title>
+  <title>{council.council} {cycle.year} — election results audit | electionresults.uk</title>
   <meta
     name="description"
-    content={`${council.council}: ${belowQuotaRaces} of ${council.raceCount} ward races elected councillors below the proportional quota. Full ward-by-ward results.`}
+    content={`${council.council}, ${cycle.electionDateLabel}: ${belowQuotaRaces} of ${council.raceCount} ward races elected councillors below the proportional quota.`}
   />
-  <link rel="canonical" href={`https://electionresults.uk/${council.councilSlug}`} />
+  <link
+    rel="canonical"
+    href={`https://electionresults.uk/${cycle.year}/${council.councilSlug}`}
+  />
 </svelte:head>
 
 <main class="wide">
-  <p class="muted"><a href="/">← All councils</a></p>
-  <h1>{council.council}</h1>
-  <p class="muted election-date">Local elections held <strong>{data.electionDateLabel}</strong>.</p>
+  <p class="muted">
+    <a href="/{cycle.year}">← {cycle.electionDateLabel} cohort</a>
+    · <a href="/">All cycles</a>
+  </p>
+  <h1>{council.council} <span class="year-badge">{cycle.year}</span></h1>
+  <p class="muted election-date">
+    Local elections held <strong>{cycle.electionDateLabel}</strong>.
+  </p>
 
   <div class="summary">
     <div class="kpi">
@@ -144,9 +153,10 @@
       </table>
 
       <p class="muted small race-meta">
-        Electorate {num(race.electorate)} · Ballots cast {num(race.ballots)} ·
-        Invalid {num(race.invalidVotes)} · EC ward code {race.wardCode} ·
-        <a href="#wards">Back to ward index</a>
+        Electorate {num(race.electorate)} · Ballots cast {num(race.ballots)}
+        {#if race.invalidVotes > 0}· Invalid {num(race.invalidVotes)}{/if}
+        {#if race.wardCode}· EC ward code {race.wardCode}{/if}
+        · <a href="#wards">Back to ward index</a>
       </p>
     </section>
   {/each}
@@ -236,4 +246,14 @@
     font-size: 0.95rem;
   }
   .race-meta { margin: 0.6rem 0 0; }
+  .year-badge {
+    font-size: 0.65em;
+    font-weight: 500;
+    padding: 0.15em 0.5em;
+    background: var(--accent);
+    color: var(--accent-fg);
+    border-radius: 4px;
+    vertical-align: 0.3em;
+    margin-left: 0.3em;
+  }
 </style>

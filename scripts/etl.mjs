@@ -1,27 +1,189 @@
 #!/usr/bin/env node
-// ETL: LEH-shaped XLSX → SQLite + CSVs + build-time JSON snapshot.
-// Source fixture: docs/LEH-2025-results-HoC.xlsx
-// Dev-only: per the PRD this fixture is never deployed as published copy;
-// it stands in for the same-shape 2026 LEH that will land months later.
+// Multi-year ETL for the LEH (Local Election Handbook) workbooks downloaded
+// into ./docs. Each year has a slightly different sheet layout, so we drive
+// ingestion through a per-cycle adapter config rather than a single rigid
+// schema. Output: SQLite database (sceptic-grade), per-table CSVs, and a
+// JSON snapshot consumed by the SvelteKit server load functions.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as XLSX from 'xlsx';
 import { Database } from 'bun:sqlite';
+import { normalizeParty } from './party-normalize.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const FIXTURE = resolve(ROOT, 'docs/LEH-2025-results-HoC.xlsx');
 const OUT_DIR = resolve(ROOT, 'static/data');
 const SQLITE_PATH = resolve(OUT_DIR, 'results.sqlite');
 const SNAPSHOT_PATH = resolve(ROOT, 'src/lib/data/generated.json');
+
+// --- Cycle configuration -----------------------------------------------------
+// Each cycle declares the workbook to read, the polling date, and the column
+// names to map onto our internal canonical schema. Adapters pull rows through
+// `loadSheet` (which trims stray whitespace from header keys) and use
+// `cols.candidates` / `cols.wards` to project them.
+
+const CYCLES = [
+  {
+    year: 2021,
+    electionDate: '2021-05-06',
+    electionDateLabel: '6 May 2021',
+    file: 'docs/local_elections_2021_results-2.xlsx',
+    candSheet: 'Candidates-results',
+    wardSheet: 'Wards-results',
+    candHeaderRow: 1,
+    wardHeaderRow: 1,
+    cols: {
+      cand: {
+        council: 'Local authority name',
+        wardCode: 'Ward/ED code',
+        wardName: 'Ward/ED name',
+        candidateName: 'Candidate name',
+        party: 'Party name',
+        votes: 'Votes',
+        electedSource: 'Elected'
+      },
+      ward: {
+        council: 'Local authority name',
+        wardCode: 'Ward/ED code',
+        wardName: 'Ward/ED name',
+        seats: 'Vacancies',
+        electorate: 'Electorate',
+        authorityType: 'Type'
+      }
+    }
+  },
+  {
+    year: 2022,
+    electionDate: '2022-05-05',
+    electionDateLabel: '5 May 2022',
+    file: 'docs/local-elections-2022.xlsx',
+    candSheet: 'Candidates-results',
+    wardSheet: 'Wards-results',
+    candHeaderRow: 1,
+    wardHeaderRow: 1,
+    cols: {
+      cand: {
+        council: 'Local authority name',
+        wardCode: 'Ward code',
+        wardName: 'Ward name',
+        candidateName: 'Candidate name',
+        party: 'Party name',
+        votes: 'Votes',
+        electedSource: 'Elected'
+      },
+      ward: {
+        council: 'Local authority name',
+        wardCode: 'Ward code',
+        wardName: 'Ward name',
+        seats: 'Vacancies',
+        electorate: 'Electorate',
+        authorityType: 'Type'
+      }
+    }
+  },
+  {
+    year: 2023,
+    electionDate: '2023-05-04',
+    electionDateLabel: '4 May 2023',
+    file: 'docs/LEH-Candidates-2023.xlsx',
+    candSheet: 'Cand_Table',
+    wardSheet: 'Ward_Level',
+    candHeaderRow: 0,
+    wardHeaderRow: 0,
+    // 2023 uses a completely different schema — no separate ward code, all
+    // upper-snake-case column names. We synthesise a ward key from
+    // (council, ward name).
+    cols: {
+      cand: {
+        council: 'DISTRICTNAME',
+        wardCode: null, // synthesised from council + ward name
+        wardName: 'WARDNAME',
+        candidateName: 'NAME',
+        party: 'PARTYNAME',
+        votes: 'VOTE',
+        electedSource: 'WINNER'
+      },
+      ward: {
+        council: 'DISTRICTNAME',
+        wardCode: null,
+        wardName: 'WARDNAME',
+        seats: 'VACS',
+        electorate: 'ELECT',
+        authorityType: 'TYPE'
+      }
+    }
+  },
+  {
+    year: 2024,
+    electionDate: '2024-05-02',
+    electionDateLabel: '2 May 2024',
+    file: 'docs/LEH-2024-results-HoC-version.xlsx',
+    candSheet: 'Candidates results',
+    wardSheet: 'Wards results',
+    candHeaderRow: 1,
+    wardHeaderRow: 1,
+    cols: {
+      cand: {
+        council: 'Local authority name',
+        wardCode: 'Ward code',
+        wardName: 'Ward name',
+        candidateName: 'Name',
+        party: 'Party name',
+        votes: 'Votes',
+        electedSource: 'Elected'
+      },
+      ward: {
+        council: 'Local authority name',
+        wardCode: 'Ward code',
+        wardName: 'Ward name',
+        seats: 'Vacancies',
+        electorate: 'Electorate',
+        authorityType: 'Local authority type'
+      }
+    }
+  },
+  {
+    year: 2025,
+    electionDate: '2025-05-01',
+    electionDateLabel: '1 May 2025',
+    file: 'docs/LEH-2025-results-HoC.xlsx',
+    candSheet: 'Candidates result',
+    wardSheet: 'Ward results',
+    candHeaderRow: 1,
+    wardHeaderRow: 1,
+    cols: {
+      cand: {
+        council: 'Lower tier authority',
+        wardCode: 'EC ward code',
+        wardName: 'Ward/ County Electoral District name',
+        candidateName: 'Candidate name',
+        party: 'Party name',
+        votes: 'Votes cast',
+        electedSource: 'Elected'
+      },
+      ward: {
+        council: 'Lower tier authority',
+        wardCode: 'EC ward code',
+        wardName: 'Ward/ County Electoral District name',
+        seats: 'Seats',
+        electorate: 'Electorate',
+        ballots: 'Ballots',
+        invalidVotes: 'Invalid votes',
+        authorityType: 'Local authority type'
+      }
+    }
+  }
+];
+
+// --- Helpers -----------------------------------------------------------------
 
 function slugify(s) {
   return String(s)
     .toLowerCase()
     .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/&/g, ' and ')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
@@ -36,18 +198,10 @@ function truthy(v) {
   return false;
 }
 
-function ensureDir(p) {
-  mkdirSync(dirname(p), { recursive: true });
-}
-
-function loadSheet(wb, name) {
+function loadSheet(wb, name, headerRow) {
   const ws = wb.Sheets[name];
   if (!ws) throw new Error(`Missing sheet: ${name}`);
-  // LEH sheets have a title row 1, then headers on row 2, then data.
-  // Header strings frequently carry stray whitespace (e.g. ' Ballots ',
-  // ' Votes cast ', 'ONS ward code ') — trim every key so callers can use
-  // the obvious names.
-  const rows = XLSX.utils.sheet_to_json(ws, { range: 1, defval: null });
+  const rows = XLSX.utils.sheet_to_json(ws, { range: headerRow, defval: null });
   return rows.map((row) => {
     const out = {};
     for (const k of Object.keys(row)) out[k.trim()] = row[k];
@@ -68,157 +222,214 @@ function writeCsv(path, rows, columns) {
   writeFileSync(path, header + '\n' + body + '\n');
 }
 
-console.log(`[etl] reading ${FIXTURE}`);
-if (!existsSync(FIXTURE)) {
-  console.error(`[etl] fixture not found: ${FIXTURE}`);
-  process.exit(1);
-}
-
-const wb = XLSX.read(readFileSync(FIXTURE), { type: 'buffer' });
-
-const candidatesRaw = loadSheet(wb, 'Candidates result');
-const wardsRaw = loadSheet(wb, 'Ward results');
-const partyKeyRaw = loadSheet(wb, 'Party names');
-
-console.log(
-  `[etl] read ${candidatesRaw.length} candidate rows, ${wardsRaw.length} ward rows, ${partyKeyRaw.length} parties`
-);
-
-// --- Party abbreviation lookup ---
-const partyAbbrev = new Map();
-for (const row of partyKeyRaw) {
-  const name = row['Party name'];
-  const abbrev = row['Party abbreviation'];
-  if (name && abbrev) partyAbbrev.set(name, abbrev);
-}
-
-// --- Build wards keyed by EC ward code (numeric, unique per race) ---
-// NB: ONS ward code can be shared across multiple LAs in some edge cases;
-// EC ward code is the per-election-row primary key in this dataset.
-const wards = new Map();
-for (const w of wardsRaw) {
-  const ecCode = String(w['EC ward code']);
-  const wardName = (w['Ward/ County Electoral District name'] || '').trim();
-  const lowerTier = (w['Lower tier authority'] || '').trim();
-  const upperTier = (w['Upper tier authority'] || '').trim();
-  const authorityType = (w['Local authority type'] || '').trim();
-  const electionType = (w['Election type'] || '').trim();
-  const seats = Number(w['Seats'] || 0);
-  const electorate = Number(w['Electorate'] || 0);
-  const ballots = Number(w['Ballots'] || 0);
-  const invalidVotes = Number(w['Invalid votes'] || 0);
-  const validBallots = Math.max(0, ballots - invalidVotes);
-
-  const council = lowerTier || upperTier;
-  const councilSlug = slugify(council);
-  const wardSlug = slugify(`${wardName}-${ecCode}`);
-
-  wards.set(ecCode, {
-    wardName,
-    wardSlug,
-    wardCode: String(w['ONS ward code'] || ecCode).trim(),
-    ecCode,
-    council,
-    councilSlug,
-    upperTier,
-    authorityType,
-    electionType,
-    seats,
-    electorate,
-    ballots,
-    invalidVotes,
-    validBallots,
-    candidates: []
-  });
-}
-
-// --- Attach candidates to wards ---
-// We capture the source's own `Elected` flag as `electedSource` for forensic
-// purposes but DO NOT trust it. The LEH-2025 workbook has confirmed
-// inconsistencies (e.g. EC 62374 Cramlington Village marks both Swinburn at
-// 791 votes and Leyland at 91 votes as elected for a single-seat race).
-// Below, we recompute the elected flag as "top N by vote count where N =
-// seats contested" — the actual rule under FPTP and bloc vote.
-let orphanCandidates = 0;
-for (const c of candidatesRaw) {
-  const ecCode = String(c['EC ward code']);
-  const ward = wards.get(ecCode);
-  if (!ward) {
-    orphanCandidates++;
-    continue;
-  }
-  const partyName = (c['Party name'] || '').trim();
-  ward.candidates.push({
-    name: (c['Candidate name'] || '').trim(),
-    firstName: c['First names'] ?? null,
-    lastName: c['Last names'] ?? null,
-    party: partyName,
-    partyAbbrev: partyAbbrev.get(partyName) ?? null,
-    gender: c['Gender'] ?? null,
-    votes: Number(c['Votes cast'] || 0),
-    electedSource: truthy(c['Elected']),
-    elected: false, // recomputed below
-    rank: Number(c['Rank'] || 0),
-    incumbent: Number(c['Incumbent'] || 0)
-  });
-}
-if (orphanCandidates > 0) {
-  console.warn(`[etl] ${orphanCandidates} candidate rows had no matching ward`);
-}
-
-// --- Recompute `elected` from votes: top N by vote count, N = ward seats. ---
-let electedFlagOverrides = 0;
-for (const w of wards.values()) {
-  // Sort by votes desc; tiebreak by source rank ascending so deterministic.
-  w.candidates.sort((a, b) => b.votes - a.votes || (a.rank || 999) - (b.rank || 999));
-  const seatsToFill = Math.max(0, Number(w.seats) || 0);
-  for (let i = 0; i < w.candidates.length; i++) {
-    const shouldBeElected = i < seatsToFill;
-    if (shouldBeElected !== w.candidates[i].electedSource) electedFlagOverrides += 1;
-    w.candidates[i].elected = shouldBeElected;
-    // Renumber rank from votes order (1 = highest vote count) so the rank we
-    // display is internally consistent with the ordering on the page.
-    w.candidates[i].rank = i + 1;
-  }
-}
-if (electedFlagOverrides > 0) {
-  console.warn(`[etl] overrode source 'Elected' flag on ${electedFlagOverrides} candidacies (top-N-by-votes rule)`);
-}
-
-// --- Drop wards with zero candidates (uncontested rows we can't render) ---
-const racesAll = [...wards.values()];
-const races = racesAll.filter((r) => r.candidates.length > 0 && r.validBallots > 0);
-const dropped = racesAll.length - races.length;
-if (dropped > 0) {
-  console.warn(`[etl] dropped ${dropped} wards with no candidates or zero valid ballots`);
-}
-
-// --- Compute distortion fields (mirror src/lib/distortion.ts) ---
-function candidatePct(votes, valid) {
-  return valid > 0 ? votes / valid : 0;
-}
 function quotaForSeats(seats) {
   return Number.isFinite(seats) && seats >= 1 ? 1 / (seats + 1) : 0.5;
 }
 
-for (const r of races) {
-  const elected = r.candidates.filter((c) => c.elected);
-  const electedPcts = elected.map((c) => candidatePct(c.votes, r.validBallots));
-  r.winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;
-  r.quota = quotaForSeats(r.seats);
-  r.underPar = r.quota - r.winningPct;
-  r.isBelowQuota = r.underPar > 0;
-  r.electedNames = elected.map((c) => c.name);
+// Stable synthetic ward key for cycles (notably 2023) where the source has
+// no ward code. council slug + ward slug uniquely identifies a race within
+// a council, which is enough for our purposes — we never join across years
+// on ward code anyway (ward boundaries change between cycles).
+function deriveWardKey(cycle, councilSlug, wardName) {
+  return `Y${cycle.year}-${councilSlug}-${slugify(wardName)}`;
 }
 
-// --- Council summaries ---
-// "Below quota" = the marginal elected candidate's share fell below the
-// Droop quota (1 / (seats + 1)). For each council we count seats whose own
-// candidate share is below the quota for that ward.
-const councilMap = new Map();
-for (const r of races) {
-  if (!councilMap.has(r.councilSlug)) {
-    councilMap.set(r.councilSlug, {
+// --- Per-cycle ingest --------------------------------------------------------
+
+function ingestCycle(cycle) {
+  const file = resolve(ROOT, cycle.file);
+  if (!existsSync(file)) {
+    console.warn(`[etl] skipping ${cycle.year}: file not found ${file}`);
+    return null;
+  }
+  const wb = XLSX.read(readFileSync(file), { type: 'buffer' });
+  const candidatesRaw = loadSheet(wb, cycle.candSheet, cycle.candHeaderRow);
+  const wardsRaw = loadSheet(wb, cycle.wardSheet, cycle.wardHeaderRow);
+
+  // Build wards keyed by either source ward code or synthetic key.
+  const wardsByKey = new Map();
+  for (const w of wardsRaw) {
+    const wc = cycle.cols.ward;
+    const council = String(w[wc.council] ?? '').trim();
+    if (!council) continue;
+    const wardName = String(w[wc.wardName] ?? '').trim();
+    const wardCodeRaw = wc.wardCode ? w[wc.wardCode] : null;
+    const councilSlug = slugify(council);
+    const wardCode = wardCodeRaw != null ? String(wardCodeRaw).trim() : null;
+    const key = wardCode
+      ? `${cycle.year}::${wardCode}`
+      : deriveWardKey(cycle, councilSlug, wardName);
+
+    const seatsRaw = Number(w[wc.seats] ?? 0);
+    const seats = Number.isFinite(seatsRaw) && seatsRaw >= 1 ? seatsRaw : 1;
+    const electorate = Number(w[wc.electorate] ?? 0);
+    const authorityType = w[wc.authorityType] ? String(w[wc.authorityType]).trim() : null;
+    const ballots = wc.ballots != null ? Number(w[wc.ballots] ?? 0) : null;
+    const invalidVotes = wc.invalidVotes != null ? Number(w[wc.invalidVotes] ?? 0) : null;
+
+    wardsByKey.set(key, {
+      year: cycle.year,
+      electionDate: cycle.electionDate,
+      key,
+      wardCode,
+      wardName,
+      council,
+      councilSlug,
+      authorityType,
+      seats,
+      electorate,
+      ballots,
+      invalidVotes,
+      candidates: []
+    });
+  }
+
+  // Attach candidates.
+  let orphanCount = 0;
+  for (const c of candidatesRaw) {
+    const cc = cycle.cols.cand;
+    const council = String(c[cc.council] ?? '').trim();
+    if (!council) {
+      orphanCount += 1;
+      continue;
+    }
+    const wardName = String(c[cc.wardName] ?? '').trim();
+    const wardCodeRaw = cc.wardCode ? c[cc.wardCode] : null;
+    const councilSlug = slugify(council);
+    const wardCode = wardCodeRaw != null ? String(wardCodeRaw).trim() : null;
+    const key = wardCode
+      ? `${cycle.year}::${wardCode}`
+      : deriveWardKey(cycle, councilSlug, wardName);
+    const ward = wardsByKey.get(key);
+    if (!ward) {
+      orphanCount += 1;
+      continue;
+    }
+    const partyRaw = c[cc.party];
+    ward.candidates.push({
+      name: String(c[cc.candidateName] ?? '').trim(),
+      party: normalizeParty(partyRaw) ?? '',
+      votes: Number(c[cc.votes] ?? 0),
+      electedSource: truthy(c[cc.electedSource]),
+      elected: false // recomputed
+    });
+  }
+  if (orphanCount > 0) {
+    console.warn(`[etl ${cycle.year}] ${orphanCount} candidate rows had no matching ward`);
+  }
+
+  // Recompute elected (top N by votes, where N = seats).
+  let electedOverrides = 0;
+  for (const ward of wardsByKey.values()) {
+    ward.candidates.sort((a, b) => b.votes - a.votes);
+    const seatsToFill = Math.max(0, ward.seats);
+    for (let i = 0; i < ward.candidates.length; i++) {
+      const should = i < seatsToFill;
+      if (should !== ward.candidates[i].electedSource) electedOverrides += 1;
+      ward.candidates[i].elected = should;
+      ward.candidates[i].rank = i + 1;
+    }
+  }
+  if (electedOverrides > 0) {
+    console.warn(
+      `[etl ${cycle.year}] overrode source 'Elected' flag on ${electedOverrides} candidacies`
+    );
+  }
+
+  // Compute per-race derived fields. valid_ballots = sum of candidate votes
+  // (the LEH "Valid vote turnout (HoC method)" denominator). For 2025 we
+  // also have explicit Ballots − Invalid votes; we keep both.
+  const races = [];
+  for (const w of wardsByKey.values()) {
+    if (w.candidates.length === 0) continue;
+    const votesSum = w.candidates.reduce((a, c) => a + (Number.isFinite(c.votes) ? c.votes : 0), 0);
+    let validBallots = votesSum;
+    let ballots = w.ballots;
+    let invalidVotes = w.invalidVotes;
+    if (ballots != null && invalidVotes != null && ballots - invalidVotes > 0) {
+      validBallots = ballots - invalidVotes;
+    } else {
+      ballots = ballots ?? validBallots;
+      invalidVotes = invalidVotes ?? 0;
+    }
+    if (validBallots <= 0) continue;
+
+    const elected = w.candidates.filter((c) => c.elected);
+    const electedPcts = elected.map((c) => c.votes / validBallots);
+    const winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;
+    const quota = quotaForSeats(w.seats);
+    const underPar = quota - winningPct;
+    const wardSlug = w.wardCode
+      ? slugify(`${w.wardName}-${w.wardCode}`)
+      : slugify(w.wardName);
+
+    races.push({
+      year: w.year,
+      electionDate: w.electionDate,
+      key: w.key,
+      wardCode: w.wardCode ?? '',
+      wardName: w.wardName,
+      wardSlug,
+      council: w.council,
+      councilSlug: w.councilSlug,
+      authorityType: w.authorityType ?? '',
+      electionType: '',
+      seats: w.seats,
+      electorate: w.electorate,
+      ballots,
+      invalidVotes,
+      validBallots,
+      winningPct,
+      quota,
+      underPar,
+      isBelowQuota: underPar > 0,
+      candidates: w.candidates
+    });
+  }
+
+  console.log(
+    `[etl ${cycle.year}] read ${candidatesRaw.length} candidate rows, ${wardsRaw.length} ward rows; produced ${races.length} races`
+  );
+  return { cycle, races };
+}
+
+// --- Run all cycles ----------------------------------------------------------
+
+const allRaces = [];
+const cycleSummaries = [];
+for (const cycle of CYCLES) {
+  const result = ingestCycle(cycle);
+  if (!result) continue;
+  allRaces.push(...result.races);
+  const totalSeats = result.races.reduce((a, r) => a + r.candidates.filter((c) => c.elected).length, 0);
+  const belowQuotaSeats = result.races.reduce((a, r) => {
+    let n = 0;
+    for (const c of r.candidates) {
+      if (c.elected && c.votes / r.validBallots < r.quota) n += 1;
+    }
+    return a + n;
+  }, 0);
+  const distinctCouncils = new Set(result.races.map((r) => r.councilSlug));
+  cycleSummaries.push({
+    year: cycle.year,
+    electionDate: cycle.electionDate,
+    electionDateLabel: cycle.electionDateLabel,
+    raceCount: result.races.length,
+    seatCount: totalSeats,
+    belowQuotaSeatCount: belowQuotaSeats,
+    belowQuotaShare: totalSeats > 0 ? belowQuotaSeats / totalSeats : 0,
+    councilCount: distinctCouncils.size
+  });
+}
+
+// --- Council summaries (per (year, council)) ---------------------------------
+const councilMap = new Map(); // key: `${year}::${councilSlug}`
+for (const r of allRaces) {
+  const key = `${r.year}::${r.councilSlug}`;
+  if (!councilMap.has(key)) {
+    councilMap.set(key, {
+      year: r.year,
+      electionDate: r.electionDate,
       council: r.council,
       councilSlug: r.councilSlug,
       authorityType: r.authorityType,
@@ -227,12 +438,12 @@ for (const r of races) {
       belowQuotaSeatCount: 0
     });
   }
-  const s = councilMap.get(r.councilSlug);
+  const s = councilMap.get(key);
   s.raceCount += 1;
   const elected = r.candidates.filter((c) => c.elected);
   s.totalSeatCount += elected.length;
   for (const c of elected) {
-    if (candidatePct(c.votes, r.validBallots) < r.quota) s.belowQuotaSeatCount += 1;
+    if (c.votes / r.validBallots < r.quota) s.belowQuotaSeatCount += 1;
   }
 }
 const councils = [...councilMap.values()].map((s) => ({
@@ -240,17 +451,18 @@ const councils = [...councilMap.values()].map((s) => ({
   belowQuotaShare:
     s.totalSeatCount > 0 ? s.belowQuotaSeatCount / s.totalSeatCount : 0
 }));
-councils.sort((a, b) => a.council.localeCompare(b.council));
+councils.sort((a, b) => b.year - a.year || a.council.localeCompare(b.council));
 
-// --- Marginal-winner roll-up (every elected candidate; sortable by under-par desc) ---
+// --- Marginal-winner roll-up (one row per elected candidacy across all years)
 const marginal = [];
-for (const r of races) {
+for (const r of allRaces) {
   for (const c of r.candidates.filter((c) => c.elected)) {
-    const winningPct = candidatePct(c.votes, r.validBallots);
+    const winningPct = c.votes / r.validBallots;
     marginal.push({
+      year: r.year,
+      electionDate: r.electionDate,
       candidateName: c.name,
       party: c.party,
-      partyAbbrev: c.partyAbbrev,
       votes: c.votes,
       winningPct,
       quota: r.quota,
@@ -264,133 +476,116 @@ for (const r of races) {
     });
   }
 }
-// Sort by under-par desc — the seats furthest below the proportional quota
-// rank highest. Tiebreak: fewer absolute votes first (smaller absolute mandate).
 marginal.sort((a, b) => b.underPar - a.underPar || a.votes - b.votes);
 
-const belowQuotaSeats = marginal.filter((m) => m.underPar > 0).length;
+const totals = {
+  cycles: cycleSummaries.length,
+  councils: councils.length,
+  races: allRaces.length,
+  seats: marginal.length,
+  belowQuotaSeats: marginal.filter((m) => m.underPar > 0).length
+};
 console.log(
-  `[etl] computed ${races.length} races across ${councils.length} councils; ${marginal.length} elected seats; ${belowQuotaSeats} seats elected below the proportional quota`
+  `[etl] total: ${totals.cycles} cycles, ${totals.councils} council-cycles, ${totals.races} races, ${totals.seats} seats, ${totals.belowQuotaSeats} below-quota`
 );
 
-// --- Emit SQLite ---
+// --- Emit SQLite -------------------------------------------------------------
 mkdirSync(OUT_DIR, { recursive: true });
 if (existsSync(SQLITE_PATH)) rmSync(SQLITE_PATH);
 const db = new Database(SQLITE_PATH, { create: true });
 db.exec('PRAGMA journal_mode = DELETE');
-
 db.exec(`
+CREATE TABLE cycles (
+  year INTEGER PRIMARY KEY,
+  election_date TEXT NOT NULL,
+  election_date_label TEXT NOT NULL,
+  race_count INTEGER NOT NULL,
+  seat_count INTEGER NOT NULL,
+  below_quota_seat_count INTEGER NOT NULL,
+  below_quota_share REAL NOT NULL,
+  council_count INTEGER NOT NULL
+);
 CREATE TABLE councils (
-  council_slug TEXT PRIMARY KEY,
+  year INTEGER NOT NULL,
+  council_slug TEXT NOT NULL,
   council TEXT NOT NULL,
   authority_type TEXT,
   race_count INTEGER NOT NULL,
   total_seats INTEGER NOT NULL,
-  -- seats whose marginal candidate share fell below the Droop quota
-  -- (1 / (seats + 1)) for that ward
   below_quota_seats INTEGER NOT NULL,
-  below_quota_share REAL NOT NULL
+  below_quota_share REAL NOT NULL,
+  PRIMARY KEY (year, council_slug),
+  FOREIGN KEY (year) REFERENCES cycles(year)
 );
 CREATE TABLE races (
-  ec_code TEXT PRIMARY KEY,
-  ward_code TEXT,
-  ward_name TEXT NOT NULL,
+  year INTEGER NOT NULL,
+  ec_code TEXT,
   ward_slug TEXT NOT NULL,
+  ward_name TEXT NOT NULL,
   council_slug TEXT NOT NULL,
   council TEXT NOT NULL,
   authority_type TEXT,
-  election_type TEXT,
   seats INTEGER NOT NULL,
   electorate INTEGER,
   ballots INTEGER,
   invalid_votes INTEGER,
   valid_ballots INTEGER NOT NULL,
   winning_pct REAL NOT NULL,
-  -- Droop quota: 1 / (seats + 1) — share needed to be guaranteed a seat under PR
   quota REAL NOT NULL,
-  -- quota - winning_pct (positive = below par)
   under_par REAL NOT NULL,
-  -- 1 when winning_pct < quota
   is_below_quota INTEGER NOT NULL,
-  FOREIGN KEY (council_slug) REFERENCES councils(council_slug)
+  PRIMARY KEY (year, council_slug, ward_slug),
+  FOREIGN KEY (year, council_slug) REFERENCES councils(year, council_slug)
 );
 CREATE TABLE candidates (
-  ec_code TEXT NOT NULL,
+  year INTEGER NOT NULL,
+  council_slug TEXT NOT NULL,
+  ward_slug TEXT NOT NULL,
   rank INTEGER,
   candidate_name TEXT NOT NULL,
   party TEXT,
-  party_abbrev TEXT,
   votes INTEGER NOT NULL,
   elected INTEGER NOT NULL,
-  -- LEH source Elected column as published; differs from elected on a
-  -- small number of candidacies where the source workbook is inconsistent.
+  -- LEH source 'Elected' flag, before our top-N-by-votes correction
   elected_source INTEGER NOT NULL,
-  gender TEXT,
-  incumbent INTEGER,
-  FOREIGN KEY (ec_code) REFERENCES races(ec_code)
+  FOREIGN KEY (year, council_slug, ward_slug) REFERENCES races(year, council_slug, ward_slug)
 );
-CREATE INDEX idx_races_council ON races(council_slug);
-CREATE INDEX idx_candidates_ec ON candidates(ec_code);
+CREATE INDEX idx_races_council ON races(year, council_slug);
+CREATE INDEX idx_candidates_race ON candidates(year, council_slug, ward_slug);
 `);
 
+const insCycle = db.prepare(`
+INSERT INTO cycles (year, election_date, election_date_label, race_count, seat_count, below_quota_seat_count, below_quota_share, council_count)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+`);
 const insCouncil = db.prepare(`
-INSERT INTO councils (council_slug, council, authority_type, race_count, total_seats, below_quota_seats, below_quota_share)
-VALUES (?, ?, ?, ?, ?, ?, ?)
+INSERT INTO councils (year, council_slug, council, authority_type, race_count, total_seats, below_quota_seats, below_quota_share)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 `);
 const insRace = db.prepare(`
-INSERT INTO races (ec_code, ward_code, ward_name, ward_slug, council_slug, council, authority_type, election_type, seats, electorate, ballots, invalid_votes, valid_ballots, winning_pct, quota, under_par, is_below_quota)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+INSERT INTO races (year, ec_code, ward_slug, ward_name, council_slug, council, authority_type, seats, electorate, ballots, invalid_votes, valid_ballots, winning_pct, quota, under_par, is_below_quota)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 const insCand = db.prepare(`
-INSERT INTO candidates (ec_code, rank, candidate_name, party, party_abbrev, votes, elected, elected_source, gender, incumbent)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+INSERT INTO candidates (year, council_slug, ward_slug, rank, candidate_name, party, votes, elected, elected_source)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 const tx = db.transaction(() => {
-  for (const c of councils) {
-    insCouncil.run(
-      c.councilSlug,
-      c.council,
-      c.authorityType,
-      c.raceCount,
-      c.totalSeatCount,
-      c.belowQuotaSeatCount,
-      c.belowQuotaShare
-    );
+  for (const c of cycleSummaries) {
+    insCycle.run(c.year, c.electionDate, c.electionDateLabel, c.raceCount, c.seatCount, c.belowQuotaSeatCount, c.belowQuotaShare, c.councilCount);
   }
-  for (const r of races) {
+  for (const c of councils) {
+    insCouncil.run(c.year, c.councilSlug, c.council, c.authorityType, c.raceCount, c.totalSeatCount, c.belowQuotaSeatCount, c.belowQuotaShare);
+  }
+  for (const r of allRaces) {
     insRace.run(
-      r.ecCode,
-      r.wardCode,
-      r.wardName,
-      r.wardSlug,
-      r.councilSlug,
-      r.council,
-      r.authorityType,
-      r.electionType,
-      r.seats,
-      r.electorate,
-      r.ballots,
-      r.invalidVotes,
-      r.validBallots,
-      r.winningPct,
-      r.quota,
-      r.underPar,
-      r.isBelowQuota ? 1 : 0
+      r.year, r.wardCode || null, r.wardSlug, r.wardName, r.councilSlug, r.council,
+      r.authorityType, r.seats, r.electorate, r.ballots, r.invalidVotes, r.validBallots,
+      r.winningPct, r.quota, r.underPar, r.isBelowQuota ? 1 : 0
     );
     for (const cand of r.candidates) {
-      insCand.run(
-        r.ecCode,
-        cand.rank,
-        cand.name,
-        cand.party,
-        cand.partyAbbrev,
-        cand.votes,
-        cand.elected ? 1 : 0,
-        cand.electedSource ? 1 : 0,
-        cand.gender,
-        cand.incumbent
-      );
+      insCand.run(r.year, r.councilSlug, r.wardSlug, cand.rank, cand.name, cand.party, cand.votes, cand.elected ? 1 : 0, cand.electedSource ? 1 : 0);
     }
   }
 });
@@ -398,10 +593,24 @@ tx();
 db.close();
 console.log(`[etl] wrote ${SQLITE_PATH}`);
 
-// --- Emit per-table CSVs alongside the SQLite ---
+// --- CSVs --------------------------------------------------------------------
+writeCsv(
+  resolve(OUT_DIR, 'cycles.csv'),
+  cycleSummaries.map((c) => ({
+    year: c.year,
+    election_date: c.electionDate,
+    council_count: c.councilCount,
+    race_count: c.raceCount,
+    seat_count: c.seatCount,
+    below_quota_seat_count: c.belowQuotaSeatCount,
+    below_quota_share: c.belowQuotaShare.toFixed(6)
+  })),
+  ['year', 'election_date', 'council_count', 'race_count', 'seat_count', 'below_quota_seat_count', 'below_quota_share']
+);
 writeCsv(
   resolve(OUT_DIR, 'councils.csv'),
   councils.map((c) => ({
+    year: c.year,
     council_slug: c.councilSlug,
     council: c.council,
     authority_type: c.authorityType,
@@ -410,18 +619,15 @@ writeCsv(
     below_quota_seats: c.belowQuotaSeatCount,
     below_quota_share: c.belowQuotaShare.toFixed(6)
   })),
-  [
-    'council_slug', 'council', 'authority_type', 'race_count', 'total_seats',
-    'below_quota_seats', 'below_quota_share'
-  ]
+  ['year', 'council_slug', 'council', 'authority_type', 'race_count', 'total_seats', 'below_quota_seats', 'below_quota_share']
 );
 writeCsv(
   resolve(OUT_DIR, 'races.csv'),
-  races.map((r) => ({
-    ec_code: r.ecCode,
-    ward_code: r.wardCode,
-    ward_name: r.wardName,
+  allRaces.map((r) => ({
+    year: r.year,
+    ec_code: r.wardCode,
     ward_slug: r.wardSlug,
+    ward_name: r.wardName,
     council_slug: r.councilSlug,
     council: r.council,
     authority_type: r.authorityType,
@@ -432,22 +638,18 @@ writeCsv(
     under_par: r.underPar.toFixed(6),
     is_below_quota: r.isBelowQuota ? 1 : 0
   })),
-  [
-    'ec_code', 'ward_code', 'ward_name', 'ward_slug', 'council_slug', 'council',
-    'authority_type', 'seats', 'valid_ballots', 'winning_pct', 'quota',
-    'under_par', 'is_below_quota'
-  ]
+  ['year', 'ec_code', 'ward_slug', 'ward_name', 'council_slug', 'council', 'authority_type', 'seats', 'valid_ballots', 'winning_pct', 'quota', 'under_par', 'is_below_quota']
 );
 const candidateCsvRows = [];
-for (const r of races) {
+for (const r of allRaces) {
   for (const c of r.candidates) {
     candidateCsvRows.push({
-      ec_code: r.ecCode,
-      ward_name: r.wardName,
+      year: r.year,
       council_slug: r.councilSlug,
+      ward_slug: r.wardSlug,
+      ward_name: r.wardName,
       candidate_name: c.name,
       party: c.party,
-      party_abbrev: c.partyAbbrev,
       votes: c.votes,
       elected: c.elected ? 1 : 0,
       rank: c.rank
@@ -457,26 +659,23 @@ for (const r of races) {
 writeCsv(
   resolve(OUT_DIR, 'candidates.csv'),
   candidateCsvRows,
-  ['ec_code', 'ward_name', 'council_slug', 'candidate_name', 'party', 'party_abbrev', 'votes', 'elected', 'rank']
+  ['year', 'council_slug', 'ward_slug', 'ward_name', 'candidate_name', 'party', 'votes', 'elected', 'rank']
 );
 
-// --- Emit JSON snapshot for the SvelteKit build ---
+// --- JSON snapshot for SvelteKit server load fns ----------------------------
+function ensureDir(p) {
+  mkdirSync(dirname(p), { recursive: true });
+}
 ensureDir(SNAPSHOT_PATH);
 const snapshot = {
   generatedAt: new Date().toISOString(),
-  source: 'docs/LEH-2025-results-HoC.xlsx',
-  electionDate: '2025-05-01',
-  electionDateLabel: '1 May 2025',
-  cycleLabel: 'May 2025 (dev fixture — same shape as the 2026 LEH that lands months out)',
-  totals: {
-    councils: councils.length,
-    races: races.length,
-    seats: marginal.length,
-    belowQuotaSeats: marginal.filter((m) => m.underPar > 0).length
-  },
+  source: 'docs/LEH-{2021..2025}-results-HoC*.xlsx',
+  totals,
+  cycles: cycleSummaries,
   councils,
-  races: races.map((r) => ({
-    ecCode: r.ecCode,
+  races: allRaces.map((r) => ({
+    year: r.year,
+    electionDate: r.electionDate,
     wardName: r.wardName,
     wardSlug: r.wardSlug,
     wardCode: r.wardCode,
@@ -492,7 +691,6 @@ const snapshot = {
     candidates: r.candidates.map((c) => ({
       name: c.name,
       party: c.party,
-      partyAbbrev: c.partyAbbrev,
       votes: c.votes,
       elected: c.elected,
       rank: c.rank

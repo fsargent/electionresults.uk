@@ -13,7 +13,6 @@ import type { Race, Candidate } from './types';
 const cand = (overrides: Partial<Candidate> = {}): Candidate => ({
   name: 'Alex Example',
   party: 'Test Party',
-  partyAbbrev: 'TP',
   votes: 0,
   elected: false,
   rank: 1,
@@ -21,6 +20,8 @@ const cand = (overrides: Partial<Candidate> = {}): Candidate => ({
 });
 
 const race = (overrides: Partial<Race> = {}): Race => ({
+  year: 2025,
+  electionDate: '2025-05-01',
   wardName: 'Test Ward',
   wardSlug: 'test-ward',
   wardCode: 'X01',

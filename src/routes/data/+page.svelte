@@ -24,43 +24,58 @@
 
   <p class="muted">
     Snapshot generated <code>{generatedAt}</code> · source
-    <code>{sourceLabel}</code> · {num(totals.races)} races,
-    {num(totals.seats)} elected seats across {num(totals.councils)} councils.
+    <code>{sourceLabel}</code> · {num(totals.cycles)} election cycles,
+    {num(totals.races)} races, {num(totals.seats)} elected seats across
+    {num(totals.councils)} council&times;cycle pairs.
   </p>
 
   <h2>Downloads</h2>
   <ul>
-    <li><a href="/data/results.sqlite" download>results.sqlite</a> — full database (open in DBeaver, sqlite3, DuckDB CLI, Python, R, or any SQLite-compatible tool)</li>
-    <li><a href="/data/councils.csv" download>councils.csv</a> — one row per council</li>
+    <li><a href="/data/results.sqlite" download>results.sqlite</a> — full database for all cycles (open in DBeaver, sqlite3, DuckDB CLI, Python, R, or any SQLite-compatible tool)</li>
+    <li><a href="/data/cycles.csv" download>cycles.csv</a> — one row per election cycle</li>
+    <li><a href="/data/councils.csv" download>councils.csv</a> — one row per (year, council) pair</li>
     <li><a href="/data/races.csv" download>races.csv</a> — one row per ward race</li>
     <li><a href="/data/candidates.csv" download>candidates.csv</a> — one row per candidacy</li>
   </ul>
 
   <h2>Schema</h2>
 
+  <p class="muted">
+    All tables are keyed by <code>year</code> as the leading column;
+    everything else joins on <code>(year, council_slug)</code> and
+    <code>(year, council_slug, ward_slug)</code>.
+  </p>
+
+  <h3><code>cycles</code></h3>
+  <table>
+    <tbody>
+      <tr><th><code>year</code></th><td>Election year (primary key)</td></tr>
+      <tr><th><code>election_date</code></th><td>ISO date the polls were held</td></tr>
+      <tr><th><code>council_count, race_count, seat_count</code></th><td>Volumetrics for the cycle</td></tr>
+      <tr><th><code>below_quota_seat_count, below_quota_share</code></th><td>Seats whose marginal candidate share fell below the Droop quota</td></tr>
+    </tbody>
+  </table>
+
   <h3><code>councils</code></h3>
   <table>
     <tbody>
-      <tr><th><code>council_slug</code></th><td>URL slug (primary key, e.g. <code>birmingham</code>)</td></tr>
+      <tr><th><code>year, council_slug</code></th><td>Composite primary key</td></tr>
       <tr><th><code>council</code></th><td>Display name (Lower-tier authority)</td></tr>
-      <tr><th><code>authority_type</code></th><td>UC / MD / LB / MB / etc.</td></tr>
-      <tr><th><code>race_count</code></th><td>Ward races published for this council</td></tr>
-      <tr><th><code>total_seats</code></th><td>Elected seats across all races</td></tr>
-      <tr><th><code>below_quota_seats</code></th><td>Seats whose marginal candidate share fell below the Droop quota for that ward</td></tr>
-      <tr><th><code>below_quota_share</code></th><td><code>below_quota_seats / total_seats</code></td></tr>
+      <tr><th><code>authority_type</code></th><td>UC / MD / LB / SD / etc.</td></tr>
+      <tr><th><code>race_count</code></th><td>Ward races in this council in this cycle</td></tr>
+      <tr><th><code>total_seats, below_quota_seats, below_quota_share</code></th><td>Per-(year, council) aggregates</td></tr>
     </tbody>
   </table>
 
   <h3><code>races</code></h3>
   <table>
     <tbody>
-      <tr><th><code>ec_code</code></th><td>Electoral Commission ward code (primary key)</td></tr>
-      <tr><th><code>ward_code</code></th><td>ONS ward code (GSS)</td></tr>
-      <tr><th><code>ward_name, ward_slug</code></th><td>Display name and URL fragment</td></tr>
-      <tr><th><code>council_slug, council</code></th><td>Joins <code>councils</code></td></tr>
+      <tr><th><code>year, council_slug, ward_slug</code></th><td>Composite primary key</td></tr>
+      <tr><th><code>ec_code</code></th><td>Electoral Commission ward code where the source provides one (null for 2023)</td></tr>
+      <tr><th><code>ward_name, council</code></th><td>Display labels</td></tr>
       <tr><th><code>seats</code></th><td>Seats contested in this ward</td></tr>
-      <tr><th><code>electorate, ballots, invalid_votes</code></th><td>Source figures</td></tr>
-      <tr><th><code>valid_ballots</code></th><td><code>ballots − invalid_votes</code></td></tr>
+      <tr><th><code>electorate, ballots, invalid_votes</code></th><td>Source figures (some null in earlier years)</td></tr>
+      <tr><th><code>valid_ballots</code></th><td>Sum of candidate votes — the LEH "Valid vote turnout (HoC method)" denominator</td></tr>
       <tr><th><code>winning_pct</code></th><td>Marginal-elected-candidate share of valid ballots</td></tr>
       <tr><th><code>quota</code></th><td>Droop quota: <code>1.0 / (seats + 1)</code></td></tr>
       <tr><th><code>under_par</code></th><td><code>quota − winning_pct</code> (positive = below par)</td></tr>
@@ -71,21 +86,22 @@
   <h3><code>candidates</code></h3>
   <table>
     <tbody>
-      <tr><th><code>ec_code</code></th><td>Joins <code>races</code></td></tr>
-      <tr><th><code>candidate_name, party, party_abbrev</code></th><td>Public election record</td></tr>
+      <tr><th><code>year, council_slug, ward_slug</code></th><td>Joins <code>races</code></td></tr>
+      <tr><th><code>candidate_name, party</code></th><td>Public election record (party normalised to canonical full name)</td></tr>
       <tr><th><code>votes</code></th><td>Votes cast for this candidate</td></tr>
-      <tr><th><code>elected</code></th><td><code>1</code> if elected to a seat in this ward</td></tr>
-      <tr><th><code>rank</code></th><td>1 = highest-vote candidate</td></tr>
-      <tr><th><code>gender</code></th><td>From the source workbook (included for fidelity; not surfaced in the editorial UI)</td></tr>
+      <tr><th><code>elected</code></th><td><code>1</code> if elected — recomputed as top-N-by-votes (see methodology)</td></tr>
+      <tr><th><code>elected_source</code></th><td>The LEH source <code>Elected</code> flag, before our correction; differs on a small number of candidacies where the workbook is internally inconsistent</td></tr>
+      <tr><th><code>rank</code></th><td>1 = highest-vote candidate in the ward</td></tr>
     </tbody>
   </table>
 
   <h2>Licensing</h2>
   <p>
-    Source data is published by the House of Commons Library under the Open
-    Parliament Licence. Our derived tables (the <code>winning_pct</code>,
-    <code>minority_share</code> aggregates and any other computed columns) are
-    released under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    Source data is published by the House of Commons Library under the
+    Open Parliament Licence. Our derived columns (<code>winning_pct</code>,
+    <code>quota</code>, <code>under_par</code>, the
+    <code>below_quota_*</code> aggregates) are released under
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
     Attribution: "electionresults.uk".
   </p>
 </main>

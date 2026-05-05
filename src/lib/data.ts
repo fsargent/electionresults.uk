@@ -1,10 +1,11 @@
 import snapshot from './data/generated.json';
-import type { Race, CouncilSummary, Candidate } from './types';
+import type { Race, CouncilSummary, CycleSummary, Candidate } from './types';
 
 interface SnapshotMarginal {
+  year: number;
+  electionDate: string;
   candidateName: string;
   party: string;
-  partyAbbrev: string | null;
   votes: number;
   winningPct: number;
   quota: number;
@@ -20,15 +21,14 @@ interface SnapshotMarginal {
 interface Snapshot {
   generatedAt: string;
   source: string;
-  electionDate: string;
-  electionDateLabel: string;
-  cycleLabel: string;
   totals: {
+    cycles: number;
     councils: number;
     races: number;
     seats: number;
     belowQuotaSeats: number;
   };
+  cycles: CycleSummary[];
   councils: CouncilSummary[];
   races: Race[];
   marginalWinners: SnapshotMarginal[];
@@ -37,39 +37,55 @@ interface Snapshot {
 const data = snapshot as unknown as Snapshot;
 
 export const generatedAt = data.generatedAt;
-export const cycleLabel = data.cycleLabel;
-export const electionDate = data.electionDate;
-export const electionDateLabel = data.electionDateLabel;
 export const sourceLabel = data.source;
 export const totals = data.totals;
 
+export const allCycles: CycleSummary[] = [...data.cycles].sort(
+  (a, b) => b.year - a.year
+);
 export const allCouncils: CouncilSummary[] = data.councils;
 export const allRaces: Race[] = data.races;
 export const allMarginalWinners: SnapshotMarginal[] = data.marginalWinners;
 
-export function councilBySlug(slug: string): CouncilSummary | undefined {
-  return allCouncils.find((c) => c.councilSlug === slug);
+export function cycleByYear(year: number): CycleSummary | undefined {
+  return allCycles.find((c) => c.year === year);
 }
 
-export function racesByCouncil(slug: string): Race[] {
-  // Sort by under-par descending — the seats most below the proportional
-  // quota first; ties break on ward name for stable rendering.
+export function councilsForYear(year: number): CouncilSummary[] {
+  return allCouncils
+    .filter((c) => c.year === year)
+    .sort((a, b) => a.council.localeCompare(b.council));
+}
+
+export function councilForYearAndSlug(
+  year: number,
+  slug: string
+): CouncilSummary | undefined {
+  return allCouncils.find((c) => c.year === year && c.councilSlug === slug);
+}
+
+export function racesForYearAndCouncil(
+  year: number,
+  slug: string
+): Race[] {
   return allRaces
-    .filter((r) => r.councilSlug === slug)
-    .sort((a, b) => b.underPar - a.underPar || a.wardName.localeCompare(b.wardName));
+    .filter((r) => r.year === year && r.councilSlug === slug)
+    .sort(
+      (a, b) => b.underPar - a.underPar || a.wardName.localeCompare(b.wardName)
+    );
 }
 
-/** Top N elected seats furthest below the proportional quota, sorted desc. */
-export function topBelowQuota(limit: number): SnapshotMarginal[] {
-  return allMarginalWinners.filter((m) => m.underPar > 0).slice(0, limit);
+/** All (year, council) entries — for sitemap and SvelteKit `entries()`. */
+export function allCouncilEntries(): { year: string; council: string }[] {
+  return allCouncils.map((c) => ({
+    year: String(c.year),
+    council: c.councilSlug
+  }));
 }
 
-/**
- * Roll up marginal winners into one row per race (race-as-unit, not
- * candidate-as-unit). For multi-member wards, the lowest-share elected
- * candidate is the row, matching raceWinningPct.
- */
 export interface RaceLeaderboardRow {
+  year: number;
+  electionDate: string;
   wardName: string;
   wardSlug: string;
   council: string;
@@ -81,17 +97,20 @@ export interface RaceLeaderboardRow {
   underPar: number;
   marginalCandidate: string;
   marginalParty: string;
-  marginalPartyAbbrev: string | null;
   marginalVotes: number;
 }
 
 export function raceLeaderboard(): RaceLeaderboardRow[] {
-  const byWard = new Map<string, RaceLeaderboardRow>();
+  // Roll one elected candidacy per race up into the headline row (for
+  // multi-seat wards, the marginal — lowest-share — elected candidate).
+  const byRace = new Map<string, RaceLeaderboardRow>();
   for (const m of allMarginalWinners) {
-    const key = `${m.councilSlug}::${m.wardSlug}`;
-    const existing = byWard.get(key);
+    const key = `${m.year}::${m.councilSlug}::${m.wardSlug}`;
+    const existing = byRace.get(key);
     if (!existing || m.underPar > existing.underPar) {
-      byWard.set(key, {
+      byRace.set(key, {
+        year: m.year,
+        electionDate: m.electionDate,
         wardName: m.wardName,
         wardSlug: m.wardSlug,
         council: m.council,
@@ -103,12 +122,11 @@ export function raceLeaderboard(): RaceLeaderboardRow[] {
         underPar: m.underPar,
         marginalCandidate: m.candidateName,
         marginalParty: m.party,
-        marginalPartyAbbrev: m.partyAbbrev,
         marginalVotes: m.votes
       });
     }
   }
-  return [...byWard.values()].sort(
+  return [...byRace.values()].sort(
     (a, b) => b.underPar - a.underPar || a.marginalVotes - b.marginalVotes
   );
 }
@@ -122,11 +140,21 @@ export function partyOptions(): string[] {
 }
 
 export function councilOptions(): { slug: string; council: string }[] {
-  return allCouncils.map((c) => ({ slug: c.councilSlug, council: c.council }));
+  // Distinct council names across all years (a council may appear in
+  // multiple cycles).
+  const seen = new Set<string>();
+  const out: { slug: string; council: string }[] = [];
+  for (const c of allCouncils) {
+    if (!seen.has(c.councilSlug)) {
+      seen.add(c.councilSlug);
+      out.push({ slug: c.councilSlug, council: c.council });
+    }
+  }
+  return out.sort((a, b) => a.council.localeCompare(b.council));
 }
 
-export function raceCount(): number {
-  return totals.races;
+export function yearOptions(): number[] {
+  return allCycles.map((c) => c.year);
 }
 
 export function electedFromRace(race: Race): Candidate[] {

@@ -1,23 +1,11 @@
-import {
-  totals,
-  cycleLabel,
-  electionDateLabel,
-  raceLeaderboard,
-  allCouncils,
-  generatedAt
-} from '$lib/data';
+import { totals, allCycles, raceLeaderboard, generatedAt } from '$lib/data';
 
 export const prerender = true;
 
 export function load() {
-  const board = raceLeaderboard();
-  return {
-    totals,
-    cycleLabel,
-    electionDateLabel,
-    generatedAt,
-    topUnderPar: board.filter((r) => r.underPar > 0).slice(0, 10),
-    councils: allCouncils,
-    councilCount: allCouncils.length
-  };
+  // Top 10 globally — most-egregious below-quota seats across every cycle.
+  const topUnderPar = raceLeaderboard()
+    .filter((r) => r.underPar > 0)
+    .slice(0, 10);
+  return { totals, cycles: allCycles, generatedAt, topUnderPar };
 }

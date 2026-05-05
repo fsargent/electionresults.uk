@@ -1,4 +1,10 @@
-import { raceLeaderboard, partyOptions, councilOptions, totals } from '$lib/data';
+import {
+  raceLeaderboard,
+  partyOptions,
+  councilOptions,
+  yearOptions,
+  totals
+} from '$lib/data';
 
 export const prerender = true;
 
@@ -8,6 +14,7 @@ export function load() {
     totals,
     rows: board,
     parties: partyOptions(),
-    councils: councilOptions()
+    councils: councilOptions(),
+    years: yearOptions()
   };
 }

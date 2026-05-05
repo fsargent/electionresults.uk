@@ -8,56 +8,61 @@
   <title>electionresults.uk — auditing how UK councils elect on under-quota support</title>
   <meta
     name="description"
-    content="A volunteer audit of UK local-election results. Each ward is compared to the proportional quota — the share that would be needed to win one seat under any proportional method. We surface every seat the actual winner took on less."
+    content="A volunteer audit of UK local-election results across five cycles (2021-2025). Each ward is compared to the proportional quota — the share that would be needed to win one seat under any proportional method."
   />
   <link rel="canonical" href="https://electionresults.uk/" />
 </svelte:head>
 
 <div class="banner">
-  Pre-launch preview · showing the <strong>{data.electionDateLabel}</strong>
-  English local-elections cohort as a dev fixture. The 2026-05-07 results
-  will populate this site as Democracy Club data lands.
+  Pre-launch preview · five English local-election cycles ingested
+  (2021–2025). The 2026-05-07 results will appear as Democracy Club data
+  lands.
 </div>
 
 <main>
-  <h1>How many of your councillors won with less support than a fair count would require?</h1>
+  <h1>How many UK councillors won with less support than a fair count would require?</h1>
 
   <p class="lede">
     First-Past-the-Post and bloc vote let a candidate win on whatever
     share the vote-splitting produces &mdash; there is no minimum
     threshold. We compare every elected councillor's share of valid
-    ballots to the <strong>proportional quota</strong> &mdash; the share
-    that would be needed to be guaranteed that seat under any
-    proportional voting method
-    (1&nbsp;÷&nbsp;(seats&nbsp;+&nbsp;1)). Of the
-    <strong>{num(data.totals.seats)}</strong> seats elected across the
-    <strong>{num(data.totals.races)}</strong> races in
-    <strong>{num(data.councilCount)}</strong> councils,
-    <strong>{num(data.totals.belowQuotaSeats)}</strong>
+    ballots to the <strong>proportional quota</strong>: the share that
+    would be needed to be guaranteed that seat under any proportional
+    voting method (1&nbsp;÷&nbsp;(seats&nbsp;+&nbsp;1)). Across five
+    cycles &mdash; <strong>{num(data.totals.councils)}</strong>
+    council&times;cycle pairs, <strong>{num(data.totals.races)}</strong>
+    ward races, <strong>{num(data.totals.seats)}</strong> seats elected
+    &mdash; <strong>{num(data.totals.belowQuotaSeats)}</strong>
     ({pct(data.totals.belowQuotaSeats / Math.max(1, data.totals.seats))})
     were elected on less.
   </p>
 
-  <p>
-    Where seats are allocated in proportion to votes, results like the
-    ones below do not occur &mdash; the proportional quota is the floor
-    that any common proportional method requires. The figures below are
-    not unusual; they are how First-Past-the-Post and bloc vote work.
-    See <a href="/methodology">the methodology page</a> for how every
-    number is derived and how to verify it yourself.
-  </p>
+  <h2>Pick an election cycle</h2>
+  <ul class="cycle-list">
+    {#each data.cycles as c (c.year)}
+      <li>
+        <a href={`/${c.year}`} class="cycle">
+          <span class="cycle-year">{c.year}</span>
+          <span class="cycle-date">{c.electionDateLabel}</span>
+          <span class="cycle-stats">
+            {num(c.councilCount)} councils · {num(c.raceCount)} races ·
+            <span class="warn">{pct(c.belowQuotaShare)} below quota</span>
+          </span>
+        </a>
+      </li>
+    {/each}
+  </ul>
 
-  <h2>Ten seats furthest below the proportional quota</h2>
+  <h2>Ten worst seats across all cycles</h2>
   <p class="muted">
-    Ranked by the gap between the proportional quota and the share each
-    elected councillor actually won. The named councillors appear because
-    the public election record names them; the cause being audited is the
-    voting method, not the individuals.
+    The seats furthest below the proportional quota anywhere in the data.
+    Click a ward to jump to its race in context.
   </p>
 
-  <table aria-label="Ten seats furthest below the proportional quota">
+  <table aria-label="Ten worst seats across all cycles">
     <thead>
       <tr>
+        <th>Year</th>
         <th>Ward / Council</th>
         <th>Seat-holder (party, per public record)</th>
         <th class="num">Seats</th>
@@ -67,10 +72,11 @@
       </tr>
     </thead>
     <tbody>
-      {#each data.topUnderPar as r (r.councilSlug + r.wardSlug)}
+      {#each data.topUnderPar as r (r.year + r.councilSlug + r.wardSlug)}
         <tr>
+          <td><a href={`/${r.year}`}>{r.year}</a></td>
           <td>
-            <a href={`/${r.councilSlug}#${r.wardSlug}`}>
+            <a href={`/${r.year}/${r.councilSlug}#${r.wardSlug}`}>
               <strong>{r.wardName}</strong>
             </a>
             <br />
@@ -91,45 +97,64 @@
   </table>
 
   <p>
-    See the <a href="/below-quota">full leaderboard of below-quota seats</a>,
-    or browse <a href="#councils">all {data.councilCount} councils</a> below.
+    See the <a href="/below-quota">full leaderboard of below-quota seats</a>
+    across all cycles.
   </p>
 
   <section class="frame">
-    <h2>Why isn't my council here?</h2>
+    <h2>Why isn't my council in a particular cycle?</h2>
     <p>
-      The fixture above shows only councils that held elections on
-      <strong>{data.electionDateLabel}</strong>. English local government
-      runs on staggered cycles &mdash; London Boroughs poll every four
-      years (last in 2022, next in 2026), other councils elect in halves
-      or thirds, and a separate set holds all-out elections each year.
-      Westminster, the other London Boroughs, and any council not on the
-      1 May 2025 cohort therefore aren't included in this dev preview.
-      Multi-cycle ingest (so the 2026 results can be compared against
-      each council's prior cycle) is the next chunk of work.
+      English local government runs on staggered cycles. Most councils
+      elect <em>by thirds</em> (a third of seats every year), some
+      elect <em>by halves</em>, and others hold all-out elections every
+      four years. London Boroughs all polled in May 2022 and will next
+      poll in May 2026; the May 2025 cycle was unitaries, counties, and
+      a handful of districts. So Westminster, Lambeth and the other
+      London Boroughs only appear in the 2022 cycle in this preview.
     </p>
   </section>
-
-  <h2 id="councils">All councils in this cohort</h2>
-  <p class="muted">
-    Each link goes to that council's full ward-by-ward results.
-  </p>
-  <ul class="council-list">
-    {#each data.councils as c (c.councilSlug)}
-      <li>
-        <a href={`/${c.councilSlug}`}>{c.council}</a>
-        <span class="muted">
-          · {c.raceCount} race{c.raceCount === 1 ? '' : 's'}
-          · {pct(c.belowQuotaShare)} of seats below quota
-        </span>
-      </li>
-    {/each}
-  </ul>
 </main>
 
 <style>
   .lede {
     font-size: 1.15rem;
+  }
+  .cycle-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 0.7rem;
+    margin: 1rem 0 2rem;
+  }
+  .cycle {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.1s, background 0.1s;
+  }
+  .cycle:hover {
+    border-color: var(--accent);
+    background: rgba(11, 61, 46, 0.04);
+  }
+  .cycle-year {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .cycle-date {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .cycle-stats {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
   }
   .frame {
     background: rgba(11, 61, 46, 0.05);
@@ -143,15 +168,4 @@
     margin: 0.2rem 0 0.4rem;
   }
   .warn { color: var(--warn); }
-  .council-list {
-    columns: 18rem 2;
-    gap: 1.5rem;
-    padding-left: 1.2rem;
-    margin-top: 1rem;
-    font-size: 0.95rem;
-  }
-  .council-list li {
-    margin-bottom: 0.35rem;
-    break-inside: avoid;
-  }
 </style>
