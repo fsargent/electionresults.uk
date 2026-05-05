@@ -12,7 +12,7 @@
         c.councilSlug,
         {
           color: belowQuotaColor(c.belowQuotaShare),
-          href: `/${c.year}/${c.councilSlug}`,
+          href: `/${c.councilSlug}`,
           title: `${c.council} — ${c.year}: ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`,
           primary: `${c.council} (${c.year})`,
           secondary: `${pct(c.belowQuotaShare)} of seats below quota — ${c.belowQuotaSeatCount} of ${c.totalSeatCount}`
@@ -125,7 +125,7 @@
         <tr>
           <td><a href={`/${r.year}`}>{r.year}</a></td>
           <td>
-            <a href={`/${r.year}/${r.councilSlug}#${r.wardSlug}`}>
+            <a href={`/${r.councilSlug}/${r.year}#${r.wardSlug}`}>
               <strong>{r.wardName}</strong>
             </a>
             <br />

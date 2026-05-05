@@ -110,7 +110,7 @@
           <td class="num">{i + 1}</td>
           <td><a href={`/${r.year}`}>{r.year}</a></td>
           <td>
-            <a href={`/${r.year}/${r.councilSlug}#${r.wardSlug}`}>
+            <a href={`/${r.councilSlug}/${r.year}#${r.wardSlug}`}>
               <strong>{r.wardName}</strong>
             </a>
             <br />

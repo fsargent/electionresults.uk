@@ -596,12 +596,91 @@ for (const r of allRaces) {
 }
 marginal.sort((a, b) => b.underPar - a.underPar || a.votes - b.votes);
 
+// --- Council flips: same council, consecutive cycles, plurality changed --
+//
+// "Plurality" here = the party that won the most seats this cycle (FPTP
+// definition of who controls the council). A flip is when consecutive
+// cycles for the same council have different plurality parties. The
+// editorial story is the cases where the plurality changed despite tiny
+// vote-share movement — FPTP volatility on small swings.
+//
+// Caveat: by-thirds councils elect only a third of seats per cycle, so
+// comparing 2024→2025 for a by-thirds council compares different sets of
+// wards. Page copy explains this.
+const partyViewByKey = new Map();
+for (const v of partyViews) {
+  partyViewByKey.set(`${v.year}::${v.councilSlug}`, v);
+}
+const viewsByCouncil = new Map();
+for (const v of partyViews) {
+  const arr = viewsByCouncil.get(v.councilSlug) ?? [];
+  arr.push(v);
+  viewsByCouncil.set(v.councilSlug, arr);
+}
+const flips = [];
+for (const [slug, views] of viewsByCouncil) {
+  if (views.length < 2) continue;
+  views.sort((a, b) => a.year - b.year);
+  for (let i = 1; i < views.length; i++) {
+    const prev = views[i - 1];
+    const next = views[i];
+    const pluralityOf = (rows) =>
+      [...rows].sort(
+        (a, b) => b.fptpSeats - a.fptpSeats || b.votes - a.votes
+      )[0] ?? null;
+    const prevP = pluralityOf(prev.rows);
+    const nextP = pluralityOf(next.rows);
+    if (!prevP || !nextP) continue;
+    if (prevP.party === nextP.party) continue;
+
+    const newInPrev = prev.rows.find((r) => r.party === nextP.party);
+    const oldInNext = next.rows.find((r) => r.party === prevP.party);
+    const totalPrev = prev.totalSeats || 1;
+    const totalNext = next.totalSeats || 1;
+    const newPartyVoteFrom = newInPrev?.voteShare ?? 0;
+    const newPartyVoteTo = nextP.voteShare;
+    const newPartySeatFrom = (newInPrev?.fptpSeats ?? 0) / totalPrev;
+    const newPartySeatTo = nextP.fptpSeats / totalNext;
+    const oldPartyVoteFrom = prevP.voteShare;
+    const oldPartyVoteTo = oldInNext?.voteShare ?? 0;
+    const oldPartySeatFrom = prevP.fptpSeats / totalPrev;
+    const oldPartySeatTo = (oldInNext?.fptpSeats ?? 0) / totalNext;
+    const voteSwingNew = Math.abs(newPartyVoteTo - newPartyVoteFrom);
+    const seatSwingNew = Math.abs(newPartySeatTo - newPartySeatFrom);
+
+    flips.push({
+      councilSlug: slug,
+      council: prev.council,
+      yearFrom: prev.year,
+      yearTo: next.year,
+      fromParty: prevP.party,
+      toParty: nextP.party,
+      newPartyVoteFrom,
+      newPartyVoteTo,
+      newPartySeatFrom,
+      newPartySeatTo,
+      oldPartyVoteFrom,
+      oldPartyVoteTo,
+      oldPartySeatFrom,
+      oldPartySeatTo,
+      voteSwingNew,
+      seatSwingNew,
+      // Disproportion score: how much bigger the seat swing was than the
+      // vote swing (in percentage points). Highest = the most egregious
+      // FPTP-volatility examples.
+      disproportionScore: seatSwingNew - voteSwingNew
+    });
+  }
+}
+flips.sort((a, b) => b.disproportionScore - a.disproportionScore);
+
 const totals = {
   cycles: cycleSummaries.length,
   councils: councils.length,
   races: allRaces.length,
   seats: marginal.length,
-  belowQuotaSeats: marginal.filter((m) => m.underPar > 0).length
+  belowQuotaSeats: marginal.filter((m) => m.underPar > 0).length,
+  flips: flips.length
 };
 console.log(
   `[etl] total: ${totals.cycles} cycles, ${totals.councils} council-cycles, ${totals.races} races, ${totals.seats} seats, ${totals.belowQuotaSeats} below-quota`
@@ -671,6 +750,25 @@ CREATE TABLE candidates (
 CREATE INDEX idx_races_council ON races(year, council_slug);
 CREATE INDEX idx_candidates_race ON candidates(year, council_slug, ward_slug);
 
+CREATE TABLE council_flips (
+  council_slug TEXT NOT NULL,
+  year_from INTEGER NOT NULL,
+  year_to INTEGER NOT NULL,
+  from_party TEXT NOT NULL,
+  to_party TEXT NOT NULL,
+  new_party_vote_from REAL NOT NULL,
+  new_party_vote_to REAL NOT NULL,
+  new_party_seat_from REAL NOT NULL,
+  new_party_seat_to REAL NOT NULL,
+  old_party_vote_from REAL NOT NULL,
+  old_party_vote_to REAL NOT NULL,
+  old_party_seat_from REAL NOT NULL,
+  old_party_seat_to REAL NOT NULL,
+  vote_swing_new REAL NOT NULL,
+  seat_swing_new REAL NOT NULL,
+  disproportion_score REAL NOT NULL,
+  PRIMARY KEY (council_slug, year_from, year_to)
+);
 CREATE TABLE party_view (
   year INTEGER NOT NULL,
   council_slug TEXT NOT NULL,
@@ -707,6 +805,13 @@ const insCand = db.prepare(`
 INSERT INTO candidates (year, council_slug, ward_slug, rank, candidate_name, party, votes, elected, elected_source)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
+const insFlip = db.prepare(`
+INSERT INTO council_flips (council_slug, year_from, year_to, from_party, to_party,
+  new_party_vote_from, new_party_vote_to, new_party_seat_from, new_party_seat_to,
+  old_party_vote_from, old_party_vote_to, old_party_seat_from, old_party_seat_to,
+  vote_swing_new, seat_swing_new, disproportion_score)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+`);
 const insPartyView = db.prepare(`
 INSERT INTO party_view (year, council_slug, party, votes, vote_share, fptp_seats, fptp_seat_share, dhondt_seats, dhondt_seat_share, seat_delta)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -736,6 +841,14 @@ const tx = db.transaction(() => {
         row.fptpSeats, row.fptpSeatShare, row.dhondtSeats, row.dhondtSeatShare, row.seatDelta
       );
     }
+  }
+  for (const f of flips) {
+    insFlip.run(
+      f.councilSlug, f.yearFrom, f.yearTo, f.fromParty, f.toParty,
+      f.newPartyVoteFrom, f.newPartyVoteTo, f.newPartySeatFrom, f.newPartySeatTo,
+      f.oldPartyVoteFrom, f.oldPartyVoteTo, f.oldPartySeatFrom, f.oldPartySeatTo,
+      f.voteSwingNew, f.seatSwingNew, f.disproportionScore
+    );
   }
 });
 tx();
@@ -850,7 +963,8 @@ const snapshot = {
     isBelowQuota: r.isBelowQuota
   })),
   marginalWinners: marginal,
-  partyViews
+  partyViews,
+  flips
 };
 writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot));
 console.log(`[etl] wrote ${SNAPSHOT_PATH}`);

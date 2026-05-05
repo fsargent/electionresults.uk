@@ -19,14 +19,14 @@
   />
   <link
     rel="canonical"
-    href={`https://electionresults.uk/${cycle.year}/${council.councilSlug}`}
+    href={`https://electionresults.uk/${council.councilSlug}/${cycle.year}`}
   />
 </svelte:head>
 
 <main class="wide">
   <p class="muted">
-    <a href="/{cycle.year}">← {cycle.electionDateLabel} cohort</a>
-    · <a href="/">All cycles</a>
+    <a href="/{council.councilSlug}">← {council.council} (all cycles)</a>
+    · <a href="/{cycle.year}">{cycle.electionDateLabel} cohort</a>
   </p>
   <h1>{council.council} <span class="year-badge">{cycle.year}</span></h1>
   <p class="muted election-date">

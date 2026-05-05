@@ -8,7 +8,11 @@ export function GET() {
   const today = generatedAt.slice(0, 10);
   const staticUrls = ['/', '/below-quota', '/methodology', '/data'];
   const cycleUrls = allCycles.map((c) => `/${c.year}`);
-  const councilUrls = allCouncils.map((c) => `/${c.year}/${c.councilSlug}`);
+  // Both an overview per council and a per-cycle drill-down per (council, year)
+  const distinctCouncilSlugs = new Set(allCouncils.map((c) => c.councilSlug));
+  const councilOverviewUrls = [...distinctCouncilSlugs].map((s) => `/${s}`);
+  const councilCycleUrls = allCouncils.map((c) => `/${c.councilSlug}/${c.year}`);
+  const councilUrls = [...councilOverviewUrls, ...councilCycleUrls];
   const urls = [...staticUrls, ...cycleUrls, ...councilUrls];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

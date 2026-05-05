@@ -68,6 +68,27 @@ export interface PartyView {
   rows: PartyViewRow[];
 }
 
+export interface CouncilFlip {
+  councilSlug: string;
+  council: string;
+  yearFrom: number;
+  yearTo: number;
+  fromParty: string;
+  toParty: string;
+  newPartyVoteFrom: number;
+  newPartyVoteTo: number;
+  newPartySeatFrom: number;
+  newPartySeatTo: number;
+  oldPartyVoteFrom: number;
+  oldPartyVoteTo: number;
+  oldPartySeatFrom: number;
+  oldPartySeatTo: number;
+  voteSwingNew: number;
+  seatSwingNew: number;
+  /** seat swing − vote swing in fraction units; positive = FPTP-amplified */
+  disproportionScore: number;
+}
+
 export interface CycleSummary {
   year: number;
   electionDate: string;

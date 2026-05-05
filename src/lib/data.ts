@@ -4,7 +4,8 @@ import type {
   CouncilSummary,
   CycleSummary,
   Candidate,
-  PartyView
+  PartyView,
+  CouncilFlip
 } from './types';
 
 interface SnapshotMarginal {
@@ -39,6 +40,7 @@ interface Snapshot {
   races: Race[];
   marginalWinners: SnapshotMarginal[];
   partyViews: PartyView[];
+  flips: CouncilFlip[];
 }
 
 const data = snapshot as unknown as Snapshot;
@@ -54,6 +56,48 @@ export const allCouncils: CouncilSummary[] = data.councils;
 export const allRaces: Race[] = data.races;
 export const allMarginalWinners: SnapshotMarginal[] = data.marginalWinners;
 export const allPartyViews: PartyView[] = data.partyViews;
+export const allFlips: CouncilFlip[] = data.flips;
+
+export function flipsForCouncil(slug: string): CouncilFlip[] {
+  return allFlips
+    .filter((f) => f.councilSlug === slug)
+    .sort((a, b) => a.yearFrom - b.yearFrom);
+}
+
+/**
+ * One entry per distinct council across all cycles, with the years that
+ * council appears in. Used by the council overview page.
+ */
+export interface CouncilHistoryEntry {
+  councilSlug: string;
+  council: string;
+  authorityType: string;
+  cycles: CouncilSummary[];
+}
+
+export function councilHistory(slug: string): CouncilHistoryEntry | null {
+  const cycles = allCouncils
+    .filter((c) => c.councilSlug === slug)
+    .sort((a, b) => b.year - a.year);
+  if (cycles.length === 0) return null;
+  return {
+    councilSlug: slug,
+    council: cycles[0].council,
+    authorityType: cycles[0].authorityType,
+    cycles
+  };
+}
+
+/** Distinct council slugs (one entry per council across all years). */
+export function distinctCouncilSlugs(): { councilSlug: string; council: string }[] {
+  const seen = new Map<string, string>();
+  for (const c of allCouncils) {
+    if (!seen.has(c.councilSlug)) seen.set(c.councilSlug, c.council);
+  }
+  return [...seen.entries()]
+    .map(([councilSlug, council]) => ({ councilSlug, council }))
+    .sort((a, b) => a.council.localeCompare(b.council));
+}
 
 export function partyViewForYearAndCouncil(
   year: number,
@@ -110,11 +154,11 @@ export function racesForYearAndCouncil(
     );
 }
 
-/** All (year, council) entries — for sitemap and SvelteKit `entries()`. */
-export function allCouncilEntries(): { year: string; council: string }[] {
+/** All (council, year) entries — for sitemap and SvelteKit `entries()`. */
+export function allCouncilEntries(): { council: string; year: string }[] {
   return allCouncils.map((c) => ({
-    year: String(c.year),
-    council: c.councilSlug
+    council: c.councilSlug,
+    year: String(c.year)
   }));
 }
 

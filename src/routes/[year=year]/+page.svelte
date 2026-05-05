@@ -11,7 +11,7 @@
         c.councilSlug,
         {
           color: belowQuotaColor(c.belowQuotaShare),
-          href: `/${c.year}/${c.councilSlug}`,
+          href: `/${c.councilSlug}/${c.year}`,
           title: `${c.council} — ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`,
           primary: `${c.council} (${c.year})`,
           secondary: `${pct(c.belowQuotaShare)} of seats below quota — ${c.belowQuotaSeatCount} of ${c.totalSeatCount}`
@@ -100,7 +100,7 @@
         {#each data.topUnderPar as r (r.councilSlug + r.wardSlug)}
           <tr>
             <td>
-              <a href={`/${data.cycle.year}/${r.councilSlug}#${r.wardSlug}`}>
+              <a href={`/${r.councilSlug}/${data.cycle.year}#${r.wardSlug}`}>
                 <strong>{r.wardName}</strong>
               </a>
               <br />
@@ -126,7 +126,7 @@
   <ul class="council-list">
     {#each data.councils as c (c.councilSlug)}
       <li>
-        <a href={`/${c.year}/${c.councilSlug}`}>{c.council}</a>
+        <a href={`/${c.councilSlug}/${c.year}`}>{c.council}</a>
         <span class="muted">
           · {c.raceCount} race{c.raceCount === 1 ? '' : 's'}
           · {pct(c.belowQuotaShare)} of seats below quota
