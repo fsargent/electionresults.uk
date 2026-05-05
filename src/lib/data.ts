@@ -66,6 +66,65 @@ export function flipsForCouncil(slug: string): CouncilFlip[] {
 }
 
 /**
+ * Current composition of a council: take each ward's most recent race
+ * (whichever cycle that was) and sum elected candidates by party. For
+ * all-out councils every ward's latest race is in the same cycle; for
+ * by-thirds councils the wards' latest races are spread across the last
+ * three cycles. Either way the result is "who currently holds the seats
+ * in each ward, summed".
+ *
+ * Caveat: ward names matched across cycles are an approximation
+ * (boundary reviews can split / merge / rename wards).
+ */
+export interface CouncilComposition {
+  /** The cycles aggregated to form the composition (ascending). */
+  yearsCovered: number[];
+  /** Total seats summed across those cycles. */
+  totalSeats: number;
+  rows: { party: string; seats: number }[];
+}
+
+/**
+ * Approximate "currently sitting" composition: sum elected candidates
+ * from cycles within two years of the council's latest cycle. That window
+ * captures a full term for by-thirds councils (3 consecutive years) and
+ * the latest term for all-out councils (whose prior cycle is 4 years
+ * earlier and therefore excluded — those councillors were replaced).
+ * For by-halves councils, alternate years contribute, also matching a
+ * full term over 3 calendar years.
+ *
+ * Caveat: boundary reviews mid-term can over- or under-count slightly.
+ * Wards renamed or restructured between cycles produce new races that
+ * sum into the total alongside their predecessor wards, so a council in
+ * the middle of a boundary change can show more "seats" than it has.
+ */
+export function currentCouncilComposition(slug: string): CouncilComposition {
+  const races = allRaces.filter((r) => r.councilSlug === slug);
+  if (races.length === 0) return { yearsCovered: [], totalSeats: 0, rows: [] };
+  const yearsDesc = [...new Set(races.map((r) => r.year))].sort(
+    (a, b) => b - a
+  );
+  const latest = yearsDesc[0];
+  const yearsCovered = yearsDesc
+    .filter((y) => latest - y <= 2)
+    .sort((a, b) => a - b);
+  const yearSet = new Set(yearsCovered);
+  const byParty = new Map<string, number>();
+  let totalSeats = 0;
+  for (const r of races) {
+    if (!yearSet.has(r.year)) continue;
+    for (const c of r.candidates.filter((c) => c.elected)) {
+      byParty.set(c.party, (byParty.get(c.party) ?? 0) + 1);
+      totalSeats += 1;
+    }
+  }
+  const rows = [...byParty.entries()]
+    .map(([party, seats]) => ({ party, seats }))
+    .sort((a, b) => b.seats - a.seats);
+  return { yearsCovered, totalSeats, rows };
+}
+
+/**
  * For each council, the most recent flip we have. Used by the homepage
  * "year-over-year flips" map so each hex shows the latest control change.
  */

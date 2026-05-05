@@ -3,9 +3,11 @@
   import Party from '$lib/components/Party.svelte';
   import { partyColor } from '$lib/party-colors';
   import PartyBars from '$lib/components/PartyBars.svelte';
+  import SeatChart from '$lib/components/SeatChart.svelte';
   let { data } = $props();
   const history = $derived(data.history);
   const flips = $derived(data.flips);
+  const composition = $derived(data.composition);
 </script>
 
 <svelte:head>
@@ -26,6 +28,24 @@
   <p class="muted">
     Every election cycle we have data for, most recent first.
   </p>
+
+  {#if composition.totalSeats > 0}
+    <h2>Council composition <span class="muted approx">(approx.)</span></h2>
+    <p class="muted">
+      {num(composition.totalSeats)} councillors elected across cycles
+      {composition.yearsCovered.length === 1
+        ? composition.yearsCovered[0]
+        : composition.yearsCovered.join(', ')}, summed by party. One
+      square per seat. <strong>Approximate</strong>: by-thirds councils
+      mid-term, boundary reviews, and partial-cycle elections all mean
+      this can be a few seats off the live council count. For the
+      authoritative current composition, check the council's own
+      members list. Hover any seat for the party.
+    </p>
+    <div class="council-seats">
+      <SeatChart segments={composition.rows} minSize={18} />
+    </div>
+  {/if}
 
   <h2>Cycles</h2>
   <ul class="cycle-list">
@@ -291,6 +311,22 @@
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+  }
+
+  .council-seats {
+    margin: 0.6rem 0 1.5rem;
+    max-width: 36rem;
+  }
+  .approx {
+    font-size: 0.6em;
+    font-weight: 400;
+    text-transform: lowercase;
+    letter-spacing: 0;
+  }
+  /* The standalone seat chart on this page doesn't need the left-label
+     column — collapse the row layout to a single column. */
+  .council-seats :global(.seat-row) {
+    grid-template-columns: 1fr;
   }
 
   .ward-grid-wrap {

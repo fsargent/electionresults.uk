@@ -3,7 +3,8 @@ import {
   councilHistory,
   distinctCouncilSlugs,
   flipsForCouncil,
-  wardHistoryForCouncil
+  wardHistoryForCouncil,
+  currentCouncilComposition
 } from '$lib/data';
 
 export const prerender = true;
@@ -17,5 +18,6 @@ export function load({ params }: { params: { council: string } }) {
   if (!history) throw error(404, `Council not found: ${params.council}`);
   const flips = flipsForCouncil(params.council);
   const wards = wardHistoryForCouncil(params.council);
-  return { history, flips, wards };
+  const composition = currentCouncilComposition(params.council);
+  return { history, flips, wards, composition };
 }

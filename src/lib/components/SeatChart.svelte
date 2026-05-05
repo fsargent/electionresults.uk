@@ -9,9 +9,9 @@
   let {
     segments,
     label,
-    /** Seat-square edge length in CSS pixels. */
-    size = 16
-  }: { segments: SeatGroup[]; label?: string; size?: number } = $props();
+    /** Minimum cell width — squares stretch to fill the row above this. */
+    minSize = 14
+  }: { segments: SeatGroup[]; label?: string; minSize?: number } = $props();
 
   // Flatten into one entry per seat with its position-within-party and
   // party-total baked in, so the tooltip lookup is O(1) and the render
@@ -65,7 +65,7 @@
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
     class="seat-grid"
-    style:--seat-size={`${size}px`}
+    style:--seat-min={`${minSize}px`}
     onpointermove={onMove}
     onpointerleave={onLeave}
     role="img"
@@ -115,15 +115,17 @@
     letter-spacing: 0.04em;
     padding-top: 0.2rem;
   }
+  /* Auto-fill so the rightmost cell always reaches the container edge —
+     keeps the grid the same width as a sibling PartyBars. Squares
+     resize to whatever fits with the configured minimum cell width. */
   .seat-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--seat-min, 14px), 1fr));
     gap: 2px;
   }
   .seat {
     display: block;
-    width: var(--seat-size, 16px);
-    height: var(--seat-size, 16px);
+    aspect-ratio: 1;
     border-radius: 2px;
     border: 1px solid rgba(0, 0, 0, 0.18);
     transition: transform 0.08s, box-shadow 0.08s;
