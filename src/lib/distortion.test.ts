@@ -179,6 +179,21 @@ describe('systemObservation', () => {
     expect(obs.toLowerCase()).toMatch(/multi-member|bloc/);
   });
 
+  it('links STV mentions to stv.vote in minority cases', () => {
+    const r = race({
+      seats: 1,
+      candidates: [
+        cand({ votes: 200, elected: true, rank: 1 }),
+        cand({ votes: 195, elected: false, rank: 2 }),
+        cand({ votes: 190, elected: false, rank: 3 }),
+        cand({ votes: 185, elected: false, rank: 4 }),
+        cand({ votes: 180, elected: false, rank: 5 })
+      ]
+    });
+    const obs = systemObservation(r);
+    expect(obs).toContain('href="https://stv.vote"');
+  });
+
   it('reports majority result without minority framing', () => {
     const r = race({
       seats: 1,

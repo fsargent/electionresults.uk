@@ -18,6 +18,8 @@ interface SnapshotMarginal {
 interface Snapshot {
   generatedAt: string;
   source: string;
+  electionDate: string;
+  electionDateLabel: string;
   cycleLabel: string;
   totals: {
     councils: number;
@@ -34,6 +36,8 @@ const data = snapshot as unknown as Snapshot;
 
 export const generatedAt = data.generatedAt;
 export const cycleLabel = data.cycleLabel;
+export const electionDate = data.electionDate;
+export const electionDateLabel = data.electionDateLabel;
 export const sourceLabel = data.source;
 export const totals = data.totals;
 

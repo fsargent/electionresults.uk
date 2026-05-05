@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as XLSX from 'xlsx';
-import Database from 'better-sqlite3';
+import { Database } from 'bun:sqlite';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -133,6 +133,12 @@ for (const w of wardsRaw) {
 }
 
 // --- Attach candidates to wards ---
+// We capture the source's own `Elected` flag as `electedSource` for forensic
+// purposes but DO NOT trust it. The LEH-2025 workbook has confirmed
+// inconsistencies (e.g. EC 62374 Cramlington Village marks both Swinburn at
+// 791 votes and Leyland at 91 votes as elected for a single-seat race).
+// Below, we recompute the elected flag as "top N by vote count where N =
+// seats contested" — the actual rule under FPTP and bloc vote.
 let orphanCandidates = 0;
 for (const c of candidatesRaw) {
   const ecCode = String(c['EC ward code']);
@@ -150,7 +156,8 @@ for (const c of candidatesRaw) {
     partyAbbrev: partyAbbrev.get(partyName) ?? null,
     gender: c['Gender'] ?? null,
     votes: Number(c['Votes cast'] || 0),
-    elected: truthy(c['Elected']),
+    electedSource: truthy(c['Elected']),
+    elected: false, // recomputed below
     rank: Number(c['Rank'] || 0),
     incumbent: Number(c['Incumbent'] || 0)
   });
@@ -159,9 +166,23 @@ if (orphanCandidates > 0) {
   console.warn(`[etl] ${orphanCandidates} candidate rows had no matching ward`);
 }
 
-// Sort candidates by rank (1 = top) so winners come first.
+// --- Recompute `elected` from votes: top N by vote count, N = ward seats. ---
+let electedFlagOverrides = 0;
 for (const w of wards.values()) {
-  w.candidates.sort((a, b) => (a.rank || 999) - (b.rank || 999));
+  // Sort by votes desc; tiebreak by source rank ascending so deterministic.
+  w.candidates.sort((a, b) => b.votes - a.votes || (a.rank || 999) - (b.rank || 999));
+  const seatsToFill = Math.max(0, Number(w.seats) || 0);
+  for (let i = 0; i < w.candidates.length; i++) {
+    const shouldBeElected = i < seatsToFill;
+    if (shouldBeElected !== w.candidates[i].electedSource) electedFlagOverrides += 1;
+    w.candidates[i].elected = shouldBeElected;
+    // Renumber rank from votes order (1 = highest vote count) so the rank we
+    // display is internally consistent with the ordering on the page.
+    w.candidates[i].rank = i + 1;
+  }
+}
+if (electedFlagOverrides > 0) {
+  console.warn(`[etl] overrode source 'Elected' flag on ${electedFlagOverrides} candidacies (top-N-by-votes rule)`);
 }
 
 // --- Drop wards with zero candidates (uncontested rows we can't render) ---
@@ -240,8 +261,8 @@ console.log(
 // --- Emit SQLite ---
 mkdirSync(OUT_DIR, { recursive: true });
 if (existsSync(SQLITE_PATH)) rmSync(SQLITE_PATH);
-const db = new Database(SQLITE_PATH);
-db.pragma('journal_mode = DELETE');
+const db = new Database(SQLITE_PATH, { create: true });
+db.exec('PRAGMA journal_mode = DELETE');
 
 db.exec(`
 CREATE TABLE councils (
@@ -279,6 +300,9 @@ CREATE TABLE candidates (
   party_abbrev TEXT,
   votes INTEGER NOT NULL,
   elected INTEGER NOT NULL,
+  -- LEH source Elected column as published; differs from elected on a
+  -- small number of candidacies where the source workbook is inconsistent.
+  elected_source INTEGER NOT NULL,
   gender TEXT,
   incumbent INTEGER,
   FOREIGN KEY (ec_code) REFERENCES races(ec_code)
@@ -296,8 +320,8 @@ INSERT INTO races (ec_code, ward_code, ward_name, ward_slug, council_slug, counc
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 const insCand = db.prepare(`
-INSERT INTO candidates (ec_code, rank, candidate_name, party, party_abbrev, votes, elected, gender, incumbent)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+INSERT INTO candidates (ec_code, rank, candidate_name, party, party_abbrev, votes, elected, elected_source, gender, incumbent)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 
 const tx = db.transaction(() => {
@@ -339,6 +363,7 @@ const tx = db.transaction(() => {
         cand.partyAbbrev,
         cand.votes,
         cand.elected ? 1 : 0,
+        cand.electedSource ? 1 : 0,
         cand.gender,
         cand.incumbent
       );
@@ -407,7 +432,9 @@ ensureDir(SNAPSHOT_PATH);
 const snapshot = {
   generatedAt: new Date().toISOString(),
   source: 'docs/LEH-2025-results-HoC.xlsx',
-  cycleLabel: 'May 2025 (dev fixture — same shape as 2026 LEH)',
+  electionDate: '2025-05-01',
+  electionDateLabel: '1 May 2025',
+  cycleLabel: 'May 2025 (dev fixture — same shape as the 2026 LEH that lands months out)',
   totals: {
     councils: councils.length,
     races: races.length,

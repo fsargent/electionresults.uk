@@ -1,6 +1,7 @@
 import {
   totals,
   cycleLabel,
+  electionDateLabel,
   topMinorityWinners,
   raceLeaderboard,
   allCouncils,
@@ -14,6 +15,7 @@ export function load() {
   return {
     totals,
     cycleLabel,
+    electionDateLabel,
     generatedAt,
     topMinority: topMinorityWinners(10),
     worstRaces: board.filter((r) => r.winningPct < 0.5).slice(0, 10),

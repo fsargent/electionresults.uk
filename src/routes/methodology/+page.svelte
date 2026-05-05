@@ -34,7 +34,7 @@
     <a href="/data">/data</a>.
   </p>
   <p>
-    Scotland's councils elect their councillors by Single Transferable Vote.
+    Scotland's councils elect their councillors by <a href="https://stv.vote" rel="external noopener">Single Transferable Vote</a>.
     Scottish council results do not produce minority-mandate winners in the
     way the figures on this site do. The contrast is the rhetorical hook of
     the project, and the editorial frame throughout.
@@ -71,8 +71,8 @@
     across ward types, and (b) any other choice would require speculating
     about how voters distributed their second and third votes. Readers
     interpreting multi-member percentages should treat them as a lower bound
-    on candidate support, not an upper one. The Single Transferable Vote, as
-    used in Scottish council elections, removes this ambiguity by counting
+    on candidate support, not an upper one. The <a href="https://stv.vote" rel="external noopener">Single Transferable Vote</a>, as
+    as used in Scottish council elections, removes this ambiguity by counting
     preferences explicitly.
   </p>
 

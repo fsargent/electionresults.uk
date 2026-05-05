@@ -18,6 +18,7 @@
 <main class="wide">
   <p class="muted"><a href="/">← All councils</a></p>
   <h1>{council.council}</h1>
+  <p class="muted election-date">Local elections held <strong>{data.electionDateLabel}</strong>.</p>
 
   <div class="summary">
     <div class="kpi">
@@ -56,7 +57,7 @@
       <summary>
         <span>
           <strong>{race.wardName}</strong>
-          {#if race.seats > 1}<span class="muted"> · {race.seats}-seat</span>{/if}
+          <span class="muted"> · {race.seats === 1 ? 'single-seat' : `${race.seats}-seat (bloc vote)`}</span>
         </span>
         <span class="num muted">{num(race.validBallots)} valid ballots</span>
         <span class="num pct" class:minority={race.winningPct < 0.5}>
@@ -64,7 +65,24 @@
         </span>
       </summary>
 
-      <div class="system-note">{observation}</div>
+      <p class="muted small race-meta">
+        {race.seats} seat{race.seats === 1 ? '' : 's'} ·
+        {race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'} ·
+        {#if race.seats === 1}
+          a candidate wins by being top of the poll, regardless of share —
+          no minimum threshold under First-Past-the-Post
+        {:else}
+          top {race.seats} candidates by vote count win — no minimum
+          threshold under bloc vote. Under
+          <a href="https://stv.vote" rel="external noopener">STV</a>, the
+          equivalent quota would be roughly
+          {pct(1 / (race.seats + 1), 0)} per seat
+        {/if}
+      </p>
+
+      <!-- HTML produced entirely by systemObservation() in $lib/distortion;
+           safe to render. -->
+      <div class="system-note">{@html observation}</div>
 
       <table>
         <thead>
@@ -131,4 +149,11 @@
   }
   tr.elected td { font-weight: 600; }
   .small { font-size: 0.82rem; }
+  .election-date {
+    margin-top: -0.5rem;
+    font-size: 0.95rem;
+  }
+  .race-meta {
+    margin: 0.4rem 0 0.6rem;
+  }
 </style>

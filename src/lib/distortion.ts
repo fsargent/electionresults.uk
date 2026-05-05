@@ -34,9 +34,16 @@ function formatPct(pct: number): string {
   return `${(pct * 100).toFixed(1)}%`;
 }
 
+const STV_LINK =
+  '<a href="https://stv.vote" rel="external noopener">STV</a>';
+
 /**
  * One-sentence editorial line that names the voting method as the subject,
- * not the candidate. Templates vary by ward type and winning-% bracket.
+ * not the candidate. Returns small HTML so STV mentions can link to
+ * https://stv.vote — all content is produced here, no user input,
+ * safe to render via `{@html}`.
+ *
+ * Templates vary by ward type and winning-% bracket.
  */
 export function systemObservation(r: Race): string {
   const pct = raceWinningPct(r);
@@ -54,17 +61,17 @@ export function systemObservation(r: Race): string {
 
   if (pct < 0.25) {
     return multi
-      ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — fewer than one in four voters supported them. A preferential or proportional method (such as STV, used in Scottish local elections) would have required broader support.`
-      : `Under ${method}, this seat was won on ${pctStr} of valid ballots — fewer than one in four voters supported the winner. A preferential method such as the Alternative Vote, or a proportional method such as STV (used in Scottish local elections), would have required the eventual winner to assemble broader support.`;
+      ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — fewer than one in four voters supported them. A preferential or proportional method such as ${STV_LINK} (used in Scottish local elections) would have required broader support.`
+      : `Under ${method}, this seat was won on ${pctStr} of valid ballots — fewer than one in four voters supported the winner. A preferential method such as the Alternative Vote, or a proportional method such as ${STV_LINK} (used in Scottish local elections), would have required the eventual winner to assemble broader support.`;
   }
 
   if (pct < 0.34) {
     return multi
-      ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — fewer than a third of voters supported them. STV (used in Scottish local elections) would not have produced this result.`
-      : `Under ${method}, this seat was won on ${pctStr} of valid ballots — fewer than a third of voters supported the winner. The Alternative Vote, or STV as used in Scottish local elections, would have required the winner to attract additional support.`;
+      ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — fewer than a third of voters supported them. ${STV_LINK} (used in Scottish local elections) would not have produced this result.`
+      : `Under ${method}, this seat was won on ${pctStr} of valid ballots — fewer than a third of voters supported the winner. The Alternative Vote, or ${STV_LINK} as used in Scottish local elections, would have required the winner to attract additional support.`;
   }
 
   return multi
-    ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — more voters opposed than supported them. STV (used in Scottish local elections) would have produced a different result.`
-    : `Under ${method}, this seat was won on ${pctStr} of valid ballots — more voters opposed the winner than supported them. The Alternative Vote or STV would have required broader support.`;
+    ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — more voters opposed than supported them. ${STV_LINK} (used in Scottish local elections) would have produced a different result.`
+    : `Under ${method}, this seat was won on ${pctStr} of valid ballots — more voters opposed the winner than supported them. The Alternative Vote or ${STV_LINK} would have required broader support.`;
 }

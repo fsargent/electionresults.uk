@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { councilBySlug, racesByCouncil, allCouncils } from '$lib/data';
+import { councilBySlug, racesByCouncil, allCouncils, electionDateLabel } from '$lib/data';
 import { systemObservation } from '$lib/distortion';
 
 export const prerender = true;
@@ -15,5 +15,5 @@ export function load({ params }: { params: { council: string } }) {
     race,
     observation: systemObservation(race)
   }));
-  return { council, races };
+  return { council, races, electionDateLabel };
 }

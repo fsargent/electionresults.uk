@@ -13,7 +13,8 @@
 </svelte:head>
 
 <div class="banner">
-  Pre-launch preview · dev fixture: {data.cycleLabel}. The 2026-05-07 results
+  Pre-launch preview · showing the <strong>{data.electionDateLabel}</strong>
+  English local-elections cohort as a dev fixture. The 2026-05-07 results
   will populate this site as Democracy Club data lands.
 </div>
 
@@ -34,7 +35,8 @@
   </p>
 
   <p>
-    Scotland's councils elect their councillors by Single Transferable Vote.
+    Scotland's councils elect their councillors by the
+    <a href="https://stv.vote" rel="external noopener">Single Transferable Vote</a>.
     Scottish councils <em>do not</em> produce ward results like the ones below.
     The results below are not unusual; they are how this voting method works.
     See <a href="/methodology">the methodology page</a> for how every number is
