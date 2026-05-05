@@ -34,10 +34,22 @@
     <a href="/data">/data</a>.
   </p>
   <p>
-    Scotland's councils elect their councillors by <a href="https://stv.vote" rel="external noopener">Single Transferable Vote</a>.
-    Scottish council results do not produce minority-mandate winners in the
-    way the figures on this site do. The contrast is the rhetorical hook of
-    the project, and the editorial frame throughout.
+    We deliberately avoid the words "majority" and "minority" as system
+    labels. They imply that FPTP and bloc vote have a numerical threshold
+    a winner must clear &mdash; which they do not. A candidate wins under
+    these methods by being top of the poll, full stop, regardless of share.
+    Instead we report each elected candidate's share against the
+    <strong>proportional quota</strong> &mdash; the share that would be
+    needed to be guaranteed that seat under
+    <a href="https://stv.vote" rel="external noopener">STV</a> &mdash;
+    and call out the gap.
+  </p>
+  <p>
+    Scotland's councils elect their councillors by the
+    <a href="https://stv.vote" rel="external noopener">Single Transferable Vote</a>.
+    Scottish council results do not produce the gaps the figures on this
+    site do. The contrast is the rhetorical hook of the project, and the
+    editorial frame throughout.
   </p>
 
   <h2>Winning percentage</h2>
@@ -63,24 +75,44 @@
   <h3>A note on multi-member wards</h3>
   <p>
     In a multi-member ward (electing N councillors at once under bloc vote),
-    each voter may cast up to N votes — so a candidate's
-    <code>candidate_votes / valid_ballots</code> ratio understates the share
-    of voters who supported them, sometimes by a lot. We report the ratio
-    anyway, with the same denominator as single-member wards, because (a) it
-    is the figure used by the source workbook and consistently comparable
-    across ward types, and (b) any other choice would require speculating
-    about how voters distributed their second and third votes. Readers
-    interpreting multi-member percentages should treat them as a lower bound
-    on candidate support, not an upper one. The <a href="https://stv.vote" rel="external noopener">Single Transferable Vote</a>, as
-    as used in Scottish council elections, removes this ambiguity by counting
-    preferences explicitly.
+    each voter may cast up to N votes &mdash; so a candidate's
+    <code>candidate_votes / valid_ballots</code> ratio understates the
+    share of voters who supported them, sometimes by a lot. We report the
+    ratio anyway, with the same denominator as single-member wards,
+    because (a) it is the figure used by the source workbook and
+    consistently comparable across ward types, and (b) any other choice
+    would require speculating about how voters distributed their second
+    and third votes. Readers interpreting multi-member percentages should
+    treat them as a lower bound on candidate support, not an upper one.
+    The proportional quota framing (above) is calibrated to this same
+    denominator, so the comparison stays apples-to-apples.
   </p>
 
-  <h2>Minority mandate</h2>
+  <h2>Proportional quota and "under par"</h2>
   <p>
-    A seat is flagged as a minority-mandate seat when its winning percentage,
-    computed as above, is strictly less than 50%. A seat won on exactly 50%
-    is not flagged.
+    The <strong>Droop quota</strong> is the share of valid first-preference
+    ballots a candidate would need to be guaranteed a seat under STV:
+    <code>quota = 1 / (seats + 1)</code>. For a 1-seat ward this collapses
+    to 50% (and matches the AV majority threshold); for 2 seats it is
+    33.3%; for 3 seats, 25%.
+  </p>
+  <p>
+    For each race we compute <code>under_par = quota − winning_pct</code>.
+    A positive value means the marginal elected candidate won less of the
+    valid ballots than the quota &mdash; the seat would not have been
+    guaranteed under a proportional count. We surface this as
+    <em>"X.X points below quota"</em> and treat it as the editorial
+    indictment of the voting method, not the candidate. Above-quota
+    results are mathematically clean and pass without comment.
+  </p>
+  <p>
+    This is a deliberate departure from the older "minority winner"
+    framing (winning_pct &lt; 50%). The 50% threshold is not a rule of
+    FPTP or bloc vote &mdash; calling someone a "minority winner"
+    implies they fell short of a standard the system never required of
+    them. The quota framing is the standard a proportional system
+    <em>does</em> require, and the gap is the loss attributable to the
+    method.
   </p>
 
   <h2>Sources</h2>

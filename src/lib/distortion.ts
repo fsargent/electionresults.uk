@@ -16,9 +16,8 @@ export function electedWinningPcts(r: Race): number[] {
 /**
  * Headline winning % for a race.
  * Single-member: the winner's share of valid ballots.
- * Multi-member: the marginal (lowest-vote) elected candidate's share — they
- * are the most-vulnerable mandate in the ward, so the headline % surfaces
- * how thin the weakest seat-holder's support actually was.
+ * Multi-member: the marginal (lowest-vote) elected candidate's share —
+ * the seat-holder with the thinnest mandate in that ward.
  */
 export function raceWinningPct(r: Race): number {
   const pcts = electedWinningPcts(r);
@@ -26,52 +25,29 @@ export function raceWinningPct(r: Race): number {
   return Math.min(...pcts);
 }
 
-export function isMinority(pct: number): boolean {
-  return pct < 0.5;
+/**
+ * Droop quota: 1 / (seats + 1).
+ *
+ * This is the share of valid first-preference ballots a candidate would need
+ * to be guaranteed a seat under STV. We use it as the "fair" benchmark for
+ * single-member and multi-member ward results alike — for single-member it
+ * collapses to 50% (the AV majority threshold).
+ */
+export function quotaForSeats(seats: number): number {
+  if (!Number.isFinite(seats) || seats < 1) return 0.5;
+  return 1 / (seats + 1);
 }
-
-function formatPct(pct: number): string {
-  return `${(pct * 100).toFixed(1)}%`;
-}
-
-const STV_LINK =
-  '<a href="https://stv.vote" rel="external noopener">STV</a>';
 
 /**
- * One-sentence editorial line that names the voting method as the subject,
- * not the candidate. Returns small HTML so STV mentions can link to
- * https://stv.vote — all content is produced here, no user input,
- * safe to render via `{@html}`.
- *
- * Templates vary by ward type and winning-% bracket.
+ * How far below the proportional quota the marginal elected candidate's
+ * share fell, in fraction-of-valid-ballots units. Positive = below par
+ * (the editorial indictment), negative = above par.
  */
-export function systemObservation(r: Race): string {
-  const pct = raceWinningPct(r);
-  const pctStr = formatPct(pct);
-  const multi = r.seats > 1;
-  const method = multi
-    ? 'multi-member bloc vote (a variant of First-Past-the-Post)'
-    : 'First-Past-the-Post';
+export function underPar(r: Race): number {
+  return quotaForSeats(r.seats) - raceWinningPct(r);
+}
 
-  if (!isMinority(pct)) {
-    return multi
-      ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — a clear majority mandate.`
-      : `Under ${method}, this seat was won on ${pctStr} of valid ballots — a clear majority of voters supported the winner.`;
-  }
-
-  if (pct < 0.25) {
-    return multi
-      ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — fewer than one in four voters supported them. A preferential or proportional method such as ${STV_LINK} (used in Scottish local elections) would have required broader support.`
-      : `Under ${method}, this seat was won on ${pctStr} of valid ballots — fewer than one in four voters supported the winner. A preferential method such as the Alternative Vote, or a proportional method such as ${STV_LINK} (used in Scottish local elections), would have required the eventual winner to assemble broader support.`;
-  }
-
-  if (pct < 0.34) {
-    return multi
-      ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — fewer than a third of voters supported them. ${STV_LINK} (used in Scottish local elections) would not have produced this result.`
-      : `Under ${method}, this seat was won on ${pctStr} of valid ballots — fewer than a third of voters supported the winner. The Alternative Vote, or ${STV_LINK} as used in Scottish local elections, would have required the winner to attract additional support.`;
-  }
-
-  return multi
-    ? `Under the ${method}, the most-marginal of the ${r.seats} elected candidates was returned on ${pctStr} of valid ballots — more voters opposed than supported them. ${STV_LINK} (used in Scottish local elections) would have produced a different result.`
-    : `Under ${method}, this seat was won on ${pctStr} of valid ballots — more voters opposed the winner than supported them. The Alternative Vote or ${STV_LINK} would have required broader support.`;
+/** True when the marginal winner's share fell below the proportional quota. */
+export function isBelowQuota(r: Race): boolean {
+  return underPar(r) > 0;
 }

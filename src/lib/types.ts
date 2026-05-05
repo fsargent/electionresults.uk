@@ -24,8 +24,12 @@ export interface Race {
   candidates: Candidate[];
   /** marginal-elected-candidate share of valid ballots; computed by ETL */
   winningPct: number;
-  /** true when winningPct < 0.5 */
-  isMinority: boolean;
+  /** Droop quota — share that would be needed under STV: 1 / (seats + 1) */
+  quota: number;
+  /** quota − winningPct; positive = below par */
+  underPar: number;
+  /** convenience flag: true when underPar > 0 */
+  isBelowQuota: boolean;
 }
 
 export interface CouncilSummary {
@@ -33,8 +37,10 @@ export interface CouncilSummary {
   councilSlug: string;
   authorityType: string;
   raceCount: number;
-  minorityWinnerSeatCount: number;
   totalSeatCount: number;
-  minorityShare: number;
+  /** seats won where the marginal winning share fell below the Droop quota */
+  belowQuotaSeatCount: number;
+  /** belowQuotaSeatCount / totalSeatCount */
+  belowQuotaShare: number;
 }
 

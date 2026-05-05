@@ -2,7 +2,6 @@ import {
   totals,
   cycleLabel,
   electionDateLabel,
-  topMinorityWinners,
   raceLeaderboard,
   allCouncils,
   generatedAt
@@ -17,8 +16,7 @@ export function load() {
     cycleLabel,
     electionDateLabel,
     generatedAt,
-    topMinority: topMinorityWinners(10),
-    worstRaces: board.filter((r) => r.winningPct < 0.5).slice(0, 10),
+    topUnderPar: board.filter((r) => r.underPar > 0).slice(0, 10),
     councils: allCouncils,
     councilCount: allCouncils.length
   };

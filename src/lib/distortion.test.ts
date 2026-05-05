@@ -2,10 +2,11 @@ import { describe, it, expect } from 'vitest';
 import {
   candidateWinningPct,
   raceWinningPct,
-  isMinority,
   electedCandidates,
-  systemObservation,
-  electedWinningPcts
+  electedWinningPcts,
+  quotaForSeats,
+  underPar,
+  isBelowQuota
 } from './distortion';
 import type { Race, Candidate } from './types';
 
@@ -34,7 +35,9 @@ const race = (overrides: Partial<Race> = {}): Race => ({
   validBallots: 1000,
   candidates: [],
   winningPct: 0,
-  isMinority: false,
+  quota: 0.5,
+  underPar: 0,
+  isBelowQuota: false,
   ...overrides
 });
 
@@ -62,18 +65,6 @@ describe('raceWinningPct (single-member)', () => {
       ]
     });
     expect(raceWinningPct(r)).toBe(0.6);
-  });
-
-  it('handles minority win', () => {
-    const r = race({
-      seats: 1,
-      candidates: [
-        cand({ votes: 350, elected: true, rank: 1 }),
-        cand({ votes: 320, elected: false, rank: 2 }),
-        cand({ votes: 330, elected: false, rank: 3 })
-      ]
-    });
-    expect(raceWinningPct(r)).toBe(0.35);
   });
 });
 
@@ -106,17 +97,6 @@ describe('raceWinningPct (multi-member)', () => {
   });
 });
 
-describe('isMinority', () => {
-  it.each([
-    [0.49, true],
-    [0.5, false],
-    [0.51, false],
-    [0.05, true]
-  ])('isMinority(%f) === %s', (pct, expected) => {
-    expect(isMinority(pct)).toBe(expected);
-  });
-});
-
 describe('electedCandidates / electedWinningPcts', () => {
   it('returns elected candidates only', () => {
     const r = race({
@@ -144,57 +124,52 @@ describe('electedCandidates / electedWinningPcts', () => {
   });
 });
 
-describe('systemObservation', () => {
-  it('flags single-member minority win <25%', () => {
-    const r = race({
-      seats: 1,
-      candidates: [
-        cand({ votes: 200, elected: true, rank: 1, party: 'Green Party', name: 'Pat Specific' }),
-        cand({ votes: 195, elected: false, rank: 2 }),
-        cand({ votes: 190, elected: false, rank: 3 }),
-        cand({ votes: 185, elected: false, rank: 4 }),
-        cand({ votes: 180, elected: false, rank: 5 })
-      ]
-    });
-    const obs = systemObservation(r);
-    expect(obs).toMatch(/20\.0%/);
-    expect(obs.toLowerCase()).toContain('first-past-the-post');
-    expect(obs).not.toMatch(/Green Party/);
-    // Editorial guard rail: the system observation must never name the
-    // candidate. The voting method is the subject; the name is in the row.
-    expect(obs).not.toMatch(/Pat Specific/);
+describe('quotaForSeats (Droop quota = 1/(seats+1))', () => {
+  it.each([
+    [1, 0.5],
+    [2, 1 / 3],
+    [3, 0.25],
+    [4, 0.2],
+    [5, 1 / 6]
+  ])('quotaForSeats(%i) === %f', (seats, expected) => {
+    expect(quotaForSeats(seats)).toBeCloseTo(expected, 6);
   });
 
-  it('mentions multi-member when seats > 1', () => {
+  it('returns 0.5 for malformed seat counts (defensive)', () => {
+    expect(quotaForSeats(0)).toBe(0.5);
+    expect(quotaForSeats(-1)).toBe(0.5);
+  });
+});
+
+describe('underPar', () => {
+  it('zero when winner exactly meets the quota', () => {
+    const r = race({
+      seats: 2,
+      validBallots: 3,
+      candidates: [
+        cand({ votes: 2, elected: true, rank: 1 }),
+        cand({ votes: 1, elected: true, rank: 2 })
+      ]
+    });
+    expect(underPar(r)).toBeCloseTo(0, 6);
+  });
+
+  it('positive when marginal winner is below quota (the indictment)', () => {
+    // Upton-style: 2-seat race, marginal elected on 15.3% of valid ballots.
+    // Quota = 33.33%. Under par = ~18.0 points.
     const r = race({
       seats: 2,
       validBallots: 1000,
       candidates: [
-        cand({ votes: 400, elected: true }),
-        cand({ votes: 200, elected: true }),
-        cand({ votes: 150, elected: false })
+        cand({ votes: 250, elected: true, rank: 1 }),
+        cand({ votes: 153, elected: true, rank: 2 }),
+        cand({ votes: 100, elected: false, rank: 3 })
       ]
     });
-    const obs = systemObservation(r);
-    expect(obs.toLowerCase()).toMatch(/multi-member|bloc/);
+    expect(underPar(r)).toBeCloseTo(1 / 3 - 0.153, 4);
   });
 
-  it('links STV mentions to stv.vote in minority cases', () => {
-    const r = race({
-      seats: 1,
-      candidates: [
-        cand({ votes: 200, elected: true, rank: 1 }),
-        cand({ votes: 195, elected: false, rank: 2 }),
-        cand({ votes: 190, elected: false, rank: 3 }),
-        cand({ votes: 185, elected: false, rank: 4 }),
-        cand({ votes: 180, elected: false, rank: 5 })
-      ]
-    });
-    const obs = systemObservation(r);
-    expect(obs).toContain('href="https://stv.vote"');
-  });
-
-  it('reports majority result without minority framing', () => {
+  it('negative when marginal winner exceeds the quota (above-par mandate)', () => {
     const r = race({
       seats: 1,
       candidates: [
@@ -203,8 +178,60 @@ describe('systemObservation', () => {
         cand({ votes: 100, elected: false, rank: 3 })
       ]
     });
-    const obs = systemObservation(r);
-    expect(obs).toMatch(/70\.0%/);
-    expect(obs.toLowerCase()).not.toContain('without majority');
+    expect(underPar(r)).toBeCloseTo(-0.2, 6);
+  });
+});
+
+describe('isBelowQuota', () => {
+  it('flags a 2-seat race won at 15% (quota 33.3%)', () => {
+    const r = race({
+      seats: 2,
+      validBallots: 1000,
+      candidates: [
+        cand({ votes: 250, elected: true, rank: 1 }),
+        cand({ votes: 150, elected: true, rank: 2 }),
+        cand({ votes: 100, elected: false, rank: 3 })
+      ]
+    });
+    expect(isBelowQuota(r)).toBe(true);
+  });
+
+  it('does NOT flag a 2-seat race won at 35% (quota 33.3%) — above par', () => {
+    // Honesty: under the old <50% "minority" rule this would be flagged.
+    // Under the proportional quota it is not — STV would have elected this
+    // candidate too with comparable first-preference support.
+    const r = race({
+      seats: 2,
+      validBallots: 1000,
+      candidates: [
+        cand({ votes: 500, elected: true, rank: 1 }),
+        cand({ votes: 350, elected: true, rank: 2 }),
+        cand({ votes: 100, elected: false, rank: 3 })
+      ]
+    });
+    expect(isBelowQuota(r)).toBe(false);
+  });
+
+  it('single-seat 49% is below quota (50%)', () => {
+    const r = race({
+      seats: 1,
+      candidates: [
+        cand({ votes: 490, elected: true, rank: 1 }),
+        cand({ votes: 280, elected: false, rank: 2 }),
+        cand({ votes: 230, elected: false, rank: 3 })
+      ]
+    });
+    expect(isBelowQuota(r)).toBe(true);
+  });
+
+  it('single-seat 51% is at or above quota', () => {
+    const r = race({
+      seats: 1,
+      candidates: [
+        cand({ votes: 510, elected: true, rank: 1 }),
+        cand({ votes: 490, elected: false, rank: 2 })
+      ]
+    });
+    expect(isBelowQuota(r)).toBe(false);
   });
 });

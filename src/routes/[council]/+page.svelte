@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { pct, num } from '$lib/format';
+  import { pct, num, pts } from '$lib/format';
   let { data } = $props();
   const council = $derived(data.council);
   const races = $derived(data.races);
-  const minorityRaces = $derived(races.filter((r) => r.race.winningPct < 0.5).length);
+  const belowQuotaRaces = $derived(races.filter((r) => r.race.isBelowQuota).length);
 </script>
 
 <svelte:head>
   <title>{council.council} — election results audit | electionresults.uk</title>
   <meta
     name="description"
-    content={`${council.council}: ${minorityRaces} of ${council.raceCount} ward races elected councillors without majority support. Full ward-by-ward results.`}
+    content={`${council.council}: ${belowQuotaRaces} of ${council.raceCount} ward races elected councillors below the proportional quota. Full ward-by-ward results.`}
   />
   <link rel="canonical" href={`https://electionresults.uk/${council.councilSlug}`} />
 </svelte:head>
@@ -30,59 +30,93 @@
       <span class="label">seats</span>
     </div>
     <div class="kpi">
-      <span class="figure minority">{num(council.minorityWinnerSeatCount)}</span>
-      <span class="label">won without a majority</span>
+      <span class="figure warn">{num(council.belowQuotaSeatCount)}</span>
+      <span class="label">elected below the proportional quota</span>
     </div>
     <div class="kpi">
-      <span class="figure pct">{pct(council.minorityShare)}</span>
-      <span class="label">of seats elected on minority support</span>
+      <span class="figure pct">{pct(council.belowQuotaShare)}</span>
+      <span class="label">of seats below quota</span>
     </div>
   </div>
 
-  <p class="frame">
-    The voting method is the subject of every observation below.
-    Named candidates appear as the public election record requires; the system
-    observation locates the cause in First-Past-the-Post (or, in multi-member
-    wards, in the bloc-vote variant), not in the named individual. See
-    <a href="/methodology">methodology</a> for how every figure is derived.
-  </p>
+  <section class="frame">
+    <h2>How to read this page</h2>
+    <p>
+      Each race below shows the share of valid ballots the marginal elected
+      candidate actually won, and compares it to the
+      <strong>proportional quota</strong>: the share that would be needed to
+      be guaranteed that seat under
+      <a href="https://stv.vote" rel="external noopener">STV</a>
+      (the Droop quota, <code>1 / (seats + 1)</code>). For a 1-seat ward
+      the quota is 50%; for 2 seats, 33.3%; for 3 seats, 25%.
+    </p>
+    <p>
+      Where the actual winning share fell below the quota, we show the gap as
+      <strong>points under par</strong> &mdash; the editorial indictment.
+      Above-par results are just majority mandates and pass without comment.
+      The voting method is the subject of every observation here. Named
+      candidates appear as the public election record requires; the cause
+      being audited is the voting method, not the individuals. See the
+      <a href="/methodology">methodology page</a> for derivations.
+    </p>
+  </section>
 
-  <h2>Races</h2>
+  <h2 id="wards">Wards in this council</h2>
   <p class="muted">
-    Sorted by winning share, ascending — the thinnest mandate first.
+    Sorted with the largest gap below the quota first. Click any ward to jump
+    to its full result.
   </p>
-
-  {#each races as { race, observation } (race.wardSlug)}
-    <details class="race" id={race.wardSlug} open={race.winningPct < 0.5 && race === races[0].race}>
-      <summary>
-        <span>
-          <strong>{race.wardName}</strong>
-          <span class="muted"> · {race.seats === 1 ? 'single-seat' : `${race.seats}-seat (bloc vote)`}</span>
+  <ul class="toc">
+    {#each races as { race } (race.wardSlug)}
+      <li>
+        <a href={`#${race.wardSlug}`}>{race.wardName}</a>
+        <span class="muted">
+          · {race.seats === 1 ? '1 seat' : `${race.seats} seats`}
+          · won at <span class="pct">{pct(race.winningPct)}</span>
+          {#if race.underPar > 0}
+            · <span class="warn">{pts(race.underPar)} below quota</span>
+          {:else}
+            · <span class="muted">above quota</span>
+          {/if}
         </span>
-        <span class="num muted">{num(race.validBallots)} valid ballots</span>
-        <span class="num pct" class:minority={race.winningPct < 0.5}>
-          {pct(race.winningPct)}
-        </span>
-      </summary>
+      </li>
+    {/each}
+  </ul>
 
-      <p class="muted small race-meta">
-        {race.seats} seat{race.seats === 1 ? '' : 's'} ·
-        {race.candidates.length} candidate{race.candidates.length === 1 ? '' : 's'} ·
-        {#if race.seats === 1}
-          a candidate wins by being top of the poll, regardless of share —
-          no minimum threshold under First-Past-the-Post
-        {:else}
-          top {race.seats} candidates by vote count win — no minimum
-          threshold under bloc vote. Under
-          <a href="https://stv.vote" rel="external noopener">STV</a>, the
-          equivalent quota would be roughly
-          {pct(1 / (race.seats + 1), 0)} per seat
-        {/if}
+  <h2>Race results</h2>
+
+  {#each races as { race } (race.wardSlug)}
+    <section class="race" id={race.wardSlug}>
+      <h3>
+        {race.wardName}
+        <span class="muted ward-type">
+          · {race.seats === 1 ? 'single-seat' : `${race.seats}-seat (bloc vote)`}
+        </span>
+      </h3>
+
+      <p class="race-stats">
+        <span class="stat">
+          <span class="stat-label">Marginal winner</span>
+          <span class="stat-value pct" class:warn={race.isBelowQuota}>
+            {pct(race.winningPct)}
+          </span>
+        </span>
+        <span class="stat">
+          <span class="stat-label">Proportional quota (STV)</span>
+          <span class="stat-value pct">{pct(race.quota)}</span>
+        </span>
+        <span class="stat">
+          <span class="stat-label">Difference</span>
+          <span class="stat-value pct" class:warn={race.isBelowQuota}>
+            {pts(race.underPar)}
+            {#if race.isBelowQuota}<span class="muted"> below quota</span>{/if}
+          </span>
+        </span>
+        <span class="stat">
+          <span class="stat-label">Valid ballots</span>
+          <span class="stat-value">{num(race.validBallots)}</span>
+        </span>
       </p>
-
-      <!-- HTML produced entirely by systemObservation() in $lib/distortion;
-           safe to render. -->
-      <div class="system-note">{@html observation}</div>
 
       <table>
         <thead>
@@ -109,11 +143,12 @@
         </tbody>
       </table>
 
-      <p class="muted small">
+      <p class="muted small race-meta">
         Electorate {num(race.electorate)} · Ballots cast {num(race.ballots)} ·
-        Invalid {num(race.invalidVotes)} · EC ward code {race.wardCode}
+        Invalid {num(race.invalidVotes)} · EC ward code {race.wardCode} ·
+        <a href="#wards">Back to ward index</a>
       </p>
-    </details>
+    </section>
   {/each}
 </main>
 
@@ -136,24 +171,69 @@
     font-weight: 700;
     font-variant-numeric: tabular-nums;
   }
-  .kpi .figure.minority { color: var(--warn); }
+  .kpi .figure.warn { color: var(--warn); }
   .kpi .label {
     font-size: 0.85rem;
     color: var(--muted);
   }
   .frame {
     background: rgba(11, 61, 46, 0.05);
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1.1rem;
     border-left: 3px solid var(--accent);
+    font-size: 0.95rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .frame h2 {
+    font-size: 1.05rem;
+    margin: 0.2rem 0 0.4rem;
+  }
+  .frame p { margin: 0.4em 0; }
+  .toc {
+    columns: 22rem 2;
+    gap: 1.5rem;
+    padding-left: 1.2rem;
     font-size: 0.92rem;
   }
+  .toc li {
+    margin-bottom: 0.35rem;
+    break-inside: avoid;
+  }
+  section.race {
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+    scroll-margin-top: 1rem;
+  }
+  section.race h3 { margin-top: 0; }
+  .ward-type { font-size: 0.9rem; font-weight: 400; }
+  .race-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.6rem;
+    margin: 0.5rem 0 0.8rem;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .stat-value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-value.warn { color: var(--warn); }
+  .warn { color: var(--warn); }
   tr.elected td { font-weight: 600; }
   .small { font-size: 0.82rem; }
   .election-date {
     margin-top: -0.5rem;
     font-size: 0.95rem;
   }
-  .race-meta {
-    margin: 0.4rem 0 0.6rem;
-  }
+  .race-meta { margin: 0.6rem 0 0; }
 </style>

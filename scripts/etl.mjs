@@ -197,16 +197,24 @@ if (dropped > 0) {
 function candidatePct(votes, valid) {
   return valid > 0 ? votes / valid : 0;
 }
+function quotaForSeats(seats) {
+  return Number.isFinite(seats) && seats >= 1 ? 1 / (seats + 1) : 0.5;
+}
 
 for (const r of races) {
   const elected = r.candidates.filter((c) => c.elected);
   const electedPcts = elected.map((c) => candidatePct(c.votes, r.validBallots));
   r.winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;
-  r.isMinority = r.winningPct < 0.5;
+  r.quota = quotaForSeats(r.seats);
+  r.underPar = r.quota - r.winningPct;
+  r.isBelowQuota = r.underPar > 0;
   r.electedNames = elected.map((c) => c.name);
 }
 
 // --- Council summaries ---
+// "Below quota" = the marginal elected candidate's share fell below the
+// Droop quota (1 / (seats + 1)). For each council we count seats whose own
+// candidate share is below the quota for that ward.
 const councilMap = new Map();
 for (const r of races) {
   if (!councilMap.has(r.councilSlug)) {
@@ -216,33 +224,37 @@ for (const r of races) {
       authorityType: r.authorityType,
       raceCount: 0,
       totalSeatCount: 0,
-      minorityWinnerSeatCount: 0
+      belowQuotaSeatCount: 0
     });
   }
   const s = councilMap.get(r.councilSlug);
   s.raceCount += 1;
-  const electedCount = r.candidates.filter((c) => c.elected).length;
-  s.totalSeatCount += electedCount;
-  for (const c of r.candidates.filter((c) => c.elected)) {
-    if (candidatePct(c.votes, r.validBallots) < 0.5) s.minorityWinnerSeatCount += 1;
+  const elected = r.candidates.filter((c) => c.elected);
+  s.totalSeatCount += elected.length;
+  for (const c of elected) {
+    if (candidatePct(c.votes, r.validBallots) < r.quota) s.belowQuotaSeatCount += 1;
   }
 }
 const councils = [...councilMap.values()].map((s) => ({
   ...s,
-  minorityShare: s.totalSeatCount > 0 ? s.minorityWinnerSeatCount / s.totalSeatCount : 0
+  belowQuotaShare:
+    s.totalSeatCount > 0 ? s.belowQuotaSeatCount / s.totalSeatCount : 0
 }));
 councils.sort((a, b) => a.council.localeCompare(b.council));
 
-// --- Marginal-winner roll-up (every elected candidate, sortable by pct asc) ---
+// --- Marginal-winner roll-up (every elected candidate; sortable by under-par desc) ---
 const marginal = [];
 for (const r of races) {
   for (const c of r.candidates.filter((c) => c.elected)) {
+    const winningPct = candidatePct(c.votes, r.validBallots);
     marginal.push({
       candidateName: c.name,
       party: c.party,
       partyAbbrev: c.partyAbbrev,
       votes: c.votes,
-      winningPct: candidatePct(c.votes, r.validBallots),
+      winningPct,
+      quota: r.quota,
+      underPar: r.quota - winningPct,
       wardName: r.wardName,
       wardSlug: r.wardSlug,
       council: r.council,
@@ -252,10 +264,13 @@ for (const r of races) {
     });
   }
 }
-marginal.sort((a, b) => a.winningPct - b.winningPct || a.votes - b.votes);
+// Sort by under-par desc — the seats furthest below the proportional quota
+// rank highest. Tiebreak: fewer absolute votes first (smaller absolute mandate).
+marginal.sort((a, b) => b.underPar - a.underPar || a.votes - b.votes);
 
+const belowQuotaSeats = marginal.filter((m) => m.underPar > 0).length;
 console.log(
-  `[etl] computed ${races.length} races across ${councils.length} councils; ${marginal.length} elected seats; ${marginal.filter((m) => m.winningPct < 0.5).length} minority-mandate seats`
+  `[etl] computed ${races.length} races across ${councils.length} councils; ${marginal.length} elected seats; ${belowQuotaSeats} seats elected below the proportional quota`
 );
 
 // --- Emit SQLite ---
@@ -271,8 +286,10 @@ CREATE TABLE councils (
   authority_type TEXT,
   race_count INTEGER NOT NULL,
   total_seats INTEGER NOT NULL,
-  minority_winner_seats INTEGER NOT NULL,
-  minority_share REAL NOT NULL
+  -- seats whose marginal candidate share fell below the Droop quota
+  -- (1 / (seats + 1)) for that ward
+  below_quota_seats INTEGER NOT NULL,
+  below_quota_share REAL NOT NULL
 );
 CREATE TABLE races (
   ec_code TEXT PRIMARY KEY,
@@ -289,7 +306,12 @@ CREATE TABLE races (
   invalid_votes INTEGER,
   valid_ballots INTEGER NOT NULL,
   winning_pct REAL NOT NULL,
-  is_minority INTEGER NOT NULL,
+  -- Droop quota: 1 / (seats + 1) — share needed to be guaranteed a seat under STV
+  quota REAL NOT NULL,
+  -- quota - winning_pct (positive = below par)
+  under_par REAL NOT NULL,
+  -- 1 when winning_pct < quota
+  is_below_quota INTEGER NOT NULL,
   FOREIGN KEY (council_slug) REFERENCES councils(council_slug)
 );
 CREATE TABLE candidates (
@@ -312,12 +334,12 @@ CREATE INDEX idx_candidates_ec ON candidates(ec_code);
 `);
 
 const insCouncil = db.prepare(`
-INSERT INTO councils (council_slug, council, authority_type, race_count, total_seats, minority_winner_seats, minority_share)
+INSERT INTO councils (council_slug, council, authority_type, race_count, total_seats, below_quota_seats, below_quota_share)
 VALUES (?, ?, ?, ?, ?, ?, ?)
 `);
 const insRace = db.prepare(`
-INSERT INTO races (ec_code, ward_code, ward_name, ward_slug, council_slug, council, authority_type, election_type, seats, electorate, ballots, invalid_votes, valid_ballots, winning_pct, is_minority)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+INSERT INTO races (ec_code, ward_code, ward_name, ward_slug, council_slug, council, authority_type, election_type, seats, electorate, ballots, invalid_votes, valid_ballots, winning_pct, quota, under_par, is_below_quota)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `);
 const insCand = db.prepare(`
 INSERT INTO candidates (ec_code, rank, candidate_name, party, party_abbrev, votes, elected, elected_source, gender, incumbent)
@@ -332,8 +354,8 @@ const tx = db.transaction(() => {
       c.authorityType,
       c.raceCount,
       c.totalSeatCount,
-      c.minorityWinnerSeatCount,
-      c.minorityShare
+      c.belowQuotaSeatCount,
+      c.belowQuotaShare
     );
   }
   for (const r of races) {
@@ -352,7 +374,9 @@ const tx = db.transaction(() => {
       r.invalidVotes,
       r.validBallots,
       r.winningPct,
-      r.isMinority ? 1 : 0
+      r.quota,
+      r.underPar,
+      r.isBelowQuota ? 1 : 0
     );
     for (const cand of r.candidates) {
       insCand.run(
@@ -383,10 +407,13 @@ writeCsv(
     authority_type: c.authorityType,
     race_count: c.raceCount,
     total_seats: c.totalSeatCount,
-    minority_winner_seats: c.minorityWinnerSeatCount,
-    minority_share: c.minorityShare.toFixed(6)
+    below_quota_seats: c.belowQuotaSeatCount,
+    below_quota_share: c.belowQuotaShare.toFixed(6)
   })),
-  ['council_slug', 'council', 'authority_type', 'race_count', 'total_seats', 'minority_winner_seats', 'minority_share']
+  [
+    'council_slug', 'council', 'authority_type', 'race_count', 'total_seats',
+    'below_quota_seats', 'below_quota_share'
+  ]
 );
 writeCsv(
   resolve(OUT_DIR, 'races.csv'),
@@ -401,9 +428,15 @@ writeCsv(
     seats: r.seats,
     valid_ballots: r.validBallots,
     winning_pct: r.winningPct.toFixed(6),
-    is_minority: r.isMinority ? 1 : 0
+    quota: r.quota.toFixed(6),
+    under_par: r.underPar.toFixed(6),
+    is_below_quota: r.isBelowQuota ? 1 : 0
   })),
-  ['ec_code', 'ward_code', 'ward_name', 'ward_slug', 'council_slug', 'council', 'authority_type', 'seats', 'valid_ballots', 'winning_pct', 'is_minority']
+  [
+    'ec_code', 'ward_code', 'ward_name', 'ward_slug', 'council_slug', 'council',
+    'authority_type', 'seats', 'valid_ballots', 'winning_pct', 'quota',
+    'under_par', 'is_below_quota'
+  ]
 );
 const candidateCsvRows = [];
 for (const r of races) {
@@ -439,7 +472,7 @@ const snapshot = {
     councils: councils.length,
     races: races.length,
     seats: marginal.length,
-    minoritySeats: marginal.filter((m) => m.winningPct < 0.5).length
+    belowQuotaSeats: marginal.filter((m) => m.underPar > 0).length
   },
   councils,
   races: races.map((r) => ({
@@ -465,7 +498,9 @@ const snapshot = {
       rank: c.rank
     })),
     winningPct: r.winningPct,
-    isMinority: r.isMinority
+    quota: r.quota,
+    underPar: r.underPar,
+    isBelowQuota: r.isBelowQuota
   })),
   marginalWinners: marginal
 };

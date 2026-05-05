@@ -7,7 +7,7 @@ const ORIGIN = 'https://electionresults.uk';
 export function GET() {
   // Use the ETL snapshot timestamp so the build is deterministic per the PRD.
   const today = generatedAt.slice(0, 10);
-  const staticUrls = ['/', '/minority-winners', '/methodology', '/data'];
+  const staticUrls = ['/', '/below-quota', '/methodology', '/data'];
   const urls = [
     ...staticUrls,
     ...allCouncils.map((c) => `/${c.councilSlug}`)

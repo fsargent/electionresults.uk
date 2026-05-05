@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { pct, num } from '$lib/format';
+  import { pct, num, pts } from '$lib/format';
   let { data } = $props();
 
   let partyFilter = $state('');
@@ -24,25 +24,28 @@
 </script>
 
 <svelte:head>
-  <title>Minority winners — electionresults.uk</title>
+  <title>Below-quota seats — electionresults.uk</title>
   <meta
     name="description"
-    content="Every council ward where the elected councillor won less than half of the valid ballots cast. Sorted by winning share, ascending."
+    content="Every council ward where the elected councillor (or, in multi-seat wards, the most-marginal of the elected councillors) won less than the proportional quota that would be needed to be guaranteed that seat under STV."
   />
-  <link rel="canonical" href="https://electionresults.uk/minority-winners" />
+  <link rel="canonical" href="https://electionresults.uk/below-quota" />
 </svelte:head>
 
 <main class="wide">
-  <h1>Minority winners</h1>
+  <h1>Seats elected below the proportional quota</h1>
   <p>
-    Every ward in the cycle where the elected councillor (or, in multi-member
-    wards, the most-marginal of the elected councillors) won less than half of
-    the valid ballots cast in their ward. {num(data.rows.length)}
-    races qualify.
+    Every ward in the cohort where the marginal elected councillor won
+    less of the valid ballots than the
+    <strong>proportional quota</strong> &mdash; the share that would be
+    needed to be guaranteed that seat under
+    <a href="https://stv.vote" rel="external noopener">STV</a>
+    (1&nbsp;÷&nbsp;(seats&nbsp;+&nbsp;1)). {num(data.rows.length)}
+    seats qualify.
   </p>
   <p class="muted">
-    Sorted by winning share, ascending — the thinnest mandate first. Tiebreak:
-    fewer absolute votes first. Filter or search below.
+    Sorted by the gap (under par) descending &mdash; the seats furthest
+    below the quota first. Filter or search below.
   </p>
 
   <form class="filters" onsubmit={(e) => e.preventDefault()}>
@@ -83,8 +86,9 @@
         <th>Ward / Council</th>
         <th>Most-marginal seat-holder (party)</th>
         <th class="num">Seats</th>
-        <th class="num">Votes</th>
-        <th class="num">Share</th>
+        <th class="num">Won at</th>
+        <th class="num">Quota</th>
+        <th class="num">Under par</th>
       </tr>
     </thead>
     <tbody>
@@ -104,8 +108,9 @@
             <span class="muted">{r.marginalPartyAbbrev ?? r.marginalParty}</span>
           </td>
           <td class="num">{r.seats}</td>
-          <td class="num">{num(r.marginalVotes)}</td>
-          <td class="num pct minority">{pct(r.winningPct)}</td>
+          <td class="num pct warn">{pct(r.winningPct)}</td>
+          <td class="num pct">{pct(r.quota)}</td>
+          <td class="num pct warn">{pts(r.underPar)}</td>
         </tr>
       {/each}
     </tbody>
@@ -119,4 +124,5 @@
     gap: 0.5rem 0.5rem;
     margin: 1rem 0 0.5rem;
   }
+  .warn { color: var(--warn); }
 </style>

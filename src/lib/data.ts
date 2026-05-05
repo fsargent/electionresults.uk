@@ -7,6 +7,8 @@ interface SnapshotMarginal {
   partyAbbrev: string | null;
   votes: number;
   winningPct: number;
+  quota: number;
+  underPar: number;
   wardName: string;
   wardSlug: string;
   council: string;
@@ -25,7 +27,7 @@ interface Snapshot {
     councils: number;
     races: number;
     seats: number;
-    minoritySeats: number;
+    belowQuotaSeats: number;
   };
   councils: CouncilSummary[];
   races: Race[];
@@ -50,13 +52,16 @@ export function councilBySlug(slug: string): CouncilSummary | undefined {
 }
 
 export function racesByCouncil(slug: string): Race[] {
+  // Sort by under-par descending — the seats most below the proportional
+  // quota first; ties break on ward name for stable rendering.
   return allRaces
     .filter((r) => r.councilSlug === slug)
-    .sort((a, b) => a.winningPct - b.winningPct || a.wardName.localeCompare(b.wardName));
+    .sort((a, b) => b.underPar - a.underPar || a.wardName.localeCompare(b.wardName));
 }
 
-export function topMinorityWinners(limit: number): SnapshotMarginal[] {
-  return allMarginalWinners.filter((m) => m.winningPct < 0.5).slice(0, limit);
+/** Top N elected seats furthest below the proportional quota, sorted desc. */
+export function topBelowQuota(limit: number): SnapshotMarginal[] {
+  return allMarginalWinners.filter((m) => m.underPar > 0).slice(0, limit);
 }
 
 /**
@@ -72,6 +77,8 @@ export interface RaceLeaderboardRow {
   seats: number;
   validBallots: number;
   winningPct: number;
+  quota: number;
+  underPar: number;
   marginalCandidate: string;
   marginalParty: string;
   marginalPartyAbbrev: string | null;
@@ -83,7 +90,7 @@ export function raceLeaderboard(): RaceLeaderboardRow[] {
   for (const m of allMarginalWinners) {
     const key = `${m.councilSlug}::${m.wardSlug}`;
     const existing = byWard.get(key);
-    if (!existing || m.winningPct < existing.winningPct) {
+    if (!existing || m.underPar > existing.underPar) {
       byWard.set(key, {
         wardName: m.wardName,
         wardSlug: m.wardSlug,
@@ -92,6 +99,8 @@ export function raceLeaderboard(): RaceLeaderboardRow[] {
         seats: m.seats,
         validBallots: m.validBallots,
         winningPct: m.winningPct,
+        quota: m.quota,
+        underPar: m.underPar,
         marginalCandidate: m.candidateName,
         marginalParty: m.party,
         marginalPartyAbbrev: m.partyAbbrev,
@@ -100,7 +109,7 @@ export function raceLeaderboard(): RaceLeaderboardRow[] {
     }
   }
   return [...byWard.values()].sort(
-    (a, b) => a.winningPct - b.winningPct || a.marginalVotes - b.marginalVotes
+    (a, b) => b.underPar - a.underPar || a.marginalVotes - b.marginalVotes
   );
 }
 

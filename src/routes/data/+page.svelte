@@ -46,8 +46,8 @@
       <tr><th><code>authority_type</code></th><td>UC / MD / LB / MB / etc.</td></tr>
       <tr><th><code>race_count</code></th><td>Ward races published for this council</td></tr>
       <tr><th><code>total_seats</code></th><td>Elected seats across all races</td></tr>
-      <tr><th><code>minority_winner_seats</code></th><td>Seats won on &lt;50% of valid ballots</td></tr>
-      <tr><th><code>minority_share</code></th><td><code>minority_winner_seats / total_seats</code></td></tr>
+      <tr><th><code>below_quota_seats</code></th><td>Seats whose marginal candidate share fell below the Droop quota for that ward</td></tr>
+      <tr><th><code>below_quota_share</code></th><td><code>below_quota_seats / total_seats</code></td></tr>
     </tbody>
   </table>
 
@@ -62,7 +62,9 @@
       <tr><th><code>electorate, ballots, invalid_votes</code></th><td>Source figures</td></tr>
       <tr><th><code>valid_ballots</code></th><td><code>ballots − invalid_votes</code></td></tr>
       <tr><th><code>winning_pct</code></th><td>Marginal-elected-candidate share of valid ballots</td></tr>
-      <tr><th><code>is_minority</code></th><td><code>1</code> if <code>winning_pct &lt; 0.5</code></td></tr>
+      <tr><th><code>quota</code></th><td>Droop quota: <code>1.0 / (seats + 1)</code></td></tr>
+      <tr><th><code>under_par</code></th><td><code>quota − winning_pct</code> (positive = below par)</td></tr>
+      <tr><th><code>is_below_quota</code></th><td><code>1</code> when <code>winning_pct &lt; quota</code></td></tr>
     </tbody>
   </table>
 
