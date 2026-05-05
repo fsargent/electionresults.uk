@@ -1,7 +1,7 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
-  import CouncilMap from '$lib/components/CouncilMap.svelte';
+  import CouncilHexMap from '$lib/components/CouncilHexMap.svelte';
   import { belowQuotaColor } from '$lib/below-quota-color';
   let { data } = $props();
 
@@ -57,19 +57,17 @@
 
   <h2>Map</h2>
   <p class="muted">
-    Each council that polled in {data.cycle.electionDateLabel} shaded by
-    the share of its seats elected below the proportional quota — darker
-    is worse. Pre-2013 boundaries; post-2013 unitary creations
-    (Buckinghamshire, Cumberland, North Yorkshire, etc.) are shown on
-    their predecessor councils' shapes. Hover for a council name; click
-    to drill in.
+    Every UK council as a single hexagon, geographically arranged. Councils
+    that polled in {data.cycle.electionDateLabel} are shaded by the share of
+    their seats elected below the proportional quota — darker is worse.
+    Councils not in this cohort are shown grey. Click a hex to drill in.
   </p>
   <div class="map-and-scale">
-    <CouncilMap {fills} legendLabel={`${data.cycle.electionDateLabel} cohort: % of seats elected below the proportional quota`} />
+    <CouncilHexMap {fills} title={`${data.cycle.electionDateLabel} cohort: % of seats elected below the proportional quota`} />
     <div class="legend">
       <span class="legend-label">% below quota</span>
       <div class="legend-bar">
-        {#each [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as t}
+        {#each [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as t (t)}
           <span class="legend-cell" style:background-color={belowQuotaColor(t)}></span>
         {/each}
       </div>
@@ -77,7 +75,8 @@
         <span>0%</span><span>50%</span><span>100%</span>
       </div>
       <p class="muted small">
-        Councils not in this cohort are shown grey.
+        One hex = one council. Geographic position is approximate
+        (cartogram, not a literal map).
       </p>
     </div>
   </div>

@@ -1,19 +1,14 @@
 /**
  * Sequential colour scale for "share of seats elected below the proportional
- * quota". Anchored on the cream / accent-warn palette already used elsewhere
+ * quota". Anchored on the cream → warn-red palette already used elsewhere
  * on the site so the choropleth doesn't introduce a new visual identity.
- *
- *   0%  → #f5e9d6  (very light cream — almost no below-quota seats)
- *   33% → #e9b67a
- *   66% → #d27b48
- * 100%  → #b94a2c  (the --warn red used everywhere else)
  */
 
-const STOPS = [
-  { t: 0, color: [245, 233, 214] },
+const STOPS: { t: number; color: [number, number, number] }[] = [
+  { t: 0, color: [245, 233, 214] }, // cream
   { t: 0.33, color: [233, 182, 122] },
   { t: 0.66, color: [210, 123, 72] },
-  { t: 1, color: [185, 74, 44] }
+  { t: 1, color: [185, 74, 44] } // --warn red
 ];
 
 function lerp(a: number, b: number, t: number): number {
@@ -41,5 +36,5 @@ export function belowQuotaColor(share: number): string {
       );
     }
   }
-  return rgbToHex(...(STOPS[STOPS.length - 1].color as [number, number, number]));
+  return rgbToHex(...STOPS[STOPS.length - 1].color);
 }
