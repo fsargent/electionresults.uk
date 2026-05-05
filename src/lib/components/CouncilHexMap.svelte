@@ -73,9 +73,25 @@
   type Tooltip = { x: number; y: number; primary: string; secondary: string | null };
   let tooltip: Tooltip | null = $state(null);
 
-  function showTooltip(event: MouseEvent, item: (typeof items)[number]) {
-    // Position in page coordinates so the tooltip stays anchored if the
-    // user scrolls while hovering.
+  // Delegated handler on the SVG: reads the data-slug attribute from the
+  // hovered polygon and looks up the corresponding item. One handler
+  // instead of 361, and avoids whatever was preventing per-polygon
+  // mouseenter from firing through the SVG <a> wrappers.
+  function findItemFromTarget(target: EventTarget | null) {
+    if (!(target instanceof Element)) return null;
+    const polygon = target.closest('polygon[data-slug]');
+    if (!polygon) return null;
+    const slug = polygon.getAttribute('data-slug');
+    if (!slug) return null;
+    return items.find((it) => it.slug === slug) ?? null;
+  }
+
+  function onSvgPointerMove(event: PointerEvent) {
+    const item = findItemFromTarget(event.target);
+    if (!item) {
+      tooltip = null;
+      return;
+    }
     tooltip = {
       x: event.clientX + window.scrollX,
       y: event.clientY + window.scrollY,
@@ -84,53 +100,40 @@
     };
   }
 
-  function moveTooltip(event: MouseEvent) {
-    if (!tooltip) return;
-    tooltip = {
-      ...tooltip,
-      x: event.clientX + window.scrollX,
-      y: event.clientY + window.scrollY
-    };
+  function onSvgPointerLeave() {
+    tooltip = null;
   }
 
-  function hideTooltip() {
-    tooltip = null;
+  function onSvgClick(event: MouseEvent) {
+    const item = findItemFromTarget(event.target);
+    if (!item || !item.href) return;
+    event.preventDefault();
+    window.location.href = item.href;
   }
 </script>
 
-<figure class="hex-map" onmousemove={moveTooltip}>
+<figure class="hex-map">
+  <!-- svelte-ignore a11y_no_noninteractive_element_interactions a11y_click_events_have_key_events -->
   <svg
     viewBox={`0 0 ${layout.width} ${layout.height}`}
     role="img"
     aria-label={title}
     preserveAspectRatio="xMidYMid meet"
+    onpointermove={onSvgPointerMove}
+    onpointerleave={onSvgPointerLeave}
+    onclick={onSvgClick}
   >
     {#each items as item (item.slug)}
-      {#if item.href}
-        <a href={item.href} tabindex="-1">
-          <polygon
-            role="presentation"
-            points={item.points}
-            fill={item.color}
-            stroke={STROKE}
-            stroke-width="0.8"
-            stroke-linejoin="round"
-            onmouseenter={(e) => showTooltip(e, item)}
-            onmouseleave={hideTooltip}
-          ><title>{item.title}</title></polygon>
-        </a>
-      {:else}
-        <polygon
-          role="presentation"
-          points={item.points}
-          fill={item.color}
-          stroke={STROKE}
-          stroke-width="0.8"
-          stroke-linejoin="round"
-          onmouseenter={(e) => showTooltip(e, item)}
-          onmouseleave={hideTooltip}
-        ><title>{item.title}</title></polygon>
-      {/if}
+      <polygon
+        role="presentation"
+        data-slug={item.slug}
+        class:clickable={!!item.href}
+        points={item.points}
+        fill={item.color}
+        stroke={STROKE}
+        stroke-width="0.8"
+        stroke-linejoin="round"
+      ><title>{item.title}</title></polygon>
     {/each}
   </svg>
 </figure>
@@ -160,12 +163,13 @@
     display: block;
     background: var(--bg);
   }
-  svg a polygon {
-    cursor: pointer;
-    transition: filter 0.1s;
+  svg polygon {
+    transition: filter 0.1s, stroke-width 0.1s;
   }
-  svg a:hover polygon,
-  svg a:focus polygon {
+  svg polygon.clickable {
+    cursor: pointer;
+  }
+  svg polygon.clickable:hover {
     filter: brightness(1.1) saturate(1.1);
     stroke-width: 1.5;
     stroke: var(--fg);
