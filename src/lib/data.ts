@@ -5,7 +5,8 @@ import type {
   CycleSummary,
   Candidate,
   PartyView,
-  CouncilFlip
+  CouncilFlip,
+  CouncilReorganisation
 } from './types';
 
 interface SnapshotMarginal {
@@ -41,6 +42,7 @@ interface Snapshot {
   marginalWinners: SnapshotMarginal[];
   partyViews: PartyView[];
   flips: CouncilFlip[];
+  reorganisations: CouncilReorganisation[];
 }
 
 const data = snapshot as unknown as Snapshot;
@@ -57,6 +59,13 @@ export const allRaces: Race[] = data.races;
 export const allMarginalWinners: SnapshotMarginal[] = data.marginalWinners;
 export const allPartyViews: PartyView[] = data.partyViews;
 export const allFlips: CouncilFlip[] = data.flips;
+export const allReorganisations: CouncilReorganisation[] = data.reorganisations;
+
+export function reorganisationForCouncil(
+  slug: string
+): CouncilReorganisation | null {
+  return allReorganisations.find((r) => r.councilSlug === slug) ?? null;
+}
 
 export function flipsForCouncil(slug: string): CouncilFlip[] {
   // Most recent first — readers care about the latest control change.

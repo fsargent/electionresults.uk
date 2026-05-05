@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import * as XLSX from 'xlsx';
 import { Database } from 'bun:sqlite';
 import { normalizeParty } from './party-normalize.mjs';
+import { reorganisationIndex } from './council-reorganisations.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -676,6 +677,24 @@ for (const [slug, views] of viewsByCouncil) {
 }
 flips.sort((a, b) => b.disproportionScore - a.disproportionScore);
 
+// --- Council reorganisations (curated) ---------------------------------
+//
+// Drawn from scripts/council-reorganisations.mjs — a hand-curated table of
+// known UK council reorganisations during our window (2019–2023 wave),
+// sourced from the Wikipedia/Commons Library record of LGR. We attach
+// these to the relevant council slugs so the council overview page can
+// flag "this council was created/abolished in YYYY" rather than silently
+// presenting two different electoral bodies as one continuous series.
+const reorgIndex = reorganisationIndex();
+const reorganisations = [];
+for (const slug of new Set(allRaces.map((r) => r.councilSlug))) {
+  const entry = reorgIndex.get(slug);
+  if (entry) reorganisations.push(entry);
+}
+console.log(
+  `[etl] flagged ${reorganisations.length} councils as touched by a known reorganisation`
+);
+
 const totals = {
   cycles: cycleSummaries.length,
   councils: councils.length,
@@ -771,6 +790,19 @@ CREATE TABLE council_flips (
   disproportion_score REAL NOT NULL,
   PRIMARY KEY (council_slug, year_from, year_to)
 );
+CREATE TABLE council_reorganisations (
+  council_slug TEXT NOT NULL,
+  council_name TEXT NOT NULL,
+  -- 'created' (this council came into existence) or 'abolished' (this
+  -- council ceased to exist on the date below)
+  event TEXT NOT NULL,
+  date TEXT NOT NULL,
+  year INTEGER NOT NULL,
+  -- the abolished councils that this new one replaced, OR the new
+  -- council that replaced this abolished one. Stored as JSON array.
+  counterparts TEXT NOT NULL,
+  PRIMARY KEY (council_slug, event)
+);
 CREATE TABLE party_view (
   year INTEGER NOT NULL,
   council_slug TEXT NOT NULL,
@@ -806,6 +838,10 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 const insCand = db.prepare(`
 INSERT INTO candidates (year, council_slug, ward_slug, rank, candidate_name, party, votes, elected, elected_source)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+`);
+const insReorg = db.prepare(`
+INSERT INTO council_reorganisations (council_slug, council_name, event, date, year, counterparts)
+VALUES (?, ?, ?, ?, ?, ?)
 `);
 const insFlip = db.prepare(`
 INSERT INTO council_flips (council_slug, year_from, year_to, from_party, to_party,
@@ -850,6 +886,12 @@ const tx = db.transaction(() => {
       f.newPartyVoteFrom, f.newPartyVoteTo, f.newPartySeatFrom, f.newPartySeatTo,
       f.oldPartyVoteFrom, f.oldPartyVoteTo, f.oldPartySeatFrom, f.oldPartySeatTo,
       f.voteSwingNew, f.seatSwingNew, f.disproportionScore
+    );
+  }
+  for (const r of reorganisations) {
+    insReorg.run(
+      r.councilSlug, r.councilName, r.event, r.date, r.year,
+      JSON.stringify(r.counterparts)
     );
   }
 });
@@ -966,7 +1008,8 @@ const snapshot = {
   })),
   marginalWinners: marginal,
   partyViews,
-  flips
+  flips,
+  reorganisations
 };
 writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot));
 console.log(`[etl] wrote ${SNAPSHOT_PATH}`);

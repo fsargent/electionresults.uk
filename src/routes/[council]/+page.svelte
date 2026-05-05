@@ -29,6 +29,31 @@
     Every election cycle we have data for, most recent first.
   </p>
 
+  {#if data.reorganisation}
+    {@const r = data.reorganisation}
+    <aside class="reorg-flag">
+      <h2 class="reorg-h">⚠ Council reorganisation in {r.year}</h2>
+      {#if r.event === 'created'}
+        <p>
+          <strong>{r.councilName}</strong> was created on {r.date} as a
+          new unitary authority, replacing the previous councils:
+          {r.counterparts.join(', ')}. Cycles before {r.year} on this
+          page belong to those predecessor councils where they polled
+          on the same date; the {r.year}+ cycles are this new
+          authority. Year-over-year comparisons across the boundary
+          should be read with that in mind.
+        </p>
+      {:else}
+        <p>
+          <strong>{r.councilName}</strong> was abolished on {r.date}
+          and replaced by {r.counterparts.join(', ')}. Cycles up to and
+          including {r.year} on this page belong to this council; later
+          cycles, where they exist, belong to the successor authority.
+        </p>
+      {/if}
+    </aside>
+  {/if}
+
   {#if composition.totalSeats > 0}
     <h2>Council composition <span class="muted approx">(approx.)</span></h2>
     <p class="muted">
@@ -323,6 +348,20 @@
     text-transform: lowercase;
     letter-spacing: 0;
   }
+  .reorg-flag {
+    border-left: 3px solid var(--warn);
+    background: rgba(185, 74, 44, 0.06);
+    padding: 0.7rem 1rem;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.95rem;
+  }
+  .reorg-h {
+    font-size: 1rem;
+    margin: 0 0 0.4rem;
+    color: var(--warn);
+    font-family: -apple-system, sans-serif;
+  }
+  .reorg-flag p { margin: 0; }
   /* The standalone seat chart on this page doesn't need the left-label
      column — collapse the row layout to a single column. */
   .council-seats :global(.seat-row) {

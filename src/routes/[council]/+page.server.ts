@@ -4,7 +4,8 @@ import {
   distinctCouncilSlugs,
   flipsForCouncil,
   wardHistoryForCouncil,
-  currentCouncilComposition
+  currentCouncilComposition,
+  reorganisationForCouncil
 } from '$lib/data';
 
 export const prerender = true;
@@ -19,5 +20,6 @@ export function load({ params }: { params: { council: string } }) {
   const flips = flipsForCouncil(params.council);
   const wards = wardHistoryForCouncil(params.council);
   const composition = currentCouncilComposition(params.council);
-  return { history, flips, wards, composition };
+  const reorganisation = reorganisationForCouncil(params.council);
+  return { history, flips, wards, composition, reorganisation };
 }

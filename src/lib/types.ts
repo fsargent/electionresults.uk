@@ -68,6 +68,15 @@ export interface PartyView {
   rows: PartyViewRow[];
 }
 
+export interface CouncilReorganisation {
+  councilSlug: string;
+  councilName: string;
+  event: 'created' | 'abolished';
+  date: string;
+  year: number;
+  counterparts: string[];
+}
+
 export interface CouncilFlip {
   councilSlug: string;
   council: string;
