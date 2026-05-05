@@ -114,6 +114,42 @@
     {/each}
   </ul>
 
+  <h2>Ten biggest flips</h2>
+  <p class="muted">
+    Councils where the largest party (by seats won) changed between
+    consecutive cycles, ranked by how much bigger the seat swing was
+    than the vote swing for the incoming party. The textbook FPTP-
+    volatility story: small movement in support, total movement in
+    representation.
+  </p>
+
+  <table aria-label="Ten biggest party-control flips ranked by seat-vs-vote disproportion">
+    <thead>
+      <tr>
+        <th>Council</th>
+        <th>Cycle</th>
+        <th>Flip</th>
+        <th class="num">Vote shift</th>
+        <th class="num">Seat shift</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each data.topFlips as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
+        <tr>
+          <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
+          <td class="num">{f.yearFrom} → {f.yearTo}</td>
+          <td>
+            <Party name={f.fromParty} />
+            <span class="muted" aria-hidden="true"> → </span>
+            <Party name={f.toParty} />
+          </td>
+          <td class="num pct">{pts(f.newPartyVoteTo - f.newPartyVoteFrom)}</td>
+          <td class="num pct warn">{pts(f.newPartySeatTo - f.newPartySeatFrom)}</td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
+
   <h2>Ten worst seats across all cycles</h2>
   <p class="muted">
     The seats furthest below the proportional quota anywhere in the data.
