@@ -64,6 +64,24 @@ export function partyViewForYearAndCouncil(
   );
 }
 
+/**
+ * One CouncilSummary per distinct council slug — the most recent cycle in
+ * which that council appears. Used by the homepage hex map to give every
+ * council on the layout the freshest data point we have.
+ */
+export function latestCouncilSummaries(): CouncilSummary[] {
+  const byCanonicalSlug = new Map<string, CouncilSummary>();
+  for (const c of allCouncils) {
+    const existing = byCanonicalSlug.get(c.councilSlug);
+    if (!existing || c.year > existing.year) {
+      byCanonicalSlug.set(c.councilSlug, c);
+    }
+  }
+  return [...byCanonicalSlug.values()].sort((a, b) =>
+    a.council.localeCompare(b.council)
+  );
+}
+
 export function cycleByYear(year: number): CycleSummary | undefined {
   return allCycles.find((c) => c.year === year);
 }
