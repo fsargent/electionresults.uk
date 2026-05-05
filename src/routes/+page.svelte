@@ -4,6 +4,7 @@
   import Frac from '$lib/components/Frac.svelte';
   import CouncilHexMap from '$lib/components/CouncilHexMap.svelte';
   import { belowQuotaColor } from '$lib/below-quota-color';
+  import { partyColor } from '$lib/party-colors';
   let { data } = $props();
 
   const fills = $derived(
@@ -16,6 +17,24 @@
           title: `${c.council} — ${c.year}: ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`,
           primary: `${c.council} (${c.year})`,
           secondary: `${pct(c.belowQuotaShare)} of seats below quota — ${c.belowQuotaSeatCount} of ${c.totalSeatCount}`
+        }
+      ])
+    )
+  );
+
+  // Year-over-year flips map: each council hex shows the colour of the
+  // party that took plurality in the most recent flip. Councils that
+  // never flipped between consecutive cycles stay grey.
+  const flipFills = $derived(
+    Object.fromEntries(
+      data.flipMapEntries.map((f) => [
+        f.councilSlug,
+        {
+          color: partyColor(f.toParty),
+          href: `/${f.councilSlug}`,
+          title: `${f.council}: ${f.fromParty} → ${f.toParty} (${f.yearFrom} → ${f.yearTo})`,
+          primary: `${f.council} (${f.yearFrom} → ${f.yearTo})`,
+          secondary: `${f.fromParty} → ${f.toParty} · ${pts(f.seatSwingNew)} seat shift on ${pts(f.voteSwingNew)} vote shift`
         }
       ])
     )
@@ -90,9 +109,9 @@
   <p class="muted">
     Councils where the largest party (by seats won) changed between
     consecutive cycles, ranked by how much bigger the seat swing was
-    than the vote swing for the incoming party. The textbook FPTP-
-    volatility story: small movement in support, total movement in
-    representation.
+    than the vote swing for the incoming party. The textbook
+    First-Past-the-Post volatility story: small movement in support,
+    total movement in representation.
   </p>
 
   <table aria-label="Ten biggest party-control flips ranked by seat-vs-vote disproportion">
@@ -121,6 +140,33 @@
       {/each}
     </tbody>
   </table>
+
+  <h2>Year-over-year flips</h2>
+  <p class="muted">
+    Each council that changed plurality party between consecutive cycles,
+    coloured by the party that took control. Councils that haven't
+    flipped (or that we only have one cycle for) stay grey. Hover for
+    the cycle and the party transition; click to see the council's full
+    history.
+  </p>
+  <div class="map-and-scale">
+    <CouncilHexMap
+      fills={flipFills}
+      title="UK councils — most recent party-control flip, coloured by the incoming party"
+    />
+    <div class="legend">
+      <span class="legend-label">Incoming party (latest flip)</span>
+      <ul class="party-legend">
+        <li><span class="swatch" style:background-color={partyColor('Labour Party')}></span> Labour</li>
+        <li><span class="swatch" style:background-color={partyColor('Conservative and Unionist Party')}></span> Conservative</li>
+        <li><span class="swatch" style:background-color={partyColor('Liberal Democrats')}></span> Liberal Democrats</li>
+        <li><span class="swatch" style:background-color={partyColor('Reform UK')}></span> Reform UK</li>
+        <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> Green</li>
+        <li><span class="swatch" style:background-color={partyColor('Independent')}></span> Independent / other</li>
+        <li><span class="swatch grey"></span> No flip in our data</li>
+      </ul>
+    </div>
+  </div>
 
   <h2>Ten least popular winners</h2>
   <p class="muted">
@@ -300,4 +346,25 @@
     margin-top: 0.2rem;
   }
   .small { font-size: 0.78rem; }
+  .party-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0;
+    display: grid;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+  }
+  .party-legend .swatch {
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.4em;
+    border-radius: 2px;
+    vertical-align: -0.05em;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+  }
+  .party-legend .swatch.grey { background: #e5e3d6; }
+  @media (prefers-color-scheme: dark) {
+    .party-legend .swatch { border-color: rgba(255, 255, 255, 0.25); }
+  }
 </style>

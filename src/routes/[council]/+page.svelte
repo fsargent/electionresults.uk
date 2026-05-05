@@ -51,7 +51,8 @@
       Cases where the largest party (by seats won) changed from one cycle to
       the next. Each row shows the new party's vote share in both cycles
       and the seats they took. A small <strong>vote shift</strong> paired
-      with a big <strong>seat shift</strong> is the FPTP-volatility story.
+      with a big <strong>seat shift</strong> is the First-Past-the-Post
+      volatility story.
     </p>
 
     {#each flips as f (f.yearFrom + ':' + f.yearTo)}
@@ -125,7 +126,8 @@
       seats are elected in each cycle, so a flip in the "largest party
       this cycle" doesn't necessarily mean a flip in overall council
       control. The vote-vs-seat divergence still tells you something
-      about how FPTP allocates the seats that <em>were</em> contested.
+      about how First-Past-the-Post allocates the seats that
+      <em>were</em> contested.
     </p>
   {:else}
     <p class="muted">

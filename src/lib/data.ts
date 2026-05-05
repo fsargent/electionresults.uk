@@ -66,6 +66,19 @@ export function flipsForCouncil(slug: string): CouncilFlip[] {
 }
 
 /**
+ * For each council, the most recent flip we have. Used by the homepage
+ * "year-over-year flips" map so each hex shows the latest control change.
+ */
+export function latestFlipByCouncil(): Map<string, CouncilFlip> {
+  const out = new Map<string, CouncilFlip>();
+  for (const f of allFlips) {
+    const cur = out.get(f.councilSlug);
+    if (!cur || f.yearTo > cur.yearTo) out.set(f.councilSlug, f);
+  }
+  return out;
+}
+
+/**
  * One entry per distinct council across all cycles, with the years that
  * council appears in. Used by the council overview page.
  */

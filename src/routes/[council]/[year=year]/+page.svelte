@@ -83,10 +83,10 @@
       have won if the {view.totalSeats} seat{view.totalSeats === 1 ? '' : 's'}
       had been allocated to those vote totals in proportion
       (<a href="/methodology">how, with caveats</a>). The
-      <strong>Δ</strong> column is the FPTP minus proportional seat
-      count &mdash; positive numbers are parties FPTP
-      over-represented in this council, negative are parties FPTP
-      under-represented.
+      <strong>Δ</strong> column is the actual seat count minus the
+      proportional seat count &mdash; positive numbers are parties
+      First-Past-the-Post over-represented in this council, negative
+      are parties it under-represented.
     </p>
 
     <table class="party-view" aria-describedby="party-view">
@@ -95,8 +95,8 @@
           <th>Party</th>
           <th class="num">Votes</th>
           <th class="num">Vote %</th>
-          <th class="num">FPTP seats</th>
-          <th class="num">FPTP %</th>
+          <th class="num">Seats won</th>
+          <th class="num">% of seats</th>
           <th class="num">Proportional seats</th>
           <th class="num">Proportional %</th>
           <th class="num">Δ</th>
@@ -136,10 +136,10 @@
     <p class="muted">
       Two horizontal bars: the top stack is each party's share of votes
       cast in this council; the bottom is each party's share of seats won
-      under FPTP. A divergence between the two is the indictment of the
-      method.
+      under First-Past-the-Post. A divergence between the two is the
+      indictment of the method.
     </p>
-    <div class="bars" aria-label="Vote share vs FPTP seat share by party">
+    <div class="bars" aria-label="Vote share vs actual seat share by party">
       <div class="bar-row">
         <span class="bar-label">Vote share</span>
         <div class="bar">
@@ -154,7 +154,7 @@
         </div>
       </div>
       <div class="bar-row">
-        <span class="bar-label">Seat share (FPTP)</span>
+        <span class="bar-label">Seat share (actual)</span>
         <div class="bar">
           {#each view.rows.filter((r) => r.fptpSeats > 0) as r (r.party)}
             <span

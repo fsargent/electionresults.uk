@@ -36,7 +36,8 @@
   </p>
   <p>
     We deliberately avoid the words "majority" and "minority" as system
-    labels. They imply that FPTP and bloc vote have a numerical threshold
+    labels. They imply that First-Past-the-Post and bloc vote have a
+    numerical threshold
     a winner must clear &mdash; which they do not. A candidate wins
     under these methods by being top of the poll, full stop, regardless
     of share. Instead we report each elected candidate's share against
@@ -114,7 +115,7 @@
   <p>
     This is a deliberate departure from the older "minority winner"
     framing (winning_pct &lt; 50%). The 50% threshold is not a rule of
-    FPTP or bloc vote &mdash; calling someone a "minority winner"
+    First-Past-the-Post or bloc vote &mdash; calling someone a "minority winner"
     implies they fell short of a standard the system never required of
     them. The quota framing is the standard a proportional system
     <em>does</em> require, and the gap is the loss attributable to the
