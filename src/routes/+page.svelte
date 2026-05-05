@@ -159,8 +159,7 @@
   /* Wider main for the worst-seats table; constrain prose blocks for
      readability rather than letting them stretch the full 96ch. */
   h1,
-  .lede,
-  .frame {
+  .lede {
     max-width: 72ch;
   }
   .cycle-list {
@@ -199,17 +198,6 @@
     font-size: 0.85rem;
     color: var(--muted);
     font-variant-numeric: tabular-nums;
-  }
-  .frame {
-    background: rgba(11, 61, 46, 0.05);
-    padding: 0.8rem 1.1rem;
-    border-left: 3px solid var(--accent);
-    font-size: 0.95rem;
-    margin: 2rem 0 1rem;
-  }
-  .frame h2 {
-    font-size: 1.05rem;
-    margin: 0.2rem 0 0.4rem;
   }
   .warn { color: var(--warn); }
 
