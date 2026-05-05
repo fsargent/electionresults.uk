@@ -179,6 +179,22 @@ const CYCLES = [
 
 // --- Helpers -----------------------------------------------------------------
 
+/**
+ * Title-case an all-uppercase ward name. About 2% of LEH ward rows are
+ * shouted in upper case (Westminster's "LITTLE VENICE", "QUEENS PARK";
+ * many Amber Valley wards in 2022; etc.). If the string has any
+ * lowercase letter we leave it alone — the source already capitalised
+ * it intentionally (e.g. "St James's", "Knightsbridge & Belgravia").
+ */
+function titleCaseWardName(s) {
+  if (!s) return s;
+  if (/[a-z]/.test(s)) return s;
+  return s.replace(
+    /([A-Z][A-Z']*)/g,
+    (word) => word.charAt(0) + word.slice(1).toLowerCase()
+  );
+}
+
 function slugify(s) {
   return String(s)
     .toLowerCase()
@@ -252,7 +268,7 @@ function ingestCycle(cycle) {
     const wc = cycle.cols.ward;
     const council = String(w[wc.council] ?? '').trim();
     if (!council) continue;
-    const wardName = String(w[wc.wardName] ?? '').trim();
+    const wardName = titleCaseWardName(String(w[wc.wardName] ?? '').trim());
     const wardCodeRaw = wc.wardCode ? w[wc.wardCode] : null;
     const councilSlug = slugify(council);
     const wardCode = wardCodeRaw != null ? String(wardCodeRaw).trim() : null;
@@ -293,7 +309,7 @@ function ingestCycle(cycle) {
       orphanCount += 1;
       continue;
     }
-    const wardName = String(c[cc.wardName] ?? '').trim();
+    const wardName = titleCaseWardName(String(c[cc.wardName] ?? '').trim());
     const wardCodeRaw = cc.wardCode ? c[cc.wardCode] : null;
     const councilSlug = slugify(council);
     const wardCode = wardCodeRaw != null ? String(wardCodeRaw).trim() : null;
