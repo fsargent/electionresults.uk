@@ -2,6 +2,7 @@
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
   import { partyColor } from '$lib/party-colors';
+  import PartyBars from '$lib/components/PartyBars.svelte';
   let { data } = $props();
   const history = $derived(data.history);
   const flips = $derived(data.flips);
@@ -101,20 +102,20 @@
           {#each [{ year: f.yearFrom, vNew: f.newPartyVoteFrom, sNew: f.newPartySeatFrom, vOld: f.oldPartyVoteFrom, sOld: f.oldPartySeatFrom }, { year: f.yearTo, vNew: f.newPartyVoteTo, sNew: f.newPartySeatTo, vOld: f.oldPartyVoteTo, sOld: f.oldPartySeatTo }] as row (row.year)}
             <div class="bar-block">
               <div class="bar-year muted">{row.year}</div>
-              <div class="bar-row">
-                <span class="bar-label">Votes</span>
-                <div class="bar">
-                  <span class="seg" style:width={`${row.vNew * 100}%`} style:background-color={newColor} title={`${f.toParty}: ${pct(row.vNew)}`}></span>
-                  <span class="seg" style:width={`${row.vOld * 100}%`} style:background-color={oldColor} title={`${f.fromParty}: ${pct(row.vOld)}`}></span>
-                </div>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">Seats</span>
-                <div class="bar">
-                  <span class="seg" style:width={`${row.sNew * 100}%`} style:background-color={newColor} title={`${f.toParty}: ${pct(row.sNew)}`}></span>
-                  <span class="seg" style:width={`${row.sOld * 100}%`} style:background-color={oldColor} title={`${f.fromParty}: ${pct(row.sOld)}`}></span>
-                </div>
-              </div>
+              <PartyBars
+                label="Votes"
+                segments={[
+                  { party: f.toParty, share: row.vNew },
+                  { party: f.fromParty, share: row.vOld }
+                ]}
+              />
+              <PartyBars
+                label="Seats"
+                segments={[
+                  { party: f.toParty, share: row.sNew },
+                  { party: f.fromParty, share: row.sOld }
+                ]}
+              />
             </div>
           {/each}
         </div>
@@ -134,6 +135,53 @@
       Only one cycle of data for this council so far — no
       between-cycle comparison possible yet.
     </p>
+  {/if}
+
+  {#if data.wards.years.length > 1 && data.wards.rows.length > 0}
+    <h2>Ward by ward</h2>
+    <p>
+      Each row is a ward, each column a cycle. Each cell shows the
+      top-of-poll candidate's party (swatch) and their share of valid
+      ballots. Wards are matched by name across cycles — boundary
+      reviews can mean a ward of the same name is a slightly different
+      area in a later cycle.
+    </p>
+    <div class="ward-grid-wrap">
+      <table class="ward-grid">
+        <thead>
+          <tr>
+            <th class="ward-name">Ward</th>
+            {#each data.wards.years as year (year)}
+              <th class="num">{year}</th>
+            {/each}
+          </tr>
+        </thead>
+        <tbody>
+          {#each data.wards.rows as row (row.wardName)}
+            <tr>
+              <td class="ward-name">{row.wardName}</td>
+              {#each data.wards.years as year (year)}
+                {@const cell = row.cells.find((c) => c.year === year)}
+                {#if cell}
+                  {@const c = partyColor(cell.winnerParty)}
+                  <td
+                    class="ward-cell"
+                    style:background-color={c}
+                    title={`${row.wardName} ${cell.year}: ${cell.winnerName} (${cell.winnerParty}) — ${cell.winnerVotes} votes, ${pct(cell.winningPct)} of ${cell.validBallots} valid ballots`}
+                  >
+                    <a href={`/${history.councilSlug}/${cell.year}`} class="ward-link">
+                      {pct(cell.winningPct, 0)}
+                    </a>
+                  </td>
+                {:else}
+                  <td class="ward-cell empty"></td>
+                {/if}
+              {/each}
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
   {/if}
 </main>
 
@@ -227,11 +275,6 @@
   .small { font-size: 0.78rem; }
   .warn { color: var(--warn); }
 
-  .bars-heading {
-    font-size: 0.95rem;
-    margin-top: 0.8rem;
-    margin-bottom: 0.4rem;
-  }
   .bars {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -249,28 +292,58 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
-  .bar-row {
-    display: grid;
-    grid-template-columns: 4rem 1fr;
-    gap: 0.5rem;
-    align-items: center;
+
+  .ward-grid-wrap {
+    overflow-x: auto;
+    margin: 1rem 0 2rem;
   }
-  .bar-label {
-    font-size: 0.78rem;
+  table.ward-grid {
+    border-collapse: separate;
+    border-spacing: 2px;
+    width: auto;
+    font-size: 0.85rem;
+  }
+  table.ward-grid th,
+  table.ward-grid td {
+    padding: 0.4rem 0.55rem;
+    border-bottom: none;
+    font-variant-numeric: tabular-nums;
+  }
+  table.ward-grid th.ward-name,
+  table.ward-grid td.ward-name {
+    text-align: left;
+    background: transparent;
+    white-space: nowrap;
+    padding-right: 1rem;
+    font-weight: 500;
+  }
+  table.ward-grid th {
+    background: transparent;
     color: var(--muted);
+    font-weight: 600;
+    font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
-  .bar {
-    display: flex;
-    height: 1rem;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    overflow: hidden;
-    background: var(--bg);
+  table.ward-grid td.ward-cell {
+    text-align: center;
+    border-radius: 3px;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    min-width: 3rem;
   }
-  .bar .seg {
+  table.ward-grid td.ward-cell.empty {
+    background: transparent;
+    color: var(--muted);
+  }
+  table.ward-grid td.ward-cell .ward-link {
+    color: inherit;
+    text-decoration: none;
     display: block;
-    height: 100%;
+    width: 100%;
+  }
+  table.ward-grid td.ward-cell .ward-link:hover {
+    text-decoration: underline;
   }
 </style>

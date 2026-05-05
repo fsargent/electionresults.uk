@@ -2,8 +2,7 @@
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
   import Frac from '$lib/components/Frac.svelte';
-  import { partyColor } from '$lib/party-colors';
-  const partyColorOf = (name: string) => partyColor(name);
+  import PartyBars from '$lib/components/PartyBars.svelte';
   let { data } = $props();
   const council = $derived(data.council);
   const races = $derived(data.races);
@@ -140,45 +139,36 @@
       indictment of the method.
     </p>
     <div class="bars" aria-label="Vote share vs actual seat share by party">
-      <div class="bar-row">
-        <span class="bar-label">Vote share</span>
-        <div class="bar">
-          {#each view.rows.filter((r) => r.voteShare > 0) as r (r.party)}
-            <span
-              class="seg"
-              style:width={`${r.voteShare * 100}%`}
-              style:background-color={partyColorOf(r.party)}
-              title={`${r.party}: ${pct(r.voteShare)} of votes`}
-            ></span>
-          {/each}
-        </div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Seat share (actual)</span>
-        <div class="bar">
-          {#each view.rows.filter((r) => r.fptpSeats > 0) as r (r.party)}
-            <span
-              class="seg"
-              style:width={`${r.fptpSeatShare * 100}%`}
-              style:background-color={partyColorOf(r.party)}
-              title={`${r.party}: ${r.fptpSeats} of ${view.totalSeats} seats`}
-            ></span>
-          {/each}
-        </div>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label">Seat share (proportional)</span>
-        <div class="bar">
-          {#each view.rows.filter((r) => r.dhondtSeats > 0) as r (r.party)}
-            <span
-              class="seg"
-              style:width={`${r.dhondtSeatShare * 100}%`}
-              style:background-color={partyColorOf(r.party)}
-              title={`${r.party}: ${r.dhondtSeats} of ${view.totalSeats} seats`}
-            ></span>
-          {/each}
-        </div>
-      </div>
+      <PartyBars
+        label="Vote share"
+        segments={view.rows.map((r) => ({
+          party: r.party,
+          share: r.voteShare,
+          count: r.votes,
+          total: view.totalVotes,
+          unit: 'votes'
+        }))}
+      />
+      <PartyBars
+        label="Seat share (actual)"
+        segments={view.rows.map((r) => ({
+          party: r.party,
+          share: r.fptpSeatShare,
+          count: r.fptpSeats,
+          total: view.totalSeats,
+          unit: 'seats'
+        }))}
+      />
+      <PartyBars
+        label="Seat share (proportional)"
+        segments={view.rows.map((r) => ({
+          party: r.party,
+          share: r.dhondtSeatShare,
+          count: r.dhondtSeats,
+          total: view.totalSeats,
+          unit: 'seats'
+        }))}
+      />
     </div>
   {/if}
 
@@ -374,34 +364,6 @@
     display: grid;
     gap: 0.4rem;
     margin: 0.8rem 0 1.5rem;
-  }
-  .bar-row {
-    display: grid;
-    grid-template-columns: 11rem 1fr;
-    gap: 0.6rem;
-    align-items: center;
-  }
-  .bar-label {
-    font-size: 0.85rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .bar {
-    display: flex;
-    height: 1.4rem;
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .bar .seg {
-    display: block;
-    height: 100%;
-    transition: filter 0.1s;
-  }
-  .bar .seg:hover { filter: brightness(1.15); }
-  @media (max-width: 600px) {
-    .bar-row { grid-template-columns: 1fr; }
   }
 
   .year-badge {

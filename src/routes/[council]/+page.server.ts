@@ -2,7 +2,8 @@ import { error } from '@sveltejs/kit';
 import {
   councilHistory,
   distinctCouncilSlugs,
-  flipsForCouncil
+  flipsForCouncil,
+  wardHistoryForCouncil
 } from '$lib/data';
 
 export const prerender = true;
@@ -15,5 +16,6 @@ export function load({ params }: { params: { council: string } }) {
   const history = councilHistory(params.council);
   if (!history) throw error(404, `Council not found: ${params.council}`);
   const flips = flipsForCouncil(params.council);
-  return { history, flips };
+  const wards = wardHistoryForCouncil(params.council);
+  return { history, flips, wards };
 }

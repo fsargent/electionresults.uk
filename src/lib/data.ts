@@ -78,6 +78,67 @@ export function latestFlipByCouncil(): Map<string, CouncilFlip> {
   return out;
 }
 
+export interface WardHistoryCell {
+  year: number;
+  winnerName: string;
+  winnerParty: string;
+  winnerVotes: number;
+  winningPct: number;
+  seats: number;
+  validBallots: number;
+}
+
+export interface WardHistoryRow {
+  wardName: string;
+  /** Sorted by year descending (most recent first). */
+  cells: WardHistoryCell[];
+}
+
+export interface WardHistory {
+  years: number[]; // descending
+  rows: WardHistoryRow[]; // alphabetical by wardName
+}
+
+/**
+ * Build a per-ward, per-year matrix for one council. Rows are wards (matched
+ * by name across cycles — see methodology re: boundary changes); columns
+ * are the cycles this council has data for, most recent first.
+ *
+ * For each (ward, year) cell we surface the top-of-poll candidate (highest
+ * votes), their party, and that candidate's share of valid ballots. This
+ * is the "who won this ward this year" lens, complementing the
+ * council-level flip viz above.
+ */
+export function wardHistoryForCouncil(slug: string): WardHistory {
+  const races = allRaces.filter((r) => r.councilSlug === slug);
+  const yearsSet = new Set<number>();
+  const byWard = new Map<string, Map<number, WardHistoryCell>>();
+  for (const r of races) {
+    yearsSet.add(r.year);
+    const top = [...r.candidates].sort((a, b) => b.votes - a.votes)[0];
+    if (!top) continue;
+    const winningPct = r.validBallots > 0 ? top.votes / r.validBallots : 0;
+    if (!byWard.has(r.wardName)) byWard.set(r.wardName, new Map());
+    byWard.get(r.wardName)!.set(r.year, {
+      year: r.year,
+      winnerName: top.name,
+      winnerParty: top.party,
+      winnerVotes: top.votes,
+      winningPct,
+      seats: r.seats,
+      validBallots: r.validBallots
+    });
+  }
+  const years = [...yearsSet].sort((a, b) => b - a);
+  const rows: WardHistoryRow[] = [...byWard.entries()]
+    .map(([wardName, perYear]) => ({
+      wardName,
+      cells: [...perYear.values()].sort((a, b) => b.year - a.year)
+    }))
+    .sort((a, b) => a.wardName.localeCompare(b.wardName));
+  return { years, rows };
+}
+
 /**
  * One entry per distinct council across all cycles, with the years that
  * council appears in. Used by the council overview page.
