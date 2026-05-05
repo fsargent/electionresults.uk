@@ -149,6 +149,88 @@
     rankings so we cannot reproduce that allocation here.
   </p>
 
+  <h2>Cycle-over-cycle comparison</h2>
+  <p>
+    Each council overview page (<code>/[council]</code>) compares the
+    council across every cycle in our data. Three views:
+  </p>
+  <ul>
+    <li>
+      <strong>Council composition.</strong> A grid of one square per
+      seat, summed across the cycles within two years of the latest
+      cycle. That window captures a full term for by-thirds councils
+      (3 consecutive years) and the latest cycle for all-out councils
+      (whose prior cycle is 4 years earlier and represents a separate
+      set of councillors). The result is approximate and labelled as
+      such — boundary reviews mid-term, partial-cycle elections, and
+      councils on irregular schedules can shift the count by a few
+      seats.
+    </li>
+    <li>
+      <strong>Party-control flips.</strong> For each consecutive cycle
+      pair (cycle&nbsp;N, cycle&nbsp;N+1) where the largest party (by
+      seats won this cycle) changed, we record the flip and compute
+      the incoming party's vote-share shift and seat-share shift
+      between the two cycles. Flips are ranked by
+      <em>seat&nbsp;shift&nbsp;÷&nbsp;vote&nbsp;shift</em> — the
+      highest scores are councils where a tiny movement in support
+      produced a total movement in representation. The rich per-flip
+      visualisation shows a bar comparison of votes vs seats for both
+      cycles.
+    </li>
+    <li>
+      <strong>Ward-by-ward grid.</strong> Rows are wards (matched by
+      name across cycles); columns are cycles, oldest on the left,
+      latest on the right. Each cell shows the top-of-poll candidate's
+      party and their share of valid ballots. Empty cells mean the
+      ward did not poll that cycle. Caveat: ward names are matched as
+      strings — boundary reviews can mean a ward of the same name is
+      a slightly different geographical area in a later cycle.
+    </li>
+  </ul>
+
+  <h2>Council reorganisations</h2>
+  <p>
+    Eleven councils in our window were created or abolished by the
+    2019&ndash;2023 wave of UK local-government reorganisation. Where
+    that applies, the council overview page carries an explicit
+    warning banner explaining what happened and when, and listing the
+    predecessor or successor councils. The list is hand-curated from
+    the
+    <a
+      href="https://en.wikipedia.org/wiki/2019%E2%80%932023_structural_changes_to_local_government_in_England"
+      rel="external noopener"
+    >Wikipedia record</a> of the LGR wave, cross-checked against the
+    Commons Library briefing CBP-9056. The next wave (Surrey 2026,
+    Essex 2027/28) will be added when those cycles enter the dataset.
+  </p>
+
+  <h2>System anomalies</h2>
+  <p>
+    Two anomaly lenses are surfaced as their own pages:
+  </p>
+  <ul>
+    <li>
+      <a href="/below-quota">/below-quota</a> &middot; every elected
+      seat anywhere in the data where the marginal winner's share fell
+      below the proportional quota for that ward. Sortable, filterable
+      by year, party, and council.
+    </li>
+    <li>
+      <a href="/flips">/flips</a> &middot; every council that flipped
+      plurality party between consecutive cycles, ranked by
+      seat-shift&nbsp;÷&nbsp;vote-shift.
+    </li>
+  </ul>
+  <p>
+    Other classical FPTP anomalies &mdash; smallest absolute winning
+    vote count, party second in vote share winning the most seats per
+    council, vote-share-to-seat-share inversions, multi-member wards
+    electing a third-placed party's candidate, high-turnout wards with
+    low-mandate winners &mdash; are computable from the SQLite
+    database but not yet surfaced as their own lenses on the site.
+  </p>
+
   <h2>Sources</h2>
   <p>
     All cycles below are ingested from the
@@ -181,15 +263,21 @@
     same published bytes.
   </p>
 
-  <h2>What is <em>not</em> in this v1</h2>
+  <h2>What is <em>not</em> here yet</h2>
   <ul>
     <li>An in-page SQL console (<em>datasette-lite</em>) — deferred.</li>
-    <li>DuckDB-WASM widgets for live-querying tables — deferred.</li>
-    <li>Cycle-over-cycle comparison views — pending the prior-cycle ingest.</li>
-    <li>System-anomalies lens (smallest winning vote count, vote-to-seat
-      inversions, etc.) — pending the next iteration.</li>
-    <li>Per-candidate pages and biographies — explicitly excluded by editorial
-      design (race-as-noun discipline).</li>
+    <li>DuckDB-WASM widgets for live-querying tables in the browser
+      — deferred.</li>
+    <li>The full system-anomalies lens beyond
+      <a href="/below-quota">/below-quota</a> and <a href="/flips">/flips</a>
+      &mdash; smallest absolute winning vote count, vote-share-to-seat-share
+      inversions, third-place-by-party-share-wins-seat, and high-turnout
+      wards with low-mandate winners are all computable but don't yet
+      have their own pages.</li>
+    <li>An exact council-composition figure that matches each council's
+      live members list — see the "Council composition" caveat above.</li>
+    <li>Per-candidate pages and biographies — explicitly excluded by
+      editorial design (race-as-noun discipline).</li>
   </ul>
 
   <h2>Errata</h2>
