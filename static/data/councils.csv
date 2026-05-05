@@ -1,0 +1,848 @@
+year,council_slug,council,authority_type,race_count,total_seats,below_quota_seats,below_quota_share
+2025,amber-valley,Amber Valley,CC,10,10,9,0.900000
+2025,ashfield,Ashfield,CC,10,10,3,0.300000
+2025,ashford,Ashford,CC,7,7,7,1.000000
+2025,bassetlaw,Bassetlaw,CC,9,9,7,0.777778
+2025,blaby,Blaby,CC,7,8,7,0.875000
+2025,bolsover,Bolsover,CC,6,6,0,0.000000
+2025,boston,Boston,CC,6,6,3,0.500000
+2025,bromsgrove,Bromsgrove,CC,9,9,8,0.888889
+2025,broxbourne,Broxbourne,CC,6,6,6,1.000000
+2025,broxtowe,Broxtowe,CC,7,9,8,0.888889
+2025,buckinghamshire,Buckinghamshire,UC,49,97,30,0.309278
+2025,burnley,Burnley,CC,6,6,5,0.833333
+2025,cambridge,Cambridge,CC,12,12,11,0.916667
+2025,cannock-chase,Cannock Chase,CC,7,7,3,0.428571
+2025,canterbury,Canterbury,CC,8,8,7,0.875000
+2025,charnwood,Charnwood,CC,14,14,14,1.000000
+2025,cheltenham,Cheltenham,CC,10,10,9,0.900000
+2025,cherwell,Cherwell,CC,16,16,15,0.937500
+2025,chesterfield,Chesterfield,CC,8,8,8,1.000000
+2025,chorley,Chorley,CC,7,7,7,1.000000
+2025,cornwall,Cornwall,UC,87,87,74,0.850575
+2025,cotswold,Cotswold,CC,8,8,6,0.750000
+2025,dacorum,Dacorum,CC,10,10,9,0.900000
+2025,dartford,Dartford,CC,6,6,6,1.000000
+2025,derbyshire-dales,Derbyshire Dales,CC,6,6,6,1.000000
+2025,doncaster,Doncaster,MB,21,55,4,0.072727
+2025,dover,Dover,CC,5,7,3,0.428571
+2025,durham,Durham,UC,51,98,12,0.122449
+2025,east-cambridgeshire,East Cambridgeshire,CC,8,8,8,1.000000
+2025,east-devon,East Devon,CC,9,11,10,0.909091
+2025,east-hertfordshire,East Hertfordshire,CC,10,10,10,1.000000
+2025,east-lindsey,East Lindsey,CC,13,13,8,0.615385
+2025,east-staffordshire,East Staffordshire,CC,9,9,9,1.000000
+2025,erewash,Erewash,CC,9,9,6,0.666667
+2025,exeter,Exeter,CC,9,9,9,1.000000
+2025,fenland,Fenland,CC,8,9,7,0.777778
+2025,folkestone-and-hythe,Folkestone & Hythe,CC,6,6,5,0.833333
+2025,forest-of-dean,Forest Of Dean,CC,8,8,8,1.000000
+2025,fylde,Fylde,CC,6,6,6,1.000000
+2025,gedling,Gedling,CC,6,9,3,0.333333
+2025,gloucester,Gloucester,CC,10,10,10,1.000000
+2025,gravesham,Gravesham,CC,3,5,1,0.200000
+2025,harborough,Harborough,CC,7,7,7,1.000000
+2025,hertsmere,Hertsmere,CC,7,7,5,0.714286
+2025,high-peak,High Peak,CC,8,8,7,0.875000
+2025,hinckley-and-bosworth,Hinckley & Bosworth,CC,9,9,8,0.888889
+2025,huntingdonshire,Huntingdonshire,CC,17,17,16,0.941176
+2025,hyndburn,Hyndburn,CC,5,6,3,0.500000
+2025,lancaster,Lancaster,CC,10,10,7,0.700000
+2025,lichfield,Lichfield,CC,8,8,7,0.875000
+2025,lincoln,Lincoln,CC,8,8,8,1.000000
+2025,maidstone,Maidstone,CC,8,9,8,0.888889
+2025,malvern-hills,Malvern Hills,CC,8,8,5,0.625000
+2025,mansfield,Mansfield,CC,5,9,2,0.222222
+2025,melton,Melton,CC,4,4,4,1.000000
+2025,mid-devon,Mid Devon,CC,6,6,6,1.000000
+2025,newark-and-sherwood,Newark & Sherwood,CC,10,10,9,0.900000
+2025,newcastle-under-lyme,Newcastle-under-Lyme,CC,9,9,3,0.333333
+2025,north-devon,North Devon,CC,8,8,7,0.875000
+2025,north-east-derbyshire,North East Derbyshire,CC,8,8,7,0.875000
+2025,north-hertfordshire,North Hertfordshire,CC,9,9,9,1.000000
+2025,north-kesteven,North Kesteven,CC,11,11,11,1.000000
+2025,north-northamptonshire,North Northamptonshire,UC,31,68,10,0.147059
+2025,north-warwickshire,North Warwickshire,CC,7,7,4,0.571429
+2025,north-west-leicestershire,North West Leicestershire,CC,8,8,8,1.000000
+2025,northumberland,Northumberland,UC,69,69,51,0.739130
+2025,nuneaton-and-bedworth,Nuneaton & Bedworth,CC,13,13,9,0.692308
+2025,oadby-and-wigston,Oadby & Wigston,CC,4,5,3,0.600000
+2025,oxford,Oxford,CC,13,13,13,1.000000
+2025,pendle,Pendle,CC,5,6,4,0.666667
+2025,preston,Preston,CC,9,9,9,1.000000
+2025,redditch,Redditch,CC,4,8,1,0.125000
+2025,ribble-valley,Ribble Valley,CC,4,4,4,1.000000
+2025,rossendale,Rossendale,CC,5,5,4,0.800000
+2025,rugby,Rugby,CC,10,10,10,1.000000
+2025,rushcliffe,Rushcliffe,CC,9,10,9,0.900000
+2025,sevenoaks,Sevenoaks,CC,6,6,6,1.000000
+2025,shropshire,Shropshire,UC,72,74,54,0.729730
+2025,south-cambridgeshire,South Cambridgeshire,CC,14,15,13,0.866667
+2025,south-derbyshire,South Derbyshire,CC,9,9,7,0.777778
+2025,south-hams,South Hams,CC,7,7,5,0.714286
+2025,south-holland,South Holland,CC,9,9,4,0.444444
+2025,south-kesteven,South Kesteven,CC,14,14,12,0.857143
+2025,south-oxfordshire,South Oxfordshire,CC,15,15,13,0.866667
+2025,south-ribble,South Ribble,CC,8,8,7,0.875000
+2025,south-staffordshire,South Staffordshire,CC,8,8,7,0.875000
+2025,st-albans,St Albans,CC,10,10,6,0.600000
+2025,stafford,Stafford,CC,9,9,9,1.000000
+2025,staffordshire-moorlands,Staffordshire Moorlands,CC,7,7,7,1.000000
+2025,stevenage,Stevenage,CC,6,6,6,1.000000
+2025,stratford-on-avon,Stratford On Avon,CC,13,13,11,0.846154
+2025,stroud,Stroud,CC,11,11,8,0.727273
+2025,swale,Swale,CC,6,7,5,0.714286
+2025,tamworth,Tamworth,CC,5,5,1,0.200000
+2025,teignbridge,Teignbridge,CC,10,10,9,0.900000
+2025,tewkesbury,Tewkesbury,CC,8,8,7,0.875000
+2025,thanet,Thanet,CC,5,7,3,0.428571
+2025,three-rivers,Three Rivers,CC,6,6,6,1.000000
+2025,tonbridge-and-malling,Tonbridge & Malling,CC,6,7,4,0.571429
+2025,torridge,Torridge,CC,5,5,5,1.000000
+2025,tunbridge-wells,Tunbridge Wells,CC,6,6,6,1.000000
+2025,vale-of-white-horse,Vale Of White Horse,CC,14,14,10,0.714286
+2025,warwick,Warwick,CC,14,14,10,0.714286
+2025,watford,Watford,CC,6,6,4,0.666667
+2025,welwyn-hatfield,Welwyn Hatfield,CC,8,8,8,1.000000
+2025,west-devon,West Devon,CC,4,4,4,1.000000
+2025,west-lancashire,West Lancashire,CC,8,8,8,1.000000
+2025,west-lindsey,West Lindsey,CC,9,9,9,1.000000
+2025,west-northamptonshire,West Northamptonshire,UC,35,76,23,0.302632
+2025,west-oxfordshire,West Oxfordshire,CC,11,11,11,1.000000
+2025,wiltshire,Wiltshire,UC,98,98,60,0.612245
+2025,worcester,Worcester,CC,10,10,7,0.700000
+2025,wychavon,Wychavon,CC,12,12,11,0.916667
+2025,wyre,Wyre,CC,8,8,6,0.750000
+2025,wyre-forest,Wyre Forest,CC,10,10,10,1.000000
+2024,adur,Adur,SD,14,16,6,0.375000
+2024,barnsley,Barnsley,MB,21,21,7,0.333333
+2024,basildon,Basildon,SD,14,42,38,0.904762
+2024,basingstoke-and-deane,Basingstoke and Deane,SD,18,18,10,0.555556
+2024,blackburn-with-darwen,Blackburn with Darwen,UA,17,17,5,0.294118
+2024,bolton,Bolton,MB,20,21,21,1.000000
+2024,bradford,Bradford,MB,30,30,15,0.500000
+2024,brentwood,Brentwood,SD,13,39,39,1.000000
+2024,bristol-city-of,"Bristol, City of",UA,34,70,66,0.942857
+2024,broxbourne,Broxbourne,SD,10,10,3,0.300000
+2024,burnley,Burnley,SD,15,15,6,0.400000
+2024,bury,Bury,MB,17,17,9,0.529412
+2024,calderdale,Calderdale,MB,17,17,7,0.411765
+2024,cambridge,Cambridge,SD,14,14,10,0.714286
+2024,cannock-chase,Cannock Chase,SD,12,36,36,1.000000
+2024,castle-point,Castle Point,SD,13,39,30,0.769231
+2024,cheltenham,Cheltenham,SD,20,40,38,0.950000
+2024,cherwell,Cherwell,SD,16,16,12,0.750000
+2024,chorley,Chorley,SD,14,14,3,0.214286
+2024,colchester,Colchester,SD,17,18,9,0.500000
+2024,coventry,Coventry,MB,18,18,9,0.500000
+2024,crawley,Crawley,SD,12,12,5,0.416667
+2024,dorset,Dorset,UA,52,82,60,0.731707
+2024,dudley,Dudley,MB,24,72,72,1.000000
+2024,eastleigh,Eastleigh,SD,12,12,4,0.333333
+2024,elmbridge,Elmbridge,SD,16,16,8,0.500000
+2024,epping-forest,Epping Forest,SD,18,54,41,0.759259
+2024,exeter,Exeter,SD,13,13,11,0.846154
+2024,fareham,Fareham,SD,16,32,31,0.968750
+2024,gateshead,Gateshead,MB,22,22,5,0.227273
+2024,gloucester,Gloucester,SD,18,39,37,0.948718
+2024,gosport,Gosport,SD,14,15,9,0.600000
+2024,halton,Halton,UA,18,18,1,0.055556
+2024,harlow,Harlow,SD,11,33,33,1.000000
+2024,hart,Hart,SD,11,12,6,0.500000
+2024,hartlepool,Hartlepool,UA,12,12,3,0.250000
+2024,hastings,Hastings,SD,16,16,9,0.562500
+2024,havant,Havant,SD,12,36,36,1.000000
+2024,hyndburn,Hyndburn,SD,12,12,3,0.250000
+2024,ipswich,Ipswich,SD,16,18,13,0.722222
+2024,kingston-upon-hull-city-of,"Kingston Upon Hull, City of",UA,19,19,3,0.157895
+2024,kirklees,Kirklees,MB,23,23,16,0.695652
+2024,knowsley,Knowsley,MB,15,15,1,0.066667
+2024,leeds,Leeds,MB,33,33,15,0.454545
+2024,lincoln,Lincoln,SD,11,11,6,0.545455
+2024,maidstone,Maidstone,SD,22,49,42,0.857143
+2024,manchester,Manchester,MB,32,33,9,0.272727
+2024,milton-keynes,Milton Keynes,UA,19,19,12,0.631579
+2024,mole-valley,Mole Valley,SD,13,14,5,0.357143
+2024,newcastle-upon-tyne,Newcastle Upon Tyne,MB,26,27,14,0.518519
+2024,north-east-lincolnshire,North East Lincolnshire,UA,12,12,5,0.416667
+2024,north-hertfordshire,North Hertfordshire,SD,25,51,47,0.921569
+2024,north-tyneside,North Tyneside,MB,20,60,49,0.816667
+2024,norwich,Norwich,SD,13,13,5,0.384615
+2024,nuneaton-and-bedworth,Nuneaton and Bedworth,SD,19,38,35,0.921053
+2024,oldham,Oldham,MB,20,20,13,0.650000
+2024,oxford,Oxford,SD,24,25,18,0.720000
+2024,pendle,Pendle,SD,12,12,4,0.333333
+2024,peterborough,Peterborough,UA,22,23,19,0.826087
+2024,plymouth,Plymouth,UA,19,19,11,0.578947
+2024,portsmouth,Portsmouth,UA,14,14,10,0.714286
+2024,preston,Preston,SD,16,16,7,0.437500
+2024,reading,Reading,UA,16,16,5,0.312500
+2024,redditch,Redditch,SD,9,27,27,1.000000
+2024,reigate-and-banstead,Reigate and Banstead,SD,15,16,10,0.625000
+2024,rochdale,Rochdale,MB,20,20,8,0.400000
+2024,rochford,Rochford,SD,13,13,7,0.538462
+2024,rossendale,Rossendale,SD,10,30,30,1.000000
+2024,rotherham,Rotherham,MB,25,59,50,0.847458
+2024,rugby,Rugby,SD,14,14,10,0.714286
+2024,runnymede,Runnymede,SD,13,14,9,0.642857
+2024,rushmoor,Rushmoor,SD,13,13,8,0.615385
+2024,salford,Salford,MB,20,21,3,0.142857
+2024,sandwell,Sandwell,MB,24,24,6,0.250000
+2024,sefton,Sefton,MB,22,22,6,0.272727
+2024,sheffield,Sheffield,MB,28,29,16,0.551724
+2024,solihull,Solihull,MB,17,17,5,0.294118
+2024,south-tyneside,South Tyneside,MB,18,18,9,0.500000
+2024,southampton,Southampton,UA,17,17,15,0.882353
+2024,southend-on-sea,Southend-On-Sea,UA,17,17,9,0.529412
+2024,st-albans,St Albans,SD,18,21,12,0.571429
+2024,stevenage,Stevenage,SD,13,39,38,0.974359
+2024,stockport,Stockport,MB,21,21,9,0.428571
+2024,stroud,Stroud,SD,27,51,41,0.803922
+2024,sunderland,Sunderland,MB,25,25,10,0.400000
+2024,swindon,Swindon,UA,19,20,8,0.400000
+2024,tameside,Tameside,MB,19,19,7,0.368421
+2024,tamworth,Tamworth,SD,10,10,6,0.600000
+2024,tandridge,Tandridge,SD,18,43,32,0.744186
+2024,three-rivers,Three Rivers,SD,13,13,4,0.307692
+2024,thurrock,Thurrock,UA,17,17,7,0.411765
+2024,trafford,Trafford,MB,21,21,6,0.285714
+2024,tunbridge-wells,Tunbridge Wells,SD,14,39,38,0.974359
+2024,wakefield,Wakefield,MB,21,22,5,0.227273
+2024,walsall,Walsall,MB,20,20,13,0.650000
+2024,warrington,Warrington,UA,22,58,45,0.775862
+2024,watford,Watford,SD,12,12,7,0.583333
+2024,welwyn-hatfield,Welwyn Hatfield,SD,16,16,13,0.812500
+2024,west-lancashire,West Lancashire,SD,15,16,8,0.500000
+2024,west-oxfordshire,West Oxfordshire,SD,17,17,10,0.588235
+2024,wigan,Wigan,MB,25,25,7,0.280000
+2024,winchester,Winchester,SD,14,14,5,0.357143
+2024,woking,Woking,SD,10,11,4,0.363636
+2024,wokingham,Wokingham,UA,18,54,53,0.981481
+2024,wolverhampton,Wolverhampton,MB,20,20,3,0.150000
+2024,worcester,Worcester,SD,16,35,30,0.857143
+2024,worthing,Worthing,SD,13,13,5,0.384615
+2023,amber-valley,Amber Valley,SDA,18,42,40,0.952381
+2023,arun,Arun,SDA,23,54,49,0.907407
+2023,ashfield,Ashfield,SDA,23,35,29,0.828571
+2023,ashford,Ashford,SDA,39,47,28,0.595745
+2023,babergh,Babergh,SDA,24,32,22,0.687500
+2023,barnsley,Barnsley,MB,21,21,7,0.333333
+2023,basildon,Basildon,SDT,14,14,6,0.428571
+2023,basingstoke-and-deane,Basingstoke & Deane,SDT,18,18,10,0.555556
+2023,bassetlaw,Bassetlaw,SDA,25,48,32,0.666667
+2023,bath-and-north-east-somerset,Bath & North East Somerset,UAA,33,59,52,0.881356
+2023,bedford,Bedford,UAA,28,46,35,0.760870
+2023,blaby,Blaby,SDA,16,34,27,0.794118
+2023,blackburn-with-darwen,Blackburn with Darwen,UAT,17,17,1,0.058824
+2023,blackpool,Blackpool,UAA,21,42,40,0.952381
+2023,bolsover,Bolsover,SDA,17,37,32,0.864865
+2023,bolton,Bolton,MB,20,60,60,1.000000
+2023,boston,Boston,SDA,15,30,25,0.833333
+2023,bournemouth-christchurch-and-poole,"Bournemouth, Christchurch & Poole",UAA,33,76,71,0.934211
+2023,bracknell-forest,Bracknell Forest,UAA,15,41,40,0.975610
+2023,bradford,Bradford,MB,30,30,10,0.333333
+2023,braintree,Braintree,SDA,26,49,42,0.857143
+2023,breckland,Breckland,SDA,27,49,36,0.734694
+2023,brentwood,Brentwood,SDT,12,12,1,0.083333
+2023,brighton-and-hove,Brighton & Hove,UAA,23,54,51,0.944444
+2023,broadland,Broadland,SDA,27,47,42,0.893617
+2023,bromsgrove,Bromsgrove,SDA,30,31,9,0.290323
+2023,broxbourne,Broxbourne,SDT,10,10,3,0.300000
+2023,broxtowe,Broxtowe,SDA,20,44,38,0.863636
+2023,burnley,Burnley,SDT,15,15,8,0.533333
+2023,bury,Bury,MB,17,17,6,0.352941
+2023,calderdale,Calderdale,MB,17,17,7,0.411765
+2023,cambridge,Cambridge,SDT,14,16,16,1.000000
+2023,cannock-chase,Cannock Chase,SDT,15,17,8,0.470588
+2023,canterbury,Canterbury,SDA,21,39,35,0.897436
+2023,castle-point,Castle Point,SDT,14,14,4,0.285714
+2023,central-bedfordshire,Central Bedfordshire,UAA,31,63,55,0.873016
+2023,charnwood,Charnwood,SDA,24,52,47,0.903846
+2023,chelmsford,Chelmsford,SDA,24,57,53,0.929825
+2023,cherwell,Cherwell,SDT,16,16,9,0.562500
+2023,cheshire-east,Cheshire East,UAA,52,82,61,0.743902
+2023,cheshire-west-and-chester,Cheshire West & Chester,UAA,45,70,47,0.671429
+2023,chesterfield,Chesterfield,SDA,16,40,37,0.925000
+2023,chichester,Chichester,SDA,21,36,26,0.722222
+2023,chorley,Chorley,SDT,14,14,0,0.000000
+2023,colchester,Colchester,SDT,17,17,5,0.294118
+2023,cotswold,Cotswold,SDA,32,34,4,0.117647
+2023,coventry,Coventry,MB,18,18,8,0.444444
+2023,crawley,Crawley,SDT,12,12,5,0.416667
+2023,dacorum,Dacorum,SDA,25,51,44,0.862745
+2023,darlington,Darlington,UAA,20,50,49,0.980000
+2023,dartford,Dartford,SDA,20,42,30,0.714286
+2023,derby,Derby,UAA,18,51,49,0.960784
+2023,derbyshire-dales,Derbyshire Dales,SDA,21,34,15,0.441176
+2023,dover,Dover,SDA,17,32,30,0.937500
+2023,dudley,Dudley,MB,24,25,8,0.320000
+2023,east-cambridgeshire,East Cambridgeshire,SDA,14,28,25,0.892857
+2023,east-devon,East Devon,SDA,30,60,38,0.633333
+2023,east-hampshire,East Hampshire,SDA,31,43,27,0.627907
+2023,east-hertfordshire,East Hertfordshire,SDA,26,50,44,0.880000
+2023,east-lindsey,East Lindsey,SDA,29,42,26,0.619048
+2023,east-riding-of-yorkshire,East Riding Of Yorkshire,UAA,26,67,65,0.970149
+2023,east-staffordshire,East Staffordshire,SDA,16,37,32,0.864865
+2023,east-suffolk,East Suffolk,SDA,29,55,45,0.818182
+2023,eastbourne,Eastbourne,SDA,9,27,26,0.962963
+2023,eastleigh,Eastleigh,SDT,13,13,3,0.230769
+2023,elmbridge,Elmbridge,SDT,16,16,6,0.375000
+2023,epping-forest,Epping Forest,SDT,18,18,5,0.277778
+2023,epsom-and-ewell,Epsom & Ewell,SDA,14,35,30,0.857143
+2023,erewash,Erewash,SDA,19,47,46,0.978723
+2023,exeter,Exeter,SDT,13,13,6,0.461538
+2023,fenland,Fenland,SDA,18,43,34,0.790698
+2023,folkestone-and-hythe,Folkestone & Hythe,SDA,13,30,28,0.933333
+2023,forest-of-dean,Forest Of Dean,SDA,21,38,28,0.736842
+2023,fylde,Fylde,SDA,17,37,34,0.918919
+2023,gateshead,Gateshead,MB,22,22,2,0.090909
+2023,gedling,Gedling,SDA,19,41,33,0.804878
+2023,gravesham,Gravesham,SDA,17,39,31,0.794872
+2023,great-yarmouth,Great Yarmouth,SDA,17,39,37,0.948718
+2023,guildford,Guildford,SDA,21,48,46,0.958333
+2023,halton,Halton,UAT,18,18,1,0.055556
+2023,harborough,Harborough,SDA,19,34,29,0.852941
+2023,harlow,Harlow,SDT,11,11,5,0.454545
+2023,hart,Hart,SDT,11,11,4,0.363636
+2023,hartlepool,Hartlepool,UAT,12,12,4,0.333333
+2023,havant,Havant,SDT,10,10,4,0.400000
+2023,herefordshire,Herefordshire,UAA,53,53,40,0.754717
+2023,hertsmere,Hertsmere,SDA,16,39,35,0.897436
+2023,high-peak,High Peak,SDA,28,43,32,0.744186
+2023,hinckley-and-bosworth,Hinckley & Bosworth,SDA,16,34,28,0.823529
+2023,horsham,Horsham,SDA,22,48,46,0.958333
+2023,hyndburn,Hyndburn,SDT,12,12,2,0.166667
+2023,ipswich,Ipswich,SDT,16,16,9,0.562500
+2023,kings-lynn-and-west-norfolk,Kings Lynn & West Norfolk,SDA,34,54,35,0.648148
+2023,kingston-upon-hull,Kingston Upon Hull,UAT,19,20,5,0.250000
+2023,kirklees,Kirklees,MB,23,24,11,0.458333
+2023,knowsley,Knowsley,MB,15,16,4,0.250000
+2023,lancaster,Lancaster,SDA,27,61,59,0.967213
+2023,leeds,Leeds,MB,33,33,14,0.424242
+2023,leicester,Leicester,UAA,21,54,52,0.962963
+2023,lewes,Lewes,SDA,21,41,37,0.902439
+2023,lichfield,Lichfield,SDA,21,46,38,0.826087
+2023,lincoln,Lincoln,SDT,11,11,2,0.181818
+2023,liverpool,Liverpool,MB,64,85,30,0.352941
+2023,luton,Luton,UAA,19,45,34,0.755556
+2023,maidstone,Maidstone,SDT,18,18,10,0.555556
+2023,maldon,Maldon,SDA,16,30,19,0.633333
+2023,malvern-hills,Malvern Hills,SDA,18,31,14,0.451613
+2023,manchester,Manchester,MB,32,33,5,0.151515
+2023,mansfield,Mansfield,SDA,36,36,19,0.527778
+2023,medway,Medway,UAA,24,59,57,0.966102
+2023,melton,Melton,SDA,16,28,19,0.678571
+2023,mid-devon,Mid Devon,SDA,22,42,34,0.809524
+2023,mid-suffolk,Mid Suffolk,SDA,26,34,6,0.176471
+2023,mid-sussex,Mid Sussex,SDA,27,48,40,0.833333
+2023,middlesbrough,Middlesbrough,UAA,20,46,38,0.826087
+2023,milton-keynes,Milton Keynes,UAT,19,20,13,0.650000
+2023,mole-valley,Mole Valley,SDT,13,39,39,1.000000
+2023,new-forest,New Forest,SDA,26,48,45,0.937500
+2023,newark-and-sherwood,Newark & Sherwood,SDA,21,39,29,0.743590
+2023,newcastle-upon-tyne,Newcastle Upon Tyne,MB,26,27,13,0.481481
+2023,north-devon,North Devon,SDA,24,41,29,0.707317
+2023,north-east-derbyshire,North East Derbyshire,SDA,24,53,46,0.867925
+2023,north-east-lincolnshire,North East Lincolnshire,UAT,15,15,6,0.400000
+2023,north-hertfordshire,North Hertfordshire,SDT,16,16,7,0.437500
+2023,north-kesteven,North Kesteven,SDA,21,37,24,0.648649
+2023,north-lincolnshire,North Lincolnshire,UAA,19,43,30,0.697674
+2023,north-norfolk,North Norfolk,SDA,32,40,26,0.650000
+2023,north-somerset,North Somerset,UAA,35,50,35,0.700000
+2023,north-tyneside,North Tyneside,MB,20,21,4,0.190476
+2023,north-warwickshire,North Warwickshire,SDA,17,35,27,0.771429
+2023,north-west-leicestershire,North West Leicestershire,SDA,38,38,17,0.447368
+2023,norwich,Norwich,SDT,13,13,3,0.230769
+2023,nottingham,Nottingham,UAA,20,55,41,0.745455
+2023,oadby-and-wigston,Oadby & Wigston,SDA,10,26,26,1.000000
+2023,oldham,Oldham,MB,20,60,55,0.916667
+2023,pendle,Pendle,SDT,11,12,3,0.250000
+2023,peterborough,Peterborough,UAT,20,21,14,0.666667
+2023,plymouth,Plymouth,UAT,19,19,10,0.526316
+2023,portsmouth,Portsmouth,UAT,14,14,12,0.857143
+2023,preston,Preston,SDT,16,17,6,0.352941
+2023,reading,Reading,UAT,16,17,7,0.411765
+2023,redcar-and-cleveland,Redcar & Cleveland,UAA,24,59,54,0.915254
+2023,redditch,Redditch,SDT,10,10,6,0.600000
+2023,reigate-and-banstead,Reigate & Banstead,SDT,15,15,8,0.533333
+2023,ribble-valley,Ribble Valley,SDA,23,36,25,0.694444
+2023,rochdale,Rochdale,MB,20,20,4,0.200000
+2023,rochford,Rochford,SDT,13,13,5,0.384615
+2023,rossendale,Rossendale,SDT,12,12,4,0.333333
+2023,rother,Rother,SDA,21,38,27,0.710526
+2023,rugby,Rugby,SDT,14,14,7,0.500000
+2023,runnymede,Runnymede,SDT,14,14,7,0.500000
+2023,rushcliffe,Rushcliffe,SDA,24,44,35,0.795455
+2023,rushmoor,Rushmoor,SDT,13,13,7,0.538462
+2023,rutland,Rutland,UAA,13,25,8,0.320000
+2023,salford,Salford,MB,20,21,5,0.238095
+2023,sandwell,Sandwell,MB,24,24,7,0.291667
+2023,sefton,Sefton,MB,22,22,8,0.363636
+2023,sevenoaks,Sevenoaks,SDA,26,54,41,0.759259
+2023,sheffield,Sheffield,MB,28,29,14,0.482759
+2023,slough,Slough,UAA,21,42,39,0.928571
+2023,solihull,Solihull,MB,17,17,4,0.235294
+2023,south-derbyshire,South Derbyshire,SDA,15,36,32,0.888889
+2023,south-gloucestershire,South Gloucestershire,UAA,28,61,56,0.918033
+2023,south-hams,South Hams,SDA,20,31,17,0.548387
+2023,south-holland,South Holland,SDA,18,37,20,0.540541
+2023,south-kesteven,South Kesteven,SDA,26,52,35,0.673077
+2023,south-norfolk,South Norfolk,SDA,26,46,40,0.869565
+2023,south-oxfordshire,South Oxfordshire,SDA,21,36,24,0.666667
+2023,south-ribble,South Ribble,SDA,23,50,35,0.700000
+2023,south-staffordshire,South Staffordshire,SDA,20,42,34,0.809524
+2023,south-tyneside,South Tyneside,MB,18,18,7,0.388889
+2023,southampton,Southampton,UAT,17,51,50,0.980392
+2023,southend-on-sea,Southend On Sea,UAT,17,17,9,0.529412
+2023,spelthorne,Spelthorne,SDA,13,39,37,0.948718
+2023,st-albans,St Albans,SDT,18,18,7,0.388889
+2023,stafford,Stafford,SDA,23,40,32,0.800000
+2023,staffordshire-moorlands,Staffordshire Moorlands,SDA,26,55,38,0.690909
+2023,stevenage,Stevenage,SDT,13,13,8,0.615385
+2023,stockport,Stockport,MB,21,63,57,0.904762
+2023,stockton-on-tees,Stockton-on-Tees,UAA,27,56,45,0.803571
+2023,stoke-on-trent,Stoke On Trent,UAA,34,44,22,0.500000
+2023,stratford-on-avon,Stratford On Avon,SDA,39,41,17,0.414634
+2023,sunderland,Sunderland,MB,25,25,8,0.320000
+2023,surrey-heath,Surrey Heath,SDA,14,35,35,1.000000
+2023,swale,Swale,SDA,24,47,39,0.829787
+2023,swindon,Swindon,UAT,19,19,7,0.368421
+2023,tameside,Tameside,MB,19,57,44,0.771930
+2023,tamworth,Tamworth,SDT,10,10,7,0.700000
+2023,tandridge,Tandridge,SDT,14,14,5,0.357143
+2023,teignbridge,Teignbridge,SDA,24,47,40,0.851064
+2023,telford-and-wrekin,Telford & Wrekin,UAA,32,54,32,0.592593
+2023,tendring,Tendring,SDA,32,48,39,0.812500
+2023,test-valley,Test Valley,SDA,20,43,33,0.767442
+2023,tewkesbury,Tewkesbury,SDA,20,38,27,0.710526
+2023,thanet,Thanet,SDA,23,56,56,1.000000
+2023,three-rivers,Three Rivers,SDT,13,14,4,0.285714
+2023,thurrock,Thurrock,UAT,16,16,10,0.625000
+2023,tonbridge-and-malling,Tonbridge & Malling,SDA,19,44,34,0.772727
+2023,torbay,Torbay,UAA,16,36,35,0.972222
+2023,torridge,Torridge,SDA,16,36,30,0.833333
+2023,trafford,Trafford,MB,21,63,57,0.904762
+2023,tunbridge-wells,Tunbridge Wells,SDT,16,16,11,0.687500
+2023,uttlesford,Uttlesford,SDA,22,39,31,0.794872
+2023,vale-of-white-horse,Vale Of White Horse,SDA,24,38,22,0.578947
+2023,wakefield,Wakefield,MB,21,21,7,0.333333
+2023,walsall,Walsall,MB,20,20,6,0.300000
+2023,warwick,Warwick,SDA,17,44,44,1.000000
+2023,watford,Watford,SDT,12,12,3,0.250000
+2023,waverley,Waverley,SDA,24,50,35,0.700000
+2023,wealden,Wealden,SDA,40,44,18,0.409091
+2023,welwyn-hatfield,Welwyn Hatfield,SDT,16,16,8,0.500000
+2023,west-berkshire,West Berkshire,UAA,24,43,31,0.720930
+2023,west-devon,West Devon,SDA,17,30,17,0.566667
+2023,west-lancashire,West Lancashire,SDT,15,45,33,0.733333
+2023,west-lindsey,West Lindsey,SDA,19,35,24,0.685714
+2023,west-oxfordshire,West Oxfordshire,SDT,16,16,12,0.750000
+2023,west-suffolk,West Suffolk,SDA,39,60,38,0.633333
+2023,wigan,Wigan,MB,25,75,57,0.760000
+2023,winchester,Winchester,SDT,16,16,2,0.125000
+2023,windsor-and-maidenhead,Windsor & Maidenhead,UAA,19,41,25,0.609756
+2023,wirral,Wirral,MB,22,66,65,0.984848
+2023,woking,Woking,SDT,10,10,2,0.200000
+2023,wokingham,Wokingham,UAT,18,18,8,0.444444
+2023,wolverhampton,Wolverhampton,MB,20,60,53,0.883333
+2023,worcester,Worcester,SDT,11,11,5,0.454545
+2023,worthing,Worthing,SDT,11,12,4,0.333333
+2023,wychavon,Wychavon,SDA,27,43,26,0.604651
+2023,wyre,Wyre,SDA,24,50,36,0.720000
+2023,wyre-forest,Wyre Forest,SDA,12,33,32,0.969697
+2023,york,York,UAA,21,47,42,0.893617
+2022,adur,Adur,SDT,14,14,4,0.285714
+2022,amber-valley,Amber Valley,SDT,15,15,6,0.400000
+2022,barking-and-dagenham,Barking and Dagenham,LB,19,51,12,0.235294
+2022,barnet,Barnet,LB,24,63,58,0.920635
+2022,barnsley,Barnsley,MB,21,21,8,0.380952
+2022,basildon,Basildon,SDT,14,14,3,0.214286
+2022,basingstoke-and-deane,Basingstoke and Deane,SDT,18,19,10,0.526316
+2022,bexley,Bexley,LB,17,45,43,0.955556
+2022,birmingham,Birmingham,MB,69,101,56,0.554455
+2022,blackburn-with-darwen,Blackburn with Darwen,UAT,17,18,3,0.166667
+2022,blaenau-gwent,Blaenau Gwent,UAA,14,33,23,0.696970
+2022,bolton,Bolton,MB,20,20,12,0.600000
+2022,bradford,Bradford,MB,30,30,15,0.500000
+2022,brent,Brent,LB,22,57,53,0.929825
+2022,brentwood,Brentwood,SDT,13,13,2,0.153846
+2022,bridgend,Bridgend,UAA,28,51,40,0.784314
+2022,bromley,Bromley,LB,22,58,55,0.948276
+2022,broxbourne,Broxbourne,SDT,10,10,1,0.100000
+2022,burnley,Burnley,SDT,15,15,5,0.333333
+2022,bury,Bury,MB,17,51,51,1.000000
+2022,caerphilly,Caerphilly,UAA,31,69,44,0.637681
+2022,calderdale,Calderdale,MB,17,18,9,0.500000
+2022,cambridge,Cambridge,SDT,14,16,11,0.687500
+2022,camden,Camden,LB,20,55,51,0.927273
+2022,cannock-chase,Cannock Chase,SDT,13,13,9,0.692308
+2022,cardiff,Cardiff,UAA,28,79,78,0.987342
+2022,carmarthenshire,Carmarthenshire,UAA,50,74,38,0.513514
+2022,castle-point,Castle Point,SDT,14,14,6,0.428571
+2022,ceredigion,Ceredigion,UAA,29,33,10,0.303030
+2022,cheltenham,Cheltenham,SDT,20,21,4,0.190476
+2022,cherwell,Cherwell,SDT,16,17,10,0.588235
+2022,chorley,Chorley,SDT,14,14,2,0.142857
+2022,colchester,Colchester,SDT,17,18,5,0.277778
+2022,conwy,Conwy,UAA,30,55,38,0.690909
+2022,coventry,Coventry,MB,18,18,7,0.388889
+2022,crawley,Crawley,SDT,12,12,5,0.416667
+2022,croydon,Croydon,LB,28,70,68,0.971429
+2022,cumberland,Cumberland,UAA,46,46,23,0.500000
+2022,denbighshire,Denbighshire,UAA,28,47,28,0.595745
+2022,derby,Derby,UAT,17,17,5,0.294118
+2022,dudley,Dudley,MB,24,25,9,0.360000
+2022,ealing,Ealing,LB,24,70,69,0.985714
+2022,eastleigh,Eastleigh,SDT,14,14,4,0.285714
+2022,elmbridge,Elmbridge,SDT,16,16,6,0.375000
+2022,enfield,Enfield,LB,25,63,63,1.000000
+2022,epping-forest,Epping Forest,SDT,20,20,2,0.100000
+2022,exeter,Exeter,SDT,13,17,14,0.823529
+2022,fareham,Fareham,SDT,15,16,10,0.625000
+2022,flintshire,Flintshire,UAA,43,65,36,0.553846
+2022,gateshead,Gateshead,MB,22,22,5,0.227273
+2022,gosport,Gosport,SDT,14,28,25,0.892857
+2022,greenwich,Greenwich,LB,23,55,44,0.800000
+2022,gwynedd,Gwynedd,UAA,38,41,5,0.121951
+2022,hackney,Hackney,LB,21,57,51,0.894737
+2022,halton,Halton,UAT,18,18,4,0.222222
+2022,hammersmith-and-fulham,Hammersmith and Fulham,LB,21,50,33,0.660000
+2022,haringey,Haringey,LB,21,57,42,0.736842
+2022,harlow,Harlow,SDT,11,12,6,0.500000
+2022,harrow,Harrow,LB,22,55,54,0.981818
+2022,hart,Hart,SDT,11,11,4,0.363636
+2022,hartlepool,Hartlepool,UAT,12,13,6,0.461538
+2022,hastings,Hastings,SDT,16,16,10,0.625000
+2022,havant,Havant,SDT,14,14,6,0.428571
+2022,havering,Havering,LB,20,55,52,0.945455
+2022,hillingdon,Hillingdon,LB,21,53,46,0.867925
+2022,hounslow,Hounslow,LB,22,62,59,0.951613
+2022,huntingdonshire,Huntingdonshire,SDA,24,48,35,0.729167
+2022,hyndburn,Hyndburn,SDT,11,12,4,0.333333
+2022,ipswich,Ipswich,SDT,16,17,7,0.411765
+2022,isle-of-anglesey,Isle of Anglesey,UAA,14,35,31,0.885714
+2022,islington,Islington,LB,17,51,51,1.000000
+2022,kensington-and-chelsea,Kensington and Chelsea,LB,18,50,49,0.980000
+2022,kingston-upon-hull-city-of,"Kingston upon Hull, City of",UAT,19,19,3,0.157895
+2022,kingston-upon-thames,Kingston upon Thames,LB,19,48,48,1.000000
+2022,kirklees,Kirklees,MB,23,23,11,0.478261
+2022,knowsley,Knowsley,MB,15,15,0,0.000000
+2022,lambeth,Lambeth,LB,25,63,62,0.984127
+2022,leeds,Leeds,MB,33,35,14,0.400000
+2022,lewisham,Lewisham,LB,19,54,51,0.944444
+2022,lincoln,Lincoln,SDT,11,11,5,0.454545
+2022,maidstone,Maidstone,SDT,18,18,9,0.500000
+2022,manchester,Manchester,MB,32,32,3,0.093750
+2022,merthyr-tydfil,Merthyr Tydfil,UAA,11,30,24,0.800000
+2022,merton,Merton,LB,20,57,49,0.859649
+2022,milton-keynes,Milton Keynes,UAT,19,19,9,0.473684
+2022,mole-valley,Mole Valley,SDT,14,14,2,0.142857
+2022,monmouthshire,Monmouthshire,UAA,39,46,32,0.695652
+2022,neath-port-talbot,Neath Port Talbot,UAA,32,57,36,0.631579
+2022,newcastle-upon-tyne,Newcastle upon Tyne,MB,26,27,10,0.370370
+2022,newcastle-under-lyme,Newcastle-under-Lyme,SDA,21,44,36,0.818182
+2022,newham,Newham,LB,24,66,64,0.969697
+2022,newport,Newport,UAA,21,51,46,0.901961
+2022,north-east-lincolnshire,North East Lincolnshire,UAT,15,16,5,0.312500
+2022,north-hertfordshire,North Hertfordshire,SDT,18,18,7,0.388889
+2022,north-tyneside,North Tyneside,MB,20,20,5,0.250000
+2022,north-yorkshire,North Yorkshire,UAA,89,90,41,0.455556
+2022,norwich,Norwich,SDT,13,13,1,0.076923
+2022,nuneaton-and-bedworth,Nuneaton and Bedworth,SDT,17,17,6,0.352941
+2022,oldham,Oldham,MB,20,21,9,0.428571
+2022,oxford,Oxford,SDT,24,24,14,0.583333
+2022,pembrokeshire,Pembrokeshire,UAA,40,41,10,0.243902
+2022,pendle,Pendle,SDT,10,12,6,0.500000
+2022,peterborough,Peterborough,UAT,18,19,9,0.473684
+2022,plymouth,Plymouth,UAT,19,19,6,0.315789
+2022,portsmouth,Portsmouth,UAT,14,14,12,0.857143
+2022,powys,Powys,UAA,53,61,29,0.475410
+2022,preston,Preston,SDT,16,17,3,0.176471
+2022,reading,Reading,UAT,16,48,47,0.979167
+2022,redbridge,Redbridge,LB,22,63,49,0.777778
+2022,redditch,Redditch,SDT,10,11,7,0.636364
+2022,reigate-and-banstead,Reigate and Banstead,SDT,15,15,7,0.466667
+2022,rhondda-cynon-taf,Rhondda Cynon Taf,UAA,46,75,41,0.546667
+2022,richmond-upon-thames,Richmond upon Thames,LB,17,51,51,1.000000
+2022,rochdale,Rochdale,MB,20,60,55,0.916667
+2022,rochford,Rochford,SDT,13,13,7,0.538462
+2022,rossendale,Rossendale,SDT,12,12,4,0.333333
+2022,rugby,Rugby,SDT,14,14,5,0.357143
+2022,runnymede,Runnymede,SDT,14,14,7,0.500000
+2022,rushmoor,Rushmoor,SDT,13,13,4,0.307692
+2022,salford,Salford,MB,20,20,5,0.250000
+2022,sandwell,Sandwell,MB,24,24,4,0.166667
+2022,sefton,Sefton,MB,21,21,8,0.380952
+2022,sheffield,Sheffield,MB,28,28,17,0.607143
+2022,slough,Slough,UAT,14,14,3,0.214286
+2022,solihull,Solihull,MB,17,17,4,0.235294
+2022,somerset,Somerset,UAA,55,110,105,0.954545
+2022,south-cambridgeshire,South Cambridgeshire,SDA,26,45,32,0.711111
+2022,south-tyneside,South Tyneside,MB,18,19,8,0.421053
+2022,southampton,Southampton,UAT,16,17,10,0.588235
+2022,southend-on-sea,Southend-on-Sea,UAT,17,18,12,0.666667
+2022,southwark,Southwark,LB,23,63,56,0.888889
+2022,st-albans,St Albans,SDT,20,56,46,0.821429
+2022,st-helens,St. Helens,MB,18,48,29,0.604167
+2022,stevenage,Stevenage,SDT,13,13,8,0.615385
+2022,stockport,Stockport,MB,21,21,7,0.333333
+2022,sunderland,Sunderland,MB,25,25,10,0.400000
+2022,sutton,Sutton,LB,20,55,55,1.000000
+2022,swansea,Swansea,UAA,32,75,41,0.546667
+2022,swindon,Swindon,UAT,19,19,7,0.368421
+2022,tameside,Tameside,MB,19,19,2,0.105263
+2022,tamworth,Tamworth,SDT,10,10,2,0.200000
+2022,tandridge,Tandridge,SDT,14,14,8,0.571429
+2022,three-rivers,Three Rivers,SDT,13,14,5,0.357143
+2022,thurrock,Thurrock,UAT,16,16,2,0.125000
+2022,torfaen,Torfaen,UAA,18,40,27,0.675000
+2022,tower-hamlets,Tower Hamlets,LB,19,42,41,0.976190
+2022,trafford,Trafford,MB,21,22,5,0.227273
+2022,tunbridge-wells,Tunbridge Wells,SDT,16,16,10,0.625000
+2022,vale-of-glamorgan,Vale of Glamorgan,UAA,24,54,45,0.833333
+2022,wakefield,Wakefield,MB,21,21,6,0.285714
+2022,walsall,Walsall,MB,20,21,7,0.333333
+2022,waltham-forest,Waltham Forest,LB,22,60,48,0.800000
+2022,wandsworth,Wandsworth,LB,22,58,55,0.948276
+2022,watford,Watford,SDT,12,12,1,0.083333
+2022,welwyn-hatfield,Welwyn Hatfield,SDT,16,17,7,0.411765
+2022,west-lancashire,West Lancashire,SDT,19,20,5,0.250000
+2022,west-oxfordshire,West Oxfordshire,SDT,16,16,7,0.437500
+2022,westminster,Westminster,LB,18,54,49,0.907407
+2022,westmorland-and-furness,Westmorland and Furness,UAA,33,65,52,0.800000
+2022,wigan,Wigan,MB,25,26,6,0.230769
+2022,winchester,Winchester,SDT,15,15,2,0.133333
+2022,wirral,Wirral,MB,22,23,9,0.391304
+2022,woking,Woking,SDT,10,10,3,0.300000
+2022,wokingham,Wokingham,UAT,18,18,4,0.222222
+2022,wolverhampton,Wolverhampton,MB,20,20,1,0.050000
+2022,worcester,Worcester,SDT,12,13,6,0.461538
+2022,worthing,Worthing,SDT,13,14,6,0.428571
+2022,wrexham,Wrexham,UAA,41,48,20,0.416667
+2021,adur,Adur,SDT,19,23,16,0.695652
+2021,amber-valley,Amber Valley,SDT,24,26,9,0.346154
+2021,arun,Arun,SC,13,13,6,0.461538
+2021,ashfield,Ashfield,SC,10,10,1,0.100000
+2021,ashford,Ashford,SC,7,7,2,0.285714
+2021,babergh,Babergh,SC,10,10,5,0.500000
+2021,barnsley,Barnsley,MB,21,21,15,0.714286
+2021,basildon,Basildon,SC,19,24,16,0.666667
+2021,basingstoke-and-deane,Basingstoke & Deane,SDT,28,64,55,0.859375
+2021,bassetlaw,Bassetlaw,SC,9,9,4,0.444444
+2021,blaby,Blaby,SC,7,8,4,0.500000
+2021,blackburn-with-darwen,Blackburn With Darwen,UAT,17,17,1,0.058824
+2021,bolsover,Bolsover,SC,6,6,4,0.666667
+2021,bolton,Bolton,MB,20,21,12,0.571429
+2021,boston,Boston,SC,6,6,3,0.500000
+2021,bradford,Bradford,MB,30,33,19,0.575758
+2021,braintree,Braintree,SC,8,8,3,0.375000
+2021,breckland,Breckland,SC,12,12,0,0.000000
+2021,brentwood,Brentwood,SC,16,16,8,0.500000
+2021,bristol-city-of,"Bristol, City Of",UAA,34,70,69,0.985714
+2021,broadland,Broadland,SC,13,13,3,0.230769
+2021,bromsgrove,Bromsgrove,SC,9,9,3,0.333333
+2021,broxbourne,Broxbourne,SDT,16,16,1,0.062500
+2021,broxtowe,Broxtowe,SC,7,9,8,0.888889
+2021,buckinghamshire,Buckinghamshire,UAA,49,147,147,1.000000
+2021,burnley,Burnley,SDT,21,21,11,0.523810
+2021,bury,Bury,MB,17,19,9,0.473684
+2021,calderdale,Calderdale,MB,17,19,11,0.578947
+2021,cambridge,Cambridge,SC,26,54,53,0.981481
+2021,cannock-chase,Cannock Chase,SC,19,20,9,0.450000
+2021,canterbury,Canterbury,SC,8,8,4,0.500000
+2021,castle-point,Castle Point,SDT,18,20,10,0.500000
+2021,charnwood,Charnwood,SC,14,14,5,0.357143
+2021,chelmsford,Chelmsford,SC,9,9,5,0.555556
+2021,cheltenham,Cheltenham,SDT,30,30,24,0.800000
+2021,cherwell,Cherwell,SDT,30,30,11,0.366667
+2021,chesterfield,Chesterfield,SC,9,9,6,0.666667
+2021,chichester,Chichester,SC,10,10,2,0.200000
+2021,chorley,Chorley,SDT,22,50,45,0.900000
+2021,colchester,Colchester,SC,26,28,14,0.500000
+2021,cornwall,Cornwall,UAA,87,87,56,0.643678
+2021,cotswold,Cotswold,SC,8,8,0,0.000000
+2021,county-durham,County Durham,UAA,63,126,117,0.928571
+2021,coventry,Coventry,MB,18,19,11,0.578947
+2021,crawley,Crawley,SC,21,23,15,0.652174
+2021,dacorum,Dacorum,SC,10,10,4,0.400000
+2021,dartford,Dartford,SC,6,6,3,0.500000
+2021,derby,Derby,UAT,17,18,9,0.500000
+2021,derbyshire-dales,Derbyshire Dales,SC,6,6,1,0.166667
+2021,doncaster,Doncaster,MB,21,55,51,0.927273
+2021,dover,Dover,SC,5,7,4,0.571429
+2021,dudley,Dudley,MB,24,26,10,0.384615
+2021,east-cambridgeshire,East Cambridgeshire,SC,8,8,2,0.250000
+2021,east-devon,East Devon,SC,9,11,8,0.727273
+2021,east-hampshire,East Hampshire,SC,7,7,3,0.428571
+2021,east-hertfordshire,East Hertfordshire,SC,10,10,4,0.400000
+2021,east-lindsey,East Lindsey,SC,13,13,2,0.153846
+2021,east-staffordshire,East Staffordshire,SC,8,8,2,0.250000
+2021,east-suffolk,East Suffolk,SC,19,26,17,0.653846
+2021,eastbourne,Eastbourne,SC,9,9,5,0.555556
+2021,eastleigh,Eastleigh,SDT,20,20,15,0.750000
+2021,elmbridge,Elmbridge,SDT,25,25,11,0.440000
+2021,epping-forest,Epping Forest,SC,28,29,3,0.103448
+2021,epsom-and-ewell,Epsom & Ewell,SC,5,5,3,0.600000
+2021,erewash,Erewash,SC,9,9,2,0.222222
+2021,exeter,Exeter,SDT,22,23,17,0.739130
+2021,fareham,Fareham,SC,21,22,7,0.318182
+2021,fenland,Fenland,SC,8,9,2,0.222222
+2021,folkestone-and-hythe,Folkestone & Hythe,SC,6,6,4,0.666667
+2021,forest-of-dean,Forest Of Dean,SC,8,8,4,0.500000
+2021,fylde,Fylde,SC,6,6,2,0.333333
+2021,gateshead,Gateshead,MB,22,24,9,0.375000
+2021,gedling,Gedling,SC,6,9,7,0.777778
+2021,gloucester,Gloucester,SC,28,49,35,0.714286
+2021,gosport,Gosport,SDT,21,22,10,0.454545
+2021,gravesham,Gravesham,SC,3,5,4,0.800000
+2021,great-yarmouth,Great Yarmouth,SC,9,9,3,0.333333
+2021,guildford,Guildford,SC,10,10,7,0.700000
+2021,halton,Halton,UAT,18,54,30,0.555556
+2021,harborough,Harborough,SC,7,7,3,0.428571
+2021,harlow,Harlow,SDT,14,17,5,0.294118
+2021,hart,Hart,SDT,16,17,6,0.352941
+2021,hartlepool,Hartlepool,UAT,12,36,32,0.888889
+2021,hastings,Hastings,SDT,24,24,15,0.625000
+2021,havant,Havant,SDT,21,21,2,0.095238
+2021,hertsmere,Hertsmere,SC,7,7,2,0.285714
+2021,high-peak,High Peak,SC,7,8,7,0.875000
+2021,hinckley-and-bosworth,Hinckley & Bosworth,SC,9,9,2,0.222222
+2021,horsham,Horsham,SC,12,12,5,0.416667
+2021,huntingdonshire,Huntingdonshire,SC,17,17,8,0.470588
+2021,hyndburn,Hyndburn,SC,17,19,8,0.421053
+2021,ipswich,Ipswich,SDT,26,31,24,0.774194
+2021,isle-of-wight,Isle Of Wight,UAA,39,39,19,0.487179
+2021,kings-lynn-and-west-norfolk,Kings Lynn & West Norfolk,SC,14,14,3,0.214286
+2021,kingston-upon-hull,Kingston Upon Hull,UAT,19,19,7,0.368421
+2021,kirklees,Kirklees,MB,23,25,15,0.600000
+2021,knowsley,Knowsley,MB,15,17,7,0.411765
+2021,lancaster,Lancaster,SC,10,10,7,0.700000
+2021,leeds,Leeds,MB,33,34,16,0.470588
+2021,lewes,Lewes,SC,9,9,6,0.666667
+2021,lichfield,Lichfield,SC,8,8,4,0.500000
+2021,lincoln,Lincoln,SDT,19,19,10,0.526316
+2021,liverpool,Liverpool,MB,30,31,7,0.225806
+2021,maidstone,Maidstone,SDT,27,28,15,0.535714
+2021,maldon,Maldon,SC,3,3,1,0.333333
+2021,malvern-hills,Malvern Hills,SC,8,8,4,0.500000
+2021,manchester,Manchester,MB,32,34,5,0.147059
+2021,mansfield,Mansfield,SC,5,9,9,1.000000
+2021,melton,Melton,SC,4,4,0,0.000000
+2021,mid-devon,Mid Devon,SC,6,6,3,0.500000
+2021,mid-suffolk,Mid Suffolk,SC,10,10,6,0.600000
+2021,mid-sussex,Mid Sussex,SC,12,12,7,0.583333
+2021,milton-keynes,Milton Keynes,UAT,19,21,13,0.619048
+2021,mole-valley,Mole Valley,SC,19,19,5,0.263158
+2021,new-forest,New Forest,SC,10,10,3,0.300000
+2021,newark-and-sherwood,Newark & Sherwood,SC,10,10,5,0.500000
+2021,newcastle-upon-tyne,Newcastle Upon Tyne,MB,26,28,17,0.607143
+2021,newcastle-under-lyme,Newcastle-Under-Lyme,SC,9,9,2,0.222222
+2021,north-devon,North Devon,SC,8,8,4,0.500000
+2021,north-east-derbyshire,North East Derbyshire,SC,7,8,4,0.500000
+2021,north-east-lincolnshire,North East Lincolnshire,UAT,12,14,5,0.357143
+2021,north-hertfordshire,North Hertfordshire,SC,24,24,17,0.708333
+2021,north-kesteven,North Kesteven,SC,11,11,1,0.090909
+2021,north-norfolk,North Norfolk,SC,11,11,7,0.636364
+2021,north-northamptonshire,North Northamptonshire,UAA,26,78,76,0.974359
+2021,north-tyneside,North Tyneside,MB,20,23,12,0.521739
+2021,north-warwickshire,North Warwickshire,SC,7,7,1,0.142857
+2021,north-west-leicestershire,North West Leicestershire,SC,8,8,4,0.500000
+2021,northumberland,Northumberland,UAA,66,67,18,0.268657
+2021,norwich,Norwich,SC,26,26,14,0.538462
+2021,nuneaton-and-bedworth,Nuneaton & Bedworth,SDT,30,30,5,0.166667
+2021,oadby-and-wigston,Oadby & Wigston,SC,4,5,4,0.800000
+2021,oldham,Oldham,MB,20,20,16,0.800000
+2021,oxford,Oxford,SDT,38,62,52,0.838710
+2021,pendle,Pendle,SDT,17,39,33,0.846154
+2021,peterborough,Peterborough,UAT,22,23,12,0.521739
+2021,plymouth,Plymouth,UAT,19,19,7,0.368421
+2021,portsmouth,Portsmouth,UAT,14,14,11,0.785714
+2021,preston,Preston,SDT,25,25,8,0.320000
+2021,reading,Reading,UAT,16,17,10,0.588235
+2021,redditch,Redditch,SC,13,17,10,0.588235
+2021,reigate-and-banstead,Reigate & Banstead,SDT,25,28,12,0.428571
+2021,ribble-valley,Ribble Valley,SC,4,4,1,0.250000
+2021,rochdale,Rochdale,MB,20,20,4,0.200000
+2021,rochford,Rochford,SDT,18,20,15,0.750000
+2021,rossendale,Rossendale,SDT,17,17,7,0.411765
+2021,rother,Rother,SC,9,9,3,0.333333
+2021,rotherham,Rotherham,MB,25,59,56,0.949153
+2021,rugby,Rugby,SC,24,25,9,0.360000
+2021,runnymede,Runnymede,SC,19,19,9,0.473684
+2021,rushcliffe,Rushcliffe,SC,9,10,5,0.500000
+2021,rushmoor,Rushmoor,SC,18,19,6,0.315789
+2021,salford,Salford,MB,20,60,52,0.866667
+2021,sandwell,Sandwell,MB,24,27,13,0.481481
+2021,sefton,Sefton,MB,22,24,13,0.541667
+2021,sevenoaks,Sevenoaks,SC,6,6,1,0.166667
+2021,sheffield,Sheffield,MB,28,29,22,0.758621
+2021,shropshire,Shropshire,UAA,62,73,28,0.383562
+2021,slough,Slough,UAT,14,14,3,0.214286
+2021,solihull,Solihull,MB,17,18,6,0.333333
+2021,south-cambridgeshire,South Cambridgeshire,SC,14,15,11,0.733333
+2021,south-derbyshire,South Derbyshire,SC,8,8,1,0.125000
+2021,south-hams,South Hams,SC,7,7,1,0.142857
+2021,south-holland,South Holland,SC,9,9,2,0.222222
+2021,south-kesteven,South Kesteven,SC,14,14,4,0.285714
+2021,south-norfolk,South Norfolk,SC,12,12,6,0.500000
+2021,south-oxfordshire,South Oxfordshire,SC,12,13,7,0.538462
+2021,south-ribble,South Ribble,SC,8,8,2,0.250000
+2021,south-staffordshire,South Staffordshire,SC,7,8,1,0.125000
+2021,south-tyneside,South Tyneside,MB,18,20,15,0.750000
+2021,southampton,Southampton,UAT,16,16,10,0.625000
+2021,southend-on-sea,Southend On Sea,UAT,17,19,14,0.736842
+2021,spelthorne,Spelthorne,SC,7,7,5,0.714286
+2021,st-albans,St Albans,SDT,28,30,13,0.433333
+2021,st-helens,St Helens,MB,16,17,9,0.529412
+2021,stafford,Stafford,SC,9,9,4,0.444444
+2021,staffordshire-moorlands,Staffordshire Moorlands,SC,7,7,0,0.000000
+2021,stevenage,Stevenage,SDT,19,20,16,0.800000
+2021,stockport,Stockport,MB,21,21,10,0.476190
+2021,stratford-on-avon,Stratford On Avon,SC,13,13,4,0.307692
+2021,stroud,Stroud,SDA,37,61,47,0.770492
+2021,sunderland,Sunderland,MB,25,28,16,0.571429
+2021,surrey-heath,Surrey Heath,SC,6,6,4,0.666667
+2021,swale,Swale,SC,6,7,4,0.571429
+2021,swindon,Swindon,UAT,19,21,9,0.428571
+2021,tameside,Tameside,MB,19,19,6,0.315789
+2021,tamworth,Tamworth,SC,16,16,3,0.187500
+2021,tandridge,Tandridge,SDT,20,22,13,0.590909
+2021,teignbridge,Teignbridge,SC,10,10,8,0.800000
+2021,tendring,Tendring,SC,8,8,2,0.250000
+2021,test-valley,Test Valley,SC,7,7,0,0.000000
+2021,tewkesbury,Tewkesbury,SC,7,7,1,0.142857
+2021,thanet,Thanet,SC,5,7,5,0.714286
+2021,three-rivers,Three Rivers,SC,19,19,7,0.368421
+2021,thurrock,Thurrock,UAT,17,17,4,0.235294
+2021,tonbridge-and-malling,Tonbridge & Malling,SC,6,7,2,0.285714
+2021,torridge,Torridge,SC,5,5,3,0.600000
+2021,trafford,Trafford,MB,21,25,14,0.560000
+2021,tunbridge-wells,Tunbridge Wells,SDT,22,24,17,0.708333
+2021,uttlesford,Uttlesford,SC,4,4,3,0.750000
+2021,vale-of-white-horse,Vale Of White Horse,SC,11,12,4,0.333333
+2021,wakefield,Wakefield,MB,21,22,13,0.590909
+2021,walsall,Walsall,MB,20,22,4,0.181818
+2021,warrington,Warrington,UAA,22,58,56,0.965517
+2021,warwick,Warwick,SC,14,14,6,0.428571
+2021,watford,Watford,SDT,18,19,13,0.684211
+2021,waverley,Waverley,SC,9,9,2,0.222222
+2021,wealden,Wealden,SC,15,15,5,0.333333
+2021,welwyn-hatfield,Welwyn Hatfield,SDT,24,25,18,0.720000
+2021,west-devon,West Devon,SC,4,4,3,0.750000
+2021,west-lancashire,West Lancashire,SDT,26,27,10,0.370370
+2021,west-lindsey,West Lindsey,SC,9,9,2,0.222222
+2021,west-northamptonshire,West Northamptonshire,UAA,31,93,92,0.989247
+2021,west-oxfordshire,West Oxfordshire,SC,27,27,11,0.407407
+2021,west-suffolk,West Suffolk,SC,14,16,9,0.562500
+2021,wigan,Wigan,MB,25,26,8,0.307692
+2021,wiltshire,Wiltshire,UAA,98,98,29,0.295918
+2021,winchester,Winchester,SDT,21,22,8,0.363636
+2021,wirral,Wirral,MB,22,23,4,0.173913
+2021,woking,Woking,SDT,17,17,9,0.529412
+2021,wokingham,Wokingham,UAT,18,18,9,0.500000
+2021,wolverhampton,Wolverhampton,MB,20,22,5,0.227273
+2021,worcester,Worcester,SDT,22,22,11,0.500000
+2021,worthing,Worthing,SC,22,22,14,0.636364
+2021,wychavon,Wychavon,SC,12,12,1,0.083333
+2021,wyre,Wyre,SC,8,8,0,0.000000
+2021,wyre-forest,Wyre Forest,SC,9,10,6,0.600000

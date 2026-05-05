@@ -6,8 +6,9 @@
   "scripts": {
     "etl": "bun scripts/etl.mjs",
     "build:map": "bun scripts/build-hexmap.mjs",
+    "refresh-data": "bun run etl && bun run build:map",
     "dev": "vite dev",
-    "build": "bun run etl && bun run build:map && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
