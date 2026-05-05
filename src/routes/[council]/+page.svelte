@@ -1,5 +1,6 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
+  import Party from '$lib/components/Party.svelte';
   let { data } = $props();
   const council = $derived(data.council);
   const races = $derived(data.races);
@@ -133,7 +134,7 @@
             <tr class:elected={c.elected}>
               <td class="num">{c.rank}</td>
               <td>{c.name}</td>
-              <td>{c.partyAbbrev ?? c.party}</td>
+              <td><Party name={c.party} /></td>
               <td class="num">{num(c.votes)}</td>
               <td class="num pct">{pct(race.validBallots > 0 ? c.votes / race.validBallots : 0)}</td>
               <td>{#if c.elected}<span aria-label="Elected to seat" title="Elected to seat">Elected</span>{/if}</td>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
+  import Party from '$lib/components/Party.svelte';
   let { data } = $props();
 </script>
 
@@ -78,7 +79,7 @@
           <td>
             {r.marginalCandidate}
             <br />
-            <span class="muted">{r.marginalPartyAbbrev ?? r.marginalParty}</span>
+            <span class="muted"><Party name={r.marginalParty} /></span>
           </td>
           <td class="num">{r.seats}</td>
           <td class="num pct warn">{pct(r.winningPct)}</td>

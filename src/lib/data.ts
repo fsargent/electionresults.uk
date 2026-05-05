@@ -116,7 +116,7 @@ export function raceLeaderboard(): RaceLeaderboardRow[] {
 export function partyOptions(): string[] {
   const set = new Set<string>();
   for (const m of allMarginalWinners) {
-    if (m.partyAbbrev) set.add(m.partyAbbrev);
+    if (m.party) set.add(m.party);
   }
   return [...set].sort();
 }
