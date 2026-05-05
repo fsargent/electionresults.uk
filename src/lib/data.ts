@@ -59,9 +59,10 @@ export const allPartyViews: PartyView[] = data.partyViews;
 export const allFlips: CouncilFlip[] = data.flips;
 
 export function flipsForCouncil(slug: string): CouncilFlip[] {
+  // Most recent first — readers care about the latest control change.
   return allFlips
     .filter((f) => f.councilSlug === slug)
-    .sort((a, b) => a.yearFrom - b.yearFrom);
+    .sort((a, b) => b.yearTo - a.yearTo || b.yearFrom - a.yearFrom);
 }
 
 /**

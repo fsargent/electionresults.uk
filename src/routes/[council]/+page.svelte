@@ -58,11 +58,16 @@
       {@const newColor = partyColor(f.toParty)}
       {@const oldColor = partyColor(f.fromParty)}
       <section class="flip">
-        <h3>
-          <span class="muted">{f.yearFrom} → {f.yearTo}:</span>
-          <Party name={f.fromParty} /> →
-          <Party name={f.toParty} />
+        <h3 class="flip-year">
+          <span class="from">{f.yearFrom}</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <span class="to">{f.yearTo}</span>
         </h3>
+        <p class="flip-summary">
+          <Party name={f.fromParty} />
+          <span class="arrow muted" aria-hidden="true">→</span>
+          <Party name={f.toParty} />
+        </p>
 
         <div class="flip-grid">
           <div>
@@ -168,15 +173,33 @@
 
   section.flip {
     border-top: 1px solid var(--rule);
-    padding-top: 1rem;
-    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
   }
-  section.flip h3 {
+  .flip-year {
     margin: 0;
-    font-family: -apple-system, sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent);
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-variant-numeric: tabular-nums;
   }
+  .flip-year .arrow {
+    font-size: 1.6rem;
+    color: var(--muted);
+  }
+  .flip-summary {
+    margin: 0.4rem 0 0.6rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .flip-summary .arrow { font-size: 1.1rem; }
   .flip-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
