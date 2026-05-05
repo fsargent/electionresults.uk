@@ -52,7 +52,7 @@
       <tr><th><code>year</code></th><td>Election year (primary key)</td></tr>
       <tr><th><code>election_date</code></th><td>ISO date the polls were held</td></tr>
       <tr><th><code>council_count, race_count, seat_count</code></th><td>Volumetrics for the cycle</td></tr>
-      <tr><th><code>below_quota_seat_count, below_quota_share</code></th><td>Seats whose marginal candidate share fell below the Droop quota</td></tr>
+      <tr><th><code>below_quota_seat_count, below_quota_share</code></th><td>Seats whose marginal candidate share fell below the proportional quota</td></tr>
     </tbody>
   </table>
 
@@ -77,7 +77,7 @@
       <tr><th><code>electorate, ballots, invalid_votes</code></th><td>Source figures (some null in earlier years)</td></tr>
       <tr><th><code>valid_ballots</code></th><td>Sum of candidate votes — the LEH "Valid vote turnout (HoC method)" denominator</td></tr>
       <tr><th><code>winning_pct</code></th><td>Marginal-elected-candidate share of valid ballots</td></tr>
-      <tr><th><code>quota</code></th><td>Droop quota: <code>1.0 / (seats + 1)</code></td></tr>
+      <tr><th><code>quota</code></th><td>Proportional quota: <code>1.0 / (seats + 1)</code></td></tr>
       <tr><th><code>under_par</code></th><td><code>quota − winning_pct</code> (positive = below par)</td></tr>
       <tr><th><code>is_below_quota</code></th><td><code>1</code> when <code>winning_pct &lt; quota</code></td></tr>
     </tbody>

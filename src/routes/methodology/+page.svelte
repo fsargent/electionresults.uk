@@ -91,21 +91,22 @@
 
   <h2>Proportional quota and "under par"</h2>
   <p>
-    The <strong>Droop quota</strong> is the share of valid ballots a
-    candidate would need to be guaranteed a seat under any common
-    proportional voting method:
-    <code>quota</code> = <Frac num="1" denom="seats + 1" />. For a 1-seat ward this
-    collapses to 50% (a true majority); for 2 seats it is 33.3%; for 3
-    seats, 25%. The name comes from H.&nbsp;R.&nbsp;Droop's 1869 paper
-    on proportional election methods; the figure is used, in the same
-    or near-identical form, by every preferential and party-list system
-    we are aware of.
+    The <strong>proportional quota</strong> is the share of valid
+    ballots a candidate would need to be guaranteed a seat under any
+    common proportional voting method:
+    <code>quota</code> = <Frac num="1" denom="seats + 1" />. For a 1-seat
+    ward this collapses to 50% (a true majority); for 2 seats it is
+    33.3%; for 3 seats, 25%. (Technical name for the curious: the
+    <em>Droop quota</em>, after H.&nbsp;R.&nbsp;Droop's 1869 paper on
+    proportional election methods. The figure is used, in the same or
+    near-identical form, by every preferential and party-list system
+    we are aware of.)
   </p>
   <p>
     For each race we compute <code>under_par = quota − winning_pct</code>.
-    A positive value means the marginal elected candidate won less of the
-    valid ballots than the quota &mdash; the seat would not have been
-    guaranteed under a proportional count. We surface this as
+    A positive value means the marginal elected candidate won less of
+    the valid ballots than the quota &mdash; the seat would not have
+    been guaranteed under a proportional count. We surface this as
     <em>"X.X points below quota"</em> and treat it as the editorial
     indictment of the voting method, not the candidate. Above-quota
     results are mathematically clean and pass without comment.
@@ -118,6 +119,33 @@
     them. The quota framing is the standard a proportional system
     <em>does</em> require, and the gap is the loss attributable to the
     method.
+  </p>
+
+  <h2>"If votes were counted by party"</h2>
+  <p>
+    On every council page we show how the seats would be distributed if
+    the party vote totals were allocated proportionally rather than via
+    First-Past-the-Post. The arithmetic uses the
+    <strong>D'Hondt method</strong> &mdash; the most widely-used
+    party-list proportional algorithm worldwide (used by the European
+    Parliament, the Scottish Parliament regional list, the Welsh Senedd
+    regional list, and the London Assembly). It allocates seats one at
+    a time to the party with the highest quotient
+    <Frac num="party votes" denom="(seats already won) + 1" />, repeating
+    until all seats are filled.
+  </p>
+  <p>
+    <strong>Caveat &mdash; bloc vote inflation.</strong> In a multi-member
+    ward (electing N councillors at once under bloc vote), each voter
+    may cast up to N votes &mdash; so parties that ran a full slate get
+    up to N&times; the votes of parties that ran a single candidate.
+    Aggregating "candidate votes by party" therefore over-counts parties
+    with full slates and under-counts parties with partial ones. Treat
+    the proportional column as a <em>directional proxy</em> for what
+    a list-PR system would deliver, not a strict counterfactual. A
+    preferential proportional method that counts voter rankings would
+    avoid this distortion, but the LEH data does not record voter
+    rankings so we cannot reproduce that allocation here.
   </p>
 
   <h2>Sources</h2>

@@ -59,7 +59,7 @@
       elected candidate actually won, and compares it to the
       <strong>proportional quota</strong>: the share that would be needed
       to be guaranteed that seat under any proportional voting method
-      (the Droop quota, <Frac num="1" denom="seats + 1" />). For a 1-seat ward
+      (<Frac num="1" denom="seats + 1" />). For a 1-seat ward
       the quota is 50%; for 2 seats, 33.3%; for 3 seats, 25%.
     </p>
     <p>
@@ -79,13 +79,14 @@
     <p>
       Across the {data.council.raceCount} ward{data.council.raceCount === 1 ? '' : 's'} in
       this cycle, parties received the vote totals below. The
-      <strong>D'Hondt</strong> column shows what each party would have won
-      if the {view.totalSeats} seat{view.totalSeats === 1 ? '' : 's'} had
-      been allocated to the same total votes proportionally
-      (<a href="/methodology">methodology, with caveats</a>). The
-      <strong>Δ</strong> column is the FPTP minus D'Hondt seat count
-      &mdash; positive numbers are parties FPTP over-represented in this
-      council, negative are parties FPTP under-represented.
+      <strong>proportional</strong> column shows what each party would
+      have won if the {view.totalSeats} seat{view.totalSeats === 1 ? '' : 's'}
+      had been allocated to those vote totals in proportion
+      (<a href="/methodology">how, with caveats</a>). The
+      <strong>Δ</strong> column is the FPTP minus proportional seat
+      count &mdash; positive numbers are parties FPTP
+      over-represented in this council, negative are parties FPTP
+      under-represented.
     </p>
 
     <table class="party-view" aria-describedby="party-view">
@@ -96,8 +97,8 @@
           <th class="num">Vote %</th>
           <th class="num">FPTP seats</th>
           <th class="num">FPTP %</th>
-          <th class="num">D'Hondt seats</th>
-          <th class="num">D'Hondt %</th>
+          <th class="num">Proportional seats</th>
+          <th class="num">Proportional %</th>
           <th class="num">Δ</th>
         </tr>
       </thead>
@@ -166,7 +167,7 @@
         </div>
       </div>
       <div class="bar-row">
-        <span class="bar-label">Seat share (D'Hondt)</span>
+        <span class="bar-label">Seat share (proportional)</span>
         <div class="bar">
           {#each view.rows.filter((r) => r.dhondtSeats > 0) as r (r.party)}
             <span
