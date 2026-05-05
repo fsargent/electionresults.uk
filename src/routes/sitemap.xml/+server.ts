@@ -6,7 +6,7 @@ const ORIGIN = 'https://electionresults.uk';
 
 export function GET() {
   const today = generatedAt.slice(0, 10);
-  const staticUrls = ['/', '/below-quota', '/methodology', '/data'];
+  const staticUrls = ['/', '/flips', '/below-quota', '/methodology', '/data'];
   const cycleUrls = allCycles.map((c) => `/${c.year}`);
   // Both an overview per council and a per-cycle drill-down per (council, year)
   const distinctCouncilSlugs = new Set(allCouncils.map((c) => c.councilSlug));
