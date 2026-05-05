@@ -53,6 +53,19 @@
     the rhetorical hook of the project, and the editorial frame
     throughout.
   </p>
+  <p>
+    <strong>What counts as "proportional"?</strong> The quota threshold
+    applies to any method whose <em>overall</em> seat allocation tracks
+    the vote distribution &mdash; STV, list PR (D'Hondt, Sainte-Lagu&euml;,
+    and similar), proportional approval, and the regional-list portion
+    of mixed-member systems like AMS. Mixed-member systems are
+    partly First-Past-the-Post in their constituency component, but
+    their compensatory list seats restore overall proportionality, so
+    the quota framing is still the right benchmark for the system as a
+    whole. We deliberately don't single out one preferred method
+    elsewhere on the site &mdash; the editorial argument is against
+    the distortion, not for any particular fix.
+  </p>
 
   <h2>Winning percentage</h2>
   <p>
@@ -171,10 +184,13 @@
       pair (cycle&nbsp;N, cycle&nbsp;N+1) where the largest party (by
       seats won this cycle) changed, we record the flip and compute
       the incoming party's vote-share shift and seat-share shift
-      between the two cycles. Flips are ranked by
-      <em>seat&nbsp;shift&nbsp;÷&nbsp;vote&nbsp;shift</em> — the
-      highest scores are councils where a tiny movement in support
-      produced a total movement in representation. The rich per-flip
+      between the two cycles, both as percentage points. Flips are
+      ranked by the formula
+      <Frac num="seat shift (pp)" denom="max(vote shift (pp), 1 pp)" />
+      &mdash; a big seat shift on a small vote shift scores high. The
+      vote-shift denominator is floored at 1 percentage point so a
+      flip on near-zero vote movement (e.g. Wealden 2021&rarr;2023,
+      0.6&nbsp;pp) doesn't divide by zero. The rich per-flip
       visualisation shows a bar comparison of votes vs seats for both
       cycles.
     </li>

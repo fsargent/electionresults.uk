@@ -33,7 +33,7 @@
   <title>Council flips — electionresults.uk</title>
   <meta
     name="description"
-    content="Every UK council where the largest party (by seats won) changed between consecutive cycles, ranked by how much bigger the seat swing was than the vote swing for the incoming party."
+    content="Every UK council where the largest party (by seats won) changed between consecutive cycles, ranked by seat shift divided by vote shift for the incoming party."
   />
   <link rel="canonical" href="https://electionresults.uk/flips" />
 </svelte:head>
@@ -42,10 +42,11 @@
   <h1>Council flips</h1>
   <p>
     Every council in the dataset where the largest party (by seats won)
-    changed between consecutive cycles. Ranked by how much bigger the
-    seat swing was than the vote swing for the incoming party — the
-    First-Past-the-Post volatility story. {num(data.rows.length)} flips
-    qualify.
+    changed between consecutive cycles. Ranked by
+    <strong>seat shift ÷ vote shift</strong> for the incoming party
+    (with vote shift floored at 1 percentage point so a 0-shift entry
+    doesn't divide by zero) — a big seat shift on a small vote shift
+    wins. {num(data.rows.length)} flips qualify.
   </p>
   <p class="muted">
     Click a council name for the full per-flip visualisation. Filter or

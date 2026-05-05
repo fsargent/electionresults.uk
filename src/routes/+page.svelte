@@ -64,14 +64,17 @@
     share the vote-splitting produces &mdash; there is no minimum
     threshold. We compare every elected councillor's share of valid
     ballots to the <strong>proportional quota</strong>: the share that
-    would be needed to be guaranteed that seat under any proportional
-    voting method (<Frac num="1" denom="seats + 1" />). Across five
-    cycles &mdash; <strong>{num(data.totals.councils)}</strong>
+    would be needed to be guaranteed that seat under a method that
+    allocates seats in proportion to votes
+    (<Frac num="1" denom="seats + 1" />). Across five cycles of UK
+    local elections &mdash; covering county councils, unitary
+    authorities, metropolitan boroughs, district councils and London
+    boroughs &mdash; <strong>{num(data.totals.councils)}</strong>
     council&times;cycle pairs, <strong>{num(data.totals.races)}</strong>
-    ward races, <strong>{num(data.totals.seats)}</strong> seats elected
-    &mdash; <strong>{num(data.totals.belowQuotaSeats)}</strong>
+    ward races, <strong>{num(data.totals.seats)}</strong> seats elected.
+    Of those, <strong>{num(data.totals.belowQuotaSeats)}</strong>
     ({pct(data.totals.belowQuotaSeats / Math.max(1, data.totals.seats))})
-    were elected on less.
+    were won on less than the proportional quota.
   </p>
 
   <h2>Year-over-year flips</h2>
@@ -104,10 +107,13 @@
   <h2>Ten biggest flips</h2>
   <p class="muted">
     Councils where the largest party (by seats won) changed between
-    consecutive cycles, ranked by how much bigger the seat swing was
-    than the vote swing for the incoming party. The textbook
-    First-Past-the-Post volatility story: small movement in support,
-    total movement in representation.
+    consecutive cycles, ranked by
+    <strong>seat shift ÷ vote shift</strong> for the incoming party — a
+    big seat shift on a small vote shift wins. (For example: Wealden
+    2021→2023 — Liberal Democrats gained 22.9 points of seat share on
+    just 0.6 points of extra vote share, a ratio of about 38.) The
+    textbook First-Past-the-Post volatility story: small movement in
+    support, total movement in representation.
   </p>
 
   <table aria-label="Ten biggest party-control flips ranked by seat-vs-vote disproportion">

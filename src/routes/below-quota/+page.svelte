@@ -31,7 +31,7 @@
   <title>Below-quota seats — electionresults.uk</title>
   <meta
     name="description"
-    content="Every council ward across the published cycles where the elected councillor (or, in multi-seat wards, the most-marginal of the elected councillors) won less than the proportional quota that would be needed to be guaranteed that seat under any proportional voting method."
+    content="Every council ward across the published cycles where the elected councillor (or, in multi-seat wards, the most-marginal of the elected councillors) won less than the proportional quota — the share that would be needed to be guaranteed that seat under a method that allocates seats in proportion to votes."
   />
   <link rel="canonical" href="https://electionresults.uk/below-quota" />
 </svelte:head>
@@ -42,8 +42,9 @@
     Every ward across the published cycles where the marginal elected
     councillor won less of the valid ballots than the
     <strong>proportional quota</strong> &mdash; the share that would be
-    needed to be guaranteed that seat under any proportional voting
-    method (<Frac num="1" denom="seats + 1" />).
+    needed to be guaranteed that seat under a method that allocates
+    seats in proportion to votes
+    (<Frac num="1" denom="seats + 1" />).
     {num(data.rows.length)} seats qualify.
   </p>
   <p class="muted">
