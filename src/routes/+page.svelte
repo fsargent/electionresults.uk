@@ -86,7 +86,19 @@
     </div>
   </div>
 
-  <h2>Pick an election cycle</h2>
+  <h2>All councils</h2>
+  <p class="muted">
+    {num(data.allCouncils.length)} councils with at least one cycle of
+    data. Click a name for the council overview, with every cycle and
+    cross-cycle party-control changes.
+  </p>
+  <ul class="all-councils">
+    {#each data.allCouncils as c (c.councilSlug)}
+      <li><a href={`/${c.councilSlug}`}>{c.council}</a></li>
+    {/each}
+  </ul>
+
+  <h2>Council elections by year</h2>
   <ul class="cycle-list">
     {#each data.cycles as c (c.year)}
       <li>
@@ -200,6 +212,19 @@
     font-variant-numeric: tabular-nums;
   }
   .warn { color: var(--warn); }
+
+  .all-councils {
+    list-style: none;
+    padding: 0;
+    margin: 0.6rem 0 2rem;
+    columns: 16rem 4;
+    column-gap: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .all-councils li {
+    margin-bottom: 0.25rem;
+    break-inside: avoid;
+  }
 
   .map-and-scale {
     display: grid;
