@@ -58,31 +58,32 @@
   }
 </script>
 
-{#if label}
-  <span class="bar-label">{label}</span>
-{/if}
-
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-<div
-  class="seat-grid"
-  style:--seat-size={`${size}px`}
-  onpointermove={onMove}
-  onpointerleave={onLeave}
-  role="img"
-  aria-label={(label ?? 'Seat allocation') +
-    ': ' +
-    segments
-      .filter((s) => s.seats > 0)
-      .map((s) => `${s.party} ${s.seats}`)
-      .join(', ')}
->
-  {#each seats as seat, i (i)}
-    <span
-      class="seat"
-      data-seat-idx={i}
-      style:background-color={partyColor(seat.party)}
-    ></span>
-  {/each}
+<div class="seat-row">
+  {#if label}
+    <span class="seat-label">{label}</span>
+  {/if}
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
+  <div
+    class="seat-grid"
+    style:--seat-size={`${size}px`}
+    onpointermove={onMove}
+    onpointerleave={onLeave}
+    role="img"
+    aria-label={(label ?? 'Seat allocation') +
+      ': ' +
+      segments
+        .filter((s) => s.seats > 0)
+        .map((s) => `${s.party} ${s.seats}`)
+        .join(', ')}
+  >
+    {#each seats as seat, i (i)}
+      <span
+        class="seat"
+        data-seat-idx={i}
+        style:background-color={partyColor(seat.party)}
+      ></span>
+    {/each}
+  </div>
 </div>
 
 {#if tooltip}
@@ -98,19 +99,26 @@
 {/if}
 
 <style>
-  .bar-label {
+  /* Match PartyBars row layout so a SeatChart and a PartyBars in the
+     same parent line up: left label column, full-width chart column. */
+  .seat-row {
+    display: grid;
+    grid-template-columns: minmax(7rem, 11rem) 1fr;
+    gap: 0.6rem;
+    align-items: start;
+    margin: 0.3rem 0;
+  }
+  .seat-label {
     font-size: 0.78rem;
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    display: block;
-    margin-bottom: 0.4rem;
+    padding-top: 0.2rem;
   }
   .seat-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 2px;
-    margin-bottom: 1rem;
   }
   .seat {
     display: block;

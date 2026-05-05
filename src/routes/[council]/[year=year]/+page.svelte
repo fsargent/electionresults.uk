@@ -132,36 +132,16 @@
       </tbody>
     </table>
 
-    <h3 class="bars-heading">Council seats: actual vs proportional</h3>
+    <h3 class="bars-heading">Vote share vs seats won</h3>
     <p class="muted">
-      One square per seat, coloured by the party that won it. The top
-      grid shows the actual First-Past-the-Post outcome; the bottom
-      grid shows what a proportional method would have produced from
-      the same vote totals. Hover any seat for details.
+      The top bar is each party's share of votes cast in this council.
+      Below, one square per seat, coloured by the party that won it —
+      first the actual First-Past-the-Post result, then what a
+      proportional method would have produced from the same vote totals.
+      Divergence between the bar and the actual grid is the indictment
+      of the method.
     </p>
-    <div class="seat-charts">
-      <SeatChart
-        label="Actual seats"
-        segments={view.rows
-          .filter((r) => r.fptpSeats > 0)
-          .map((r) => ({ party: r.party, seats: r.fptpSeats }))}
-      />
-      <SeatChart
-        label="Proportional"
-        segments={view.rows
-          .filter((r) => r.dhondtSeats > 0)
-          .map((r) => ({ party: r.party, seats: r.dhondtSeats }))}
-      />
-    </div>
-
-    <h3 class="bars-heading">Vote share vs seat share</h3>
-    <p class="muted">
-      Two horizontal bars: the top stack is each party's share of votes
-      cast in this council; the bottom is each party's share of seats won
-      under First-Past-the-Post. A divergence between the two is the
-      indictment of the method.
-    </p>
-    <div class="bars" aria-label="Vote share vs actual seat share by party">
+    <div class="bars" aria-label="Vote share, actual seats and proportional seats by party">
       <PartyBars
         label="Vote share"
         segments={view.rows.map((r) => ({
@@ -172,25 +152,17 @@
           unit: 'votes'
         }))}
       />
-      <PartyBars
-        label="Seat share (actual)"
-        segments={view.rows.map((r) => ({
-          party: r.party,
-          share: r.fptpSeatShare,
-          count: r.fptpSeats,
-          total: view.totalSeats,
-          unit: 'seats'
-        }))}
+      <SeatChart
+        label="Actual seats"
+        segments={view.rows
+          .filter((r) => r.fptpSeats > 0)
+          .map((r) => ({ party: r.party, seats: r.fptpSeats }))}
       />
-      <PartyBars
-        label="Seat share (proportional)"
-        segments={view.rows.map((r) => ({
-          party: r.party,
-          share: r.dhondtSeatShare,
-          count: r.dhondtSeats,
-          total: view.totalSeats,
-          unit: 'seats'
-        }))}
+      <SeatChart
+        label="Proportional seats"
+        segments={view.rows
+          .filter((r) => r.dhondtSeats > 0)
+          .map((r) => ({ party: r.party, seats: r.dhondtSeats }))}
       />
     </div>
   {/if}
@@ -386,11 +358,6 @@
   .bars {
     display: grid;
     gap: 0.4rem;
-    margin: 0.8rem 0 1.5rem;
-  }
-  .seat-charts {
-    display: grid;
-    gap: 1.2rem;
     margin: 0.8rem 0 1.5rem;
   }
 
