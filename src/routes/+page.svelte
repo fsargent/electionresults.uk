@@ -137,12 +137,12 @@
     </tbody>
   </table>
 
-  <h2>Below the proportional quota</h2>
+  <h2>Distorted elections</h2>
   <p class="muted">
-    Where seats are won on less support than a proportional method would
-    require. The map shows every UK council shaded by the share of its
-    seats that fell below the proportional quota in its most recent
-    cycle (darker = worse); the table below picks out the ten thinnest
+    Councils where seats were handed to candidates on less support than
+    a proportional method would require. The map shades every UK council
+    by how many of its seats fell below that bar in its most recent
+    cycle (darker = worse); the table picks out the ten thinnest
     individual mandates anywhere in the data.
   </p>
   <div class="map-and-scale">
