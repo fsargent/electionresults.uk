@@ -12,7 +12,9 @@
         {
           color: belowQuotaColor(c.belowQuotaShare),
           href: `/${c.year}/${c.councilSlug}`,
-          title: `${c.council} — ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`
+          title: `${c.council} — ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`,
+          primary: `${c.council} (${c.year})`,
+          secondary: `${pct(c.belowQuotaShare)} of seats below quota — ${c.belowQuotaSeatCount} of ${c.totalSeatCount}`
         }
       ])
     )

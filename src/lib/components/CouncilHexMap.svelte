@@ -15,7 +15,12 @@
   export interface CouncilFill {
     color: string;
     href?: string;
+    /** Plain-text title used by the SVG <title> for accessibility. */
     title?: string;
+    /** Headline label in the rich hover tooltip — typically the council name. */
+    primary?: string;
+    /** Secondary line in the rich hover tooltip — typically year + share. */
+    secondary?: string;
   }
 
   let {
@@ -58,13 +63,44 @@
         color: fill?.color ?? NEUTRAL_FILL,
         href: fill?.href,
         title: fill?.title ?? h.name,
+        primary: fill?.primary ?? h.name,
+        secondary: fill?.secondary ?? null,
         points: hexPolygonPoints(h.x, h.y, HEX_SIZE)
       };
     })
   );
+
+  type Tooltip = { x: number; y: number; primary: string; secondary: string | null };
+  let tooltip: Tooltip | null = $state(null);
+
+  function showTooltip(event: MouseEvent | FocusEvent, item: (typeof items)[number]) {
+    // Position relative to the page (not viewport) so the tooltip stays
+    // anchored if the user scrolls while hovering. clientX/Y + scrollX/Y.
+    const x = 'clientX' in event ? event.clientX : 0;
+    const y = 'clientY' in event ? event.clientY : 0;
+    tooltip = {
+      x: x + window.scrollX,
+      y: y + window.scrollY,
+      primary: item.primary,
+      secondary: item.secondary
+    };
+  }
+
+  function moveTooltip(event: MouseEvent) {
+    if (!tooltip) return;
+    tooltip = {
+      ...tooltip,
+      x: event.clientX + window.scrollX,
+      y: event.clientY + window.scrollY
+    };
+  }
+
+  function hideTooltip() {
+    tooltip = null;
+  }
 </script>
 
-<figure class="hex-map">
+<figure class="hex-map" onmousemove={moveTooltip}>
   <svg
     viewBox={`0 0 ${layout.width} ${layout.height}`}
     role="img"
@@ -73,7 +109,13 @@
   >
     {#each items as item (item.slug)}
       {#if item.href}
-        <a href={item.href}>
+        <a
+          href={item.href}
+          onmouseenter={(e) => showTooltip(e, item)}
+          onmouseleave={hideTooltip}
+          onfocus={(e) => showTooltip(e, item)}
+          onblur={hideTooltip}
+        >
           <polygon
             points={item.points}
             fill={item.color}
@@ -84,16 +126,33 @@
         </a>
       {:else}
         <polygon
+          role="presentation"
           points={item.points}
           fill={item.color}
           stroke={STROKE}
           stroke-width="0.8"
           stroke-linejoin="round"
+          onmouseenter={(e) => showTooltip(e, item)}
+          onmouseleave={hideTooltip}
         ><title>{item.title}</title></polygon>
       {/if}
     {/each}
   </svg>
 </figure>
+
+{#if tooltip}
+  <div
+    class="hex-tooltip"
+    style:left={`${tooltip.x}px`}
+    style:top={`${tooltip.y}px`}
+    role="tooltip"
+  >
+    <div class="primary">{tooltip.primary}</div>
+    {#if tooltip.secondary}
+      <div class="secondary">{tooltip.secondary}</div>
+    {/if}
+  </div>
+{/if}
 
 <style>
   .hex-map {
@@ -115,5 +174,33 @@
     filter: brightness(1.1) saturate(1.1);
     stroke-width: 1.5;
     stroke: var(--fg);
+  }
+  .hex-tooltip {
+    position: absolute;
+    pointer-events: none;
+    transform: translate(0.9rem, -100%);
+    margin-top: -0.4rem;
+    background: var(--fg);
+    color: var(--bg);
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    line-height: 1.25;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    max-width: 16rem;
+  }
+  .hex-tooltip .primary {
+    font-weight: 600;
+  }
+  .hex-tooltip .secondary {
+    opacity: 0.8;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (hover: none) {
+    /* Touch devices: skip the cursor-following tooltip; native <title>
+       tap-to-show + the click-to-drill behaviour are the path. */
+    .hex-tooltip { display: none; }
   }
 </style>

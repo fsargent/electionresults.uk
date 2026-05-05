@@ -13,7 +13,9 @@
         {
           color: belowQuotaColor(c.belowQuotaShare),
           href: `/${c.year}/${c.councilSlug}`,
-          title: `${c.council} — ${c.year}: ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`
+          title: `${c.council} — ${c.year}: ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`,
+          primary: `${c.council} (${c.year})`,
+          secondary: `${pct(c.belowQuotaShare)} of seats below quota — ${c.belowQuotaSeatCount} of ${c.totalSeatCount}`
         }
       ])
     )
@@ -148,18 +150,6 @@
     across all cycles.
   </p>
 
-  <section class="frame">
-    <h2>Why isn't my council in a particular cycle?</h2>
-    <p>
-      English local government runs on staggered cycles. Most councils
-      elect <em>by thirds</em> (a third of seats every year), some
-      elect <em>by halves</em>, and others hold all-out elections every
-      four years. London Boroughs all polled in May 2022 and will next
-      poll in May 2026; the May 2025 cycle was unitaries, counties, and
-      a handful of districts. So Westminster, Lambeth and the other
-      London Boroughs only appear in the 2022 cycle in this preview.
-    </p>
-  </section>
 </main>
 
 <style>
