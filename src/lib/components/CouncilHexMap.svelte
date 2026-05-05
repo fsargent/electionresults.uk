@@ -73,25 +73,7 @@
   type Tooltip = { x: number; y: number; primary: string; secondary: string | null };
   let tooltip: Tooltip | null = $state(null);
 
-  // Delegated handler on the SVG: reads the data-slug attribute from the
-  // hovered polygon and looks up the corresponding item. One handler
-  // instead of 361, and avoids whatever was preventing per-polygon
-  // mouseenter from firing through the SVG <a> wrappers.
-  function findItemFromTarget(target: EventTarget | null) {
-    if (!(target instanceof Element)) return null;
-    const polygon = target.closest('polygon[data-slug]');
-    if (!polygon) return null;
-    const slug = polygon.getAttribute('data-slug');
-    if (!slug) return null;
-    return items.find((it) => it.slug === slug) ?? null;
-  }
-
-  function onSvgPointerMove(event: PointerEvent) {
-    const item = findItemFromTarget(event.target);
-    if (!item) {
-      tooltip = null;
-      return;
-    }
+  function showTooltip(event: MouseEvent, item: (typeof items)[number]) {
     tooltip = {
       x: event.clientX + window.scrollX,
       y: event.clientY + window.scrollY,
@@ -100,41 +82,50 @@
     };
   }
 
-  function onSvgPointerLeave() {
+  function moveTooltip(event: MouseEvent) {
+    if (!tooltip) return;
+    tooltip = {
+      ...tooltip,
+      x: event.clientX + window.scrollX,
+      y: event.clientY + window.scrollY
+    };
+  }
+
+  function hideTooltip() {
     tooltip = null;
   }
 
-  function onSvgClick(event: MouseEvent) {
-    const item = findItemFromTarget(event.target);
-    if (!item || !item.href) return;
-    event.preventDefault();
-    window.location.href = item.href;
+  function navigate(href: string | undefined) {
+    if (href) window.location.href = href;
   }
 </script>
 
 <figure class="hex-map">
-  <!-- svelte-ignore a11y_click_events_have_key_events -->
-  <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
   <svg
     viewBox={`0 0 ${layout.width} ${layout.height}`}
     role="img"
     aria-label={title}
     preserveAspectRatio="xMidYMid meet"
-    onpointermove={onSvgPointerMove}
-    onpointerleave={onSvgPointerLeave}
-    onclick={onSvgClick}
+    onmousemove={moveTooltip}
+    onmouseleave={hideTooltip}
   >
     {#each items as item (item.slug)}
-      <polygon
-        role="presentation"
-        data-slug={item.slug}
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
+      <!-- svelte-ignore a11y_no_static_element_interactions -->
+      <g
+        class="hex-hit"
         class:clickable={!!item.href}
-        points={item.points}
-        fill={item.color}
-        stroke={STROKE}
-        stroke-width="0.8"
-        stroke-linejoin="round"
-      ><title>{item.title}</title></polygon>
+        onmouseenter={(e) => showTooltip(e, item)}
+        onclick={() => navigate(item.href)}
+      >
+        <polygon
+          points={item.points}
+          fill={item.color}
+          stroke={STROKE}
+          stroke-width="0.8"
+          stroke-linejoin="round"
+        ></polygon>
+      </g>
     {/each}
   </svg>
 </figure>
@@ -167,10 +158,10 @@
   svg polygon {
     transition: filter 0.1s, stroke-width 0.1s;
   }
-  svg polygon.clickable {
+  .hex-hit.clickable {
     cursor: pointer;
   }
-  svg polygon.clickable:hover {
+  .hex-hit.clickable:hover polygon {
     filter: brightness(1.1) saturate(1.1);
     stroke-width: 1.5;
     stroke: var(--fg);
