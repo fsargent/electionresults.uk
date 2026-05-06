@@ -19,7 +19,7 @@ export function load({ params }: { params: { year: string } }) {
   if (!cycle) throw error(404, `No cycle for year ${year}`);
   const councils = councilsForYear(year);
   const topUnderPar = raceLeaderboard()
-    .filter((r) => r.year === year && r.underPar > 0)
+    .filter((r) => r.year === year && r.underPar < 0)
     .slice(0, 10);
   return { cycle, councils, topUnderPar };
 }

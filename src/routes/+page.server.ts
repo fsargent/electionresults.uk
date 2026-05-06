@@ -13,7 +13,7 @@ export const prerender = true;
 
 export function load() {
   const allBoardRows = raceLeaderboard();
-  const topUnderPar = allBoardRows.filter((r) => r.underPar > 0).slice(0, 10);
+  const topUnderPar = allBoardRows.filter((r) => r.underPar < 0).slice(0, 10);
   // The single lowest winning share anywhere in the data — used as the
   // concrete hook in the homepage lede ("they won with X%, 1-X chose
   // someone else, and they still won the seat").

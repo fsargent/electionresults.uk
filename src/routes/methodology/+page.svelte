@@ -109,7 +109,7 @@
     denominator, so the comparison stays apples-to-apples.
   </p>
 
-  <h2 id="quota">Proportional quota and "under par"</h2>
+  <h2 id="quota">Proportional quota and "below quota"</h2>
   <p>
     The <strong>proportional quota</strong> is the share of valid
     ballots a candidate would need to be guaranteed a seat under any
@@ -123,13 +123,19 @@
     we are aware of.)
   </p>
   <p>
-    For each race we compute <code>under_par = quota − winning_pct</code>.
-    A positive value means the marginal elected candidate won less of
-    the valid ballots than the quota &mdash; the seat would not have
-    been guaranteed under a proportional count. We surface this as
-    <em>"X.X points below quota"</em> and treat it as the editorial
-    indictment of the voting method, not the candidate. Above-quota
-    results are mathematically clean and pass without comment.
+    For each race we compute the signed gap
+    <code>under_par = winning_pct − quota</code>. A
+    <strong>negative</strong> value means the marginal elected
+    candidate won less of the valid ballots than the quota &mdash;
+    the seat would not have been guaranteed under a proportional
+    count. We surface this as <em>"X.X points below quota"</em> and
+    treat it as the editorial indictment of the voting method, not
+    the candidate. Positive (above-quota) results are mathematically
+    clean and pass without comment. (The DB column and TS field are
+    named <code>under_par</code> for compatibility with earlier
+    snapshots; the value itself is signed-gap, where below-quota
+    reads as a negative number — same convention as the
+    <em>Drift from quota</em> column on per-council pages.)
   </p>
   <p>
     This is a deliberate departure from the older "minority winner"

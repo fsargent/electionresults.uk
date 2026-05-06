@@ -93,7 +93,10 @@
           <th class="num">Seats</th>
           <th class="num">Won at</th>
           <th class="num">Quota</th>
-          <th class="num">Under par</th>
+          <th
+            class="num"
+            title="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
+          >Below quota</th>
         </tr>
       </thead>
       <tbody>

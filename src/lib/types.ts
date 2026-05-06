@@ -27,9 +27,9 @@ export interface Race {
   winningPct: number;
   /** Droop quota — share needed under a proportional method: 1 / (seats + 1) */
   quota: number;
-  /** quota − winningPct; positive = below par */
+  /** winningPct − quota; signed gap (negative = below quota, positive = above) */
   underPar: number;
-  /** convenience flag: true when underPar > 0 */
+  /** convenience flag: true when underPar < 0 */
   isBelowQuota: boolean;
 }
 

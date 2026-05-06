@@ -156,9 +156,9 @@ describe('underPar', () => {
     expect(underPar(r)).toBeCloseTo(0, 6);
   });
 
-  it('positive when marginal winner is below quota (the indictment)', () => {
+  it('negative when marginal winner is below quota (the indictment)', () => {
     // Upton-style: 2-seat race, marginal elected on 15.3% of valid ballots.
-    // Quota = 33.33%. Under par = ~18.0 points.
+    // Quota = 33.33%. Below quota by ~18.0 points → underPar ≈ -0.180.
     const r = race({
       seats: 2,
       validBallots: 1000,
@@ -168,10 +168,10 @@ describe('underPar', () => {
         cand({ votes: 100, elected: false, rank: 3 })
       ]
     });
-    expect(underPar(r)).toBeCloseTo(1 / 3 - 0.153, 4);
+    expect(underPar(r)).toBeCloseTo(0.153 - 1 / 3, 4);
   });
 
-  it('negative when marginal winner exceeds the quota (above-par mandate)', () => {
+  it('positive when marginal winner exceeds the quota (cleared the bar)', () => {
     const r = race({
       seats: 1,
       candidates: [
@@ -180,7 +180,7 @@ describe('underPar', () => {
         cand({ votes: 100, elected: false, rank: 3 })
       ]
     });
-    expect(underPar(r)).toBeCloseTo(-0.2, 6);
+    expect(underPar(r)).toBeCloseTo(0.2, 6);
   });
 });
 

@@ -39,17 +39,23 @@ export function quotaForSeats(seats: number): number {
 }
 
 /**
- * How far below the proportional quota the marginal elected candidate's
- * share fell, in fraction-of-valid-ballots units. Positive = below par
- * (the editorial indictment), negative = above par.
+ * Signed gap between the marginal elected candidate's share and the
+ * proportional quota, in fraction-of-valid-ballots units.
+ *   negative = below the quota (the editorial indictment)
+ *   positive = above the quota
+ *   zero     = exactly at the quota
+ *
+ * Field name kept as `underPar` / `under_par` for schema compatibility,
+ * but the sign convention is signed-gap (negative = deficit), which is
+ * how `pts()` displays it and how the "Below quota" column reads.
  */
 export function underPar(r: Race): number {
-  return quotaForSeats(r.seats) - raceWinningPct(r);
+  return raceWinningPct(r) - quotaForSeats(r.seats);
 }
 
 /** True when the marginal winner's share fell below the proportional quota. */
 export function isBelowQuota(r: Race): boolean {
-  return underPar(r) > 0;
+  return underPar(r) < 0;
 }
 
 /**

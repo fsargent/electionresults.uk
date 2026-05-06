@@ -78,7 +78,7 @@
       <tr><th><code>valid_ballots</code></th><td>Sum of candidate votes — the LEH "Valid vote turnout (HoC method)" denominator</td></tr>
       <tr><th><code>winning_pct</code></th><td>Marginal-elected-candidate share of valid ballots</td></tr>
       <tr><th><code>quota</code></th><td>Proportional quota: <code>1.0 / (seats + 1)</code></td></tr>
-      <tr><th><code>under_par</code></th><td><code>quota − winning_pct</code> (positive = below par)</td></tr>
+      <tr><th><code>under_par</code></th><td><code>winning_pct − quota</code> — signed gap (negative = below quota, positive = above). Field name kept for schema compatibility; the convention is signed-gap.</td></tr>
       <tr><th><code>is_below_quota</code></th><td><code>1</code> when <code>winning_pct &lt; quota</code></td></tr>
     </tbody>
   </table>

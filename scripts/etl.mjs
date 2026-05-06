@@ -403,7 +403,8 @@ function ingestCycle(cycle) {
     const electedPcts = elected.map((c) => c.votes / validBallots);
     const winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;
     const quota = quotaForSeats(w.seats);
-    const underPar = quota - winningPct;
+    // Signed gap: negative = below quota (the indictment); positive = above.
+    const underPar = winningPct - quota;
     const wardSlug = w.wardCode
       ? slugify(`${w.wardName}-${w.wardCode}`)
       : slugify(w.wardName);
@@ -427,7 +428,7 @@ function ingestCycle(cycle) {
       winningPct,
       quota,
       underPar,
-      isBelowQuota: underPar > 0,
+      isBelowQuota: underPar < 0,
       candidates: w.candidates
     });
   }
@@ -585,7 +586,7 @@ for (const r of allRaces) {
       votes: c.votes,
       winningPct,
       quota: r.quota,
-      underPar: r.quota - winningPct,
+      underPar: winningPct - r.quota,
       wardName: r.wardName,
       wardSlug: r.wardSlug,
       council: r.council,
@@ -595,7 +596,8 @@ for (const r of allRaces) {
     });
   }
 }
-marginal.sort((a, b) => b.underPar - a.underPar || a.votes - b.votes);
+// Sort most-negative-first (= furthest below quota first), tiebreak by lowest raw votes.
+marginal.sort((a, b) => a.underPar - b.underPar || a.votes - b.votes);
 
 // --- Council flips: same council, consecutive cycles, plurality changed --
 //
@@ -700,7 +702,7 @@ const totals = {
   councils: councils.length,
   races: allRaces.length,
   seats: marginal.length,
-  belowQuotaSeats: marginal.filter((m) => m.underPar > 0).length,
+  belowQuotaSeats: marginal.filter((m) => m.underPar < 0).length,
   flips: flips.length
 };
 console.log(

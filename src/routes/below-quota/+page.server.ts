@@ -9,7 +9,7 @@ import {
 export const prerender = true;
 
 export function load() {
-  const board = raceLeaderboard().filter((r) => r.underPar > 0);
+  const board = raceLeaderboard().filter((r) => r.underPar < 0);
   return {
     totals,
     rows: board,

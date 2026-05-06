@@ -48,8 +48,8 @@
     {num(data.rows.length)} seats qualify.
   </p>
   <p class="muted">
-    Sorted by the gap (under par) descending &mdash; the seats furthest
-    below the quota first. Filter or search below.
+    Sorted with the seats furthest below the proportional quota first
+    (most-negative gap on top). Filter or search below.
   </p>
 
   <form class="filters" onsubmit={(e) => e.preventDefault()}>
@@ -102,7 +102,10 @@
         <th class="num">Seats</th>
         <th class="num">Won at</th>
         <th class="num">Quota</th>
-        <th class="num">Under par</th>
+        <th
+          class="num"
+          title="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
+        >Below quota</th>
       </tr>
     </thead>
     <tbody>

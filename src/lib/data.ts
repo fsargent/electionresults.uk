@@ -294,7 +294,8 @@ export function racesForYearAndCouncil(
   return allRaces
     .filter((r) => r.year === year && r.councilSlug === slug)
     .sort(
-      (a, b) => b.underPar - a.underPar || a.wardName.localeCompare(b.wardName)
+      // Most-negative-first: races furthest below the quota lead.
+      (a, b) => a.underPar - b.underPar || a.wardName.localeCompare(b.wardName)
     );
 }
 
@@ -330,7 +331,9 @@ export function raceLeaderboard(): RaceLeaderboardRow[] {
   for (const m of allMarginalWinners) {
     const key = `${m.year}::${m.councilSlug}::${m.wardSlug}`;
     const existing = byRace.get(key);
-    if (!existing || m.underPar > existing.underPar) {
+    // Pick the most-marginal candidate (smallest share = most-negative underPar)
+    // as the headline row for the race.
+    if (!existing || m.underPar < existing.underPar) {
       byRace.set(key, {
         year: m.year,
         electionDate: m.electionDate,
@@ -350,7 +353,8 @@ export function raceLeaderboard(): RaceLeaderboardRow[] {
     }
   }
   return [...byRace.values()].sort(
-    (a, b) => b.underPar - a.underPar || a.marginalVotes - b.marginalVotes
+    // Most-negative-first: seats furthest below the quota lead.
+    (a, b) => a.underPar - b.underPar || a.marginalVotes - b.marginalVotes
   );
 }
 

@@ -63,12 +63,13 @@
       the quota is 50%; for 2 seats, 33.3%; for 3 seats, 25%.
     </p>
     <p>
-      Where the actual winning share fell below the quota, we show the gap as
-      <strong>points under par</strong> &mdash; the editorial indictment.
-      Above-par results clear the bar and pass without comment.
-      The voting method is the subject of every observation here. Named
-      candidates appear as the public election record requires; the cause
-      being audited is the voting method, not the individuals. See the
+      Where the actual winning share fell below the quota, we show
+      the signed gap as <strong>points below quota</strong> (a negative
+      number) &mdash; the editorial indictment. Above-quota results
+      clear the bar and pass without comment. The voting method is
+      the subject of every observation here. Named candidates appear
+      as the public election record requires; the cause being audited
+      is the voting method, not the individuals. See the
       <a href="/methodology">methodology page</a> for derivations.
     </p>
   </section>
@@ -179,7 +180,7 @@
         <span class="muted">
           · {race.seats === 1 ? '1 seat' : `${race.seats} seats`}
           · won at <span class="pct">{pct(race.winningPct)}</span>
-          {#if race.underPar > 0}
+          {#if race.underPar < 0}
             · <span class="warn">{pts(race.underPar)} below quota</span>
           {:else}
             · <span class="muted">above quota</span>
@@ -212,10 +213,12 @@
           <span class="stat-value pct">{pct(race.quota)}</span>
         </span>
         <span class="stat">
-          <span class="stat-label">Difference</span>
+          <span
+            class="stat-label"
+            title="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
+          >Below quota</span>
           <span class="stat-value pct" class:warn={race.isBelowQuota}>
             {pts(race.underPar)}
-            {#if race.isBelowQuota}<span class="muted"> below quota</span>{/if}
           </span>
         </span>
         <span class="stat">
@@ -232,7 +235,10 @@
             <th>Party</th>
             <th class="num">Votes</th>
             <th class="num">Share</th>
-            <th class="num" title="Each elected candidate's share of valid ballots minus the proportional quota for this race. Positive = cleared the quota; negative = won the seat below it.">Drift from quota</th>
+            <th
+              class="num"
+              title="Each elected candidate's share of valid ballots minus the proportional quota for this race. Negative = won the seat below the quota; positive = cleared it."
+            >Below quota</th>
             <th>Elected</th>
           </tr>
         </thead>
