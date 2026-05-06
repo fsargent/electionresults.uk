@@ -10,7 +10,8 @@ requires but are never the editorial subject. See
 - [SvelteKit 2](https://kit.svelte.dev/) + Svelte 5 (runes), every route
   prerendered
 - [`adapter-cloudflare`](https://kit.svelte.dev/docs/adapter-cloudflare),
-  fully static deploy to Cloudflare Pages
+  deployed as a Cloudflare Worker with Static Assets (the unified
+  successor to Cloudflare Pages)
 - [Bun](https://bun.sh/) as the package manager and runtime
 - [`better-sqlite3`](https://github.com/WiseLibs/better-sqlite3) +
   [SheetJS](https://sheetjs.com/) for the build-time ETL

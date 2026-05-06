@@ -13,8 +13,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
-    "deploy": "bun run build && wrangler pages deploy .svelte-kit/cloudflare --project-name electionresults-uk --branch main",
-    "deploy:preview": "bun run build && wrangler pages deploy .svelte-kit/cloudflare --project-name electionresults-uk"
+    "deploy": "bun run build && wrangler deploy",
+    "deploy:preview": "bun run build && wrangler versions upload"
   },
   "devDependencies": {
     "@sveltejs/adapter-cloudflare": "^4.7.0",

@@ -1,9 +1,19 @@
 name = "electionresults-uk"
-pages_build_output_dir = ".svelte-kit/cloudflare"
+main = ".svelte-kit/cloudflare/_worker.js"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 
-# Note: Cloudflare Pages does not yet support the [observability] block
-# in wrangler.toml (Workers-only). To enable logs / traces for this
-# Pages project, configure them in the Cloudflare dashboard:
-#   Workers & Pages → electionresults-uk → Settings → Functions → Logs.
+# Workers Static Assets (the unified successor to Cloudflare Pages):
+# the build output directory is served as static assets, and the Worker
+# (main, above) handles any request a static asset doesn't satisfy —
+# i.e. SSR / fallthrough for non-prerendered routes. The site is almost
+# entirely prerendered, so the Worker mostly just exists for 404s.
+[assets]
+directory = ".svelte-kit/cloudflare"
+binding = "ASSETS"
+
+# Workers supports observability natively (unlike the legacy Pages
+# project this migrated from). Logs are visible in the Cloudflare
+# dashboard under Workers & Pages → electionresults-uk → Logs.
+[observability]
+enabled = true
