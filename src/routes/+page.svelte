@@ -119,7 +119,7 @@
     Councils where the largest party (by seats won) changed between
     consecutive cycles, ranked by
     <strong>seat shift ÷ vote shift</strong> for the incoming party.
-    The bigger the seat shift on the smaller the vote shift, the higher
+    The bigger the seat shift, the smaller the vote shift, the higher
     the rank. (For example: Wealden 2021→2023 — Liberal Democrats
     gained 22.9 points of seat share on just 0.6 points of extra vote
     share, a ratio of about 38.) The classic First-Past-the-Post
@@ -209,7 +209,7 @@
       </tr>
     </thead>
     <tbody>
-      {#each data.topUnderPar as r (r.year + r.councilSlug + r.wardSlug)}
+      {#each data.topLowestShares as r (r.year + r.councilSlug + r.wardSlug)}
         <tr>
           <td><a href={`/${r.year}`}>{r.year}</a></td>
           <td>
