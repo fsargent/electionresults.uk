@@ -189,28 +189,65 @@ const CYCLES = [
  */
 function titleCaseWardName(s) {
   if (!s) return s;
-  if (/[a-z]/.test(s)) return s;
-  return s.replace(
-    /([A-Z][A-Z']*)/g,
-    (word) => word.charAt(0) + word.slice(1).toLowerCase()
+  // Per-word: title-case any run of 3+ consecutive capitals. Handles
+  // partial-shouty source data (e.g. "POUND HILL NORTH and Forge
+  // Wood") and apostrophe names (e.g. "D'ABERNON" → "D'Abernon" — the
+  // apostrophe-bounded second segment is treated as its own word).
+  // Single-character segments after an apostrophe are treated as
+  // possessives (DUKE'S → Duke's, not Duke'S). Two-letter initials
+  // (BBC etc.) are rare in ward names; the 3+ threshold lets them
+  // pass through if they ever appear.
+  return s.replace(/[A-Z]{3,}'?[A-Z]*/g, (word) =>
+    word
+      .split("'")
+      .map((part, i) => {
+        if (part.length === 0) return part;
+        // Possessive 's after apostrophe: lowercase the lone letter.
+        if (i > 0 && part.length === 1) return part.toLowerCase();
+        return part.charAt(0) + part.slice(1).toLowerCase();
+      })
+      .join("'")
   );
 }
 
 /**
  * Normalise a ward-name string for consistency across LEH cycles.
  *
- * The LEH workbooks switch between ` & ` and ` and ` for the same ward
- * across years (e.g. "Longcross, Lyne & Chertsey South" in 2021–2023
- * became "Longcross, Lyne and Chertsey South" in 2024). The ward-grid
- * matcher compares literal `wardName` strings, so two variants land as
- * two rows. Standardise on " and " here so downstream matching, slug
- * generation, and display all see one canonical string per ward.
+ * The LEH workbooks introduce two classes of inconsistency for the
+ * same ward across years that both cause duplicate rows in the
+ * ward-grid matcher (which compares literal `wardName` strings):
+ *
+ *   1. ` & ` vs ` and ` (e.g. "Longcross, Lyne & Chertsey South" in
+ *      2021–2023 → "Longcross, Lyne and Chertsey South" in 2024).
+ *      Standardise on " and ".
+ *
+ *   2. Capitalisation of small connecting words. UK title-case
+ *      convention (Ordnance Survey, Royal Mail PAF) lowercases
+ *      and / the / with / on / of / de / la / le / du / in / by
+ *      mid-name. The LEH source flips between cases across years
+ *      (e.g. "Horncastle and the Keals" vs "Horncastle and The Keals";
+ *      "Bourton-on-the-Water" vs "Bourton-On-The-Water"). Lowercase
+ *      these words wherever they appear between separators (space or
+ *      hyphen) — never at the start of the name, where capitalisation
+ *      is correct ("The Stows", "On the Hill ward").
  *
  * Also runs the title-case fix above for shouty source data.
  */
+const SMALL_WORDS_PATTERN =
+  /(?<=[ -])(And|The|With|On|Of|De|La|Le|Du|In|By|Under|Upon|Next|En)(?=[ -]|$)/g;
+
 function normaliseWardName(s) {
   if (!s) return s;
-  return titleCaseWardName(s).replace(/ & /g, ' and ');
+  return titleCaseWardName(s)
+    .replace(/ & /g, ' and ')
+    .replace(SMALL_WORDS_PATTERN, (m) => m.toLowerCase())
+    // "ST." (Saint, two-letter abbrev outside the 3+ title-case rule)
+    // → "St." Source data flips between the two across cycles.
+    .replace(/\bST\./g, 'St.')
+    // Capital-letter + apostrophe + lowercase (e.g. "D'abernon" in one
+    // cycle, "D'Abernon" in another) — capitalise the post-apostrophe
+    // letter to match the convention for D'/O'/M'-prefixed names.
+    .replace(/\b([A-Z])'([a-z])/g, (_, p1, p2) => `${p1}'${p2.toUpperCase()}`);
 }
 
 function slugify(s) {

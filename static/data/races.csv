@@ -31,7 +31,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05010912,st-george-west-e05010912,St George West,bristol-city-of,"Bristol, City Of",UAA,1,2304,0.512153,0.500000,0.012153,0
 2021,E05010915,stockwood-e05010915,Stockwood,bristol-city-of,"Bristol, City Of",UAA,2,5516,0.244199,0.333333,-0.089135,1
 2021,E05010916,stoke-bishop-e05010916,Stoke Bishop,bristol-city-of,"Bristol, City Of",UAA,2,7588,0.235372,0.333333,-0.097962,1
-2021,E05010917,westbury-on-trym-and-henleaze-e05010917,Westbury-On-Trym and Henleaze,bristol-city-of,"Bristol, City Of",UAA,3,23982,0.111459,0.250000,-0.138541,1
+2021,E05010917,westbury-on-trym-and-henleaze-e05010917,Westbury-on-Trym and Henleaze,bristol-city-of,"Bristol, City Of",UAA,3,23982,0.111459,0.250000,-0.138541,1
 2021,E05010918,windmill-hill-e05010918,Windmill Hill,bristol-city-of,"Bristol, City Of",UAA,2,9755,0.252896,0.333333,-0.080437,1
 2021,E05002319,abbey-e05002319,Abbey,reading,Reading,UAT,1,2803,0.515162,0.500000,0.015162,0
 2021,E05002320,battle-e05002320,Battle,reading,Reading,UAT,1,2217,0.526838,0.500000,0.026838,0
@@ -50,7 +50,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05002333,tilehurst-e05002333,Tilehurst,reading,Reading,UAT,1,2716,0.448454,0.500000,-0.051546,1
 2021,E05002334,whitley-e05002334,Whitley,reading,Reading,UAT,1,2421,0.547708,0.500000,0.047708,0
 2021,E05009337,baylis-and-stoke-e05009337,Baylis and Stoke,slough,Slough,UAT,1,2352,0.832058,0.500000,0.332058,0
-2021,E05009338,britwell-and-northborough-e05009338,Britwell And Northborough,slough,Slough,UAT,1,1854,0.669364,0.500000,0.169364,0
+2021,E05009338,britwell-and-northborough-e05009338,Britwell and Northborough,slough,Slough,UAT,1,1854,0.669364,0.500000,0.169364,0
 2021,E05009339,central-e05009339,Central,slough,Slough,UAT,1,2143,0.727951,0.500000,0.227951,0
 2021,E05009340,chalvey-e05009340,Chalvey,slough,Slough,UAT,1,1673,0.732218,0.500000,0.232218,0
 2021,E05009341,cippenham-green-e05009341,Cippenham Green,slough,Slough,UAT,1,2305,0.551844,0.500000,0.051844,0
@@ -58,7 +58,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05009344,elliman-e05009344,Elliman,slough,Slough,UAT,1,1695,0.769912,0.500000,0.269912,0
 2021,E05009345,farnham-e05009345,Farnham,slough,Slough,UAT,1,2086,0.709971,0.500000,0.209971,0
 2021,E05009346,foxborough-e05009346,Foxborough,slough,Slough,UAT,1,1098,0.635701,0.500000,0.135701,0
-2021,E05009347,haymill-and-lynch-hill-e05009347,Haymill And Lynch Hill,slough,Slough,UAT,1,2069,0.557757,0.500000,0.057757,0
+2021,E05009347,haymill-and-lynch-hill-e05009347,Haymill and Lynch Hill,slough,Slough,UAT,1,2069,0.557757,0.500000,0.057757,0
 2021,E05009348,langley-kedermister-e05009348,Langley Kedermister,slough,Slough,UAT,1,2549,0.435857,0.500000,-0.064143,1
 2021,E05009349,langley-st-mary-s-e05009349,Langley St Mary's,slough,Slough,UAT,1,2566,0.457521,0.500000,-0.042479,1
 2021,E05009350,upton-e05009350,Upton,slough,Slough,UAT,1,2862,0.503145,0.500000,0.003145,0
@@ -135,12 +135,12 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05009408,bletchley-west-e05009408,Bletchley West,milton-keynes,Milton Keynes,UAT,1,3966,0.480585,0.500000,-0.019415,1
 2021,E05009409,bradwell-e05009409,Bradwell,milton-keynes,Milton Keynes,UAT,1,3493,0.519038,0.500000,0.019038,0
 2021,E05009410,broughton-e05009410,Broughton,milton-keynes,Milton Keynes,UAT,1,3939,0.428535,0.500000,-0.071465,1
-2021,E05009411,campbell-park-and-old-wroughton-e05009411,Campbell Park And Old Wroughton,milton-keynes,Milton Keynes,UAT,1,4159,0.425343,0.500000,-0.074657,1
+2021,E05009411,campbell-park-and-old-wroughton-e05009411,Campbell Park and Old Wroughton,milton-keynes,Milton Keynes,UAT,1,4159,0.425343,0.500000,-0.074657,1
 2021,E05009412,central-milton-keynes-e05009412,Central Milton Keynes,milton-keynes,Milton Keynes,UAT,2,5239,0.237259,0.333333,-0.096074,1
-2021,E05009413,danesborough-and-walton-e05009413,Danesborough And Walton,milton-keynes,Milton Keynes,UAT,1,3693,0.577308,0.500000,0.077308,0
-2021,E05009414,loughton-and-shenley-e05009414,Loughton And Shenley,milton-keynes,Milton Keynes,UAT,1,4335,0.485813,0.500000,-0.014187,1
+2021,E05009413,danesborough-and-walton-e05009413,Danesborough and Walton,milton-keynes,Milton Keynes,UAT,1,3693,0.577308,0.500000,0.077308,0
+2021,E05009414,loughton-and-shenley-e05009414,Loughton and Shenley,milton-keynes,Milton Keynes,UAT,1,4335,0.485813,0.500000,-0.014187,1
 2021,E05009415,monkston-e05009415,Monkston,milton-keynes,Milton Keynes,UAT,1,2868,0.525453,0.500000,0.025453,0
-2021,E05009416,newport-pagnell-north-and-hanslope-e05009416,Newport Pagnell North And Hanslope,milton-keynes,Milton Keynes,UAT,1,3919,0.565961,0.500000,0.065961,0
+2021,E05009416,newport-pagnell-north-and-hanslope-e05009416,Newport Pagnell North and Hanslope,milton-keynes,Milton Keynes,UAT,1,3919,0.565961,0.500000,0.065961,0
 2021,E05009417,newport-pagnell-south-e05009417,Newport Pagnell South,milton-keynes,Milton Keynes,UAT,1,3607,0.422235,0.500000,-0.077765,1
 2021,E05009418,olney-e05009418,Olney,milton-keynes,Milton Keynes,UAT,1,4651,0.600946,0.500000,0.100946,0
 2021,E05009419,shenley-brook-end-e05009419,Shenley Brook End,milton-keynes,Milton Keynes,UAT,1,3600,0.417778,0.500000,-0.082222,1
@@ -148,7 +148,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05009421,stony-stratford-e05009421,Stony Stratford,milton-keynes,Milton Keynes,UAT,1,4591,0.438902,0.500000,-0.061098,1
 2021,E05009422,tattenhoe-e05009422,Tattenhoe,milton-keynes,Milton Keynes,UAT,1,3125,0.517120,0.500000,0.017120,0
 2021,E05009423,wolverton-e05009423,Wolverton,milton-keynes,Milton Keynes,UAT,1,3794,0.520559,0.500000,0.020559,0
-2021,E05009424,woughton-and-fishermead-e05009424,Woughton And Fishermead,milton-keynes,Milton Keynes,UAT,2,4847,0.280380,0.333333,-0.052954,1
+2021,E05009424,woughton-and-fishermead-e05009424,Woughton and Fishermead,milton-keynes,Milton Keynes,UAT,2,4847,0.280380,0.333333,-0.052954,1
 2021,E58000050,abbey-e58000050,Abbey,cambridge,Cambridge,SC,1,2703,0.417684,0.500000,-0.082316,1
 2021,E05013050,abbey-e05013050,Abbey,cambridge,Cambridge,SDT,3,7875,0.138413,0.250000,-0.111587,1
 2021,E58000052,arbury-e58000052,Arbury,cambridge,Cambridge,SC,1,2822,0.481573,0.500000,-0.018427,1
@@ -204,9 +204,9 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000094,st-neots-east-and-gransden-e58000094,St Neots East and Gransden,huntingdonshire,Huntingdonshire,SC,1,1970,0.387817,0.500000,-0.112183,1
 2021,E58000095,st-neots-eynesbury-e58000095,St Neots Eynesbury,huntingdonshire,Huntingdonshire,SC,1,2241,0.392236,0.500000,-0.107764,1
 2021,E58000096,st-neots-priory-park-and-little-paxton-e58000096,St Neots Priory Park and Little Paxton,huntingdonshire,Huntingdonshire,SC,1,2653,0.466265,0.500000,-0.033735,1
-2021,E58000097,st-neots-the-eatons-e58000097,St Neots The Eatons,huntingdonshire,Huntingdonshire,SC,1,3340,0.420359,0.500000,-0.079641,1
+2021,E58000097,st-neots-the-eatons-e58000097,St Neots the Eatons,huntingdonshire,Huntingdonshire,SC,1,3340,0.420359,0.500000,-0.079641,1
 2021,E58000099,the-hemingfords-and-fenstanton-e58000099,The Hemingfords and Fenstanton,huntingdonshire,Huntingdonshire,SC,1,3087,0.562682,0.500000,0.062682,0
-2021,E58000101,warboys-and-the-stukeleys-e58000101,Warboys and The Stukeleys,huntingdonshire,Huntingdonshire,SC,1,2156,0.646104,0.500000,0.146104,0
+2021,E58000101,warboys-and-the-stukeleys-e58000101,Warboys and the Stukeleys,huntingdonshire,Huntingdonshire,SC,1,2156,0.646104,0.500000,0.146104,0
 2021,E58000108,yaxley-and-farcet-e58000108,Yaxley and Farcet,huntingdonshire,Huntingdonshire,SC,1,2277,0.569170,0.500000,0.069170,0
 2021,E05010805,barnack-e05010805,Barnack,peterborough,Peterborough,UAT,1,1155,0.631169,0.500000,0.131169,0
 2021,E05010806,bretton-e05010806,Bretton,peterborough,Peterborough,UAT,1,2122,0.485391,0.500000,-0.014609,1
@@ -368,12 +368,12 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05013338,st-columb-major-st-mawgan-and-st-wenn-e05013338,"St Columb Major, St Mawgan and St Wenn",cornwall,Cornwall,UAA,1,1534,0.444589,0.500000,-0.055411,1
 2021,E05013855,st-columb-minor-and-colan-e05013855,St Columb Minor and Colan,cornwall,Cornwall,UAA,1,1284,0.515576,0.500000,0.015576,0
 2021,E05013856,st-dennis-and-st-enoder-e05013856,St Dennis and St Enoder,cornwall,Cornwall,UAA,1,1928,0.778527,0.500000,0.278527,0
-2021,E05013341,st-goran-tregony-and-the-roseland-e05013341,"St Goran, Tregony and The Roseland",cornwall,Cornwall,UAA,1,2551,0.553508,0.500000,0.053508,0
+2021,E05013341,st-goran-tregony-and-the-roseland-e05013341,"St Goran, Tregony and the Roseland",cornwall,Cornwall,UAA,1,2551,0.553508,0.500000,0.053508,0
 2021,E05013857,st-ives-east-lelant-and-carbis-bay-e05013857,"St Ives East, Lelant and Carbis Bay",cornwall,Cornwall,UAA,1,2259,0.463479,0.500000,-0.036521,1
 2021,E05013858,st-ives-west-and-towednack-e05013858,St Ives West and Towednack,cornwall,Cornwall,UAA,1,2167,0.453623,0.500000,-0.046377,1
 2021,E05013859,st-mewan-and-grampound-e05013859,St Mewan and Grampound,cornwall,Cornwall,UAA,1,2055,0.533820,0.500000,0.033820,0
 2021,E05013860,st-newlyn-east-cubert-and-goonhavern-e05013860,"St Newlyn East, Cubert and Goonhavern",cornwall,Cornwall,UAA,1,1961,0.465579,0.500000,-0.034421,1
-2021,E05013346,st-stephen-in-brannel-e05013346,St Stephen-In-Brannel,cornwall,Cornwall,UAA,1,1552,0.704253,0.500000,0.204253,0
+2021,E05013346,st-stephen-in-brannel-e05013346,St Stephen-in-Brannel,cornwall,Cornwall,UAA,1,1552,0.704253,0.500000,0.204253,0
 2021,E05013347,st-teath-and-tintagel-e05013347,St Teath and Tintagel,cornwall,Cornwall,UAA,1,2312,0.493512,0.500000,-0.006488,1
 2021,E05013351,stratton-kilkhampton-and-morwenstow-e05013351,"Stratton, Kilkhampton and Morwenstow",cornwall,Cornwall,UAA,1,2068,0.434236,0.500000,-0.065764,1
 2021,E05013861,threemilestone-and-chacewater-e05013861,Threemilestone and Chacewater,cornwall,Cornwall,UAA,1,1719,0.378127,0.500000,-0.121873,1
@@ -537,7 +537,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05002092,plymstock-radford-e05002092,Plymstock Radford,plymouth,Plymouth,UAT,1,4200,0.586667,0.500000,0.086667,0
 2021,E05002095,southway-e05002095,Southway,plymouth,Plymouth,UAT,1,3570,0.490196,0.500000,-0.009804,1
 2021,E05002093,st-budeaux-e05002093,St. Budeaux,plymouth,Plymouth,UAT,1,3193,0.529596,0.500000,0.029596,0
-2021,E05002094,st-peter-and-the-waterfront-e05002094,St. Peter and The Waterfront,plymouth,Plymouth,UAT,1,3800,0.416842,0.500000,-0.083158,1
+2021,E05002094,st-peter-and-the-waterfront-e05002094,St. Peter and the Waterfront,plymouth,Plymouth,UAT,1,3800,0.416842,0.500000,-0.083158,1
 2021,E05002096,stoke-e05002096,Stoke,plymouth,Plymouth,UAT,1,3642,0.497803,0.500000,-0.002197,1
 2021,E05002097,sutton-and-mount-gould-e05002097,Sutton and Mount Gould,plymouth,Plymouth,UAT,1,3329,0.515170,0.500000,0.015170,0
 2021,E58000259,bickleigh-and-wembury-e58000259,Bickleigh and Wembury,south-hams,South Hams,SC,1,3832,0.644572,0.500000,0.144572,0
@@ -552,7 +552,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000265,chudleigh-and-teign-valley-e58000265,Chudleigh and Teign Valley,teignbridge,Teignbridge,SC,1,4342,0.392446,0.500000,-0.107554,1
 2021,E58000272,dawlish-e58000272,Dawlish,teignbridge,Teignbridge,SC,1,4828,0.397680,0.500000,-0.102320,1
 2021,E58000274,exminster-and-haldon-e58000274,Exminster and Haldon,teignbridge,Teignbridge,SC,1,3861,0.652940,0.500000,0.152940,0
-2021,E58000284,ipplepen-and-the-kerswells-e58000284,Ipplepen and The Kerswells,teignbridge,Teignbridge,SC,1,4694,0.388155,0.500000,-0.111845,1
+2021,E58000284,ipplepen-and-the-kerswells-e58000284,Ipplepen and the Kerswells,teignbridge,Teignbridge,SC,1,4694,0.388155,0.500000,-0.111845,1
 2021,E58000287,kingsteignton-and-teign-estuary-e58000287,Kingsteignton and Teign Estuary,teignbridge,Teignbridge,SC,1,3680,0.592935,0.500000,0.092935,0
 2021,E58000288,newton-abbot-north-e58000288,Newton Abbot North,teignbridge,Teignbridge,SC,1,3306,0.387175,0.500000,-0.112825,1
 2021,E58000289,newton-abbot-south-e58000289,Newton Abbot South,teignbridge,Teignbridge,SC,1,3457,0.334683,0.500000,-0.165317,1
@@ -579,10 +579,10 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05009040,blackhalls-e05009040,Blackhalls,county-durham,County Durham,UAA,2,3210,0.279751,0.333333,-0.053583,1
 2021,E05009041,brandon-e05009041,Brandon,county-durham,County Durham,UAA,2,5153,0.215991,0.333333,-0.117343,1
 2021,E05009042,burnopfield-and-dipton-e05009042,Burnopfield and Dipton,county-durham,County Durham,UAA,2,4504,0.190941,0.333333,-0.142392,1
-2021,E05009043,chester-le-street-east-e05009043,Chester-Le-Street East,county-durham,County Durham,UAA,1,1330,0.415038,0.500000,-0.084962,1
-2021,E05009044,chester-le-street-north-e05009044,Chester-Le-Street North,county-durham,County Durham,UAA,1,1386,0.501443,0.500000,0.001443,0
-2021,E05009045,chester-le-street-south-e05009045,Chester-Le-Street South,county-durham,County Durham,UAA,2,5242,0.173026,0.333333,-0.160308,1
-2021,E05009046,chester-le-street-west-central-e05009046,Chester-Le-Street West Central,county-durham,County Durham,UAA,2,3784,0.210624,0.333333,-0.122710,1
+2021,E05009043,chester-le-street-east-e05009043,Chester-le-Street East,county-durham,County Durham,UAA,1,1330,0.415038,0.500000,-0.084962,1
+2021,E05009044,chester-le-street-north-e05009044,Chester-le-Street North,county-durham,County Durham,UAA,1,1386,0.501443,0.500000,0.001443,0
+2021,E05009045,chester-le-street-south-e05009045,Chester-le-Street South,county-durham,County Durham,UAA,2,5242,0.173026,0.333333,-0.160308,1
+2021,E05009046,chester-le-street-west-central-e05009046,Chester-le-Street West Central,county-durham,County Durham,UAA,2,3784,0.210624,0.333333,-0.122710,1
 2021,E05009047,chilton-e05009047,Chilton,county-durham,County Durham,UAA,1,1108,0.443141,0.500000,-0.056859,1
 2021,E05009048,consett-north-e05009048,Consett North,county-durham,County Durham,UAA,2,4192,0.185592,0.333333,-0.147742,1
 2021,E05009049,consett-south-e05009049,Consett South,county-durham,County Durham,UAA,1,1324,0.378399,0.500000,-0.121601,1
@@ -652,7 +652,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05011208,hollington-e05011208,Hollington,hastings,Hastings,SDT,1,1045,0.535885,0.500000,0.035885,0
 2021,E58000372,hollington-and-wishing-tree-e58000372,Hollington and Wishing Tree,hastings,Hastings,SC,1,2376,0.504209,0.500000,0.004209,0
 2021,E05011209,maze-hill-e05011209,Maze Hill,hastings,Hastings,SDT,1,1510,0.517219,0.500000,0.017219,0
-2021,E58000376,maze-hill-and-west-st-leonards-e58000376,Maze Hill And West St Leonards,hastings,Hastings,SC,1,2687,0.538519,0.500000,0.038519,0
+2021,E58000376,maze-hill-and-west-st-leonards-e58000376,Maze Hill and West St Leonards,hastings,Hastings,SC,1,2687,0.538519,0.500000,0.038519,0
 2021,E05011210,old-hastings-e05011210,Old Hastings,hastings,Hastings,SDT,1,1969,0.524124,0.500000,0.024124,0
 2021,E58000380,old-hastings-and-tressell-e58000380,Old Hastings and Tressell,hastings,Hastings,SC,1,2985,0.376884,0.500000,-0.123116,1
 2021,E05011211,ore-e05011211,Ore,hastings,Hastings,SDT,1,1287,0.445221,0.500000,-0.054779,1
@@ -679,7 +679,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000361,brede-valley-and-marsham-e58000361,Brede Valley and Marsham,rother,Rother,SC,1,3504,0.533961,0.500000,0.033961,0
 2021,E58000379,northern-rother-e58000379,Northern Rother,rother,Rother,SC,1,3078,0.597141,0.500000,0.097141,0
 2021,E58000388,rother-north-west-e58000388,Rother North West,rother,Rother,SC,1,2922,0.658111,0.500000,0.158111,0
-2021,E58000389,rye-and-eastern-rother-e58000389,Rye And Eastern Rother,rother,Rother,SC,1,3344,0.552931,0.500000,0.052931,0
+2021,E58000389,rye-and-eastern-rother-e58000389,Rye and Eastern Rother,rother,Rother,SC,1,3344,0.552931,0.500000,0.052931,0
 2021,E58000352,arlington-east-hoathly-and-hellingly-e58000352,Arlington East Hoathly and Hellingly,wealden,Wealden,SC,1,3339,0.560647,0.500000,0.060647,0
 2021,E58000364,crowborough-north-and-jarvis-brook-e58000364,Crowborough North and Jarvis Brook,wealden,Wealden,SC,1,3357,0.336908,0.500000,-0.163092,1
 2021,E58000365,crowborough-south-and-st-johns-e58000365,Crowborough South and St Johns,wealden,Wealden,SC,1,2959,0.556607,0.500000,0.056607,0
@@ -691,7 +691,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000384,pevensey-and-stone-cross-e58000384,Pevensey and Stone Cross,wealden,Wealden,SC,1,2417,0.501448,0.500000,0.001448,0
 2021,E58000385,polegate-and-watermill-e58000385,Polegate and Watermill,wealden,Wealden,SC,1,3363,0.542670,0.500000,0.042670,0
 2021,E58000396,uckfield-north-e58000396,Uckfield North,wealden,Wealden,SC,1,2652,0.488311,0.500000,-0.011689,1
-2021,E58000397,uckfield-south-with-framfield-e58000397,Uckfield South With Framfield,wealden,Wealden,SC,1,3065,0.476346,0.500000,-0.023654,1
+2021,E58000397,uckfield-south-with-framfield-e58000397,Uckfield South with Framfield,wealden,Wealden,SC,1,3065,0.476346,0.500000,-0.023654,1
 2021,E58000399,wealden-east-e58000399,Wealden East,wealden,Wealden,SC,1,4061,0.496183,0.500000,-0.003817,1
 2021,E58000400,wealden-north-east-e58000400,Wealden North East,wealden,Wealden,SC,1,3241,0.502314,0.500000,0.002314,0
 2021,E58000401,willingdon-and-south-downs-e58000401,Willingdon and South Downs,wealden,Wealden,SC,1,3816,0.544287,0.500000,0.044287,0
@@ -719,7 +719,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000409,braintree-town-e58000409,Braintree Town,braintree,Braintree,SC,1,3840,0.569010,0.500000,0.069010,0
 2021,E58000434,halstead-e58000434,Halstead,braintree,Braintree,SC,1,4821,0.439328,0.500000,-0.060672,1
 2021,E58000439,hedingham-e58000439,Hedingham,braintree,Braintree,SC,1,5020,0.634064,0.500000,0.134064,0
-2021,E58000465,three-fields-with-great-notley-e58000465,Three Fields With Great Notley,braintree,Braintree,SC,1,4292,0.537512,0.500000,0.037512,0
+2021,E58000465,three-fields-with-great-notley-e58000465,Three Fields with Great Notley,braintree,Braintree,SC,1,4292,0.537512,0.500000,0.037512,0
 2021,E58000469,witham-northern-e58000469,Witham Northern,braintree,Braintree,SC,1,4820,0.425519,0.500000,-0.074481,1
 2021,E58000470,witham-southern-e58000470,Witham Southern,braintree,Braintree,SC,1,4178,0.562231,0.500000,0.062231,0
 2021,E58000410,brentwood-hutton-e58000410,Brentwood Hutton,brentwood,Brentwood,SC,1,5189,0.625939,0.500000,0.125939,0
@@ -780,7 +780,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05010834,mile-end-e05010834,Mile End,colchester,Colchester,SDT,1,3024,0.652778,0.500000,0.152778,0
 2021,E58000445,mile-end-and-highwoods-e58000445,Mile End and Highwoods,colchester,Colchester,SC,1,5572,0.398600,0.500000,-0.101400,1
 2021,E05010835,new-town-and-christ-church-e05010835,New Town and Christ Church,colchester,Colchester,SDT,1,3503,0.434199,0.500000,-0.065801,1
-2021,E05010836,old-heath-and-the-hythe-e05010836,Old Heath and The Hythe,colchester,Colchester,SDT,1,2580,0.533333,0.500000,0.033333,0
+2021,E05010836,old-heath-and-the-hythe-e05010836,Old Heath and the Hythe,colchester,Colchester,SDT,1,2580,0.533333,0.500000,0.033333,0
 2021,E58000448,parsons-heath-and-east-gates-e58000448,Parsons Heath and East Gates,colchester,Colchester,SC,1,4600,0.411957,0.500000,-0.088043,1
 2021,E05010837,prettygate-e05010837,Prettygate,colchester,Colchester,SDT,2,5466,0.235090,0.333333,-0.098244,1
 2021,E05010838,rural-north-e05010838,Rural North,colchester,Colchester,SDT,1,3423,0.644756,0.500000,0.144756,0
@@ -801,7 +801,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05004153,epping-hemnall-e05004153,Epping Hemnall,epping-forest,Epping Forest,SDT,1,2120,0.608491,0.500000,0.108491,0
 2021,E05004154,epping-lindsey-and-thornwood-common-e05004154,Epping Lindsey and Thornwood Common,epping-forest,Epping Forest,SDT,1,2245,0.586192,0.500000,0.086192,0
 2021,E05004155,grange-hill-e05004155,Grange Hill,epping-forest,Epping Forest,SDT,2,2478,0.300242,0.333333,-0.033091,1
-2021,E05004157,high-ongar-willingale-and-the-rodings-e05004157,High Ongar Willingale and The Rodings,epping-forest,Epping Forest,SDT,1,661,0.789713,0.500000,0.289713,0
+2021,E05004157,high-ongar-willingale-and-the-rodings-e05004157,High Ongar Willingale and the Rodings,epping-forest,Epping Forest,SDT,1,661,0.789713,0.500000,0.289713,0
 2021,E05004159,loughton-alderton-e05004159,Loughton Alderton,epping-forest,Epping Forest,SDT,1,908,0.587004,0.500000,0.087004,0
 2021,E05004160,loughton-broadway-e05004160,Loughton Broadway,epping-forest,Epping Forest,SDT,1,807,0.539033,0.500000,0.039033,0
 2021,E58000441,loughton-central-e58000441,Loughton Central,epping-forest,Epping Forest,SC,1,4519,0.662536,0.500000,0.162536,0
@@ -837,7 +837,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000442,maldon-e58000442,Maldon,maldon,Maldon,SC,1,5562,0.506652,0.500000,0.006652,0
 2021,E58000457,southminster-e58000457,Southminster,maldon,Maldon,SC,1,6466,0.484225,0.500000,-0.015775,1
 2021,E05010844,downhall-and-rawreth-e05010844,Downhall and Rawreth,rochford,Rochford,SDT,1,1718,0.619325,0.500000,0.119325,0
-2021,E05010845,foulness-and-the-wakerings-e05010845,Foulness and The Wakerings,rochford,Rochford,SDT,1,1564,0.674552,0.500000,0.174552,0
+2021,E05010845,foulness-and-the-wakerings-e05010845,Foulness and the Wakerings,rochford,Rochford,SDT,1,1564,0.674552,0.500000,0.174552,0
 2021,E05010846,hawkwell-east-e05010846,Hawkwell East,rochford,Rochford,SDT,1,1609,0.456184,0.500000,-0.043816,1
 2021,E05010847,hawkwell-west-e05010847,Hawkwell West,rochford,Rochford,SDT,1,1798,0.499444,0.500000,-0.000556,1
 2021,E05010848,hockley-e05010848,Hockley,rochford,Rochford,SDT,1,1865,0.457909,0.500000,-0.042091,1
@@ -891,7 +891,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05002239,ockendon-e05002239,Ockendon,thurrock,Thurrock,UAT,1,2198,0.551865,0.500000,0.051865,0
 2021,E05002240,orsett-e05002240,Orsett,thurrock,Thurrock,UAT,1,1818,0.805831,0.500000,0.305831,0
 2021,E05002241,south-chafford-e05002241,South Chafford,thurrock,Thurrock,UAT,1,1269,0.529551,0.500000,0.029551,0
-2021,E05002243,stanford-le-hope-west-e05002243,Stanford-Le-Hope West,thurrock,Thurrock,UAT,1,1555,0.504180,0.500000,0.004180,0
+2021,E05002243,stanford-le-hope-west-e05002243,Stanford-le-Hope West,thurrock,Thurrock,UAT,1,1555,0.504180,0.500000,0.004180,0
 2021,E05002242,stanford-east-and-corringham-town-e05002242,Stanford East and Corringham Town,thurrock,Thurrock,UAT,1,1883,0.612321,0.500000,0.112321,0
 2021,E05002245,the-homesteads-e05002245,The Homesteads,thurrock,Thurrock,UAT,1,2382,0.598657,0.500000,0.098657,0
 2021,E05002247,tilbury-st-chads-e05002247,Tilbury St. Chads,thurrock,Thurrock,UAT,1,1036,0.462355,0.500000,-0.037645,1
@@ -904,7 +904,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000473,all-saints-and-oakley-e58000473,All Saints and Oakley,cheltenham,Cheltenham,SC,1,2947,0.469969,0.500000,-0.030031,1
 2021,E05004289,battledown-e05004289,Battledown,cheltenham,Cheltenham,SDT,1,2172,0.462707,0.500000,-0.037293,1
 2021,E58000476,battledown-and-charlton-kings-e58000476,Battledown and Charlton Kings,cheltenham,Cheltenham,SC,1,4401,0.451716,0.500000,-0.048284,1
-2021,E05004290,benhall-and-the-reddings-e05004290,Benhall and The Reddings,cheltenham,Cheltenham,SDT,1,2031,0.516002,0.500000,0.016002,0
+2021,E05004290,benhall-and-the-reddings-e05004290,Benhall and the Reddings,cheltenham,Cheltenham,SDT,1,2031,0.516002,0.500000,0.016002,0
 2021,E58000477,benhall-and-up-hatherley-e58000477,Benhall and Up Hatherley,cheltenham,Cheltenham,SC,1,4102,0.496587,0.500000,-0.003413,1
 2021,E05004291,charlton-kings-e05004291,Charlton Kings,cheltenham,Cheltenham,SDT,1,2188,0.464351,0.500000,-0.035649,1
 2021,E05004292,charlton-park-e05004292,Charlton Park,cheltenham,Cheltenham,SDT,1,2332,0.468268,0.500000,-0.031732,1
@@ -930,13 +930,13 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05004305,swindon-village-e05004305,Swindon Village,cheltenham,Cheltenham,SDT,1,1532,0.483029,0.500000,-0.016971,1
 2021,E05004306,up-hatherley-e05004306,Up Hatherley,cheltenham,Cheltenham,SDT,1,2068,0.473404,0.500000,-0.026596,1
 2021,E05004307,warden-hill-e05004307,Warden Hill,cheltenham,Cheltenham,SDT,1,2095,0.471599,0.500000,-0.028401,1
-2021,E58000481,bourton-on-the-water-and-northleach-e58000481,Bourton-On-The-Water and Northleach,cotswold,Cotswold,SC,1,3846,0.555382,0.500000,0.055382,0
+2021,E58000481,bourton-on-the-water-and-northleach-e58000481,Bourton-on-the-Water and Northleach,cotswold,Cotswold,SC,1,3846,0.555382,0.500000,0.055382,0
 2021,E58000484,campden-vale-e58000484,Campden-Vale,cotswold,Cotswold,SC,1,3707,0.626652,0.500000,0.126652,0
 2021,E58001721,cirencester-beeches-e58001721,Cirencester Beeches,cotswold,Cotswold,SC,1,3873,0.538342,0.500000,0.038342,0
 2021,E58001722,cirencester-park-e58001722,Cirencester Park,cotswold,Cotswold,SC,1,3370,0.541246,0.500000,0.041246,0
-2021,E58000494,fairford-and-lechlade-on-thames-e58000494,Fairford and Lechlade On Thames,cotswold,Cotswold,SC,1,3931,0.591707,0.500000,0.091707,0
+2021,E58000494,fairford-and-lechlade-on-thames-e58000494,Fairford and Lechlade on Thames,cotswold,Cotswold,SC,1,3931,0.591707,0.500000,0.091707,0
 2021,E58001723,south-cerney-e58001723,South Cerney,cotswold,Cotswold,SC,1,4215,0.506050,0.500000,0.006050,0
-2021,E58000517,stow-on-the-wold-e58000517,Stow-On-The-Wold,cotswold,Cotswold,SC,1,4278,0.531089,0.500000,0.031089,0
+2021,E58000517,stow-on-the-wold-e58000517,Stow-on-the-Wold,cotswold,Cotswold,SC,1,4278,0.531089,0.500000,0.031089,0
 2021,E58000519,tetbury-e58000519,Tetbury,cotswold,Cotswold,SC,1,3586,0.559398,0.500000,0.059398,0
 2021,E58000480,blakeney-and-bream-e58000480,Blakeney and Bream,forest-of-dean,Forest Of Dean,SC,1,3957,0.339904,0.500000,-0.160096,1
 2021,E58000487,cinderford-e58000487,Cinderford,forest-of-dean,Forest Of Dean,SC,1,2212,0.508590,0.500000,0.008590,0
@@ -1009,8 +1009,8 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05010991,stroud-valley-e05010991,Stroud Valley,stroud,Stroud,SDA,1,961,0.455775,0.500000,-0.044225,1
 2021,E05010992,the-stanleys-e05010992,The Stanleys,stroud,Stroud,SDA,2,2960,0.246622,0.333333,-0.086712,1
 2021,E05013198,thrupp-e05013198,Thrupp,stroud,Stroud,SDA,1,1134,0.629630,0.500000,0.129630,0
-2021,E58000524,wotton-under-edge-e58000524,Wotton-Under-Edge,stroud,Stroud,SC,1,4127,0.460141,0.500000,-0.039859,1
-2021,E05013199,wotton-under-edge-e05013199,Wotton-Under-Edge,stroud,Stroud,SDA,3,6363,0.184661,0.250000,-0.065339,1
+2021,E58000524,wotton-under-edge-e58000524,Wotton-under-Edge,stroud,Stroud,SC,1,4127,0.460141,0.500000,-0.039859,1
+2021,E05013199,wotton-under-edge-e05013199,Wotton-under-Edge,stroud,Stroud,SDA,3,6363,0.184661,0.250000,-0.065339,1
 2021,E58000478,bishops-cleeve-e58000478,Bishops Cleeve,tewkesbury,Tewkesbury,SC,1,4957,0.535606,0.500000,0.035606,0
 2021,E58000482,brockworth-e58000482,Brockworth,tewkesbury,Tewkesbury,SC,1,3886,0.533453,0.500000,0.033453,0
 2021,E58000486,churchdown-e58000486,Churchdown,tewkesbury,Tewkesbury,SC,1,3364,0.587990,0.500000,0.087990,0
@@ -1035,7 +1035,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05000664,little-lever-and-darcy-lever-e05000664,Little Lever and Darcy Lever,bolton,Bolton,MB,1,3605,0.426075,0.500000,-0.073925,1
 2021,E05000665,rumworth-e05000665,Rumworth,bolton,Bolton,MB,1,3803,0.635551,0.500000,0.135551,0
 2021,E05000666,smithills-e05000666,Smithills,bolton,Bolton,MB,1,3908,0.442170,0.500000,-0.057830,1
-2021,E05000667,tonge-with-the-haulgh-e05000667,Tonge With The Haulgh,bolton,Bolton,MB,1,2830,0.449470,0.500000,-0.050530,1
+2021,E05000667,tonge-with-the-haulgh-e05000667,Tonge with the Haulgh,bolton,Bolton,MB,1,2830,0.449470,0.500000,-0.050530,1
 2021,E05000668,westhoughton-north-and-chew-moor-e05000668,Westhoughton North and Chew Moor,bolton,Bolton,MB,1,4156,0.466073,0.500000,-0.033927,1
 2021,E05000669,westhoughton-south-e05000669,Westhoughton South,bolton,Bolton,MB,1,3503,0.360263,0.500000,-0.139737,1
 2021,E05014152,besses-e05014152,Besses,bury,Bury,MB,1,2749,0.580575,0.500000,0.080575,0
@@ -1188,7 +1188,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05000817,stalybridge-north-e05000817,Stalybridge North,tameside,Tameside,MB,1,2850,0.409474,0.500000,-0.090526,1
 2021,E05000818,stalybridge-south-e05000818,Stalybridge South,tameside,Tameside,MB,1,3022,0.600596,0.500000,0.100596,0
 2021,E05000819,altrincham-e05000819,Altrincham,trafford,Trafford,MB,1,4274,0.558493,0.500000,0.058493,0
-2021,E05000820,ashton-upon-mersey-e05000820,Ashton Upon Mersey,trafford,Trafford,MB,1,4096,0.473145,0.500000,-0.026855,1
+2021,E05000820,ashton-upon-mersey-e05000820,Ashton upon Mersey,trafford,Trafford,MB,1,4096,0.473145,0.500000,-0.026855,1
 2021,E05000821,bowdon-e05000821,Bowdon,trafford,Trafford,MB,2,6177,0.285414,0.333333,-0.047920,1
 2021,E05000822,broadheath-e05000822,Broadheath,trafford,Trafford,MB,1,4623,0.488860,0.500000,-0.011140,1
 2021,E05000823,brooklands-e05000823,Brooklands,trafford,Trafford,MB,1,4230,0.447754,0.500000,-0.052246,1
@@ -1226,8 +1226,8 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05000855,lowton-east-e05000855,Lowton East,wigan,Wigan,MB,1,4034,0.593704,0.500000,0.093704,0
 2021,E05000856,orrell-e05000856,Orrell,wigan,Wigan,MB,2,5756,0.252953,0.333333,-0.080380,1
 2021,E05000857,pemberton-e05000857,Pemberton,wigan,Wigan,MB,1,2133,0.691983,0.500000,0.191983,0
-2021,E05000858,shevington-with-lower-ground-e05000858,Shevington With Lower Ground,wigan,Wigan,MB,1,3189,0.449044,0.500000,-0.050956,1
-2021,E05000859,standish-with-langtree-e05000859,Standish With Langtree,wigan,Wigan,MB,1,3648,0.547423,0.500000,0.047423,0
+2021,E05000858,shevington-with-lower-ground-e05000858,Shevington with Lower Ground,wigan,Wigan,MB,1,3189,0.449044,0.500000,-0.050956,1
+2021,E05000859,standish-with-langtree-e05000859,Standish with Langtree,wigan,Wigan,MB,1,3648,0.547423,0.500000,0.047423,0
 2021,E05000860,tyldesley-e05000860,Tyldesley,wigan,Wigan,MB,1,3198,0.487492,0.500000,-0.012508,1
 2021,E05000861,wigan-central-e05000861,Wigan Central,wigan,Wigan,MB,1,3197,0.630591,0.500000,0.130591,0
 2021,E05000862,wigan-west-e05000862,Wigan West,wigan,Wigan,MB,1,2531,0.657448,0.500000,0.157448,0
@@ -1251,14 +1251,14 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05013086,kempshott-and-buckskin-e05013086,Kempshott and Buckskin,basingstoke-and-deane,Basingstoke & Deane,SDT,3,7958,0.169892,0.250000,-0.080108,1
 2021,E58000572,loddon-e58000572,Loddon,basingstoke-and-deane,Basingstoke & Deane,SC,1,5293,0.642736,0.500000,0.142736,0
 2021,E05013087,norden-e05013087,Norden,basingstoke-and-deane,Basingstoke & Deane,SDT,3,5983,0.136219,0.250000,-0.113781,1
-2021,E05013088,oakley-and-the-candovers-e05013088,Oakley and The Candovers,basingstoke-and-deane,Basingstoke & Deane,SDT,3,7814,0.196058,0.250000,-0.053942,1
+2021,E05013088,oakley-and-the-candovers-e05013088,Oakley and the Candovers,basingstoke-and-deane,Basingstoke & Deane,SDT,3,7814,0.196058,0.250000,-0.053942,1
 2021,E05013089,popley-e05013089,Popley,basingstoke-and-deane,Basingstoke & Deane,SDT,3,5137,0.146778,0.250000,-0.103222,1
 2021,E05013090,sherborne-st-john-and-rooksdown-e05013090,Sherborne St John and Rooksdown,basingstoke-and-deane,Basingstoke & Deane,SDT,3,5917,0.196045,0.250000,-0.053955,1
 2021,E05013091,south-ham-e05013091,South Ham,basingstoke-and-deane,Basingstoke & Deane,SDT,3,5901,0.150991,0.250000,-0.099009,1
 2021,E58000588,tadley-and-baughurst-e58000588,Tadley and Baughurst,basingstoke-and-deane,Basingstoke & Deane,SC,1,4516,0.517936,0.500000,0.017936,0
 2021,E05013092,tadley-and-pamber-e05013092,Tadley and Pamber,basingstoke-and-deane,Basingstoke & Deane,SDT,3,8581,0.172474,0.250000,-0.077526,1
 2021,E05013093,tadley-north-kingsclere-and-baughurst-e05013093,"Tadley North, Kingsclere and Baughurst",basingstoke-and-deane,Basingstoke & Deane,SDT,3,8800,0.159545,0.250000,-0.090455,1
-2021,E58000594,whitchurch-and-the-cleres-e58000594,Whitchurch and The Cleres,basingstoke-and-deane,Basingstoke & Deane,SC,1,5755,0.575847,0.500000,0.075847,0
+2021,E58000594,whitchurch-and-the-cleres-e58000594,Whitchurch and the Cleres,basingstoke-and-deane,Basingstoke & Deane,SC,1,5755,0.575847,0.500000,0.075847,0
 2021,E05013094,whitchurch-overton-and-laverstoke-e05013094,"Whitchurch, Overton and Laverstoke",basingstoke-and-deane,Basingstoke & Deane,SDT,3,9910,0.190716,0.250000,-0.059284,1
 2021,E05013095,winklebury-and-manydown-e05013095,Winklebury and Manydown,basingstoke-and-deane,Basingstoke & Deane,SDT,3,4982,0.160377,0.250000,-0.089623,1
 2021,E58000527,alton-rural-e58000527,Alton Rural,east-hampshire,East Hampshire,SC,1,5837,0.631831,0.500000,0.131831,0
@@ -1330,10 +1330,10 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05004545,privett-e05004545,Privett,gosport,Gosport,SDT,1,1255,0.537849,0.500000,0.037849,0
 2021,E05004546,rowner-and-holbrook-e05004546,Rowner and Holbrook,gosport,Gosport,SDT,1,852,0.465962,0.500000,-0.034038,1
 2021,E05004547,town-e05004547,Town,gosport,Gosport,SDT,1,1320,0.426515,0.500000,-0.073485,1
-2021,E05009352,blackwater-and-hawley-e05009352,Blackwater And Hawley,hart,Hart,SDT,1,2224,0.575989,0.500000,0.075989,0
+2021,E05009352,blackwater-and-hawley-e05009352,Blackwater and Hawley,hart,Hart,SDT,1,2224,0.575989,0.500000,0.075989,0
 2021,E58000547,church-crookham-and-ewshot-e58000547,Church Crookham and Ewshot,hart,Hart,SC,1,6190,0.432310,0.500000,-0.067690,1
 2021,E05009353,crookham-east-e05009353,Crookham East,hart,Hart,SDT,1,2645,0.567486,0.500000,0.067486,0
-2021,E05009354,crookham-west-and-ewshot-e05009354,Crookham West And Ewshot,hart,Hart,SDT,2,5348,0.264959,0.333333,-0.068374,1
+2021,E05009354,crookham-west-and-ewshot-e05009354,Crookham West and Ewshot,hart,Hart,SDT,2,5348,0.264959,0.333333,-0.068374,1
 2021,E05009355,fleet-central-e05009355,Fleet Central,hart,Hart,SDT,1,2815,0.473535,0.500000,-0.026465,1
 2021,E05009356,fleet-east-e05009356,Fleet East,hart,Hart,SDT,1,2705,0.496488,0.500000,-0.003512,1
 2021,E58000562,fleet-town-e58000562,Fleet Town,hart,Hart,SC,1,6574,0.543200,0.500000,0.043200,0
@@ -1568,18 +1568,18 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05004816,symonds-green-e05004816,Symonds Green,stevenage,Stevenage,SDT,1,1668,0.429856,0.500000,-0.070144,1
 2021,E05004817,woodfield-e05004817,Woodfield,stevenage,Stevenage,SDT,1,1625,0.534769,0.500000,0.034769,0
 2021,E58000601,abbots-langley-e58000601,Abbots Langley,three-rivers,Three Rivers,SC,1,4250,0.484941,0.500000,-0.015059,1
-2021,E05009425,abbots-langley-and-bedmond-e05009425,Abbots Langley And Bedmond,three-rivers,Three Rivers,SDT,1,1963,0.503821,0.500000,0.003821,0
+2021,E05009425,abbots-langley-and-bedmond-e05009425,Abbots Langley and Bedmond,three-rivers,Three Rivers,SDT,1,1963,0.503821,0.500000,0.003821,0
 2021,E05009426,carpenders-park-e05009426,Carpenders Park,three-rivers,Three Rivers,SDT,1,1844,0.559111,0.500000,0.059111,0
-2021,E05009427,chorleywood-north-and-sarratt-e05009427,Chorleywood North And Sarratt,three-rivers,Three Rivers,SDT,1,2356,0.575552,0.500000,0.075552,0
-2021,E05009428,chorleywood-south-and-maple-cross-e05009428,Chorleywood South And Maple Cross,three-rivers,Three Rivers,SDT,1,2801,0.582649,0.500000,0.082649,0
+2021,E05009427,chorleywood-north-and-sarratt-e05009427,Chorleywood North and Sarratt,three-rivers,Three Rivers,SDT,1,2356,0.575552,0.500000,0.075552,0
+2021,E05009428,chorleywood-south-and-maple-cross-e05009428,Chorleywood South and Maple Cross,three-rivers,Three Rivers,SDT,1,2801,0.582649,0.500000,0.082649,0
 2021,E58000619,croxley-e58000619,Croxley,three-rivers,Three Rivers,SC,1,4991,0.512122,0.500000,0.012122,0
 2021,E05009429,dickinsons-e05009429,Dickinsons,three-rivers,Three Rivers,SDT,1,2505,0.430339,0.500000,-0.069661,1
 2021,E05009430,durrants-e05009430,Durrants,three-rivers,Three Rivers,SDT,1,2298,0.513055,0.500000,0.013055,0
 2021,E05009431,gade-valley-e05009431,Gade Valley,three-rivers,Three Rivers,SDT,1,1604,0.461347,0.500000,-0.038653,1
 2021,E05009432,leavesden-e05009432,Leavesden,three-rivers,Three Rivers,SDT,1,1890,0.503175,0.500000,0.003175,0
-2021,E05009433,moor-park-and-eastbury-e05009433,Moor Park And Eastbury,three-rivers,Three Rivers,SDT,1,1824,0.722039,0.500000,0.222039,0
-2021,E05009434,oxhey-hall-and-hayling-e05009434,Oxhey Hall And Hayling,three-rivers,Three Rivers,SDT,1,2080,0.546635,0.500000,0.046635,0
-2021,E05009435,penn-and-mill-end-e05009435,Penn And Mill End,three-rivers,Three Rivers,SDT,1,1809,0.467662,0.500000,-0.032338,1
+2021,E05009433,moor-park-and-eastbury-e05009433,Moor Park and Eastbury,three-rivers,Three Rivers,SDT,1,1824,0.722039,0.500000,0.222039,0
+2021,E05009434,oxhey-hall-and-hayling-e05009434,Oxhey Hall and Hayling,three-rivers,Three Rivers,SDT,1,2080,0.546635,0.500000,0.046635,0
+2021,E05009435,penn-and-mill-end-e05009435,Penn and Mill End,three-rivers,Three Rivers,SDT,1,1809,0.467662,0.500000,-0.032338,1
 2021,E58000656,rickmansworth-east-and-oxhey-park-e58000656,Rickmansworth East and Oxhey Park,three-rivers,Three Rivers,SC,1,4556,0.546532,0.500000,0.046532,0
 2021,E05009436,rickmansworth-town-e05009436,Rickmansworth Town,three-rivers,Three Rivers,SDT,1,2367,0.532319,0.500000,0.032319,0
 2021,E58000657,rickmansworth-west-e58000657,Rickmansworth West,three-rivers,Three Rivers,SC,1,4086,0.494371,0.500000,-0.005629,1
@@ -1734,7 +1734,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000707,gravesham-rural-e58000707,Gravesham Rural,gravesham,Gravesham,SC,1,5510,0.670780,0.500000,0.170780,0
 2021,E58000725,northfleet-and-gravesend-west-e58000725,Northfleet and Gravesend West,gravesham,Gravesham,SC,2,15350,0.225472,0.333333,-0.107861,1
 2021,E05004982,allington-e05004982,Allington,maidstone,Maidstone,SDT,1,2363,0.458739,0.500000,-0.041261,1
-2021,E05004983,barming-and-teston-e05004983,Barming And Teston,maidstone,Maidstone,SDT,1,927,0.654800,0.500000,0.154800,0
+2021,E05004983,barming-and-teston-e05004983,Barming and Teston,maidstone,Maidstone,SDT,1,927,0.654800,0.500000,0.154800,0
 2021,E05004984,bearsted-e05004984,Bearsted,maidstone,Maidstone,SDT,1,2567,0.696143,0.500000,0.196143,0
 2021,E05004985,boughton-monchelsea-and-chart-sutton-e05004985,Boughton Monchelsea and Chart Sutton,maidstone,Maidstone,SDT,1,966,0.530021,0.500000,0.030021,0
 2021,E05004986,boxley-e05004986,Boxley,maidstone,Maidstone,SDT,1,2212,0.669530,0.500000,0.169530,0
@@ -1816,7 +1816,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05011516,darwen-west-e05011516,Darwen West,blackburn-with-darwen,Blackburn With Darwen,UAT,1,2204,0.570327,0.500000,0.070327,0
 2021,E05011517,ewood-e05011517,Ewood,blackburn-with-darwen,Blackburn With Darwen,UAT,1,1449,0.510697,0.500000,0.010697,0
 2021,E05011518,little-harwood-and-whitebirk-e05011518,Little Harwood and Whitebirk,blackburn-with-darwen,Blackburn With Darwen,UAT,1,1956,0.727505,0.500000,0.227505,0
-2021,E05011519,livesey-with-pleasington-e05011519,Livesey With Pleasington,blackburn-with-darwen,Blackburn With Darwen,UAT,1,2201,0.734212,0.500000,0.234212,0
+2021,E05011519,livesey-with-pleasington-e05011519,Livesey with Pleasington,blackburn-with-darwen,Blackburn With Darwen,UAT,1,2201,0.734212,0.500000,0.234212,0
 2021,E05011520,mill-hill-and-moorgate-e05011520,Mill Hill and Moorgate,blackburn-with-darwen,Blackburn With Darwen,UAT,1,1336,0.541916,0.500000,0.041916,0
 2021,E05011521,roe-lee-e05011521,Roe Lee,blackburn-with-darwen,Blackburn With Darwen,UAT,1,1975,0.589873,0.500000,0.089873,0
 2021,E05011522,shear-brow-and-corporation-park-e05011522,Shear Brow and Corporation Park,blackburn-with-darwen,Blackburn With Darwen,UAT,1,2665,0.911069,0.500000,0.411069,0
@@ -1830,19 +1830,19 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000757,burnley-north-east-e58000757,Burnley North East,burnley,Burnley,SC,1,4350,0.502759,0.500000,0.002759,0
 2021,E58000758,burnley-rural-e58000758,Burnley Rural,burnley,Burnley,SC,1,4116,0.390671,0.500000,-0.109329,1
 2021,E58000759,burnley-south-west-e58000759,Burnley South West,burnley,Burnley,SC,1,3442,0.247821,0.500000,-0.252179,1
-2021,E05005153,cliviger-with-worsthorne-e05005153,Cliviger With Worsthorne,burnley,Burnley,SDT,1,2034,0.471485,0.500000,-0.028515,1
-2021,E05005154,coal-clough-with-deerplay-e05005154,Coal Clough With Deerplay,burnley,Burnley,SDT,1,1391,0.365205,0.500000,-0.134795,1
-2021,E05005155,daneshouse-with-stoneyholme-e05005155,Daneshouse With Stoneyholme,burnley,Burnley,SDT,1,1950,0.705641,0.500000,0.205641,0
+2021,E05005153,cliviger-with-worsthorne-e05005153,Cliviger with Worsthorne,burnley,Burnley,SDT,1,2034,0.471485,0.500000,-0.028515,1
+2021,E05005154,coal-clough-with-deerplay-e05005154,Coal Clough with Deerplay,burnley,Burnley,SDT,1,1391,0.365205,0.500000,-0.134795,1
+2021,E05005155,daneshouse-with-stoneyholme-e05005155,Daneshouse with Stoneyholme,burnley,Burnley,SDT,1,1950,0.705641,0.500000,0.205641,0
 2021,E05005156,gannow-e05005156,Gannow,burnley,Burnley,SDT,1,1257,0.404137,0.500000,-0.095863,1
 2021,E05005157,gawthorpe-e05005157,Gawthorpe,burnley,Burnley,SDT,1,1386,0.559885,0.500000,0.059885,0
-2021,E05005158,hapton-with-park-e05005158,Hapton With Park,burnley,Burnley,SDT,1,1702,0.737955,0.500000,0.237955,0
+2021,E05005158,hapton-with-park-e05005158,Hapton with Park,burnley,Burnley,SDT,1,1702,0.737955,0.500000,0.237955,0
 2021,E05005159,lanehead-e05005159,Lanehead,burnley,Burnley,SDT,1,1724,0.500580,0.500000,0.000580,0
 2021,E58000797,padiham-and-burnley-west-e58000797,Padiham and Burnley West,burnley,Burnley,SC,1,3700,0.621351,0.500000,0.121351,0
 2021,E05005160,queensgate-e05005160,Queensgate,burnley,Burnley,SDT,1,1712,0.645444,0.500000,0.145444,0
-2021,E05005161,rosegrove-with-lowerhouse-e05005161,Rosegrove With Lowerhouse,burnley,Burnley,SDT,1,1270,0.304724,0.500000,-0.195276,1
-2021,E05005162,rosehill-with-burnley-wood-e05005162,Rosehill With Burnley Wood,burnley,Burnley,SDT,1,1330,0.315789,0.500000,-0.184211,1
+2021,E05005161,rosegrove-with-lowerhouse-e05005161,Rosegrove with Lowerhouse,burnley,Burnley,SDT,1,1270,0.304724,0.500000,-0.195276,1
+2021,E05005162,rosehill-with-burnley-wood-e05005162,Rosehill with Burnley Wood,burnley,Burnley,SDT,1,1330,0.315789,0.500000,-0.184211,1
 2021,E05005163,trinity-e05005163,Trinity,burnley,Burnley,SDT,1,1105,0.573756,0.500000,0.073756,0
-2021,E05005164,whittlefield-with-ightenhill-e05005164,Whittlefield With Ightenhill,burnley,Burnley,SDT,1,1809,0.368159,0.500000,-0.131841,1
+2021,E05005164,whittlefield-with-ightenhill-e05005164,Whittlefield with Ightenhill,burnley,Burnley,SDT,1,1809,0.368159,0.500000,-0.131841,1
 2021,E05013064,adlington-and-anderton-e05013064,Adlington and Anderton,chorley,Chorley,SDT,3,6600,0.182576,0.250000,-0.067424,1
 2021,E05013065,buckshaw-and-whittle-e05013065,Buckshaw and Whittle,chorley,Chorley,SDT,3,5984,0.145221,0.250000,-0.104779,1
 2021,E58000761,chorley-central-e58000761,Chorley Central,chorley,Chorley,SC,1,4183,0.572077,0.500000,0.072077,0
@@ -1858,13 +1858,13 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05013071,chorley-south-west-e05013071,Chorley South West,chorley,Chorley,SDT,3,4935,0.177305,0.250000,-0.072695,1
 2021,E05013072,clayton-east-brindle-and-hoghton-e05013072,"Clayton East, Brindle and Hoghton",chorley,Chorley,SDT,3,6435,0.130847,0.250000,-0.119153,1
 2021,E05013073,clayton-west-and-cuerden-e05013073,Clayton West and Cuerden,chorley,Chorley,SDT,3,7410,0.141970,0.250000,-0.108030,1
-2021,E58000766,clayton-with-whittle-e58000766,Clayton With Whittle,chorley,Chorley,SC,1,4249,0.481054,0.500000,-0.018946,1
+2021,E58000766,clayton-with-whittle-e58000766,Clayton with Whittle,chorley,Chorley,SC,1,4249,0.481054,0.500000,-0.018946,1
 2021,E05013074,coppull-e05013074,Coppull,chorley,Chorley,SDT,3,5022,0.208483,0.250000,-0.041517,1
 2021,E05013075,croston-mawdesley-and-euxton-south-e05013075,"Croston, Mawdesley and Euxton South",chorley,Chorley,SDT,3,7133,0.183233,0.250000,-0.066767,1
 2021,E05013076,eccleston-heskin-and-charnock-richard-e05013076,"Eccleston, Heskin and Charnock Richard",chorley,Chorley,SDT,3,6221,0.151262,0.250000,-0.098738,1
 2021,E05013077,euxton-e05013077,Euxton,chorley,Chorley,SDT,3,6758,0.159811,0.250000,-0.090189,1
 2021,E58000770,euxton-buckshaw-and-astley-e58000770,Euxton Buckshaw and Astley,chorley,Chorley,SC,1,4775,0.525864,0.500000,0.025864,0
-2021,E58000778,hoghton-with-wheelton-e58000778,Hoghton With Wheelton,chorley,Chorley,SC,1,3956,0.472952,0.500000,-0.027048,1
+2021,E58000778,hoghton-with-wheelton-e58000778,Hoghton with Wheelton,chorley,Chorley,SC,1,3956,0.472952,0.500000,-0.027048,1
 2021,E58000773,fylde-east-e58000773,Fylde East,fylde,Fylde,SC,1,3673,0.406480,0.500000,-0.093520,1
 2021,E58000774,fylde-south-e58000774,Fylde South,fylde,Fylde,SC,1,3117,0.613090,0.500000,0.113090,0
 2021,E58000775,fylde-west-e58000775,Fylde West,fylde,Fylde,SC,1,3730,0.693298,0.500000,0.193298,0
@@ -1879,7 +1879,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05005208,baxenden-e05005208,Baxenden,hyndburn,Hyndburn,SDT,1,1311,0.594203,0.500000,0.094203,0
 2021,E05005209,central-e05005209,Central,hyndburn,Hyndburn,SDT,1,1949,0.505900,0.500000,0.005900,0
 2021,E05005210,church-e05005210,Church,hyndburn,Hyndburn,SDT,1,1140,0.521930,0.500000,0.021930,0
-2021,E58000776,great-harwood-rishton-and-clayton-le-moors-e58000776,Great Harwood Rishton and Clayton-Le-Moors,hyndburn,Hyndburn,SC,2,12051,0.215086,0.333333,-0.118247,1
+2021,E58000776,great-harwood-rishton-and-clayton-le-moors-e58000776,Great Harwood Rishton and Clayton-le-Moors,hyndburn,Hyndburn,SC,2,12051,0.215086,0.333333,-0.118247,1
 2021,E05005215,netherton-e05005215,Netherton,hyndburn,Hyndburn,SDT,1,1232,0.604708,0.500000,0.104708,0
 2021,E58000796,oswaldtwistle-e58000796,Oswaldtwistle,hyndburn,Hyndburn,SC,1,3547,0.550324,0.500000,0.050324,0
 2021,E05005216,overton-e05005216,Overton,hyndburn,Hyndburn,SDT,1,1700,0.462941,0.500000,-0.037059,1
@@ -1941,7 +1941,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05012208,sharoe-green-e05012208,Sharoe Green,preston,Preston,SDT,1,2426,0.491756,0.500000,-0.008244,1
 2021,E05012207,st-matthew-s-e05012207,St Matthew's,preston,Preston,SDT,1,1277,0.753328,0.500000,0.253328,0
 2021,E58000769,clitheroe-e58000769,Clitheroe,ribble-valley,Ribble Valley,SC,1,4399,0.298477,0.500000,-0.201523,1
-2021,E58000786,longridge-with-bowland-e58000786,Longridge With Bowland,ribble-valley,Ribble Valley,SC,1,3697,0.641060,0.500000,0.141060,0
+2021,E58000786,longridge-with-bowland-e58000786,Longridge with Bowland,ribble-valley,Ribble Valley,SC,1,3697,0.641060,0.500000,0.141060,0
 2021,E58000813,ribble-valley-north-east-e58000813,Ribble Valley North East,ribble-valley,Ribble Valley,SC,1,4817,0.530413,0.500000,0.030413,0
 2021,E58000814,ribble-valley-south-west-e58000814,Ribble Valley South West,ribble-valley,Ribble Valley,SC,1,4447,0.670115,0.500000,0.170115,0
 2021,E05005316,cribden-e05005316,Cribden,rossendale,Rossendale,SDT,1,1191,0.518892,0.500000,0.018892,0
@@ -1959,13 +1959,13 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000816,rossendale-south-e58000816,Rossendale South,rossendale,Rossendale,SC,1,3734,0.500536,0.500000,0.000536,0
 2021,E58000817,rossendale-west-e58000817,Rossendale West,rossendale,Rossendale,SC,1,4009,0.440259,0.500000,-0.059741,1
 2021,E05005328,whitewell-e05005328,Whitewell,rossendale,Rossendale,SDT,1,1462,0.473324,0.500000,-0.026676,1
-2021,E58000830,whitworth-and-bacup-e58000830,Whitworth And Bacup,rossendale,Rossendale,SC,1,3118,0.333547,0.500000,-0.166453,1
+2021,E58000830,whitworth-and-bacup-e58000830,Whitworth and Bacup,rossendale,Rossendale,SC,1,3118,0.333547,0.500000,-0.166453,1
 2021,E05005329,worsley-e05005329,Worsley,rossendale,Rossendale,SDT,1,1269,0.663515,0.500000,0.163515,0
 2021,E58000784,leyland-central-e58000784,Leyland Central,south-ribble,South Ribble,SC,1,3510,0.545299,0.500000,0.045299,0
 2021,E58000785,leyland-south-e58000785,Leyland South,south-ribble,South Ribble,SC,1,3686,0.479110,0.500000,-0.020890,1
 2021,E58000787,lostock-hall-and-bamber-bridge-e58000787,Lostock Hall and Bamber Bridge,south-ribble,South Ribble,SC,1,3653,0.515467,0.500000,0.015467,0
 2021,E58000793,moss-side-and-farington-e58000793,Moss Side and Farington,south-ribble,South Ribble,SC,1,3301,0.609209,0.500000,0.109209,0
-2021,E58000801,penwortham-east-and-walton-le-dale-e58000801,Penwortham East and Walton-Le-Dale,south-ribble,South Ribble,SC,1,3702,0.523231,0.500000,0.023231,0
+2021,E58000801,penwortham-east-and-walton-le-dale-e58000801,Penwortham East and Walton-le-Dale,south-ribble,South Ribble,SC,1,3702,0.523231,0.500000,0.023231,0
 2021,E58000802,penwortham-west-e58000802,Penwortham West,south-ribble,South Ribble,SC,1,5076,0.495075,0.500000,-0.004925,1
 2021,E58000822,south-ribble-east-e58000822,South Ribble East,south-ribble,South Ribble,SC,1,3559,0.614217,0.500000,0.114217,0
 2021,E58000823,south-ribble-west-e58000823,South Ribble West,south-ribble,South Ribble,SC,1,4472,0.686047,0.500000,0.186047,0
@@ -1978,7 +1978,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05005363,derby-e05005363,Derby,west-lancashire,West Lancashire,SDT,1,1745,0.481375,0.500000,-0.018625,1
 2021,E05005364,digmoor-e05005364,Digmoor,west-lancashire,West Lancashire,SDT,1,943,0.673383,0.500000,0.173383,0
 2021,E05005365,halsall-e05005365,Halsall,west-lancashire,West Lancashire,SDT,1,614,0.524430,0.500000,0.024430,0
-2021,E05005366,hesketh-with-becconsall-e05005366,Hesketh-With-Becconsall,west-lancashire,West Lancashire,SDT,2,1860,0.316667,0.333333,-0.016667,1
+2021,E05005366,hesketh-with-becconsall-e05005366,Hesketh-with-Becconsall,west-lancashire,West Lancashire,SDT,2,1860,0.316667,0.333333,-0.016667,1
 2021,E05005367,knowsley-e05005367,Knowsley,west-lancashire,West Lancashire,SDT,1,1999,0.440720,0.500000,-0.059280,1
 2021,E05005368,moorside-e05005368,Moorside,west-lancashire,West Lancashire,SDT,1,720,0.622222,0.500000,0.122222,0
 2021,E58000795,ormskirk-e58000795,Ormskirk,west-lancashire,West Lancashire,SC,1,4383,0.467944,0.500000,-0.032056,1
@@ -1999,7 +1999,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000768,cleveleys-south-and-carleton-e58000768,Cleveleys South and Carleton,wyre,Wyre,SC,1,3973,0.593003,0.500000,0.093003,0
 2021,E58000771,fleetwood-east-e58000771,Fleetwood East,wyre,Wyre,SC,1,3232,0.538366,0.500000,0.038366,0
 2021,E58000772,fleetwood-west-and-cleveleys-west-e58000772,Fleetwood West and Cleveleys West,wyre,Wyre,SC,1,3742,0.527525,0.500000,0.027525,0
-2021,E58000803,poulton-le-fylde-e58000803,Poulton-Le-Fylde,wyre,Wyre,SC,1,4303,0.697420,0.500000,0.197420,0
+2021,E58000803,poulton-le-fylde-e58000803,Poulton-le-Fylde,wyre,Wyre,SC,1,4303,0.697420,0.500000,0.197420,0
 2021,E58000826,thornton-and-hambleton-e58000826,Thornton and Hambleton,wyre,Wyre,SC,1,3636,0.726073,0.500000,0.226073,0
 2021,E58000831,wyre-rural-central-e58000831,Wyre Rural Central,wyre,Wyre,SC,1,3733,0.673185,0.500000,0.173185,0
 2021,E58000832,wyre-rural-east-e58000832,Wyre Rural East,wyre,Wyre,SC,1,4847,0.682690,0.500000,0.182690,0
@@ -2020,7 +2020,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000874,quorn-and-barrow-e58000874,Quorn and Barrow,charnwood,Charnwood,SC,1,3565,0.547546,0.500000,0.047546,0
 2021,E58000875,rothley-and-mountsorrel-e58000875,Rothley and Mountsorrel,charnwood,Charnwood,SC,1,3220,0.560248,0.500000,0.060248,0
 2021,E58000876,shepshed-e58000876,Shepshed,charnwood,Charnwood,SC,1,3413,0.600938,0.500000,0.100938,0
-2021,E58000877,sileby-and-the-wolds-e58000877,Sileby and The Wolds,charnwood,Charnwood,SC,1,3007,0.572664,0.500000,0.072664,0
+2021,E58000877,sileby-and-the-wolds-e58000877,Sileby and the Wolds,charnwood,Charnwood,SC,1,3007,0.572664,0.500000,0.072664,0
 2021,E58000881,syston-fosse-e58000881,Syston Fosse,charnwood,Charnwood,SC,1,3056,0.595550,0.500000,0.095550,0
 2021,E58000882,syston-ridgeway-e58000882,Syston Ridgeway,charnwood,Charnwood,SC,1,2719,0.474807,0.500000,-0.025193,1
 2021,E58000883,thurmaston-ridgemere-e58000883,Thurmaston Ridgemere,charnwood,Charnwood,SC,1,2533,0.650612,0.500000,0.150612,0
@@ -2044,7 +2044,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000868,melton-east-e58000868,Melton East,melton,Melton,SC,1,3379,0.540397,0.500000,0.040397,0
 2021,E58000869,melton-west-e58000869,Melton West,melton,Melton,SC,1,2671,0.533508,0.500000,0.033508,0
 2021,E58000870,melton-wolds-e58000870,Melton Wolds,melton,Melton,SC,1,3753,0.643752,0.500000,0.143752,0
-2021,E58000833,ashby-de-la-zouch-e58000833,Ashby De La Zouch,north-west-leicestershire,North West Leicestershire,SC,1,3965,0.495334,0.500000,-0.004666,1
+2021,E58000833,ashby-de-la-zouch-e58000833,Ashby de la Zouch,north-west-leicestershire,North West Leicestershire,SC,1,3965,0.495334,0.500000,-0.004666,1
 2021,E58000842,castle-donnington-and-kegworth-e58000842,Castle Donnington and Kegworth,north-west-leicestershire,North West Leicestershire,SC,1,3294,0.466606,0.500000,-0.033394,1
 2021,E58000843,coalville-north-e58000843,Coalville North,north-west-leicestershire,North West Leicestershire,SC,1,3165,0.428752,0.500000,-0.071248,1
 2021,E58000844,coalville-south-e58000844,Coalville South,north-west-leicestershire,North West Leicestershire,SC,1,3665,0.432196,0.500000,-0.067804,1
@@ -2063,13 +2063,13 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000894,boston-west-e58000894,Boston West,boston,Boston,SC,1,1754,0.428734,0.500000,-0.071266,1
 2021,E58000938,skirbeck-e58000938,Skirbeck,boston,Boston,SC,1,1954,0.423746,0.500000,-0.076254,1
 2021,E58000886,alford-and-sutton-e58000886,Alford and Sutton,east-lindsey,East Lindsey,SC,1,2652,0.693816,0.500000,0.193816,0
-2021,E58000919,horncastle-and-the-keals-e58000919,Horncastle and The Keals,east-lindsey,East Lindsey,SC,1,2807,0.500891,0.500000,0.000891,0
+2021,E58000919,horncastle-and-the-keals-e58000919,Horncastle and the Keals,east-lindsey,East Lindsey,SC,1,2807,0.500891,0.500000,0.000891,0
 2021,E58000922,ingoldmells-rural-e58000922,Ingoldmells Rural,east-lindsey,East Lindsey,SC,1,2493,0.670678,0.500000,0.170678,0
 2021,E58000923,louth-north-e58000923,Louth North,east-lindsey,East Lindsey,SC,1,2584,0.424923,0.500000,-0.075077,1
 2021,E58000924,louth-south-e58000924,Louth South,east-lindsey,East Lindsey,SC,1,2817,0.313809,0.500000,-0.186191,1
 2021,E58000925,louth-wolds-e58000925,Louth Wolds,east-lindsey,East Lindsey,SC,1,3271,0.678080,0.500000,0.178080,0
 2021,E58000926,mablethorpe-e58000926,Mablethorpe,east-lindsey,East Lindsey,SC,1,2749,0.538378,0.500000,0.038378,0
-2021,E58000934,saltfleet-and-the-cotes-e58000934,Saltfleet and The Cotes,east-lindsey,East Lindsey,SC,1,2464,0.701705,0.500000,0.201705,0
+2021,E58000934,saltfleet-and-the-cotes-e58000934,Saltfleet and the Cotes,east-lindsey,East Lindsey,SC,1,2464,0.701705,0.500000,0.201705,0
 2021,E58000936,skegness-north-e58000936,Skegness North,east-lindsey,East Lindsey,SC,1,2271,0.556583,0.500000,0.056583,0
 2021,E58000937,skegness-south-e58000937,Skegness South,east-lindsey,East Lindsey,SC,1,2515,0.528429,0.500000,0.028429,0
 2021,E58000949,tattershall-castle-e58000949,Tattershall Castle,east-lindsey,East Lindsey,SC,1,2618,0.805577,0.500000,0.305577,0
@@ -2103,7 +2103,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58000933,ruskington-e58000933,Ruskington,north-kesteven,North Kesteven,SC,1,2765,0.796745,0.500000,0.296745,0
 2021,E58000939,sleaford-e58000939,Sleaford,north-kesteven,North Kesteven,SC,1,2330,0.455794,0.500000,-0.044206,1
 2021,E58000940,sleaford-rural-e58000940,Sleaford Rural,north-kesteven,North Kesteven,SC,1,2512,0.554140,0.500000,0.054140,0
-2021,E58000951,waddington-and-hykeham-east-e58000951,Waddington And Hykeham East,north-kesteven,North Kesteven,SC,1,2235,0.638926,0.500000,0.138926,0
+2021,E58000951,waddington-and-hykeham-east-e58000951,Waddington and Hykeham East,north-kesteven,North Kesteven,SC,1,2235,0.638926,0.500000,0.138926,0
 2021,E58000953,washingborough-e58000953,Washingborough,north-kesteven,North Kesteven,SC,1,2490,0.655422,0.500000,0.155422,0
 2021,E58000900,crowland-e58000900,Crowland,south-holland,South Holland,SC,1,2690,0.781413,0.500000,0.281413,0
 2021,E58000903,donington-rural-e58000903,Donington Rural,south-holland,South Holland,SC,1,2166,0.494922,0.500000,-0.005078,1
@@ -2268,7 +2268,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58001035,woodside-e58001035,Woodside,broadland,Broadland,SC,1,2994,0.506012,0.500000,0.006012,0
 2021,E58001036,wroxham-e58001036,Wroxham,broadland,Broadland,SC,1,2874,0.627001,0.500000,0.127001,0
 2021,E58000961,breydon-e58000961,Breydon,great-yarmouth,Great Yarmouth,SC,1,2545,0.634578,0.500000,0.134578,0
-2021,E58000962,caister-on-sea-e58000962,Caister-On-Sea,great-yarmouth,Great Yarmouth,SC,1,2453,0.669384,0.500000,0.169384,0
+2021,E58000962,caister-on-sea-e58000962,Caister-on-Sea,great-yarmouth,Great Yarmouth,SC,1,2453,0.669384,0.500000,0.169384,0
 2021,E58000977,east-flegg-e58000977,East Flegg,great-yarmouth,Great Yarmouth,SC,1,2730,0.723443,0.500000,0.223443,0
 2021,E58000988,gorleston-st-andrews-e58000988,Gorleston St. Andrews,great-yarmouth,Great Yarmouth,SC,1,2408,0.568522,0.500000,0.068522,0
 2021,E58001001,lothingland-e58001001,Lothingland,great-yarmouth,Great Yarmouth,SC,1,2693,0.626439,0.500000,0.126439,0
@@ -2398,7 +2398,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05013269,woodford-and-weedon-e05013269,Woodford and Weedon,west-northamptonshire,West Northamptonshire,UAA,3,9185,0.193576,0.250000,-0.056424,1
 2021,E05009093,alnwick-e05009093,Alnwick,northumberland,Northumberland,UAA,2,6260,0.266933,0.333333,-0.066400,1
 2021,E05009094,amble-e05009094,Amble,northumberland,Northumberland,UAA,1,1237,0.513339,0.500000,0.013339,0
-2021,E05009095,amble-west-with-warkworth-e05009095,Amble West With Warkworth,northumberland,Northumberland,UAA,1,1488,0.514785,0.500000,0.014785,0
+2021,E05009095,amble-west-with-warkworth-e05009095,Amble West with Warkworth,northumberland,Northumberland,UAA,1,1488,0.514785,0.500000,0.014785,0
 2021,E05009096,ashington-central-e05009096,Ashington Central,northumberland,Northumberland,UAA,1,988,0.557692,0.500000,0.057692,0
 2021,E05009097,bamburgh-e05009097,Bamburgh,northumberland,Northumberland,UAA,1,1524,0.711942,0.500000,0.211942,0
 2021,E05009098,bedlington-central-e05009098,Bedlington Central,northumberland,Northumberland,UAA,1,1293,0.481825,0.500000,-0.018175,1
@@ -2407,7 +2407,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05009101,bellingham-e05009101,Bellingham,northumberland,Northumberland,UAA,1,1430,0.595804,0.500000,0.095804,0
 2021,E05009102,berwick-east-e05009102,Berwick East,northumberland,Northumberland,UAA,1,1242,0.752013,0.500000,0.252013,0
 2021,E05009103,berwick-north-e05009103,Berwick North,northumberland,Northumberland,UAA,1,1443,0.345807,0.500000,-0.154193,1
-2021,E05009104,berwick-west-with-ord-e05009104,Berwick West With Ord,northumberland,Northumberland,UAA,1,1024,0.400391,0.500000,-0.099609,1
+2021,E05009104,berwick-west-with-ord-e05009104,Berwick West with Ord,northumberland,Northumberland,UAA,1,1024,0.400391,0.500000,-0.099609,1
 2021,E05013862,bothal-e05013862,Bothal,northumberland,Northumberland,UAA,1,1317,0.586940,0.500000,0.086940,0
 2021,E05009106,bywell-e05009106,Bywell,northumberland,Northumberland,UAA,1,2109,0.465149,0.500000,-0.034851,1
 2021,E05009107,choppington-e05009107,Choppington,northumberland,Northumberland,UAA,1,1117,0.384064,0.500000,-0.115936,1
@@ -2426,7 +2426,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05009120,hartley-e05009120,Hartley,northumberland,Northumberland,UAA,1,1842,0.471770,0.500000,-0.028230,1
 2021,E05009121,haydon-e05009121,Haydon,northumberland,Northumberland,UAA,1,1188,0.684343,0.500000,0.184343,0
 2021,E05009122,haydon-and-hadrian-e05009122,Haydon and Hadrian,northumberland,Northumberland,UAA,1,1633,0.511329,0.500000,0.011329,0
-2021,E05009123,hexham-central-with-acomb-e05009123,Hexham Central With Acomb,northumberland,Northumberland,UAA,1,1659,0.447257,0.500000,-0.052743,1
+2021,E05009123,hexham-central-with-acomb-e05009123,Hexham Central with Acomb,northumberland,Northumberland,UAA,1,1659,0.447257,0.500000,-0.052743,1
 2021,E05009124,hexham-east-e05009124,Hexham East,northumberland,Northumberland,UAA,1,1567,0.438417,0.500000,-0.061583,1
 2021,E05009125,hexham-west-e05009125,Hexham West,northumberland,Northumberland,UAA,1,1872,0.692842,0.500000,0.192842,0
 2021,E05009126,hirst-e05009126,Hirst,northumberland,Northumberland,UAA,1,778,0.718509,0.500000,0.218509,0
@@ -2447,12 +2447,12 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05009141,plessey-e05009141,Plessey,northumberland,Northumberland,UAA,1,1197,0.375940,0.500000,-0.124060,1
 2021,E05009142,ponteland-east-and-stannington-e05009142,Ponteland East and Stannington,northumberland,Northumberland,UAA,1,1597,0.698810,0.500000,0.198810,0
 2021,E05009143,ponteland-north-e05009143,Ponteland North,northumberland,Northumberland,UAA,1,1558,0.739409,0.500000,0.239409,0
-2021,E05009144,ponteland-south-with-heddon-e05009144,Ponteland South With Heddon,northumberland,Northumberland,UAA,1,1452,0.678375,0.500000,0.178375,0
+2021,E05009144,ponteland-south-with-heddon-e05009144,Ponteland South with Heddon,northumberland,Northumberland,UAA,1,1452,0.678375,0.500000,0.178375,0
 2021,E05009145,ponteland-west-e05009145,Ponteland West,northumberland,Northumberland,UAA,1,1349,0.739066,0.500000,0.239066,0
 2021,E05009146,prudhoe-north-e05009146,Prudhoe North,northumberland,Northumberland,UAA,1,1724,0.500000,0.500000,0.000000,0
 2021,E05009147,prudhoe-south-e05009147,Prudhoe South,northumberland,Northumberland,UAA,1,1520,0.596711,0.500000,0.096711,0
 2021,E05009148,rothbury-e05009148,Rothbury,northumberland,Northumberland,UAA,1,2493,0.797032,0.500000,0.297032,0
-2021,E05009149,seaton-with-newbiggin-west-e05009149,Seaton With Newbiggin West,northumberland,Northumberland,UAA,1,1353,0.656319,0.500000,0.156319,0
+2021,E05009149,seaton-with-newbiggin-west-e05009149,Seaton with Newbiggin West,northumberland,Northumberland,UAA,1,1353,0.656319,0.500000,0.156319,0
 2021,E05013271,seghill-and-seaton-delaval-e05013271,Seghill and Seaton Delaval,northumberland,Northumberland,UAA,1,1623,0.544670,0.500000,0.044670,0
 2021,E05009151,shilbottle-e05009151,Shilbottle,northumberland,Northumberland,UAA,1,1951,0.543311,0.500000,0.043311,0
 2021,E05009152,sleekburn-e05009152,Sleekburn,northumberland,Northumberland,UAA,1,945,0.450794,0.500000,-0.049206,1
@@ -2514,7 +2514,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58001180,cotgrave-e58001180,Cotgrave,rushcliffe,Rushcliffe,SC,1,3409,0.631564,0.500000,0.131564,0
 2021,E58001187,keyworth-e58001187,Keyworth,rushcliffe,Rushcliffe,SC,1,4310,0.638515,0.500000,0.138515,0
 2021,E58001190,leake-and-ruddington-e58001190,Leake and Ruddington,rushcliffe,Rushcliffe,SC,2,13760,0.242515,0.333333,-0.090819,1
-2021,E58001202,radcliffe-on-trent-e58001202,Radcliffe On Trent,rushcliffe,Rushcliffe,SC,1,4109,0.543685,0.500000,0.043685,0
+2021,E58001202,radcliffe-on-trent-e58001202,Radcliffe on Trent,rushcliffe,Rushcliffe,SC,1,4109,0.543685,0.500000,0.043685,0
 2021,E58001215,west-bridgford-north-e58001215,West Bridgford North,rushcliffe,Rushcliffe,SC,1,5134,0.433385,0.500000,-0.066615,1
 2021,E58001216,west-bridgford-south-e58001216,West Bridgford South,rushcliffe,Rushcliffe,SC,1,4538,0.501102,0.500000,0.001102,0
 2021,E58001217,west-bridgford-west-e58001217,West Bridgford West,rushcliffe,Rushcliffe,SC,1,4754,0.470551,0.500000,-0.029449,1
@@ -2593,7 +2593,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58001735,didcot-ladygrove-e58001735,Didcot Ladygrove,south-oxfordshire,South Oxfordshire,SC,1,2099,0.402573,0.500000,-0.097427,1
 2021,E58001736,didcot-west-e58001736,Didcot West,south-oxfordshire,South Oxfordshire,SC,1,3712,0.488147,0.500000,-0.011853,1
 2021,E58001737,goring-e58001737,Goring,south-oxfordshire,South Oxfordshire,SC,1,4001,0.443139,0.500000,-0.056861,1
-2021,E58001755,henley-on-thames-e58001755,Henley-On-Thames,south-oxfordshire,South Oxfordshire,SC,1,3682,0.623303,0.500000,0.123303,0
+2021,E58001755,henley-on-thames-e58001755,Henley-on-Thames,south-oxfordshire,South Oxfordshire,SC,1,3682,0.623303,0.500000,0.123303,0
 2021,E58001756,sonning-common-e58001756,Sonning Common,south-oxfordshire,South Oxfordshire,SC,1,3305,0.586384,0.500000,0.086384,0
 2021,E58001273,thame-and-chinnor-e58001273,Thame and Chinnor,south-oxfordshire,South Oxfordshire,SC,2,13361,0.208143,0.333333,-0.125190,1
 2021,E58001745,wallingford-e58001745,Wallingford,south-oxfordshire,South Oxfordshire,SC,1,3584,0.589007,0.500000,0.089007,0
@@ -2622,7 +2622,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05010783,hailey-minster-lovell-and-leafield-e05010783,Hailey Minster Lovell and Leafield,west-oxfordshire,West Oxfordshire,SDT,1,1454,0.550894,0.500000,0.050894,0
 2021,E58001251,hanborough-and-minster-lovell-e58001251,Hanborough and Minster Lovell,west-oxfordshire,West Oxfordshire,SC,1,3962,0.519687,0.500000,0.019687,0
 2021,E05006642,kingham-rollright-and-enstone-e05006642,Kingham Rollright and Enstone,west-oxfordshire,West Oxfordshire,SDT,1,1336,0.542665,0.500000,0.042665,0
-2021,E05006643,milton-under-wychwood-e05006643,Milton-Under-Wychwood,west-oxfordshire,West Oxfordshire,SDT,1,799,0.580726,0.500000,0.080726,0
+2021,E05006643,milton-under-wychwood-e05006643,Milton-under-Wychwood,west-oxfordshire,West Oxfordshire,SDT,1,799,0.580726,0.500000,0.080726,0
 2021,E05006644,north-leigh-e05006644,North Leigh,west-oxfordshire,West Oxfordshire,SDT,1,776,0.592784,0.500000,0.092784,0
 2021,E05006645,standlake-aston-and-stanton-harcourt-e05006645,Standlake Aston and Stanton Harcourt,west-oxfordshire,West Oxfordshire,SDT,1,1746,0.563001,0.500000,0.063001,0
 2021,E05006646,stonesfield-and-tackley-e05006646,Stonesfield and Tackley,west-oxfordshire,West Oxfordshire,SDT,1,1731,0.400347,0.500000,-0.099653,1
@@ -2719,7 +2719,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05000994,stairfoot-e05000994,Stairfoot,barnsley,Barnsley,MB,1,2353,0.380365,0.500000,-0.119635,1
 2021,E05000995,wombwell-e05000995,Wombwell,barnsley,Barnsley,MB,1,2428,0.554366,0.500000,0.054366,0
 2021,E05000996,worsborough-e05000996,Worsborough,barnsley,Barnsley,MB,1,2216,0.373195,0.500000,-0.126805,1
-2021,E05010728,adwick-le-street-and-carcroft-e05010728,Adwick Le Street and Carcroft,doncaster,Doncaster,MB,3,6197,0.222527,0.250000,-0.027473,1
+2021,E05010728,adwick-le-street-and-carcroft-e05010728,Adwick le Street and Carcroft,doncaster,Doncaster,MB,3,6197,0.222527,0.250000,-0.027473,1
 2021,E05010729,armthorpe-e05010729,Armthorpe,doncaster,Doncaster,MB,3,6579,0.184831,0.250000,-0.065169,1
 2021,E05010730,balby-south-e05010730,Balby South,doncaster,Doncaster,MB,2,3058,0.265206,0.333333,-0.068127,1
 2021,E05010731,bentley-e05010731,Bentley,doncaster,Doncaster,MB,3,7206,0.175548,0.250000,-0.074452,1
@@ -2802,7 +2802,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58001351,cannock-villages-e58001351,Cannock Villages,cannock-chase,Cannock Chase,SC,1,3202,0.541537,0.500000,0.041537,0
 2021,E05006906,cannock-west-e05006906,Cannock West,cannock-chase,Cannock Chase,SDT,1,2133,0.693390,0.500000,0.193390,0
 2021,E58001353,chadsmoor-e58001353,Chadsmoor,cannock-chase,Cannock Chase,SC,1,2756,0.488752,0.500000,-0.011248,1
-2021,E05006907,etching-hill-and-the-heath-e05006907,Etching Hill and The Heath,cannock-chase,Cannock Chase,SDT,1,1747,0.680595,0.500000,0.180595,0
+2021,E05006907,etching-hill-and-the-heath-e05006907,Etching Hill and the Heath,cannock-chase,Cannock Chase,SDT,1,1747,0.680595,0.500000,0.180595,0
 2021,E58001360,etchingh-hill-and-heath-e58001360,Etchingh Hill and Heath,cannock-chase,Cannock Chase,SC,1,3074,0.658426,0.500000,0.158426,0
 2021,E05006908,hagley-e05006908,Hagley,cannock-chase,Cannock Chase,SDT,1,891,0.436588,0.500000,-0.063412,1
 2021,E05006909,hawks-green-e05006909,Hawks Green,cannock-chase,Cannock Chase,SDT,1,1608,0.565299,0.500000,0.065299,0
@@ -2892,12 +2892,12 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58001406,bungay-e58001406,Bungay,east-suffolk,East Suffolk,SC,1,3032,0.440303,0.500000,-0.059697,1
 2021,E58001407,carlford-e58001407,Carlford,east-suffolk,East Suffolk,SC,1,3254,0.631838,0.500000,0.131838,0
 2021,E58001413,felixstowe-coastal-e58001413,Felixstowe Coastal,east-suffolk,East Suffolk,SC,2,11579,0.265394,0.333333,-0.067939,1
-2021,E58001414,felixstowe-north-and-trimley-e58001414,Felixstowe North And Trimley,east-suffolk,East Suffolk,SC,1,2566,0.573655,0.500000,0.073655,0
+2021,E58001414,felixstowe-north-and-trimley-e58001414,Felixstowe North and Trimley,east-suffolk,East Suffolk,SC,1,2566,0.573655,0.500000,0.073655,0
 2021,E58001415,framlingham-e58001415,Framlingham,east-suffolk,East Suffolk,SC,1,3243,0.591119,0.500000,0.091119,0
 2021,E58001419,gunton-e58001419,Gunton,east-suffolk,East Suffolk,SC,2,7205,0.226648,0.333333,-0.106685,1
 2021,E58001421,halesworth-e58001421,Halesworth,east-suffolk,East Suffolk,SC,1,3171,0.487543,0.500000,-0.012457,1
-2021,E58001427,kesgrave-and-rushmere-st-andrew-e58001427,Kesgrave And Rushmere St Andrew,east-suffolk,East Suffolk,SC,2,9968,0.297352,0.333333,-0.035982,1
-2021,E58001428,kessingland-and-southwold-e58001428,Kessingland And Southwold,east-suffolk,East Suffolk,SC,1,2952,0.512534,0.500000,0.012534,0
+2021,E58001427,kesgrave-and-rushmere-st-andrew-e58001427,Kesgrave and Rushmere St Andrew,east-suffolk,East Suffolk,SC,2,9968,0.297352,0.333333,-0.035982,1
+2021,E58001428,kessingland-and-southwold-e58001428,Kessingland and Southwold,east-suffolk,East Suffolk,SC,1,2952,0.512534,0.500000,0.012534,0
 2021,E58001429,lowestoft-south-e58001429,Lowestoft South,east-suffolk,East Suffolk,SC,2,7377,0.236410,0.333333,-0.096923,1
 2021,E58001430,martlesham-e58001430,Martlesham,east-suffolk,East Suffolk,SC,1,3781,0.623116,0.500000,0.123116,0
 2021,E58001434,oulton-e58001434,Oulton,east-suffolk,East Suffolk,SC,2,9040,0.265929,0.333333,-0.067404,1
@@ -2944,13 +2944,13 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58001401,blackbourn-e58001401,Blackbourn,west-suffolk,West Suffolk,SC,1,3424,0.707068,0.500000,0.207068,0
 2021,E58001404,brandon-e58001404,Brandon,west-suffolk,West Suffolk,SC,1,1973,0.409529,0.500000,-0.090471,1
 2021,E58001759,clare-e58001759,Clare,west-suffolk,West Suffolk,SC,1,3668,0.633043,0.500000,0.133043,0
-2021,E58001749,eastgate-and-moreton-hall-e58001749,Eastgate And Moreton Hall,west-suffolk,West Suffolk,SC,1,2755,0.353176,0.500000,-0.146824,1
-2021,E58001412,exning-and-newmarket-e58001412,Exning And Newmarket,west-suffolk,West Suffolk,SC,1,2514,0.407717,0.500000,-0.092283,1
+2021,E58001749,eastgate-and-moreton-hall-e58001749,Eastgate and Moreton Hall,west-suffolk,West Suffolk,SC,1,2755,0.353176,0.500000,-0.146824,1
+2021,E58001412,exning-and-newmarket-e58001412,Exning and Newmarket,west-suffolk,West Suffolk,SC,1,2514,0.407717,0.500000,-0.092283,1
 2021,E58001750,hardwick-e58001750,Hardwick,west-suffolk,West Suffolk,SC,1,2933,0.615752,0.500000,0.115752,0
 2021,E58001760,haverhill-cangle-e58001760,Haverhill Cangle,west-suffolk,West Suffolk,SC,2,6800,0.210147,0.333333,-0.123186,1
-2021,E58001751,haverhill-east-and-kedington-e58001751,Haverhill East And Kedington,west-suffolk,West Suffolk,SC,1,2071,0.573636,0.500000,0.073636,0
+2021,E58001751,haverhill-east-and-kedington-e58001751,Haverhill East and Kedington,west-suffolk,West Suffolk,SC,1,2071,0.573636,0.500000,0.073636,0
 2021,E58001432,mildenhall-e58001432,Mildenhall,west-suffolk,West Suffolk,SC,1,2504,0.400958,0.500000,-0.099042,1
-2021,E58001433,newmarket-and-red-lodge-e58001433,Newmarket And Red Lodge,west-suffolk,West Suffolk,SC,1,2626,0.469155,0.500000,-0.030845,1
+2021,E58001433,newmarket-and-red-lodge-e58001433,Newmarket and Red Lodge,west-suffolk,West Suffolk,SC,1,2626,0.469155,0.500000,-0.030845,1
 2021,E58001438,row-heath-e58001438,Row Heath,west-suffolk,West Suffolk,SC,1,2681,0.604252,0.500000,0.104252,0
 2021,E58001752,thingoe-north-e58001752,Thingoe North,west-suffolk,West Suffolk,SC,1,3030,0.647195,0.500000,0.147195,0
 2021,E58001753,thingoe-south-e58001753,Thingoe South,west-suffolk,West Suffolk,SC,1,3359,0.652575,0.500000,0.152575,0
@@ -2968,7 +2968,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05011080,molesey-east-e05011080,Molesey East,elmbridge,Elmbridge,SDT,1,2917,0.347617,0.500000,-0.152383,1
 2021,E05011081,molesey-west-e05011081,Molesey West,elmbridge,Elmbridge,SDT,1,2557,0.493547,0.500000,-0.006453,1
 2021,E05011082,oatlands-and-burwood-park-e05011082,Oatlands and Burwood Park,elmbridge,Elmbridge,SDT,1,2450,0.593469,0.500000,0.093469,0
-2021,E05011083,oxshott-and-d-abernon-e05011083,Oxshott and D'abernon,elmbridge,Elmbridge,SDT,1,2748,0.691776,0.500000,0.191776,0
+2021,E05011083,oxshott-and-d-abernon-e05011083,Oxshott and D'Abernon,elmbridge,Elmbridge,SDT,1,2748,0.691776,0.500000,0.191776,0
 2021,E05011084,thames-ditton-e05011084,Thames Ditton,elmbridge,Elmbridge,SDT,1,2914,0.560398,0.500000,0.060398,0
 2021,E58001527,the-dittons-e58001527,The Dittons,elmbridge,Elmbridge,SC,1,5523,0.496831,0.500000,-0.003169,1
 2021,E58001528,walton-e58001528,Walton,elmbridge,Elmbridge,SC,1,4181,0.481225,0.500000,-0.018775,1
@@ -3006,7 +3006,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05007318,dorking-north-e05007318,Dorking North,mole-valley,Mole Valley,SDT,1,1575,0.595556,0.500000,0.095556,0
 2021,E58001475,dorking-rural-e58001475,Dorking Rural,mole-valley,Mole Valley,SC,1,4915,0.491556,0.500000,-0.008444,1
 2021,E05007319,dorking-south-e05007319,Dorking South,mole-valley,Mole Valley,SDT,1,2598,0.558891,0.500000,0.058891,0
-2021,E58001476,dorking-south-and-the-holmwoods-e58001476,Dorking South and The Holmwoods,mole-valley,Mole Valley,SC,1,4396,0.547316,0.500000,0.047316,0
+2021,E58001476,dorking-south-and-the-holmwoods-e58001476,Dorking South and the Holmwoods,mole-valley,Mole Valley,SC,1,4396,0.547316,0.500000,0.047316,0
 2021,E05007320,fetcham-east-e05007320,Fetcham East,mole-valley,Mole Valley,SDT,1,1451,0.606478,0.500000,0.106478,0
 2021,E05007321,fetcham-west-e05007321,Fetcham West,mole-valley,Mole Valley,SDT,1,1581,0.581910,0.500000,0.081910,0
 2021,E05007322,holmwoods-e05007322,Holmwoods,mole-valley,Mole Valley,SDT,1,1790,0.506145,0.500000,0.006145,0
@@ -3288,15 +3288,15 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05008983,paddox-e05008983,Paddox,rugby,Rugby,SDT,1,2468,0.451378,0.500000,-0.048622,1
 2021,E05008984,revel-and-binley-wood-e05008984,Revel and Binley Wood,rugby,Rugby,SDT,1,2348,0.695060,0.500000,0.195060,0
 2021,E05008985,rokeby-and-overslade-e05008985,Rokeby and Overslade,rugby,Rugby,SDT,1,2405,0.501040,0.500000,0.001040,0
-2021,E05010760,wolston-and-the-lawfords-e05010760,Wolston and The Lawfords,rugby,Rugby,SDT,1,2178,0.585859,0.500000,0.085859,0
+2021,E05010760,wolston-and-the-lawfords-e05010760,Wolston and the Lawfords,rugby,Rugby,SDT,1,2178,0.585859,0.500000,0.085859,0
 2021,E58001543,alcester-e58001543,Alcester,stratford-on-avon,Stratford On Avon,SC,1,3540,0.463842,0.500000,-0.036158,1
 2021,E58001545,arden-e58001545,Arden,stratford-on-avon,Stratford On Avon,SC,1,3499,0.739640,0.500000,0.239640,0
 2021,E58001554,bidford-and-welford-e58001554,Bidford and Welford,stratford-on-avon,Stratford On Avon,SC,1,3996,0.504505,0.500000,0.004505,0
 2021,E58001566,feldon-e58001566,Feldon,stratford-on-avon,Stratford On Avon,SC,1,3608,0.558758,0.500000,0.058758,0
 2021,E58001573,kineton-and-red-horse-e58001573,Kineton and Red Horse,stratford-on-avon,Stratford On Avon,SC,1,3273,0.666056,0.500000,0.166056,0
-2021,E58001585,shipston-on-stour-e58001585,Shipston On Stour,stratford-on-avon,Stratford On Avon,SC,1,3583,0.492604,0.500000,-0.007396,1
+2021,E58001585,shipston-on-stour-e58001585,Shipston on Stour,stratford-on-avon,Stratford On Avon,SC,1,3583,0.492604,0.500000,-0.007396,1
 2021,E58001586,southam-stockton-and-napton-e58001586,Southam Stockton and Napton,stratford-on-avon,Stratford On Avon,SC,1,3513,0.749502,0.500000,0.249502,0
-2021,E58001588,stour-and-the-vale-e58001588,Stour and The Vale,stratford-on-avon,Stratford On Avon,SC,1,3210,0.525545,0.500000,0.025545,0
+2021,E58001588,stour-and-the-vale-e58001588,Stour and the Vale,stratford-on-avon,Stratford On Avon,SC,1,3210,0.525545,0.500000,0.025545,0
 2021,E58001589,stratford-north-e58001589,Stratford North,stratford-on-avon,Stratford On Avon,SC,1,3072,0.417643,0.500000,-0.082357,1
 2021,E58001590,stratford-south-e58001590,Stratford South,stratford-on-avon,Stratford On Avon,SC,1,4037,0.577161,0.500000,0.077161,0
 2021,E58001591,stratford-west-e58001591,Stratford West,stratford-on-avon,Stratford On Avon,SC,1,2843,0.565248,0.500000,0.065248,0
@@ -3361,10 +3361,10 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05001260,abbey-e05001260,Abbey,sandwell,Sandwell,MB,1,3210,0.684424,0.500000,0.184424,0
 2021,E05001261,blackheath-e05001261,Blackheath,sandwell,Sandwell,MB,1,2474,0.566694,0.500000,0.066694,0
 2021,E05001262,bristnall-e05001262,Bristnall,sandwell,Sandwell,MB,1,2639,0.517620,0.500000,0.017620,0
-2021,E05001263,charlemont-with-grove-vale-e05001263,Charlemont With Grove Vale,sandwell,Sandwell,MB,1,3359,0.540042,0.500000,0.040042,0
+2021,E05001263,charlemont-with-grove-vale-e05001263,Charlemont with Grove Vale,sandwell,Sandwell,MB,1,3359,0.540042,0.500000,0.040042,0
 2021,E05001264,cradley-heath-and-old-hill-e05001264,Cradley Heath and Old Hill,sandwell,Sandwell,MB,1,2591,0.482439,0.500000,-0.017561,1
 2021,E05001265,friar-park-e05001265,Friar Park,sandwell,Sandwell,MB,1,1955,0.515601,0.500000,0.015601,0
-2021,E05001266,great-barr-with-yew-tree-e05001266,Great Barr With Yew Tree,sandwell,Sandwell,MB,1,3206,0.473487,0.500000,-0.026513,1
+2021,E05001266,great-barr-with-yew-tree-e05001266,Great Barr with Yew Tree,sandwell,Sandwell,MB,1,3206,0.473487,0.500000,-0.026513,1
 2021,E05001267,great-bridge-e05001267,Great Bridge,sandwell,Sandwell,MB,1,2303,0.477204,0.500000,-0.022796,1
 2021,E05001268,greets-green-and-lyng-e05001268,Greets Green and Lyng,sandwell,Sandwell,MB,1,2956,0.567997,0.500000,0.067997,0
 2021,E05001269,hateley-heath-e05001269,Hateley Heath,sandwell,Sandwell,MB,1,2927,0.502562,0.500000,0.002562,0
@@ -3699,8 +3699,8 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05013403,avon-valley-e05013403,Avon Valley,wiltshire,Wiltshire,UAA,1,1030,0.676699,0.500000,0.176699,0
 2021,E05013832,bowerhill-e05013832,Bowerhill,wiltshire,Wiltshire,UAA,1,1052,0.759506,0.500000,0.259506,0
 2021,E05013405,box-and-colerne-e05013405,Box and Colerne,wiltshire,Wiltshire,UAA,1,1922,0.655567,0.500000,0.155567,0
-2021,E05013406,bradford-on-avon-north-e05013406,Bradford-On-Avon North,wiltshire,Wiltshire,UAA,1,2073,0.482393,0.500000,-0.017607,1
-2021,E05013407,bradford-on-avon-south-e05013407,Bradford-On-Avon South,wiltshire,Wiltshire,UAA,1,2127,0.748002,0.500000,0.248002,0
+2021,E05013406,bradford-on-avon-north-e05013406,Bradford-on-Avon North,wiltshire,Wiltshire,UAA,1,2073,0.482393,0.500000,-0.017607,1
+2021,E05013407,bradford-on-avon-south-e05013407,Bradford-on-Avon South,wiltshire,Wiltshire,UAA,1,2127,0.748002,0.500000,0.248002,0
 2021,E05013408,brinkworth-e05013408,Brinkworth,wiltshire,Wiltshire,UAA,1,2182,0.510541,0.500000,0.010541,0
 2021,E05013409,bromham-rowde-and-roundway-e05013409,"Bromham, Rowde and Roundway",wiltshire,Wiltshire,UAA,1,1746,0.640321,0.500000,0.140321,0
 2021,E05013410,by-brook-e05013410,By Brook,wiltshire,Wiltshire,UAA,1,1517,0.616348,0.500000,0.116348,0
@@ -3861,7 +3861,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E58001709,st-georges-and-st-oswald-e58001709,St. Georges and St. Oswald,wyre-forest,Wyre Forest,SC,1,2128,0.307331,0.500000,-0.192669,1
 2021,E58001711,st-johns-e58001711,St. Johns,wyre-forest,Wyre Forest,SC,1,2347,0.566681,0.500000,0.066681,0
 2021,E58001712,st-marys-e58001712,St. Marys,wyre-forest,Wyre Forest,SC,1,2404,0.531198,0.500000,0.031198,0
-2021,E58001715,stourport-on-severn-e58001715,Stourport-On-Severn,wyre-forest,Wyre Forest,SC,2,9219,0.234841,0.333333,-0.098492,1
+2021,E58001715,stourport-on-severn-e58001715,Stourport-on-Severn,wyre-forest,Wyre Forest,SC,2,9219,0.234841,0.333333,-0.098492,1
 2022,E05013864,abbey-e05013864,Abbey,reading,Reading,UAT,3,4285,0.200933,0.250000,-0.049067,1
 2022,E05013865,battle-e05013865,Battle,reading,Reading,UAT,3,5492,0.214858,0.250000,-0.035142,1
 2022,E05013866,caversham-e05013866,Caversham,reading,Reading,UAT,3,9118,0.177890,0.250000,-0.072110,1
@@ -3884,7 +3884,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05009340,chalvey-e05009340,Chalvey,slough,Slough,UAT,1,1631,0.741263,0.500000,0.241263,0
 2022,E05009341,cippenham-green-e05009341,Cippenham Green,slough,Slough,UAT,1,1753,0.583001,0.500000,0.083001,0
 2022,E05009342,cippenham-meadows-e05009342,Cippenham Meadows,slough,Slough,UAT,1,1878,0.551651,0.500000,0.051651,0
-2022,E05009343,colnbrook-with-poyle-e05009343,Colnbrook With Poyle,slough,Slough,UAT,1,1280,0.516406,0.500000,0.016406,0
+2022,E05009343,colnbrook-with-poyle-e05009343,Colnbrook with Poyle,slough,Slough,UAT,1,1280,0.516406,0.500000,0.016406,0
 2022,E05009344,elliman-e05009344,Elliman,slough,Slough,UAT,1,1647,0.503947,0.500000,0.003947,0
 2022,E05009345,farnham-e05009345,Farnham,slough,Slough,UAT,1,1697,0.688273,0.500000,0.188273,0
 2022,E05009347,haymill-and-lynch-hill-e05009347,Haymill and Lynch Hill,slough,Slough,UAT,1,1866,0.467310,0.500000,-0.032690,1
@@ -4250,7 +4250,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05010833,mersea-and-pyefleet-e05010833,Mersea and Pyefleet,colchester,Colchester,SDT,1,2678,0.650485,0.500000,0.150485,0
 2022,E05010834,mile-end-e05010834,Mile End,colchester,Colchester,SDT,1,2845,0.662566,0.500000,0.162566,0
 2022,E05010835,new-town-and-christ-church-e05010835,New Town and Christ Church,colchester,Colchester,SDT,2,6329,0.204140,0.333333,-0.129194,1
-2022,E05010836,old-heath-and-the-hythe-e05010836,Old Heath and The Hythe,colchester,Colchester,SDT,1,2467,0.642481,0.500000,0.142481,0
+2022,E05010836,old-heath-and-the-hythe-e05010836,Old Heath and the Hythe,colchester,Colchester,SDT,1,2467,0.642481,0.500000,0.142481,0
 2022,E05010837,prettygate-e05010837,Prettygate,colchester,Colchester,SDT,1,3033,0.463567,0.500000,-0.036433,1
 2022,E05010838,rural-north-e05010838,Rural North,colchester,Colchester,SDT,1,3012,0.574701,0.500000,0.074701,0
 2022,E05010840,shrub-end-e05010840,Shrub End,colchester,Colchester,SDT,1,2109,0.391655,0.500000,-0.108345,1
@@ -4290,7 +4290,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05004188,sumners-and-kingsmoor-e05004188,Sumners and Kingsmoor,harlow,Harlow,SDT,1,1401,0.544611,0.500000,0.044611,0
 2022,E05004189,toddbrook-e05004189,Toddbrook,harlow,Harlow,SDT,2,3092,0.244502,0.333333,-0.088831,1
 2022,E05010844,downhall-and-rawreth-e05010844,Downhall and Rawreth,rochford,Rochford,SDT,1,1457,0.669183,0.500000,0.169183,0
-2022,E05010845,foulness-and-the-wakerings-e05010845,Foulness and The Wakerings,rochford,Rochford,SDT,1,1503,0.733200,0.500000,0.233200,0
+2022,E05010845,foulness-and-the-wakerings-e05010845,Foulness and the Wakerings,rochford,Rochford,SDT,1,1503,0.733200,0.500000,0.233200,0
 2022,E05010846,hawkwell-east-e05010846,Hawkwell East,rochford,Rochford,SDT,1,1432,0.416201,0.500000,-0.083799,1
 2022,E05010847,hawkwell-west-e05010847,Hawkwell West,rochford,Rochford,SDT,1,1686,0.496441,0.500000,-0.003559,1
 2022,E05010848,hockley-e05010848,Hockley,rochford,Rochford,SDT,1,1619,0.541692,0.500000,0.041692,0
@@ -5049,7 +5049,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05000664,little-lever-and-darcy-lever-e05000664,Little Lever and Darcy Lever,bolton,Bolton,MB,1,3277,0.379310,0.500000,-0.120690,1
 2022,E05000665,rumworth-e05000665,Rumworth,bolton,Bolton,MB,1,3657,0.551545,0.500000,0.051545,0
 2022,E05000666,smithills-e05000666,Smithills,bolton,Bolton,MB,1,3810,0.506824,0.500000,0.006824,0
-2022,E05000667,tonge-with-the-haulgh-e05000667,Tonge With the Haulgh,bolton,Bolton,MB,1,2877,0.447689,0.500000,-0.052311,1
+2022,E05000667,tonge-with-the-haulgh-e05000667,Tonge with the Haulgh,bolton,Bolton,MB,1,2877,0.447689,0.500000,-0.052311,1
 2022,E05000668,westhoughton-north-and-chew-moor-e05000668,Westhoughton North and Chew Moor,bolton,Bolton,MB,1,3863,0.426611,0.500000,-0.073389,1
 2022,E05000669,westhoughton-south-e05000669,Westhoughton South,bolton,Bolton,MB,1,3419,0.326996,0.500000,-0.173004,1
 2022,E05014152,besses-e05014152,Besses,bury,Bury,MB,3,6863,0.203555,0.250000,-0.046445,1
@@ -5202,7 +5202,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05000817,stalybridge-north-e05000817,Stalybridge North,tameside,Tameside,MB,1,2414,0.467688,0.500000,-0.032312,1
 2022,E05000818,stalybridge-south-e05000818,Stalybridge South,tameside,Tameside,MB,1,2597,0.529072,0.500000,0.029072,0
 2022,E05000819,altrincham-e05000819,Altrincham,trafford,Trafford,MB,1,3873,0.607798,0.500000,0.107798,0
-2022,E05000820,ashton-upon-mersey-e05000820,Ashton Upon Mersey,trafford,Trafford,MB,1,3699,0.499594,0.500000,-0.000406,1
+2022,E05000820,ashton-upon-mersey-e05000820,Ashton upon Mersey,trafford,Trafford,MB,1,3699,0.499594,0.500000,-0.000406,1
 2022,E05000821,bowdon-e05000821,Bowdon,trafford,Trafford,MB,1,3125,0.520960,0.500000,0.020960,0
 2022,E05000822,broadheath-e05000822,Broadheath,trafford,Trafford,MB,1,4211,0.449774,0.500000,-0.050226,1
 2022,E05000823,brooklands-e05000823,Brooklands,trafford,Trafford,MB,1,3903,0.500384,0.500000,0.000384,0
@@ -5240,8 +5240,8 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05000855,lowton-east-e05000855,Lowton East,wigan,Wigan,MB,1,3765,0.529880,0.500000,0.029880,0
 2022,E05000856,orrell-e05000856,Orrell,wigan,Wigan,MB,1,3053,0.454307,0.500000,-0.045693,1
 2022,E05000857,pemberton-e05000857,Pemberton,wigan,Wigan,MB,1,1978,0.600101,0.500000,0.100101,0
-2022,E05000858,shevington-with-lower-ground-e05000858,Shevington With Lower Ground,wigan,Wigan,MB,1,2995,0.436394,0.500000,-0.063606,1
-2022,E05000859,standish-with-langtree-e05000859,Standish With Langtree,wigan,Wigan,MB,1,3414,0.404804,0.500000,-0.095196,1
+2022,E05000858,shevington-with-lower-ground-e05000858,Shevington with Lower Ground,wigan,Wigan,MB,1,2995,0.436394,0.500000,-0.063606,1
+2022,E05000859,standish-with-langtree-e05000859,Standish with Langtree,wigan,Wigan,MB,1,3414,0.404804,0.500000,-0.095196,1
 2022,E05000860,tyldesley-e05000860,Tyldesley,wigan,Wigan,MB,1,2645,0.663516,0.500000,0.163516,0
 2022,E05000861,wigan-central-e05000861,Wigan Central,wigan,Wigan,MB,1,2819,0.563320,0.500000,0.063320,0
 2022,E05000862,wigan-west-e05000862,Wigan West,wigan,Wigan,MB,1,2467,0.625051,0.500000,0.125051,0
@@ -5257,7 +5257,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05013085,hatch-warren-and-beggarwood-e05013085,Hatch Warren and Beggarwood,basingstoke-and-deane,Basingstoke and Deane,SDT,1,2379,0.311475,0.500000,-0.188525,1
 2022,E05013086,kempshott-and-buckskin-e05013086,Kempshott and Buckskin,basingstoke-and-deane,Basingstoke and Deane,SDT,1,2594,0.452197,0.500000,-0.047803,1
 2022,E05013087,norden-e05013087,Norden,basingstoke-and-deane,Basingstoke and Deane,SDT,1,2119,0.481359,0.500000,-0.018641,1
-2022,E05013088,oakley-and-the-candovers-e05013088,Oakley and The Candovers,basingstoke-and-deane,Basingstoke and Deane,SDT,1,2716,0.512518,0.500000,0.012518,0
+2022,E05013088,oakley-and-the-candovers-e05013088,Oakley and the Candovers,basingstoke-and-deane,Basingstoke and Deane,SDT,1,2716,0.512518,0.500000,0.012518,0
 2022,E05013089,popley-e05013089,Popley,basingstoke-and-deane,Basingstoke and Deane,SDT,1,1948,0.400411,0.500000,-0.099589,1
 2022,E05013090,sherborne-st-john-and-rooksdown-e05013090,Sherborne St John and Rooksdown,basingstoke-and-deane,Basingstoke and Deane,SDT,1,2106,0.457265,0.500000,-0.042735,1
 2022,E05013091,south-ham-e05013091,South Ham,basingstoke-and-deane,Basingstoke and Deane,SDT,1,2109,0.558559,0.500000,0.058559,0
@@ -5581,18 +5581,18 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05005150,bank-hall-e05005150,Bank Hall,burnley,Burnley,SDT,1,1299,0.752117,0.500000,0.252117,0
 2022,E05005151,briercliffe-e05005151,Briercliffe,burnley,Burnley,SDT,1,1223,0.505315,0.500000,0.005315,0
 2022,E05005152,brunshaw-e05005152,Brunshaw,burnley,Burnley,SDT,1,1254,0.419458,0.500000,-0.080542,1
-2022,E05005153,cliviger-with-worsthorne-e05005153,Cliviger With Worsthorne,burnley,Burnley,SDT,1,1873,0.476241,0.500000,-0.023759,1
-2022,E05005154,coal-clough-with-deerplay-e05005154,Coal Clough With Deerplay,burnley,Burnley,SDT,1,1401,0.599572,0.500000,0.099572,0
-2022,E05005155,daneshouse-with-stoneyholme-e05005155,Daneshouse With Stoneyholme,burnley,Burnley,SDT,1,1613,0.868568,0.500000,0.368568,0
+2022,E05005153,cliviger-with-worsthorne-e05005153,Cliviger with Worsthorne,burnley,Burnley,SDT,1,1873,0.476241,0.500000,-0.023759,1
+2022,E05005154,coal-clough-with-deerplay-e05005154,Coal Clough with Deerplay,burnley,Burnley,SDT,1,1401,0.599572,0.500000,0.099572,0
+2022,E05005155,daneshouse-with-stoneyholme-e05005155,Daneshouse with Stoneyholme,burnley,Burnley,SDT,1,1613,0.868568,0.500000,0.368568,0
 2022,E05005156,gannow-e05005156,Gannow,burnley,Burnley,SDT,1,1137,0.445031,0.500000,-0.054969,1
 2022,E05005157,gawthorpe-e05005157,Gawthorpe,burnley,Burnley,SDT,1,1209,0.594706,0.500000,0.094706,0
-2022,E05005158,hapton-with-park-e05005158,Hapton With Park,burnley,Burnley,SDT,1,1446,0.670124,0.500000,0.170124,0
+2022,E05005158,hapton-with-park-e05005158,Hapton with Park,burnley,Burnley,SDT,1,1446,0.670124,0.500000,0.170124,0
 2022,E05005159,lanehead-e05005159,Lanehead,burnley,Burnley,SDT,1,1317,0.558846,0.500000,0.058846,0
 2022,E05005160,queensgate-e05005160,Queensgate,burnley,Burnley,SDT,1,1367,0.679590,0.500000,0.179590,0
-2022,E05005161,rosegrove-with-lowerhouse-e05005161,Rosegrove With Lowerhouse,burnley,Burnley,SDT,1,1279,0.414386,0.500000,-0.085614,1
-2022,E05005162,rosehill-with-burnley-wood-e05005162,Rosehill With Burnley Wood,burnley,Burnley,SDT,1,1370,0.562044,0.500000,0.062044,0
+2022,E05005161,rosegrove-with-lowerhouse-e05005161,Rosegrove with Lowerhouse,burnley,Burnley,SDT,1,1279,0.414386,0.500000,-0.085614,1
+2022,E05005162,rosehill-with-burnley-wood-e05005162,Rosehill with Burnley Wood,burnley,Burnley,SDT,1,1370,0.562044,0.500000,0.062044,0
 2022,E05005163,trinity-e05005163,Trinity,burnley,Burnley,SDT,1,952,0.667017,0.500000,0.167017,0
-2022,E05005164,whittlefield-with-ightenhill-e05005164,Whittlefield With Ightenhill,burnley,Burnley,SDT,1,1643,0.383445,0.500000,-0.116555,1
+2022,E05005164,whittlefield-with-ightenhill-e05005164,Whittlefield with Ightenhill,burnley,Burnley,SDT,1,1643,0.383445,0.500000,-0.116555,1
 2022,E05013064,adlington-and-anderton-e05013064,Adlington and Anderton,chorley,Chorley,SDT,1,2159,0.620195,0.500000,0.120195,0
 2022,E05013065,buckshaw-and-whittle-e05013065,Buckshaw and Whittle,chorley,Chorley,SDT,1,1907,0.543262,0.500000,0.043262,0
 2022,E05013066,chorley-east-e05013066,Chorley East,chorley,Chorley,SDT,1,1632,0.706495,0.500000,0.206495,0
@@ -5607,7 +5607,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05013075,croston-mawdesley-and-euxton-south-e05013075,"Croston, Mawdesley and Euxton South",chorley,Chorley,SDT,1,2591,0.463142,0.500000,-0.036858,1
 2022,E05013076,eccleston-heskin-and-charnock-richard-e05013076,"Eccleston, Heskin and Charnock Richard",chorley,Chorley,SDT,1,2241,0.514949,0.500000,0.014949,0
 2022,E05013077,euxton-e05013077,Euxton,chorley,Chorley,SDT,1,2304,0.620226,0.500000,0.120226,0
-2022,E05005211,clayton-le-moors-e05005211,Clayton-Le-Moors,hyndburn,Hyndburn,SDT,1,1106,0.537071,0.500000,0.037071,0
+2022,E05005211,clayton-le-moors-e05005211,Clayton-le-Moors,hyndburn,Hyndburn,SDT,1,1106,0.537071,0.500000,0.037071,0
 2022,E05005212,huncoat-e05005212,Huncoat,hyndburn,Hyndburn,SDT,1,1083,0.591874,0.500000,0.091874,0
 2022,E05005213,immanuel-e05005213,Immanuel,hyndburn,Hyndburn,SDT,1,1104,0.551630,0.500000,0.051630,0
 2022,E05005214,milnshaw-e05005214,Milnshaw,hyndburn,Hyndburn,SDT,1,1105,0.486878,0.500000,-0.013122,1
@@ -5662,7 +5662,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05005361,burscough-east-e05005361,Burscough East,west-lancashire,West Lancashire,SDT,2,2423,0.260834,0.333333,-0.072500,1
 2022,E05005362,burscough-west-e05005362,Burscough West,west-lancashire,West Lancashire,SDT,1,1453,0.456986,0.500000,-0.043014,1
 2022,E05005363,derby-e05005363,Derby,west-lancashire,West Lancashire,SDT,1,1749,0.459119,0.500000,-0.040881,1
-2022,E05005366,hesketh-with-becconsall-e05005366,Hesketh-With-Becconsall,west-lancashire,West Lancashire,SDT,1,1049,0.589133,0.500000,0.089133,0
+2022,E05005366,hesketh-with-becconsall-e05005366,Hesketh-with-Becconsall,west-lancashire,West Lancashire,SDT,1,1049,0.589133,0.500000,0.089133,0
 2022,E05005367,knowsley-e05005367,Knowsley,west-lancashire,West Lancashire,SDT,1,1921,0.504945,0.500000,0.004945,0
 2022,E05005368,moorside-e05005368,Moorside,west-lancashire,West Lancashire,SDT,1,617,0.868720,0.500000,0.368720,0
 2022,E05005381,newburgh-e05005381,Newburgh,west-lancashire,West Lancashire,SDT,1,708,0.692090,0.500000,0.192090,0
@@ -6029,7 +6029,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05006904,cannock-north-e05006904,Cannock North,cannock-chase,Cannock Chase,SDT,1,1241,0.458501,0.500000,-0.041499,1
 2022,E05006905,cannock-south-e05006905,Cannock South,cannock-chase,Cannock Chase,SDT,1,1461,0.445585,0.500000,-0.054415,1
 2022,E05006906,cannock-west-e05006906,Cannock West,cannock-chase,Cannock Chase,SDT,1,1912,0.598849,0.500000,0.098849,0
-2022,E05006907,etching-hill-and-the-heath-e05006907,Etching Hill and The Heath,cannock-chase,Cannock Chase,SDT,1,1516,0.480211,0.500000,-0.019789,1
+2022,E05006907,etching-hill-and-the-heath-e05006907,Etching Hill and the Heath,cannock-chase,Cannock Chase,SDT,1,1516,0.480211,0.500000,-0.019789,1
 2022,E05006909,hawks-green-e05006909,Hawks Green,cannock-chase,Cannock Chase,SDT,1,1373,0.455936,0.500000,-0.044064,1
 2022,E05006910,heath-hayes-east-and-wimblebury-e05006910,Heath Hayes East and Wimblebury,cannock-chase,Cannock Chase,SDT,1,1152,0.414931,0.500000,-0.085069,1
 2022,E05006911,hednesford-green-heath-e05006911,Hednesford Green Heath,cannock-chase,Cannock Chase,SDT,1,1125,0.421333,0.500000,-0.078667,1
@@ -6438,7 +6438,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,W05001203,llandovery-w05001203,Llandovery,carmarthenshire,Carmarthenshire,UAA,1,892,0.863229,0.500000,0.363229,0
 2022,W05001204,llandybie-w05001204,Llandybie,carmarthenshire,Carmarthenshire,UAA,2,2409,0.327522,0.333333,-0.005812,1
 2022,W05001205,llanegwad-w05001205,Llanegwad,carmarthenshire,Carmarthenshire,UAA,1,1164,0.645189,0.500000,0.145189,0
-2022,W05001207,llanfihangel-ar-arth-w05001207,Llanfihangel-Ar-Arth,carmarthenshire,Carmarthenshire,UAA,1,1090,0.871560,0.500000,0.371560,0
+2022,W05001207,llanfihangel-ar-arth-w05001207,Llanfihangel-AR-Arth,carmarthenshire,Carmarthenshire,UAA,1,1090,0.871560,0.500000,0.371560,0
 2022,W05001206,llanfihangel-aberbythych-and-llangathen-w05001206,Llanfihangel Aberbythych and Llangathen,carmarthenshire,Carmarthenshire,UAA,1,655,0.650382,0.500000,0.150382,0
 2022,W05001208,llangadog-w05001208,Llangadog,carmarthenshire,Carmarthenshire,UAA,1,868,0.513825,0.500000,0.013825,0
 2022,W05001209,llangennech-w05001209,Llangennech,carmarthenshire,Carmarthenshire,UAA,2,2844,0.241210,0.333333,-0.092124,1
@@ -6490,7 +6490,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,W05001330,tregaron-and-ystrad-fflur-w05001330,Tregaron and Ystrad Fflur,ceredigion,Ceredigion,UAA,1,985,0.701523,0.500000,0.201523,0
 2022,W05001331,ystwyth-w05001331,Ystwyth,ceredigion,Ceredigion,UAA,1,848,0.589623,0.500000,0.089623,0
 2022,W05001404,betws-y-coed-and-trefriw-w05001404,Betws-y-Coed and Trefriw,conwy,Conwy,UAA,1,730,0.678082,0.500000,0.178082,0
-2022,W05001403,betws-yn-rhos-w05001403,Betws-Yn-Rhos,conwy,Conwy,UAA,1,696,0.862069,0.500000,0.362069,0
+2022,W05001403,betws-yn-rhos-w05001403,Betws-YN-Rhos,conwy,Conwy,UAA,1,696,0.862069,0.500000,0.362069,0
 2022,W05001405,bryn-w05001405,Bryn,conwy,Conwy,UAA,1,681,0.337739,0.500000,-0.162261,1
 2022,W05001406,caerhun-w05001406,Caerhun,conwy,Conwy,UAA,1,1114,0.411131,0.500000,-0.088869,1
 2022,W05001407,colwyn-w05001407,Colwyn,conwy,Conwy,UAA,2,2285,0.196061,0.333333,-0.137272,1
@@ -6831,7 +6831,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,W05001166,rhayader-w05001166,Rhayader,powys,Powys,UAA,1,674,0.890208,0.500000,0.390208,0
 2022,W05001167,rhiwcynon-w05001167,Rhiwcynon,powys,Powys,UAA,1,956,0.447699,0.500000,-0.052301,1
 2022,W05001168,talgarth-w05001168,Talgarth,powys,Powys,UAA,1,791,0.743363,0.500000,0.243363,0
-2022,W05001169,talybont-on-usk-w05001169,Talybont-On-Usk,powys,Powys,UAA,1,854,0.276347,0.500000,-0.223653,1
+2022,W05001169,talybont-on-usk-w05001169,Talybont-on-Usk,powys,Powys,UAA,1,854,0.276347,0.500000,-0.223653,1
 2022,W05001170,tawe-uchaf-w05001170,Tawe-Uchaf,powys,Powys,UAA,1,728,0.785714,0.500000,0.285714,0
 2022,W05001171,trelystan-and-trewern-w05001171,Trelystan and Trewern,powys,Powys,UAA,1,555,0.661261,0.500000,0.161261,0
 2022,W05001172,welshpool-castle-w05001172,Welshpool Castle,powys,Powys,UAA,1,514,0.478599,0.500000,-0.021401,1
@@ -7113,10 +7113,10 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,E05001260,abbey-e05001260,Abbey,sandwell,Sandwell,MB,1,2752,0.845930,0.500000,0.345930,0
 2022,E05001261,blackheath-e05001261,Blackheath,sandwell,Sandwell,MB,1,2039,0.516430,0.500000,0.016430,0
 2022,E05001262,bristnall-e05001262,Bristnall,sandwell,Sandwell,MB,1,2430,0.495062,0.500000,-0.004938,1
-2022,E05001263,charlemont-with-grove-vale-e05001263,Charlemont With Grove Vale,sandwell,Sandwell,MB,1,2838,0.510571,0.500000,0.010571,0
+2022,E05001263,charlemont-with-grove-vale-e05001263,Charlemont with Grove Vale,sandwell,Sandwell,MB,1,2838,0.510571,0.500000,0.010571,0
 2022,E05001264,cradley-heath-and-old-hill-e05001264,Cradley Heath and Old Hill,sandwell,Sandwell,MB,1,2284,0.579685,0.500000,0.079685,0
 2022,E05001265,friar-park-e05001265,Friar Park,sandwell,Sandwell,MB,1,1957,0.559019,0.500000,0.059019,0
-2022,E05001266,great-barr-with-yew-tree-e05001266,Great Barr With Yew Tree,sandwell,Sandwell,MB,1,2835,0.470899,0.500000,-0.029101,1
+2022,E05001266,great-barr-with-yew-tree-e05001266,Great Barr with Yew Tree,sandwell,Sandwell,MB,1,2835,0.470899,0.500000,-0.029101,1
 2022,E05001267,great-bridge-e05001267,Great Bridge,sandwell,Sandwell,MB,1,2190,0.512785,0.500000,0.012785,0
 2022,E05001268,greets-green-and-lyng-e05001268,Greets Green and Lyng,sandwell,Sandwell,MB,1,2650,0.632453,0.500000,0.132453,0
 2022,E05001269,hateley-heath-e05001269,Hateley Heath,sandwell,Sandwell,MB,1,2501,0.619752,0.500000,0.119752,0
@@ -7462,7 +7462,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,priestwood-and-garth,Priestwood and Garth,bracknell-forest,Bracknell Forest,UAA,3,4574,0.181242,0.250000,-0.068758,1
 2023,,sandhurst,Sandhurst,bracknell-forest,Bracknell Forest,UAA,3,6465,0.159319,0.250000,-0.090681,1
 2023,,swinley-forest,Swinley Forest,bracknell-forest,Bracknell Forest,UAA,2,2530,0.275889,0.333333,-0.057444,1
-2023,,town-centre-and-the-parks,Town Centre and The Parks,bracknell-forest,Bracknell Forest,UAA,2,1956,0.275051,0.333333,-0.058282,1
+2023,,town-centre-and-the-parks,Town Centre and the Parks,bracknell-forest,Bracknell Forest,UAA,2,1956,0.275051,0.333333,-0.058282,1
 2023,,whitegrove,Whitegrove,bracknell-forest,Bracknell Forest,UAA,2,3163,0.249447,0.333333,-0.083887,1
 2023,,winkfield-and-warfield-east,Winkfield and Warfield East,bracknell-forest,Bracknell Forest,UAA,3,5032,0.177663,0.250000,-0.072337,1
 2023,,ridgeway,Ridgeway,west-berkshire,West Berkshire,UAA,1,1384,0.687861,0.500000,0.187861,0
@@ -8331,7 +8331,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,mersea-and-pyefleet,Mersea and Pyefleet,colchester,Colchester,SDT,1,3102,0.401032,0.500000,-0.098968,1
 2023,,mile-end,Mile End,colchester,Colchester,SDT,1,2655,0.611676,0.500000,0.111676,0
 2023,,new-town-and-christ-church,New Town and Christ Church,colchester,Colchester,SDT,1,3105,0.419002,0.500000,-0.080998,1
-2023,,old-heath-and-the-hythe,Old Heath and The Hythe,colchester,Colchester,SDT,1,2331,0.593308,0.500000,0.093308,0
+2023,,old-heath-and-the-hythe,Old Heath and the Hythe,colchester,Colchester,SDT,1,2331,0.593308,0.500000,0.093308,0
 2023,,prettygate,Prettygate,colchester,Colchester,SDT,1,3098,0.419948,0.500000,-0.080052,1
 2023,,rural-north,Rural North,colchester,Colchester,SDT,1,2909,0.558611,0.500000,0.058611,0
 2023,,shrub-end,Shrub End,colchester,Colchester,SDT,1,2127,0.392572,0.500000,-0.107428,1
@@ -8369,7 +8369,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,sumners-and-kingsmoor,Sumners and Kingsmoor,harlow,Harlow,SDT,1,1318,0.435508,0.500000,-0.064492,1
 2023,,toddbrook,Toddbrook,harlow,Harlow,SDT,1,1395,0.559857,0.500000,0.059857,0
 2023,,downhall-and-rawreth,Downhall and Rawreth,rochford,Rochford,SDT,1,1543,0.680493,0.500000,0.180493,0
-2023,,foulness-and-the-wakerings,Foulness and The Wakerings,rochford,Rochford,SDT,1,1320,0.553788,0.500000,0.053788,0
+2023,,foulness-and-the-wakerings,Foulness and the Wakerings,rochford,Rochford,SDT,1,1320,0.553788,0.500000,0.053788,0
 2023,,hawkwell-east,Hawkwell East,rochford,Rochford,SDT,1,1422,0.360759,0.500000,-0.139241,1
 2023,,hawkwell-west,Hawkwell West,rochford,Rochford,SDT,1,1602,0.543071,0.500000,0.043071,0
 2023,,hockley,Hockley,rochford,Rochford,SDT,1,1548,0.600129,0.500000,0.100129,0
@@ -8450,8 +8450,8 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,south-woodham-chetwood-and-collingwood,South Woodham-Chetwood and Collingwood,chelmsford,Chelmsford,SDA,3,3672,0.145425,0.250000,-0.104575,1
 2023,,south-woodham-elmwood-and-woodville,South Woodham-Elmwood and Woodville,chelmsford,Chelmsford,SDA,3,3718,0.141743,0.250000,-0.108257,1
 2023,,bicknacre-and-east-and-west-hanningfield,Bicknacre and East and West Hanningfield,chelmsford,Chelmsford,SDA,2,2289,0.323285,0.333333,-0.010048,1
-2023,,boreham-and-the-leighs,Boreham and The Leighs,chelmsford,Chelmsford,SDA,2,2268,0.294974,0.333333,-0.038360,1
-2023,,broomfield-and-the-walthams,Broomfield and The Walthams,chelmsford,Chelmsford,SDA,3,7332,0.118658,0.250000,-0.131342,1
+2023,,boreham-and-the-leighs,Boreham and the Leighs,chelmsford,Chelmsford,SDA,2,2268,0.294974,0.333333,-0.038360,1
+2023,,broomfield-and-the-walthams,Broomfield and the Walthams,chelmsford,Chelmsford,SDA,3,7332,0.118658,0.250000,-0.131342,1
 2023,,chelmer-village-and-beaulieu-park,Chelmer Village and Beaulieu Park,chelmsford,Chelmsford,SDA,3,7187,0.150689,0.250000,-0.099311,1
 2023,,chelmsford-rural-west,Chelmsford Rural West,chelmsford,Chelmsford,SDA,1,827,0.692866,0.500000,0.192866,0
 2023,,goat-hall,Goat Hall,chelmsford,Chelmsford,SDA,2,3016,0.261936,0.333333,-0.071397,1
@@ -8468,8 +8468,8 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,heybridge-east,Heybridge East,maldon,Maldon,SDA,2,1819,0.242441,0.333333,-0.090892,1
 2023,,heybridge-west,Heybridge West,maldon,Maldon,SDA,2,1383,0.343456,0.333333,0.010123,0
 2023,,althorne,Althorne,maldon,Maldon,SDA,2,1692,0.302600,0.333333,-0.030733,1
-2023,,burnham-on-crouch-north,Burnham On Crouch North,maldon,Maldon,SDA,2,1850,0.211351,0.333333,-0.121982,1
-2023,,burnham-on-crouch-south,Burnham On Crouch South,maldon,Maldon,SDA,2,1747,0.204923,0.333333,-0.128411,1
+2023,,burnham-on-crouch-north,Burnham on Crouch North,maldon,Maldon,SDA,2,1850,0.211351,0.333333,-0.121982,1
+2023,,burnham-on-crouch-south,Burnham on Crouch South,maldon,Maldon,SDA,2,1747,0.204923,0.333333,-0.128411,1
 2023,,great-totham,Great Totham,maldon,Maldon,SDA,2,2351,0.251382,0.333333,-0.081951,1
 2023,,maldon-east,Maldon East,maldon,Maldon,SDA,1,404,0.378713,0.500000,-0.121287,1
 2023,,maldon-north,Maldon North,maldon,Maldon,SDA,2,1760,0.227841,0.333333,-0.105492,1
@@ -8523,7 +8523,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,flitch-green-little-dunmow,Flitch Green Little Dunmow,uttlesford,Uttlesford,SDA,1,570,0.617544,0.500000,0.117544,0
 2023,,great-dunmow-south-and-barnston,Great Dunmow South and Barnston,uttlesford,Uttlesford,SDA,3,4188,0.134193,0.250000,-0.115807,1
 2023,,hatfield-heath,Hatfield Heath,uttlesford,Uttlesford,SDA,1,571,0.718039,0.500000,0.218039,0
-2023,,high-easter-and-the-rodings,High Easter and The Rodings,uttlesford,Uttlesford,SDA,1,684,0.700292,0.500000,0.200292,0
+2023,,high-easter-and-the-rodings,High Easter and the Rodings,uttlesford,Uttlesford,SDA,1,684,0.700292,0.500000,0.200292,0
 2023,,littlebury-chesterford-and-wenden-lofts,Littlebury Chesterford and Wenden Lofts,uttlesford,Uttlesford,SDA,2,3207,0.308076,0.333333,-0.025257,1
 2023,,saffron-walden-audley,Saffron Walden Audley,uttlesford,Uttlesford,SDA,2,2883,0.224766,0.333333,-0.108567,1
 2023,,saffron-walden-castle,Saffron Walden Castle,uttlesford,Uttlesford,SDA,2,2609,0.233806,0.333333,-0.099527,1
@@ -8588,7 +8588,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,tidenham,Tidenham,forest-of-dean,Forest Of Dean,SDA,3,5711,0.154789,0.250000,-0.095211,1
 2023,,westbury-on-severn,Westbury-on-Severn,forest-of-dean,Forest Of Dean,SDA,1,637,0.874411,0.500000,0.374411,0
 2023,,shurdington,Shurdington,tewkesbury,Tewkesbury,SDA,1,647,0.547141,0.500000,0.047141,0
-2023,,highnam-with-haw-bridge,Highnam With Haw Bridge,tewkesbury,Tewkesbury,SDA,2,2674,0.295438,0.333333,-0.037896,1
+2023,,highnam-with-haw-bridge,Highnam with Haw Bridge,tewkesbury,Tewkesbury,SDA,2,2674,0.295438,0.333333,-0.037896,1
 2023,,northway,Northway,tewkesbury,Tewkesbury,SDA,2,1530,0.179739,0.333333,-0.153595,1
 2023,,badgeworth,Badgeworth,tewkesbury,Tewkesbury,SDA,1,678,0.511799,0.500000,0.011799,0
 2023,,brockworth-east,Brockworth East,tewkesbury,Tewkesbury,SDA,2,1450,0.329655,0.333333,-0.003678,1
@@ -8777,7 +8777,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,st-peter-s,St Peter's,tameside,Tameside,MB,3,5172,0.193735,0.250000,-0.056265,1
 2023,,ashton-st-michael-s,Ashton St Michael's,tameside,Tameside,MB,3,5130,0.230799,0.250000,-0.019201,1
 2023,,altrincham,Altrincham,trafford,Trafford,MB,3,9344,0.202911,0.250000,-0.047089,1
-2023,,ashton-upon-mersey,Ashton Upon Mersey,trafford,Trafford,MB,3,10032,0.170455,0.250000,-0.079545,1
+2023,,ashton-upon-mersey,Ashton upon Mersey,trafford,Trafford,MB,3,10032,0.170455,0.250000,-0.079545,1
 2023,,bowdon,Bowdon,trafford,Trafford,MB,3,11198,0.155474,0.250000,-0.094526,1
 2023,,broadheath,Broadheath,trafford,Trafford,MB,3,10963,0.144577,0.250000,-0.105423,1
 2023,,brooklands,Brooklands,trafford,Trafford,MB,3,11165,0.156650,0.250000,-0.093350,1
@@ -8832,7 +8832,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,hatch-warren-and-beggarwood,Hatch Warren and Beggarwood,basingstoke-and-deane,Basingstoke & Deane,SDT,1,2513,0.397931,0.500000,-0.102069,1
 2023,,kempshott-and-buckskin,Kempshott and Buckskin,basingstoke-and-deane,Basingstoke & Deane,SDT,1,2630,0.447148,0.500000,-0.052852,1
 2023,,norden,Norden,basingstoke-and-deane,Basingstoke & Deane,SDT,1,1945,0.588175,0.500000,0.088175,0
-2023,,oakley-and-the-candovers,Oakley and The Candovers,basingstoke-and-deane,Basingstoke & Deane,SDT,1,2837,0.355657,0.500000,-0.144343,1
+2023,,oakley-and-the-candovers,Oakley and the Candovers,basingstoke-and-deane,Basingstoke & Deane,SDT,1,2837,0.355657,0.500000,-0.144343,1
 2023,,popley,Popley,basingstoke-and-deane,Basingstoke & Deane,SDT,1,1691,0.641041,0.500000,0.141041,0
 2023,,sherborne-st-john-and-rooksdown,Sherborne St John and Rooksdown,basingstoke-and-deane,Basingstoke & Deane,SDT,1,2252,0.465808,0.500000,-0.034192,1
 2023,,south-ham,South Ham,basingstoke-and-deane,Basingstoke & Deane,SDT,1,1882,0.590861,0.500000,0.090861,0
@@ -9153,7 +9153,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,hertford-kingsmead,Hertford Kingsmead,east-hertfordshire,East Hertfordshire,SDA,3,6361,0.120736,0.250000,-0.129264,1
 2023,,hertford-rural,Hertford Rural,east-hertfordshire,East Hertfordshire,SDA,1,889,0.533183,0.500000,0.033183,0
 2023,,hunsdon,Hunsdon,east-hertfordshire,East Hertfordshire,SDA,1,551,0.658802,0.500000,0.158802,0
-2023,,little-hadham-and-the-pelhams,Little Hadham and The Pelhams,east-hertfordshire,East Hertfordshire,SDA,1,886,0.483070,0.500000,-0.016930,1
+2023,,little-hadham-and-the-pelhams,Little Hadham and the Pelhams,east-hertfordshire,East Hertfordshire,SDA,1,886,0.483070,0.500000,-0.016930,1
 2023,,the-mundens,The Mundens,east-hertfordshire,East Hertfordshire,SDA,1,730,0.597260,0.500000,0.097260,0
 2023,,ware-priory,Ware Priory,east-hertfordshire,East Hertfordshire,SDA,2,3505,0.227104,0.333333,-0.106229,1
 2023,,ware-rural,Ware Rural,east-hertfordshire,East Hertfordshire,SDA,1,684,0.464912,0.500000,-0.035088,1
@@ -9164,7 +9164,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,elstree,Elstree,hertsmere,Hertsmere,SDA,2,2400,0.346667,0.333333,0.013333,0
 2023,,shenley,Shenley,hertsmere,Hertsmere,SDA,2,2743,0.210354,0.333333,-0.122980,1
 2023,,aldenham-west,Aldenham West,hertsmere,Hertsmere,SDA,2,2345,0.320682,0.333333,-0.012651,1
-2023,,bentley-heath-and-the-royds,Bentley Heath and The Royds,hertsmere,Hertsmere,SDA,2,3089,0.239560,0.333333,-0.093774,1
+2023,,bentley-heath-and-the-royds,Bentley Heath and the Royds,hertsmere,Hertsmere,SDA,2,3089,0.239560,0.333333,-0.093774,1
 2023,,borehamwood-brookmeadow,Borehamwood Brookmeadow,hertsmere,Hertsmere,SDA,3,5367,0.163592,0.250000,-0.086408,1
 2023,,borehamwood-cowley-hill,Borehamwood Cowley Hill,hertsmere,Hertsmere,SDA,3,4234,0.206660,0.250000,-0.043340,1
 2023,,borehamwood-hillside,Borehamwood Hillside,hertsmere,Hertsmere,SDA,3,5000,0.153000,0.250000,-0.097000,1
@@ -9488,7 +9488,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,thanet-villages,Thanet Villages,thanet,Thanet,SDA,3,4599,0.143075,0.250000,-0.106925,1
 2023,,viking,Viking,thanet,Thanet,SDA,3,5889,0.133469,0.250000,-0.116531,1
 2023,,westbrook,Westbrook,thanet,Thanet,SDA,2,1916,0.200939,0.333333,-0.132394,1
-2023,,westgate-on-sea,Westgate-On-Sea,thanet,Thanet,SDA,3,4602,0.114081,0.250000,-0.135919,1
+2023,,westgate-on-sea,Westgate-on-Sea,thanet,Thanet,SDA,3,4602,0.114081,0.250000,-0.135919,1
 2023,,vauxhall,Vauxhall,tonbridge-and-malling,Tonbridge & Malling,SDA,3,6516,0.195672,0.250000,-0.054328,1
 2023,,aylesford-north-and-north-downs,Aylesford North and North Downs,tonbridge-and-malling,Tonbridge & Malling,SDA,3,5534,0.133177,0.250000,-0.116823,1
 2023,,aylesford-south-and-ditton,Aylesford South and Ditton,tonbridge-and-malling,Tonbridge & Malling,SDA,3,5874,0.165986,0.250000,-0.084014,1
@@ -9552,18 +9552,18 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,bank-hall,Bank Hall,burnley,Burnley,SDT,1,1251,0.741007,0.500000,0.241007,0
 2023,,briercliffe,Briercliffe,burnley,Burnley,SDT,1,1239,0.495561,0.500000,-0.004439,1
 2023,,brunshaw,Brunshaw,burnley,Burnley,SDT,1,1264,0.453323,0.500000,-0.046677,1
-2023,,cliviger-with-worsthorne,Cliviger With Worsthorne,burnley,Burnley,SDT,1,1811,0.441193,0.500000,-0.058807,1
-2023,,coal-clough-with-deerplay,Coal Clough With Deerplay,burnley,Burnley,SDT,1,1197,0.470343,0.500000,-0.029657,1
-2023,,daneshouse-with-stoneyholme,Daneshouse With Stoneyholme,burnley,Burnley,SDT,1,1486,0.765141,0.500000,0.265141,0
+2023,,cliviger-with-worsthorne,Cliviger with Worsthorne,burnley,Burnley,SDT,1,1811,0.441193,0.500000,-0.058807,1
+2023,,coal-clough-with-deerplay,Coal Clough with Deerplay,burnley,Burnley,SDT,1,1197,0.470343,0.500000,-0.029657,1
+2023,,daneshouse-with-stoneyholme,Daneshouse with Stoneyholme,burnley,Burnley,SDT,1,1486,0.765141,0.500000,0.265141,0
 2023,,gannow,Gannow,burnley,Burnley,SDT,1,1007,0.482622,0.500000,-0.017378,1
 2023,,gawthorpe,Gawthorpe,burnley,Burnley,SDT,1,1197,0.654135,0.500000,0.154135,0
-2023,,hapton-with-park,Hapton With Park,burnley,Burnley,SDT,1,1340,0.550746,0.500000,0.050746,0
+2023,,hapton-with-park,Hapton with Park,burnley,Burnley,SDT,1,1340,0.550746,0.500000,0.050746,0
 2023,,lanehead,Lanehead,burnley,Burnley,SDT,1,1297,0.505012,0.500000,0.005012,0
 2023,,queensgate,Queensgate,burnley,Burnley,SDT,1,1367,0.686906,0.500000,0.186906,0
-2023,,rosegrove-with-lowerhouse,Rosegrove With Lowerhouse,burnley,Burnley,SDT,1,1164,0.449313,0.500000,-0.050687,1
-2023,,rosehill-with-burnley-wood,Rosehill With Burnley Wood,burnley,Burnley,SDT,1,1250,0.384000,0.500000,-0.116000,1
+2023,,rosegrove-with-lowerhouse,Rosegrove with Lowerhouse,burnley,Burnley,SDT,1,1164,0.449313,0.500000,-0.050687,1
+2023,,rosehill-with-burnley-wood,Rosehill with Burnley Wood,burnley,Burnley,SDT,1,1250,0.384000,0.500000,-0.116000,1
 2023,,trinity,Trinity,burnley,Burnley,SDT,1,863,0.639629,0.500000,0.139629,0
-2023,,whittlefield-with-ightenhill,Whittlefield With Ightenhill,burnley,Burnley,SDT,1,1545,0.419417,0.500000,-0.080583,1
+2023,,whittlefield-with-ightenhill,Whittlefield with Ightenhill,burnley,Burnley,SDT,1,1545,0.419417,0.500000,-0.080583,1
 2023,,adlington-and-anderton,Adlington and Anderton,chorley,Chorley,SDT,1,1910,0.705759,0.500000,0.205759,0
 2023,,buckshaw-and-whittle,Buckshaw and Whittle,chorley,Chorley,SDT,1,2018,0.597126,0.500000,0.097126,0
 2023,,chorley-east,Chorley East,chorley,Chorley,SDT,1,1423,0.825720,0.500000,0.325720,0
@@ -9580,7 +9580,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,euxton,Euxton,chorley,Chorley,SDT,1,2152,0.549257,0.500000,0.049257,0
 2023,,central,Central,hyndburn,Hyndburn,SDT,1,2002,0.520979,0.500000,0.020979,0
 2023,,church,Church,hyndburn,Hyndburn,SDT,1,1128,0.515071,0.500000,0.015071,0
-2023,,clayton-le-moors,Clayton-Le-Moors,hyndburn,Hyndburn,SDT,1,1105,0.533937,0.500000,0.033937,0
+2023,,clayton-le-moors,Clayton-le-Moors,hyndburn,Hyndburn,SDT,1,1105,0.533937,0.500000,0.033937,0
 2023,,huncoat,Huncoat,hyndburn,Hyndburn,SDT,1,1146,0.798429,0.500000,0.298429,0
 2023,,immanuel,Immanuel,hyndburn,Hyndburn,SDT,1,1039,0.550529,0.500000,0.050529,0
 2023,,milnshaw,Milnshaw,hyndburn,Hyndburn,SDT,1,1031,0.586809,0.500000,0.086809,0
@@ -9815,14 +9815,14 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,north-holme,North Holme,east-lindsey,East Lindsey,SDA,1,485,0.492784,0.500000,-0.007216,1
 2023,,tetney,Tetney,east-lindsey,East Lindsey,SDA,1,527,0.749526,0.500000,0.249526,0
 2023,,woodhall-spa,Woodhall Spa,east-lindsey,East Lindsey,SDA,2,2475,0.265859,0.333333,-0.067475,1
-2023,,burgh-le-marsh,Burgh Le Marsh,east-lindsey,East Lindsey,SDA,1,586,0.482935,0.500000,-0.017065,1
+2023,,burgh-le-marsh,Burgh LE Marsh,east-lindsey,East Lindsey,SDA,1,586,0.482935,0.500000,-0.017065,1
 2023,,chapel-st-leonards,Chapel St. Leonards,east-lindsey,East Lindsey,SDA,2,1693,0.261666,0.333333,-0.071668,1
 2023,,wragby,Wragby,east-lindsey,East Lindsey,SDA,1,622,0.477492,0.500000,-0.022508,1
 2023,,alford,Alford,east-lindsey,East Lindsey,SDA,2,1595,0.228840,0.333333,-0.104493,1
 2023,,binbrook,Binbrook,east-lindsey,East Lindsey,SDA,1,618,0.671521,0.500000,0.171521,0
 2023,,friskney,Friskney,east-lindsey,East Lindsey,SDA,1,415,0.600000,0.500000,0.100000,0
 2023,,hagworthingham,Hagworthingham,east-lindsey,East Lindsey,SDA,1,651,0.486943,0.500000,-0.013057,1
-2023,,holton-le-clay-and-north-thoresby,Holton Le Clay and North Thoresby,east-lindsey,East Lindsey,SDA,2,1661,0.317881,0.333333,-0.015453,1
+2023,,holton-le-clay-and-north-thoresby,Holton le Clay and North Thoresby,east-lindsey,East Lindsey,SDA,2,1661,0.317881,0.333333,-0.015453,1
 2023,,legbourne,Legbourne,east-lindsey,East Lindsey,SDA,1,630,0.658730,0.500000,0.158730,0
 2023,,mablethorpe,Mablethorpe,east-lindsey,East Lindsey,SDA,3,4248,0.201742,0.250000,-0.048258,1
 2023,,marshchapel-and-somercotes,Marshchapel and Somercotes,east-lindsey,East Lindsey,SDA,2,1898,0.293994,0.333333,-0.039340,1
@@ -10084,7 +10084,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,acle,Acle,broadland,Broadland,SDA,1,843,0.468565,0.500000,-0.031435,1
 2023,,plumstead,Plumstead,broadland,Broadland,SDA,1,1046,0.468451,0.500000,-0.031549,1
 2023,,aylsham,Aylsham,broadland,Broadland,SDA,3,7825,0.170735,0.250000,-0.079265,1
-2023,,blofield-with-south-walsham,Blofield With South Walsham,broadland,Broadland,SDA,2,3424,0.189252,0.333333,-0.144081,1
+2023,,blofield-with-south-walsham,Blofield with South Walsham,broadland,Broadland,SDA,2,3424,0.189252,0.333333,-0.144081,1
 2023,,brundall,Brundall,broadland,Broadland,SDA,2,3983,0.291991,0.333333,-0.041342,1
 2023,,burlingham,Burlingham,broadland,Broadland,SDA,1,823,0.427704,0.500000,-0.072296,1
 2023,,buxton,Buxton,broadland,Broadland,SDA,1,761,0.600526,0.500000,0.100526,0
@@ -10100,7 +10100,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,marshes,Marshes,broadland,Broadland,SDA,1,929,0.469322,0.500000,-0.030678,1
 2023,,old-catton-and-sprowston-west,Old Catton and Sprowston West,broadland,Broadland,SDA,3,6111,0.142203,0.250000,-0.107797,1
 2023,,reepham,Reepham,broadland,Broadland,SDA,1,856,0.439252,0.500000,-0.060748,1
-2023,,spixworth-with-st-faiths,Spixworth With St. Faiths,broadland,Broadland,SDA,2,2589,0.293163,0.333333,-0.040170,1
+2023,,spixworth-with-st-faiths,Spixworth with St. Faiths,broadland,Broadland,SDA,2,2589,0.293163,0.333333,-0.040170,1
 2023,,sprowston-central,Sprowston Central,broadland,Broadland,SDA,2,2568,0.246885,0.333333,-0.086449,1
 2023,,sprowston-east,Sprowston East,broadland,Broadland,SDA,3,6375,0.144941,0.250000,-0.105059,1
 2023,,taverham-north,Taverham North,broadland,Broadland,SDA,2,2155,0.209281,0.333333,-0.124053,1
@@ -10167,7 +10167,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,poppyland,Poppyland,north-norfolk,North Norfolk,SDA,1,806,0.401985,0.500000,-0.098015,1
 2023,,the-raynhams,The Raynhams,north-norfolk,North Norfolk,SDA,1,611,0.320786,0.500000,-0.179214,1
 2023,,bacton,Bacton,north-norfolk,North Norfolk,SDA,1,651,0.471582,0.500000,-0.028418,1
-2023,,beeston-regis-and-the-runtons,Beeston Regis and The Runtons,north-norfolk,North Norfolk,SDA,1,1029,0.447036,0.500000,-0.052964,1
+2023,,beeston-regis-and-the-runtons,Beeston Regis and the Runtons,north-norfolk,North Norfolk,SDA,1,1029,0.447036,0.500000,-0.052964,1
 2023,,cromer-town,Cromer Town,north-norfolk,North Norfolk,SDA,2,3125,0.257280,0.333333,-0.076053,1
 2023,,erpingham,Erpingham,north-norfolk,North Norfolk,SDA,1,1028,0.552529,0.500000,0.052529,0
 2023,,gresham,Gresham,north-norfolk,North Norfolk,SDA,1,896,0.552455,0.500000,0.052455,0
@@ -10310,7 +10310,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,kingston-bagpuize,Kingston Bagpuize,vale-of-white-horse,Vale Of White Horse,SDA,1,1476,0.596206,0.500000,0.096206,0
 2023,,marcham,Marcham,vale-of-white-horse,Vale Of White Horse,SDA,1,854,0.581967,0.500000,0.081967,0
 2023,,stanford,Stanford,vale-of-white-horse,Vale Of White Horse,SDA,1,1235,0.442105,0.500000,-0.057895,1
-2023,,steventon-and-the-hanneys,Steventon and The Hanneys,vale-of-white-horse,Vale Of White Horse,SDA,1,1361,0.643644,0.500000,0.143644,0
+2023,,steventon-and-the-hanneys,Steventon and the Hanneys,vale-of-white-horse,Vale Of White Horse,SDA,1,1361,0.643644,0.500000,0.143644,0
 2023,,wantage-and-grove-brook,Wantage and Grove Brook,vale-of-white-horse,Vale Of White Horse,SDA,2,3360,0.290476,0.333333,-0.042857,1
 2023,,wantage-charlton,Wantage Charlton,vale-of-white-horse,Vale Of White Horse,SDA,2,3700,0.325676,0.333333,-0.007658,1
 2023,,watchfield-and-shrivenham,Watchfield and Shrivenham,vale-of-white-horse,Vale Of White Horse,SDA,2,4671,0.250482,0.333333,-0.082852,1
@@ -10369,7 +10369,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,cannock-north,Cannock North,cannock-chase,Cannock Chase,SDT,1,1121,0.572703,0.500000,0.072703,0
 2023,,cannock-south,Cannock South,cannock-chase,Cannock Chase,SDT,1,1411,0.461375,0.500000,-0.038625,1
 2023,,cannock-west,Cannock West,cannock-chase,Cannock Chase,SDT,1,1695,0.575811,0.500000,0.075811,0
-2023,,etching-hill-and-the-heath,Etching Hill and The Heath,cannock-chase,Cannock Chase,SDT,1,1294,0.521638,0.500000,0.021638,0
+2023,,etching-hill-and-the-heath,Etching Hill and the Heath,cannock-chase,Cannock Chase,SDT,1,1294,0.521638,0.500000,0.021638,0
 2023,,hawks-green,Hawks Green,cannock-chase,Cannock Chase,SDT,1,1220,0.506557,0.500000,0.006557,0
 2023,,heath-hayes-east-and-wimblebury,Heath Hayes East and Wimblebury,cannock-chase,Cannock Chase,SDT,1,1158,0.472366,0.500000,-0.027634,1
 2023,,hednesford-green-heath,Hednesford Green Heath,cannock-chase,Cannock Chase,SDT,1,1112,0.537770,0.500000,0.037770,0
@@ -11074,10 +11074,10 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,abbey,Abbey,sandwell,Sandwell,MB,1,2384,0.665268,0.500000,0.165268,0
 2023,,blackheath,Blackheath,sandwell,Sandwell,MB,1,1802,0.480577,0.500000,-0.019423,1
 2023,,bristnall,Bristnall,sandwell,Sandwell,MB,1,2034,0.502950,0.500000,0.002950,0
-2023,,charlemont-with-grove-vale,Charlemont With Grove Vale,sandwell,Sandwell,MB,1,2676,0.488416,0.500000,-0.011584,1
+2023,,charlemont-with-grove-vale,Charlemont with Grove Vale,sandwell,Sandwell,MB,1,2676,0.488416,0.500000,-0.011584,1
 2023,,cradley-heath-and-old-hill,Cradley Heath and Old Hill,sandwell,Sandwell,MB,1,2025,0.585185,0.500000,0.085185,0
 2023,,friar-park,Friar Park,sandwell,Sandwell,MB,1,1513,0.555188,0.500000,0.055188,0
-2023,,great-barr-with-yew-tree,Great Barr With Yew Tree,sandwell,Sandwell,MB,1,2543,0.508061,0.500000,0.008061,0
+2023,,great-barr-with-yew-tree,Great Barr with Yew Tree,sandwell,Sandwell,MB,1,2543,0.508061,0.500000,0.008061,0
 2023,,great-bridge,Great Bridge,sandwell,Sandwell,MB,1,2083,0.507921,0.500000,0.007921,0
 2023,,greets-green-and-lyng,Greets Green and Lyng,sandwell,Sandwell,MB,1,2055,0.739659,0.500000,0.239659,0
 2023,,hateley-heath,Hateley Heath,sandwell,Sandwell,MB,1,2023,0.706871,0.500000,0.206871,0
@@ -11159,7 +11159,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,langley-green-and-tushmore,Langley Green and Tushmore,crawley,Crawley,SDT,1,1625,0.635692,0.500000,0.135692,0
 2023,,maidenbower,Maidenbower,crawley,Crawley,SDT,1,2195,0.515262,0.500000,0.015262,0
 2023,,northgate-and-west-green,Northgate and West Green,crawley,Crawley,SDT,1,2081,0.545891,0.500000,0.045891,0
-2023,,pound-hill-north-and-forge-wood,POUND HILL NORTH and Forge Wood,crawley,Crawley,SDT,1,2451,0.536108,0.500000,0.036108,0
+2023,,pound-hill-north-and-forge-wood,Pound Hill North and Forge Wood,crawley,Crawley,SDT,1,2451,0.536108,0.500000,0.036108,0
 2023,,pound-hill-south-and-worth,Pound Hill South and Worth,crawley,Crawley,SDT,1,2295,0.478867,0.500000,-0.021133,1
 2023,,southgate,Southgate,crawley,Crawley,SDT,1,1985,0.490680,0.500000,-0.009320,1
 2023,,three-bridges,Three Bridges,crawley,Crawley,SDT,1,2213,0.460009,0.500000,-0.039991,1
@@ -11220,7 +11220,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,southbourne,Southbourne,chichester,Chichester,SDA,2,3560,0.290449,0.333333,-0.042884,1
 2023,,the-witterings,The Witterings,chichester,Chichester,SDA,3,7998,0.139785,0.250000,-0.110215,1
 2023,,forest,Forest,horsham,Horsham,SDA,3,7813,0.168437,0.250000,-0.081563,1
-2023,,steyning-and-ashurst,STEYNING and Ashurst,horsham,Horsham,SDA,2,3657,0.220946,0.333333,-0.112387,1
+2023,,steyning-and-ashurst,Steyning and Ashurst,horsham,Horsham,SDA,2,3657,0.220946,0.333333,-0.112387,1
 2023,,rudgwick,Rudgwick,horsham,Horsham,SDA,1,896,0.554688,0.500000,0.054688,0
 2023,,broadbridge-heath,Broadbridge Heath,horsham,Horsham,SDA,2,2371,0.212147,0.333333,-0.121187,1
 2023,,nuthurst-and-lower-beeding,Nuthurst and Lower Beeding,horsham,Horsham,SDA,1,1040,0.446154,0.500000,-0.053846,1
@@ -11503,7 +11503,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,evesham-south,Evesham South,wychavon,Wychavon,SDA,2,2075,0.246265,0.333333,-0.087068,1
 2023,,hartlebury,Hartlebury,wychavon,Wychavon,SDA,1,772,0.575130,0.500000,0.075130,0
 2023,,harvington-and-norton,Harvington and Norton,wychavon,Wychavon,SDA,1,895,0.540782,0.500000,0.040782,0
-2023,,honeybourne-pebworth-and-the-littletons,"Honeybourne, Pebworth and The Littletons",wychavon,Wychavon,SDA,2,3078,0.306693,0.333333,-0.026641,1
+2023,,honeybourne-pebworth-and-the-littletons,"Honeybourne, Pebworth and the Littletons",wychavon,Wychavon,SDA,2,3078,0.306693,0.333333,-0.026641,1
 2023,,inkberrow,Inkberrow,wychavon,Wychavon,SDA,2,3578,0.299050,0.333333,-0.034284,1
 2023,,north-claines-and-salwarpe,North Claines and Salwarpe,wychavon,Wychavon,SDA,2,2182,0.372594,0.333333,0.039261,0
 2023,,ombersley,Ombersley,wychavon,Wychavon,SDA,1,760,0.760526,0.500000,0.260526,0
@@ -11800,7 +11800,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,stephenson,Stephenson,darlington,Darlington,UAA,2,1821,0.237232,0.333333,-0.096101,1
 2023,,whinfield,Whinfield,darlington,Darlington,UAA,2,2657,0.230335,0.333333,-0.102998,1
 2023,,countesthorpe,Countesthorpe,blaby,Blaby,SDA,3,5304,0.160256,0.250000,-0.089744,1
-2023,,fosse-normanton,Fosse NORMANTON,blaby,Blaby,SDA,1,629,0.602544,0.500000,0.102544,0
+2023,,fosse-normanton,Fosse Normanton,blaby,Blaby,SDA,1,629,0.602544,0.500000,0.102544,0
 2023,,cosby-and-south-whetstone,Cosby and South Whetstone,blaby,Blaby,SDA,2,2256,0.269947,0.333333,-0.063387,1
 2023,,blaby,Blaby,blaby,Blaby,SDA,2,2379,0.343842,0.333333,0.010509,0
 2023,,braunstone-millfield,Braunstone Millfield,blaby,Blaby,SDA,2,1644,0.391119,0.333333,0.057786,0
@@ -11864,20 +11864,20 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,barwell,Barwell,hinckley-and-bosworth,Hinckley & Bosworth,SDA,3,4324,0.137142,0.250000,-0.112858,1
 2023,,burbage-st-catherines-and-lash-hill,Burbage St. Catherines and Lash Hill,hinckley-and-bosworth,Hinckley & Bosworth,SDA,2,2856,0.272759,0.333333,-0.060574,1
 2023,,burbage-sketchley-and-stretton,Burbage Sketchley and Stretton,hinckley-and-bosworth,Hinckley & Bosworth,SDA,3,7252,0.206288,0.250000,-0.043712,1
-2023,,cadeby-carlton-and-market-bosworth-with-shackerstone,Cadeby Carlton and Market Bosworth With Shackerstone,hinckley-and-bosworth,Hinckley & Bosworth,SDA,1,1215,0.502058,0.500000,0.002058,0
+2023,,cadeby-carlton-and-market-bosworth-with-shackerstone,Cadeby Carlton and Market Bosworth with Shackerstone,hinckley-and-bosworth,Hinckley & Bosworth,SDA,1,1215,0.502058,0.500000,0.002058,0
 2023,,groby,Groby,hinckley-and-bosworth,Hinckley & Bosworth,SDA,2,3218,0.272219,0.333333,-0.061115,1
 2023,,hinckley-castle,Hinckley Castle,hinckley-and-bosworth,Hinckley & Bosworth,SDA,2,2723,0.298201,0.333333,-0.035133,1
 2023,,hinckley-clarendon,Hinckley Clarendon,hinckley-and-bosworth,Hinckley & Bosworth,SDA,3,4861,0.221354,0.250000,-0.028646,1
-2023,,hinckley-de-montfort,Hinckley De Montfort,hinckley-and-bosworth,Hinckley & Bosworth,SDA,3,7499,0.190559,0.250000,-0.059441,1
+2023,,hinckley-de-montfort,Hinckley de Montfort,hinckley-and-bosworth,Hinckley & Bosworth,SDA,3,7499,0.190559,0.250000,-0.059441,1
 2023,,hinckley-trinity,Hinckley Trinity,hinckley-and-bosworth,Hinckley & Bosworth,SDA,2,2323,0.315971,0.333333,-0.017363,1
 2023,,markfield-stanton-and-fieldhead,Markfield Stanton and Fieldhead,hinckley-and-bosworth,Hinckley & Bosworth,SDA,2,3119,0.249760,0.333333,-0.083574,1
-2023,,newbold-verdon-with-desford-and-peckleton,Newbold Verdon With Desford and Peckleton,hinckley-and-bosworth,Hinckley & Bosworth,SDA,3,7311,0.193544,0.250000,-0.056456,1
+2023,,newbold-verdon-with-desford-and-peckleton,Newbold Verdon with Desford and Peckleton,hinckley-and-bosworth,Hinckley & Bosworth,SDA,3,7311,0.193544,0.250000,-0.056456,1
 2023,,ratby-bagworth-and-thornton,Ratby Bagworth and Thornton,hinckley-and-bosworth,Hinckley & Bosworth,SDA,2,3048,0.311680,0.333333,-0.021654,1
-2023,,twycross-and-witherley-with-sheepy,Twycross and Witherley With Sheepy,hinckley-and-bosworth,Hinckley & Bosworth,SDA,1,1035,0.617391,0.500000,0.117391,0
+2023,,twycross-and-witherley-with-sheepy,Twycross and Witherley with Sheepy,hinckley-and-bosworth,Hinckley & Bosworth,SDA,1,1035,0.617391,0.500000,0.117391,0
 2023,,bottesford,Bottesford,melton,Melton,SDA,2,1555,0.325402,0.333333,-0.007931,1
 2023,,asfordby,Asfordby,melton,Melton,SDA,2,1210,0.247107,0.333333,-0.086226,1
 2023,,old-dalby,Old Dalby,melton,Melton,SDA,1,616,0.566558,0.500000,0.066558,0
-2023,,frisby-on-the-wreake,Frisby-On-The-Wreake,melton,Melton,SDA,1,707,0.657709,0.500000,0.157709,0
+2023,,frisby-on-the-wreake,Frisby-ON-the-Wreake,melton,Melton,SDA,1,707,0.657709,0.500000,0.157709,0
 2023,,melton-dorian,Melton Dorian,melton,Melton,SDA,3,2475,0.121212,0.250000,-0.128788,1
 2023,,melton-warwick,Melton Warwick,melton,Melton,SDA,2,1369,0.252009,0.333333,-0.081325,1
 2023,,croxton-kerrial,Croxton Kerrial,melton,Melton,SDA,1,520,0.555769,0.500000,0.055769,0
@@ -12186,7 +12186,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,newport-south,Newport South,telford-and-wrekin,Telford & Wrekin,UAA,1,781,0.487836,0.500000,-0.012164,1
 2023,,newport-west,Newport West,telford-and-wrekin,Telford & Wrekin,UAA,1,961,0.664932,0.500000,0.164932,0
 2023,,oakengates-and-ketley-bank,Oakengates and Ketley Bank,telford-and-wrekin,Telford & Wrekin,UAA,3,6300,0.180159,0.250000,-0.069841,1
-2023,,overdale-and-the-rock,Overdale and The Rock,telford-and-wrekin,Telford & Wrekin,UAA,1,743,0.569314,0.500000,0.069314,0
+2023,,overdale-and-the-rock,Overdale and the Rock,telford-and-wrekin,Telford & Wrekin,UAA,1,743,0.569314,0.500000,0.069314,0
 2023,,priorslee,Priorslee,telford-and-wrekin,Telford & Wrekin,UAA,2,3676,0.260881,0.333333,-0.072452,1
 2023,,shawbirch-and-dothill,Shawbirch and Dothill,telford-and-wrekin,Telford & Wrekin,UAA,2,3359,0.295624,0.333333,-0.037710,1
 2023,,st-georges,St Georges,telford-and-wrekin,Telford & Wrekin,UAA,2,2972,0.311575,0.333333,-0.021759,1
@@ -12251,7 +12251,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05013085,hatch-warren-and-beggarwood-e05013085,Hatch Warren and Beggarwood,basingstoke-and-deane,Basingstoke and Deane,SD,1,2789,0.594837,0.500000,0.094837,0
 2024,E05013086,kempshott-and-buckskin-e05013086,Kempshott and Buckskin,basingstoke-and-deane,Basingstoke and Deane,SD,1,2503,0.464642,0.500000,-0.035358,1
 2024,E05013087,norden-e05013087,Norden,basingstoke-and-deane,Basingstoke and Deane,SD,1,2063,0.534174,0.500000,0.034174,0
-2024,E05013088,oakley-and-the-candovers-e05013088,Oakley and The Candovers,basingstoke-and-deane,Basingstoke and Deane,SD,1,3030,0.448515,0.500000,-0.051485,1
+2024,E05013088,oakley-and-the-candovers-e05013088,Oakley and the Candovers,basingstoke-and-deane,Basingstoke and Deane,SD,1,3030,0.448515,0.500000,-0.051485,1
 2024,E05013089,popley-e05013089,Popley,basingstoke-and-deane,Basingstoke and Deane,SD,1,1729,0.663968,0.500000,0.163968,0
 2024,E05013090,sherborne-st-john-and-rooksdown-e05013090,Sherborne St John and Rooksdown,basingstoke-and-deane,Basingstoke and Deane,SD,1,2343,0.466069,0.500000,-0.033931,1
 2024,E05013091,south-ham-e05013091,South Ham,basingstoke-and-deane,Basingstoke and Deane,SD,1,1854,0.576052,0.500000,0.076052,0
@@ -12386,18 +12386,18 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05005150,bank-hall-e05005150,Bank Hall,burnley,Burnley,SD,1,1340,0.550000,0.500000,0.050000,0
 2024,E05005151,briercliffe-e05005151,Briercliffe,burnley,Burnley,SD,1,1208,0.411424,0.500000,-0.088576,1
 2024,E05005152,brunshaw-e05005152,Brunshaw,burnley,Burnley,SD,1,1027,0.506329,0.500000,0.006329,0
-2024,E05005153,cliviger-with-worsthorne-e05005153,Cliviger With Worsthorne,burnley,Burnley,SD,1,1746,0.546964,0.500000,0.046964,0
-2024,E05005154,coalclough-with-deerplay-e05005154,Coalclough With Deerplay,burnley,Burnley,SD,1,1115,0.403587,0.500000,-0.096413,1
-2024,E05005155,daneshouse-with-stoneyholme-e05005155,Daneshouse With Stoneyholme,burnley,Burnley,SD,1,2085,0.548201,0.500000,0.048201,0
+2024,E05005153,cliviger-with-worsthorne-e05005153,Cliviger with Worsthorne,burnley,Burnley,SD,1,1746,0.546964,0.500000,0.046964,0
+2024,E05005154,coalclough-with-deerplay-e05005154,Coalclough with Deerplay,burnley,Burnley,SD,1,1115,0.403587,0.500000,-0.096413,1
+2024,E05005155,daneshouse-with-stoneyholme-e05005155,Daneshouse with Stoneyholme,burnley,Burnley,SD,1,2085,0.548201,0.500000,0.048201,0
 2024,E05005156,gannow-e05005156,Gannow,burnley,Burnley,SD,1,994,0.593561,0.500000,0.093561,0
 2024,E05005157,gawthorpe-e05005157,Gawthorpe,burnley,Burnley,SD,1,1082,0.608133,0.500000,0.108133,0
-2024,E05005158,hapton-with-park-e05005158,Hapton With Park,burnley,Burnley,SD,1,1253,0.610535,0.500000,0.110535,0
+2024,E05005158,hapton-with-park-e05005158,Hapton with Park,burnley,Burnley,SD,1,1253,0.610535,0.500000,0.110535,0
 2024,E05005159,lanehead-e05005159,Lanehead,burnley,Burnley,SD,1,1688,0.423578,0.500000,-0.076422,1
 2024,E05005160,queensgate-e05005160,Queensgate,burnley,Burnley,SD,1,1711,0.691993,0.500000,0.191993,0
-2024,E05005161,rosegrove-with-lowerhouse-e05005161,Rosegrove With Lowerhouse,burnley,Burnley,SD,1,1055,0.374408,0.500000,-0.125592,1
-2024,E05005162,rosehill-with-burnley-wood-e05005162,Rosehill With Burnley Wood,burnley,Burnley,SD,1,1134,0.411817,0.500000,-0.088183,1
+2024,E05005161,rosegrove-with-lowerhouse-e05005161,Rosegrove with Lowerhouse,burnley,Burnley,SD,1,1055,0.374408,0.500000,-0.125592,1
+2024,E05005162,rosehill-with-burnley-wood-e05005162,Rosehill with Burnley Wood,burnley,Burnley,SD,1,1134,0.411817,0.500000,-0.088183,1
 2024,E05005163,trinity-e05005163,Trinity,burnley,Burnley,SD,1,761,0.520368,0.500000,0.020368,0
-2024,E05005164,whittlefield-with-ightenhill-e05005164,Whittlefield With Ightenhill,burnley,Burnley,SD,1,1382,0.468162,0.500000,-0.031838,1
+2024,E05005164,whittlefield-with-ightenhill-e05005164,Whittlefield with Ightenhill,burnley,Burnley,SD,1,1382,0.468162,0.500000,-0.031838,1
 2024,E05014152,besses-e05014152,Besses,bury,Bury,MB,1,2397,0.637463,0.500000,0.137463,0
 2024,E05014153,bury-east-e05014153,Bury East,bury,Bury,MB,1,2653,0.376555,0.500000,-0.123445,1
 2024,E05014154,bury-west-e05014154,Bury West,bury,Bury,MB,1,3384,0.482270,0.500000,-0.017730,1
@@ -12530,7 +12530,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05010833,mersea-and-pyefleet-e05010833,Mersea and Pyefleet,colchester,Colchester,SD,1,2962,0.364956,0.500000,-0.135044,1
 2024,E05010834,mile-end-e05010834,Mile End,colchester,Colchester,SD,1,2770,0.681949,0.500000,0.181949,0
 2024,E05010835,new-town-and-christ-church-e05010835,New Town and Christ Church,colchester,Colchester,SD,1,2860,0.573077,0.500000,0.073077,0
-2024,E05010836,old-heath-and-the-hythe-e05010836,Old Heath and The Hythe,colchester,Colchester,SD,1,2192,0.588960,0.500000,0.088960,0
+2024,E05010836,old-heath-and-the-hythe-e05010836,Old Heath and the Hythe,colchester,Colchester,SD,1,2192,0.588960,0.500000,0.088960,0
 2024,E05010837,prettygate-e05010837,Prettygate,colchester,Colchester,SD,1,3238,0.507103,0.500000,0.007103,0
 2024,E05010838,rural-north-e05010838,Rural North,colchester,Colchester,SD,1,2813,0.575187,0.500000,0.075187,0
 2024,E05010840,shrub-end-e05010840,Shrub End,colchester,Colchester,SD,1,2089,0.379129,0.500000,-0.120871,1
@@ -12563,7 +12563,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05012919,langley-green-and-tushmore-e05012919,Langley Green and Tushmore,crawley,Crawley,SD,1,1601,0.450968,0.500000,-0.049032,1
 2024,E05012920,maidenbower-e05012920,Maidenbower,crawley,Crawley,SD,1,2140,0.439252,0.500000,-0.060748,1
 2024,E05012921,northgate-and-west-green-e05012921,Northgate and West Green,crawley,Crawley,SD,1,2220,0.535135,0.500000,0.035135,0
-2024,E05012922,pound-hill-north-and-forge-wood-e05012922,Pound Hill North And Forge Wood,crawley,Crawley,SD,1,2517,0.491061,0.500000,-0.008939,1
+2024,E05012922,pound-hill-north-and-forge-wood-e05012922,Pound Hill North and Forge Wood,crawley,Crawley,SD,1,2517,0.491061,0.500000,-0.008939,1
 2024,E05012923,pound-hill-south-and-worth-e05012923,Pound Hill South and Worth,crawley,Crawley,SD,1,2121,0.518152,0.500000,0.018152,0
 2024,E05012924,southgate-e05012924,Southgate,crawley,Crawley,SD,1,1998,0.462462,0.500000,-0.037538,1
 2024,E05012925,three-bridges-e05012925,Three Bridges,crawley,Crawley,SD,1,2480,0.513710,0.500000,0.013710,0
@@ -13371,7 +13371,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05014051,west-heywood-e05014051,West Heywood,rochdale,Rochdale,MB,1,2038,0.529931,0.500000,0.029931,0
 2024,E05014052,west-middleton-e05014052,West Middleton,rochdale,Rochdale,MB,1,2034,0.503441,0.500000,0.003441,0
 2024,E05010844,downhall-and-rawreth-e05010844,Downhall and Rawreth,rochford,Rochford,SD,1,1496,0.595588,0.500000,0.095588,0
-2024,E05010845,foulness-and-the-wakerings-e05010845,Foulness and The Wakerings,rochford,Rochford,SD,1,1459,0.374914,0.500000,-0.125086,1
+2024,E05010845,foulness-and-the-wakerings-e05010845,Foulness and the Wakerings,rochford,Rochford,SD,1,1459,0.374914,0.500000,-0.125086,1
 2024,E05010846,hawkwell-east-e05010846,Hawkwell East,rochford,Rochford,SD,1,1307,0.257842,0.500000,-0.242158,1
 2024,E05010847,hawkwell-west-e05010847,Hawkwell West,rochford,Rochford,SD,1,1487,0.570276,0.500000,0.070276,0
 2024,E05010848,hockley-e05010848,Hockley,rochford,Rochford,SD,1,1695,0.401180,0.500000,-0.098820,1
@@ -13481,10 +13481,10 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05001260,abbey-e05001260,Abbey,sandwell,Sandwell,MB,1,3012,0.689907,0.500000,0.189907,0
 2024,E05001261,blackheath-e05001261,Blackheath,sandwell,Sandwell,MB,1,2269,0.520053,0.500000,0.020053,0
 2024,E05001262,bristnall-e05001262,Bristnall,sandwell,Sandwell,MB,1,2417,0.584609,0.500000,0.084609,0
-2024,E05001263,charlemont-with-grove-vale-e05001263,Charlemont With Grove Vale,sandwell,Sandwell,MB,1,3244,0.456227,0.500000,-0.043773,1
+2024,E05001263,charlemont-with-grove-vale-e05001263,Charlemont with Grove Vale,sandwell,Sandwell,MB,1,3244,0.456227,0.500000,-0.043773,1
 2024,E05001264,cradley-heath-and-old-hill-e05001264,Cradley Heath and Old Hill,sandwell,Sandwell,MB,1,2466,0.543390,0.500000,0.043390,0
 2024,E05001265,friar-park-e05001265,Friar Park,sandwell,Sandwell,MB,1,1958,0.517365,0.500000,0.017365,0
-2024,E05001266,great-barr-with-yew-tree-e05001266,Great Barr With Yew Tree,sandwell,Sandwell,MB,1,3032,0.497032,0.500000,-0.002968,1
+2024,E05001266,great-barr-with-yew-tree-e05001266,Great Barr with Yew Tree,sandwell,Sandwell,MB,1,3032,0.497032,0.500000,-0.002968,1
 2024,E05001267,great-bridge-e05001267,Great Bridge,sandwell,Sandwell,MB,1,2739,0.466594,0.500000,-0.033406,1
 2024,E05001268,greets-green-and-lyng-e05001268,Greets Green and Lyng,sandwell,Sandwell,MB,1,2868,0.671548,0.500000,0.171548,0
 2024,E05001269,hateley-heath-e05001269,Hateley Heath,sandwell,Sandwell,MB,1,2560,0.669141,0.500000,0.169141,0
@@ -13773,8 +13773,8 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05007073,stonydelph-e05007073,Stonydelph,tamworth,Tamworth,SD,1,1389,0.462923,0.500000,-0.037077,1
 2024,E05007074,trinity-e05007074,Trinity,tamworth,Tamworth,SD,1,1726,0.424681,0.500000,-0.075319,1
 2024,E05007075,wilnecote-e05007075,Wilnecote,tamworth,Tamworth,SD,1,1773,0.546531,0.500000,0.046531,0
-2024,E05015885,bletchingley-and-nutfield-e05015885,Bletchingley And Nutfield,tandridge,Tandridge,SD,3,4208,0.119059,0.250000,-0.130941,1
-2024,E05015886,burstow-horne-and-outwood-e05015886,Burstow Horne And Outwood,tandridge,Tandridge,SD,3,3669,0.217771,0.250000,-0.032229,1
+2024,E05015885,bletchingley-and-nutfield-e05015885,Bletchingley and Nutfield,tandridge,Tandridge,SD,3,4208,0.119059,0.250000,-0.130941,1
+2024,E05015886,burstow-horne-and-outwood-e05015886,Burstow Horne and Outwood,tandridge,Tandridge,SD,3,3669,0.217771,0.250000,-0.032229,1
 2024,E05015887,chaldon-e05015887,Chaldon,tandridge,Tandridge,SD,1,558,0.657706,0.500000,0.157706,0
 2024,E05015888,dormansland-and-felbridge-e05015888,Dormansland and Felbridge,tandridge,Tandridge,SD,3,4260,0.138732,0.250000,-0.111268,1
 2024,E05015889,godstone-e05015889,Godstone,tandridge,Tandridge,SD,3,3693,0.275657,0.250000,0.025657,0
@@ -13784,9 +13784,9 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05015893,oxted-north-e05015893,Oxted North,tandridge,Tandridge,SD,3,5593,0.264795,0.250000,0.014795,0
 2024,E05015894,oxted-south-e05015894,Oxted South,tandridge,Tandridge,SD,3,4533,0.236267,0.250000,-0.013733,1
 2024,E05015895,portley-and-queens-park-e05015895,Portley and Queens Park,tandridge,Tandridge,SD,3,3829,0.130321,0.250000,-0.119679,1
-2024,E05015896,tatsfield-and-titsey-e05015896,Tatsfield And Titsey,tandridge,Tandridge,SD,1,604,0.700331,0.500000,0.200331,0
+2024,E05015896,tatsfield-and-titsey-e05015896,Tatsfield and Titsey,tandridge,Tandridge,SD,1,604,0.700331,0.500000,0.200331,0
 2024,E05015897,valley-e05015897,Valley,tandridge,Tandridge,SD,2,1919,0.304325,0.333333,-0.029008,1
-2024,E05015898,warlingham-east-and-chelsham-and-farleigh-e05015898,Warlingham East And Chelsham And Farleigh,tandridge,Tandridge,SD,3,3676,0.135745,0.250000,-0.114255,1
+2024,E05015898,warlingham-east-and-chelsham-and-farleigh-e05015898,Warlingham East and Chelsham and Farleigh,tandridge,Tandridge,SD,3,3676,0.135745,0.250000,-0.114255,1
 2024,E05015899,warlingham-west-e05015899,Warlingham West,tandridge,Tandridge,SD,2,2105,0.233729,0.333333,-0.099604,1
 2024,E05015900,westway-e05015900,Westway,tandridge,Tandridge,SD,3,3544,0.119357,0.250000,-0.130643,1
 2024,E05015901,whyteleafe-e05015901,Whyteleafe,tandridge,Tandridge,SD,2,1692,0.184988,0.333333,-0.148345,1
@@ -13822,7 +13822,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05002247,tilbury-st-chads-e05002247,Tilbury St. Chads,thurrock,Thurrock,UA,1,807,0.801735,0.500000,0.301735,0
 2024,E05002248,west-thurrock-and-south-stifford-e05002248,West Thurrock and South Stifford,thurrock,Thurrock,UA,1,2009,0.633151,0.500000,0.133151,0
 2024,E05015239,altrincham-e05015239,Altrincham,trafford,Trafford,MB,1,3358,0.573853,0.500000,0.073853,0
-2024,E05015240,ashton-upon-mersey-e05015240,Ashton Upon Mersey,trafford,Trafford,MB,1,3450,0.548116,0.500000,0.048116,0
+2024,E05015240,ashton-upon-mersey-e05015240,Ashton upon Mersey,trafford,Trafford,MB,1,3450,0.548116,0.500000,0.048116,0
 2024,E05015241,bowdon-e05015241,Bowdon,trafford,Trafford,MB,1,3995,0.430288,0.500000,-0.069712,1
 2024,E05015242,broadheath-e05015242,Broadheath,trafford,Trafford,MB,1,4151,0.413394,0.500000,-0.086606,1
 2024,E05015243,brooklands-e05015243,Brooklands,trafford,Trafford,MB,1,3830,0.474935,0.500000,-0.025065,1
@@ -13966,10 +13966,10 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2024,E05010782,charlbury-and-finstock-e05010782,Charlbury and Finstock,west-oxfordshire,West Oxfordshire,SD,1,1332,0.589339,0.500000,0.089339,0
 2024,E05006637,chipping-norton-e05006637,Chipping Norton,west-oxfordshire,West Oxfordshire,SD,1,1746,0.613402,0.500000,0.113402,0
 2024,E05006639,eynsham-and-cassington-e05006639,Eynsham and Cassington,west-oxfordshire,West Oxfordshire,SD,1,2000,0.498000,0.500000,-0.002000,1
-2024,E05006640,freeland-and-hanborough-e05006640,Freeland And Hanborough,west-oxfordshire,West Oxfordshire,SD,1,1489,0.394224,0.500000,-0.105776,1
+2024,E05006640,freeland-and-hanborough-e05006640,Freeland and Hanborough,west-oxfordshire,West Oxfordshire,SD,1,1489,0.394224,0.500000,-0.105776,1
 2024,E05010783,hailey-minster-lovell-and-leafield-e05010783,Hailey Minster Lovell and Leafield,west-oxfordshire,West Oxfordshire,SD,1,1383,0.438178,0.500000,-0.061822,1
 2024,E05006642,kingham-rollright-and-enstone-e05006642,Kingham Rollright and Enstone,west-oxfordshire,West Oxfordshire,SD,1,1105,0.429864,0.500000,-0.070136,1
-2024,E05006643,milton-under-wychwood-e05006643,Milton-Under-Wychwood,west-oxfordshire,West Oxfordshire,SD,1,756,0.529101,0.500000,0.029101,0
+2024,E05006643,milton-under-wychwood-e05006643,Milton-under-Wychwood,west-oxfordshire,West Oxfordshire,SD,1,756,0.529101,0.500000,0.029101,0
 2024,E05006644,north-leigh-e05006644,North Leigh,west-oxfordshire,West Oxfordshire,SD,1,900,0.541111,0.500000,0.041111,0
 2024,E05006645,standlake-aston-and-stanton-harcourt-e05006645,Standlake Aston and Stanton Harcourt,west-oxfordshire,West Oxfordshire,SD,1,1677,0.512821,0.500000,0.012821,0
 2024,E05006646,stonesfield-and-tackley-e05006646,Stonesfield and Tackley,west-oxfordshire,West Oxfordshire,SD,1,1555,0.336334,0.500000,-0.163666,1
@@ -14119,9 +14119,9 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2025,62215,disraeli-62215,Disraeli,buckinghamshire,Buckinghamshire,UC,1,1519,0.422646,0.500000,-0.077354,1
 2025,62216,downley-62216,Downley,buckinghamshire,Buckinghamshire,UC,1,1514,0.381110,0.500000,-0.118890,1
 2025,62217,farnhams-and-stoke-poges-62217,Farnhams and Stoke Poges,buckinghamshire,Buckinghamshire,UC,3,3494,0.424156,0.250000,0.174156,0
-2025,62218,flackwell-heath-and-the-wooburns-62218,Flackwell Heath and The Wooburns,buckinghamshire,Buckinghamshire,UC,3,4620,0.528571,0.250000,0.278571,0
+2025,62218,flackwell-heath-and-the-wooburns-62218,Flackwell Heath and the Wooburns,buckinghamshire,Buckinghamshire,UC,3,4620,0.528571,0.250000,0.278571,0
 2025,62219,gerrards-cross-and-denham-62219,Gerrards Cross and Denham,buckinghamshire,Buckinghamshire,UC,3,4559,0.372889,0.250000,0.122889,0
-2025,62220,grendon-underwood-and-the-claydons-62220,Grendon Underwood and The Claydons,buckinghamshire,Buckinghamshire,UC,2,3043,0.350641,0.333333,0.017307,0
+2025,62220,grendon-underwood-and-the-claydons-62220,Grendon Underwood and the Claydons,buckinghamshire,Buckinghamshire,UC,2,3043,0.350641,0.333333,0.017307,0
 2025,62221,haddenham-and-stone-62221,Haddenham and Stone,buckinghamshire,Buckinghamshire,UC,2,3385,0.289217,0.333333,-0.044116,1
 2025,62222,hazlemere-62222,Hazlemere,buckinghamshire,Buckinghamshire,UC,2,2741,0.336738,0.333333,0.003405,0
 2025,62223,horwood-62223,Horwood,buckinghamshire,Buckinghamshire,UC,1,1484,0.346361,0.500000,-0.153639,1
@@ -14191,11 +14191,11 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2025,57262,st-neots-east-and-gransden-57262,St Neots East and Gransden,huntingdonshire,Huntingdonshire,CC,1,2123,0.305228,0.500000,-0.194772,1
 2025,57263,st-neots-eynesbury-57263,St Neots Eynesbury,huntingdonshire,Huntingdonshire,CC,1,2151,0.319386,0.500000,-0.180614,1
 2025,57264,st-neots-priory-park-and-little-paxton-57264,St Neots Priory Park and Little Paxton,huntingdonshire,Huntingdonshire,CC,1,2733,0.392243,0.500000,-0.107757,1
-2025,57265,st-neots-the-eatons-57265,St Neots The Eatons,huntingdonshire,Huntingdonshire,CC,1,3125,0.356800,0.500000,-0.143200,1
+2025,57265,st-neots-the-eatons-57265,St Neots the Eatons,huntingdonshire,Huntingdonshire,CC,1,3125,0.356800,0.500000,-0.143200,1
 2025,57244,sutton-57244,Sutton,east-cambridgeshire,East Cambridgeshire,CC,1,3432,0.478438,0.500000,-0.021562,1
 2025,45904,the-hemingfords-and-fenstanton-45904,The Hemingfords and Fenstanton,huntingdonshire,Huntingdonshire,CC,1,2875,0.335652,0.500000,-0.164348,1
 2025,57238,trumpington-57238,Trumpington,cambridge,Cambridge,CC,1,2961,0.375211,0.500000,-0.124789,1
-2025,57268,warboys-and-the-stukeleys-57268,Warboys and The Stukeleys,huntingdonshire,Huntingdonshire,CC,1,2297,0.362212,0.500000,-0.137788,1
+2025,57268,warboys-and-the-stukeleys-57268,Warboys and the Stukeleys,huntingdonshire,Huntingdonshire,CC,1,2297,0.362212,0.500000,-0.137788,1
 2025,57283,waterbeach-57283,Waterbeach,south-cambridgeshire,South Cambridgeshire,CC,1,3445,0.386647,0.500000,-0.113353,1
 2025,57250,whittlesey-north-57250,Whittlesey North,fenland,Fenland,CC,1,2580,0.470930,0.500000,-0.029070,1
 2025,57251,whittlesey-south-57251,Whittlesey South,fenland,Fenland,CC,1,3013,0.395287,0.500000,-0.104713,1
@@ -14384,7 +14384,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2025,57346,heavitree-and-whipton-barton-57346,Heavitree and Whipton Barton,exeter,Exeter,CC,1,4085,0.261934,0.500000,-0.238066,1
 2025,57374,holsworthy-rural-57374,Holsworthy Rural,torridge,Torridge,CC,1,4993,0.351092,0.500000,-0.148908,1
 2025,45555,ilfracombe-45555,Ilfracombe,north-devon,North Devon,CC,1,3044,0.341656,0.500000,-0.158344,1
-2025,57369,ipplepen-and-the-kerswells-57369,Ipplepen and The Kerswells,teignbridge,Teignbridge,CC,1,4039,0.252290,0.500000,-0.247710,1
+2025,57369,ipplepen-and-the-kerswells-57369,Ipplepen and the Kerswells,teignbridge,Teignbridge,CC,1,4039,0.252290,0.500000,-0.247710,1
 2025,45559,ivybridge-45559,Ivybridge,south-hams,South Hams,CC,1,3154,0.383640,0.500000,-0.116360,1
 2025,57360,kingsbridge-57360,Kingsbridge,south-hams,South Hams,CC,1,4183,0.487688,0.500000,-0.012312,1
 2025,57370,kingsteignton-and-teign-estuary-57370,Kingsteignton and Teign Estuary,teignbridge,Teignbridge,CC,1,3712,0.354256,0.500000,-0.145744,1
@@ -14814,7 +14814,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2025,46737,quorn-and-barrow-46737,Quorn and Barrow,charnwood,Charnwood,CC,1,3859,0.341021,0.500000,-0.158979,1
 2025,57387,rothley-and-mountsorrel-57387,Rothley and Mountsorrel,charnwood,Charnwood,CC,1,3343,0.364044,0.500000,-0.135956,1
 2025,46739,shepshed-46739,Shepshed,charnwood,Charnwood,CC,1,4134,0.449686,0.500000,-0.050314,1
-2025,57388,sileby-and-the-wolds-57388,Sileby and The Wolds,charnwood,Charnwood,CC,1,3377,0.395321,0.500000,-0.104679,1
+2025,57388,sileby-and-the-wolds-57388,Sileby and the Wolds,charnwood,Charnwood,CC,1,3377,0.395321,0.500000,-0.104679,1
 2025,57420,south-and-west-wigston-57420,South and West Wigston,oadby-and-wigston,Oadby & Wigston,CC,1,2363,0.384257,0.500000,-0.115743,1
 2025,57405,st-marys-57405,St. Marys,hinckley-and-bosworth,Hinckley & Bosworth,CC,1,2481,0.448609,0.500000,-0.051391,1
 2025,57383,stoney-stanton-and-croft-57383,Stoney Stanton and Croft,blaby,Blaby,CC,1,3369,0.401306,0.500000,-0.098694,1
@@ -15075,7 +15075,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2025,62942,chesterton-and-launton-62942,Chesterton and Launton,cherwell,Cherwell,CC,1,2846,0.328531,0.500000,-0.171469,1
 2025,62963,chinnor-62963,Chinnor,south-oxfordshire,South Oxfordshire,CC,1,3038,0.317643,0.500000,-0.182357,1
 2025,62992,chipping-norton-62992,Chipping Norton,west-oxfordshire,West Oxfordshire,CC,1,2875,0.335652,0.500000,-0.164348,1
-2025,62964,cholsey-and-the-hagbournes-62964,Cholsey and The Hagbournes,south-oxfordshire,South Oxfordshire,CC,1,3218,0.449658,0.500000,-0.050342,1
+2025,62964,cholsey-and-the-hagbournes-62964,Cholsey and the Hagbournes,south-oxfordshire,South Oxfordshire,CC,1,3218,0.449658,0.500000,-0.050342,1
 2025,62950,churchill-and-lye-valley-62950,Churchill and Lye Valley,oxford,Oxford,CC,1,2431,0.343069,0.500000,-0.156931,1
 2025,62951,cowley-62951,Cowley,oxford,Oxford,CC,1,3015,0.430846,0.500000,-0.069154,1
 2025,62943,cropredy-and-hook-norton-62943,Cropredy and Hook Norton,cherwell,Cherwell,CC,1,3905,0.358771,0.500000,-0.141229,1
@@ -15211,7 +15211,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2025,46463,codsall-46463,Codsall,south-staffordshire,South Staffordshire,CC,1,3215,0.409642,0.500000,-0.090358,1
 2025,62836,dove-62836,Dove,east-staffordshire,East Staffordshire,CC,1,3228,0.438042,0.500000,-0.061958,1
 2025,62863,eccleshall-and-gnosall-62863,Eccleshall and Gnosall,stafford,Stafford,CC,1,4526,0.349978,0.500000,-0.150022,1
-2025,62827,etching-hill-and-the-heath-62827,Etching Hill and The Heath,cannock-chase,Cannock Chase,CC,1,3305,0.461422,0.500000,-0.038578,1
+2025,62827,etching-hill-and-the-heath-62827,Etching Hill and the Heath,cannock-chase,Cannock Chase,CC,1,3305,0.461422,0.500000,-0.038578,1
 2025,62862,great-wyrley-and-essington-62862,Great Wyrley and Essington,south-staffordshire,South Staffordshire,CC,1,3379,0.496893,0.500000,-0.003107,1
 2025,62828,hawks-green-rawnsley-and-cannock-wood-62828,"Hawks Green, Rawnsley and Cannock Wood",cannock-chase,Cannock Chase,CC,1,4170,0.473141,0.500000,-0.026859,1
 2025,62829,hednesford-north-62829,Hednesford North,cannock-chase,Cannock Chase,CC,1,3573,0.565071,0.500000,0.065071,0
@@ -15317,7 +15317,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2025,62277,brixworth-62277,Brixworth,west-northamptonshire,West Northamptonshire,UC,1,1852,0.610691,0.500000,0.110691,0
 2025,62278,campion-62278,Campion,west-northamptonshire,West Northamptonshire,UC,2,2958,0.325558,0.333333,-0.007776,1
 2025,62279,castle-62279,Castle,west-northamptonshire,West Northamptonshire,UC,3,2361,0.335875,0.250000,0.085875,0
-2025,62280,cogenhoe-and-the-houghtons-62280,Cogenhoe and The Houghtons,west-northamptonshire,West Northamptonshire,UC,1,1573,0.457724,0.500000,-0.042276,1
+2025,62280,cogenhoe-and-the-houghtons-62280,Cogenhoe and the Houghtons,west-northamptonshire,West Northamptonshire,UC,1,1573,0.457724,0.500000,-0.042276,1
 2025,62281,dallington-spencer-62281,Dallington Spencer,west-northamptonshire,West Northamptonshire,UC,3,2961,0.326241,0.250000,0.076241,0
 2025,62282,daventry-north-east-62282,Daventry North East,west-northamptonshire,West Northamptonshire,UC,1,913,0.364732,0.500000,-0.135268,1
 2025,62283,daventry-north-west-62283,Daventry North West,west-northamptonshire,West Northamptonshire,UC,1,1221,0.356265,0.500000,-0.143735,1
