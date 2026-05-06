@@ -143,25 +143,31 @@
           </div>
         </div>
 
-        <h4 class="bars-heading">Vote share vs seat share</h4>
-        <div class="bars" aria-label="Vote and seat share comparison across the two cycles">
-          {#each [{ year: f.yearFrom, vNew: f.newPartyVoteFrom, sNew: f.newPartySeatFrom, vOld: f.oldPartyVoteFrom, sOld: f.oldPartySeatFrom }, { year: f.yearTo, vNew: f.newPartyVoteTo, sNew: f.newPartySeatTo, vOld: f.oldPartyVoteTo, sOld: f.oldPartySeatTo }] as row (row.year)}
+        <h4 class="bars-heading">Vote share vs seat share — every party</h4>
+        <div class="bars" aria-label="Vote share and actual seats per party across the two cycles">
+          {#each [{ year: f.yearFrom, view: f.partyViewFrom }, { year: f.yearTo, view: f.partyViewTo }] as { year, view } (year)}
             <div class="bar-block">
-              <div class="bar-year muted">{row.year}</div>
-              <PartyBars
-                label="Votes"
-                segments={[
-                  { party: f.toParty, share: row.vNew },
-                  { party: f.fromParty, share: row.vOld }
-                ]}
-              />
-              <PartyBars
-                label="Seats"
-                segments={[
-                  { party: f.toParty, share: row.sNew },
-                  { party: f.fromParty, share: row.sOld }
-                ]}
-              />
+              <div class="bar-year muted">{year}</div>
+              {#if view}
+                <PartyBars
+                  label="Vote share"
+                  segments={view.rows.map((r) => ({
+                    party: r.party,
+                    share: r.voteShare,
+                    count: r.votes,
+                    total: view.totalVotes,
+                    unit: 'votes'
+                  }))}
+                />
+                <SeatChart
+                  label="Actual seats"
+                  segments={view.rows
+                    .filter((r) => r.fptpSeats > 0)
+                    .map((r) => ({ party: r.party, seats: r.fptpSeats }))}
+                />
+              {:else}
+                <p class="muted small">No party-view data for {year}.</p>
+              {/if}
             </div>
           {/each}
         </div>
