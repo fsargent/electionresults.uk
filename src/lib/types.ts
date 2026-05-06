@@ -77,6 +77,31 @@ export interface CouncilReorganisation {
   counterparts: string[];
 }
 
+/**
+ * Annual snapshot of a council's actual running composition (per-party
+ * seat counts), sourced from opencouncildata.co.uk. Reflects the council
+ * as of the given year, including by-elections and defections — not
+ * just the LEH cycle results. Used to define flips honestly (largest
+ * party of the running composition changing, not just the cycle leader).
+ */
+export interface CompositionSnapshot {
+  councilSlug: string;
+  council: string;
+  year: number;
+  totalSeats: number;
+  /** Canonical-party-name → seat count, for every party we track. */
+  parties: Record<string, number>;
+  /** Catch-all bucket — non-major-party councillors of various stripes. */
+  otherSeats: number;
+  /** Largest single named party (ignores `otherSeats`); null if no data. */
+  largestParty: string | null;
+  largestPartySeats: number;
+  /** True when the catch-all 'other' bucket exceeds every named party. */
+  largestIsOtherDominant: boolean;
+  /** Original `majority` text from opencouncildata for transparency. */
+  sourceMajority: string;
+}
+
 export interface CouncilFlip {
   councilSlug: string;
   council: string;

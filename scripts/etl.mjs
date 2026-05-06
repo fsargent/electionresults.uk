@@ -260,6 +260,22 @@ function slugify(s) {
     .replace(/^-+|-+$/g, '');
 }
 
+// LEH source data uses inconsistent council names across cycles
+// (e.g. 2024 calls it "Durham", earlier cycles "County Durham"). Map
+// the slugified-but-non-canonical form to the canonical councilSlug
+// used elsewhere on the site so all years agree on one identity per
+// real council. New mismatches will appear in the composition-LEH
+// join audit at the end of this script.
+const LEH_COUNCIL_SLUG_ALIASES = {
+  durham: 'county-durham',
+  'kingston-upon-hull': 'kingston-upon-hull-city-of'
+};
+
+function councilSlugify(name) {
+  const raw = slugify(name);
+  return LEH_COUNCIL_SLUG_ALIASES[raw] ?? raw;
+}
+
 function truthy(v) {
   if (v === true || v === 1) return true;
   if (typeof v === 'string') {
@@ -353,7 +369,7 @@ function ingestCycle(cycle) {
     if (!council) continue;
     const wardName = normaliseWardName(String(w[wc.wardName] ?? '').trim());
     const wardCodeRaw = wc.wardCode ? w[wc.wardCode] : null;
-    const councilSlug = slugify(council);
+    const councilSlug = councilSlugify(council);
     const wardCode = wardCodeRaw != null ? String(wardCodeRaw).trim() : null;
     const key = wardCode
       ? `${cycle.year}::${wardCode}`
@@ -394,7 +410,7 @@ function ingestCycle(cycle) {
     }
     const wardName = normaliseWardName(String(c[cc.wardName] ?? '').trim());
     const wardCodeRaw = cc.wardCode ? c[cc.wardCode] : null;
-    const councilSlug = slugify(council);
+    const councilSlug = councilSlugify(council);
     const wardCode = wardCodeRaw != null ? String(wardCodeRaw).trim() : null;
     const key = wardCode
       ? `${cycle.year}::${wardCode}`
@@ -653,17 +669,151 @@ for (const r of allRaces) {
 // Sort most-negative-first (= furthest below quota first), tiebreak by lowest raw votes.
 marginal.sort((a, b) => a.underPar - b.underPar || a.votes - b.votes);
 
-// --- Council flips: same council, consecutive cycles, plurality changed --
+// --- Composition truth-set (opencouncildata) ----------------------------
 //
-// "Plurality" here = the party that won the most seats this cycle (FPTP
-// definition of who controls the council). A flip is when consecutive
-// cycles for the same council have different plurality parties. The
-// editorial story is the cases where the plurality changed despite tiny
-// vote-share movement — FPTP volatility on small swings.
+// Annual snapshot of every council's actual composition (per-party seat
+// counts) sourced from https://opencouncildata.co.uk. Captures live
+// composition including by-elections and defections, not just election
+// cycles. Used to:
+//   (a) replace the cycle-leader-based flip detection with a
+//       composition-truth definition (a flip is when the largest party
+//       in the running composition actually changes — not when one
+//       cycle's election produced a different cycle leader)
+//   (b) replace the "Council composition (approx.)" sum-across-cycles
+//       approximation on per-council pages with the actual snapshot
 //
-// Caveat: by-thirds councils elect only a third of seats per cycle, so
-// comparing 2024→2025 for a by-thirds council compares different sets of
-// wards. Page copy explains this.
+// Provenance: docs/history2016-2025.csv, downloaded from
+// opencouncildata.co.uk (CC BY-SA 4.0). Refresh by re-downloading and
+// committing to docs/.
+const COMP_PARTY_COLS = {
+  con: 'Conservative and Unionist Party',
+  lab: 'Labour Party',
+  ld: 'Liberal Democrats',
+  green: 'Green Party',
+  ukip: 'UK Independence Party (UKIP)',
+  ref: 'Reform UK',
+  pc: 'Plaid Cymru',
+  snp: 'Scottish National Party'
+  // 'other' column is NOT a real party - treated separately as the
+  // catch-all bucket. See largestParty derivation below.
+};
+
+// LEH and opencouncildata use slightly different conventions for some
+// council names — LEH appends "City of" / "County" suffixes, drops
+// apostrophes inconsistently. Map opencouncildata's slugified authority
+// to our canonical LEH councilSlug for these specific cases.
+const COMP_SLUG_ALIASES = {
+  bristol: 'bristol-city-of',
+  durham: 'county-durham',
+  'king-s-lynn-and-west-norfolk': 'kings-lynn-and-west-norfolk',
+  'kingston-upon-hull': 'kingston-upon-hull-city-of'
+};
+
+function ingestCompositions() {
+  const csvPath = resolve(ROOT, 'docs/history2016-2025.csv');
+  if (!existsSync(csvPath)) {
+    console.warn('[etl] composition CSV not found; skipping');
+    return [];
+  }
+  const wb = XLSX.read(readFileSync(csvPath, 'utf8'), { type: 'string' });
+  const ws = wb.Sheets[wb.SheetNames[0]];
+  const rows = XLSX.utils.sheet_to_json(ws, { defval: '', raw: true });
+  const out = [];
+  for (const r of rows) {
+    const authority = String(r.authority ?? '').trim();
+    if (!authority) continue;
+    const year = Number(r.year);
+    if (!Number.isFinite(year)) continue;
+    const totalSeats = Number(r.total) || 0;
+    const parties = {};
+    for (const [col, canonical] of Object.entries(COMP_PARTY_COLS)) {
+      parties[canonical] = Number(r[col]) || 0;
+    }
+    const otherSeats = Number(r.other) || 0;
+    // Largest party by seat count, ignoring the "other" bucket (which
+    // is not a real party — it can't change "from one party to another"
+    // because next year's "other" might be entirely different parties).
+    // If "other" exceeds every named party, largestParty stays as the
+    // top named party but a flag (`largestIsOtherDominant`) records it.
+    let largestParty = null;
+    let largestSeats = -1;
+    for (const [party, seats] of Object.entries(parties)) {
+      if (
+        seats > largestSeats ||
+        (seats === largestSeats &&
+          (largestParty === null || party.localeCompare(largestParty) < 0))
+      ) {
+        largestParty = party;
+        largestSeats = seats;
+      }
+    }
+    const rawSlug = slugify(authority);
+    out.push({
+      councilSlug: COMP_SLUG_ALIASES[rawSlug] ?? rawSlug,
+      council: authority,
+      year,
+      totalSeats,
+      parties,
+      otherSeats,
+      largestParty,
+      largestPartySeats: largestSeats,
+      // True when no named party exceeds the "other" bucket - means the
+      // truth-set's flip-detection might fire spuriously, so consumers
+      // can downgrade or annotate these cases.
+      largestIsOtherDominant: otherSeats > largestSeats,
+      sourceMajority: String(r.majority ?? '').trim()
+    });
+  }
+  return out;
+}
+
+const compositions = ingestCompositions();
+const compositionByKey = new Map();
+for (const c of compositions) {
+  compositionByKey.set(`${c.councilSlug}::${c.year}`, c);
+}
+console.log(
+  `[etl] ingested ${compositions.length} composition snapshots from opencouncildata`
+);
+
+// --- Composition-LEH join audit -----------------------------------------
+//
+// We rely on slugified council names matching across the two datasets.
+// Print any LEH councils that don't have a composition snapshot for any
+// of their cycle years so we know what we're missing. (Conversely,
+// composition rows for councils we don't have LEH data for are just
+// ignored - that's expected for non-English councils.)
+const lehCouncilSlugs = new Set(allRaces.map((r) => r.councilSlug));
+const compCouncilSlugs = new Set(compositions.map((c) => c.councilSlug));
+const lehWithoutComposition = [...lehCouncilSlugs]
+  .filter((s) => !compCouncilSlugs.has(s))
+  .sort();
+if (lehWithoutComposition.length > 0) {
+  console.warn(
+    `[etl] ${lehWithoutComposition.length} LEH councils have NO composition match (slug mismatch or missing in opencouncildata):`
+  );
+  for (const s of lehWithoutComposition.slice(0, 20)) console.warn(`  - ${s}`);
+  if (lehWithoutComposition.length > 20) {
+    console.warn(`  ... and ${lehWithoutComposition.length - 20} more`);
+  }
+} else {
+  console.log('[etl] all LEH councils have a composition match ✓');
+}
+
+// --- Council flips (composition truth-set) ------------------------------
+//
+// A flip is a change in the largest party of the council's running
+// composition between consecutive years where a cycle was held. The
+// composition snapshot reflects the actual council after the year's
+// events (election + by-elections), so this captures the genuine
+// editorial signal: the cycle's election results actually moved who
+// holds the most seats overall.
+//
+// Drops misleading cycle-leader flips (East Lindsey 2024 — Reform topped
+// the per-cycle table but Conservatives still hold ~28 of 55 seats);
+// preserves real ones (Wealden 2023 — boundary-review all-out, LD
+// became largest party of the new council). Cycles where we have no
+// composition data on either side are skipped (logged for transparency).
 const partyViewByKey = new Map();
 for (const v of partyViews) {
   partyViewByKey.set(`${v.year}::${v.councilSlug}`, v);
@@ -675,33 +825,53 @@ for (const v of partyViews) {
   viewsByCouncil.set(v.councilSlug, arr);
 }
 const flips = [];
+let cyclesWithCompositionGap = 0;
+let cyclesEvaluated = 0;
+let cyclesWithSamelLeader = 0;
 for (const [slug, views] of viewsByCouncil) {
   if (views.length < 2) continue;
   views.sort((a, b) => a.year - b.year);
   for (let i = 1; i < views.length; i++) {
     const prev = views[i - 1];
     const next = views[i];
-    const pluralityOf = (rows) =>
-      [...rows].sort(
-        (a, b) => b.fptpSeats - a.fptpSeats || b.votes - a.votes
-      )[0] ?? null;
-    const prevP = pluralityOf(prev.rows);
-    const nextP = pluralityOf(next.rows);
-    if (!prevP || !nextP) continue;
-    if (prevP.party === nextP.party) continue;
+    cyclesEvaluated++;
+    const compPrev = compositionByKey.get(`${slug}::${prev.year}`);
+    const compNext = compositionByKey.get(`${slug}::${next.year}`);
+    if (!compPrev || !compNext) {
+      cyclesWithCompositionGap++;
+      continue;
+    }
+    const fromParty = compPrev.largestParty;
+    const toParty = compNext.largestParty;
+    if (!fromParty || !toParty) continue;
+    if (fromParty === toParty) {
+      cyclesWithSamelLeader++;
+      continue;
+    }
 
-    const newInPrev = prev.rows.find((r) => r.party === nextP.party);
-    const oldInNext = next.rows.find((r) => r.party === prevP.party);
-    const totalPrev = prev.totalSeats || 1;
-    const totalNext = next.totalSeats || 1;
+    // Cycle-side context for the rank-by-disproportion score: vote
+    // shifts come from the actual election that triggered the change,
+    // because composition data has no vote-share information.
+    const newInPrev = prev.rows.find((r) => r.party === toParty);
+    const newInNext = next.rows.find((r) => r.party === toParty);
+    const oldInPrev = prev.rows.find((r) => r.party === fromParty);
+    const oldInNext = next.rows.find((r) => r.party === fromParty);
+
     const newPartyVoteFrom = newInPrev?.voteShare ?? 0;
-    const newPartyVoteTo = nextP.voteShare;
-    const newPartySeatFrom = (newInPrev?.fptpSeats ?? 0) / totalPrev;
-    const newPartySeatTo = nextP.fptpSeats / totalNext;
-    const oldPartyVoteFrom = prevP.voteShare;
+    const newPartyVoteTo = newInNext?.voteShare ?? 0;
+    const oldPartyVoteFrom = oldInPrev?.voteShare ?? 0;
     const oldPartyVoteTo = oldInNext?.voteShare ?? 0;
-    const oldPartySeatFrom = prevP.fptpSeats / totalPrev;
-    const oldPartySeatTo = (oldInNext?.fptpSeats ?? 0) / totalNext;
+
+    // Composition seat shares — the meaningful change-of-control number,
+    // unlike per-cycle seat shares which only reflect the seats up that
+    // single cycle.
+    const totalPrev = compPrev.totalSeats || 1;
+    const totalNext = compNext.totalSeats || 1;
+    const newPartySeatFrom = (compPrev.parties[toParty] ?? 0) / totalPrev;
+    const newPartySeatTo = (compNext.parties[toParty] ?? 0) / totalNext;
+    const oldPartySeatFrom = (compPrev.parties[fromParty] ?? 0) / totalPrev;
+    const oldPartySeatTo = (compNext.parties[fromParty] ?? 0) / totalNext;
+
     const voteSwingNew = Math.abs(newPartyVoteTo - newPartyVoteFrom);
     const seatSwingNew = Math.abs(newPartySeatTo - newPartySeatFrom);
 
@@ -710,8 +880,8 @@ for (const [slug, views] of viewsByCouncil) {
       council: prev.council,
       yearFrom: prev.year,
       yearTo: next.year,
-      fromParty: prevP.party,
-      toParty: nextP.party,
+      fromParty,
+      toParty,
       newPartyVoteFrom,
       newPartyVoteTo,
       newPartySeatFrom,
@@ -722,16 +892,19 @@ for (const [slug, views] of viewsByCouncil) {
       oldPartySeatTo,
       voteSwingNew,
       seatSwingNew,
-      // Disproportion score: seat-swing-per-unit-vote-swing. Higher =
-      // smaller vote shift produced a bigger seat shift, which is the
-      // FPTP-volatility story Felix wants to lead with. Floor at 1pp on
-      // the denominator so we don't divide by zero (and so a 0pp vote
-      // shift with a big seat shift still ranks).
+      // Disproportion score: composition-seat-swing per unit
+      // cycle-vote-swing. Higher = smaller vote shift produced a bigger
+      // overall composition shift. Floor at 1pp on the denominator so a
+      // 0pp vote shift with a big seat shift still ranks.
       disproportionScore: seatSwingNew / Math.max(voteSwingNew, 0.01)
     });
   }
 }
 flips.sort((a, b) => b.disproportionScore - a.disproportionScore);
+console.log(
+  `[etl] flips: ${flips.length} from ${cyclesEvaluated} cycle pairs ` +
+    `(${cyclesWithSamelLeader} same-leader, ${cyclesWithCompositionGap} skipped for missing composition)`
+);
 
 // --- Council reorganisations (curated) ---------------------------------
 //
@@ -1065,6 +1238,7 @@ const snapshot = {
   marginalWinners: marginal,
   partyViews,
   flips,
+  compositions,
   reorganisations
 };
 writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot));

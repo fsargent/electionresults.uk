@@ -181,30 +181,46 @@
   </p>
   <ul>
     <li>
-      <strong>Council composition.</strong> A grid of one square per
-      seat, summed across the cycles within two years of the latest
-      cycle. That window captures a full term for by-thirds councils
-      (3 consecutive years) and the latest cycle for all-out councils
-      (whose prior cycle is 4 years earlier and represents a separate
-      set of councillors). The result is approximate and labelled as
-      such — boundary reviews mid-term, partial-cycle elections, and
-      councils on irregular schedules can shift the count by a few
-      seats.
+      <strong>Council composition.</strong> The actual seat count by
+      party as of the most recent year covered by
+      <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+      &mdash; one square per seat, hover for the party. Reflects the
+      live council including by-elections and defections, not just
+      election cycles. Where opencouncildata has no snapshot for a
+      council (rare &mdash; mainly LGR-successor councils that didn't
+      yet exist when oncd's window starts), we fall back to summing
+      elected candidates from cycles within two years of the latest
+      cycle, with the heading marked
+      <em>(approx.)</em>.
     </li>
-    <li>
-      <strong>Party-control flips.</strong> For each consecutive cycle
-      pair (cycle&nbsp;N, cycle&nbsp;N+1) where the largest party (by
-      seats won this cycle) changed, we record the flip and compute
-      the incoming party's vote-share shift and seat-share shift
-      between the two cycles, both as percentage points (pp). Flips
-      are ranked by the formula
-      <Frac num="seat shift (pp)" denom="max(vote shift (pp), 1 pp)" />
-      &mdash; a big seat shift on a small vote shift scores high. The
+    <li id="flips">
+      <strong>Council-control flips.</strong> A flip is when the
+      largest single party in the council's running composition
+      changes between year&nbsp;N&minus;1 and year&nbsp;N for some
+      year&nbsp;N where an election was held. Composition is the
+      opencouncildata annual snapshot &mdash; the truth-set, not our
+      cycle-by-cycle approximation. This is a deliberate departure
+      from the older "cycle leader" definition (the party that won the
+      most seats in a single cycle's election alone), which misled in
+      by-thirds councils where one cycle's pickup could top the per-
+      cycle table without changing who actually held the most seats on
+      the council overall (East Lindsey 2024 is the exemplar &mdash;
+      Reform won the seats up that cycle, but Conservatives still hold
+      ~28 of 55 seats on the actual council, so calling it a "flip"
+      would have been false). For each flip we compute the incoming
+      party's <em>composition</em> seat-share shift (year&nbsp;N seat
+      share minus year&nbsp;N&minus;1 seat share, the meaningful
+      change-of-control number) and the incoming party's <em>cycle</em>
+      vote-share shift between the two cycles' elections, both as
+      percentage points (pp). Flips are ranked by
+      <Frac num="composition seat shift (pp)" denom="max(cycle vote shift (pp), 1 pp)" />
+      &mdash; the bigger the change of council control on the smaller
+      change in votes that triggered it, the higher the rank. The
       vote-shift denominator is floored at 1 percentage point so a
       flip on near-zero vote movement (e.g. Wealden 2021&rarr;2023,
-      0.6&nbsp;pp) doesn't divide by zero. The per-flip
-      visualisation shows a bar comparison of votes vs seats for both
-      cycles.
+      0.6&nbsp;pp) doesn't divide by zero. The per-flip visualisation
+      on each council page shows the full party breakdown in both
+      cycles &mdash; votes as a bar, seats as one square per seat.
     </li>
     <li>
       <strong>Ward-by-ward grid.</strong> Rows are wards (matched by
@@ -247,8 +263,11 @@
     </li>
     <li>
       <a href="/flips">/flips</a> &middot; every council where the
-      leading party changed between consecutive cycles, ranked by
-      seat-shift&nbsp;÷&nbsp;vote-shift.
+      largest party in the running composition changed between
+      consecutive cycle years, ranked by composition seat-shift
+      &divide; cycle vote-shift. See
+      <a href="#flips">council-control flips</a> above for the precise
+      definition.
     </li>
   </ul>
   <p>
@@ -262,12 +281,29 @@
 
   <h2>Sources</h2>
   <p>
-    All cycles below are ingested from the
+    <strong>Election results</strong> &mdash; ingested from the
     <strong>Local Election Handbook</strong> (LEH) for the relevant year,
     published by the House of Commons Library under the Open Parliament
     Licence. Workbooks live in the repo at <code>{sourceLabel}</code>;
     the per-year ETL adapter normalises sheet-name and column-name drift
     across years.
+  </p>
+  <p>
+    <strong>Council composition snapshots</strong> &mdash; annual
+    per-council per-party seat counts (used for the running-composition
+    block on each council page and the council-control flip definition
+    above) come from
+    <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>,
+    a hand-maintained register of UK council membership going back to
+    1973, published under
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external noopener">CC&nbsp;BY-SA&nbsp;4.0</a>.
+    Snapshot file (<code>docs/history2016-2025.csv</code>) is committed
+    in the repo; refresh by re-downloading from oncd. Slug aliases for
+    the small number of councils that LEH and oncd name slightly
+    differently (Bristol, County Durham, King's Lynn and West Norfolk,
+    Kingston upon Hull) are explicit in
+    <code>scripts/etl.mjs</code>; the ETL prints any unmatched councils
+    on each run.
   </p>
   <ul>
     {#each cycles as c (c.year)}

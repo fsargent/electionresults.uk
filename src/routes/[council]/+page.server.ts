@@ -6,6 +6,7 @@ import {
   wardHistoryForCouncil,
   currentCouncilComposition,
   partyViewForYearAndCouncil,
+  latestCompositionForCouncil,
   reorganisationForCouncil
 } from '$lib/data';
 
@@ -30,7 +31,22 @@ export function load({ params }: { params: { council: string } }) {
     partyViewTo: partyViewForYearAndCouncil(f.yearTo, params.council) ?? null
   }));
   const wards = wardHistoryForCouncil(params.council);
-  const composition = currentCouncilComposition(params.council);
+  // Prefer the opencouncildata truth-set (annual snapshot of every
+  // councillor's party affiliation) over our own sum-across-cycles
+  // approximation. Fall back to the approximation when oncd has no
+  // snapshot for this council (rare — typically only LGR-successor
+  // councils that didn't exist when oncd's data window starts).
+  const composition = latestCompositionForCouncil(params.council) ?? null;
+  const compositionApprox = composition
+    ? null
+    : currentCouncilComposition(params.council);
   const reorganisation = reorganisationForCouncil(params.council);
-  return { history, flips, wards, composition, reorganisation };
+  return {
+    history,
+    flips,
+    wards,
+    composition,
+    compositionApprox,
+    reorganisation
+  };
 }

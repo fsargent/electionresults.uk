@@ -34,7 +34,7 @@
   <title>Council flips — electionresults.uk</title>
   <meta
     name="description"
-    content="Every UK council where the largest party (by seats won) changed between consecutive cycles, ranked by seat shift divided by vote shift for the incoming party."
+    content="Every UK council where the largest party in the running composition changed between consecutive cycle years. Composition data via opencouncildata; ranked by composition seat shift divided by cycle vote shift for the incoming party."
   />
   <link rel="canonical" href="https://electionresults.uk/flips" />
 </svelte:head>
@@ -42,12 +42,26 @@
 <main class="wide">
   <h1>Council flips</h1>
   <p>
-    Every council in the dataset where the largest party (by seats won)
-    changed between consecutive cycles. Ranked by
-    <strong>seat shift ÷ vote shift</strong> for the incoming party
-    (with vote shift floored at 1 percentage point so a 0-shift entry
-    doesn't divide by zero) — a big seat shift on a small vote shift
-    wins. {num(data.rows.length)} flips qualify.
+    Every council in the dataset where the
+    <strong>largest party in the running composition</strong> changed
+    between consecutive election cycles. Ranked by
+    <strong>composition seat shift ÷ cycle vote shift</strong> for the
+    incoming party (with vote shift floored at 1 percentage point so a
+    0-shift entry doesn't divide by zero) &mdash; the bigger the change
+    of council control, the smaller the change in votes that triggered
+    it, the higher the rank. {num(data.rows.length)} flips qualify.
+  </p>
+  <p class="muted">
+    Composition data per
+    <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+    annual snapshots &mdash; reflects the actual seat count after the
+    cycle's election plus any by-elections, not just the cycle's
+    results. Cycles where one party topped the per-cycle table but the
+    council's overall largest party didn't change (e.g. East Lindsey
+    2024, where Reform won the seats up but Conservatives still hold ~28
+    of 55 council seats) are correctly excluded. See
+    <a href="/methodology#flips">methodology</a> for the precise
+    definition.
   </p>
   <p class="muted">
     Click a council name for the full per-flip visualisation. Filter or

@@ -95,13 +95,27 @@
     </tbody>
   </table>
 
-  <h2>Licensing</h2>
+  <h2>Licensing &amp; sources</h2>
   <p>
-    Source data is published by the House of Commons Library under the
-    Open Parliament Licence. Our derived columns (<code>winning_pct</code>,
-    <code>quota</code>, <code>under_par</code>, the
-    <code>below_quota_*</code> aggregates) are released under
-    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    <strong>Election results</strong> &mdash; published by the House of
+    Commons Library under the Open Parliament Licence; ingested from the
+    annual Local Election Handbook for each cycle.
+  </p>
+  <p>
+    <strong>Council composition snapshots</strong> &mdash; per-council
+    per-party seat counts by year, sourced from
+    <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+    under
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external noopener">CC&nbsp;BY-SA&nbsp;4.0</a>
+    (attribution: opencouncildata.co.uk). Used for the truth-set running
+    composition on each council page and for the council-control flip
+    definition.
+  </p>
+  <p>
+    Our derived columns (<code>winning_pct</code>, <code>quota</code>,
+    <code>under_par</code>, the <code>below_quota_*</code> aggregates,
+    and the council-flip computation) are released under
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external noopener">CC&nbsp;BY-SA&nbsp;4.0</a>.
     Attribution: "electionresults.uk".
   </p>
 </main>

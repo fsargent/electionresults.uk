@@ -7,7 +7,27 @@
   let { data } = $props();
   const history = $derived(data.history);
   const flips = $derived(data.flips);
+  // composition is the opencouncildata truth-set snapshot when we have
+  // one (preferred); compositionApprox is the fallback sum-across-cycles
+  // approximation for councils oncd doesn't cover for that year.
   const composition = $derived(data.composition);
+  const compositionApprox = $derived(data.compositionApprox);
+  // Build a SeatChart-shaped row list from the truth-set snapshot when
+  // present, ordered by seat count descending. "Other" goes last as a
+  // distinct catch-all bucket since it isn't a single party.
+  const truthRows = $derived(
+    composition
+      ? [
+          ...Object.entries(composition.parties)
+            .filter(([, n]) => n > 0)
+            .map(([party, seats]) => ({ party, seats }))
+            .sort((a, b) => b.seats - a.seats),
+          ...(composition.otherSeats > 0
+            ? [{ party: 'Other', seats: composition.otherSeats }]
+            : [])
+        ]
+      : []
+  );
 </script>
 
 <svelte:head>
@@ -54,21 +74,34 @@
     </aside>
   {/if}
 
-  {#if composition.totalSeats > 0}
-    <h2>Council composition <span class="muted approx">(approx.)</span></h2>
+  {#if composition && composition.totalSeats > 0}
+    <h2>Council composition <span class="muted approx">as of {composition.year}</span></h2>
     <p class="muted">
-      {num(composition.totalSeats)} councillors elected across cycles
-      {composition.yearsCovered.length === 1
-        ? composition.yearsCovered[0]
-        : composition.yearsCovered.join(', ')}, summed by party. One
-      square per seat. <strong>Approximate</strong>: by-thirds councils
-      mid-term, boundary reviews, and partial-cycle elections all mean
-      this can be a few seats off the live council count. For the
-      authoritative current composition, check the council's own
-      members list. Hover any seat for the party.
+      {num(composition.totalSeats)} councillors, by party. One square per seat.
+      Source:
+      <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+      annual snapshot &mdash; reflects the council on 1 January {composition.year}
+      including by-elections and defections. Hover any seat for the
+      party.
     </p>
     <div class="council-seats">
-      <SeatChart segments={composition.rows} minSize={18} />
+      <SeatChart segments={truthRows} minSize={18} />
+    </div>
+  {:else if compositionApprox && compositionApprox.totalSeats > 0}
+    <h2>Council composition <span class="muted approx">(approx.)</span></h2>
+    <p class="muted">
+      No opencouncildata snapshot for this council yet &mdash; falling back to
+      our approximation: {num(compositionApprox.totalSeats)} councillors elected
+      across cycles
+      {compositionApprox.yearsCovered.length === 1
+        ? compositionApprox.yearsCovered[0]
+        : compositionApprox.yearsCovered.join(', ')}, summed by party.
+      <strong>Approximate</strong>: by-thirds councils mid-term, boundary
+      reviews, and partial-cycle elections all mean this can be a few seats off
+      the live council count. Hover any seat for the party.
+    </p>
+    <div class="council-seats">
+      <SeatChart segments={compositionApprox.rows} minSize={18} />
     </div>
   {/if}
 
@@ -221,7 +254,7 @@
                     style:background-color={c}
                     title={`${row.wardName} ${cell.year}: ${cell.winnerName} (${partyDisplayName(cell.winnerParty)}) — ${cell.winnerVotes} votes, ${pct(cell.winningPct)} of ${cell.validBallots} valid ballots`}
                   >
-                    <a href={`/${history.councilSlug}/${cell.year}#${row.wardSlug}`} class="ward-link">
+                    <a href={`/${history.councilSlug}/${cell.year}#${cell.wardSlug}`} class="ward-link">
                       {pct(cell.winningPct, 0)}
                     </a>
                   </td>

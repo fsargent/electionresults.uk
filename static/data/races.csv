@@ -1628,25 +1628,25 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2021,E05011072,welwyn-east-e05011072,Welwyn East,welwyn-hatfield,Welwyn Hatfield,SDT,1,2162,0.563367,0.500000,0.063367,0
 2021,E58000676,welwyn-garden-city-south-e58000676,Welwyn Garden City South,welwyn-hatfield,Welwyn Hatfield,SC,1,3641,0.483658,0.500000,-0.016342,1
 2021,E05011073,welwyn-west-e05011073,Welwyn West,welwyn-hatfield,Welwyn Hatfield,SDT,1,1938,0.635191,0.500000,0.135191,0
-2021,E05011525,avenue-e05011525,Avenue,kingston-upon-hull,Kingston Upon Hull,UAT,1,3752,0.468817,0.500000,-0.031183,1
-2021,E05011526,beverley-and-newland-e05011526,Beverley and Newland,kingston-upon-hull,Kingston Upon Hull,UAT,1,3077,0.641209,0.500000,0.141209,0
-2021,E05011527,boothferry-e05011527,Boothferry,kingston-upon-hull,Kingston Upon Hull,UAT,1,2574,0.512821,0.500000,0.012821,0
-2021,E05011528,bricknell-e05011528,Bricknell,kingston-upon-hull,Kingston Upon Hull,UAT,1,2361,0.476917,0.500000,-0.023083,1
-2021,E05011530,derringham-e05011530,Derringham,kingston-upon-hull,Kingston Upon Hull,UAT,1,2175,0.450115,0.500000,-0.049885,1
-2021,E05011531,drypool-e05011531,Drypool,kingston-upon-hull,Kingston Upon Hull,UAT,1,2674,0.623411,0.500000,0.123411,0
-2021,E05011532,holderness-e05011532,Holderness,kingston-upon-hull,Kingston Upon Hull,UAT,1,2665,0.542214,0.500000,0.042214,0
-2021,E05011533,ings-e05011533,Ings,kingston-upon-hull,Kingston Upon Hull,UAT,1,1707,0.470416,0.500000,-0.029584,1
-2021,E05011534,kingswood-e05011534,Kingswood,kingston-upon-hull,Kingston Upon Hull,UAT,1,1371,0.710430,0.500000,0.210430,0
-2021,E05011535,longhill-and-bilton-grange-e05011535,Longhill and Bilton Grange,kingston-upon-hull,Kingston Upon Hull,UAT,1,1673,0.519426,0.500000,0.019426,0
-2021,E05011536,marfleet-e05011536,Marfleet,kingston-upon-hull,Kingston Upon Hull,UAT,1,1322,0.509834,0.500000,0.009834,0
-2021,E05011537,newington-and-gipsyville-e05011537,Newington and Gipsyville,kingston-upon-hull,Kingston Upon Hull,UAT,1,1837,0.510071,0.500000,0.010071,0
-2021,E05011538,north-carr-e05011538,North Carr,kingston-upon-hull,Kingston Upon Hull,UAT,1,1575,0.462222,0.500000,-0.037778,1
-2021,E05011539,orchard-park-e05011539,Orchard Park,kingston-upon-hull,Kingston Upon Hull,UAT,1,1729,0.554078,0.500000,0.054078,0
-2021,E05011542,southcoates-e05011542,Southcoates,kingston-upon-hull,Kingston Upon Hull,UAT,1,1986,0.551863,0.500000,0.051863,0
-2021,E05011541,st-andrew-s-and-dockland-e05011541,St Andrew's and Dockland,kingston-upon-hull,Kingston Upon Hull,UAT,1,2393,0.495612,0.500000,-0.004388,1
-2021,E05011543,sutton-e05011543,Sutton,kingston-upon-hull,Kingston Upon Hull,UAT,1,3311,0.520689,0.500000,0.020689,0
-2021,E05011544,university-e05011544,University,kingston-upon-hull,Kingston Upon Hull,UAT,1,1401,0.496074,0.500000,-0.003926,1
-2021,E05011545,west-carr-e05011545,West Carr,kingston-upon-hull,Kingston Upon Hull,UAT,1,2218,0.531109,0.500000,0.031109,0
+2021,E05011525,avenue-e05011525,Avenue,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,3752,0.468817,0.500000,-0.031183,1
+2021,E05011526,beverley-and-newland-e05011526,Beverley and Newland,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,3077,0.641209,0.500000,0.141209,0
+2021,E05011527,boothferry-e05011527,Boothferry,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2574,0.512821,0.500000,0.012821,0
+2021,E05011528,bricknell-e05011528,Bricknell,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2361,0.476917,0.500000,-0.023083,1
+2021,E05011530,derringham-e05011530,Derringham,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2175,0.450115,0.500000,-0.049885,1
+2021,E05011531,drypool-e05011531,Drypool,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2674,0.623411,0.500000,0.123411,0
+2021,E05011532,holderness-e05011532,Holderness,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2665,0.542214,0.500000,0.042214,0
+2021,E05011533,ings-e05011533,Ings,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1707,0.470416,0.500000,-0.029584,1
+2021,E05011534,kingswood-e05011534,Kingswood,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1371,0.710430,0.500000,0.210430,0
+2021,E05011535,longhill-and-bilton-grange-e05011535,Longhill and Bilton Grange,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1673,0.519426,0.500000,0.019426,0
+2021,E05011536,marfleet-e05011536,Marfleet,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1322,0.509834,0.500000,0.009834,0
+2021,E05011537,newington-and-gipsyville-e05011537,Newington and Gipsyville,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1837,0.510071,0.500000,0.010071,0
+2021,E05011538,north-carr-e05011538,North Carr,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1575,0.462222,0.500000,-0.037778,1
+2021,E05011539,orchard-park-e05011539,Orchard Park,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1729,0.554078,0.500000,0.054078,0
+2021,E05011542,southcoates-e05011542,Southcoates,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1986,0.551863,0.500000,0.051863,0
+2021,E05011541,st-andrew-s-and-dockland-e05011541,St Andrew's and Dockland,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2393,0.495612,0.500000,-0.004388,1
+2021,E05011543,sutton-e05011543,Sutton,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,3311,0.520689,0.500000,0.020689,0
+2021,E05011544,university-e05011544,University,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1401,0.496074,0.500000,-0.003926,1
+2021,E05011545,west-carr-e05011545,West Carr,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2218,0.531109,0.500000,0.031109,0
 2021,E05001713,croft-baker-e05001713,Croft Baker,north-east-lincolnshire,North East Lincolnshire,UAT,1,2335,0.463812,0.500000,-0.036188,1
 2021,E05001714,east-marsh-e05001714,East Marsh,north-east-lincolnshire,North East Lincolnshire,UAT,2,2183,0.307375,0.333333,-0.025958,1
 2021,E05001715,freshney-e05001715,Freshney,north-east-lincolnshire,North East Lincolnshire,UAT,1,1940,0.569588,0.500000,0.069588,0
@@ -9176,25 +9176,25 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2023,,potters-bar-furzefield,Potters Bar Furzefield,hertsmere,Hertsmere,SDA,2,2775,0.294054,0.333333,-0.039279,1
 2023,,potters-bar-oakmere,Potters Bar Oakmere,hertsmere,Hertsmere,SDA,2,2627,0.237533,0.333333,-0.095800,1
 2023,,potters-bar-parkfield,Potters Bar Parkfield,hertsmere,Hertsmere,SDA,2,2678,0.278566,0.333333,-0.054767,1
-2023,,avenue,Avenue,kingston-upon-hull,Kingston Upon Hull,UAT,1,3260,0.509816,0.500000,0.009816,0
-2023,,beverley-and-newland,Beverley and Newland,kingston-upon-hull,Kingston Upon Hull,UAT,1,2940,0.673129,0.500000,0.173129,0
-2023,,boothferry,Boothferry,kingston-upon-hull,Kingston Upon Hull,UAT,1,2263,0.585064,0.500000,0.085064,0
-2023,,central,Central,kingston-upon-hull,Kingston Upon Hull,UAT,2,2156,0.287570,0.333333,-0.045764,1
-2023,,derringham,Derringham,kingston-upon-hull,Kingston Upon Hull,UAT,1,2107,0.544376,0.500000,0.044376,0
-2023,,drypool,Drypool,kingston-upon-hull,Kingston Upon Hull,UAT,1,2289,0.674967,0.500000,0.174967,0
-2023,,holderness,Holderness,kingston-upon-hull,Kingston Upon Hull,UAT,1,2310,0.657576,0.500000,0.157576,0
-2023,,kingswood,Kingswood,kingston-upon-hull,Kingston Upon Hull,UAT,1,1267,0.741121,0.500000,0.241121,0
-2023,,longhill-and-bilton-grange,Longhill and Bilton Grange,kingston-upon-hull,Kingston Upon Hull,UAT,1,1688,0.497630,0.500000,-0.002370,1
-2023,,marfleet,Marfleet,kingston-upon-hull,Kingston Upon Hull,UAT,1,1034,0.690522,0.500000,0.190522,0
-2023,,newington-and-gipsyville,Newington and Gipsyville,kingston-upon-hull,Kingston Upon Hull,UAT,1,1508,0.586870,0.500000,0.086870,0
-2023,,north-carr,North Carr,kingston-upon-hull,Kingston Upon Hull,UAT,1,1511,0.545996,0.500000,0.045996,0
-2023,,orchard-park,Orchard Park,kingston-upon-hull,Kingston Upon Hull,UAT,1,1817,0.485966,0.500000,-0.014034,1
-2023,,pickering,Pickering,kingston-upon-hull,Kingston Upon Hull,UAT,1,1906,0.578174,0.500000,0.078174,0
-2023,,southcoates,Southcoates,kingston-upon-hull,Kingston Upon Hull,UAT,1,1656,0.652778,0.500000,0.152778,0
-2023,,st-andrew-s-and-dockland,St Andrew's and Dockland,kingston-upon-hull,Kingston Upon Hull,UAT,1,1618,0.610630,0.500000,0.110630,0
-2023,,sutton,Sutton,kingston-upon-hull,Kingston Upon Hull,UAT,1,2620,0.608779,0.500000,0.108779,0
-2023,,west-carr,West Carr,kingston-upon-hull,Kingston Upon Hull,UAT,1,1772,0.530474,0.500000,0.030474,0
-2023,,ings,Ings,kingston-upon-hull,Kingston Upon Hull,UAT,1,1579,0.468651,0.500000,-0.031349,1
+2023,,avenue,Avenue,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,3260,0.509816,0.500000,0.009816,0
+2023,,beverley-and-newland,Beverley and Newland,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2940,0.673129,0.500000,0.173129,0
+2023,,boothferry,Boothferry,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2263,0.585064,0.500000,0.085064,0
+2023,,central,Central,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,2,2156,0.287570,0.333333,-0.045764,1
+2023,,derringham,Derringham,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2107,0.544376,0.500000,0.044376,0
+2023,,drypool,Drypool,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2289,0.674967,0.500000,0.174967,0
+2023,,holderness,Holderness,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2310,0.657576,0.500000,0.157576,0
+2023,,kingswood,Kingswood,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1267,0.741121,0.500000,0.241121,0
+2023,,longhill-and-bilton-grange,Longhill and Bilton Grange,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1688,0.497630,0.500000,-0.002370,1
+2023,,marfleet,Marfleet,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1034,0.690522,0.500000,0.190522,0
+2023,,newington-and-gipsyville,Newington and Gipsyville,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1508,0.586870,0.500000,0.086870,0
+2023,,north-carr,North Carr,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1511,0.545996,0.500000,0.045996,0
+2023,,orchard-park,Orchard Park,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1817,0.485966,0.500000,-0.014034,1
+2023,,pickering,Pickering,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1906,0.578174,0.500000,0.078174,0
+2023,,southcoates,Southcoates,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1656,0.652778,0.500000,0.152778,0
+2023,,st-andrew-s-and-dockland,St Andrew's and Dockland,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1618,0.610630,0.500000,0.110630,0
+2023,,sutton,Sutton,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,2620,0.608779,0.500000,0.108779,0
+2023,,west-carr,West Carr,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1772,0.530474,0.500000,0.030474,0
+2023,,ings,Ings,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,1,1579,0.468651,0.500000,-0.031349,1
 2023,,croft-baker,Croft Baker,north-east-lincolnshire,North East Lincolnshire,UAT,1,1858,0.521529,0.500000,0.021529,0
 2023,,east-marsh,East Marsh,north-east-lincolnshire,North East Lincolnshire,UAT,1,1091,0.557287,0.500000,0.057287,0
 2023,,freshney,Freshney,north-east-lincolnshire,North East Lincolnshire,UAT,1,2080,0.463462,0.500000,-0.036538,1
@@ -14433,57 +14433,57 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2025,56584,tickhill-and-wadworth-56584,Tickhill and Wadworth,doncaster,Doncaster,MB,2,3562,0.312746,0.333333,-0.020588,1
 2025,56585,town-56585,Town,doncaster,Doncaster,MB,3,3927,0.364910,0.250000,0.114910,0
 2025,56586,wheatley-hills-and-intake-56586,Wheatley Hills and Intake,doncaster,Doncaster,MB,3,3905,0.341869,0.250000,0.091869,0
-2025,62307,annfield-plain-and-tanfield-62307,Annfield Plain and Tanfield,durham,Durham,UC,2,2968,0.459569,0.333333,0.126235,0
-2025,54711,aycliffe-north-and-middridge-54711,Aycliffe North and Middridge,durham,Durham,UC,2,2936,0.340259,0.333333,0.006926,0
-2025,62308,aycliffe-south-62308,Aycliffe South,durham,Durham,UC,3,3296,0.390473,0.250000,0.140473,0
-2025,62309,barnard-castle-62309,Barnard Castle,durham,Durham,UC,1,1473,0.309572,0.500000,-0.190428,1
-2025,62310,belmont-62310,Belmont,durham,Durham,UC,2,3292,0.381531,0.333333,0.048198,0
-2025,62311,benfieldside-62311,Benfieldside,durham,Durham,UC,2,3143,0.320395,0.333333,-0.012939,1
-2025,62312,bishop-auckland-62312,Bishop Auckland,durham,Durham,UC,3,3989,0.428177,0.250000,0.178177,0
-2025,62313,blackhalls-and-hesledens-62313,Blackhalls and Hesledens,durham,Durham,UC,1,1413,0.445152,0.500000,-0.054848,1
-2025,62314,bowburn-and-coxhoe-62314,Bowburn and Coxhoe,durham,Durham,UC,3,3869,0.364177,0.250000,0.114177,0
-2025,62315,brandon-62315,Brandon,durham,Durham,UC,2,3022,0.297816,0.333333,-0.035517,1
-2025,62316,castle-eden-and-passfield-62316,Castle Eden and Passfield,durham,Durham,UC,1,1530,0.525490,0.500000,0.025490,0
-2025,62317,chester-le-street-north-62317,Chester-le-Street North,durham,Durham,UC,2,3052,0.354522,0.333333,0.021188,0
-2025,62318,chester-le-street-south-62318,Chester-le-Street South,durham,Durham,UC,2,3281,0.442853,0.333333,0.109519,0
-2025,54721,chilton-54721,Chilton,durham,Durham,UC,1,1114,0.469479,0.500000,-0.030521,1
-2025,62319,consett-north-62319,Consett North,durham,Durham,UC,1,1593,0.484620,0.500000,-0.015380,1
-2025,62320,consett-south-62320,Consett South,durham,Durham,UC,1,1344,0.550595,0.500000,0.050595,0
-2025,62321,craghead-and-south-moor-62321,Craghead and South Moor,durham,Durham,UC,2,2218,0.517583,0.333333,0.184250,0
-2025,62322,crook-62322,Crook,durham,Durham,UC,3,4048,0.406374,0.250000,0.156374,0
-2025,62323,dalton-and-dawdon-62323,Dalton and Dawdon,durham,Durham,UC,2,2447,0.357989,0.333333,0.024656,0
-2025,62324,deerness-62324,Deerness,durham,Durham,UC,2,3164,0.349241,0.333333,0.015908,0
-2025,62325,delves-lane-62325,Delves Lane,durham,Durham,UC,2,2529,0.413207,0.333333,0.079873,0
-2025,62326,derwent-and-pont-valley-62326,Derwent and Pont Valley,durham,Durham,UC,3,4821,0.365277,0.250000,0.115277,0
-2025,62327,easington-and-shotton-62327,Easington and Shotton,durham,Durham,UC,3,3554,0.486494,0.250000,0.236494,0
-2025,62328,elvet-gilesgate-and-shincliffe-62328,"Elvet, Gilesgate and Shincliffe",durham,Durham,UC,2,2373,0.353561,0.333333,0.020228,0
-2025,62329,evenwood-62329,Evenwood,durham,Durham,UC,1,1504,0.486702,0.500000,-0.013298,1
-2025,62330,ferryhill-62330,Ferryhill,durham,Durham,UC,2,2758,0.357505,0.333333,0.024172,0
-2025,62331,framwellgate-and-newton-hall-62331,Framwellgate and Newton Hall,durham,Durham,UC,3,4650,0.440430,0.250000,0.190430,0
-2025,62332,horden-and-dene-house-62332,Horden and Dene House,durham,Durham,UC,2,2393,0.479315,0.333333,0.145981,0
-2025,62333,lanchester-and-burnhope-62333,Lanchester and Burnhope,durham,Durham,UC,1,2107,0.358329,0.500000,-0.141671,1
-2025,62334,langley-and-esh-62334,Langley and Esh,durham,Durham,UC,1,1620,0.479630,0.500000,-0.020370,1
-2025,62335,lower-teesdale-62335,Lower Teesdale,durham,Durham,UC,2,2873,0.350853,0.333333,0.017519,0
-2025,62336,lumley-and-west-rainton-62336,Lumley and West Rainton,durham,Durham,UC,2,2915,0.464151,0.333333,0.130818,0
-2025,62337,murton-62337,Murton,durham,Durham,UC,2,2315,0.405184,0.333333,0.071850,0
-2025,62338,neville-s-cross-62338,Neville's Cross,durham,Durham,UC,2,2648,0.478097,0.333333,0.144763,0
-2025,62339,north-lodge-62339,North Lodge,durham,Durham,UC,1,1715,0.582507,0.500000,0.082507,0
-2025,62340,pelton-62340,Pelton,durham,Durham,UC,3,3722,0.437937,0.250000,0.187937,0
-2025,62341,peterlee-62341,Peterlee,durham,Durham,UC,2,2039,0.441393,0.333333,0.108060,0
-2025,62342,pittington-and-sherburn-62342,Pittington and Sherburn,durham,Durham,UC,1,1424,0.356742,0.500000,-0.143258,1
-2025,62343,sacriston-and-witton-gilbert-62343,Sacriston and Witton Gilbert,durham,Durham,UC,2,2564,0.398986,0.333333,0.065653,0
-2025,62344,seaham-62344,Seaham,durham,Durham,UC,2,2983,0.383842,0.333333,0.050508,0
-2025,62345,sedgefield-62345,Sedgefield,durham,Durham,UC,2,3110,0.358521,0.333333,0.025188,0
-2025,62346,shildon-and-dene-valley-62346,Shildon and Dene Valley,durham,Durham,UC,3,3911,0.520072,0.250000,0.270072,0
-2025,62347,spennymoor-62347,Spennymoor,durham,Durham,UC,2,3098,0.324726,0.333333,-0.008608,1
-2025,62348,stanley-62348,Stanley,durham,Durham,UC,2,2505,0.533333,0.333333,0.200000,0
-2025,62349,thornley-and-wheatley-hill-62349,Thornley and Wheatley Hill,durham,Durham,UC,1,1414,0.651344,0.500000,0.151344,0
-2025,62350,trimdon-and-wingate-62350,Trimdon and Wingate,durham,Durham,UC,2,2741,0.427216,0.333333,0.093883,0
-2025,62351,tudhoe-62351,Tudhoe,durham,Durham,UC,2,2451,0.337005,0.333333,0.003672,0
-2025,62352,upper-teesdale-62352,Upper Teesdale,durham,Durham,UC,1,1770,0.456497,0.500000,-0.043503,1
-2025,62353,weardale-62353,Weardale,durham,Durham,UC,2,3620,0.335635,0.333333,0.002302,0
-2025,62354,west-auckland-62354,West Auckland,durham,Durham,UC,2,2792,0.460960,0.333333,0.127627,0
-2025,62355,willington-and-hunwick-62355,Willington and Hunwick,durham,Durham,UC,2,2728,0.469575,0.333333,0.136241,0
+2025,62307,annfield-plain-and-tanfield-62307,Annfield Plain and Tanfield,county-durham,Durham,UC,2,2968,0.459569,0.333333,0.126235,0
+2025,54711,aycliffe-north-and-middridge-54711,Aycliffe North and Middridge,county-durham,Durham,UC,2,2936,0.340259,0.333333,0.006926,0
+2025,62308,aycliffe-south-62308,Aycliffe South,county-durham,Durham,UC,3,3296,0.390473,0.250000,0.140473,0
+2025,62309,barnard-castle-62309,Barnard Castle,county-durham,Durham,UC,1,1473,0.309572,0.500000,-0.190428,1
+2025,62310,belmont-62310,Belmont,county-durham,Durham,UC,2,3292,0.381531,0.333333,0.048198,0
+2025,62311,benfieldside-62311,Benfieldside,county-durham,Durham,UC,2,3143,0.320395,0.333333,-0.012939,1
+2025,62312,bishop-auckland-62312,Bishop Auckland,county-durham,Durham,UC,3,3989,0.428177,0.250000,0.178177,0
+2025,62313,blackhalls-and-hesledens-62313,Blackhalls and Hesledens,county-durham,Durham,UC,1,1413,0.445152,0.500000,-0.054848,1
+2025,62314,bowburn-and-coxhoe-62314,Bowburn and Coxhoe,county-durham,Durham,UC,3,3869,0.364177,0.250000,0.114177,0
+2025,62315,brandon-62315,Brandon,county-durham,Durham,UC,2,3022,0.297816,0.333333,-0.035517,1
+2025,62316,castle-eden-and-passfield-62316,Castle Eden and Passfield,county-durham,Durham,UC,1,1530,0.525490,0.500000,0.025490,0
+2025,62317,chester-le-street-north-62317,Chester-le-Street North,county-durham,Durham,UC,2,3052,0.354522,0.333333,0.021188,0
+2025,62318,chester-le-street-south-62318,Chester-le-Street South,county-durham,Durham,UC,2,3281,0.442853,0.333333,0.109519,0
+2025,54721,chilton-54721,Chilton,county-durham,Durham,UC,1,1114,0.469479,0.500000,-0.030521,1
+2025,62319,consett-north-62319,Consett North,county-durham,Durham,UC,1,1593,0.484620,0.500000,-0.015380,1
+2025,62320,consett-south-62320,Consett South,county-durham,Durham,UC,1,1344,0.550595,0.500000,0.050595,0
+2025,62321,craghead-and-south-moor-62321,Craghead and South Moor,county-durham,Durham,UC,2,2218,0.517583,0.333333,0.184250,0
+2025,62322,crook-62322,Crook,county-durham,Durham,UC,3,4048,0.406374,0.250000,0.156374,0
+2025,62323,dalton-and-dawdon-62323,Dalton and Dawdon,county-durham,Durham,UC,2,2447,0.357989,0.333333,0.024656,0
+2025,62324,deerness-62324,Deerness,county-durham,Durham,UC,2,3164,0.349241,0.333333,0.015908,0
+2025,62325,delves-lane-62325,Delves Lane,county-durham,Durham,UC,2,2529,0.413207,0.333333,0.079873,0
+2025,62326,derwent-and-pont-valley-62326,Derwent and Pont Valley,county-durham,Durham,UC,3,4821,0.365277,0.250000,0.115277,0
+2025,62327,easington-and-shotton-62327,Easington and Shotton,county-durham,Durham,UC,3,3554,0.486494,0.250000,0.236494,0
+2025,62328,elvet-gilesgate-and-shincliffe-62328,"Elvet, Gilesgate and Shincliffe",county-durham,Durham,UC,2,2373,0.353561,0.333333,0.020228,0
+2025,62329,evenwood-62329,Evenwood,county-durham,Durham,UC,1,1504,0.486702,0.500000,-0.013298,1
+2025,62330,ferryhill-62330,Ferryhill,county-durham,Durham,UC,2,2758,0.357505,0.333333,0.024172,0
+2025,62331,framwellgate-and-newton-hall-62331,Framwellgate and Newton Hall,county-durham,Durham,UC,3,4650,0.440430,0.250000,0.190430,0
+2025,62332,horden-and-dene-house-62332,Horden and Dene House,county-durham,Durham,UC,2,2393,0.479315,0.333333,0.145981,0
+2025,62333,lanchester-and-burnhope-62333,Lanchester and Burnhope,county-durham,Durham,UC,1,2107,0.358329,0.500000,-0.141671,1
+2025,62334,langley-and-esh-62334,Langley and Esh,county-durham,Durham,UC,1,1620,0.479630,0.500000,-0.020370,1
+2025,62335,lower-teesdale-62335,Lower Teesdale,county-durham,Durham,UC,2,2873,0.350853,0.333333,0.017519,0
+2025,62336,lumley-and-west-rainton-62336,Lumley and West Rainton,county-durham,Durham,UC,2,2915,0.464151,0.333333,0.130818,0
+2025,62337,murton-62337,Murton,county-durham,Durham,UC,2,2315,0.405184,0.333333,0.071850,0
+2025,62338,neville-s-cross-62338,Neville's Cross,county-durham,Durham,UC,2,2648,0.478097,0.333333,0.144763,0
+2025,62339,north-lodge-62339,North Lodge,county-durham,Durham,UC,1,1715,0.582507,0.500000,0.082507,0
+2025,62340,pelton-62340,Pelton,county-durham,Durham,UC,3,3722,0.437937,0.250000,0.187937,0
+2025,62341,peterlee-62341,Peterlee,county-durham,Durham,UC,2,2039,0.441393,0.333333,0.108060,0
+2025,62342,pittington-and-sherburn-62342,Pittington and Sherburn,county-durham,Durham,UC,1,1424,0.356742,0.500000,-0.143258,1
+2025,62343,sacriston-and-witton-gilbert-62343,Sacriston and Witton Gilbert,county-durham,Durham,UC,2,2564,0.398986,0.333333,0.065653,0
+2025,62344,seaham-62344,Seaham,county-durham,Durham,UC,2,2983,0.383842,0.333333,0.050508,0
+2025,62345,sedgefield-62345,Sedgefield,county-durham,Durham,UC,2,3110,0.358521,0.333333,0.025188,0
+2025,62346,shildon-and-dene-valley-62346,Shildon and Dene Valley,county-durham,Durham,UC,3,3911,0.520072,0.250000,0.270072,0
+2025,62347,spennymoor-62347,Spennymoor,county-durham,Durham,UC,2,3098,0.324726,0.333333,-0.008608,1
+2025,62348,stanley-62348,Stanley,county-durham,Durham,UC,2,2505,0.533333,0.333333,0.200000,0
+2025,62349,thornley-and-wheatley-hill-62349,Thornley and Wheatley Hill,county-durham,Durham,UC,1,1414,0.651344,0.500000,0.151344,0
+2025,62350,trimdon-and-wingate-62350,Trimdon and Wingate,county-durham,Durham,UC,2,2741,0.427216,0.333333,0.093883,0
+2025,62351,tudhoe-62351,Tudhoe,county-durham,Durham,UC,2,2451,0.337005,0.333333,0.003672,0
+2025,62352,upper-teesdale-62352,Upper Teesdale,county-durham,Durham,UC,1,1770,0.456497,0.500000,-0.043503,1
+2025,62353,weardale-62353,Weardale,county-durham,Durham,UC,2,3620,0.335635,0.333333,0.002302,0
+2025,62354,west-auckland-62354,West Auckland,county-durham,Durham,UC,2,2792,0.460960,0.333333,0.127627,0
+2025,62355,willington-and-hunwick-62355,Willington and Hunwick,county-durham,Durham,UC,2,2728,0.469575,0.333333,0.136241,0
 2025,62485,abbey-62485,Abbey,gloucester,Gloucester,CC,1,3397,0.386223,0.500000,-0.113777,1
 2025,62471,all-saints-and-oakley-62471,All Saints and Oakley,cheltenham,Cheltenham,CC,1,2585,0.483559,0.500000,-0.016441,1
 2025,62486,barnwood-and-hucclecote-62486,Barnwood and Hucclecote,gloucester,Gloucester,CC,1,3940,0.387817,0.500000,-0.112183,1

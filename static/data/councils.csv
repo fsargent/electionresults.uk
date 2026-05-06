@@ -26,7 +26,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2025,derbyshire-dales,Derbyshire Dales,CC,6,6,6,1.000000
 2025,doncaster,Doncaster,MB,21,55,4,0.072727
 2025,dover,Dover,CC,5,7,3,0.428571
-2025,durham,Durham,UC,51,98,12,0.122449
+2025,county-durham,Durham,UC,51,98,12,0.122449
 2025,east-cambridgeshire,East Cambridgeshire,CC,8,8,8,1.000000
 2025,east-devon,East Devon,CC,9,11,10,0.909091
 2025,east-hertfordshire,East Hertfordshire,CC,10,10,10,1.000000
@@ -314,7 +314,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2023,hyndburn,Hyndburn,SDT,12,12,2,0.166667
 2023,ipswich,Ipswich,SDT,16,16,9,0.562500
 2023,kings-lynn-and-west-norfolk,Kings Lynn & West Norfolk,SDA,34,54,35,0.648148
-2023,kingston-upon-hull,Kingston Upon Hull,UAT,19,20,5,0.250000
+2023,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,19,20,5,0.250000
 2023,kirklees,Kirklees,MB,23,24,11,0.458333
 2023,knowsley,Knowsley,MB,15,16,4,0.250000
 2023,lancaster,Lancaster,SDA,27,61,59,0.967213
@@ -713,7 +713,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2021,ipswich,Ipswich,SDT,26,31,24,0.774194
 2021,isle-of-wight,Isle Of Wight,UAA,39,39,19,0.487179
 2021,kings-lynn-and-west-norfolk,Kings Lynn & West Norfolk,SC,14,14,3,0.214286
-2021,kingston-upon-hull,Kingston Upon Hull,UAT,19,19,7,0.368421
+2021,kingston-upon-hull-city-of,Kingston Upon Hull,UAT,19,19,7,0.368421
 2021,kirklees,Kirklees,MB,23,25,15,0.600000
 2021,knowsley,Knowsley,MB,15,17,7,0.411765
 2021,lancaster,Lancaster,SC,10,10,7,0.700000

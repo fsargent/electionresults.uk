@@ -6,7 +6,8 @@ import type {
   Candidate,
   PartyView,
   CouncilFlip,
-  CouncilReorganisation
+  CouncilReorganisation,
+  CompositionSnapshot
 } from './types';
 
 interface SnapshotMarginal {
@@ -42,6 +43,7 @@ interface Snapshot {
   marginalWinners: SnapshotMarginal[];
   partyViews: PartyView[];
   flips: CouncilFlip[];
+  compositions: CompositionSnapshot[];
   reorganisations: CouncilReorganisation[];
 }
 
@@ -59,7 +61,38 @@ export const allRaces: Race[] = data.races;
 export const allMarginalWinners: SnapshotMarginal[] = data.marginalWinners;
 export const allPartyViews: PartyView[] = data.partyViews;
 export const allFlips: CouncilFlip[] = data.flips;
+export const allCompositions: CompositionSnapshot[] = data.compositions ?? [];
 export const allReorganisations: CouncilReorganisation[] = data.reorganisations;
+
+/**
+ * Composition truth-set lookup for one (council, year). Returns
+ * undefined when opencouncildata has no snapshot for that key (e.g.
+ * the 2026 cycle, where composition data won't exist until oncd
+ * publishes it; or the brief LGR window where successor councils
+ * appear in our LEH data before a composition snapshot exists for them).
+ */
+export function compositionForCouncilYear(
+  slug: string,
+  year: number
+): CompositionSnapshot | undefined {
+  return allCompositions.find(
+    (c) => c.councilSlug === slug && c.year === year
+  );
+}
+
+/**
+ * Most recent composition snapshot for a council. Used by the per-council
+ * page to display the running composition (replacing the older sum-
+ * across-cycles approximation when truth-set data is available).
+ */
+export function latestCompositionForCouncil(
+  slug: string
+): CompositionSnapshot | undefined {
+  const ours = allCompositions
+    .filter((c) => c.councilSlug === slug)
+    .sort((a, b) => b.year - a.year);
+  return ours[0];
+}
 
 export function reorganisationForCouncil(
   slug: string
@@ -147,6 +180,11 @@ export function latestFlipByCouncil(): Map<string, CouncilFlip> {
 }
 
 export interface WardHistoryCell {
+  /** Slug of the ward as recorded in this specific cycle's source data
+   *  (boundary reviews can mean the same wardName has different slugs
+   *  in different cycles — use this slug, not the row's wardSlug, when
+   *  linking into a specific cycle's per-ward section). */
+  wardSlug: string;
   year: number;
   winnerName: string;
   winnerParty: string;
@@ -202,6 +240,7 @@ export function wardHistoryForCouncil(slug: string): WardHistory {
       existing.slug = r.wardSlug;
     }
     byWard.get(r.wardName)!.cells.set(r.year, {
+      wardSlug: r.wardSlug,
       year: r.year,
       winnerName: top.name,
       winnerParty: top.party,
