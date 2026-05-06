@@ -158,7 +158,11 @@ export interface WardHistoryCell {
 
 export interface WardHistoryRow {
   wardName: string;
-  /** Sorted by year descending (most recent first). */
+  /** Same slug used as the section id on /[council]/[year] — used by the
+   *  ward-grid cell links so clicking a year jumps to that ward in the
+   *  per-cycle page. */
+  wardSlug: string;
+  /** Sorted by year ascending (latest cycle on the right). */
   cells: WardHistoryCell[];
 }
 
@@ -180,14 +184,24 @@ export interface WardHistory {
 export function wardHistoryForCouncil(slug: string): WardHistory {
   const races = allRaces.filter((r) => r.councilSlug === slug);
   const yearsSet = new Set<number>();
-  const byWard = new Map<string, Map<number, WardHistoryCell>>();
+  // Group by wardName (now ETL-normalised, so " & " / " and " variants
+  // collapse). Carry the slug alongside so the ward-grid cell links can
+  // anchor to the ward's section on the per-cycle page; if the same
+  // ward name has multiple slugs across cycles (boundary recodes), the
+  // most recent cycle's slug wins.
+  const byWard = new Map<string, { slug: string; cells: Map<number, WardHistoryCell> }>();
   for (const r of races) {
     yearsSet.add(r.year);
     const top = [...r.candidates].sort((a, b) => b.votes - a.votes)[0];
     if (!top) continue;
     const winningPct = r.validBallots > 0 ? top.votes / r.validBallots : 0;
-    if (!byWard.has(r.wardName)) byWard.set(r.wardName, new Map());
-    byWard.get(r.wardName)!.set(r.year, {
+    const existing = byWard.get(r.wardName);
+    if (!existing) {
+      byWard.set(r.wardName, { slug: r.wardSlug, cells: new Map() });
+    } else if (r.year >= Math.max(...existing.cells.keys(), -Infinity)) {
+      existing.slug = r.wardSlug;
+    }
+    byWard.get(r.wardName)!.cells.set(r.year, {
       year: r.year,
       winnerName: top.name,
       winnerParty: top.party,
@@ -200,9 +214,10 @@ export function wardHistoryForCouncil(slug: string): WardHistory {
   // Years go left-to-right ascending so the latest cycle is on the right.
   const years = [...yearsSet].sort((a, b) => a - b);
   const rows: WardHistoryRow[] = [...byWard.entries()]
-    .map(([wardName, perYear]) => ({
+    .map(([wardName, { slug, cells }]) => ({
       wardName,
-      cells: [...perYear.values()].sort((a, b) => a.year - b.year)
+      wardSlug: slug,
+      cells: [...cells.values()].sort((a, b) => a.year - b.year)
     }))
     .sort((a, b) => a.wardName.localeCompare(b.wardName));
   return { years, rows };

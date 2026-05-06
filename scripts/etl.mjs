@@ -196,6 +196,23 @@ function titleCaseWardName(s) {
   );
 }
 
+/**
+ * Normalise a ward-name string for consistency across LEH cycles.
+ *
+ * The LEH workbooks switch between ` & ` and ` and ` for the same ward
+ * across years (e.g. "Longcross, Lyne & Chertsey South" in 2021–2023
+ * became "Longcross, Lyne and Chertsey South" in 2024). The ward-grid
+ * matcher compares literal `wardName` strings, so two variants land as
+ * two rows. Standardise on " and " here so downstream matching, slug
+ * generation, and display all see one canonical string per ward.
+ *
+ * Also runs the title-case fix above for shouty source data.
+ */
+function normaliseWardName(s) {
+  if (!s) return s;
+  return titleCaseWardName(s).replace(/ & /g, ' and ');
+}
+
 function slugify(s) {
   return String(s)
     .toLowerCase()
@@ -297,7 +314,7 @@ function ingestCycle(cycle) {
     const wc = cycle.cols.ward;
     const council = String(w[wc.council] ?? '').trim();
     if (!council) continue;
-    const wardName = titleCaseWardName(String(w[wc.wardName] ?? '').trim());
+    const wardName = normaliseWardName(String(w[wc.wardName] ?? '').trim());
     const wardCodeRaw = wc.wardCode ? w[wc.wardCode] : null;
     const councilSlug = slugify(council);
     const wardCode = wardCodeRaw != null ? String(wardCodeRaw).trim() : null;
@@ -338,7 +355,7 @@ function ingestCycle(cycle) {
       orphanCount += 1;
       continue;
     }
-    const wardName = titleCaseWardName(String(c[cc.wardName] ?? '').trim());
+    const wardName = normaliseWardName(String(c[cc.wardName] ?? '').trim());
     const wardCodeRaw = cc.wardCode ? c[cc.wardCode] : null;
     const councilSlug = slugify(council);
     const wardCode = wardCodeRaw != null ? String(wardCodeRaw).trim() : null;

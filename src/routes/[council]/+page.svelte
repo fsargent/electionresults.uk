@@ -215,7 +215,7 @@
                     style:background-color={c}
                     title={`${row.wardName} ${cell.year}: ${cell.winnerName} (${partyDisplayName(cell.winnerParty)}) — ${cell.winnerVotes} votes, ${pct(cell.winningPct)} of ${cell.validBallots} valid ballots`}
                   >
-                    <a href={`/${history.councilSlug}/${cell.year}`} class="ward-link">
+                    <a href={`/${history.councilSlug}/${cell.year}#${row.wardSlug}`} class="ward-link">
                       {pct(cell.winningPct, 0)}
                     </a>
                   </td>
