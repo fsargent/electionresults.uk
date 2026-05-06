@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { partyColor } from '$lib/party-colors';
+  import { partyColor, partyDisplayName } from '$lib/party-colors';
   let { name }: { name: string | null | undefined } = $props();
   const colour = $derived(partyColor(name));
-  const display = $derived(name ?? 'Unknown');
+  const display = $derived(partyDisplayName(name));
 </script>
 
 <span class="party">

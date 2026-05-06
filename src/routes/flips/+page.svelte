@@ -1,6 +1,7 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
+  import { partyDisplayName } from '$lib/party-colors';
   let { data } = $props();
 
   let yearFilter = $state('');
@@ -68,7 +69,7 @@
       <select bind:value={fromPartyFilter}>
         <option value="">Any party</option>
         {#each data.parties as p (p)}
-          <option value={p}>{p}</option>
+          <option value={p}>{partyDisplayName(p)}</option>
         {/each}
       </select>
     </label>
@@ -77,7 +78,7 @@
       <select bind:value={toPartyFilter}>
         <option value="">Any party</option>
         {#each data.parties as p (p)}
-          <option value={p}>{p}</option>
+          <option value={p}>{partyDisplayName(p)}</option>
         {/each}
       </select>
     </label>

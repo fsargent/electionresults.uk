@@ -1,7 +1,7 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
-  import { partyColor } from '$lib/party-colors';
+  import { partyColor, partyDisplayName } from '$lib/party-colors';
   import PartyBars from '$lib/components/PartyBars.svelte';
   import SeatChart from '$lib/components/SeatChart.svelte';
   let { data } = $props();
@@ -97,8 +97,9 @@
       Cases where the largest party (by seats won) changed from one cycle to
       the next. Each row shows the new party's vote share in both cycles
       and the seats they took. A small <strong>vote shift</strong> paired
-      with a big <strong>seat shift</strong> is the First-Past-the-Post
-      volatility story.
+      with a big <strong>seat shift</strong> is the classic
+      First-Past-the-Post pattern: small change in support, sweeping
+      change in representation.
     </p>
 
     {#each flips as f (f.yearFrom + ':' + f.yearTo)}
@@ -212,7 +213,7 @@
                   <td
                     class="ward-cell"
                     style:background-color={c}
-                    title={`${row.wardName} ${cell.year}: ${cell.winnerName} (${cell.winnerParty}) — ${cell.winnerVotes} votes, ${pct(cell.winningPct)} of ${cell.validBallots} valid ballots`}
+                    title={`${row.wardName} ${cell.year}: ${cell.winnerName} (${partyDisplayName(cell.winnerParty)}) — ${cell.winnerVotes} votes, ${pct(cell.winningPct)} of ${cell.validBallots} valid ballots`}
                   >
                     <a href={`/${history.councilSlug}/${cell.year}`} class="ward-link">
                       {pct(cell.winningPct, 0)}

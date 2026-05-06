@@ -55,8 +55,36 @@ const PARTY_COLORS: Record<string, string> = {
   'Blue Revolution': '#1E90FF',
   Majority: '#999999',
   Transform: '#999999',
-  'Transform Party': '#999999'
+  'Transform Party': '#999999',
+
+  // Tower Hamlets-based party associated with Lutfur Rahman; often appears
+  // in the source data under its shortcode "ASP" (see PARTY_DISPLAY_NAMES).
+  Aspire: '#7B2D8E'
 };
+
+/**
+ * Map source-data shortcodes to their proper display names. The LEH source
+ * data uses inconsistent shortcodes for many smaller parties; this map
+ * canonicalises them at render time. Add entries here as you encounter
+ * abbreviations in the data — many are still uncanonicalised
+ * (AEF, AFP, AWA, BCP, etc. as of 2026-05). Both `partyColor` and
+ * `partyDisplayName` consult this map, so a new entry only needs the
+ * shortcode → real-name mapping plus (optionally) a colour for the real
+ * name in PARTY_COLORS.
+ */
+const PARTY_DISPLAY_NAMES: Record<string, string> = {
+  ASP: 'Aspire'
+};
+
+/**
+ * Resolve a (possibly abbreviated) source-data party name to its display
+ * name. Falls through to the input unchanged when no mapping exists, so
+ * full canonical names like "Labour Party" pass through untouched.
+ */
+export function partyDisplayName(name: string | null | undefined): string {
+  if (!name) return 'Unknown';
+  return PARTY_DISPLAY_NAMES[name] ?? name;
+}
 
 /**
  * Resolve a party name to a swatch colour.
@@ -66,13 +94,14 @@ const PARTY_COLORS: Record<string, string> = {
  */
 export function partyColor(name: string | null | undefined): string {
   if (!name) return '#999999';
-  const direct = PARTY_COLORS[name];
+  const canonical = partyDisplayName(name);
+  const direct = PARTY_COLORS[canonical];
   if (direct) return direct;
 
   // Lightweight heuristics for unknown local groupings — keeps the chart
   // monochrome rather than guessing wrong on red/blue spectrum.
-  if (/independent/i.test(name)) return '#888888';
-  if (/residents|alliance|first|community|borough|group|local/i.test(name))
+  if (/independent/i.test(canonical)) return '#888888';
+  if (/residents|alliance|first|community|borough|group|local/i.test(canonical))
     return '#A8A8A8';
 
   return '#999999';

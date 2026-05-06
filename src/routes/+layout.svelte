@@ -28,9 +28,10 @@
     </p>
     <p class="muted">
       <strong>Note on framing.</strong> Named winners on this site appear as
-      evidence of how First-Past-the-Post elects representatives without
-      majority support. The voting method is the subject; individuals are not.
-      See <a href="/methodology">methodology</a> for the full editorial frame.
+      evidence of how First-Past-the-Post elects representatives when most
+      voters in a ward chose someone else. The voting method is the subject;
+      individuals are not. See <a href="/methodology">methodology</a> for the
+      full editorial frame.
     </p>
     <p class="muted">
       Want a fix? Back the call for a

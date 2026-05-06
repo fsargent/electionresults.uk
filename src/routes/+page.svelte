@@ -1,10 +1,9 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
-  import Frac from '$lib/components/Frac.svelte';
   import CouncilHexMap from '$lib/components/CouncilHexMap.svelte';
   import { belowQuotaColor } from '$lib/below-quota-color';
-  import { partyColor } from '$lib/party-colors';
+  import { partyColor, partyDisplayName } from '$lib/party-colors';
   let { data } = $props();
 
   const fills = $derived(
@@ -27,60 +26,71 @@
   // never flipped between consecutive cycles stay grey.
   const flipFills = $derived(
     Object.fromEntries(
-      data.flipMapEntries.map((f) => [
-        f.councilSlug,
-        {
-          color: partyColor(f.toParty),
-          href: `/${f.councilSlug}`,
-          title: `${f.council}: ${f.fromParty} → ${f.toParty} (${f.yearFrom} → ${f.yearTo})`,
-          primary: `${f.council} (${f.yearFrom} → ${f.yearTo})`,
-          secondary: `${f.fromParty} → ${f.toParty} · ${pts(f.seatSwingNew)} seat shift on ${pts(f.voteSwingNew)} vote shift`
-        }
-      ])
+      data.flipMapEntries.map((f) => {
+        const fromName = partyDisplayName(f.fromParty);
+        const toName = partyDisplayName(f.toParty);
+        return [
+          f.councilSlug,
+          {
+            color: partyColor(f.toParty),
+            href: `/${f.councilSlug}`,
+            title: `${f.council}: ${fromName} → ${toName} (${f.yearFrom} → ${f.yearTo})`,
+            primary: `${f.council} (${f.yearFrom} → ${f.yearTo})`,
+            secondary: `${fromName} → ${toName} · ${pts(f.seatSwingNew)} seat shift on ${pts(f.voteSwingNew)} vote shift`
+          }
+        ];
+      })
     )
   );
 </script>
 
 <svelte:head>
-  <title>electionresults.uk — auditing how UK councils elect on under-quota support</title>
+  <title>electionresults.uk — auditing UK council seats won when most voters chose someone else</title>
   <meta
     name="description"
-    content="A volunteer audit of UK local-election results across five cycles (2021-2025). Each ward is compared to the proportional quota — the share that would be needed to win one seat under any proportional method."
+    content="A volunteer audit of UK local-election results across five cycles (2021–2025). For every ward, we ask: did the winner clear the share of votes a fair, proportional system would require?"
   />
   <link rel="canonical" href="https://electionresults.uk/" />
 </svelte:head>
 
 <div class="banner">
-  Pre-launch preview · five English local-election cycles ingested
+  Pre-launch preview · five English local-election cycles loaded
   (2021–2025). The 2026-05-07 results will appear as the source data
   for that cycle is published.
 </div>
 
 <main class="wide">
-  <h1>How many UK councillors won with less support than a fair count would require?</h1>
+  <h1>How many UK councillors won when most voters chose someone else?</h1>
 
   <p class="lede">
-    First-Past-the-Post and bloc vote let a candidate win on whatever
-    share the vote-splitting produces &mdash; there is no minimum
-    threshold. We compare every elected councillor's share of valid
-    ballots to the <strong>proportional quota</strong>: the share that
-    would be needed to be guaranteed that seat under a method that
-    allocates seats in proportion to votes
-    (<Frac num="1" denom="seats + 1" />). Across five cycles of UK
-    local elections &mdash; covering county councils, unitary
-    authorities, metropolitan boroughs, district councils and London
-    boroughs &mdash; <strong>{num(data.totals.councils)}</strong>
-    council&times;cycle pairs, <strong>{num(data.totals.races)}</strong>
-    ward races, <strong>{num(data.totals.seats)}</strong> seats elected.
-    Of those, <strong>{num(data.totals.belowQuotaSeats)}</strong>
+    The most extreme case in our data: a councillor elected on
+    <strong>{pct(data.lowestWinner.winningPct)}</strong> of the vote
+    in {data.lowestWinner.wardName} ({data.lowestWinner.council},
+    {data.lowestWinner.year}) &mdash; meaning
+    <strong>{pct(1 - data.lowestWinner.winningPct)}</strong>
+    of people who voted in that ward chose someone else, and they
+    still won the seat. Under First-Past-the-Post and bloc vote,
+    that's allowed: a candidate wins by being top of the poll,
+    regardless of share, with no minimum threshold. We compare every
+    elected councillor's share of votes to the share they would need
+    under a system where seats match votes.<sup class="fn"><a
+      href="/methodology#quota"
+      title="See the methodology page for the formula and worked examples"
+    >(1)</a></sup> Across five cycles of UK local elections &mdash;
+    covering county councils, unitary authorities, metropolitan
+    boroughs, district councils and London boroughs &mdash; that's
+    <strong>{num(data.totals.councils)}</strong> council-cycles,
+    <strong>{num(data.totals.races)}</strong> ward races and
+    <strong>{num(data.totals.seats)}</strong> seats. Of those,
+    <strong>{num(data.totals.belowQuotaSeats)}</strong>
     ({pct(data.totals.belowQuotaSeats / Math.max(1, data.totals.seats))})
-    were won on less than the proportional quota.
+    fell short of that fair share.
   </p>
 
   <h2>Year-over-year flips</h2>
   <p class="muted">
-    Each council that changed plurality party between consecutive cycles,
-    coloured by the party that took control. Councils that haven't
+    Each council where the leading party changed between consecutive cycles,
+    coloured by the party that took the lead. Councils that haven't
     flipped (or that we only have one cycle for) stay grey. Hover for
     the cycle and the party transition; click to see the council's full
     history.
@@ -108,12 +118,13 @@
   <p class="muted">
     Councils where the largest party (by seats won) changed between
     consecutive cycles, ranked by
-    <strong>seat shift ÷ vote shift</strong> for the incoming party — a
-    big seat shift on a small vote shift wins. (For example: Wealden
-    2021→2023 — Liberal Democrats gained 22.9 points of seat share on
-    just 0.6 points of extra vote share, a ratio of about 38.) The
-    textbook First-Past-the-Post volatility story: small movement in
-    support, total movement in representation.
+    <strong>seat shift ÷ vote shift</strong> for the incoming party.
+    The bigger the seat shift on the smaller the vote shift, the higher
+    the rank. (For example: Wealden 2021→2023 — Liberal Democrats
+    gained 22.9 points of seat share on just 0.6 points of extra vote
+    share, a ratio of about 38.) The classic First-Past-the-Post
+    pattern: a small change in votes produces a sweeping change in
+    seats.
   </p>
 
   <table aria-label="Ten biggest party-control flips ranked by seat-vs-vote disproportion">
@@ -145,11 +156,11 @@
 
   <h2>Distorted elections</h2>
   <p class="muted">
-    Councils where seats were handed to candidates on less support than
-    a proportional method would require. The map shades every UK council
+    Councils where seats went to candidates with less support than
+    a proportional system would require. The map shades every UK council
     by how many of its seats fell below that bar in its most recent
-    cycle (darker = worse); the table picks out the ten thinnest
-    individual mandates anywhere in the data.
+    cycle (darker = more seats below). The table lists the ten seats
+    won on the smallest share of the vote anywhere in the data.
   </p>
   <div class="map-and-scale">
     <CouncilHexMap
@@ -167,22 +178,22 @@
         <span>0%</span><span>50%</span><span>100%</span>
       </div>
       <p class="muted small">
-        One hex = one council. Geographic position is approximate
-        (cartogram, not a literal map). A council that polled in 2025
-        shows 2025; a London Borough that last polled in 2022 shows
-        2022.
+        One hex = one council. The layout is roughly geographic but not
+        a literal map (it's a cartogram — each council gets equal space,
+        regardless of size). A council that polled in 2025 shows 2025;
+        a London Borough that last polled in 2022 shows 2022.
       </p>
     </div>
   </div>
 
-  <h3>Ten least popular winners</h3>
+  <h3>Ten seats won on the smallest share of the vote</h3>
   <p class="muted">
     The seats furthest below the proportional quota anywhere in the data
-    — councillors elected on the smallest share of valid ballots cast in
-    their ward. Click a ward to jump to its race in context.
+    — councillors elected on the smallest share of votes in their ward.
+    Click a ward to see the full race.
   </p>
 
-  <table aria-label="Ten least popular winners across all cycles">
+  <table aria-label="Ten seats won on the smallest share of the vote across all cycles">
     <thead>
       <tr>
         <th>Year</th>
@@ -191,7 +202,7 @@
         <th class="num">Seats</th>
         <th class="num">Won at</th>
         <th class="num">Quota</th>
-        <th class="num">Under par</th>
+        <th class="num">Below quota</th>
       </tr>
     </thead>
     <tbody>
@@ -227,8 +238,8 @@
   <h2>All councils</h2>
   <p class="muted">
     {num(data.allCouncils.length)} councils with at least one cycle of
-    data. Click a name for the council overview, with every cycle and
-    cross-cycle party-control changes.
+    data. Click a name to see every cycle and any changes in the
+    leading party.
   </p>
   <ul class="all-councils">
     {#each data.allCouncils as c (c.councilSlug)}
@@ -257,6 +268,9 @@
   .lede {
     font-size: 1.15rem;
   }
+  .fn { font-size: 0.7em; }
+  .fn a { text-decoration: none; color: var(--muted); }
+  .fn a:hover { text-decoration: underline; color: var(--accent); }
   /* Wider main for the worst-seats table; constrain prose blocks for
      readability rather than letting them stretch the full 96ch. */
   h1,

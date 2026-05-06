@@ -21,13 +21,13 @@
     This page documents every formula, source, and editorial choice on the
     site. Read it before you cite us. If you find an error, mail
     <a href="mailto:felix.sargent@gmail.com">felix.sargent@gmail.com</a>
-    and a correction will be published with date, diff, and impact.
+    &mdash; I'll publish a correction with date, diff, and impact.
   </p>
 
   <h2>Editorial frame</h2>
   <p>
-    Every page on this site is structured to make
-    <strong>the voting method the subject of the observation</strong>, not the
+    Every page on this site makes
+    <strong>the voting method the subject</strong> &mdash; not the
     individual elected on it. We name candidates because the public election
     record names them; we make no claim about any individual candidate's
     conduct, fitness for office, or character. The factual claim — "won X% of
@@ -35,23 +35,22 @@
     <a href="/data">/data</a>.
   </p>
   <p>
-    We deliberately avoid the words "majority" and "minority" as system
-    labels. They imply that First-Past-the-Post and bloc vote have a
-    numerical threshold
-    a winner must clear &mdash; which they do not. A candidate wins
-    under these methods by being top of the poll, full stop, regardless
-    of share. Instead we report each elected candidate's share against
-    the <strong>proportional quota</strong> &mdash; the share that would
-    be needed to be guaranteed that seat under a voting method that
-    allocates seats in proportion to votes &mdash; and call out the gap.
+    We deliberately don't call winners "majority" or "minority"
+    winners. Those terms imply First-Past-the-Post and bloc vote have a
+    numerical threshold a winner must clear &mdash; they don't. A
+    candidate wins under these methods by being top of the poll, full
+    stop, regardless of share. Instead we report each elected
+    candidate's share against the <strong>proportional quota</strong>
+    &mdash; the share they'd need to clinch the seat under a system
+    that allocates seats in proportion to votes &mdash; and call out
+    the gap.
   </p>
   <p>
-    Where seats are allocated proportionally to votes, results like the
-    ones on this site do not occur: the proportional quota is the floor
-    that any common proportional method requires. The contrast between
+    Under proportional systems, results like the ones on this site
+    simply don't occur: the proportional quota is the floor that any
+    common proportional method requires. The contrast between
     First-Past-the-Post / bloc vote and a proportional alternative is
-    the rhetorical hook of the project, and the editorial frame
-    throughout.
+    the editorial frame throughout the site.
   </p>
   <p>
     <strong>What counts as "proportional"?</strong> The quota threshold
@@ -82,10 +81,11 @@
     For a multi-member ward (electing N councillors at once under bloc vote),
     each elected candidate has their own
     <code>candidate_votes / valid_ballots</code>. We headline the
-    <strong>most-marginal of the elected candidates</strong> — the seat-holder
-    with the thinnest mandate in that ward — because that figure shows how
-    little support the weakest seat-winner actually attracted. Per-candidate
-    shares are also visible in the candidate table on every council page.
+    <strong>elected candidate with the smallest share</strong> — the
+    seat-holder at the margin in that ward — because that figure shows
+    how little support a seat actually needed under bloc vote.
+    Per-candidate shares are also visible in the candidate table on
+    every council page.
   </p>
   <p>
     <code>valid_ballots = ballots_cast − invalid_votes</code>. This matches
@@ -109,7 +109,7 @@
     denominator, so the comparison stays apples-to-apples.
   </p>
 
-  <h2>Proportional quota and "under par"</h2>
+  <h2 id="quota">Proportional quota and "under par"</h2>
   <p>
     The <strong>proportional quota</strong> is the share of valid
     ballots a candidate would need to be guaranteed a seat under any
@@ -162,7 +162,7 @@
     Aggregating "candidate votes by party" therefore over-counts parties
     with full slates and under-counts parties with partial ones. Treat
     the proportional column as a <em>directional proxy</em> for what
-    a list-PR system would deliver, not a strict counterfactual. A
+    a list-PR system would deliver, not an exact prediction. A
     preferential proportional method that counts voter rankings would
     avoid this distortion, but the LEH data does not record voter
     rankings so we cannot reproduce that allocation here.
@@ -190,13 +190,13 @@
       pair (cycle&nbsp;N, cycle&nbsp;N+1) where the largest party (by
       seats won this cycle) changed, we record the flip and compute
       the incoming party's vote-share shift and seat-share shift
-      between the two cycles, both as percentage points. Flips are
-      ranked by the formula
+      between the two cycles, both as percentage points (pp). Flips
+      are ranked by the formula
       <Frac num="seat shift (pp)" denom="max(vote shift (pp), 1 pp)" />
       &mdash; a big seat shift on a small vote shift scores high. The
       vote-shift denominator is floored at 1 percentage point so a
       flip on near-zero vote movement (e.g. Wealden 2021&rarr;2023,
-      0.6&nbsp;pp) doesn't divide by zero. The rich per-flip
+      0.6&nbsp;pp) doesn't divide by zero. The per-flip
       visualisation shows a bar comparison of votes vs seats for both
       cycles.
     </li>
@@ -214,7 +214,8 @@
   <h2>Council reorganisations</h2>
   <p>
     Eleven councils in our window were created or abolished by the
-    2019&ndash;2023 wave of UK local-government reorganisation. Where
+    2019&ndash;2023 wave of UK local-government reorganisation (LGR).
+    Where
     that applies, the council overview page carries an explicit
     warning banner explaining what happened and when, and listing the
     predecessor or successor councils. The list is hand-curated from
@@ -239,8 +240,8 @@
       by year, party, and council.
     </li>
     <li>
-      <a href="/flips">/flips</a> &middot; every council that flipped
-      plurality party between consecutive cycles, ranked by
+      <a href="/flips">/flips</a> &middot; every council where the
+      leading party changed between consecutive cycles, ranked by
       seat-shift&nbsp;÷&nbsp;vote-shift.
     </li>
   </ul>
@@ -299,7 +300,8 @@
     <li>An exact council-composition figure that matches each council's
       live members list — see the "Council composition" caveat above.</li>
     <li>Per-candidate pages and biographies — explicitly excluded by
-      editorial design (race-as-noun discipline).</li>
+      editorial design: the unit of analysis is the seat / race, not
+      the person.</li>
   </ul>
 
   <h2>Errata</h2>

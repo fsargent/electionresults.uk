@@ -57,15 +57,15 @@
     <p>
       Each race below shows the share of valid ballots the marginal
       elected candidate actually won, and compares it to the
-      <strong>proportional quota</strong>: the share that would be needed
-      to be guaranteed that seat under any proportional voting method
+      <strong>proportional quota</strong>: the share they'd need to
+      clinch the seat under any proportional voting method
       (<Frac num="1" denom="seats + 1" />). For a 1-seat ward
       the quota is 50%; for 2 seats, 33.3%; for 3 seats, 25%.
     </p>
     <p>
       Where the actual winning share fell below the quota, we show the gap as
       <strong>points under par</strong> &mdash; the editorial indictment.
-      Above-par results are just majority mandates and pass without comment.
+      Above-par results clear the bar and pass without comment.
       The voting method is the subject of every observation here. Named
       candidates appear as the public election record requires; the cause
       being audited is the voting method, not the individuals. See the
@@ -81,12 +81,12 @@
       this cycle, parties received the vote totals below. The
       <strong>proportional</strong> column shows what each party would
       have won if the {view.totalSeats} seat{view.totalSeats === 1 ? '' : 's'}
-      had been allocated to those vote totals in proportion
+      had been shared out in proportion to votes received
       (<a href="/methodology">how, with caveats</a>). The
       <strong>Δ</strong> column is the actual seat count minus the
       proportional seat count &mdash; positive numbers are parties
-      First-Past-the-Post over-represented in this council, negative
-      are parties it under-represented.
+      First-Past-the-Post over-represented; negative are parties it
+      under-represented.
     </p>
 
     <table class="party-view" aria-describedby="party-view">
@@ -232,17 +232,23 @@
             <th>Party</th>
             <th class="num">Votes</th>
             <th class="num">Share</th>
+            <th class="num" title="Each elected candidate's share of valid ballots minus the proportional quota for this race. Positive = cleared the quota; negative = won the seat below it.">Drift from quota</th>
             <th>Elected</th>
           </tr>
         </thead>
         <tbody>
           {#each race.candidates as c (race.wardSlug + ':' + c.rank)}
+            {@const share = race.validBallots > 0 ? c.votes / race.validBallots : 0}
+            {@const drift = share - race.quota}
             <tr class:elected={c.elected}>
               <td class="num">{c.rank}</td>
               <td>{c.name}</td>
               <td><Party name={c.party} /></td>
               <td class="num">{num(c.votes)}</td>
-              <td class="num pct">{pct(race.validBallots > 0 ? c.votes / race.validBallots : 0)}</td>
+              <td class="num pct">{pct(share)}</td>
+              <td class="num pct" class:warn={c.elected && drift < 0}>
+                {#if c.elected}{pts(drift)}{:else}<span class="muted">—</span>{/if}
+              </td>
               <td>{#if c.elected}<span aria-label="Elected to seat" title="Elected to seat">Elected</span>{/if}</td>
             </tr>
           {/each}
