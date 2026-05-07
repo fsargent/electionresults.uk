@@ -60,14 +60,18 @@
   </p>
   <MapFlips entries={data.flipMapEntries} />
 
-  <h3>Ten most recent council-control changes</h3>
+  <h3>Ten biggest council-control changes</h3>
   <p class="muted">
-    The ten most recent flips. A flip = the largest party in the
-    council's running composition actually changed between cycles
-    (per <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>'s
+    Ranked by composition shift &mdash; the incoming party's gain in
+    seat share of the full council. A big shift on a small vote swing
+    is the FPTP signature: a few percentage points of vote movement
+    can land enough seats to swap which party leads the council. A
+    flip = the largest party in the council's running composition
+    actually changed between cycles (per
+    <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>'s
     annual snapshot). See <a href="/flips">/flips</a> for the full list.
   </p>
-  <table aria-label="Ten most recent council-control changes">
+  <table aria-label="Ten biggest council-control changes by composition shift">
     <thead>
       <tr>
         <th>Cycle</th>
@@ -77,7 +81,7 @@
       </tr>
     </thead>
     <tbody>
-      {#each data.recentFlips as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
+      {#each data.topFlipsByShift as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
         <tr>
           <td class="num">{f.yearFrom} → {f.yearTo}</td>
           <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>

@@ -34,10 +34,26 @@ export function load() {
   const distortionMapEntries = latestDistortionPerCouncil();
   // For the year-over-year flip map: the most recent flip per council.
   const flipMapEntries = [...latestFlipByCouncil().values()];
-  // 10 most recent council-control changes anywhere in the data —
-  // tabular companion to the flip map.
-  const recentFlips = [...allFlips]
-    .sort((a, b) => b.yearTo - a.yearTo || b.yearFrom - a.yearFrom)
+  // 10 biggest council-control changes by composition shift — the
+  // incoming party's gain in seat share on the full council. Tie-break
+  // on the vote-vs-seat gap (most FPTP-amplified first), then most
+  // recent. Recency-sorted version was misleading: a tiny snapshot
+  // drift that nudged the largest-party label could outrank Doncaster
+  // 2025's Reform sweep.
+  const topFlipsByShift = [...allFlips]
+    .sort((a, b) => {
+      const shiftA = Math.abs(a.newPartySeatTo - a.newPartySeatFrom);
+      const shiftB = Math.abs(b.newPartySeatTo - b.newPartySeatFrom);
+      if (shiftB !== shiftA) return shiftB - shiftA;
+      const ampA =
+        Math.abs(a.newPartySeatTo - a.newPartySeatFrom) -
+        Math.abs(a.newPartyVoteTo - a.newPartyVoteFrom);
+      const ampB =
+        Math.abs(b.newPartySeatTo - b.newPartySeatFrom) -
+        Math.abs(b.newPartyVoteTo - b.newPartyVoteFrom);
+      if (ampB !== ampA) return ampB - ampA;
+      return b.yearTo - a.yearTo || b.yearFrom - a.yearFrom;
+    })
     .slice(0, 10);
   return {
     totals,
@@ -47,7 +63,7 @@ export function load() {
     lowestWinner,
     topDistortedCycles,
     distortionMapEntries,
-    recentFlips,
+    topFlipsByShift,
     latestByCouncil: latestCouncilSummaries(),
     allCouncils: distinctCouncilSlugs(),
     flipMapEntries
