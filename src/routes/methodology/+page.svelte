@@ -131,20 +131,9 @@
     count. We surface this as <em>"X.X points below quota"</em> and
     treat it as the editorial indictment of the voting method, not
     the candidate. Positive (above-quota) results are mathematically
-    clean and pass without comment. (The DB column and TS field are
-    named <code>under_par</code> for compatibility with earlier
-    snapshots; the value itself is signed-gap, where below-quota
-    reads as a negative number — same convention as the
-    <em>Drift from quota</em> column on per-council pages.)
-  </p>
-  <p>
-    This is a deliberate departure from the older "minority winner"
-    framing (winning_pct &lt; 50%). The 50% threshold is not a rule of
-    First-Past-the-Post or bloc vote &mdash; calling someone a "minority winner"
-    implies they fell short of a standard the system never required of
-    them. The quota framing is the standard a proportional system
-    <em>does</em> require, and the gap is the loss attributable to the
-    method.
+    clean and pass without comment. The value is a signed gap:
+    below-quota results read as a negative number, matching the
+    <em>Drift from quota</em> column on per-council pages.
   </p>
 
   <h2>"If votes were counted by party"</h2>
@@ -198,18 +187,12 @@
       largest single party in the council's running composition
       changes between year&nbsp;N&minus;1 and year&nbsp;N for some
       year&nbsp;N where an election was held. Composition is the
-      opencouncildata annual snapshot &mdash; the truth-set, not our
-      cycle-by-cycle approximation. This is a deliberate departure
-      from the older "cycle leader" definition (the party that won the
-      most seats in a single cycle's election alone), which misled in
-      by-thirds councils where one cycle's pickup could top the per-
-      cycle table without changing who actually held the most seats on
-      the council overall (East Lindsey 2024 is the exemplar &mdash;
-      Reform won the seats up that cycle, but Conservatives still hold
-      ~28 of 55 seats on the actual council, so calling it a "flip"
-      would have been false). The <a href="/flips">/flips lens</a>
-      lists every council-control change in our window, sorted by
-      recency &mdash; pure facts, no ranking by anything contentious.
+      opencouncildata annual snapshot of every council's actual seat
+      count by party, including by-elections and defections, so the
+      flip reflects a real change in who holds the most seats on the
+      whole council &mdash; not just who topped the table in a single
+      cycle's election. The <a href="/flips">/flips lens</a> lists
+      every council-control change in our window, sorted by recency.
       Per-flip visualisation on each council page shows the running
       composition before and after.
     </li>
