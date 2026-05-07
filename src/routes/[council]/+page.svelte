@@ -157,44 +157,39 @@
         data.compositionBefore?.totalSeats ??
         0}
       {@const isAllOut = fullSeats > 0 && cycle.totalSeatCount >= fullSeats * 0.9}
-      <h3 class="bars-heading">
-        {isAllOut
-          ? 'Council composition: what this election replaced'
-          : 'Council composition: before vs after'}
-      </h3>
+      <h3 class="bars-heading">Council composition: what this election replaced</h3>
       <p class="muted">
         {#if isAllOut}
           The {cycle.year} cycle was an all-out election &mdash; every
-          seat was contested, so the new composition is the
-          <em>Actual seats</em> row above. The snapshot below shows the
-          council on the eve of that election ({cycle.year - 1}
+          seat was contested. The two
           <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
-          snapshot), for context on what the result replaced.
+          snapshots below show the council immediately after the {cycle.year} election
+          (current) and on the eve of it ({cycle.year - 1}), so you can see
+          what the result replaced.
         {:else}
           Two
           <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
-          snapshots: the council immediately before the {cycle.year} election
-          ({cycle.year - 1} snapshot) and immediately after it ({cycle.year}
-          snapshot). Only ~⅓ of seats were contested in {cycle.year} &mdash;
-          most of the bench is unchanged, and the cycle's effect on the
-          overall composition is what shifts.
+          snapshots: the council immediately after the {cycle.year} election (current)
+          and immediately before it ({cycle.year - 1}). Only ~⅓ of seats were
+          contested in {cycle.year} &mdash; most of the bench is unchanged,
+          and the cycle's effect on the overall composition is what shifts.
         {/if}
       </p>
       <div class="composition-pair">
-        {#if data.compositionBefore}
+        {#if data.compositionAfter}
           <div>
             <SeatChart
-              label={`Before (${cycle.year - 1})`}
-              segments={compositionSegments(data.compositionBefore)}
+              label={`Current (${cycle.year})`}
+              segments={compositionSegments(data.compositionAfter)}
               minSize={14}
             />
           </div>
         {/if}
-        {#if !isAllOut && data.compositionAfter}
+        {#if data.compositionBefore}
           <div>
             <SeatChart
-              label={`After (${cycle.year})`}
-              segments={compositionSegments(data.compositionAfter)}
+              label={`Previous (${cycle.year - 1})`}
+              segments={compositionSegments(data.compositionBefore)}
               minSize={14}
             />
           </div>

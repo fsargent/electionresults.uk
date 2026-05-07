@@ -3,11 +3,32 @@
   import Party from '$lib/components/Party.svelte';
   import Frac from '$lib/components/Frac.svelte';
   import PartyViewBlock from '$lib/components/PartyViewBlock.svelte';
+  import SeatChart from '$lib/components/SeatChart.svelte';
   let { data } = $props();
   const council = $derived(data.council);
   const races = $derived(data.races);
   const cycle = $derived(data.cycle);
   const belowQuotaRaces = $derived(races.filter((r) => r.race.isBelowQuota).length);
+  // Same composition-segment shape used on the council overview page.
+  // Prefer the per-councillor snapshot (partiesDetailed) when present so
+  // small parties / independents keep their own labels.
+  function compositionSegments(comp: typeof data.compositionBefore) {
+    if (!comp) return [];
+    if (comp.partiesDetailed) {
+      return Object.entries(comp.partiesDetailed)
+        .filter(([, n]) => n > 0)
+        .map(([party, seats]) => ({ party, seats }))
+        .sort((a, b) => b.seats - a.seats);
+    }
+    return [
+      ...Object.entries(comp.parties)
+        .filter(([, n]) => n > 0)
+        .map(([party, seats]) => ({ party, seats })),
+      ...(comp.otherSeats > 0
+        ? [{ party: 'Other', seats: comp.otherSeats }]
+        : [])
+    ].sort((a, b) => b.seats - a.seats);
+  }
 </script>
 
 <svelte:head>
@@ -90,6 +111,53 @@
     </p>
 
     <PartyViewBlock {view} />
+  {/if}
+
+  {#if data.compositionBefore || data.compositionAfter}
+    {@const fullSeats =
+      data.compositionAfter?.totalSeats ??
+      data.compositionBefore?.totalSeats ??
+      0}
+    {@const isAllOut = fullSeats > 0 && council.totalSeatCount >= fullSeats * 0.9}
+    <h2 id="composition">Council composition: what this election replaced</h2>
+    <p class="muted">
+      {#if isAllOut}
+        The {cycle.year} cycle was an all-out election &mdash; every seat
+        was contested. The two
+        <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+        snapshots below show the council immediately after the {cycle.year}
+        election (current) and on the eve of it ({cycle.year - 1}), so you
+        can see what the result replaced.
+      {:else}
+        Two
+        <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+        snapshots: the council immediately after the {cycle.year} election
+        (current) and immediately before it ({cycle.year - 1}). Only ~⅓ of
+        seats were contested in {cycle.year} &mdash; most of the bench is
+        unchanged, and the cycle's effect on the overall composition is
+        what shifts.
+      {/if}
+    </p>
+    <div class="composition-pair">
+      {#if data.compositionAfter}
+        <div>
+          <SeatChart
+            label={`Current (${cycle.year})`}
+            segments={compositionSegments(data.compositionAfter)}
+            minSize={14}
+          />
+        </div>
+      {/if}
+      {#if data.compositionBefore}
+        <div>
+          <SeatChart
+            label={`Previous (${cycle.year - 1})`}
+            segments={compositionSegments(data.compositionBefore)}
+            minSize={14}
+          />
+        </div>
+      {/if}
+    </div>
   {/if}
 
   <h2 id="wards">Wards in this council</h2>
@@ -279,6 +347,14 @@
     font-size: 0.95rem;
   }
   .race-meta { margin: 0.6rem 0 0; }
+
+  .composition-pair {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    margin: 0.8rem 0 1.5rem;
+    max-width: 36rem;
+  }
 
   .year-badge {
     font-size: 0.65em;

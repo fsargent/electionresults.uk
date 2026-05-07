@@ -4,7 +4,8 @@ import {
   racesForYearAndCouncil,
   allCouncilEntries,
   cycleByYear,
-  partyViewForYearAndCouncil
+  partyViewForYearAndCouncil,
+  compositionForCouncilYear
 } from '$lib/data';
 
 export const prerender = true;
@@ -25,5 +26,19 @@ export function load({ params }: { params: { year: string; council: string } }) 
     race
   }));
   const partyView = partyViewForYearAndCouncil(year, params.council) ?? null;
-  return { council, races, cycle, partyView };
+  // Before/after pair from opencouncildata: year-Y snapshot reflects
+  // the council AFTER the May-Y elections (verified empirically), so
+  // before = year-1, after = year.
+  const compositionBefore =
+    compositionForCouncilYear(params.council, year - 1) ?? null;
+  const compositionAfter =
+    compositionForCouncilYear(params.council, year) ?? null;
+  return {
+    council,
+    races,
+    cycle,
+    partyView,
+    compositionBefore,
+    compositionAfter
+  };
 }
