@@ -3,7 +3,23 @@
   import Party from '$lib/components/Party.svelte';
   import MapFlips from '$lib/components/MapFlips.svelte';
   import { partyColor, partyDisplayName } from '$lib/party-colors';
+  import type { CompositionSnapshot } from '$lib/types';
   let { data } = $props();
+
+  // Build a sorted list of {party, seats, color} from a composition
+  // snapshot. "Other" (the catch-all bucket) is treated as a row
+  // alongside named parties and sorted with them — when it dominates
+  // (Ashfield Independents = ~30 seats vs Con/Lab at 1-3) it leads
+  // the bar, not appended to the end.
+  function compositionRows(c: CompositionSnapshot) {
+    const rows = Object.entries(c.parties)
+      .filter(([, n]) => n > 0)
+      .map(([party, seats]) => ({ party, seats, color: partyColor(party) }));
+    if (c.otherSeats > 0) {
+      rows.push({ party: 'Other', seats: c.otherSeats, color: '#888888' });
+    }
+    return rows.sort((a, b) => b.seats - a.seats);
+  }
 
   let yearFilter = $state('');
   let fromPartyFilter = $state('');
@@ -140,22 +156,14 @@
             {#if f.compositionFrom}
               <span class="comp-label muted">{f.yearFrom}</span>
               <span class="comp-bar" aria-label={`Composition ${f.yearFrom}: ${f.compositionFrom.totalSeats} seats`}>
-                {#each Object.entries(f.compositionFrom.parties).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]) as [party, seats] (party)}
+                {#each compositionRows(f.compositionFrom) as row (row.party)}
                   <span
                     class="comp-seg"
-                    style:flex={seats}
-                    style:background-color={partyColor(party)}
-                    title={`${partyDisplayName(party)}: ${seats} of ${f.compositionFrom.totalSeats} seats`}
+                    style:flex={row.seats}
+                    style:background-color={row.color}
+                    title={`${partyDisplayName(row.party)}: ${row.seats} of ${f.compositionFrom.totalSeats} seats`}
                   ></span>
                 {/each}
-                {#if f.compositionFrom.otherSeats > 0}
-                  <span
-                    class="comp-seg"
-                    style:flex={f.compositionFrom.otherSeats}
-                    style:background-color="#888888"
-                    title={`Other: ${f.compositionFrom.otherSeats} of ${f.compositionFrom.totalSeats} seats`}
-                  ></span>
-                {/if}
               </span>
             {:else}
               <span class="muted small">—</span>
@@ -165,22 +173,14 @@
             {#if f.compositionTo}
               <span class="comp-label muted">{f.yearTo}</span>
               <span class="comp-bar" aria-label={`Composition ${f.yearTo}: ${f.compositionTo.totalSeats} seats`}>
-                {#each Object.entries(f.compositionTo.parties).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]) as [party, seats] (party)}
+                {#each compositionRows(f.compositionTo) as row (row.party)}
                   <span
                     class="comp-seg"
-                    style:flex={seats}
-                    style:background-color={partyColor(party)}
-                    title={`${partyDisplayName(party)}: ${seats} of ${f.compositionTo.totalSeats} seats`}
+                    style:flex={row.seats}
+                    style:background-color={row.color}
+                    title={`${partyDisplayName(row.party)}: ${row.seats} of ${f.compositionTo.totalSeats} seats`}
                   ></span>
                 {/each}
-                {#if f.compositionTo.otherSeats > 0}
-                  <span
-                    class="comp-seg"
-                    style:flex={f.compositionTo.otherSeats}
-                    style:background-color="#888888"
-                    title={`Other: ${f.compositionTo.otherSeats} of ${f.compositionTo.totalSeats} seats`}
-                  ></span>
-                {/if}
               </span>
             {:else}
               <span class="muted small">—</span>

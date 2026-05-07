@@ -12,20 +12,21 @@
   // approximation for councils oncd doesn't cover for that year.
   const composition = $derived(data.composition);
   const compositionApprox = $derived(data.compositionApprox);
-  // Build a SeatChart-shaped row list from the truth-set snapshot when
-  // present, ordered by seat count descending. "Other" goes last as a
-  // distinct catch-all bucket since it isn't a single party.
+  // Build a SeatChart-shaped row list from the truth-set snapshot.
+  // Other (the catch-all bucket) is treated as a row alongside named
+  // parties for sort purposes — when it dominates (e.g. Ashfield's ~30
+  // Independents vs 1-3 Conservative/Labour), Other should lead the
+  // visualisation, not be tucked at the end. Sort key is raw seat count.
   const truthRows = $derived(
     composition
       ? [
           ...Object.entries(composition.parties)
             .filter(([, n]) => n > 0)
-            .map(([party, seats]) => ({ party, seats }))
-            .sort((a, b) => b.seats - a.seats),
+            .map(([party, seats]) => ({ party, seats })),
           ...(composition.otherSeats > 0
             ? [{ party: 'Other', seats: composition.otherSeats }]
             : [])
-        ]
+        ].sort((a, b) => b.seats - a.seats)
       : []
   );
 </script>
@@ -74,6 +75,25 @@
     </aside>
   {/if}
 
+  <h2>Cycles</h2>
+  <ul class="cycle-list">
+    {#each history.cycles as c (c.year)}
+      <li>
+        <a class="cycle" href={`/${history.councilSlug}/${c.year}`}>
+          <span class="cycle-year">{c.year}</span>
+          <span class="cycle-stats">
+            {num(c.raceCount)} race{c.raceCount === 1 ? '' : 's'} ·
+            {num(c.totalSeatCount)} seat{c.totalSeatCount === 1 ? '' : 's'}
+          </span>
+          <span class="cycle-quota">
+            <span class="warn">{pct(c.belowQuotaShare)}</span>
+            <span class="muted">below quota</span>
+          </span>
+        </a>
+      </li>
+    {/each}
+  </ul>
+
   {#if composition && composition.totalSeats > 0}
     <h2>Council composition <span class="muted approx">as of {composition.year}</span></h2>
     <p class="muted">
@@ -104,25 +124,6 @@
       <SeatChart segments={compositionApprox.rows} minSize={18} />
     </div>
   {/if}
-
-  <h2>Cycles</h2>
-  <ul class="cycle-list">
-    {#each history.cycles as c (c.year)}
-      <li>
-        <a class="cycle" href={`/${history.councilSlug}/${c.year}`}>
-          <span class="cycle-year">{c.year}</span>
-          <span class="cycle-stats">
-            {num(c.raceCount)} race{c.raceCount === 1 ? '' : 's'} ·
-            {num(c.totalSeatCount)} seat{c.totalSeatCount === 1 ? '' : 's'}
-          </span>
-          <span class="cycle-quota">
-            <span class="warn">{pct(c.belowQuotaShare)}</span>
-            <span class="muted">below quota</span>
-          </span>
-        </a>
-      </li>
-    {/each}
-  </ul>
 
   {#if flips.length > 0}
     <h2>Council-control changes between cycles</h2>
@@ -213,12 +214,11 @@
                   segments={[
                     ...Object.entries(comp.parties)
                       .filter(([, n]) => n > 0)
-                      .sort((a, b) => b[1] - a[1])
                       .map(([party, seats]) => ({ party, seats })),
                     ...(comp.otherSeats > 0
                       ? [{ party: 'Other', seats: comp.otherSeats }]
                       : [])
-                  ]}
+                  ].sort((a, b) => b.seats - a.seats)}
                 />
               {:else}
                 <p class="muted small">No composition snapshot for {year}.</p>
@@ -325,20 +325,24 @@
     padding-top: 1.5rem;
     margin-top: 2rem;
   }
+  /* Per-flip year header: sized to sit clearly BELOW the section h2
+     (1.4rem) and the page h1 (2rem). Keeps the serif identity as a
+     visual marker for "this is one flip event" but stops competing
+     with the parent section heading. */
   .flip-year {
     margin: 0;
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 2.4rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.2;
     color: var(--accent);
     display: flex;
     align-items: baseline;
-    gap: 0.6rem;
+    gap: 0.4rem;
     font-variant-numeric: tabular-nums;
   }
   .flip-year .arrow {
-    font-size: 1.6rem;
+    font-size: 1rem;
     color: var(--muted);
   }
   .flip-summary {
