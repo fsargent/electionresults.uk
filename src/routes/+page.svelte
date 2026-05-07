@@ -1,66 +1,10 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
-  import CouncilHexMap from '$lib/components/CouncilHexMap.svelte';
-  import { belowQuotaColor } from '$lib/below-quota-color';
-  import { partyColor, partyDisplayName } from '$lib/party-colors';
+  import MapBelowQuota from '$lib/components/MapBelowQuota.svelte';
+  import MapDistortion from '$lib/components/MapDistortion.svelte';
+  import MapFlips from '$lib/components/MapFlips.svelte';
   let { data } = $props();
-
-  const fills = $derived(
-    Object.fromEntries(
-      data.latestByCouncil.map((c) => [
-        c.councilSlug,
-        {
-          color: belowQuotaColor(c.belowQuotaShare),
-          href: `/${c.councilSlug}`,
-          title: `${c.council} — ${c.year}: ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`,
-          primary: `${c.council} (${c.year})`,
-          secondary: `${pct(c.belowQuotaShare)} of seats below quota — ${c.belowQuotaSeatCount} of ${c.totalSeatCount}`
-        }
-      ])
-    )
-  );
-
-  // FPTP distortion map: each council hex shaded by how distorted its
-  // most recent cycle's seat allocation was vs proportional (D'Hondt).
-  // Same colour scale as the below-quota map for visual consistency
-  // (cream → warn-red), so the eye reads "darker = worse" across both.
-  const distortionFills = $derived(
-    Object.fromEntries(
-      data.distortionMapEntries.map((d) => [
-        d.councilSlug,
-        {
-          color: belowQuotaColor(d.reallocatedShare),
-          href: `/${d.councilSlug}/${d.year}#party-view`,
-          title: `${d.council} ${d.year}: ${d.reallocated} of ${d.totalSeats} seats reallocated by FPTP (${pct(d.reallocatedShare)})`,
-          primary: `${d.council} (${d.year})`,
-          secondary: `${d.reallocated} of ${d.totalSeats} seats reallocated · ${pct(d.reallocatedShare)} of the cycle`
-        }
-      ])
-    )
-  );
-
-  // Year-over-year flips map: each council hex shows the colour of the
-  // party that took plurality in the most recent flip. Councils that
-  // never flipped between consecutive cycles stay grey.
-  const flipFills = $derived(
-    Object.fromEntries(
-      data.flipMapEntries.map((f) => {
-        const fromName = partyDisplayName(f.fromParty);
-        const toName = partyDisplayName(f.toParty);
-        return [
-          f.councilSlug,
-          {
-            color: partyColor(f.toParty),
-            href: `/${f.councilSlug}`,
-            title: `${f.council}: ${fromName} → ${toName} (${f.yearFrom} → ${f.yearTo})`,
-            primary: `${f.council} (${f.yearFrom} → ${f.yearTo})`,
-            secondary: `${fromName} → ${toName} · ${pts(f.seatSwingNew)} seat shift on ${pts(f.voteSwingNew)} vote shift`
-          }
-        ];
-      })
-    )
-  );
 </script>
 
 <svelte:head>
@@ -114,24 +58,7 @@
     the cycle and the party transition; click to see the council's full
     history.
   </p>
-  <div class="map-and-scale">
-    <CouncilHexMap
-      fills={flipFills}
-      title="UK councils — most recent party-control flip, coloured by the incoming party"
-    />
-    <div class="legend">
-      <span class="legend-label">Incoming party (latest flip)</span>
-      <ul class="party-legend">
-        <li><span class="swatch" style:background-color={partyColor('Labour Party')}></span> Labour</li>
-        <li><span class="swatch" style:background-color={partyColor('Conservative and Unionist Party')}></span> Conservative</li>
-        <li><span class="swatch" style:background-color={partyColor('Liberal Democrats')}></span> Liberal Democrats</li>
-        <li><span class="swatch" style:background-color={partyColor('Reform UK')}></span> Reform UK</li>
-        <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> Green</li>
-        <li><span class="swatch" style:background-color={partyColor('Independent')}></span> Independent / other</li>
-        <li><span class="swatch grey"></span> No flip in our data</li>
-      </ul>
-    </div>
-  </div>
+  <MapFlips entries={data.flipMapEntries} />
 
   <h2>FPTP distortion, latest cycle</h2>
   <p class="muted">
@@ -143,28 +70,7 @@
     picks out the ten elections with the largest absolute reallocation.
     See <a href="/distortion">/distortion</a> for the full leaderboard.
   </p>
-  <div class="map-and-scale">
-    <CouncilHexMap
-      fills={distortionFills}
-      title="UK councils — most recent poll, shaded by % of seats FPTP reallocated vs a proportional allocation"
-    />
-    <div class="legend">
-      <span class="legend-label">% of seats reallocated</span>
-      <div class="legend-bar">
-        {#each [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as t (t)}
-          <span class="legend-cell" style:background-color={belowQuotaColor(t)}></span>
-        {/each}
-      </div>
-      <div class="legend-ticks">
-        <span>0%</span><span>50%</span><span>100%</span>
-      </div>
-      <p class="muted small">
-        One hex = one council, in the cycle most recently polled. 0% = the
-        cycle's seat allocation matched what a proportional method would
-        have produced; higher = more seats moved by FPTP.
-      </p>
-    </div>
-  </div>
+  <MapDistortion entries={data.distortionMapEntries} />
 
   <h3>Ten most FPTP-distorted single elections</h3>
 
@@ -215,29 +121,7 @@
     cycle (darker = more seats below). The table lists the ten seats
     won on the smallest share of the vote anywhere in the data.
   </p>
-  <div class="map-and-scale">
-    <CouncilHexMap
-      {fills}
-      title="UK councils — most recent poll, shaded by % of seats below the proportional quota"
-    />
-    <div class="legend">
-      <span class="legend-label">% below quota</span>
-      <div class="legend-bar">
-        {#each [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as t (t)}
-          <span class="legend-cell" style:background-color={belowQuotaColor(t)}></span>
-        {/each}
-      </div>
-      <div class="legend-ticks">
-        <span>0%</span><span>50%</span><span>100%</span>
-      </div>
-      <p class="muted small">
-        One hex = one council. The layout is roughly geographic but not
-        a literal map (it's a cartogram — each council gets equal space,
-        regardless of size). A council that polled in 2025 shows 2025;
-        a London Borough that last polled in 2022 shows 2022.
-      </p>
-    </div>
-  </div>
+  <MapBelowQuota councils={data.latestByCouncil} />
 
   <h3>Ten seats won on the smallest share of the vote</h3>
   <p class="muted">
@@ -385,63 +269,5 @@
     break-inside: avoid;
   }
 
-  .map-and-scale {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(8rem, 12rem);
-    gap: 1.25rem;
-    align-items: start;
-    margin: 0.5rem 0 2rem;
-  }
-  @media (max-width: 640px) {
-    .map-and-scale { grid-template-columns: 1fr; }
-  }
-  .legend {
-    font-size: 0.85rem;
-  }
-  .legend-label {
-    display: block;
-    color: var(--muted);
-    text-transform: uppercase;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.4rem;
-  }
-  .legend-bar {
-    display: flex;
-    width: 100%;
-    height: 0.9rem;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .legend-cell { display: block; flex: 1; }
-  .legend-ticks {
-    display: flex;
-    justify-content: space-between;
-    color: var(--muted);
-    font-size: 0.78rem;
-    margin-top: 0.2rem;
-  }
   .small { font-size: 0.78rem; }
-  .party-legend {
-    list-style: none;
-    padding: 0;
-    margin: 0.4rem 0 0;
-    display: grid;
-    gap: 0.25rem;
-    font-size: 0.85rem;
-  }
-  .party-legend .swatch {
-    display: inline-block;
-    width: 0.8em;
-    height: 0.8em;
-    margin-right: 0.4em;
-    border-radius: 2px;
-    vertical-align: -0.05em;
-    border: 1px solid rgba(0, 0, 0, 0.18);
-  }
-  .party-legend .swatch.grey { background: #e5e3d6; }
-  @media (prefers-color-scheme: dark) {
-    .party-legend .swatch { border-color: rgba(255, 255, 255, 0.25); }
-  }
 </style>

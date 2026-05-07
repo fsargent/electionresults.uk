@@ -3,6 +3,7 @@ import {
   partyOptions,
   councilOptions,
   yearOptions,
+  latestCouncilSummaries,
   totals
 } from '$lib/data';
 
@@ -13,6 +14,7 @@ export function load() {
   return {
     totals,
     rows: board,
+    mapEntries: latestCouncilSummaries(),
     parties: partyOptions(),
     councils: councilOptions(),
     years: yearOptions()

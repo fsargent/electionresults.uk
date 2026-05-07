@@ -1,6 +1,7 @@
 <script lang="ts">
   import { num, pct, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
+  import MapDistortion from '$lib/components/MapDistortion.svelte';
   import { partyDisplayName } from '$lib/party-colors';
   let { data } = $props();
 
@@ -58,6 +59,8 @@
     Click a council name for the full per-cycle visualisation including
     the per-party vote share vs seat share viz. Filter or search below.
   </p>
+
+  <MapDistortion entries={data.mapEntries} />
 
   <form class="filters" onsubmit={(e) => e.preventDefault()}>
     <label class="filter">

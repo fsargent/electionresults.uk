@@ -2,6 +2,7 @@
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
   import Frac from '$lib/components/Frac.svelte';
+  import MapBelowQuota from '$lib/components/MapBelowQuota.svelte';
   let { data } = $props();
 
   let yearFilter = $state('');
@@ -51,6 +52,8 @@
     Sorted with the seats furthest below the proportional quota first
     (most-negative gap on top). Filter or search below.
   </p>
+
+  <MapBelowQuota councils={data.mapEntries} />
 
   <form class="filters" onsubmit={(e) => e.preventDefault()}>
     <label class="filter">

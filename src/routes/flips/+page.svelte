@@ -1,6 +1,7 @@
 <script lang="ts">
   import { num } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
+  import MapFlips from '$lib/components/MapFlips.svelte';
   import { partyColor, partyDisplayName } from '$lib/party-colors';
   let { data } = $props();
 
@@ -63,6 +64,8 @@
     See <a href="/methodology#flips">methodology</a> for the precise
     definition of a council-control change.
   </p>
+
+  <MapFlips entries={data.mapEntries} />
 
   <form class="filters" onsubmit={(e) => e.preventDefault()}>
     <label class="filter">

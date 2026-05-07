@@ -102,6 +102,20 @@ export interface DistortionRow {
  * reallocatedShare descending so the most-distorted single elections
  * lead.
  */
+/**
+ * Most recent distortion snapshot per council. Powers the FPTP-distortion
+ * choropleth on the homepage and on /distortion — every council gets its
+ * freshest data point.
+ */
+export function latestDistortionPerCouncil(): DistortionRow[] {
+  const out = new Map<string, DistortionRow>();
+  for (const row of distortionLeaderboard()) {
+    const prev = out.get(row.councilSlug);
+    if (!prev || row.year > prev.year) out.set(row.councilSlug, row);
+  }
+  return [...out.values()];
+}
+
 export function distortionLeaderboard(): DistortionRow[] {
   const rows: DistortionRow[] = [];
   for (const view of allPartyViews) {

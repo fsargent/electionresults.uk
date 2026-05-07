@@ -3,7 +3,8 @@ import {
   yearOptions,
   partyOptions,
   distinctCouncilSlugs,
-  compositionForCouncilYear
+  compositionForCouncilYear,
+  latestFlipByCouncil
 } from '$lib/data';
 
 export const prerender = true;
@@ -31,6 +32,7 @@ export function load() {
   }));
   return {
     rows: rowsWithComposition,
+    mapEntries: [...latestFlipByCouncil().values()],
     years: yearOptions(),
     parties: partyOptions(),
     councils: distinctCouncilSlugs()

@@ -6,6 +6,7 @@ import {
   latestCouncilSummaries,
   distinctCouncilSlugs,
   distortionLeaderboard,
+  latestDistortionPerCouncil,
   latestFlipByCouncil
 } from '$lib/data';
 
@@ -25,36 +26,13 @@ export function load() {
   // concrete hook in the homepage lede ("they won with X%, 1-X chose
   // someone else, and they still won the seat").
   const lowestWinner = topLowestShares[0];
-  // Per-cycle FPTP distortion ranking — sorted by raw count, share as
-  // tiebreak. Top 10 power the homepage table; the map shading uses the
-  // most recent cycle per council so every council on the cartogram
-  // gets its freshest data point.
-  const allDistorted = distortionLeaderboard();
-  const topDistortedCycles = allDistorted.slice(0, 10);
-  const latestDistortionPerCouncil = new Map<
-    string,
-    (typeof allDistorted)[number]
-  >();
-  for (const row of allDistorted) {
-    const prev = latestDistortionPerCouncil.get(row.councilSlug);
-    if (!prev || row.year > prev.year) {
-      latestDistortionPerCouncil.set(row.councilSlug, row);
-    }
-  }
-  const distortionMapEntries = [...latestDistortionPerCouncil.values()];
-  // For the year-over-year map: the most recent flip per council, plus
-  // the corresponding party fills.
-  const latestFlipMap = latestFlipByCouncil();
-  const flipMapEntries = [...latestFlipMap.values()].map((f) => ({
-    councilSlug: f.councilSlug,
-    council: f.council,
-    yearFrom: f.yearFrom,
-    yearTo: f.yearTo,
-    fromParty: f.fromParty,
-    toParty: f.toParty,
-    voteSwingNew: f.voteSwingNew,
-    seatSwingNew: f.seatSwingNew
-  }));
+  // Top 10 most FPTP-distorted single elections power the homepage
+  // table. The map below uses the latest-per-council helper so every
+  // council on the cartogram gets its freshest data point.
+  const topDistortedCycles = distortionLeaderboard().slice(0, 10);
+  const distortionMapEntries = latestDistortionPerCouncil();
+  // For the year-over-year flip map: the most recent flip per council.
+  const flipMapEntries = [...latestFlipByCouncil().values()];
   return {
     totals,
     cycles: allCycles,
