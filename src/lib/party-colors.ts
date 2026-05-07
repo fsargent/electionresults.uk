@@ -13,8 +13,15 @@
  *     rather than a political identity.
  */
 const PARTY_COLORS: Record<string, string> = {
+  'Conservative Party': '#0087DC',
+  // 'Conservative and Unionist Party' is the registered name; we
+  // collapse to 'Conservative Party' at ingest. Keep the registered
+  // name as an alias here so any caller passing the long form still
+  // resolves to the right colour.
   'Conservative and Unionist Party': '#0087DC',
   'Labour Party': '#E4003B',
+  // Labour Co-op candidates also collapse to 'Labour Party' at ingest;
+  // alias kept for the same robustness reason.
   'Labour and Co-operative Party': '#E4003B',
   'Liberal Democrats': '#FAA61A',
   'The Liberal Party': '#FFB100',

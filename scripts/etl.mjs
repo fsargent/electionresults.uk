@@ -686,7 +686,7 @@ marginal.sort((a, b) => a.underPar - b.underPar || a.votes - b.votes);
 // opencouncildata.co.uk (CC BY-SA 4.0). Refresh by re-downloading and
 // committing to docs/.
 const COMP_PARTY_COLS = {
-  con: 'Conservative and Unionist Party',
+  con: 'Conservative Party',
   lab: 'Labour Party',
   ld: 'Liberal Democrats',
   green: 'Green Party',
@@ -716,7 +716,9 @@ const COMP_SLUG_ALIASES = {
 // Association" keep their literal names — that's what we want for
 // per-square labelling).
 const COUNCILLOR_PARTY_NORMALISE = {
-  'Conservative and Unionist': 'Conservative and Unionist Party',
+  'Conservative and Unionist': 'Conservative Party',
+  'Conservative and Unionist Party': 'Conservative Party',
+  'Labour and Co-operative Party': 'Labour Party',
   'Green Party (E&W)': 'Green Party',
   'Plaid Cymru - The Party of Wales': 'Plaid Cymru',
   'Scottish National Party (SNP)': 'Scottish National Party',

@@ -2,12 +2,18 @@
 // to the canonical full name used across the site.
 // All abbreviations are upper-case-stripped before lookup.
 
+// Labour and Co-operative Party candidates stand on a joint ticket with
+// Labour and take the Labour whip in council; we collapse them to
+// 'Labour Party' so the party-view tables don't double-count what is
+// effectively one bloc. The 'Conservative and Unionist Party' is the
+// party's full registered name; 'Conservative Party' is the everyday
+// label and what we use throughout the site.
 const ABBREV_TO_FULL = {
   LAB: 'Labour Party',
-  'LAB CO-OP': 'Labour and Co-operative Party',
-  'LAB CO OP': 'Labour and Co-operative Party',
-  'LAB COOP': 'Labour and Co-operative Party',
-  CON: 'Conservative and Unionist Party',
+  'LAB CO-OP': 'Labour Party',
+  'LAB CO OP': 'Labour Party',
+  'LAB COOP': 'Labour Party',
+  CON: 'Conservative Party',
   LD: 'Liberal Democrats',
   GREEN: 'Green Party',
   REF: 'Reform UK',
@@ -46,12 +52,22 @@ const ABBREV_TO_FULL = {
   'ASH IND': 'Ashfield Independents'
 };
 
+// Long-form names some sources hand us that we collapse to a shorter
+// canonical. Same rationale as the abbreviation map: Labour Co-op
+// candidates take the Labour whip; "Conservative" is what everyone
+// calls them.
+const LONG_FORM_REMAP = {
+  'Labour and Co-operative Party': 'Labour Party',
+  'Conservative and Unionist Party': 'Conservative Party'
+};
+
 export function normalizeParty(raw) {
   if (raw === null || raw === undefined) return null;
   const trimmed = String(raw).trim();
   if (!trimmed) return null;
   const upper = trimmed.toUpperCase();
   if (ABBREV_TO_FULL[upper]) return ABBREV_TO_FULL[upper];
+  if (LONG_FORM_REMAP[trimmed]) return LONG_FORM_REMAP[trimmed];
   // If the source already gave us a long-form name (it contains a space and
   // is mixed case), pass it through unchanged.
   if (trimmed.length > 6 || /\s/.test(trimmed)) return trimmed;

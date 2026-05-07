@@ -34,7 +34,7 @@
     <span class="legend-label">Incoming party (latest flip)</span>
     <ul class="party-legend">
       <li><span class="swatch" style:background-color={partyColor('Labour Party')}></span> Labour</li>
-      <li><span class="swatch" style:background-color={partyColor('Conservative and Unionist Party')}></span> Conservative</li>
+      <li><span class="swatch" style:background-color={partyColor('Conservative Party')}></span> Conservative</li>
       <li><span class="swatch" style:background-color={partyColor('Liberal Democrats')}></span> Liberal Democrats</li>
       <li><span class="swatch" style:background-color={partyColor('Reform UK')}></span> Reform UK</li>
       <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> Green</li>
