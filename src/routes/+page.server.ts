@@ -7,7 +7,8 @@ import {
   distinctCouncilSlugs,
   distortionLeaderboard,
   latestDistortionPerCouncil,
-  latestFlipByCouncil
+  latestFlipByCouncil,
+  allFlips
 } from '$lib/data';
 
 export const prerender = true;
@@ -33,6 +34,11 @@ export function load() {
   const distortionMapEntries = latestDistortionPerCouncil();
   // For the year-over-year flip map: the most recent flip per council.
   const flipMapEntries = [...latestFlipByCouncil().values()];
+  // 10 most recent council-control changes anywhere in the data —
+  // tabular companion to the flip map.
+  const recentFlips = [...allFlips]
+    .sort((a, b) => b.yearTo - a.yearTo || b.yearFrom - a.yearFrom)
+    .slice(0, 10);
   return {
     totals,
     cycles: allCycles,
@@ -41,6 +47,7 @@ export function load() {
     lowestWinner,
     topDistortedCycles,
     distortionMapEntries,
+    recentFlips,
     latestByCouncil: latestCouncilSummaries(),
     allCouncils: distinctCouncilSlugs(),
     flipMapEntries

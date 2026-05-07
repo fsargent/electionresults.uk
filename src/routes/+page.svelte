@@ -60,6 +60,38 @@
   </p>
   <MapFlips entries={data.flipMapEntries} />
 
+  <h3>Ten most recent council-control changes</h3>
+  <p class="muted">
+    The ten most recent flips. A flip = the largest party in the
+    council's running composition actually changed between cycles
+    (per <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>'s
+    annual snapshot). See <a href="/flips">/flips</a> for the full list.
+  </p>
+  <table aria-label="Ten most recent council-control changes">
+    <thead>
+      <tr>
+        <th>Cycle</th>
+        <th>Council</th>
+        <th>Largest party changed</th>
+        <th class="num" title="Incoming party's seat share of the full council in the year-after minus the year-before — composition truth-set, not per-cycle.">Composition shift (incoming)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each data.recentFlips as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
+        <tr>
+          <td class="num">{f.yearFrom} → {f.yearTo}</td>
+          <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
+          <td>
+            <Party name={f.fromParty} />
+            <span class="muted" aria-hidden="true"> → </span>
+            <Party name={f.toParty} />
+          </td>
+          <td class="num pct warn">{pts(f.newPartySeatTo - f.newPartySeatFrom)}</td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
+
   <h2>FPTP distortion, latest cycle</h2>
   <p class="muted">
     For each cycle in our data, we compute the seats actually allocated
