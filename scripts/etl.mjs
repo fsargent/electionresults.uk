@@ -866,25 +866,42 @@ for (const [slug, views] of viewsByCouncil) {
     // Cycle-side context for the rank-by-disproportion score: vote
     // shifts come from the actual election that triggered the change,
     // because composition data has no vote-share information.
-    const newInPrev = prev.rows.find((r) => r.party === toParty);
-    const newInNext = next.rows.find((r) => r.party === toParty);
-    const oldInPrev = prev.rows.find((r) => r.party === fromParty);
-    const oldInNext = next.rows.find((r) => r.party === fromParty);
+    //
+    // "Other" needs special handling on both vote-share and seat-share
+    // sides, because oncd buckets independents/local groupings into
+    // one `otherSeats` field and our partyView.rows uses real LEH party
+    // names. A flip Conservative→Other (e.g. Castle Point 2021→2022)
+    // would otherwise show 0.0 pts vote shift and 0.0 pts seat shift.
+    const NAMED_PARTY_SET = new Set(Object.values(COMP_PARTY_COLS));
+    const voteShareForParty = (view, party) => {
+      if (party === 'Other') {
+        // Sum vote shares of every party that isn't in oncd's named
+        // columns — that's the bucket oncd would have lumped into Other.
+        return view.rows
+          .filter((r) => !NAMED_PARTY_SET.has(r.party))
+          .reduce((sum, r) => sum + r.voteShare, 0);
+      }
+      return view.rows.find((r) => r.party === party)?.voteShare ?? 0;
+    };
+    const compSeatShare = (comp, party) => {
+      const total = comp.totalSeats || 1;
+      const seats =
+        party === 'Other' ? comp.otherSeats : comp.parties[party] ?? 0;
+      return seats / total;
+    };
 
-    const newPartyVoteFrom = newInPrev?.voteShare ?? 0;
-    const newPartyVoteTo = newInNext?.voteShare ?? 0;
-    const oldPartyVoteFrom = oldInPrev?.voteShare ?? 0;
-    const oldPartyVoteTo = oldInNext?.voteShare ?? 0;
+    const newPartyVoteFrom = voteShareForParty(prev, toParty);
+    const newPartyVoteTo = voteShareForParty(next, toParty);
+    const oldPartyVoteFrom = voteShareForParty(prev, fromParty);
+    const oldPartyVoteTo = voteShareForParty(next, fromParty);
 
     // Composition seat shares — the meaningful change-of-control number,
     // unlike per-cycle seat shares which only reflect the seats up that
     // single cycle.
-    const totalPrev = compPrev.totalSeats || 1;
-    const totalNext = compNext.totalSeats || 1;
-    const newPartySeatFrom = (compPrev.parties[toParty] ?? 0) / totalPrev;
-    const newPartySeatTo = (compNext.parties[toParty] ?? 0) / totalNext;
-    const oldPartySeatFrom = (compPrev.parties[fromParty] ?? 0) / totalPrev;
-    const oldPartySeatTo = (compNext.parties[fromParty] ?? 0) / totalNext;
+    const newPartySeatFrom = compSeatShare(compPrev, toParty);
+    const newPartySeatTo = compSeatShare(compNext, toParty);
+    const oldPartySeatFrom = compSeatShare(compPrev, fromParty);
+    const oldPartySeatTo = compSeatShare(compNext, fromParty);
 
     const voteSwingNew = Math.abs(newPartyVoteTo - newPartyVoteFrom);
     const seatSwingNew = Math.abs(newPartySeatTo - newPartySeatFrom);
