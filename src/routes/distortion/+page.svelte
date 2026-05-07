@@ -38,8 +38,9 @@
   <p>
     For each cycle in the data, we compute how the seats were actually
     allocated under First-Past-the-Post versus how they would have been
-    allocated proportionally (using D'Hondt &mdash; the most widely-used
-    party-list method). The
+    allocated proportionally (using D'Hondt as a proxy for any
+    proportional method &mdash; see
+    <a href="/methodology">methodology</a>). The
     <strong>seats reallocated</strong> column is the count of seats
     First-Past-the-Post moved from where a proportional system would
     have placed them. {num(data.rows.length)} cycles ranked by raw count

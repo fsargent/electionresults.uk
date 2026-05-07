@@ -141,13 +141,26 @@
     On every council page we show how the seats would be distributed if
     the party vote totals were allocated proportionally rather than via
     First-Past-the-Post. The arithmetic uses the
-    <strong>D'Hondt method</strong> &mdash; the most widely-used
-    party-list proportional algorithm worldwide (used by the European
-    Parliament, the Scottish Parliament regional list, the Welsh Senedd
-    regional list, and the London Assembly). It allocates seats one at
-    a time to the party with the highest quotient
-    <Frac num="party votes" denom="(seats already won) + 1" />, repeating
-    until all seats are filled.
+    <strong>D'Hondt method</strong> as a
+    <strong>proxy for proportionality</strong> &mdash; a measurement
+    tool, not a recommendation. D'Hondt is one well-defined way to
+    allocate seats to vote shares, which makes it useful as a
+    consistent benchmark; the column shows how distorted the actual
+    FPTP allocation is against <em>any</em> proportional standard, not
+    against D'Hondt specifically. It allocates seats one at a time to
+    the party with the highest quotient
+    <Frac num="party votes" denom="(seats already won) + 1" />,
+    repeating until all seats are filled.
+  </p>
+  <p>
+    <strong>This site doesn't take a stand on which voting method is
+    best.</strong> Picking the right replacement for First-Past-the-Post
+    is exactly what a
+    <a href="https://www.open-britain.co.uk/ncer" rel="external noopener">National
+    Commission on Electoral Representation</a> would be for. For more
+    on the trade-offs between proportional methods (STV, list PR,
+    mixed-member, approval, and others), see the sister site
+    <a href="https://proportional.uk" rel="external noopener">proportional.uk</a>.
   </p>
   <p>
     <strong>Caveat &mdash; bloc vote inflation.</strong> In a multi-member
@@ -157,7 +170,7 @@
     Aggregating "candidate votes by party" therefore over-counts parties
     with full slates and under-counts parties with partial ones. Treat
     the proportional column as a <em>directional proxy</em> for what
-    a list-PR system would deliver, not an exact prediction. A
+    any list-PR system would deliver, not an exact prediction. A
     preferential proportional method that counts voter rankings would
     avoid this distortion, but the LEH data does not record voter
     rankings so we cannot reproduce that allocation here.
