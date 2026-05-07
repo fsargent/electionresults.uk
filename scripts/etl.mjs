@@ -733,25 +733,121 @@ const COUNCILLOR_PARTY_NORMALISE = {
 // rolling everything into the generic "Other" bucket from the summary
 // CSV. Returns a Map keyed by `${slug}::${year}`.
 function ingestCouncillorSnapshots() {
+  // Per-ward LEH party lookup: for each (councilSlug, wardName slug),
+  // collect the most recent LEH-elected candidates' parties. Used to
+  // refine oncd's "Independent / Other" labels — when a ward elected
+  // a specific local-party (Broxtowe Alliance, etc.) in our LEH data,
+  // we know that's what the oncd "Independent / Other" entries in
+  // that ward really are. oncd's per-councillor CSV lumps local
+  // parties without an EC code into "Independent / Other"; LEH keeps
+  // their proper names.
+  //
+  // Structure: Map<councilSlug, Map<wardSlugified, Map<party, count>>>
+  // — counts per party in each ward, taken from the most recent LEH
+  // cycle that elected to that ward.
+  const lehWardParties = new Map();
+  // Track the latest cycle year per (council, ward) to use only the
+  // freshest LEH data for that ward.
+  const latestLehYearForWard = new Map();
+  for (const r of allRaces) {
+    const wardKey = slugify(r.wardName);
+    const composedKey = `${r.councilSlug}::${wardKey}`;
+    const prevYear = latestLehYearForWard.get(composedKey) ?? -Infinity;
+    if (r.year < prevYear) continue;
+    if (r.year > prevYear) {
+      // Newer cycle — replace any prior counts for this ward.
+      latestLehYearForWard.set(composedKey, r.year);
+      const councilWards = lehWardParties.get(r.councilSlug) ?? new Map();
+      councilWards.set(wardKey, new Map());
+      lehWardParties.set(r.councilSlug, councilWards);
+    }
+    const wardCounts = lehWardParties.get(r.councilSlug).get(wardKey);
+    for (const c of r.candidates.filter((c) => c.elected)) {
+      const p = c.party || 'Independent';
+      wardCounts.set(p, (wardCounts.get(p) ?? 0) + 1);
+    }
+  }
+
+  // Refine an oncd party label using LEH data for the ward. When oncd
+  // says "Independent / Other" but LEH knows the ward elected a
+  // specific local-party label, prefer the LEH label. Multi-seat wards
+  // with multiple non-major-party labels: distribute proportionally
+  // (track per-ward usage so subsequent oncd rows pick a different
+  // local-party label until LEH's count is exhausted).
+  const wardLabelUsage = new Map(); // `${slug}::${ward}` → Map<party, used>
+  function refineParty(partyRaw, councilSlug, wardSlug) {
+    if (partyRaw !== 'Independent / Other') return partyRaw;
+    const wardCounts = lehWardParties.get(councilSlug)?.get(wardSlug);
+    if (!wardCounts) return partyRaw;
+    // Find a non-major-party label LEH knows about for this ward
+    // (excludes Lab/Con/LD/Green/Reform/UKIP/SNP/PC + literal Independent
+    // since "Independent" is the same as oncd's bucket-meaning). The
+    // intent is to surface specifically-named local parties.
+    const NAMED = new Set(Object.values(COMP_PARTY_COLS));
+    const usageKey = `${councilSlug}::${wardSlug}`;
+    let usage = wardLabelUsage.get(usageKey);
+    if (!usage) {
+      usage = new Map();
+      wardLabelUsage.set(usageKey, usage);
+    }
+    // Try local parties (anything that isn't a named major party AND
+    // isn't literal "Independent") first; pick one with capacity.
+    const sortedParties = [...wardCounts.entries()].sort(
+      (a, b) => b[1] - a[1]
+    );
+    for (const [p, n] of sortedParties) {
+      if (NAMED.has(p) || p === 'Independent') continue;
+      if ((usage.get(p) ?? 0) < n) {
+        usage.set(p, (usage.get(p) ?? 0) + 1);
+        return p;
+      }
+    }
+    // No local party available; if literal "Independent" has capacity,
+    // use it (slightly more honest than the oncd "Independent / Other"
+    // bucket — at least we know it's a real Independent from LEH).
+    const indCount = wardCounts.get('Independent') ?? 0;
+    if ((usage.get('Independent') ?? 0) < indCount) {
+      usage.set('Independent', (usage.get('Independent') ?? 0) + 1);
+      return 'Independent';
+    }
+    return partyRaw;
+  }
+
   const out = new Map();
+  let refinedCount = 0;
+  let unrefinedOtherCount = 0;
   for (let year = 2016; year <= 2025; year++) {
     const csvPath = resolve(ROOT, `docs/opencouncildata_councillors_${year}.csv`);
     if (!existsSync(csvPath)) continue;
     const wb = XLSX.read(readFileSync(csvPath, 'utf8'), { type: 'string' });
     const ws = wb.Sheets[wb.SheetNames[0]];
     const rows = XLSX.utils.sheet_to_json(ws, { defval: '', raw: true });
+    // Reset per-ward usage trackers across snapshot years (each year is
+    // a fresh assignment; LEH data is constant).
+    wardLabelUsage.clear();
     for (const r of rows) {
       const authority = String(r['Council'] ?? '').trim();
       if (!authority) continue;
+      const wardName = String(r['Ward Name'] ?? '').trim();
       const partyRaw = String(r['Party Name'] ?? '').trim();
       if (!partyRaw) continue;
       // Skip "Vacant" entries — these aren't councillors with party
       // affiliation, they're empty seats. Keeps the seat-count totals
       // honest re: "people sitting in the chamber under a party banner".
       if (partyRaw === 'Vacant') continue;
-      const party = COUNCILLOR_PARTY_NORMALISE[partyRaw] ?? partyRaw;
+      const partyNormalised =
+        COUNCILLOR_PARTY_NORMALISE[partyRaw] ?? partyRaw;
       const rawSlug = slugify(authority);
       const slug = COMP_SLUG_ALIASES[rawSlug] ?? rawSlug;
+      const wardSlug = wardName ? slugify(wardName) : null;
+      // LEH-refine the oncd party label where possible.
+      const party = wardSlug
+        ? refineParty(partyNormalised, slug, wardSlug)
+        : partyNormalised;
+      if (partyNormalised === 'Independent / Other') {
+        if (party !== 'Independent / Other') refinedCount++;
+        else unrefinedOtherCount++;
+      }
       const key = `${slug}::${year}`;
       let breakdown = out.get(key);
       if (!breakdown) {
@@ -761,6 +857,9 @@ function ingestCouncillorSnapshots() {
       breakdown.set(party, (breakdown.get(party) ?? 0) + 1);
     }
   }
+  console.log(
+    `[etl] LEH-refined ${refinedCount} oncd "Independent / Other" entries to specific local-party labels; ${unrefinedOtherCount} kept as the bucket (no LEH match for that ward)`
+  );
   return out;
 }
 
