@@ -730,11 +730,21 @@ function ingestCompositions() {
       parties[canonical] = Number(r[col]) || 0;
     }
     const otherSeats = Number(r.other) || 0;
-    // Largest party by seat count, ignoring the "other" bucket (which
-    // is not a real party — it can't change "from one party to another"
-    // because next year's "other" might be entirely different parties).
-    // If "other" exceeds every named party, largestParty stays as the
-    // top named party but a flag (`largestIsOtherDominant`) records it.
+    // Largest party by seat count. "Other" is the catch-all bucket
+    // (independents + local groupings + whatever else opencouncildata
+    // doesn't break out as a named column); when it exceeds every
+    // named party, we honour that — councils like Ashfield have ~30
+    // Ashfield Independents seats vs 3 Conservative, and pretending
+    // the largest party is "Conservative" produces nonsense flips
+    // (Con:3 → Reform:3 reads as "Reform took control" when in
+    // reality Independents have held it the whole time). When Other
+    // wins, largestParty is the literal string "Other"; the flip
+    // detection that compares strings naturally produces "no flip"
+    // when Other is largest in both years (correct behaviour because
+    // we have no way to tell from oncd's CSV whether year-N's
+    // "Other" cohort is the same set of councillors as year-N+1's).
+    // largestIsOtherDominant flags the same fact for downstream
+    // consumers that want to render or filter on it.
     let largestParty = null;
     let largestSeats = -1;
     for (const [party, seats] of Object.entries(parties)) {
@@ -746,6 +756,10 @@ function ingestCompositions() {
         largestParty = party;
         largestSeats = seats;
       }
+    }
+    if (otherSeats > largestSeats) {
+      largestParty = 'Other';
+      largestSeats = otherSeats;
     }
     const rawSlug = slugify(authority);
     out.push({

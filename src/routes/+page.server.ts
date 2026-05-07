@@ -25,12 +25,23 @@ export function load() {
   // concrete hook in the homepage lede ("they won with X%, 1-X chose
   // someone else, and they still won the seat").
   const lowestWinner = topLowestShares[0];
-  // Top 10 most FPTP-distorted single elections — replaces the older
-  // "Ten biggest flips" table whose disproportion-score ranking conflated
-  // genuine distortion with mechanical all-out-vs-by-thirds artefacts.
-  // The distortion lens is per-cycle, apples-to-apples: count of seats
-  // FPTP placed differently from D'Hondt, divided by the cycle's seats.
-  const topDistortedCycles = distortionLeaderboard().slice(0, 10);
+  // Per-cycle FPTP distortion ranking — sorted by raw count, share as
+  // tiebreak. Top 10 power the homepage table; the map shading uses the
+  // most recent cycle per council so every council on the cartogram
+  // gets its freshest data point.
+  const allDistorted = distortionLeaderboard();
+  const topDistortedCycles = allDistorted.slice(0, 10);
+  const latestDistortionPerCouncil = new Map<
+    string,
+    (typeof allDistorted)[number]
+  >();
+  for (const row of allDistorted) {
+    const prev = latestDistortionPerCouncil.get(row.councilSlug);
+    if (!prev || row.year > prev.year) {
+      latestDistortionPerCouncil.set(row.councilSlug, row);
+    }
+  }
+  const distortionMapEntries = [...latestDistortionPerCouncil.values()];
   // For the year-over-year map: the most recent flip per council, plus
   // the corresponding party fills.
   const latestFlipMap = latestFlipByCouncil();
@@ -51,6 +62,7 @@ export function load() {
     topLowestShares,
     lowestWinner,
     topDistortedCycles,
+    distortionMapEntries,
     latestByCouncil: latestCouncilSummaries(),
     allCouncils: distinctCouncilSlugs(),
     flipMapEntries

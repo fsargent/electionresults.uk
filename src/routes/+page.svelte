@@ -21,6 +21,25 @@
     )
   );
 
+  // FPTP distortion map: each council hex shaded by how distorted its
+  // most recent cycle's seat allocation was vs proportional (D'Hondt).
+  // Same colour scale as the below-quota map for visual consistency
+  // (cream → warn-red), so the eye reads "darker = worse" across both.
+  const distortionFills = $derived(
+    Object.fromEntries(
+      data.distortionMapEntries.map((d) => [
+        d.councilSlug,
+        {
+          color: belowQuotaColor(d.reallocatedShare),
+          href: `/${d.councilSlug}/${d.year}#party-view`,
+          title: `${d.council} ${d.year}: ${d.reallocated} of ${d.totalSeats} seats reallocated by FPTP (${pct(d.reallocatedShare)})`,
+          primary: `${d.council} (${d.year})`,
+          secondary: `${d.reallocated} of ${d.totalSeats} seats reallocated · ${pct(d.reallocatedShare)} of the cycle`
+        }
+      ])
+    )
+  );
+
   // Year-over-year flips map: each council hex shows the colour of the
   // party that took plurality in the most recent flip. Councils that
   // never flipped between consecutive cycles stay grey.
@@ -114,17 +133,40 @@
     </div>
   </div>
 
-  <h2>Ten most FPTP-distorted single elections</h2>
+  <h2>FPTP distortion, latest cycle</h2>
   <p class="muted">
     For each cycle in our data, we compute the seats actually allocated
     by First-Past-the-Post and the seats a proportional system (D'Hondt)
-    would have allocated from the same vote totals. The
-    <strong>reallocated</strong> column is the count of seats FPTP
-    placed differently, sorted by raw count so the largest reallocations
-    lead. Click a council to see the full per-cycle vote-share-vs-seat-
-    share visualisation. See
-    <a href="/distortion">the full distortion leaderboard</a> for more.
+    would have allocated from the same vote totals. The map shades every
+    UK council by how many of its seats were reallocated by FPTP in its
+    most recent cycle (darker = more seats reallocated). The table below
+    picks out the ten elections with the largest absolute reallocation.
+    See <a href="/distortion">/distortion</a> for the full leaderboard.
   </p>
+  <div class="map-and-scale">
+    <CouncilHexMap
+      fills={distortionFills}
+      title="UK councils — most recent poll, shaded by % of seats FPTP reallocated vs a proportional allocation"
+    />
+    <div class="legend">
+      <span class="legend-label">% of seats reallocated</span>
+      <div class="legend-bar">
+        {#each [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as t (t)}
+          <span class="legend-cell" style:background-color={belowQuotaColor(t)}></span>
+        {/each}
+      </div>
+      <div class="legend-ticks">
+        <span>0%</span><span>50%</span><span>100%</span>
+      </div>
+      <p class="muted small">
+        One hex = one council, in the cycle most recently polled. 0% = the
+        cycle's seat allocation matched what a proportional method would
+        have produced; higher = more seats moved by FPTP.
+      </p>
+    </div>
+  </div>
+
+  <h3>Ten most FPTP-distorted single elections</h3>
 
   <table aria-label="Ten most FPTP-distorted single elections">
     <thead>
