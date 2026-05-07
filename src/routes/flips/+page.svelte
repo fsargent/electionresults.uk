@@ -7,11 +7,19 @@
   let { data } = $props();
 
   // Build a sorted list of {party, seats, color} from a composition
-  // snapshot. "Other" (the catch-all bucket) is treated as a row
-  // alongside named parties and sorted with them — when it dominates
-  // (Ashfield Independents = ~30 seats vs Con/Lab at 1-3) it leads
-  // the bar, not appended to the end.
+  // snapshot. Prefer the per-councillor breakdown (partiesDetailed)
+  // when we have it — every party gets its actual label (Ashfield
+  // Independents, Aspire, Independent / Other, etc.). Falls back to
+  // (named parties + Other bucket) when no per-councillor snapshot
+  // exists. partyColor handles unknown party names via its
+  // independents/locals heuristic.
   function compositionRows(c: CompositionSnapshot) {
+    if (c.partiesDetailed) {
+      return Object.entries(c.partiesDetailed)
+        .filter(([, n]) => n > 0)
+        .map(([party, seats]) => ({ party, seats, color: partyColor(party) }))
+        .sort((a, b) => b.seats - a.seats);
+    }
     const rows = Object.entries(c.parties)
       .filter(([, n]) => n > 0)
       .map(([party, seats]) => ({ party, seats, color: partyColor(party) }));

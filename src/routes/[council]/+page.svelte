@@ -13,22 +13,49 @@
   const composition = $derived(data.composition);
   const compositionApprox = $derived(data.compositionApprox);
   // Build a SeatChart-shaped row list from the truth-set snapshot.
-  // Other (the catch-all bucket) is treated as a row alongside named
-  // parties for sort purposes — when it dominates (e.g. Ashfield's ~30
-  // Independents vs 1-3 Conservative/Labour), Other should lead the
-  // visualisation, not be tucked at the end. Sort key is raw seat count.
+  // Prefer the per-councillor breakdown (partiesDetailed) when we have
+  // it — that gives every square its actual party label (Ashfield
+  // Independents, Aspire, Independent / Other, etc.) instead of
+  // collapsing everything to a generic "Other" bucket. Falls back to
+  // the named-parties + Other split from the summary CSV when no
+  // per-councillor snapshot exists for this (council, year).
   const truthRows = $derived(
     composition
-      ? [
-          ...Object.entries(composition.parties)
+      ? composition.partiesDetailed
+        ? Object.entries(composition.partiesDetailed)
             .filter(([, n]) => n > 0)
-            .map(([party, seats]) => ({ party, seats })),
-          ...(composition.otherSeats > 0
-            ? [{ party: 'Other', seats: composition.otherSeats }]
-            : [])
-        ].sort((a, b) => b.seats - a.seats)
+            .map(([party, seats]) => ({ party, seats }))
+            .sort((a, b) => b.seats - a.seats)
+        : [
+            ...Object.entries(composition.parties)
+              .filter(([, n]) => n > 0)
+              .map(([party, seats]) => ({ party, seats })),
+            ...(composition.otherSeats > 0
+              ? [{ party: 'Other', seats: composition.otherSeats }]
+              : [])
+          ].sort((a, b) => b.seats - a.seats)
       : []
   );
+
+  // Same logic, but for per-flip composition viz: takes a snapshot,
+  // returns SeatChart segments preferring detailed breakdown.
+  function flipCompositionRows(comp: typeof composition) {
+    if (!comp) return [];
+    if (comp.partiesDetailed) {
+      return Object.entries(comp.partiesDetailed)
+        .filter(([, n]) => n > 0)
+        .map(([party, seats]) => ({ party, seats }))
+        .sort((a, b) => b.seats - a.seats);
+    }
+    return [
+      ...Object.entries(comp.parties)
+        .filter(([, n]) => n > 0)
+        .map(([party, seats]) => ({ party, seats })),
+      ...(comp.otherSeats > 0
+        ? [{ party: 'Other', seats: comp.otherSeats }]
+        : [])
+    ].sort((a, b) => b.seats - a.seats);
+  }
 </script>
 
 <svelte:head>
@@ -211,14 +238,7 @@
               {#if comp}
                 <SeatChart
                   label={`Council composition (${year})`}
-                  segments={[
-                    ...Object.entries(comp.parties)
-                      .filter(([, n]) => n > 0)
-                      .map(([party, seats]) => ({ party, seats })),
-                    ...(comp.otherSeats > 0
-                      ? [{ party: 'Other', seats: comp.otherSeats }]
-                      : [])
-                  ].sort((a, b) => b.seats - a.seats)}
+                  segments={flipCompositionRows(comp)}
                 />
               {:else}
                 <p class="muted small">No composition snapshot for {year}.</p>

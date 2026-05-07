@@ -89,10 +89,21 @@ export interface CompositionSnapshot {
   council: string;
   year: number;
   totalSeats: number;
-  /** Canonical-party-name → seat count, for every party we track. */
+  /** Canonical-party-name → seat count, for the 8 named parties oncd
+   *  breaks out (Con/Lab/LD/Green/UKIP/Reform/PC/SNP). */
   parties: Record<string, number>;
-  /** Catch-all bucket — non-major-party councillors of various stripes. */
+  /** Catch-all bucket from the summary CSV — Independents and any
+   *  party not in oncd's named columns, lumped into one count. */
   otherSeats: number;
+  /** Per-councillor breakdown (party-name → seat count) sourced from
+   *  the per-councillor CSVs. Includes the named parties AND the
+   *  individual local parties (Ashfield Independents, Aspire,
+   *  Havering Residents Association, etc.) that the summary CSV
+   *  rolls into Other. Sum should match totalSeats but can differ
+   *  by 1-2 seats due to Vacant seats / data drift between the two
+   *  oncd products. Null when no per-councillor snapshot exists for
+   *  this (council, year). */
+  partiesDetailed: Record<string, number> | null;
   /** Largest single named party (ignores `otherSeats`); null if no data. */
   largestParty: string | null;
   largestPartySeats: number;

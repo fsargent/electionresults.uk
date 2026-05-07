@@ -23,7 +23,20 @@ const PARTY_COLORS: Record<string, string> = {
   'UK Independence Party (UKIP)': '#70147A',
   'Social Democratic Party': '#5784D7',
 
+  // "Independent" = literally an unaffiliated councillor.
+  // "Independent / Other" = oncd's residual bucket — independents AND any
+  // minor party they don't break out as a column. Subtly different shade
+  // so when both appear in the same SeatChart they're distinguishable.
   Independent: '#888888',
+  'Independent / Other': '#A0A0A0',
+  // Generic "Other" (used in a fallback path when partiesDetailed is
+  // unavailable for a (council, year) — the summary CSV bucket).
+  Other: '#999999',
+
+  // Ashfield Independents — long-running local-party slate dominating
+  // Ashfield (~30+ seats vs 1-3 for major parties). Distinct goldenrod
+  // so it doesn't blend into the field of grey "Independent" entries.
+  'Ashfield Independents': '#B8860B',
 
   // Cornish nationalist
   'Mebyon Kernow - The Party for Cornwall': '#F7D038',

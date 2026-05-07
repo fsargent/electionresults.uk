@@ -709,12 +709,71 @@ const COMP_SLUG_ALIASES = {
   'kingston-upon-hull': 'kingston-upon-hull-city-of'
 };
 
+// The per-councillor CSVs use different party-name conventions from
+// the canonical names we use across the site. Normalise to canonical.
+// Anything not in this map passes through untouched (so local parties
+// like "Ashfield Independents" / "Aspire" / "Havering Residents
+// Association" keep their literal names — that's what we want for
+// per-square labelling).
+const COUNCILLOR_PARTY_NORMALISE = {
+  'Conservative and Unionist': 'Conservative and Unionist Party',
+  'Green Party (E&W)': 'Green Party',
+  'Plaid Cymru - The Party of Wales': 'Plaid Cymru',
+  'Scottish National Party (SNP)': 'Scottish National Party',
+  'Independent / Other': 'Independent / Other'
+};
+
+// Per-councillor snapshot ingest. Each year's CSV at
+// docs/opencouncildata_councillors_YYYY.csv carries one row per sitting
+// councillor — Council, Ward, Councillor Name, Next Election, Party,
+// EC Code. We aggregate per (councilSlug, year) into a partiesDetailed
+// dict (canonical-party-name → seat count). This lets the SeatChart on
+// every composition viz label each square with the actual party (e.g.
+// "Ashfield Independents", "Aspire", "Independent / Other") instead of
+// rolling everything into the generic "Other" bucket from the summary
+// CSV. Returns a Map keyed by `${slug}::${year}`.
+function ingestCouncillorSnapshots() {
+  const out = new Map();
+  for (let year = 2016; year <= 2025; year++) {
+    const csvPath = resolve(ROOT, `docs/opencouncildata_councillors_${year}.csv`);
+    if (!existsSync(csvPath)) continue;
+    const wb = XLSX.read(readFileSync(csvPath, 'utf8'), { type: 'string' });
+    const ws = wb.Sheets[wb.SheetNames[0]];
+    const rows = XLSX.utils.sheet_to_json(ws, { defval: '', raw: true });
+    for (const r of rows) {
+      const authority = String(r['Council'] ?? '').trim();
+      if (!authority) continue;
+      const partyRaw = String(r['Party Name'] ?? '').trim();
+      if (!partyRaw) continue;
+      // Skip "Vacant" entries — these aren't councillors with party
+      // affiliation, they're empty seats. Keeps the seat-count totals
+      // honest re: "people sitting in the chamber under a party banner".
+      if (partyRaw === 'Vacant') continue;
+      const party = COUNCILLOR_PARTY_NORMALISE[partyRaw] ?? partyRaw;
+      const rawSlug = slugify(authority);
+      const slug = COMP_SLUG_ALIASES[rawSlug] ?? rawSlug;
+      const key = `${slug}::${year}`;
+      let breakdown = out.get(key);
+      if (!breakdown) {
+        breakdown = new Map();
+        out.set(key, breakdown);
+      }
+      breakdown.set(party, (breakdown.get(party) ?? 0) + 1);
+    }
+  }
+  return out;
+}
+
 function ingestCompositions() {
   const csvPath = resolve(ROOT, 'docs/history2016-2025.csv');
   if (!existsSync(csvPath)) {
     console.warn('[etl] composition CSV not found; skipping');
     return [];
   }
+  const councillorSnapshots = ingestCouncillorSnapshots();
+  console.log(
+    `[etl] ingested per-councillor snapshots for ${councillorSnapshots.size} (council, year) keys`
+  );
   const wb = XLSX.read(readFileSync(csvPath, 'utf8'), { type: 'string' });
   const ws = wb.Sheets[wb.SheetNames[0]];
   const rows = XLSX.utils.sheet_to_json(ws, { defval: '', raw: true });
@@ -762,13 +821,19 @@ function ingestCompositions() {
       largestSeats = otherSeats;
     }
     const rawSlug = slugify(authority);
+    const finalSlug = COMP_SLUG_ALIASES[rawSlug] ?? rawSlug;
+    // Pull the per-councillor breakdown for this (council, year) if we
+    // have it. Object form keyed by canonical party name → seat count.
+    const detailedMap = councillorSnapshots.get(`${finalSlug}::${year}`);
+    const partiesDetailed = detailedMap ? Object.fromEntries(detailedMap) : null;
     out.push({
-      councilSlug: COMP_SLUG_ALIASES[rawSlug] ?? rawSlug,
+      councilSlug: finalSlug,
       council: authority,
       year,
       totalSeats,
       parties,
       otherSeats,
+      partiesDetailed,
       largestParty,
       largestPartySeats: largestSeats,
       // True when no named party exceeds the "other" bucket - means the
