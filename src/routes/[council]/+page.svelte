@@ -1,45 +1,23 @@
 <script lang="ts">
-  import { pct, num, pts } from '$lib/format';
-  import Party from '$lib/components/Party.svelte';
+  import { pct, num } from '$lib/format';
   import { partyColor, partyDisplayName } from '$lib/party-colors';
-  import PartyBars from '$lib/components/PartyBars.svelte';
   import SeatChart from '$lib/components/SeatChart.svelte';
+  import PartyViewBlock from '$lib/components/PartyViewBlock.svelte';
   let { data } = $props();
   const history = $derived(data.history);
-  const flips = $derived(data.flips);
   // composition is the opencouncildata truth-set snapshot when we have
   // one (preferred); compositionApprox is the fallback sum-across-cycles
   // approximation for councils oncd doesn't cover for that year.
   const composition = $derived(data.composition);
   const compositionApprox = $derived(data.compositionApprox);
-  // Build a SeatChart-shaped row list from the truth-set snapshot.
+  // Build a SeatChart-shaped row list from a composition snapshot.
   // Prefer the per-councillor breakdown (partiesDetailed) when we have
   // it — that gives every square its actual party label (Ashfield
   // Independents, Aspire, Independent / Other, etc.) instead of
   // collapsing everything to a generic "Other" bucket. Falls back to
   // the named-parties + Other split from the summary CSV when no
   // per-councillor snapshot exists for this (council, year).
-  const truthRows = $derived(
-    composition
-      ? composition.partiesDetailed
-        ? Object.entries(composition.partiesDetailed)
-            .filter(([, n]) => n > 0)
-            .map(([party, seats]) => ({ party, seats }))
-            .sort((a, b) => b.seats - a.seats)
-        : [
-            ...Object.entries(composition.parties)
-              .filter(([, n]) => n > 0)
-              .map(([party, seats]) => ({ party, seats })),
-            ...(composition.otherSeats > 0
-              ? [{ party: 'Other', seats: composition.otherSeats }]
-              : [])
-          ].sort((a, b) => b.seats - a.seats)
-      : []
-  );
-
-  // Same logic, but for per-flip composition viz: takes a snapshot,
-  // returns SeatChart segments preferring detailed breakdown.
-  function flipCompositionRows(comp: typeof composition) {
+  function compositionSegments(comp: typeof composition) {
     if (!comp) return [];
     if (comp.partiesDetailed) {
       return Object.entries(comp.partiesDetailed)
@@ -56,13 +34,14 @@
         : [])
     ].sort((a, b) => b.seats - a.seats);
   }
+  const truthRows = $derived(compositionSegments(composition));
 </script>
 
 <svelte:head>
   <title>{history.council} — election results audit | electionresults.uk</title>
   <meta
     name="description"
-    content={`${history.council}: every cycle we have data for, with party-control flips between consecutive elections.`}
+    content={`${history.council}: every cycle we have data for, with vote share vs seats won for the most recent election.`}
   />
   <link
     rel="canonical"
@@ -152,107 +131,79 @@
     </div>
   {/if}
 
-  {#if flips.length > 0}
-    <h2>Council-control changes between cycles</h2>
+  {#if data.latestPartyView && data.latestPartyView.rows.length > 1 && data.latestCycle}
+    {@const view = data.latestPartyView}
+    {@const cycle = data.latestCycle}
+    <h2 id="latest-election">Most recent election ({cycle.year})</h2>
     <p>
-      Cases where the largest party in the council's running composition
-      actually changed from one year to the next (composition data via
-      <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>).
-      Each row shows the incoming party's vote share in both cycles and
-      the council's full composition before and after &mdash; a small
-      <strong>vote shift</strong> paired with a big
-      <strong>composition shift</strong> is the classic First-Past-the-Post
-      pattern: small change in support, sweeping change in representation.
+      In {cycle.year}, {num(cycle.totalSeatCount)} seat{cycle.totalSeatCount === 1 ? '' : 's'}
+      {cycle.totalSeatCount === 1 ? 'was' : 'were'} up across
+      {num(cycle.raceCount)} ward{cycle.raceCount === 1 ? '' : 's'}. The table
+      below shows what each party actually won &mdash; alongside what they
+      would have won if the {view.totalSeats} seat{view.totalSeats === 1 ? '' : 's'}
+      had been shared in proportion to votes received
+      (<a href="/methodology">how, with caveats</a>). The
+      <strong>Δ</strong> column is the actual seat count minus the
+      proportional seat count &mdash; positive numbers are parties
+      First-Past-the-Post over-represented; negative are parties it
+      under-represented.
     </p>
 
-    {#each flips as f (f.yearFrom + ':' + f.yearTo)}
-      {@const newColor = partyColor(f.toParty)}
-      {@const oldColor = partyColor(f.fromParty)}
-      <section class="flip">
-        <h3 class="flip-year">
-          <span class="from">{f.yearFrom}</span>
-          <span class="arrow" aria-hidden="true">→</span>
-          <span class="to">{f.yearTo}</span>
-        </h3>
-        <p class="flip-summary">
-          <Party name={f.fromParty} />
-          <span class="arrow muted" aria-hidden="true">→</span>
-          <Party name={f.toParty} />
-        </p>
+    <PartyViewBlock {view} />
 
-        <div class="flip-grid">
+    {#if data.compositionBefore || data.compositionAfter}
+      {@const fullSeats =
+        data.compositionAfter?.totalSeats ??
+        data.compositionBefore?.totalSeats ??
+        0}
+      {@const isAllOut = fullSeats > 0 && cycle.totalSeatCount >= fullSeats * 0.9}
+      <h3 class="bars-heading">
+        {isAllOut
+          ? 'Council composition: what this election replaced'
+          : 'Council composition: before vs after'}
+      </h3>
+      <p class="muted">
+        {#if isAllOut}
+          The {cycle.year} cycle was an all-out election &mdash; every
+          seat was contested, so the new composition is the
+          <em>Actual seats</em> row above. The snapshot below shows the
+          council on the eve of that election ({cycle.year - 1}
+          <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+          snapshot), for context on what the result replaced.
+        {:else}
+          Two
+          <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+          snapshots: the council immediately before the {cycle.year} election
+          ({cycle.year - 1} snapshot) and immediately after it ({cycle.year}
+          snapshot). Only ~⅓ of seats were contested in {cycle.year} &mdash;
+          most of the bench is unchanged, and the cycle's effect on the
+          overall composition is what shifts.
+        {/if}
+      </p>
+      <div class="composition-pair">
+        {#if data.compositionBefore}
           <div>
-            <span class="lbl">Vote shift (incoming party)</span>
-            <span class="val pct" class:warn={f.voteSwingNew < 0.05}>{pts(f.newPartyVoteTo - f.newPartyVoteFrom)}</span>
-            <span class="muted small">
-              {pct(f.newPartyVoteFrom)} → {pct(f.newPartyVoteTo)}
-            </span>
+            <SeatChart
+              label={`Before (${cycle.year - 1})`}
+              segments={compositionSegments(data.compositionBefore)}
+              minSize={14}
+            />
           </div>
+        {/if}
+        {#if !isAllOut && data.compositionAfter}
           <div>
-            <span class="lbl">Seat shift (incoming party)</span>
-            <span class="val pct warn">{pts(f.newPartySeatTo - f.newPartySeatFrom)}</span>
-            <span class="muted small">
-              {pct(f.newPartySeatFrom)} → {pct(f.newPartySeatTo)}
-            </span>
+            <SeatChart
+              label={`After (${cycle.year})`}
+              segments={compositionSegments(data.compositionAfter)}
+              minSize={14}
+            />
           </div>
-          <div>
-            <span class="lbl">Outgoing party (vote / seats {f.yearFrom} → {f.yearTo})</span>
-            <span class="val pct muted">
-              {pct(f.oldPartyVoteFrom)} → {pct(f.oldPartyVoteTo)}
-            </span>
-            <span class="muted small">
-              seats: {pct(f.oldPartySeatFrom)} → {pct(f.oldPartySeatTo)}
-            </span>
-          </div>
-        </div>
+        {/if}
+      </div>
+    {/if}
 
-        <h4 class="bars-heading">Cycle vote share vs full-council composition</h4>
-        <p class="muted small bars-note">
-          The vote-share bar is the share of votes cast in this cycle's
-          election. The composition row is one square per councillor in
-          the full council that year &mdash; including councillors
-          elected in earlier cycles for by-thirds councils &mdash; from
-          the <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
-          annual snapshot. The contrast is the editorial story: a
-          modest move in vote share produced a much bigger move in
-          composition.
-        </p>
-        <div class="bars" aria-label="Cycle vote share and full council composition across the two cycles">
-          {#each [{ year: f.yearFrom, view: f.partyViewFrom, comp: f.compositionFrom }, { year: f.yearTo, view: f.partyViewTo, comp: f.compositionTo }] as { year, view, comp } (year)}
-            <div class="bar-block">
-              <div class="bar-year muted">{year}</div>
-              {#if view}
-                <PartyBars
-                  label="Vote share (this cycle)"
-                  segments={view.rows.map((r) => ({
-                    party: r.party,
-                    share: r.voteShare,
-                    count: r.votes,
-                    total: view.totalVotes,
-                    unit: 'votes'
-                  }))}
-                />
-              {:else}
-                <p class="muted small">No party-view data for {year}.</p>
-              {/if}
-              {#if comp}
-                <SeatChart
-                  label={`Council composition (${year})`}
-                  segments={flipCompositionRows(comp)}
-                />
-              {:else}
-                <p class="muted small">No composition snapshot for {year}.</p>
-              {/if}
-            </div>
-          {/each}
-        </div>
-      </section>
-    {/each}
-
-  {:else}
     <p class="muted">
-      Only one cycle of data for this council so far — no
-      between-cycle comparison possible yet.
+      <a href="/{history.councilSlug}/{cycle.year}">Full ward-by-ward results for {cycle.year} →</a>
     </p>
   {/if}
 
@@ -340,84 +291,15 @@
     font-variant-numeric: tabular-nums;
   }
 
-  section.flip {
-    border-top: 1px solid var(--rule);
-    padding-top: 1.5rem;
-    margin-top: 2rem;
-  }
-  /* Per-flip year header: sized to sit clearly BELOW the section h2
-     (1.4rem) and the page h1 (2rem). Keeps the serif identity as a
-     visual marker for "this is one flip event" but stops competing
-     with the parent section heading. */
-  .flip-year {
-    margin: 0;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--accent);
-    display: flex;
-    align-items: baseline;
-    gap: 0.4rem;
-    font-variant-numeric: tabular-nums;
-  }
-  .flip-year .arrow {
-    font-size: 1rem;
-    color: var(--muted);
-  }
-  .flip-summary {
-    margin: 0.4rem 0 0.6rem;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .flip-summary .arrow { font-size: 1.1rem; }
-  .flip-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-    gap: 0.5rem 1.6rem;
-    margin: 0.6rem 0 0.8rem;
-  }
-  .flip-grid div {
-    display: flex;
-    flex-direction: column;
-  }
-  .lbl {
-    font-size: 0.78rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .val {
-    font-size: 1.05rem;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-  }
-  .val.warn { color: var(--warn); }
-  .small { font-size: 0.78rem; }
-  .warn { color: var(--warn); }
-
-  .bars {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-  @media (max-width: 700px) {
-    .bars { grid-template-columns: 1fr; }
-  }
-  .bar-block {
-    display: grid;
-    gap: 0.3rem;
-  }
-  .bar-year {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
   .council-seats {
     margin: 0.6rem 0 1.5rem;
+    max-width: 36rem;
+  }
+  .composition-pair {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    margin: 0.8rem 0 1.5rem;
     max-width: 36rem;
   }
   .approx {
