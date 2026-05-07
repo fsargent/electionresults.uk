@@ -61,9 +61,11 @@
     partly First-Past-the-Post in their constituency component, but
     their compensatory list seats restore overall proportionality, so
     the quota framing is still the right benchmark for the system as a
-    whole. We deliberately don't single out one preferred method
-    elsewhere on the site &mdash; the editorial argument is against
-    the distortion, not for one particular replacement.
+    whole. We deliberately don't single out one preferred method on
+    this site &mdash; the editorial argument is against the
+    distortion, not for one particular replacement. For comparisons
+    between proportional methods, see the sister site
+    <a href="https://proportional.uk" rel="external noopener">proportional.uk</a>.
   </p>
   <p>
     Picking the right replacement is exactly what a
@@ -170,10 +172,12 @@
     Aggregating "candidate votes by party" therefore over-counts parties
     with full slates and under-counts parties with partial ones. Treat
     the proportional column as a <em>directional proxy</em> for what
-    any list-PR system would deliver, not an exact prediction. A
-    preferential proportional method that counts voter rankings would
-    avoid this distortion, but the LEH data does not record voter
-    rankings so we cannot reproduce that allocation here.
+    any list-PR system would deliver, not an exact prediction. Methods
+    that count voter rankings (preferential / ranked) don't have this
+    aggregation issue at all because they read each voter's full
+    preference order rather than summing candidate totals; the LEH
+    data doesn't record rankings, so we can't reproduce that
+    allocation here.
   </p>
 
   <h2>Cycle-over-cycle comparison</h2>
