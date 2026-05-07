@@ -5,7 +5,7 @@ import {
   generatedAt,
   latestCouncilSummaries,
   distinctCouncilSlugs,
-  allFlips,
+  distortionLeaderboard,
   latestFlipByCouncil
 } from '$lib/data';
 
@@ -25,7 +25,12 @@ export function load() {
   // concrete hook in the homepage lede ("they won with X%, 1-X chose
   // someone else, and they still won the seat").
   const lowestWinner = topLowestShares[0];
-  const topFlips = allFlips.slice(0, 10);
+  // Top 10 most FPTP-distorted single elections — replaces the older
+  // "Ten biggest flips" table whose disproportion-score ranking conflated
+  // genuine distortion with mechanical all-out-vs-by-thirds artefacts.
+  // The distortion lens is per-cycle, apples-to-apples: count of seats
+  // FPTP placed differently from D'Hondt, divided by the cycle's seats.
+  const topDistortedCycles = distortionLeaderboard().slice(0, 10);
   // For the year-over-year map: the most recent flip per council, plus
   // the corresponding party fills.
   const latestFlipMap = latestFlipByCouncil();
@@ -45,7 +50,7 @@ export function load() {
     generatedAt,
     topLowestShares,
     lowestWinner,
-    topFlips,
+    topDistortedCycles,
     latestByCouncil: latestCouncilSummaries(),
     allCouncils: distinctCouncilSlugs(),
     flipMapEntries

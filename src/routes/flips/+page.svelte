@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { pct, num, pts } from '$lib/format';
+  import { num } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
-  import { partyDisplayName } from '$lib/party-colors';
+  import { partyColor, partyDisplayName } from '$lib/party-colors';
   let { data } = $props();
 
   let yearFilter = $state('');
@@ -34,38 +34,34 @@
   <title>Council flips — electionresults.uk</title>
   <meta
     name="description"
-    content="Every UK council where the largest party in the running composition changed between consecutive cycle years. Composition data via opencouncildata; ranked by composition seat shift divided by cycle vote shift for the incoming party."
+    content="Every UK council where the largest party in the running composition changed between consecutive cycle years. Composition data via opencouncildata, sorted by recency."
   />
   <link rel="canonical" href="https://electionresults.uk/flips" />
 </svelte:head>
 
 <main class="wide">
-  <h1>Council flips</h1>
+  <h1>Council-control changes</h1>
   <p>
     Every council in the dataset where the
-    <strong>largest party in the running composition</strong> changed
-    between consecutive election cycles. Ranked by
-    <strong>composition seat shift ÷ cycle vote shift</strong> for the
-    incoming party (with vote shift floored at 1 percentage point so a
-    0-shift entry doesn't divide by zero) &mdash; the bigger the change
-    of council control, the smaller the change in votes that triggered
-    it, the higher the rank. {num(data.rows.length)} flips qualify.
+    <strong>largest party in the running composition actually changed</strong>
+    between consecutive election cycles. {num(data.rows.length)} changes
+    qualify, most recent first.
   </p>
   <p class="muted">
     Composition data per
     <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
     annual snapshots &mdash; reflects the actual seat count after the
-    cycle's election plus any by-elections, not just the cycle's
-    results. Cycles where one party topped the per-cycle table but the
-    council's overall largest party didn't change (e.g. East Lindsey
-    2024, where Reform won the seats up but Conservatives still hold ~28
-    of 55 council seats) are correctly excluded. See
-    <a href="/methodology#flips">methodology</a> for the precise
-    definition.
+    cycle's election plus any by-elections, not just the cycle's results.
+    Cycles where one party topped the per-cycle table but the council's
+    overall largest party didn't change (e.g. East Lindsey 2024, where
+    Reform won the seats up but Conservatives still hold ~28 of 55
+    council seats) are correctly excluded.
   </p>
   <p class="muted">
-    Click a council name for the full per-flip visualisation. Filter or
-    search below.
+    For the FPTP-distortion story &mdash; small vote shifts producing
+    big seat reallocations &mdash; see <a href="/distortion">/distortion</a>.
+    See <a href="/methodology#flips">methodology</a> for the precise
+    definition of a council-control change.
   </p>
 
   <form class="filters" onsubmit={(e) => e.preventDefault()}>
@@ -120,27 +116,73 @@
   <table>
     <thead>
       <tr>
-        <th>Rank</th>
-        <th>Council</th>
         <th>Cycle</th>
-        <th>Flip</th>
-        <th class="num">Vote shift</th>
-        <th class="num">Seat shift</th>
+        <th>Council</th>
+        <th>Largest party changed</th>
+        <th>Composition before</th>
+        <th>Composition after</th>
       </tr>
     </thead>
     <tbody>
-      {#each filtered as f, i (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
+      {#each filtered as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
         <tr>
-          <td class="num">{i + 1}</td>
-          <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
           <td class="num">{f.yearFrom} → {f.yearTo}</td>
+          <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
           <td>
             <Party name={f.fromParty} />
             <span class="muted" aria-hidden="true"> → </span>
             <Party name={f.toParty} />
           </td>
-          <td class="num pct">{pts(f.newPartyVoteTo - f.newPartyVoteFrom)}</td>
-          <td class="num pct warn">{pts(f.newPartySeatTo - f.newPartySeatFrom)}</td>
+          <td class="comp-cell">
+            {#if f.compositionFrom}
+              <span class="comp-label muted">{f.yearFrom}</span>
+              <span class="comp-bar" aria-label={`Composition ${f.yearFrom}: ${f.compositionFrom.totalSeats} seats`}>
+                {#each Object.entries(f.compositionFrom.parties).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]) as [party, seats] (party)}
+                  <span
+                    class="comp-seg"
+                    style:flex={seats}
+                    style:background-color={partyColor(party)}
+                    title={`${partyDisplayName(party)}: ${seats} of ${f.compositionFrom.totalSeats} seats`}
+                  ></span>
+                {/each}
+                {#if f.compositionFrom.otherSeats > 0}
+                  <span
+                    class="comp-seg"
+                    style:flex={f.compositionFrom.otherSeats}
+                    style:background-color="#888888"
+                    title={`Other: ${f.compositionFrom.otherSeats} of ${f.compositionFrom.totalSeats} seats`}
+                  ></span>
+                {/if}
+              </span>
+            {:else}
+              <span class="muted small">—</span>
+            {/if}
+          </td>
+          <td class="comp-cell">
+            {#if f.compositionTo}
+              <span class="comp-label muted">{f.yearTo}</span>
+              <span class="comp-bar" aria-label={`Composition ${f.yearTo}: ${f.compositionTo.totalSeats} seats`}>
+                {#each Object.entries(f.compositionTo.parties).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]) as [party, seats] (party)}
+                  <span
+                    class="comp-seg"
+                    style:flex={seats}
+                    style:background-color={partyColor(party)}
+                    title={`${partyDisplayName(party)}: ${seats} of ${f.compositionTo.totalSeats} seats`}
+                  ></span>
+                {/each}
+                {#if f.compositionTo.otherSeats > 0}
+                  <span
+                    class="comp-seg"
+                    style:flex={f.compositionTo.otherSeats}
+                    style:background-color="#888888"
+                    title={`Other: ${f.compositionTo.otherSeats} of ${f.compositionTo.totalSeats} seats`}
+                  ></span>
+                {/if}
+              </span>
+            {:else}
+              <span class="muted small">—</span>
+            {/if}
+          </td>
         </tr>
       {/each}
     </tbody>
@@ -154,5 +196,28 @@
     gap: 0.5rem 0.5rem;
     margin: 1rem 0 0.5rem;
   }
-  .warn { color: var(--warn); }
+  .small { font-size: 0.78rem; }
+  .comp-cell {
+    min-width: 12rem;
+  }
+  .comp-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+  }
+  .comp-bar {
+    display: flex;
+    width: 100%;
+    height: 0.85rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  .comp-seg {
+    display: block;
+    height: 100%;
+  }
 </style>

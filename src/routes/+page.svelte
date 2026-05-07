@@ -114,41 +114,52 @@
     </div>
   </div>
 
-  <h2>Ten biggest flips</h2>
+  <h2>Ten most FPTP-distorted single elections</h2>
   <p class="muted">
-    Councils where the largest party (by seats won) changed between
-    consecutive cycles, ranked by
-    <strong>seat shift ÷ vote shift</strong> for the incoming party.
-    The bigger the seat shift, the smaller the vote shift, the higher
-    the rank. (For example: Wealden 2021→2023 — Liberal Democrats
-    gained 22.9 points of seat share on just 0.6 points of extra vote
-    share, a ratio of about 38.) The classic First-Past-the-Post
-    pattern: a small change in votes produces a sweeping change in
-    seats.
+    For each cycle in our data, we compute the seats actually allocated
+    by First-Past-the-Post and the seats a proportional system (D'Hondt)
+    would have allocated from the same vote totals. The
+    <strong>reallocated</strong> column is the count of seats FPTP
+    placed differently, sorted by raw count so the largest reallocations
+    lead. Click a council to see the full per-cycle vote-share-vs-seat-
+    share visualisation. See
+    <a href="/distortion">the full distortion leaderboard</a> for more.
   </p>
 
-  <table aria-label="Ten biggest party-control flips ranked by seat-vs-vote disproportion">
+  <table aria-label="Ten most FPTP-distorted single elections">
     <thead>
       <tr>
+        <th>Year</th>
         <th>Council</th>
-        <th>Cycle</th>
-        <th>Flip</th>
-        <th class="num">Vote shift</th>
-        <th class="num">Seat shift</th>
+        <th class="num">Seats</th>
+        <th class="num">Reallocated</th>
+        <th class="num">% of seats</th>
+        <th>Most over-represented</th>
       </tr>
     </thead>
     <tbody>
-      {#each data.topFlips as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
+      {#each data.topDistortedCycles as r (r.councilSlug + ':' + r.year)}
         <tr>
-          <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
-          <td class="num">{f.yearFrom} → {f.yearTo}</td>
+          <td class="num"><a href={`/${r.year}`}>{r.year}</a></td>
           <td>
-            <Party name={f.fromParty} />
-            <span class="muted" aria-hidden="true"> → </span>
-            <Party name={f.toParty} />
+            <a href={`/${r.councilSlug}/${r.year}#party-view`}>
+              <strong>{r.council}</strong>
+            </a>
           </td>
-          <td class="num pct">{pts(f.newPartyVoteTo - f.newPartyVoteFrom)}</td>
-          <td class="num pct warn">{pts(f.newPartySeatTo - f.newPartySeatFrom)}</td>
+          <td class="num">{r.totalSeats}</td>
+          <td class="num warn">{r.reallocated}</td>
+          <td class="num pct warn">{pct(r.reallocatedShare)}</td>
+          <td>
+            {#if r.mostOver}
+              <Party name={r.mostOver.party} />
+              <span class="muted small">
+                · {pct(r.mostOver.voteShare)} of votes →
+                {pct(r.mostOver.fptpSeatShare)} of seats
+              </span>
+            {:else}
+              <span class="muted">—</span>
+            {/if}
+          </td>
         </tr>
       {/each}
     </tbody>

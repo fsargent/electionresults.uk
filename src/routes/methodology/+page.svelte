@@ -194,7 +194,7 @@
       <em>(approx.)</em>.
     </li>
     <li id="flips">
-      <strong>Council-control flips.</strong> A flip is when the
+      <strong>Council-control changes.</strong> A flip is when the
       largest single party in the council's running composition
       changes between year&nbsp;N&minus;1 and year&nbsp;N for some
       year&nbsp;N where an election was held. Composition is the
@@ -207,20 +207,11 @@
       the council overall (East Lindsey 2024 is the exemplar &mdash;
       Reform won the seats up that cycle, but Conservatives still hold
       ~28 of 55 seats on the actual council, so calling it a "flip"
-      would have been false). For each flip we compute the incoming
-      party's <em>composition</em> seat-share shift (year&nbsp;N seat
-      share minus year&nbsp;N&minus;1 seat share, the meaningful
-      change-of-control number) and the incoming party's <em>cycle</em>
-      vote-share shift between the two cycles' elections, both as
-      percentage points (pp). Flips are ranked by
-      <Frac num="composition seat shift (pp)" denom="max(cycle vote shift (pp), 1 pp)" />
-      &mdash; the bigger the change of council control on the smaller
-      change in votes that triggered it, the higher the rank. The
-      vote-shift denominator is floored at 1 percentage point so a
-      flip on near-zero vote movement (e.g. Wealden 2021&rarr;2023,
-      0.6&nbsp;pp) doesn't divide by zero. The per-flip visualisation
-      on each council page shows the full party breakdown in both
-      cycles &mdash; votes as a bar, seats as one square per seat.
+      would have been false). The <a href="/flips">/flips lens</a>
+      lists every council-control change in our window, sorted by
+      recency &mdash; pure facts, no ranking by anything contentious.
+      Per-flip visualisation on each council page shows the running
+      composition before and after.
     </li>
     <li>
       <strong>Ward-by-ward grid.</strong> Rows are wards (matched by
@@ -232,6 +223,47 @@
       a slightly different geographical area in a later cycle.
     </li>
   </ul>
+
+  <h2 id="distortion">FPTP per-election distortion</h2>
+  <p>
+    Distinct from council-control changes (the rare event where a
+    council's largest party actually flipped) is the
+    <strong>per-election FPTP distortion</strong> story &mdash; the
+    systemic phenomenon where, in any single election, the seats
+    First-Past-the-Post allocates don't match how a proportional system
+    would have allocated them. Even in a stable council where no party
+    flips, every cycle's election distorts the vote-to-seat
+    relationship; that's the whole point of having an electoral-reform
+    audit.
+  </p>
+  <p>
+    For every (council, year) cycle we already compute an
+    <em>If votes were counted by party</em> view (the per-council page's
+    "If votes were counted by party" table) which gives the FPTP
+    allocation alongside the D'Hondt proportional allocation. We rank
+    cycles by the
+    <strong>seats reallocated</strong> measure:
+    <code>sum(|fptp_seats &minus; dhondt_seats|) / 2</code>, summed
+    over parties in that cycle. The
+    division by two is because every seat FPTP gives a party that
+    proportional wouldn't is matched by a seat FPTP withholds from a
+    party proportional would &mdash; so the raw sum double-counts. A
+    perfectly proportional cycle has all-zero deltas; a cycle where
+    FPTP gave one party 2 extra seats has total reallocation = 2.
+  </p>
+  <p>
+    The <a href="/distortion">/distortion lens</a> ranks cycles by
+    reallocated share (reallocated seats &divide; total seats elected
+    that cycle), so a small council with 4 of 12 seats reallocated
+    (33%) ranks above a big council with 4 of 60 (7%). The metric is
+    per-cycle and apples-to-apples &mdash; it describes a single
+    election in isolation, with no by-thirds caveat needed. Caveat: a
+    boundary-review all-out cycle puts every seat up at once, which
+    can mechanically produce big reallocation counts if the new ward
+    map favours one party; the <em>fact</em> of reallocation is real
+    distortion, but the magnitude is partly a function of "more seats
+    were up to begin with."
+  </p>
 
   <h2>Council reorganisations</h2>
   <p>
@@ -252,7 +284,7 @@
 
   <h2>System anomalies</h2>
   <p>
-    Two anomaly lenses are surfaced as their own pages:
+    Three anomaly lenses are surfaced as their own pages:
   </p>
   <ul>
     <li>
@@ -262,12 +294,17 @@
       by year, party, and council.
     </li>
     <li>
+      <a href="/distortion">/distortion</a> &middot; every cycle in
+      our data ranked by FPTP-vs-proportional seats reallocated. See
+      <a href="#distortion">FPTP per-election distortion</a> above for
+      the metric definition.
+    </li>
+    <li>
       <a href="/flips">/flips</a> &middot; every council where the
       largest party in the running composition changed between
-      consecutive cycle years, ranked by composition seat-shift
-      &divide; cycle vote-shift. See
-      <a href="#flips">council-control flips</a> above for the precise
-      definition.
+      consecutive cycle years, sorted by recency. See
+      <a href="#flips">council-control changes</a> above for the
+      precise definition.
     </li>
   </ul>
   <p>

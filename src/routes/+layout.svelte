@@ -23,6 +23,7 @@
 <nav class="site" aria-label="Primary">
   <a class="brand" href="/">electionresults.uk</a>
   <a href="/flips">Flips</a>
+  <a href="/distortion">Distortion</a>
   <a href="/below-quota">Below quota</a>
   <a href="/methodology">Methodology</a>
   <a href="/data">Data</a>

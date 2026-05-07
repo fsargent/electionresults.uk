@@ -64,6 +64,109 @@ export const allFlips: CouncilFlip[] = data.flips;
 export const allCompositions: CompositionSnapshot[] = data.compositions ?? [];
 export const allReorganisations: CouncilReorganisation[] = data.reorganisations;
 
+export interface DistortionRow {
+  year: number;
+  council: string;
+  councilSlug: string;
+  /** Total seats elected this single cycle. */
+  totalSeats: number;
+  /** Total votes cast this single cycle. */
+  totalVotes: number;
+  /** Count of seats FPTP allocated differently from D'Hondt. Sum of
+   *  |fptp − dhondt| over parties, divided by 2 (every over-allocation
+   *  is matched by an equal under-allocation, so the raw sum
+   *  double-counts). 0 = perfectly proportional, higher = more
+   *  distorted. */
+  reallocated: number;
+  /** reallocated / totalSeats — comparable across cycles of different
+   *  sizes (a small council with 4 seats reallocated of 12 is more
+   *  distorted than a big council with 4 of 60). */
+  reallocatedShare: number;
+  /** Party with the highest vote share this cycle. */
+  voteLeader: { party: string; voteShare: number };
+  /** Party that took the most seats this cycle (FPTP allocation). */
+  seatLeader: { party: string; fptpSeats: number; fptpSeatShare: number };
+  /** Party most over-represented vs proportional (largest positive
+   *  seat delta). null when no party gained relative to D'Hondt
+   *  (perfectly proportional cycle, rare). */
+  mostOver: { party: string; delta: number; voteShare: number; fptpSeatShare: number } | null;
+  /** Party most under-represented vs proportional (most negative seat
+   *  delta). null when no party lost relative to D'Hondt. */
+  mostUnder: { party: string; delta: number; voteShare: number; fptpSeatShare: number } | null;
+}
+
+/**
+ * For every (council, year) cycle in the data, compute how many seats
+ * FPTP reallocated vs the proportional benchmark (D'Hondt). The
+ * resulting list is the data behind /distortion. Sorted by
+ * reallocatedShare descending so the most-distorted single elections
+ * lead.
+ */
+export function distortionLeaderboard(): DistortionRow[] {
+  const rows: DistortionRow[] = [];
+  for (const view of allPartyViews) {
+    if (view.rows.length === 0) continue;
+    const reallocated = Math.round(
+      view.rows.reduce((sum, r) => sum + Math.abs(r.seatDelta), 0) / 2
+    );
+    if (view.totalSeats === 0) continue;
+    const sortedByVotes = [...view.rows].sort((a, b) => b.voteShare - a.voteShare);
+    const sortedBySeats = [...view.rows].sort((a, b) => b.fptpSeats - a.fptpSeats);
+    const sortedByOver = [...view.rows].sort((a, b) => b.seatDelta - a.seatDelta);
+    const sortedByUnder = [...view.rows].sort((a, b) => a.seatDelta - b.seatDelta);
+    const mostOverRow = sortedByOver[0];
+    const mostUnderRow = sortedByUnder[0];
+    rows.push({
+      year: view.year,
+      council: view.council,
+      councilSlug: view.councilSlug,
+      totalSeats: view.totalSeats,
+      totalVotes: view.totalVotes,
+      reallocated,
+      reallocatedShare: reallocated / view.totalSeats,
+      voteLeader: {
+        party: sortedByVotes[0].party,
+        voteShare: sortedByVotes[0].voteShare
+      },
+      seatLeader: {
+        party: sortedBySeats[0].party,
+        fptpSeats: sortedBySeats[0].fptpSeats,
+        fptpSeatShare: sortedBySeats[0].fptpSeatShare
+      },
+      mostOver:
+        mostOverRow && mostOverRow.seatDelta > 0
+          ? {
+              party: mostOverRow.party,
+              delta: mostOverRow.seatDelta,
+              voteShare: mostOverRow.voteShare,
+              fptpSeatShare: mostOverRow.fptpSeatShare
+            }
+          : null,
+      mostUnder:
+        mostUnderRow && mostUnderRow.seatDelta < 0
+          ? {
+              party: mostUnderRow.party,
+              delta: mostUnderRow.seatDelta,
+              voteShare: mostUnderRow.voteShare,
+              fptpSeatShare: mostUnderRow.fptpSeatShare
+            }
+          : null
+    });
+  }
+  // Sort by raw reallocated count desc (more seats moved = bigger
+  // story), tiebreak by share desc (intensity), then by recency desc.
+  // Sorting by share alone is tempting but small-cycle by-thirds with
+  // 7 seats elected can have a 4-of-7 reallocation that's editorially
+  // thin compared to e.g. Lewisham 2022's 24-of-54. Raw count
+  // surfaces the dramatic large-council stories.
+  return rows.sort(
+    (a, b) =>
+      b.reallocated - a.reallocated ||
+      b.reallocatedShare - a.reallocatedShare ||
+      b.year - a.year
+  );
+}
+
 /**
  * Composition truth-set lookup for one (council, year). Returns
  * undefined when opencouncildata has no snapshot for that key (e.g.
