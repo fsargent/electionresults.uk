@@ -6,6 +6,7 @@ import {
   wardHistoryForCouncil,
   currentCouncilComposition,
   partyViewForYearAndCouncil,
+  compositionForCouncilYear,
   latestCompositionForCouncil,
   reorganisationForCouncil
 } from '$lib/data';
@@ -28,7 +29,15 @@ export function load({ params }: { params: { council: string } }) {
   const flips = flipsForCouncil(params.council).map((f) => ({
     ...f,
     partyViewFrom: partyViewForYearAndCouncil(f.yearFrom, params.council) ?? null,
-    partyViewTo: partyViewForYearAndCouncil(f.yearTo, params.council) ?? null
+    partyViewTo: partyViewForYearAndCouncil(f.yearTo, params.council) ?? null,
+    // Full council composition (truth-set) for both years of the flip.
+    // Used to replace the per-cycle "actual seats" SeatChart with a
+    // full-council view, so the viz isn't lopsided when one side is
+    // a by-thirds cycle and the other is all-out (Amber Valley
+    // 2021→2023 was the canonical example: 15 seats vs 42 seats made
+    // the SeatChart visually meaningless).
+    compositionFrom: compositionForCouncilYear(params.council, f.yearFrom) ?? null,
+    compositionTo: compositionForCouncilYear(params.council, f.yearTo) ?? null
   }));
   const wards = wardHistoryForCouncil(params.council);
   // Prefer the opencouncildata truth-set (annual snapshot of every

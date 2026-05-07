@@ -125,14 +125,16 @@
   </ul>
 
   {#if flips.length > 0}
-    <h2>Party-control changes between cycles</h2>
+    <h2>Council-control changes between cycles</h2>
     <p>
-      Cases where the largest party (by seats won) changed from one cycle to
-      the next. Each row shows the new party's vote share in both cycles
-      and the seats they took. A small <strong>vote shift</strong> paired
-      with a big <strong>seat shift</strong> is the classic
-      First-Past-the-Post pattern: small change in support, sweeping
-      change in representation.
+      Cases where the largest party in the council's running composition
+      actually changed from one year to the next (composition data via
+      <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>).
+      Each row shows the incoming party's vote share in both cycles and
+      the council's full composition before and after &mdash; a small
+      <strong>vote shift</strong> paired with a big
+      <strong>composition shift</strong> is the classic First-Past-the-Post
+      pattern: small change in support, sweeping change in representation.
     </p>
 
     {#each flips as f (f.yearFrom + ':' + f.yearTo)}
@@ -176,14 +178,24 @@
           </div>
         </div>
 
-        <h4 class="bars-heading">Vote share vs seat share — every party</h4>
-        <div class="bars" aria-label="Vote share and actual seats per party across the two cycles">
-          {#each [{ year: f.yearFrom, view: f.partyViewFrom }, { year: f.yearTo, view: f.partyViewTo }] as { year, view } (year)}
+        <h4 class="bars-heading">Cycle vote share vs full-council composition</h4>
+        <p class="muted small bars-note">
+          The vote-share bar is the share of votes cast in this cycle's
+          election. The composition row is one square per councillor in
+          the full council that year &mdash; including councillors
+          elected in earlier cycles for by-thirds councils &mdash; from
+          the <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+          annual snapshot. The contrast is the editorial story: a
+          modest move in vote share produced a much bigger move in
+          composition.
+        </p>
+        <div class="bars" aria-label="Cycle vote share and full council composition across the two cycles">
+          {#each [{ year: f.yearFrom, view: f.partyViewFrom, comp: f.compositionFrom }, { year: f.yearTo, view: f.partyViewTo, comp: f.compositionTo }] as { year, view, comp } (year)}
             <div class="bar-block">
               <div class="bar-year muted">{year}</div>
               {#if view}
                 <PartyBars
-                  label="Vote share"
+                  label="Vote share (this cycle)"
                   segments={view.rows.map((r) => ({
                     party: r.party,
                     share: r.voteShare,
@@ -192,14 +204,24 @@
                     unit: 'votes'
                   }))}
                 />
-                <SeatChart
-                  label="Actual seats"
-                  segments={view.rows
-                    .filter((r) => r.fptpSeats > 0)
-                    .map((r) => ({ party: r.party, seats: r.fptpSeats }))}
-                />
               {:else}
                 <p class="muted small">No party-view data for {year}.</p>
+              {/if}
+              {#if comp}
+                <SeatChart
+                  label={`Council composition (${year})`}
+                  segments={[
+                    ...Object.entries(comp.parties)
+                      .filter(([, n]) => n > 0)
+                      .sort((a, b) => b[1] - a[1])
+                      .map(([party, seats]) => ({ party, seats })),
+                    ...(comp.otherSeats > 0
+                      ? [{ party: 'Other', seats: comp.otherSeats }]
+                      : [])
+                  ]}
+                />
+              {:else}
+                <p class="muted small">No composition snapshot for {year}.</p>
               {/if}
             </div>
           {/each}
@@ -207,14 +229,6 @@
       </section>
     {/each}
 
-    <p class="muted small">
-      <strong>Caveat for by-thirds councils:</strong> only a third of the
-      seats are elected in each cycle, so a flip in the "largest party
-      this cycle" doesn't necessarily mean a flip in overall council
-      control. The vote-vs-seat divergence still tells you something
-      about how First-Past-the-Post allocates the seats that
-      <em>were</em> contested.
-    </p>
   {:else}
     <p class="muted">
       Only one cycle of data for this council so far — no
