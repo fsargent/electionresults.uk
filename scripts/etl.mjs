@@ -509,13 +509,255 @@ function ingestCycle(cycle) {
   return { cycle, races };
 }
 
+// --- Democracy Club 2026 adapter --------------------------------------------
+//
+// Polling-night-onward live(ish) results for the 2026 cohort. Source shape
+// is one row per candidacy in a single flat CSV — different from the LEH
+// workbooks (one sheet per entity), so this gets its own ingest function
+// that produces the same `{ cycle, races }` output the rest of the pipeline
+// already consumes.
+//
+// Header: person_id, person_name, election_id, ballot_paper_id,
+// election_date, election_current, party_name, party_id, post_label,
+// cancelled_poll, seats_contested, votes_cast, elected, tied_vote_winner,
+// rank, turnout_reported, spoilt_ballots, total_electorate,
+// turnout_percentage, results_source.
+//
+// Conventions:
+//   - council slug = strip "local." prefix and ".YYYY-MM-DD" suffix from
+//     election_id (e.g. "local.adur.2026-05-07" → "adur"). Aligns with
+//     the LEH councilSlug derived from `slugify(councilName)`.
+//   - ward key = ballot_paper_id (unique per race in DC's namespace);
+//     post_label is the human-readable ward name.
+//   - Skip cancelled_poll = 't' (no result will arrive for those).
+//   - Skip rows where votes_cast is empty (results not yet entered for
+//     that race; will get picked up on the next ETL run after DC publishes).
+
+const DC_2026_CYCLE = {
+  year: 2026,
+  electionDate: '2026-05-07',
+  electionDateLabel: '7 May 2026',
+  // Latest DC export filename — refresh by re-downloading from
+  // candidates.democracyclub.org.uk and committing to docs/.
+  file:
+    'docs/downloaded-2026-05-10-dc-candidates-election_date_2026-05-07__election_id_local__field_group_results__results_true-2026-05-10T09-40-37.csv'
+};
+
+// Council-name lookup so DC slugs render with the LEH-style display name
+// when our prior-cycle data has it. Falls back to title-casing the slug
+// for councils we've never seen before (e.g. LGR-successor councils that
+// didn't exist in 2021–2024).
+const councilNameBySlug = new Map();
+function rememberCouncilName(slug, name) {
+  if (slug && name && !councilNameBySlug.has(slug)) {
+    councilNameBySlug.set(slug, name);
+  }
+}
+function titleCaseFromSlug(slug) {
+  return slug
+    .split('-')
+    .map((w) => (w.length > 0 ? w[0].toUpperCase() + w.slice(1) : w))
+    .join(' ');
+}
+
+function parseCsv(text) {
+  // Standard CSV — quoted fields may contain commas and escaped quotes
+  // (""). XLSX.read handles all of that, so we route through it rather
+  // than reimplementing.
+  const wb = XLSX.read(text, { type: 'string' });
+  const ws = wb.Sheets[wb.SheetNames[0]];
+  return XLSX.utils.sheet_to_json(ws, { defval: null, raw: false });
+}
+
+function councilSlugFromElectionId(electionId, electionDate) {
+  // election_id format: "local.<slug>.<YYYY-MM-DD>". Strip the "local."
+  // prefix and the trailing date.
+  if (!electionId) return null;
+  let s = String(electionId).trim();
+  if (s.startsWith('local.')) s = s.slice('local.'.length);
+  const dateSuffix = `.${electionDate}`;
+  if (s.endsWith(dateSuffix)) s = s.slice(0, -dateSuffix.length);
+  return s || null;
+}
+
+function ingestDcCycle(cycle) {
+  const file = resolve(ROOT, cycle.file);
+  if (!existsSync(file)) {
+    console.warn(`[etl] skipping ${cycle.year}: file not found ${file}`);
+    return null;
+  }
+  const rows = parseCsv(readFileSync(file, 'utf8'));
+
+  // Build wards keyed by ballot_paper_id (one race per ward).
+  const wardsByKey = new Map();
+  let skippedCancelled = 0;
+  let skippedNoBallot = 0;
+  for (const r of rows) {
+    if (truthy(r.cancelled_poll)) {
+      skippedCancelled++;
+      continue;
+    }
+    const ballot = r.ballot_paper_id ? String(r.ballot_paper_id).trim() : '';
+    if (!ballot) {
+      skippedNoBallot++;
+      continue;
+    }
+    const councilSlug = councilSlugFromElectionId(r.election_id, cycle.electionDate);
+    if (!councilSlug) continue;
+    const wardName = normaliseWardName(String(r.post_label ?? '').trim());
+    const seats = Number(r.seats_contested ?? 1) || 1;
+    const electorate = Number(r.total_electorate ?? 0) || 0;
+    const partyRaw = r.party_name;
+    // Keep all candidacies in memory regardless of whether votes have
+    // been entered yet — the partial-results filter below drops the
+    // whole ward if any candidacy is still pending. This avoids
+    // marking the wrong N candidates as "elected" in a ward where
+    // only some candidacies have results.
+    const hasVotes = r.votes_cast !== null && r.votes_cast !== '';
+    const candidate = {
+      name: String(r.person_name ?? '').trim(),
+      party: normalizeParty(partyRaw) ?? '',
+      votes: hasVotes ? Number(r.votes_cast) || 0 : null,
+      electedSource: truthy(r.elected),
+      elected: false // recomputed
+    };
+    let ward = wardsByKey.get(ballot);
+    if (!ward) {
+      ward = {
+        year: cycle.year,
+        electionDate: cycle.electionDate,
+        key: ballot,
+        wardCode: ballot,
+        wardName,
+        council: '', // resolved below
+        councilSlug,
+        authorityType: null,
+        seats,
+        electorate,
+        ballots: null,
+        invalidVotes:
+          r.spoilt_ballots != null && r.spoilt_ballots !== ''
+            ? Number(r.spoilt_ballots) || 0
+            : null,
+        candidates: []
+      };
+      wardsByKey.set(ballot, ward);
+    }
+    ward.candidates.push(candidate);
+  }
+
+  // Per-council coverage snapshot, captured BEFORE we drop incomplete
+  // wards. Used downstream to render incomplete cohort councils as
+  // black on the homepage maps (rather than colouring them by their
+  // partial counted subset, or hiding them as no-data grey).
+  const coverageByCouncil = new Map(); // slug -> { wardsExpected, wardsCounted }
+  for (const ward of wardsByKey.values()) {
+    const slug = ward.councilSlug;
+    const cur = coverageByCouncil.get(slug) ?? { wardsExpected: 0, wardsCounted: 0 };
+    cur.wardsExpected += 1;
+    coverageByCouncil.set(slug, cur);
+  }
+
+  // Drop wards where any candidacy is still pending — preliminary
+  // results are useless for this site's analyses (vote share, FPTP
+  // distortion, quota gap) until the full count is in.
+  let skippedPartialWards = 0;
+  let skippedPendingCands = 0;
+  for (const [key, ward] of wardsByKey) {
+    const pending = ward.candidates.filter((c) => c.votes === null).length;
+    if (pending > 0) {
+      skippedPartialWards++;
+      skippedPendingCands += pending;
+      wardsByKey.delete(key);
+    } else {
+      const slug = ward.councilSlug;
+      const cur = coverageByCouncil.get(slug);
+      if (cur) cur.wardsCounted += 1;
+    }
+  }
+
+  // Recompute elected (top N by votes, where N = seats) — same rule
+  // the LEH adapter applies, so the snapshot is consistent across
+  // cycles even when the source flag lags.
+  let electedOverrides = 0;
+  for (const ward of wardsByKey.values()) {
+    ward.candidates.sort((a, b) => b.votes - a.votes);
+    const seatsToFill = Math.max(0, ward.seats);
+    for (let i = 0; i < ward.candidates.length; i++) {
+      const should = i < seatsToFill;
+      if (should !== ward.candidates[i].electedSource) electedOverrides += 1;
+      ward.candidates[i].elected = should;
+      ward.candidates[i].rank = i + 1;
+    }
+  }
+
+  // Materialise races, mirroring ingestCycle()'s derived fields.
+  const races = [];
+  for (const w of wardsByKey.values()) {
+    if (w.candidates.length === 0) continue;
+    const votesSum = w.candidates.reduce(
+      (a, c) => a + (Number.isFinite(c.votes) ? c.votes : 0),
+      0
+    );
+    if (votesSum <= 0) continue;
+    const validBallots = votesSum;
+    const ballots = validBallots + (w.invalidVotes ?? 0);
+    const elected = w.candidates.filter((c) => c.elected);
+    const electedPcts = elected.map((c) => c.votes / validBallots);
+    const winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;
+    const quota = quotaForSeats(w.seats);
+    const underPar = winningPct - quota;
+    const wardSlug = slugify(`${w.wardName}-${w.wardCode}`);
+    const councilName =
+      councilNameBySlug.get(w.councilSlug) ?? titleCaseFromSlug(w.councilSlug);
+    rememberCouncilName(w.councilSlug, councilName);
+    races.push({
+      year: w.year,
+      electionDate: w.electionDate,
+      key: w.key,
+      wardCode: w.wardCode,
+      wardName: w.wardName,
+      wardSlug,
+      council: councilName,
+      councilSlug: w.councilSlug,
+      authorityType: '',
+      electionType: '',
+      seats: w.seats,
+      electorate: w.electorate,
+      ballots,
+      invalidVotes: w.invalidVotes,
+      validBallots,
+      winningPct,
+      quota,
+      underPar,
+      isBelowQuota: underPar < 0,
+      candidates: w.candidates
+    });
+  }
+
+  console.log(
+    `[etl ${cycle.year}] DC: read ${rows.length} candidacy rows ` +
+      `(${skippedCancelled} cancelled, ${skippedNoBallot} no ballot id); ` +
+      `dropped ${skippedPartialWards} wards still counting ` +
+      `(${skippedPendingCands} pending candidacies); ` +
+      `produced ${races.length} races, ` +
+      `${electedOverrides} source-elected overrides`
+  );
+  return { cycle, races, coverage: coverageByCouncil };
+}
+
 // --- Run all cycles ----------------------------------------------------------
 
 const allRaces = [];
 const cycleSummaries = [];
+// Seed the council-name lookup from prior-cycle LEH data BEFORE running
+// the DC adapter, so DC's slug-only rows can pick up the LEH display
+// name (e.g. "Adur" not "adur" → "Adur"; "City of London" not "city-of-
+// london" → "City Of London").
 for (const cycle of CYCLES) {
   const result = ingestCycle(cycle);
   if (!result) continue;
+  for (const r of result.races) rememberCouncilName(r.councilSlug, r.council);
   allRaces.push(...result.races);
   const totalSeats = result.races.reduce((a, r) => a + r.candidates.filter((c) => c.elected).length, 0);
   const belowQuotaSeats = result.races.reduce((a, r) => {
@@ -536,6 +778,48 @@ for (const cycle of CYCLES) {
     belowQuotaShare: totalSeats > 0 ? belowQuotaSeats / totalSeats : 0,
     councilCount: distinctCouncils.size
   });
+}
+
+// 2026 cycle (Democracy Club preliminary results — runs after the LEH
+// loop so the DC adapter can pick up display names from prior cycles).
+let cycle2026Coverage = null;
+{
+  const result = ingestDcCycle(DC_2026_CYCLE);
+  if (result) {
+    allRaces.push(...result.races);
+    cycle2026Coverage = Object.fromEntries(
+      [...result.coverage.entries()].map(([slug, c]) => [
+        slug,
+        {
+          wardsExpected: c.wardsExpected,
+          wardsCounted: c.wardsCounted,
+          complete: c.wardsCounted === c.wardsExpected
+        }
+      ])
+    );
+    const totalSeats = result.races.reduce(
+      (a, r) => a + r.candidates.filter((c) => c.elected).length,
+      0
+    );
+    const belowQuotaSeats = result.races.reduce((a, r) => {
+      let n = 0;
+      for (const c of r.candidates) {
+        if (c.elected && c.votes / r.validBallots < r.quota) n += 1;
+      }
+      return a + n;
+    }, 0);
+    const distinctCouncils = new Set(result.races.map((r) => r.councilSlug));
+    cycleSummaries.push({
+      year: DC_2026_CYCLE.year,
+      electionDate: DC_2026_CYCLE.electionDate,
+      electionDateLabel: DC_2026_CYCLE.electionDateLabel,
+      raceCount: result.races.length,
+      seatCount: totalSeats,
+      belowQuotaSeatCount: belowQuotaSeats,
+      belowQuotaShare: totalSeats > 0 ? belowQuotaSeats / totalSeats : 0,
+      councilCount: distinctCouncils.size
+    });
+  }
 }
 
 // --- Council summaries (per (year, council)) ---------------------------------
@@ -956,6 +1240,172 @@ console.log(
   `[etl] ingested ${compositions.length} composition snapshots from opencouncildata`
 );
 
+// --- Synthesised 2026 composition snapshots ----------------------------
+//
+// opencouncildata's annual snapshot is published months after polling
+// day, so on 2026-05-08 there is no 2026 row in their data. To get the
+// flip detector running on 2025→2026 transitions in time for the
+// post-election audit, we synthesise a 2026 snapshot per council from:
+//
+//   retainedIncumbents = 2025 oncd councillors whose Next Election ≠ 2026
+//   newIncumbents      = 2026 election winners (top-N by votes per ward)
+//
+// The synthesised snapshot replaces only the seats that actually rotated
+// this cycle (which keeps by-thirds councils correct: 2/3 of their seats
+// carry forward from 2025), and is annotated with `synthesised: true` so
+// downstream consumers can label it as derived rather than truth-set.
+// When oncd publishes its real 2026 snapshot, the synthesised rows will
+// be replaced on the next ETL run.
+
+const COMP_NAMED_PARTY_SET = new Set(Object.values(COMP_PARTY_COLS));
+
+function ingestCouncillors2025NextElection() {
+  // Returns Map<councilSlug, Array<{party, nextElection: string|null}>>.
+  // We keep one row per councillor so the retain/replace partition is
+  // computed on actual headcount rather than aggregate party counts.
+  const csvPath = resolve(ROOT, 'docs/opencouncildata_councillors_2025.csv');
+  if (!existsSync(csvPath)) {
+    console.warn('[etl] 2025 per-councillor CSV not found; skipping 2026 synthesis');
+    return null;
+  }
+  // raw:false renders cells through Excel's display formatter, which
+  // returns "2026-05-07" for date cells. raw:true would return the
+  // Excel date serial (e.g. 46149) and break the "2026-" prefix check
+  // below — every councillor would look retained and the synth would
+  // double-count seats.
+  const wb = XLSX.read(readFileSync(csvPath, 'utf8'), { type: 'string' });
+  const ws = wb.Sheets[wb.SheetNames[0]];
+  const rows = XLSX.utils.sheet_to_json(ws, { defval: '', raw: false });
+  const out = new Map();
+  for (const r of rows) {
+    const authority = String(r['Council'] ?? '').trim();
+    if (!authority) continue;
+    const partyRaw = String(r['Party Name'] ?? '').trim();
+    if (!partyRaw || partyRaw === 'Vacant') continue;
+    const party = COUNCILLOR_PARTY_NORMALISE[partyRaw] ?? partyRaw;
+    const rawSlug = slugify(authority);
+    const slug = COMP_SLUG_ALIASES[rawSlug] ?? rawSlug;
+    const nextElection = String(r['Next Election'] ?? '').trim() || null;
+    if (!out.has(slug)) out.set(slug, []);
+    out.get(slug).push({ party, nextElection });
+  }
+  return out;
+}
+
+function bumpParty(parties, otherSeatsRef, party, delta) {
+  // Maintain the named-vs-other split that oncd uses so largestParty
+  // computation stays consistent with the truth-set rows.
+  if (COMP_NAMED_PARTY_SET.has(party)) {
+    parties[party] = (parties[party] ?? 0) + delta;
+    if (parties[party] < 0) parties[party] = 0;
+  } else {
+    otherSeatsRef.value += delta;
+    if (otherSeatsRef.value < 0) otherSeatsRef.value = 0;
+  }
+}
+
+function synthesise2026Compositions() {
+  const councillors2025 = ingestCouncillors2025NextElection();
+  if (!councillors2025) return [];
+  const races2026ByCouncil = new Map();
+  for (const r of allRaces) {
+    if (r.year !== 2026) continue;
+    if (!races2026ByCouncil.has(r.councilSlug)) {
+      races2026ByCouncil.set(r.councilSlug, []);
+    }
+    races2026ByCouncil.get(r.councilSlug).push(r);
+  }
+  const out = [];
+  let synthesisedCount = 0;
+  let skippedNoBaseline = 0;
+  let skippedNoRoster = 0;
+  for (const [slug, races] of races2026ByCouncil) {
+    const baseline = compositionByKey.get(`${slug}::2025`);
+    if (!baseline) {
+      skippedNoBaseline++;
+      continue;
+    }
+    const roster = councillors2025.get(slug);
+    if (!roster) {
+      skippedNoRoster++;
+      continue;
+    }
+    // Initialise from named columns only (zeroes for missing); other is
+    // tracked via a ref so bumpParty can mutate it.
+    const parties = {};
+    for (const canonical of Object.values(COMP_PARTY_COLS)) parties[canonical] = 0;
+    const otherSeatsRef = { value: 0 };
+    // Carry forward 2025 incumbents whose seat is NOT up in 2026.
+    let retained = 0;
+    for (const c of roster) {
+      const isUp = (c.nextElection ?? '').startsWith('2026-');
+      if (isUp) continue;
+      bumpParty(parties, otherSeatsRef, c.party, 1);
+      retained++;
+    }
+    // Add 2026 winners.
+    let added = 0;
+    for (const r of races) {
+      for (const cand of r.candidates.filter((c) => c.elected)) {
+        const party = cand.party || 'Independent';
+        bumpParty(parties, otherSeatsRef, party, 1);
+        added++;
+      }
+    }
+    const totalSeats = retained + added;
+    const otherSeats = otherSeatsRef.value;
+    // Recompute largestParty (same tie-breaking as ingestCompositions).
+    let largestParty = null;
+    let largestSeats = -1;
+    for (const [party, seats] of Object.entries(parties)) {
+      if (
+        seats > largestSeats ||
+        (seats === largestSeats &&
+          (largestParty === null || party.localeCompare(largestParty) < 0))
+      ) {
+        largestParty = party;
+        largestSeats = seats;
+      }
+    }
+    if (otherSeats > largestSeats) {
+      largestParty = 'Other';
+      largestSeats = otherSeats;
+    }
+    const partiesDetailed = {};
+    for (const [p, n] of Object.entries(parties)) {
+      if (n > 0) partiesDetailed[p] = n;
+    }
+    out.push({
+      councilSlug: slug,
+      council: baseline.council,
+      year: 2026,
+      totalSeats,
+      parties,
+      otherSeats,
+      partiesDetailed,
+      largestParty,
+      largestPartySeats: largestSeats,
+      largestIsOtherDominant: otherSeats > largestSeats,
+      sourceMajority: '',
+      // Marker for transparency in the UI / methodology page. Real oncd
+      // rows have this absent (or false); synthesised rows are tagged.
+      synthesised: true
+    });
+    synthesisedCount++;
+  }
+  console.log(
+    `[etl] synthesised ${synthesisedCount} 2026 composition snapshots from oncd 2025 + DC 2026 ` +
+      `(${skippedNoBaseline} councils skipped: no 2025 baseline; ${skippedNoRoster} skipped: no 2025 roster)`
+  );
+  return out;
+}
+
+const synth2026 = synthesise2026Compositions();
+for (const c of synth2026) {
+  compositions.push(c);
+  compositionByKey.set(`${c.councilSlug}::${c.year}`, c);
+}
+
 // --- Composition-LEH join audit -----------------------------------------
 //
 // We rely on slugified council names matching across the two datasets.
@@ -1097,10 +1547,105 @@ for (const [slug, views] of viewsByCouncil) {
     });
   }
 }
+// --- 2025→2026 backfill flips -------------------------------------------
+//
+// The loop above iterates over `partyViews` pairs, which means a
+// council with no LEH partyView for the prev cycle (e.g. county
+// councils — the LEH 2021 workbook only covers districts/UAs/mets) is
+// skipped even when a real composition flip happened. For those
+// councils the synthesised 2026 composition is paired explicitly with
+// the 2025 oncd composition; if largestParty changed, we emit the flip
+// using the same field shape so downstream consumers don't need to
+// branch. dedup against (slug, yearFrom, yearTo) so we don't double-
+// count councils the prev-cycle loop already caught.
+const NAMED_PARTY_SET_GLOBAL = new Set(Object.values(COMP_PARTY_COLS));
+function voteShareForPartyGeneric(view, party) {
+  if (!view) return 0;
+  if (party === 'Other') {
+    return view.rows
+      .filter((r) => !NAMED_PARTY_SET_GLOBAL.has(r.party))
+      .reduce((sum, r) => sum + r.voteShare, 0);
+  }
+  return view.rows.find((r) => r.party === party)?.voteShare ?? 0;
+}
+function compSeatShareGeneric(comp, party) {
+  if (!comp) return 0;
+  const total = comp.totalSeats || 1;
+  const seats =
+    party === 'Other' ? comp.otherSeats : comp.parties[party] ?? 0;
+  return seats / total;
+}
+const flipKey = (f) => `${f.councilSlug}::${f.yearFrom}::${f.yearTo}`;
+const existingFlipKeys = new Set(flips.map(flipKey));
+let backfillFlips = 0;
+let displaced = 0;
+for (const comp2026 of compositions) {
+  if (comp2026.year !== 2026 || !comp2026.synthesised) continue;
+  const slug = comp2026.councilSlug;
+  const comp2025 = compositionByKey.get(`${slug}::2025`);
+  if (!comp2025) continue;
+  const fromParty = comp2025.largestParty;
+  const toParty = comp2026.largestParty;
+  // Prefer the 2025→2026 window as the canonical record of what the
+  // 2026 election changed: drop any prev-cycle-driven 2026-yearTo flip
+  // for this council (e.g. Wakefield 2024→2026) before pushing the
+  // backfill, so the front-page table doesn't double-list the same
+  // council. Only do this when largestParty actually moved 2025→2026;
+  // a same-leader transition leaves the older record alone.
+  if (fromParty && toParty && fromParty !== toParty) {
+    for (let i = flips.length - 1; i >= 0; i--) {
+      const f = flips[i];
+      if (f.councilSlug === slug && f.yearTo === 2026 && f.yearFrom !== 2025) {
+        flips.splice(i, 1);
+        existingFlipKeys.delete(flipKey(f));
+        displaced++;
+      }
+    }
+  }
+  if (!fromParty || !toParty || fromParty === toParty) continue;
+  if (existingFlipKeys.has(`${slug}::2025::2026`)) continue;
+  // Use the 2026 partyView for vote shares; 2025 vote shares come from
+  // the 2025 partyView when the council polled in 2025, otherwise 0
+  // (e.g. counties on a 4-year cycle had no 2025 election).
+  const view2025 = partyViewByKey.get(`2025::${slug}`);
+  const view2026 = partyViewByKey.get(`2026::${slug}`);
+  const newPartyVoteFrom = voteShareForPartyGeneric(view2025, toParty);
+  const newPartyVoteTo = voteShareForPartyGeneric(view2026, toParty);
+  const oldPartyVoteFrom = voteShareForPartyGeneric(view2025, fromParty);
+  const oldPartyVoteTo = voteShareForPartyGeneric(view2026, fromParty);
+  const newPartySeatFrom = compSeatShareGeneric(comp2025, toParty);
+  const newPartySeatTo = compSeatShareGeneric(comp2026, toParty);
+  const oldPartySeatFrom = compSeatShareGeneric(comp2025, fromParty);
+  const oldPartySeatTo = compSeatShareGeneric(comp2026, fromParty);
+  const voteSwingNew = Math.abs(newPartyVoteTo - newPartyVoteFrom);
+  const seatSwingNew = Math.abs(newPartySeatTo - newPartySeatFrom);
+  flips.push({
+    councilSlug: slug,
+    council: comp2026.council,
+    yearFrom: 2025,
+    yearTo: 2026,
+    fromParty,
+    toParty,
+    newPartyVoteFrom,
+    newPartyVoteTo,
+    newPartySeatFrom,
+    newPartySeatTo,
+    oldPartyVoteFrom,
+    oldPartyVoteTo,
+    oldPartySeatFrom,
+    oldPartySeatTo,
+    voteSwingNew,
+    seatSwingNew,
+    disproportionScore: seatSwingNew / Math.max(voteSwingNew, 0.01)
+  });
+  backfillFlips++;
+}
+
 flips.sort((a, b) => b.disproportionScore - a.disproportionScore);
 console.log(
   `[etl] flips: ${flips.length} from ${cyclesEvaluated} cycle pairs ` +
-    `(${cyclesWithSamelLeader} same-leader, ${cyclesWithCompositionGap} skipped for missing composition)`
+    `(${cyclesWithSamelLeader} same-leader, ${cyclesWithCompositionGap} skipped for missing composition; ` +
+    `+${backfillFlips} backfilled 2025→2026, ${displaced} prev-cycle 2026 flips replaced by the 2025→2026 window)`
 );
 
 // --- Council reorganisations (curated) ---------------------------------
@@ -1436,7 +1981,11 @@ const snapshot = {
   partyViews,
   flips,
   compositions,
-  reorganisations
+  reorganisations,
+  // Per-council 2026 coverage so consumers (homepage maps) can render
+  // cohort councils whose count is incomplete as black, instead of
+  // colouring them by their partial subset of counted wards.
+  cycle2026Coverage
 };
 writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot));
 console.log(`[etl] wrote ${SNAPSHOT_PATH}`);

@@ -316,20 +316,33 @@
     database but not yet surfaced as their own lenses on the site.
   </p>
 
-  <h2>Sources</h2>
+  <h2 id="sources">Sources</h2>
   <p>
-    <strong>Election results</strong> &mdash; ingested from the
-    <strong>Local Election Handbook</strong> (LEH) for the relevant year,
-    published by the House of Commons Library under the Open Parliament
-    Licence. Workbooks live in the repo at <code>{sourceLabel}</code>;
-    the per-year ETL adapter normalises sheet-name and column-name drift
-    across years.
+    <strong>Election results (2021&ndash;2025)</strong> &mdash; ingested
+    from the <strong>Local Election Handbook</strong> (LEH) for the
+    relevant year, published by the House of Commons Library under the
+    Open Parliament Licence. The per-year ETL adapter normalises
+    sheet-name and column-name drift across years.
   </p>
   <p>
-    <strong>Council composition snapshots</strong> &mdash; annual
-    per-council per-party seat counts (used for the running-composition
-    block on each council page and the council-control flip definition
-    above) come from
+    <strong>Election results (2026, preliminary)</strong> &mdash; sourced
+    from
+    <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>'s
+    candidates dataset, reused here under
+    <a href="https://creativecommons.org/licenses/by/4.0/" rel="external noopener">CC&nbsp;BY&nbsp;4.0</a>
+    (party logos and candidate photos, which Democracy Club excludes from
+    that licence, are not used on this site &mdash; we only consume the
+    structured results data). Polling-night data is updated as wards
+    report; until a ward's full count is in we drop the race entirely
+    (rather than surface partial vote totals that would assign
+    &ldquo;elected&rdquo; to the wrong candidates). The 2026 LEH
+    replaces this feed as the canonical source when it ships.
+  </p>
+  <p>
+    <strong>Council composition snapshots (2016&ndash;2025)</strong>
+    &mdash; annual per-council per-party seat counts (used for the
+    running-composition block on each council page and the
+    council-control flip definition above) come from
     <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>,
     a hand-maintained register of UK council membership going back to
     1973, published under
@@ -342,6 +355,19 @@
     <code>scripts/etl.mjs</code>; the ETL prints any unmatched councils
     on each run.
   </p>
+  <p>
+    <strong>Council composition snapshots (2026, synthesised)</strong>
+    &mdash; opencouncildata publishes its annual snapshot months after
+    polling day, so the 2026 row doesn't yet exist. To run the
+    flip detector against the just-finished cycle we synthesise a 2026
+    snapshot per council from the 2025 oncd per-councillor roster plus
+    the 2026 election results: retain every 2025 incumbent whose
+    <em>Next Election</em> field is not 2026, then add the 2026
+    election winners for the seats that were up. Synthesised snapshots
+    are flagged (<code>synthesised: true</code>) in the data and
+    surfaced as such in the UI; they are replaced by the real oncd
+    row on the next ETL run after oncd publishes 2026.
+  </p>
   <ul>
     {#each cycles as c (c.year)}
       <li>
@@ -351,11 +377,6 @@
       </li>
     {/each}
   </ul>
-  <p>
-    For the 2026-05-07 cycle, the eventual Commons Library Local Election
-    Handbook for that year will be the canonical source.
-  </p>
-
   <h2>Reproducibility</h2>
   <p>
     Every number on the published site is derivable from the SQLite database

@@ -5,50 +5,94 @@
   import MapDistortion from '$lib/components/MapDistortion.svelte';
   import MapFlips from '$lib/components/MapFlips.svelte';
   let { data } = $props();
+  // One filter drives every section on the page (lede totals + example,
+  // all four maps, all four tables). Default to the just-finished
+  // cycle so the post-election audit leads; "all cycles" toggles to
+  // the historical leaderboards across 2021-2026.
+  let filter = $state<'2026' | 'all'>('2026');
+  const view = $derived(data.views[filter]);
+  const isCycle = $derived(filter !== 'all');
 </script>
 
 <svelte:head>
   <title>electionresults.uk — auditing UK council seats won when most voters chose someone else</title>
   <meta
     name="description"
-    content="A volunteer audit of UK local-election results across five cycles (2021–2025). For every ward, we ask: did the winner clear the share of votes a fair, proportional system would require?"
+    content="A volunteer audit of UK local-election results across six cycles (2021–2026). For every ward, we ask: did the winner clear the share of votes a fair, proportional system would require?"
   />
   <link rel="canonical" href="https://electionresults.uk/" />
 </svelte:head>
 
 <div class="banner">
-  Pre-launch preview · five English local-election cycles loaded
-  (2021–2025). The 2026-05-07 results will appear as the source data
-  for that cycle is published.
+  Preliminary 2026-05-07 results from
+  <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>,
+  reused under
+  <a href="https://creativecommons.org/licenses/by/4.0/" rel="external noopener">CC&nbsp;BY&nbsp;4.0</a>.
+  Wards still being counted are excluded until the full count is in;
+  the 2026 Local Election Handbook becomes the canonical source once
+  it ships.
 </div>
 
 <main class="wide">
   <h1>How many UK councillors won when most voters chose someone else?</h1>
 
-  <p class="lede">
-    The most extreme case in our data: a councillor elected on
-    <strong>{pct(data.lowestWinner.winningPct)}</strong> of the vote
-    in {data.lowestWinner.wardName} ({data.lowestWinner.council},
-    {data.lowestWinner.year}) &mdash; meaning
-    <strong>{pct(1 - data.lowestWinner.winningPct)}</strong>
-    of people who voted in that ward chose someone else, and they
-    still won the seat. Under First-Past-the-Post and bloc vote,
-    that's allowed: a candidate wins by being top of the poll,
-    regardless of share, with no minimum threshold. We compare every
-    elected councillor's share of votes to the share they would need
-    under a system where seats match votes.<sup class="fn"><a
-      href="/methodology#quota"
-      title="See the methodology page for the formula and worked examples"
-    >(1)</a></sup> Across five cycles of UK local elections &mdash;
-    covering county councils, unitary authorities, metropolitan
-    boroughs, district councils and London boroughs &mdash; that's
-    <strong>{num(data.totals.councils)}</strong> council-cycles,
-    <strong>{num(data.totals.races)}</strong> ward races and
-    <strong>{num(data.totals.seats)}</strong> seats. Of those,
-    <strong>{num(data.totals.belowQuotaSeats)}</strong>
-    ({pct(data.totals.belowQuotaSeats / Math.max(1, data.totals.seats))})
-    fell short of that fair share.
-  </p>
+  <div class="filter-bar filter-bar--top" role="group" aria-label="Cycle filter">
+    <span class="filter-label">Showing:</span>
+    <button
+      type="button"
+      class:active={filter === '2026'}
+      aria-pressed={filter === '2026'}
+      onclick={() => (filter = '2026')}
+    >2026 cycle only</button>
+    <button
+      type="button"
+      class:active={filter === 'all'}
+      aria-pressed={filter === 'all'}
+      onclick={() => (filter = 'all')}
+    >All cycles (2021&ndash;2026)</button>
+  </div>
+
+  {#if view.lowestWinner}
+    {@const lw = view.lowestWinner}
+    <p class="lede">
+      {#if isCycle}
+        The most extreme case in the 2026 cycle so far: a councillor elected on
+      {:else}
+        The most extreme case in our data: a councillor elected on
+      {/if}
+      <strong>{pct(lw.winningPct)}</strong> of the vote in
+      <a href={`/${lw.councilSlug}/${lw.year}#${lw.wardSlug}`}
+        ><strong>{lw.wardName}</strong></a
+      >
+      ({lw.council}, {lw.year}) &mdash; meaning
+      <strong>{pct(1 - lw.winningPct)}</strong>
+      of people who voted in that ward chose someone else, and they
+      still won the seat. Under First-Past-the-Post and bloc vote,
+      that's allowed: a candidate wins by being top of the poll,
+      regardless of share, with no minimum threshold. We compare every
+      elected councillor's share of votes to the share they would need
+      under a system where seats match votes.<sup class="fn"
+        ><a
+          href="/methodology#quota"
+          title="See the methodology page for the formula and worked examples"
+        >(1)</a></sup
+      >
+      {#if isCycle}
+        The 2026-05-07 cycle covered
+      {:else}
+        Across six cycles of UK local elections &mdash; covering county
+        councils, unitary authorities, metropolitan boroughs, district
+        councils and London boroughs &mdash; that's
+      {/if}
+      <strong>{num(view.totals.councils)}</strong>
+      {isCycle ? 'councils' : 'council-cycles'},
+      <strong>{num(view.totals.races)}</strong> ward races and
+      <strong>{num(view.totals.seats)}</strong> seats. Of those,
+      <strong>{num(view.totals.belowQuotaSeats)}</strong>
+      ({pct(view.totals.belowQuotaSeats / Math.max(1, view.totals.seats))})
+      fell short of that fair share.
+    </p>
+  {/if}
 
   <h2>Year-over-year flips</h2>
   <p class="muted">
@@ -58,9 +102,15 @@
     the cycle and the party transition; click to see the council's full
     history.
   </p>
-  <MapFlips entries={data.flipMapEntries} />
+  <MapFlips entries={view.flipMapEntries} incompleteCouncils={view.incompleteCouncils} />
 
-  <h3>Ten biggest council-control changes</h3>
+  <h3>
+    {#if isCycle}
+      Biggest council-control changes &mdash; 2026 cycle
+    {:else}
+      Ten biggest council-control changes &mdash; all cycles
+    {/if}
+  </h3>
   <p class="muted">
     Ranked by composition shift &mdash; the incoming party's gain in
     seat share of the full council. A big shift on a small vote swing
@@ -69,60 +119,88 @@
     flip = the largest party in the council's running composition
     actually changed between cycles (per
     <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>'s
-    annual snapshot). See <a href="/flips">/flips</a> for the full list.
+    annual snapshot; 2026 compositions are
+    <a href="/methodology#sources">synthesised</a>
+    from the 2025 snapshot plus the 2026 election results until oncd
+    publishes its 2026 row). See <a href="/flips">/flips</a> for the full list.
   </p>
-  <table aria-label="Ten biggest council-control changes by composition shift">
-    <thead>
-      <tr>
-        <th>Cycle</th>
-        <th>Council</th>
-        <th>Largest party changed</th>
-        <th class="num" title="Incoming party's seat share of the full council in the year-after minus the year-before — composition truth-set, not per-cycle.">Composition shift (incoming)</th>
-      </tr>
-    </thead>
-    <tbody>
-      {#each data.topFlipsByShift as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
+  {#if view.topFlipsByShift.length === 0}
+    <p class="muted">
+      No council-control changes in this view yet. Wards are still
+      being counted; this list will grow as more results arrive.
+    </p>
+  {:else}
+    <table aria-label="Council-control changes by composition shift">
+      <thead>
         <tr>
-          <td class="num">{f.yearFrom} → {f.yearTo}</td>
-          <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
-          <td>
-            <Party name={f.fromParty} />
-            <span class="muted" aria-hidden="true"> → </span>
-            <Party name={f.toParty} />
-          </td>
-          <td class="num pct warn">{pts(f.newPartySeatTo - f.newPartySeatFrom)}</td>
+          <th>Cycle</th>
+          <th>Council</th>
+          <th>Largest party changed</th>
+          <th class="num" title="Incoming party's seat share of the full council in the year-after minus the year-before — composition truth-set, not per-cycle.">Composition shift (incoming)</th>
         </tr>
-      {/each}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {#each view.topFlipsByShift as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
+          <tr>
+            <td class="num">{f.yearFrom} → {f.yearTo}</td>
+            <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
+            <td>
+              <Party name={f.fromParty} />
+              <span class="muted" aria-hidden="true"> → </span>
+              <Party name={f.toParty} />
+            </td>
+            <td class="num pct warn">{pts(f.newPartySeatTo - f.newPartySeatFrom)}</td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  {/if}
 
-  <h2>FPTP distortion, latest cycle</h2>
+  <h2>
+    {#if isCycle}
+      Unfairly awarded seats &mdash; 2026 cycle
+    {:else}
+      Unfairly awarded seats, latest cycle
+    {/if}
+  </h2>
   <p class="muted">
-    For each cycle in our data, we compute the seats actually allocated
-    by First-Past-the-Post and the seats a proportional system (D'Hondt)
-    would have allocated from the same vote totals. The map shades every
-    UK council by how many of its seats were reallocated by FPTP in its
-    most recent cycle (darker = more seats reallocated). The table below
-    picks out the ten elections with the largest absolute reallocation.
-    See <a href="/distortion">/distortion</a> for the full leaderboard.
+    Same vote totals, different counting rule. Wakefield is the
+    cleanest 2026 example: Reform UK won
+    <strong>44%</strong> of the vote and took
+    <strong>58 of the 63 seats</strong> (92%); under D'Hondt those
+    same votes would give them
+    <strong>30 seats</strong> (47%) &mdash; closer to their vote share.
+    Each hex below shades a council by how many of its seats were
+    unfairly awarded &mdash; that is, went to a different party than a
+    proportional re-count of the same votes would have. Darker =
+    bigger gap.
+    See <a href="/distortion">/distortion</a> for the full leaderboard
+    and <a href="/methodology#distortion">methodology</a> for the
+    bloc-vote caveat in multi-member wards.
   </p>
-  <MapDistortion entries={data.distortionMapEntries} />
+  <MapDistortion entries={view.distortionMapEntries} incompleteCouncils={view.incompleteCouncils} />
 
-  <h3>Ten most FPTP-distorted single elections</h3>
+  <h3>
+    {#if isCycle}
+      Ten 2026 elections with the most unfairly awarded seats
+    {:else}
+      Ten elections with the most unfairly awarded seats
+    {/if}
+  </h3>
 
-  <table aria-label="Ten most FPTP-distorted single elections">
+  <table aria-label="Elections with the most unfairly awarded seats">
     <thead>
       <tr>
         <th>Year</th>
         <th>Council</th>
         <th class="num">Seats</th>
-        <th class="num">Reallocated</th>
+        <th class="num" title="Number of seats that went to a different party than a proportional re-count of the same votes would have produced.">Unfairly awarded</th>
         <th class="num">% of seats</th>
         <th>Most over-represented</th>
       </tr>
     </thead>
     <tbody>
-      {#each data.topDistortedCycles as r (r.councilSlug + ':' + r.year)}
+      {#each view.topDistortedCycles as r (r.councilSlug + ':' + r.year)}
         <tr>
           <td class="num"><a href={`/${r.year}`}>{r.year}</a></td>
           <td>
@@ -153,20 +231,29 @@
   <p class="muted">
     Councils where seats went to candidates with less support than
     a proportional system would require. The map shades every UK council
-    by how many of its seats fell below that bar in its most recent
-    cycle (darker = more seats below). The table lists the ten seats
-    won on the smallest share of the vote anywhere in the data.
+    by how many of its seats fell below that bar in
+    {isCycle ? 'the 2026 cycle' : 'its most recent cycle'}
+    (darker = more seats below). The table lists the ten seats
+    won on the smallest share of the vote
+    {isCycle ? 'in 2026' : 'anywhere in the data'}.
   </p>
-  <MapBelowQuota councils={data.latestByCouncil} />
+  <MapBelowQuota councils={view.latestByCouncil} incompleteCouncils={view.incompleteCouncils} />
 
-  <h3>Ten seats won on the smallest share of the vote</h3>
+  <h3>
+    {#if isCycle}
+      Ten 2026 seats won on the smallest share of the vote
+    {:else}
+      Ten seats won on the smallest share of the vote
+    {/if}
+  </h3>
   <p class="muted">
-    The seats furthest below the proportional quota anywhere in the data
-    — councillors elected on the smallest share of votes in their ward.
-    Click a ward to see the full race.
+    The seats furthest below the proportional quota
+    {isCycle ? 'in the 2026 cycle' : 'anywhere in the data'}
+    &mdash; councillors elected on the smallest share of votes in their
+    ward. Click a ward to see the full race.
   </p>
 
-  <table aria-label="Ten seats won on the smallest share of the vote across all cycles">
+  <table aria-label="Seats won on the smallest share of the vote">
     <thead>
       <tr>
         <th>Year</th>
@@ -182,7 +269,7 @@
       </tr>
     </thead>
     <tbody>
-      {#each data.topLowestShares as r (r.year + r.councilSlug + r.wardSlug)}
+      {#each view.topLowestShares as r (r.year + r.councilSlug + r.wardSlug)}
         <tr>
           <td><a href={`/${r.year}`}>{r.year}</a></td>
           <td>
@@ -291,6 +378,68 @@
     font-variant-numeric: tabular-nums;
   }
   .warn { color: var(--warn); }
+
+  .filter-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    margin: 0.4rem 0 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .filter-bar button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--rule);
+    padding: 0.35rem 0.85rem;
+    font: inherit;
+    font-size: 0.9rem;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background 0.1s, color 0.1s;
+  }
+  .filter-bar button:last-child { border-right: none; }
+  .filter-bar button:hover { background: rgba(11, 61, 46, 0.04); color: inherit; }
+  .filter-bar button.active {
+    background: var(--accent);
+    color: #fff;
+  }
+  /* Top-level filter is more prominent: includes a label, sits above
+     the lede, and uses slightly larger hit targets. */
+  .filter-bar--top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0.5rem 0 1.25rem;
+    border: none;
+    background: rgba(11, 61, 46, 0.06);
+    padding: 0.3rem 0.4rem;
+    border-radius: 8px;
+    gap: 0.25rem;
+  }
+  .filter-bar--top .filter-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding: 0 0.5rem 0 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .filter-bar--top button {
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 0.4rem 0.95rem;
+    font-size: 0.95rem;
+    color: inherit;
+  }
+  .filter-bar--top button.active {
+    background: var(--accent);
+    color: #fff;
+  }
+  .filter-bar--top button:not(.active):hover {
+    background: rgba(11, 61, 46, 0.1);
+  }
 
   .all-councils {
     list-style: none;

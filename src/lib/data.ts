@@ -27,6 +27,12 @@ interface SnapshotMarginal {
   validBallots: number;
 }
 
+export interface Cycle2026CouncilCoverage {
+  wardsExpected: number;
+  wardsCounted: number;
+  complete: boolean;
+}
+
 interface Snapshot {
   generatedAt: string;
   source: string;
@@ -45,6 +51,7 @@ interface Snapshot {
   flips: CouncilFlip[];
   compositions: CompositionSnapshot[];
   reorganisations: CouncilReorganisation[];
+  cycle2026Coverage: Record<string, Cycle2026CouncilCoverage> | null;
 }
 
 const data = snapshot as unknown as Snapshot;
@@ -63,6 +70,17 @@ export const allPartyViews: PartyView[] = data.partyViews;
 export const allFlips: CouncilFlip[] = data.flips;
 export const allCompositions: CompositionSnapshot[] = data.compositions ?? [];
 export const allReorganisations: CouncilReorganisation[] = data.reorganisations;
+export const cycle2026Coverage: Record<string, Cycle2026CouncilCoverage> =
+  data.cycle2026Coverage ?? {};
+
+/** Slugs of cohort councils with at least one ward still being counted in 2026. */
+export function incomplete2026Councils(): Set<string> {
+  const out = new Set<string>();
+  for (const [slug, c] of Object.entries(cycle2026Coverage)) {
+    if (!c.complete) out.add(slug);
+  }
+  return out;
+}
 
 export interface DistortionRow {
   year: number;

@@ -111,6 +111,13 @@ export interface CompositionSnapshot {
   largestIsOtherDominant: boolean;
   /** Original `majority` text from opencouncildata for transparency. */
   sourceMajority: string;
+  /** True when this snapshot was synthesised by the ETL rather than
+   *  ingested from oncd. Currently only set on 2026 rows, derived from
+   *  the oncd 2025 roster + the 2026 election winners (retain 2025
+   *  incumbents whose Next Election ≠ 2026, replace the rest with the
+   *  2026 results). Will be replaced by a real oncd row when oncd
+   *  publishes its 2026 snapshot. */
+  synthesised?: boolean;
 }
 
 export interface CouncilFlip {

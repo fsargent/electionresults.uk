@@ -3,14 +3,27 @@
   import CouncilHexMap from './CouncilHexMap.svelte';
   import { belowQuotaColor } from '$lib/below-quota-color';
   import type { CouncilSummary } from '$lib/types';
-  let { councils }: { councils: CouncilSummary[] } = $props();
+  let {
+    councils,
+    incompleteCouncils = []
+  }: { councils: CouncilSummary[]; incompleteCouncils?: string[] } = $props();
+
+  const dataMax = $derived(
+    councils.length > 0
+      ? Math.max(...councils.map((c) => c.belowQuotaShare))
+      : 1
+  );
+  function normalise(share: number): number {
+    if (dataMax <= 0) return 0;
+    return Math.min(1, share / dataMax);
+  }
 
   const fills = $derived(
     Object.fromEntries(
       councils.map((c) => [
         c.councilSlug,
         {
-          color: belowQuotaColor(c.belowQuotaShare),
+          color: belowQuotaColor(normalise(c.belowQuotaShare)),
           href: `/${c.councilSlug}`,
           title: `${c.council} — ${c.year}: ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`,
           primary: `${c.council} (${c.year})`,
@@ -19,11 +32,27 @@
       ])
     )
   );
+  const fillsWithIncomplete = $derived(
+    (() => {
+      const out = { ...fills };
+      for (const slug of incompleteCouncils) {
+        out[slug] = {
+          color: '#000',
+          href: `/${slug}`,
+          primary: out[slug]?.primary ?? slug,
+          secondary: 'Count still in progress — not enough data yet',
+          title: `${out[slug]?.primary ?? slug}: count still in progress`
+        };
+      }
+      return out;
+    })()
+  );
+  const tickPcts = $derived([0, dataMax / 2, dataMax]);
 </script>
 
 <div class="map-and-scale">
   <CouncilHexMap
-    {fills}
+    fills={fillsWithIncomplete}
     title="UK councils — most recent poll, shaded by % of seats below the proportional quota"
   />
   <div class="legend">
@@ -34,8 +63,16 @@
       {/each}
     </div>
     <div class="legend-ticks">
-      <span>0%</span><span>50%</span><span>100%</span>
+      {#each tickPcts as t (t)}
+        <span>{pct(t)}</span>
+      {/each}
     </div>
+    {#if incompleteCouncils.length > 0}
+      <div class="legend-incomplete">
+        <span class="legend-incomplete-swatch" aria-hidden="true"></span>
+        <span>Count still in progress ({incompleteCouncils.length})</span>
+      </div>
+    {/if}
     <p class="muted small">
       One hex = one council. Geographic position is approximate (cartogram —
       each council gets equal space, regardless of size). A council that
@@ -80,6 +117,22 @@
     color: var(--muted);
     font-size: 0.78rem;
     margin-top: 0.2rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .legend-incomplete {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
+  .legend-incomplete-swatch {
+    display: inline-block;
+    width: 0.9rem;
+    height: 0.9rem;
+    background: #000;
+    border-radius: 2px;
   }
   .small { font-size: 0.78rem; }
 </style>

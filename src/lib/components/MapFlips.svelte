@@ -3,7 +3,10 @@
   import CouncilHexMap from './CouncilHexMap.svelte';
   import { partyColor, partyDisplayName } from '$lib/party-colors';
   import type { CouncilFlip } from '$lib/types';
-  let { entries }: { entries: CouncilFlip[] } = $props();
+  let {
+    entries,
+    incompleteCouncils = []
+  }: { entries: CouncilFlip[]; incompleteCouncils?: string[] } = $props();
 
   const fills = $derived(
     Object.fromEntries(
@@ -23,11 +26,26 @@
       })
     )
   );
+  const fillsWithIncomplete = $derived(
+    (() => {
+      const out = { ...fills };
+      for (const slug of incompleteCouncils) {
+        out[slug] = {
+          color: '#000',
+          href: `/${slug}`,
+          primary: out[slug]?.primary ?? slug,
+          secondary: 'Count still in progress — flip not yet known',
+          title: `${out[slug]?.primary ?? slug}: count still in progress`
+        };
+      }
+      return out;
+    })()
+  );
 </script>
 
 <div class="map-and-scale">
   <CouncilHexMap
-    {fills}
+    fills={fillsWithIncomplete}
     title="UK councils — most recent party-control flip, coloured by the incoming party"
   />
   <div class="legend">
@@ -40,6 +58,9 @@
       <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> Green</li>
       <li><span class="swatch" style:background-color={partyColor('Independent')}></span> Independent / other</li>
       <li><span class="swatch grey"></span> No flip in our data</li>
+      {#if incompleteCouncils.length > 0}
+        <li><span class="swatch black"></span> Count still in progress ({incompleteCouncils.length})</li>
+      {/if}
     </ul>
   </div>
 </div>
@@ -82,6 +103,7 @@
     border: 1px solid rgba(0, 0, 0, 0.18);
   }
   .party-legend .swatch.grey { background: #e5e3d6; }
+  .party-legend .swatch.black { background: #000; }
   @media (prefers-color-scheme: dark) {
     .party-legend .swatch { border-color: rgba(255, 255, 255, 0.25); }
   }

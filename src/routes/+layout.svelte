@@ -37,9 +37,14 @@
       Built by <a href="https://felixsargent.com">Felix Sargent</a> in
       partnership with
       <a href="https://www.makevotesmatter.co.uk/">Make Votes Matter</a>.
-      Source data: House of Commons Library Local Election Handbooks,
-      published under the Open Parliament Licence. Methodology and raw
-      data are <a href="/data">open for inspection</a>; full source on
+      Source data: House of Commons Library Local Election Handbooks
+      (2021&ndash;2025), published under the Open Parliament Licence;
+      preliminary 2026 results from
+      <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>,
+      reused under
+      <a href="https://creativecommons.org/licenses/by/4.0/" rel="external noopener">CC&nbsp;BY&nbsp;4.0</a>.
+      Methodology and raw data are <a href="/data">open for inspection</a>;
+      full source on
       <a href="https://github.com/fsargent/electionresults.uk">GitHub</a>.
       Errata:
       <a href="mailto:felix.sargent@gmail.com">felix.sargent@gmail.com</a>.
