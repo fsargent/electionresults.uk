@@ -47,6 +47,25 @@
     rel="canonical"
     href={`https://electionresults.uk/${history.councilSlug}`}
   />
+  <!-- Social-share preview: vote share vs FPTP vs proportional, latest
+       cycle. Generated build-time by scripts/build-og.mjs. -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={`${history.council} — election results audit`} />
+  <meta
+    property="og:description"
+    content={`${history.council}: vote share vs seats won, ${data.latestCycle?.year ?? ''} cycle.`}
+  />
+  <meta
+    property="og:image"
+    content={`https://electionresults.uk/og/${history.councilSlug}.png`}
+  />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:image"
+    content={`https://electionresults.uk/og/${history.councilSlug}.png`}
+  />
 </svelte:head>
 
 <main class="wide">

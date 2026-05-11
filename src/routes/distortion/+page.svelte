@@ -31,6 +31,10 @@
     content="Single-cycle elections ranked by how many seats First-Past-the-Post reallocated vs a proportional (D'Hondt) allocation. The systemic FPTP failure mode, per election, apples-to-apples."
   />
   <link rel="canonical" href="https://electionresults.uk/distortion" />
+  <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
+  <meta property="og:image:width" content="1016" />
+  <meta property="og:image:height" content="841" />
+  <meta name="twitter:image" content="https://electionresults.uk/og/flip-map.png" />
 </svelte:head>
 
 <main class="wide">

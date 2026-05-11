@@ -41,6 +41,25 @@
     rel="canonical"
     href={`https://electionresults.uk/${council.councilSlug}/${cycle.year}`}
   />
+  <!-- Per-cycle social-share preview. Generated build-time by
+       scripts/build-og.mjs. -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content={`${council.council} ${cycle.year} — election results audit`} />
+  <meta
+    property="og:description"
+    content={`${council.council}, ${cycle.electionDateLabel}: vote share vs seats won.`}
+  />
+  <meta
+    property="og:image"
+    content={`https://electionresults.uk/og/${council.councilSlug}-${cycle.year}.png`}
+  />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:image"
+    content={`https://electionresults.uk/og/${council.councilSlug}-${cycle.year}.png`}
+  />
 </svelte:head>
 
 <main class="wide">

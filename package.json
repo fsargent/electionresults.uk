@@ -6,7 +6,8 @@
   "scripts": {
     "etl": "bun scripts/etl.mjs",
     "build:map": "bun scripts/build-hexmap.mjs",
-    "refresh-data": "bun run etl && bun run build:map",
+    "build:og": "bun scripts/build-og.mjs",
+    "refresh-data": "bun run etl && bun run build:map && bun run build:og",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",

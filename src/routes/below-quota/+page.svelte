@@ -35,6 +35,10 @@
     content="Every council ward across the published cycles where the elected councillor (or, in multi-seat wards, the most-marginal of the elected councillors) won less than the proportional quota — the share that would be needed to be guaranteed that seat under a method that allocates seats in proportion to votes."
   />
   <link rel="canonical" href="https://electionresults.uk/below-quota" />
+  <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
+  <meta property="og:image:width" content="1016" />
+  <meta property="og:image:height" content="841" />
+  <meta name="twitter:image" content="https://electionresults.uk/og/flip-map.png" />
 </svelte:head>
 
 <main class="wide">

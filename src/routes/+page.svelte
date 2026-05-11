@@ -21,6 +21,14 @@
     content="A volunteer audit of UK local-election results across six cycles (2021–2026). For every ward, we ask: did the winner clear the share of votes a fair, proportional system would require?"
   />
   <link rel="canonical" href="https://electionresults.uk/" />
+  <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
+  <meta property="og:image:width" content="1016" />
+  <meta property="og:image:height" content="841" />
+  <meta
+    property="og:image:alt"
+    content="Hex cartogram of UK councils, coloured by the party that took the lead in the most recent flip between consecutive election cycles."
+  />
+  <meta name="twitter:image" content="https://electionresults.uk/og/flip-map.png" />
 </svelte:head>
 
 <div class="banner">

@@ -12,6 +12,10 @@
     content="How every figure on electionresults.uk is computed, where the source data comes from, and the editorial frame that names the voting method (not individual candidates) as the subject."
   />
   <link rel="canonical" href="https://electionresults.uk/methodology" />
+  <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
+  <meta property="og:image:width" content="1016" />
+  <meta property="og:image:height" content="841" />
+  <meta name="twitter:image" content="https://electionresults.uk/og/flip-map.png" />
 </svelte:head>
 
 <main>

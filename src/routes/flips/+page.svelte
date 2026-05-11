@@ -62,6 +62,10 @@
     content="Every UK council where the largest party in the running composition changed between consecutive cycle years. Composition data via opencouncildata, sorted by recency."
   />
   <link rel="canonical" href="https://electionresults.uk/flips" />
+  <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
+  <meta property="og:image:width" content="1016" />
+  <meta property="og:image:height" content="841" />
+  <meta name="twitter:image" content="https://electionresults.uk/og/flip-map.png" />
 </svelte:head>
 
 <main class="wide">
