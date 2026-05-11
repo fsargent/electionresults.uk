@@ -71,10 +71,13 @@ const H = 630;
 const PADDING = 56;
 const TITLE_FONT = 'Georgia, "Times New Roman", serif';
 const BODY_FONT = '"Helvetica Neue", Helvetica, Arial, sans-serif';
-const FG = '#0a0a0a';
-const MUTED = '#666';
-const BG = '#f5e9d6'; // matches the site's cream `--bg`
-const RULE = '#d4ccb6';
+// Mirror src/lib/styles/global.css so the OG card and the on-site
+// chart share the same palette. Keep in sync; no shared module
+// because this script runs at build time outside the SvelteKit graph.
+const FG = '#1a1a1a'; // --fg
+const MUTED = '#5a5a5a'; // --muted
+const BG = '#f6f5ee'; // --bg
+const RULE = '#d8d4c4'; // --rule
 
 function escapeXml(s) {
   return String(s)
