@@ -10,7 +10,8 @@ import {
   latestFlipByCouncil,
   allFlips,
   cycleByYear,
-  incomplete2026Councils
+  incomplete2026Councils,
+  stvDistortionPerCouncil
 } from '$lib/data';
 
 export const prerender = true;
@@ -132,6 +133,23 @@ function buildView(scopeYear: number | null) {
 }
 
 export function load() {
+  // STV summary sits outside the per-cycle filter — Scotland's STV
+  // contrast is a permanent reference point regardless of which year
+  // the user is reading. We compute weighted-average distortion (per
+  // seat, not per council, so a 12-seat island council doesn't drown
+  // out Glasgow) for both systems so the comparison is one number vs
+  // one number.
+  const stvRows = stvDistortionPerCouncil();
+  const stvTotalSeats = stvRows.reduce((s, r) => s + r.totalSeats, 0);
+  const stvReallocated = stvRows.reduce((s, r) => s + r.reallocated, 0);
+  const stvAvgShare = stvTotalSeats > 0 ? stvReallocated / stvTotalSeats : 0;
+
+  // Latest-cycle FPTP comparison — same denominator: weighted by seats.
+  const fptpLatest = latestDistortionPerCouncil();
+  const fptpTotalSeats = fptpLatest.reduce((s, r) => s + r.totalSeats, 0);
+  const fptpReallocated = fptpLatest.reduce((s, r) => s + r.reallocated, 0);
+  const fptpAvgShare = fptpTotalSeats > 0 ? fptpReallocated / fptpTotalSeats : 0;
+
   return {
     cycles: allCycles,
     generatedAt,
@@ -141,6 +159,23 @@ export function load() {
       '2026': buildView(2026),
       // Toggle target — historical leaderboard across all cycles.
       all: buildView(null)
+    },
+    stv: {
+      councilCount: stvRows.length,
+      totalSeats: stvTotalSeats,
+      reallocated: stvReallocated,
+      avgShare: stvAvgShare,
+      // Best (cleanest) and worst (most-distorted) Scottish councils
+      // for editorial colour. stvDistortionPerCouncil already sorts
+      // ascending by share, so head/tail picks the extremes.
+      best: stvRows.slice(0, 5),
+      worst: [...stvRows].sort((a, b) => b.reallocatedShare - a.reallocatedShare).slice(0, 5)
+    },
+    fptpComparison: {
+      councilCount: fptpLatest.length,
+      totalSeats: fptpTotalSeats,
+      reallocated: fptpReallocated,
+      avgShare: fptpAvgShare
     }
   };
 }

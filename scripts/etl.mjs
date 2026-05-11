@@ -511,6 +511,7 @@ function ingestCycle(cycle) {
       councilSlug: w.councilSlug,
       authorityType: w.authorityType ?? '',
       electionType: '',
+      system: 'FPTP',
       seats: w.seats,
       electorate: w.electorate,
       ballots,
@@ -775,6 +776,7 @@ function ingestDcCycle(cycle) {
       councilSlug: w.councilSlug,
       authorityType: '',
       electionType: '',
+      system: 'FPTP',
       seats: w.seats,
       electorate: w.electorate,
       ballots,
@@ -797,6 +799,136 @@ function ingestDcCycle(cycle) {
       `${electedOverrides} source-elected overrides`
   );
   return { cycle, races, coverage: coverageByCouncil };
+}
+
+// --- Scottish STV adapter (2022) ---------------------------------------
+//
+// Scotland has used Single Transferable Vote (STV) for council elections
+// since 2007. The 2022 cycle is the most recent and serves as the
+// proportional-system contrast to the FPTP English/Welsh data.
+//
+// Source: indylive.radio's CC-BY-SA 4.0 redistribution of the 2022
+// Scottish council results. One row per candidacy with first-preference
+// votes, the round-by-round transfer counts (transfers02..transfers13 +
+// total_votes02..total_votes13), and the actual elected flag from the
+// council's eCount export. Per-ward fields (electorate, total_poll,
+// valid_poll, rejected, quota, seats) are repeated on every candidate
+// row.
+//
+// For the editorial framing we only need first-prefs by party and
+// final seats by party — the STV transfer rounds get preserved as raw
+// CSV under static/data/stv/ for sister-site (stv.vote) reuse.
+
+const SCOTLAND_STV_CYCLE = {
+  year: 2022,
+  electionDate: '2022-05-05',
+  electionDateLabel: '5 May 2022',
+  file: 'docs/scotland-2022-stv-indylive.csv',
+  region: 'Scotland'
+};
+
+function ingestScottishStvCycle(cycle) {
+  const file = resolve(ROOT, cycle.file);
+  if (!existsSync(file)) {
+    console.warn(`[etl] skipping Scotland ${cycle.year}: file not found ${file}`);
+    return null;
+  }
+  const rows = parseCsv(readFileSync(file, 'utf8'));
+
+  // Build wards keyed by council + cand_ward_id.
+  const wardsByKey = new Map();
+  for (const r of rows) {
+    const councilSlug = String(r.council_id ?? '').trim();
+    if (!councilSlug) continue;
+    const wardCode = String(r.cand_ward_id ?? r.map_ward_id ?? '').trim();
+    if (!wardCode) continue;
+    const key = `${councilSlug}::${wardCode}`;
+    const wardName = normaliseWardName(String(r.ward_name ?? '').trim());
+    const seats = Number(r.seats ?? 1) || 1;
+    const electorate = Number(r.electorate ?? 0) || null;
+    const validPoll = Number(r.valid_poll ?? 0) || 0;
+    const rejected = Number(r.rejected ?? 0) || 0;
+    const totalPoll = Number(r.total_poll ?? 0) || 0;
+
+    let ward = wardsByKey.get(key);
+    if (!ward) {
+      ward = {
+        year: cycle.year,
+        electionDate: cycle.electionDate,
+        key,
+        wardCode,
+        wardName,
+        council: String(r.council_name ?? '').trim(),
+        councilSlug,
+        authorityType: 'Scottish council',
+        seats,
+        electorate,
+        ballots: totalPoll > 0 ? totalPoll : null,
+        invalidVotes: rejected > 0 ? rejected : null,
+        validBallots: validPoll > 0 ? validPoll : 0,
+        candidates: []
+      };
+      wardsByKey.set(key, ward);
+    }
+    const partyRaw = r.party_name;
+    ward.candidates.push({
+      name: String(r.name ?? '').trim().replace(/^"|"$/g, ''),
+      party: normalizeParty(partyRaw) ?? '',
+      votes: Number(r.first_prefs ?? 0) || 0,
+      electedSource: String(r.elected ?? '').trim() === '1',
+      elected: String(r.elected ?? '').trim() === '1'
+    });
+  }
+
+  // Materialise races. STV "winning_pct" reuses the same field so the
+  // shape stays compatible, but it's the marginal elected candidate's
+  // first-preference share — informational only; the editorial
+  // distortion claim for STV lives at the council/party level.
+  const races = [];
+  for (const w of wardsByKey.values()) {
+    if (w.candidates.length === 0) continue;
+    const validBallots = w.validBallots > 0
+      ? w.validBallots
+      : w.candidates.reduce((a, c) => a + c.votes, 0);
+    if (validBallots <= 0) continue;
+    w.candidates.sort((a, b) => b.votes - a.votes);
+    for (let i = 0; i < w.candidates.length; i++) w.candidates[i].rank = i + 1;
+    const elected = w.candidates.filter((c) => c.elected);
+    const electedPcts = elected.map((c) => c.votes / validBallots);
+    const winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;
+    const quota = quotaForSeats(w.seats);
+    const underPar = winningPct - quota;
+    const wardSlug = slugify(`${w.wardName}-${w.wardCode}`);
+    races.push({
+      year: w.year,
+      electionDate: w.electionDate,
+      key: w.key,
+      wardCode: w.wardCode,
+      wardName: w.wardName,
+      wardSlug,
+      council: w.council,
+      councilSlug: w.councilSlug,
+      authorityType: w.authorityType,
+      electionType: '',
+      system: 'STV',
+      seats: w.seats,
+      electorate: w.electorate,
+      ballots: w.ballots,
+      invalidVotes: w.invalidVotes,
+      validBallots,
+      winningPct,
+      quota,
+      underPar,
+      isBelowQuota: underPar < 0,
+      candidates: w.candidates
+    });
+  }
+
+  console.log(
+    `[etl ${cycle.year}] Scotland STV: read ${rows.length} candidacy rows; ` +
+      `produced ${races.length} races across ${new Set(races.map((r) => r.councilSlug)).size} councils`
+  );
+  return { cycle, races };
 }
 
 // --- Run all cycles ----------------------------------------------------------
@@ -831,6 +963,23 @@ for (const cycle of CYCLES) {
     belowQuotaShare: totalSeats > 0 ? belowQuotaSeats / totalSeats : 0,
     councilCount: distinctCouncils.size
   });
+}
+
+// Scotland 2022 STV — runs alongside the English 2022 LEH cycle. We
+// don't merge them into one cycleSummary entry because the systems
+// don't share a denominator: distortion / below-quota framing makes
+// sense only for FPTP. Scottish councils get their own (year, councilSlug)
+// keys that don't collide with English ones.
+{
+  const result = ingestScottishStvCycle(SCOTLAND_STV_CYCLE);
+  if (result) {
+    for (const r of result.races) rememberCouncilName(r.councilSlug, r.council);
+    allRaces.push(...result.races);
+    // Don't push a separate cycleSummaries entry for Scotland — the
+    // 2022 row already exists for England and the homepage cycle list
+    // groups by year. Scotland's contribution shows up via the
+    // dedicated STV section.
+  }
 }
 
 // 2026 cycle (Democracy Club preliminary results — runs after the LEH
@@ -924,6 +1073,7 @@ for (const r of allRaces) {
       year: r.year,
       council: r.council,
       councilSlug: r.councilSlug,
+      system: r.system ?? 'FPTP',
       partyTotals: new Map(),
       totalSeats: 0,
       totalVotes: 0
@@ -974,6 +1124,7 @@ for (const view of partyViewByCouncil.values()) {
     year: view.year,
     council: view.council,
     councilSlug: view.councilSlug,
+    system: view.system,
     totalSeats: view.totalSeats,
     totalVotes: view.totalVotes,
     rows
@@ -981,8 +1132,13 @@ for (const view of partyViewByCouncil.values()) {
 }
 
 // --- Marginal-winner roll-up (one row per elected candidacy across all years)
+//
+// Restricted to FPTP races. STV "winning %" is a candidate's first-pref
+// share, but they may have been elected on transfers — surfacing that
+// figure on the "lowest share" leaderboard would mislead.
 const marginal = [];
 for (const r of allRaces) {
+  if (r.system === 'STV') continue;
   for (const c of r.candidates.filter((c) => c.elected)) {
     const winningPct = c.votes / r.validBallots;
     marginal.push({
@@ -2018,6 +2174,7 @@ const snapshot = {
     ballots: r.ballots,
     invalidVotes: r.invalidVotes,
     validBallots: r.validBallots,
+    system: r.system ?? 'FPTP',
     candidates: r.candidates.map((c) => ({
       name: c.name,
       party: c.party,
@@ -2042,4 +2199,19 @@ const snapshot = {
 };
 writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot));
 console.log(`[etl] wrote ${SNAPSHOT_PATH}`);
+
+// --- STV raw data mirror -----------------------------------------------
+// Mirror the indylive Scottish 2022 STV CSV under static/data/stv/ so
+// the deployed site serves it at /data/stv/scotland-2022.csv. That
+// gives sister projects (notably stv.vote) a stable URL to pull from
+// without re-deriving from the parent indylive source. Round-by-round
+// transfer columns and per-ward ballots/quota are preserved verbatim.
+const STV_OUT_DIR = resolve(OUT_DIR, 'stv');
+mkdirSync(STV_OUT_DIR, { recursive: true });
+const stvSrc = resolve(ROOT, SCOTLAND_STV_CYCLE.file);
+if (existsSync(stvSrc)) {
+  const stvDest = resolve(STV_OUT_DIR, 'scotland-2022.csv');
+  writeFileSync(stvDest, readFileSync(stvSrc));
+  console.log(`[etl] wrote ${stvDest} (Scotland 2022 STV raw)`);
+}
 console.log('[etl] done');

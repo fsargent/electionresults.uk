@@ -227,6 +227,74 @@
     </tbody>
   </table>
 
+  <h3 id="stv-contrast">Same metric, different system: Scotland uses STV</h3>
+  <p class="muted">
+    Scotland's councils have used <strong>Single Transferable Vote</strong>
+    since 2007. The same "unfairly awarded" measure &mdash; share of
+    seats that would land with a different party under a proportional
+    re-count of the same votes &mdash; gives a very different number
+    when the counting rule already <em>is</em> proportional.
+  </p>
+  <div class="contrast-cards">
+    <div class="contrast-card contrast-card--bad">
+      <div class="contrast-system">FPTP</div>
+      <div class="contrast-where">{data.fptpComparison.councilCount} English &amp; Welsh councils — most recent cycle</div>
+      <div class="contrast-figure">{pct(data.fptpComparison.avgShare)}</div>
+      <div class="contrast-detail">
+        of seats unfairly awarded
+        ({num(data.fptpComparison.reallocated)} of {num(data.fptpComparison.totalSeats)})
+      </div>
+    </div>
+    <div class="contrast-card contrast-card--good">
+      <div class="contrast-system">STV</div>
+      <div class="contrast-where">{data.stv.councilCount} Scottish councils — 2022 cycle</div>
+      <div class="contrast-figure">{pct(data.stv.avgShare)}</div>
+      <div class="contrast-detail">
+        of seats unfairly awarded
+        ({num(data.stv.reallocated)} of {num(data.stv.totalSeats)})
+      </div>
+    </div>
+  </div>
+  <p class="muted small">
+    Wales's 2022 council elections were also run under FPTP; the
+    Local Government and Elections (Wales) Act 2021 lets councils opt
+    in to STV from the 2027 cycle, but no Welsh council has yet held
+    an STV election. Raw Scottish 2022 data (per-candidate first
+    preferences plus round-by-round transfers) is mirrored at
+    <a href="/data/stv/scotland-2022.csv"><code>/data/stv/scotland-2022.csv</code></a>
+    for sister-site reuse, sourced from
+    <a href="https://election.indylive.radio/download/" rel="external noopener">indylive radio</a>
+    under
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external noopener">CC&nbsp;BY-SA&nbsp;4.0</a>.
+    4 island/uncontested councils
+    (Orkney, Shetland, Western Isles, North Ayrshire) are excluded
+    from the average because the source CSV ships their first-pref
+    counts blank — many wards in those councils were uncontested.
+  </p>
+  <details class="stv-detail">
+    <summary class="muted small">See the cleanest and worst-distorted Scottish councils &darr;</summary>
+    <div class="stv-detail-grid">
+      <div>
+        <h4>Cleanest (closest to proportional)</h4>
+        <ol>
+          {#each data.stv.best as r (r.councilSlug)}
+            <li>{r.council} &mdash; <strong>{pct(r.reallocatedShare)}</strong>
+              <span class="muted">({r.reallocated} of {r.totalSeats})</span></li>
+          {/each}
+        </ol>
+      </div>
+      <div>
+        <h4>Most distorted (still under any FPTP council)</h4>
+        <ol>
+          {#each data.stv.worst as r (r.councilSlug)}
+            <li>{r.council} &mdash; <strong>{pct(r.reallocatedShare)}</strong>
+              <span class="muted">({r.reallocated} of {r.totalSeats})</span></li>
+          {/each}
+        </ol>
+      </div>
+    </div>
+  </details>
+
   <h2>Distorted elections</h2>
   <p class="muted">
     Councils where seats went to candidates with less support than
@@ -439,6 +507,71 @@
   }
   .filter-bar--top button:not(.active):hover {
     background: rgba(11, 61, 46, 0.1);
+  }
+
+  .contrast-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0 0.6rem;
+    max-width: 56rem;
+  }
+  @media (max-width: 640px) {
+    .contrast-cards { grid-template-columns: 1fr; }
+  }
+  .contrast-card {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    background: var(--bg);
+  }
+  .contrast-card--bad { border-color: var(--warn); }
+  .contrast-card--good { border-color: var(--accent); }
+  .contrast-system {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .contrast-where {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+  .contrast-figure {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0.3rem 0 0.15rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .contrast-card--bad .contrast-figure { color: var(--warn); }
+  .contrast-card--good .contrast-figure { color: var(--accent); }
+  .contrast-detail {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .stv-detail { margin: 0.5rem 0 1.5rem; }
+  .stv-detail summary { cursor: pointer; }
+  .stv-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 0.7rem;
+    max-width: 56rem;
+  }
+  @media (max-width: 640px) {
+    .stv-detail-grid { grid-template-columns: 1fr; }
+  }
+  .stv-detail-grid h4 {
+    font-size: 0.95rem;
+    margin: 0 0 0.3rem;
+  }
+  .stv-detail-grid ol {
+    margin: 0;
+    padding-left: 1.4rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
   }
 
   .all-councils {

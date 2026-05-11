@@ -55,10 +55,17 @@ const ABBREV_TO_FULL = {
 // Long-form names some sources hand us that we collapse to a shorter
 // canonical. Same rationale as the abbreviation map: Labour Co-op
 // candidates take the Labour whip; "Conservative" is what everyone
-// calls them.
+// calls them. Scottish-source rows arrive with the regional party name
+// (e.g. "Scottish National Party (SNP)", "Scottish Green Party") —
+// collapse to the canonical site labels for cross-cycle consistency.
 const LONG_FORM_REMAP = {
   'Labour and Co-operative Party': 'Labour Party',
-  'Conservative and Unionist Party': 'Conservative Party'
+  'Conservative and Unionist Party': 'Conservative Party',
+  'Scottish National Party (SNP)': 'Scottish National Party',
+  'Scottish Green Party': 'Green Party',
+  'Scottish Conservative and Unionist Party': 'Conservative Party',
+  'Scottish Liberal Democrats': 'Liberal Democrats',
+  'Scottish Labour Party': 'Labour Party'
 };
 
 export function normalizeParty(raw) {

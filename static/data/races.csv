@@ -15495,6 +15495,325 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2025,62599,warndon-villages-62599,Warndon Villages,worcester,Worcester,CC,1,3088,0.434585,0.500000,-0.065415,1
 2025,62580,woodvale-62580,Woodvale,bromsgrove,Bromsgrove,CC,1,3026,0.435889,0.500000,-0.064111,1
 2025,62581,wythall-62581,Wythall,bromsgrove,Bromsgrove,CC,1,3651,0.501780,0.500000,0.001780,0
+2022,gss-S13002835,dyce-bucksburn-danestone-gss-s13002835,Dyce/Bucksburn/Danestone,aberdeen-city,Aberdeen City,Scottish council,4,6598,0.177933,0.200000,-0.022067,1
+2022,gss-S13002846,torry-ferryhill-gss-s13002846,Torry/Ferryhill,aberdeen-city,Aberdeen City,Scottish council,4,4997,0.068841,0.200000,-0.131159,1
+2022,gss-S13002844,hazlehead-queens-cross-countesswells-gss-s13002844,Hazlehead/Queens Cross/Countesswells,aberdeen-city,Aberdeen City,Scottish council,4,7736,0.131980,0.200000,-0.068020,1
+2022,gss-S13002843,lower-deeside-gss-s13002843,Lower Deeside,aberdeen-city,Aberdeen City,Scottish council,3,6886,0.173395,0.250000,-0.076605,1
+2022,gss-S13002839,hilton-woodside-stockethill-gss-s13002839,Hilton/Woodside/Stockethill,aberdeen-city,Aberdeen City,Scottish council,3,4154,0.123014,0.250000,-0.126986,1
+2022,gss-S13002841,midstocket-rosemount-gss-s13002841,Midstocket/Rosemount,aberdeen-city,Aberdeen City,Scottish council,3,4689,0.214758,0.250000,-0.035242,1
+2022,gss-S13002842,george-st-harbour-gss-s13002842,George St/Harbour,aberdeen-city,Aberdeen City,Scottish council,4,3427,0.114094,0.200000,-0.085906,1
+2022,gss-S13002840,tillydrone-seaton-old-aberdeen-gss-s13002840,Tillydrone/Seaton/Old Aberdeen,aberdeen-city,Aberdeen City,Scottish council,3,2616,0.084862,0.250000,-0.165138,1
+2022,gss-S13002838,northfield-mastrick-north-gss-s13002838,Northfield/Mastrick North,aberdeen-city,Aberdeen City,Scottish council,3,3674,0.100708,0.250000,-0.149292,1
+2022,gss-S13002836,bridge-of-don-gss-s13002836,Bridge of Don,aberdeen-city,Aberdeen City,Scottish council,4,6793,0.153099,0.200000,-0.046901,1
+2022,gss-S13002837,kingswells-sheddocksley-summerhill-gss-s13002837,Kingswells/Sheddocksley/Summerhill,aberdeen-city,Aberdeen City,Scottish council,3,4752,0.135522,0.250000,-0.114478,1
+2022,gss-S13002845,airyhall-broomhill-garthdee-gss-s13002845,Airyhall/Broomhill/Garthdee,aberdeen-city,Aberdeen City,Scottish council,3,5872,0.211172,0.250000,-0.038828,1
+2022,gss-S13002847,kincorth-nigg-cove-gss-s13002847,Kincorth/Nigg/Cove,aberdeen-city,Aberdeen City,Scottish council,4,4797,0.152387,0.200000,-0.047613,1
+2022,gss-S13002865,stonehaven-and-lower-deeside-gss-s13002865,Stonehaven and Lower Deeside,aberdeenshire,Aberdeenshire,Scottish council,4,5559,0.113330,0.200000,-0.086670,1
+2022,gss-S13002856,ellon-and-district-gss-s13002856,Ellon and District,aberdeenshire,Aberdeenshire,Scottish council,4,5488,0.165087,0.200000,-0.034913,1
+2022,gss-S13002866,mearns-gss-s13002866,Mearns,aberdeenshire,Aberdeenshire,Scottish council,4,5782,0.107056,0.200000,-0.092944,1
+2022,gss-S13002857,west-garioch-gss-s13002857,West Garioch,aberdeenshire,Aberdeenshire,Scottish council,3,4237,0.127213,0.250000,-0.122787,1
+2022,gss-S13002863,banchory-and-mid-deeside-gss-s13002863,Banchory and Mid Deeside,aberdeenshire,Aberdeenshire,Scottish council,3,4832,0.215232,0.250000,-0.034768,1
+2022,gss-S13002864,north-kincardine-gss-s13002864,North Kincardine,aberdeenshire,Aberdeenshire,Scottish council,4,5477,0.145883,0.200000,-0.054117,1
+2022,gss-S13002859,east-garioch-gss-s13002859,East Garioch,aberdeenshire,Aberdeenshire,Scottish council,4,4215,0.076157,0.200000,-0.123843,1
+2022,gss-S13002854,turriff-and-district-gss-s13002854,Turriff and District,aberdeenshire,Aberdeenshire,Scottish council,4,4515,0.152824,0.200000,-0.047176,1
+2022,gss-S13002862,aboyne-upper-deeside-and-donside-gss-s13002862,"Aboyne, Upper Deeside and Donside",aberdeenshire,Aberdeenshire,Scottish council,3,4841,0.212559,0.250000,-0.037441,1
+2022,gss-S13002848,banff-and-district-gss-s13002848,Banff and District,aberdeenshire,Aberdeenshire,Scottish council,3,3968,0.198337,0.250000,-0.051663,1
+2022,gss-S13002851,central-buchan-gss-s13002851,Central Buchan,aberdeenshire,Aberdeenshire,Scottish council,4,4657,0.130341,0.200000,-0.069659,1
+2022,gss-S13002850,fraserburgh-and-district-gss-s13002850,Fraserburgh and District,aberdeenshire,Aberdeenshire,Scottish council,4,4703,0.048480,0.200000,-0.151520,1
+2022,gss-S13003003,inverness-central-gss-s13003003,Inverness Central,highland,Highland,Scottish council,3,3286,0.179245,0.250000,-0.070755,1
+2022,gss-S13002861,huntly-strathbogie-and-howe-of-alford-gss-s13002861,"Huntly, Strathbogie and Howe of Alford",aberdeenshire,Aberdeenshire,Scottish council,4,5635,0.139130,0.200000,-0.060870,1
+2022,gss-S13002858,inverurie-and-district-gss-s13002858,Inverurie and District,aberdeenshire,Aberdeenshire,Scottish council,4,4969,0.169652,0.200000,-0.030348,1
+2022,gss-S13002849,troup-gss-s13002849,Troup,aberdeenshire,Aberdeenshire,Scottish council,3,3070,0.076873,0.250000,-0.173127,1
+2022,gss-S13002852,peterhead-north-and-rattray-gss-s13002852,Peterhead North and Rattray,aberdeenshire,Aberdeenshire,Scottish council,4,4200,0.130476,0.200000,-0.069524,1
+2022,gss-S13002853,peterhead-south-and-cruden-gss-s13002853,Peterhead South and Cruden,aberdeenshire,Aberdeenshire,Scottish council,3,3395,0.121944,0.250000,-0.128056,1
+2022,gss-S13002855,mid-formartine-gss-s13002855,Mid Formartine,aberdeenshire,Aberdeenshire,Scottish council,4,5046,0.149029,0.200000,-0.050971,1
+2022,gss-S13002860,westhill-and-district-gss-s13002860,Westhill and District,aberdeenshire,Aberdeenshire,Scottish council,4,5706,0.106029,0.200000,-0.093971,1
+2022,gss-S13002873,arbroath-east-and-lunan-gss-s13002873,Arbroath East and Lunan,angus,Angus,Scottish council,3,3798,0.176672,0.250000,-0.073328,1
+2022,gss-S13002874,montrose-and-district-gss-s13002874,Montrose and District,angus,Angus,Scottish council,4,5049,0.144979,0.200000,-0.055021,1
+2022,gss-S13002870,monifieth-and-sidlaw-gss-s13002870,Monifieth and Sidlaw,angus,Angus,Scottish council,4,7194,0.134557,0.200000,-0.065443,1
+2022,gss-S13002872,arbroath-west-letham-and-friockheim-gss-s13002872,"Arbroath West, Letham and Friockheim",angus,Angus,Scottish council,4,6503,0.080578,0.200000,-0.119422,1
+2022,gss-S13002868,brechin-and-edzell-gss-s13002868,Brechin and Edzell,angus,Angus,Scottish council,3,3933,0.204424,0.250000,-0.045576,1
+2022,gss-S13002871,carnoustie-and-district-gss-s13002871,Carnoustie and District,angus,Angus,Scottish council,3,5401,0.177004,0.250000,-0.072996,1
+2022,gss-S13002869,forfar-and-district-gss-s13002869,Forfar and District,angus,Angus,Scottish council,4,5421,0.149419,0.200000,-0.050581,1
+2022,gss-S13002867,kirriemuir-and-dean-gss-s13002867,Kirriemuir and Dean,angus,Angus,Scottish council,3,4515,0.127132,0.250000,-0.122868,1
+2022,gss-S13002525,helensburgh-central-gss-s13002525,Helensburgh Central,argyll-and-bute,Argyll and Bute,Scottish council,4,3947,0.111477,0.200000,-0.088523,1
+2022,gss-S13002520,oban-north-and-lorn-gss-s13002520,Oban North and Lorn,argyll-and-bute,Argyll and Bute,Scottish council,4,4097,0.096656,0.200000,-0.103344,1
+2022,gss-S13002517,kintyre-and-the-islands-gss-s13002517,Kintyre and the Islands,argyll-and-bute,Argyll and Bute,Scottish council,3,2889,0.164071,0.250000,-0.085929,1
+2022,gss-S13002519,oban-south-and-the-isles-gss-s13002519,Oban South and the Isles,argyll-and-bute,Argyll and Bute,Scottish council,4,3633,0.081200,0.200000,-0.118800,1
+2022,gss-S13002524,lomond-north-gss-s13002524,Lomond North,argyll-and-bute,Argyll and Bute,Scottish council,3,3198,0.148530,0.250000,-0.101470,1
+2022,gss-S13002523,isle-of-bute-gss-s13002523,Isle of Bute,argyll-and-bute,Argyll and Bute,Scottish council,3,2331,0.177606,0.250000,-0.072394,1
+2022,gss-S13002526,helensburgh-and-lomond-south-gss-s13002526,Helensburgh and Lomond South,argyll-and-bute,Argyll and Bute,Scottish council,3,2884,0.177531,0.250000,-0.072469,1
+2022,gss-S13002521,cowal-gss-s13002521,Cowal,argyll-and-bute,Argyll and Bute,Scottish council,3,3277,0.168142,0.250000,-0.081858,1
+2022,gss-S13002516,south-kintyre-gss-s13002516,South Kintyre,argyll-and-bute,Argyll and Bute,Scottish council,3,2358,0.225191,0.250000,-0.024809,1
+2022,gss-S13002518,mid-argyll-gss-s13002518,Mid Argyll,argyll-and-bute,Argyll and Bute,Scottish council,3,3197,0.116046,0.250000,-0.133954,1
+2022,gss-S13002522,dunoon-gss-s13002522,Dunoon,argyll-and-bute,Argyll and Bute,Scottish council,3,2753,0.168543,0.250000,-0.081457,1
+2022,gss-S13002933,southside-newington-gss-s13002933,Southside/Newington,edinburgh,City of Edinburgh,Scottish council,4,11788,0.160926,0.200000,-0.039074,1
+2022,gss-S13002926,colinton-fairmilehead-gss-s13002926,Colinton/Fairmilehead,edinburgh,City of Edinburgh,Scottish council,3,11414,0.172507,0.250000,-0.077493,1
+2022,gss-S13002919,almond-gss-s13002919,Almond,edinburgh,City of Edinburgh,Scottish council,4,13909,0.014379,0.200000,-0.185621,1
+2022,gss-S13002922,forth-gss-s13002922,Forth,edinburgh,City of Edinburgh,Scottish council,4,10555,0.126670,0.200000,-0.073330,1
+2022,gss-S13002924,corstorphine-murrayfield-gss-s13002924,Corstorphine/Murrayfield,edinburgh,City of Edinburgh,Scottish council,3,11384,0.155657,0.250000,-0.094343,1
+2022,gss-S13002921,drum-brae-gyle-gss-s13002921,Drum Brae/Gyle,edinburgh,City of Edinburgh,Scottish council,3,9451,0.096180,0.250000,-0.153820,1
+2022,gss-S13002934,liberton-gilmerton-gss-s13002934,Liberton/Gilmerton,edinburgh,City of Edinburgh,Scottish council,4,12433,0.073192,0.200000,-0.126808,1
+2022,gss-S13002923,inverleith-gss-s13002923,Inverleith,edinburgh,City of Edinburgh,Scottish council,4,13416,0.127758,0.200000,-0.072242,1
+2022,gss-S13002930,leith-walk-gss-s13002930,Leith Walk,edinburgh,City of Edinburgh,Scottish council,4,10996,0.119771,0.200000,-0.080229,1
+2022,gss-S13002935,portobello-craigmillar-gss-s13002935,Portobello/Craigmillar,edinburgh,City of Edinburgh,Scottish council,4,11183,0.153090,0.200000,-0.046910,1
+2022,gss-S13002931,leith-gss-s13002931,Leith,edinburgh,City of Edinburgh,Scottish council,3,8442,0.213693,0.250000,-0.036307,1
+2022,gss-S13002925,sighthill-gorgie-gss-s13002925,Sighthill/Gorgie,edinburgh,City of Edinburgh,Scottish council,4,8375,0.133254,0.200000,-0.066746,1
+2022,gss-S13002928,morningside-gss-s13002928,Morningside,edinburgh,City of Edinburgh,Scottish council,4,13547,0.176423,0.200000,-0.023577,1
+2022,gss-S13002932,craigentinny-duddingston-gss-s13002932,Craigentinny/Duddingston,edinburgh,City of Edinburgh,Scottish council,4,10353,0.164783,0.200000,-0.035217,1
+2022,gss-S13002929,city-centre-gss-s13002929,City Centre,edinburgh,City of Edinburgh,Scottish council,4,8857,0.133454,0.200000,-0.066546,1
+2022,gss-S13002920,pentland-hills-gss-s13002920,Pentland Hills,edinburgh,City of Edinburgh,Scottish council,4,11087,0.100568,0.200000,-0.099432,1
+2022,gss-S13002927,fountainbridge-craiglockhart-gss-s13002927,Fountainbridge/Craiglockhart,edinburgh,City of Edinburgh,Scottish council,3,9028,0.224413,0.250000,-0.025587,1
+2022,gss-S13002878,clackmannanshire-south-gss-s13002878,Clackmannanshire South,clackmannanshire,Clackmannanshire,Scottish council,4,3803,0.169077,0.200000,-0.030923,1
+2022,gss-S13002875,clackmannanshire-west-gss-s13002875,Clackmannanshire West,clackmannanshire,Clackmannanshire,Scottish council,4,3643,0.196267,0.200000,-0.003733,1
+2022,gss-S13002879,clackmannanshire-east-gss-s13002879,Clackmannanshire East,clackmannanshire,Clackmannanshire,Scottish council,3,3315,0.196078,0.250000,-0.053922,1
+2022,gss-S13002876,clackmannanshire-north-gss-s13002876,Clackmannanshire North,clackmannanshire,Clackmannanshire,Scottish council,4,4028,0.150199,0.200000,-0.049801,1
+2022,gss-S13002877,clackmannanshire-central-gss-s13002877,Clackmannanshire Central,clackmannanshire,Clackmannanshire,Scottish council,3,2402,0.119900,0.250000,-0.130100,1
+2022,gss-S13002886,mid-and-upper-nithsdale-gss-s13002886,Mid and Upper Nithsdale,dumfries-and-galloway,Dumfries and Galloway,Scottish council,3,3972,0.158359,0.250000,-0.091641,1
+2022,gss-S13002889,annandale-south-gss-s13002889,Annandale South,dumfries-and-galloway,Dumfries and Galloway,Scottish council,4,5104,0.176724,0.200000,-0.023276,1
+2022,gss-S13002891,annandale-east-and-eskdale-gss-s13002891,Annandale East and Eskdale,dumfries-and-galloway,Dumfries and Galloway,Scottish council,3,4108,0.154090,0.250000,-0.095910,1
+2022,gss-S13002883,castle-douglas-and-crocketford-gss-s13002883,Castle Douglas and Crocketford,dumfries-and-galloway,Dumfries and Galloway,Scottish council,3,4033,0.099926,0.250000,-0.150074,1
+2022,gss-S13002882,dee-and-glenkens-gss-s13002882,Dee and Glenkens,dumfries-and-galloway,Dumfries and Galloway,Scottish council,3,4478,0.146271,0.250000,-0.103729,1
+2022,gss-S13002885,north-west-dumfries-gss-s13002885,North West Dumfries,dumfries-and-galloway,Dumfries and Galloway,Scottish council,4,3950,0.087848,0.200000,-0.112152,1
+2022,gss-S13002887,lochar-gss-s13002887,Lochar,dumfries-and-galloway,Dumfries and Galloway,Scottish council,4,5326,0.144949,0.200000,-0.055051,1
+2022,gss-S13002881,mid-galloway-and-wigtown-west-gss-s13002881,Mid Galloway and Wigtown West,dumfries-and-galloway,Dumfries and Galloway,Scottish council,4,4962,0.112656,0.200000,-0.087344,1
+2022,gss-S13002884,abbey-gss-s13002884,Abbey,dumfries-and-galloway,Dumfries and Galloway,Scottish council,3,4070,0.246929,0.250000,-0.003071,1
+2022,gss-S13002888,nith-gss-s13002888,Nith,dumfries-and-galloway,Dumfries and Galloway,Scottish council,4,5007,0.097464,0.200000,-0.102536,1
+2022,gss-S13002880,stranraer-and-the-rhins-gss-s13002880,Stranraer and the Rhins,dumfries-and-galloway,Dumfries and Galloway,Scottish council,4,4618,0.073192,0.200000,-0.126808,1
+2022,gss-S13002890,annandale-north-gss-s13002890,Annandale North,dumfries-and-galloway,Dumfries and Galloway,Scottish council,4,5741,0.138826,0.200000,-0.061174,1
+2022,gss-S13002548,coldside-gss-s13002548,Coldside,dundee-city,Dundee City,Scottish council,4,5589,0.134371,0.200000,-0.065629,1
+2022,gss-S13002545,strathmartine-gss-s13002545,Strathmartine,dundee-city,Dundee City,Scottish council,4,5956,0.093855,0.200000,-0.106145,1
+2022,gss-S13002552,the-ferry-gss-s13002552,The Ferry,dundee-city,Dundee City,Scottish council,4,8979,0.100123,0.200000,-0.099877,1
+2022,gss-S13002547,west-end-gss-s13002547,West End,dundee-city,Dundee City,Scottish council,4,5732,0.028786,0.200000,-0.171214,1
+2022,gss-S13002546,lochee-gss-s13002546,Lochee,dundee-city,Dundee City,Scottish council,4,5843,0.060072,0.200000,-0.139928,1
+2022,gss-S13002830,north-east-gss-s13002830,North East,dundee-city,Dundee City,Scottish council,3,3789,0.261547,0.250000,0.011547,0
+2022,gss-S13002549,maryfield-gss-s13002549,Maryfield,dundee-city,Dundee City,Scottish council,3,4213,0.226205,0.250000,-0.023795,1
+2022,gss-S13002551,east-end-gss-s13002551,East End,dundee-city,Dundee City,Scottish council,3,4117,0.199903,0.250000,-0.050097,1
+2022,gss-S13002894,kilmarnock-west-and-crosshouse-gss-s13002894,Kilmarnock West and Crosshouse,east-ayrshire,East Ayrshire,Scottish council,4,5888,0.185632,0.200000,-0.014368,1
+2022,gss-S13002897,irvine-valley-gss-s13002897,Irvine Valley,east-ayrshire,East Ayrshire,Scottish council,3,4256,0.184915,0.250000,-0.065085,1
+2022,gss-S13002898,ballochmyle-gss-s13002898,Ballochmyle,east-ayrshire,East Ayrshire,Scottish council,4,4646,0.116659,0.200000,-0.083341,1
+2022,gss-S13002892,annick-gss-s13002892,Annick,east-ayrshire,East Ayrshire,Scottish council,4,6184,0.131307,0.200000,-0.068693,1
+2022,gss-S13002893,kilmarnock-north-gss-s13002893,Kilmarnock North,east-ayrshire,East Ayrshire,Scottish council,3,3882,0.093766,0.250000,-0.156234,1
+2022,gss-S13002895,kilmarnock-east-and-hurlford-gss-s13002895,Kilmarnock East and Hurlford,east-ayrshire,East Ayrshire,Scottish council,4,5328,0.090278,0.200000,-0.109722,1
+2022,gss-S13002896,kilmarnock-south-gss-s13002896,Kilmarnock South,east-ayrshire,East Ayrshire,Scottish council,3,3036,0.206522,0.250000,-0.043478,1
+2022,gss-S13002899,cumnock-and-new-cumnock-gss-s13002899,Cumnock and New Cumnock,east-ayrshire,East Ayrshire,Scottish council,4,4476,0.132484,0.200000,-0.067516,1
+2022,gss-S13002900,doon-valley-gss-s13002900,Doon Valley,east-ayrshire,East Ayrshire,Scottish council,3,3866,0.207708,0.250000,-0.042292,1
+2022,gss-S13002903,bearsden-south-gss-s13002903,Bearsden South,east-dunbartonshire,East Dunbartonshire,Scottish council,3,6370,0.231240,0.250000,-0.018760,1
+2022,gss-S13002906,lenzie-and-kirkintilloch-south-gss-s13002906,Lenzie and Kirkintilloch South,east-dunbartonshire,East Dunbartonshire,Scottish council,3,6515,0.173599,0.250000,-0.076401,1
+2022,gss-S13002901,milngavie-gss-s13002901,Milngavie,east-dunbartonshire,East Dunbartonshire,Scottish council,3,6249,0.164986,0.250000,-0.085014,1
+2022,gss-S13002907,kirkintilloch-east-and-north-and-twechar-gss-s13002907,Kirkintilloch East and North and Twechar,east-dunbartonshire,East Dunbartonshire,Scottish council,3,5389,0.186677,0.250000,-0.063323,1
+2022,gss-S13002904,bishopbriggs-north-and-campsie-gss-s13002904,Bishopbriggs North and Campsie,east-dunbartonshire,East Dunbartonshire,Scottish council,4,8072,0.105178,0.200000,-0.094822,1
+2022,gss-S13002902,bearsden-north-gss-s13002902,Bearsden North,east-dunbartonshire,East Dunbartonshire,Scottish council,3,6906,0.124240,0.250000,-0.125760,1
+2022,gss-S13002905,bishopbriggs-south-gss-s13002905,Bishopbriggs South,east-dunbartonshire,East Dunbartonshire,Scottish council,3,6070,0.124547,0.250000,-0.125453,1
+2022,gss-S13002908,musselburgh-gss-s13002908,Musselburgh,east-lothian,East Lothian,Scottish council,4,7356,0.134720,0.200000,-0.065280,1
+2022,gss-S13002910,tranent-wallyford-and-macmerry-gss-s13002910,"Tranent, Wallyford and Macmerry",east-lothian,East Lothian,Scottish council,4,5984,0.111297,0.200000,-0.088703,1
+2022,gss-S13002913,dunbar-and-east-linton-gss-s13002913,Dunbar and East Linton,east-lothian,East Lothian,Scottish council,3,6505,0.214450,0.250000,-0.035550,1
+2022,gss-S13002909,preston-seton-and-gosford-gss-s13002909,"Preston, Seton and Gosford",east-lothian,East Lothian,Scottish council,4,6421,0.152313,0.200000,-0.047687,1
+2022,gss-S13002912,haddington-and-lammermuir-gss-s13002912,Haddington and Lammermuir,east-lothian,East Lothian,Scottish council,4,7830,0.141379,0.200000,-0.058621,1
+2022,gss-S13002911,north-berwick-coastal-gss-s13002911,North Berwick Coastal,east-lothian,East Lothian,Scottish council,3,6849,0.198569,0.250000,-0.051431,1
+2022,gss-S13002915,newton-mearns-north-and-neilston-gss-s13002915,Newton Mearns North and Neilston,east-renfrewshire,East Renfrewshire,Scottish council,3,6034,0.253895,0.250000,0.003895,0
+2022,gss-S13002916,giffnock-and-thornliebank-gss-s13002916,Giffnock and Thornliebank,east-renfrewshire,East Renfrewshire,Scottish council,3,7233,0.222314,0.250000,-0.027686,1
+2022,gss-S13002914,barrhead-liboside-and-uplawmoor-gss-s13002914,"Barrhead, Liboside and Uplawmoor",east-renfrewshire,East Renfrewshire,Scottish council,4,6733,0.091490,0.200000,-0.108510,1
+2022,gss-S13002918,newton-mearns-south-and-eaglesham-gss-s13002918,Newton Mearns South and Eaglesham,east-renfrewshire,East Renfrewshire,Scottish council,4,9562,0.165656,0.200000,-0.034344,1
+2022,gss-S13002917,clarkston-netherlee-and-williamwood-gss-s13002917,"Clarkston, Netherlee and Williamwood",east-renfrewshire,East Renfrewshire,Scottish council,4,9812,0.143396,0.200000,-0.056604,1
+2022,gss-S13002938,denny-and-banknock-gss-s13002938,Denny and Banknock,falkirk,Falkirk,Scottish council,4,6350,0.135433,0.200000,-0.064567,1
+2022,gss-S13002941,falkirk-north-gss-s13002941,Falkirk North,falkirk,Falkirk,Scottish council,4,6456,0.124071,0.200000,-0.075929,1
+2022,gss-S13002940,bonnybridge-and-larbert-gss-s13002940,Bonnybridge and Larbert,falkirk,Falkirk,Scottish council,3,5643,0.175970,0.250000,-0.074030,1
+2022,gss-S13002936,bo-ness-and-blackness-gss-s13002936,Bo'ness and Blackness,falkirk,Falkirk,Scottish council,3,5574,0.186760,0.250000,-0.063240,1
+2022,gss-S13002937,grangemouth-gss-s13002937,Grangemouth,falkirk,Falkirk,Scottish council,3,5043,0.121158,0.250000,-0.128842,1
+2022,gss-S13002939,carse-kinnaird-and-tryst-gss-s13002939,"Carse, Kinnaird and Tryst",falkirk,Falkirk,Scottish council,4,7178,0.150599,0.200000,-0.049401,1
+2022,gss-S13002942,falkirk-south-gss-s13002942,Falkirk South,falkirk,Falkirk,Scottish council,3,6106,0.223387,0.250000,-0.026613,1
+2022,gss-S13002943,lower-braes-gss-s13002943,Lower Braes,falkirk,Falkirk,Scottish council,3,5159,0.233379,0.250000,-0.016621,1
+2022,gss-S13002944,upper-braes-gss-s13002944,Upper Braes,falkirk,Falkirk,Scottish council,3,5499,0.218585,0.250000,-0.031415,1
+2022,gss-S13002961,tay-bridgehead-gss-s13002961,Tay Bridgehead,fife,Fife,Scottish council,3,6280,0.212261,0.250000,-0.037739,1
+2022,gss-S13002950,inverkeithing-and-dalgety-bay-gss-s13002950,Inverkeithing and Dalgety Bay,fife,Fife,Scottish council,4,7703,0.104115,0.200000,-0.095885,1
+2022,gss-S13002947,dunfermline-central-gss-s13002947,Dunfermline Central,fife,Fife,Scottish council,4,7971,0.132355,0.200000,-0.067645,1
+2022,gss-S13002962,st-andrews-gss-s13002962,St Andrews,fife,Fife,Scottish council,4,5048,0.146989,0.200000,-0.053011,1
+2022,gss-S13002955,kirkcaldy-central-gss-s13002955,Kirkcaldy Central,fife,Fife,Scottish council,3,4564,0.200482,0.250000,-0.049518,1
+2022,gss-S13002948,dunfermline-south-gss-s13002948,Dunfermline South,fife,Fife,Scottish council,4,7793,0.165790,0.200000,-0.034210,1
+2022,gss-S13002964,cupar-gss-s13002964,Cupar,fife,Fife,Scottish council,3,6095,0.169975,0.250000,-0.080025,1
+2022,gss-S13003129,glenrothes-west-and-kinglassie-gss-s13003129,Glenrothes West and Kinglassie,fife,Fife,Scottish council,3,4588,0.116173,0.250000,-0.133827,1
+2022,gss-S13003130,lochgelly-cardenden-and-benarty-gss-s13003130,"Lochgelly, Cardenden and Benarty",fife,Fife,Scottish council,4,4947,0.186982,0.200000,-0.013018,1
+2022,gss-S13002963,east-neuk-and-landward-gss-s13002963,East Neuk and Landward,fife,Fife,Scottish council,3,5356,0.126774,0.250000,-0.123226,1
+2022,gss-S13002954,kirkcaldy-north-gss-s13002954,Kirkcaldy North,fife,Fife,Scottish council,3,5169,0.152641,0.250000,-0.097359,1
+2022,gss-S13002966,buckhaven-methil-and-wemyss-villages-gss-s13002966,"Buckhaven, Methil and Wemyss Villages",fife,Fife,Scottish council,4,5105,0.158472,0.200000,-0.041528,1
+2022,gss-S13002946,dunfermline-north-gss-s13002946,Dunfermline North,fife,Fife,Scottish council,3,5710,0.178109,0.250000,-0.071891,1
+2022,gss-S13002949,rosyth-gss-s13002949,Rosyth,fife,Fife,Scottish council,3,4848,0.170380,0.250000,-0.079620,1
+2022,gss-S13002956,kirkcaldy-east-gss-s13002956,Kirkcaldy East,fife,Fife,Scottish council,3,3995,0.171965,0.250000,-0.078035,1
+2022,gss-S13002965,leven-kennoway-and-largo-gss-s13002965,"Leven, Kennoway and Largo",fife,Fife,Scottish council,4,6559,0.107791,0.200000,-0.092209,1
+2022,gss-S13002960,howe-of-fife-and-tay-coast-gss-s13002960,Howe of Fife and Tay Coast,fife,Fife,Scottish council,3,6030,0.209121,0.250000,-0.040879,1
+2022,gss-S13002953,burntisland-kinghorn-and-western-kirkcaldy-gss-s13002953,"Burntisland, Kinghorn and Western Kirkcaldy",fife,Fife,Scottish council,3,5891,0.210321,0.250000,-0.039679,1
+2022,gss-S13003128,cowdenbeath-gss-s13003128,Cowdenbeath,fife,Fife,Scottish council,4,6632,0.077352,0.200000,-0.122648,1
+2022,gss-S13002959,glenrothes-central-and-thornton-gss-s13002959,Glenrothes Central and Thornton,fife,Fife,Scottish council,3,4652,0.145959,0.250000,-0.104041,1
+2022,gss-S13003131,west-fife-and-coastal-villages-gss-s13003131,West Fife and Coastal Villages,fife,Fife,Scottish council,3,5963,0.170552,0.250000,-0.079448,1
+2022,gss-S13002958,glenrothes-north-leslie-and-markinch-gss-s13002958,"Glenrothes North, Leslie and Markinch",fife,Fife,Scottish council,4,6255,0.150280,0.200000,-0.049720,1
+2022,gss-S13002983,springburn-robroyston-gss-s13002983,Springburn/Robroyston,glasgow-city,Glasgow City,Scottish council,4,6790,0.095729,0.200000,-0.104271,1
+2022,gss-S13002985,shettleston-gss-s13002985,Shettleston,glasgow-city,Glasgow City,Scottish council,4,7364,0.122624,0.200000,-0.077376,1
+2022,gss-S13002971,govan-gss-s13002971,Govan,glasgow-city,Glasgow City,Scottish council,4,6456,0.122986,0.200000,-0.077014,1
+2022,gss-S13002972,pollokshields-gss-s13002972,Pollokshields,glasgow-city,Glasgow City,Scottish council,4,10362,0.136267,0.200000,-0.063733,1
+2022,gss-S13002978,victoria-park-gss-s13002978,Victoria Park,glasgow-city,Glasgow City,Scottish council,3,8617,0.233956,0.250000,-0.016044,1
+2022,gss-S13002977,hillhead-gss-s13002977,Hillhead,glasgow-city,Glasgow City,Scottish council,3,6925,0.221227,0.250000,-0.028773,1
+2022,gss-S13002974,southside-central-gss-s13002974,Southside Central,glasgow-city,Glasgow City,Scottish council,4,7717,0.150447,0.200000,-0.049553,1
+2022,gss-S13002979,garscadden-scotstounhill-gss-s13002979,Garscadden/Scotstounhill,glasgow-city,Glasgow City,Scottish council,4,8629,0.053309,0.200000,-0.146691,1
+2022,gss-S13002980,drumchapel-anniesland-gss-s13002980,Drumchapel/Anniesland,glasgow-city,Glasgow City,Scottish council,4,7226,0.103377,0.200000,-0.096623,1
+2022,gss-S13002976,anderston-city-yorkhill-gss-s13002976,Anderston/City/Yorkhill,glasgow-city,Glasgow City,Scottish council,4,5910,0.102030,0.200000,-0.097970,1
+2022,gss-S13002967,linn-gss-s13002967,Linn,glasgow-city,Glasgow City,Scottish council,4,8994,0.080498,0.200000,-0.119502,1
+2022,gss-S13002969,greater-pollok-gss-s13002969,Greater Pollok,glasgow-city,Glasgow City,Scottish council,4,8869,0.103394,0.200000,-0.096606,1
+2022,gss-S13002982,canal-gss-s13002982,Canal,glasgow-city,Glasgow City,Scottish council,4,5792,0.088398,0.200000,-0.111602,1
+2022,gss-S13002988,dennistoun-gss-s13002988,Dennistoun,glasgow-city,Glasgow City,Scottish council,3,5464,0.244693,0.250000,-0.005307,1
+2022,gss-S13002975,calton-gss-s13002975,Calton,glasgow-city,Glasgow City,Scottish council,4,6072,0.090744,0.200000,-0.109256,1
+2022,gss-S13003133,north-east-gss-s13003133,North East,glasgow-city,Glasgow City,Scottish council,3,4501,0.099311,0.250000,-0.150689,1
+2022,gss-S13002973,langside-gss-s13002973,Langside,glasgow-city,Glasgow City,Scottish council,4,11358,0.068234,0.200000,-0.131766,1
+2022,gss-S13002984,east-centre-gss-s13002984,East Centre,glasgow-city,Glasgow City,Scottish council,4,6957,0.092281,0.200000,-0.107719,1
+2022,gss-S13002989,partick-east-kelvindale-gss-s13002989,Partick East/Kelvindale,glasgow-city,Glasgow City,Scottish council,4,10231,0.034992,0.200000,-0.165008,1
+2022,gss-S13002986,baillieston-gss-s13002986,Baillieston,glasgow-city,Glasgow City,Scottish council,3,7255,0.166230,0.250000,-0.083770,1
+2022,gss-S13002970,cardonald-gss-s13002970,Cardonald,glasgow-city,Glasgow City,Scottish council,4,8572,0.101727,0.200000,-0.098273,1
+2022,gss-S13002981,maryhill-gss-s13002981,Maryhill,glasgow-city,Glasgow City,Scottish council,3,5663,0.195303,0.250000,-0.054697,1
+2022,gss-S13002968,newlands-auldburn-gss-s13002968,Newlands/Auldburn,glasgow-city,Glasgow City,Scottish council,3,7565,0.084336,0.250000,-0.165664,1
+2022,gss-S13002998,black-isle-gss-s13002998,Black Isle,highland,Highland,Scottish council,3,4709,0.134636,0.250000,-0.115364,1
+2022,gss-S13002997,dingwall-and-seaforth-gss-s13002997,Dingwall and Seaforth,highland,Highland,Scottish council,4,4640,0.129095,0.200000,-0.070905,1
+2022,gss-S13002991,thurso-and-northwest-caithness-gss-s13002991,Thurso and Northwest Caithness,highland,Highland,Scottish council,4,5139,0.179218,0.200000,-0.020782,1
+2022,gss-S13003001,aird-and-loch-ness-gss-s13003001,Aird and Loch Ness,highland,Highland,Scottish council,4,5198,0.101578,0.200000,-0.098422,1
+2022,gss-S13003008,inverness-south-gss-s13003008,Inverness South,highland,Highland,Scottish council,4,5543,0.086235,0.200000,-0.113765,1
+2022,gss-S13003009,badenoch-and-strathspey-gss-s13003009,Badenoch and Strathspey,highland,Highland,Scottish council,4,5529,0.152288,0.200000,-0.047712,1
+2022,gss-S13003005,inverness-millburn-gss-s13003005,Inverness Millburn,highland,Highland,Scottish council,3,3508,0.215792,0.250000,-0.034208,1
+2022,gss-S13003004,inverness-ness-side-gss-s13003004,Inverness Ness-side,highland,Highland,Scottish council,3,4346,0.063507,0.250000,-0.186493,1
+2022,gss-S13002990,north-west-and-central-sutherland-gss-s13002990,"North, West and Central Sutherland",highland,Highland,Scottish council,3,2756,0.173077,0.250000,-0.076923,1
+2022,gss-S13002992,wick-and-east-caithness-gss-s13002992,Wick and East Caithness,highland,Highland,Scottish council,4,4180,0.127751,0.200000,-0.072249,1
+2022,gss-S13002996,tain-and-easter-ross-gss-s13002996,Tain and Easter Ross,highland,Highland,Scottish council,3,3434,0.211415,0.250000,-0.038585,1
+2022,gss-S13003007,nairn-and-cawdor-gss-s13003007,Nairn and Cawdor,highland,Highland,Scottish council,4,5156,0.162141,0.200000,-0.037859,1
+2022,gss-S13002995,cromarty-firth-gss-s13002995,Cromarty Firth,highland,Highland,Scottish council,4,3870,0.073127,0.200000,-0.126873,1
+2022,gss-S13002999,eilean-a-cheo-gss-s13002999,Eilean a′ Cheò,highland,Highland,Scottish council,4,4515,0.107420,0.200000,-0.092580,1
+2022,gss-S13002994,wester-ross-strathpeffer-and-lochalsh-gss-s13002994,"Wester Ross, Strathpeffer and Lochalsh",highland,Highland,Scottish council,4,5411,0.173166,0.200000,-0.026834,1
+2022,gss-S13002993,east-sutherland-and-edderton-gss-s13002993,East Sutherland and Edderton,highland,Highland,Scottish council,3,3214,0.190106,0.250000,-0.059894,1
+2022,gss-S13003002,inverness-west-gss-s13003002,Inverness West,highland,Highland,Scottish council,3,3503,0.074793,0.250000,-0.175207,1
+2022,gss-S13003006,culloden-and-ardersier-gss-s13003006,Culloden and Ardersier,highland,Highland,Scottish council,3,4100,0.152683,0.250000,-0.097317,1
+2022,gss-S13003010,fort-william-and-ardnamurchan-gss-s13003010,Fort William and Ardnamurchan,highland,Highland,Scottish council,4,4003,0.093180,0.200000,-0.106820,1
+2022,gss-S13003016,inverclyde-south-west-gss-s13003016,Inverclyde South West,inverclyde,Inverclyde,Scottish council,3,4061,0.149224,0.250000,-0.100776,1
+2022,gss-S13003015,inverclyde-west-gss-s13003015,Inverclyde West,inverclyde,Inverclyde,Scottish council,3,4774,0.261207,0.250000,0.011207,0
+2022,gss-S13003014,inverclyde-north-gss-s13003014,Inverclyde North,inverclyde,Inverclyde,Scottish council,4,5041,0.104344,0.200000,-0.095656,1
+2022,gss-S13003012,inverclyde-east-central-gss-s13003012,Inverclyde East Central,inverclyde,Inverclyde,Scottish council,3,3227,0.168268,0.250000,-0.081732,1
+2022,gss-S13003013,inverclyde-central-gss-s13003013,Inverclyde Central,inverclyde,Inverclyde,Scottish council,3,2828,0.211810,0.250000,-0.038190,1
+2022,gss-S13003017,inverclyde-south-gss-s13003017,Inverclyde South,inverclyde,Inverclyde,Scottish council,3,3157,0.231232,0.250000,-0.018768,1
+2022,gss-S13003021,midlothian-west-gss-s13003021,Midlothian West,midlothian,Midlothian,Scottish council,3,6162,0.182733,0.250000,-0.067267,1
+2022,gss-S13003023,midlothian-south-gss-s13003023,Midlothian South,midlothian,Midlothian,Scottish council,3,4954,0.202866,0.250000,-0.047134,1
+2022,gss-S13003018,penicuik-gss-s13003018,Penicuik,midlothian,Midlothian,Scottish council,3,5154,0.114280,0.250000,-0.135720,1
+2022,gss-S13003019,bonnyrigg-gss-s13003019,Bonnyrigg,midlothian,Midlothian,Scottish council,3,6016,0.168218,0.250000,-0.081782,1
+2022,gss-S13003020,dalkeith-gss-s13003020,Dalkeith,midlothian,Midlothian,Scottish council,3,4306,0.189503,0.250000,-0.060497,1
+2022,gss-S13003022,midlothian-east-gss-s13003022,Midlothian East,midlothian,Midlothian,Scottish council,3,4942,0.211453,0.250000,-0.038547,1
+2022,gss-S13003025,keith-and-cullen-gss-s13003025,Keith and Cullen,moray,Moray,Scottish council,3,3432,0.189394,0.250000,-0.060606,1
+2022,gss-S13003028,heldon-and-laich-gss-s13003028,Heldon and Laich,moray,Moray,Scottish council,4,4936,0.127431,0.200000,-0.072569,1
+2022,gss-S13003027,fochabers-lhanbryde-gss-s13003027,Fochabers Lhanbryde,moray,Moray,Scottish council,3,3996,0.101101,0.250000,-0.148899,1
+2022,gss-S13003024,speyside-glenlivet-gss-s13003024,Speyside Glenlivet,moray,Moray,Scottish council,3,3337,0.201378,0.250000,-0.048622,1
+2022,gss-S13003030,elgin-city-south-gss-s13003030,Elgin City South,moray,Moray,Scottish council,3,4062,0.268341,0.250000,0.018341,0
+2022,gss-S13003031,forres-gss-s13003031,Forres,moray,Moray,Scottish council,4,6057,0.090804,0.200000,-0.109196,1
+2022,gss-S13003029,elgin-city-north-gss-s13003029,Elgin City North,moray,Moray,Scottish council,3,3678,0.258836,0.250000,0.008836,0
+2022,gss-S13003049,airdrie-north-gss-s13003049,Airdrie North,north-lanarkshire,North Lanarkshire,Scottish council,4,5565,0.048338,0.200000,-0.151662,1
+2022,gss-S13003060,motherwell-south-east-and-ravenscraig-gss-s13003060,Motherwell South East and Ravenscraig,north-lanarkshire,North Lanarkshire,Scottish council,4,6063,0.107702,0.200000,-0.092298,1
+2022,gss-S13003047,gartcosh-glenboig-and-moodiesburn-gss-s13003047,"Gartcosh, Glenboig and Moodiesburn",north-lanarkshire,North Lanarkshire,Scottish council,3,4472,0.162791,0.250000,-0.087209,1
+2022,gss-S13003062,wishaw-gss-s13003062,Wishaw,north-lanarkshire,North Lanarkshire,Scottish council,4,5295,0.135788,0.200000,-0.064212,1
+2022,gss-S13003050,airdrie-central-gss-s13003050,Airdrie Central,north-lanarkshire,North Lanarkshire,Scottish council,4,4679,0.102159,0.200000,-0.097841,1
+2022,gss-S13003053,airdrie-south-gss-s13003053,Airdrie South,north-lanarkshire,North Lanarkshire,Scottish council,4,6015,0.168745,0.200000,-0.031255,1
+2022,gss-S13003054,fortissat-gss-s13003054,Fortissat,north-lanarkshire,North Lanarkshire,Scottish council,4,4559,0.139504,0.200000,-0.060496,1
+2022,gss-S13003048,coatbridge-north-gss-s13003048,Coatbridge North,north-lanarkshire,North Lanarkshire,Scottish council,4,4956,0.133777,0.200000,-0.066223,1
+2022,gss-S13003043,cumbernauld-north-gss-s13003043,Cumbernauld North,north-lanarkshire,North Lanarkshire,Scottish council,4,7075,0.141767,0.200000,-0.058233,1
+2022,gss-S13003052,coatbridge-south-gss-s13003052,Coatbridge South,north-lanarkshire,North Lanarkshire,Scottish council,4,4849,0.122293,0.200000,-0.077707,1
+2022,gss-S13003045,cumbernauld-east-gss-s13003045,Cumbernauld East,north-lanarkshire,North Lanarkshire,Scottish council,4,5355,0.085901,0.200000,-0.114099,1
+2022,gss-S13003134,stepps-chryston-and-muirhead-gss-s13003134,"Stepps, Chryston and Muirhead",north-lanarkshire,North Lanarkshire,Scottish council,3,4848,0.107880,0.250000,-0.142120,1
+2022,gss-S13003057,mossend-and-holytown-gss-s13003057,Mossend and Holytown,north-lanarkshire,North Lanarkshire,Scottish council,3,3796,0.095890,0.250000,-0.154110,1
+2022,gss-S13003056,bellshill-gss-s13003056,Bellshill,north-lanarkshire,North Lanarkshire,Scottish council,4,4631,0.127186,0.200000,-0.072814,1
+2022,gss-S13003042,kilsyth-gss-s13003042,Kilsyth,north-lanarkshire,North Lanarkshire,Scottish council,3,4365,0.254983,0.250000,0.004983,0
+2022,gss-S13003044,cumbernauld-south-gss-s13003044,Cumbernauld South,north-lanarkshire,North Lanarkshire,Scottish council,4,5713,0.114826,0.200000,-0.085174,1
+2022,gss-S13003051,coatbridge-west-gss-s13003051,Coatbridge West,north-lanarkshire,North Lanarkshire,Scottish council,3,3894,0.157422,0.250000,-0.092578,1
+2022,gss-S13003058,motherwell-west-gss-s13003058,Motherwell West,north-lanarkshire,North Lanarkshire,Scottish council,3,4596,0.189077,0.250000,-0.060923,1
+2022,gss-S13003059,motherwell-north-gss-s13003059,Motherwell North,north-lanarkshire,North Lanarkshire,Scottish council,4,5202,0.098616,0.200000,-0.101384,1
+2022,gss-S13003061,murdostoun-gss-s13003061,Murdostoun,north-lanarkshire,North Lanarkshire,Scottish council,4,5689,0.136755,0.200000,-0.063245,1
+2022,gss-S13003055,thorniewood-gss-s13003055,Thorniewood,north-lanarkshire,North Lanarkshire,Scottish council,3,4468,0.170098,0.250000,-0.079902,1
+2022,gss-S13003064,strathmore-gss-s13003064,Strathmore,perth-and-kinross,Perth and Kinross,Scottish council,4,6764,0.099202,0.200000,-0.100798,1
+2022,gss-S13003074,perth-city-centre-gss-s13003074,Perth City Centre,perth-and-kinross,Perth and Kinross,Scottish council,4,5257,0.124596,0.200000,-0.075404,1
+2022,gss-S13003065,blairgowrie-and-glens-gss-s13003065,Blairgowrie and Glens,perth-and-kinross,Perth and Kinross,Scottish council,3,4662,0.196911,0.250000,-0.053089,1
+2022,gss-S13003066,highland-gss-s13003066,Highland,perth-and-kinross,Perth and Kinross,Scottish council,3,4455,0.192144,0.250000,-0.057856,1
+2022,gss-S13003132,kinross-shire-gss-s13003132,Kinross-shire,perth-and-kinross,Perth and Kinross,Scottish council,4,6432,0.112718,0.200000,-0.087282,1
+2022,gss-S13003071,almond-and-earn-gss-s13003071,Almond and Earn,perth-and-kinross,Perth and Kinross,Scottish council,3,3960,0.203535,0.250000,-0.046465,1
+2022,gss-S13003063,carse-of-gowrie-gss-s13003063,Carse of Gowrie,perth-and-kinross,Perth and Kinross,Scottish council,3,4547,0.211348,0.250000,-0.038652,1
+2022,gss-S13003067,strathtay-gss-s13003067,Strathtay,perth-and-kinross,Perth and Kinross,Scottish council,3,5159,0.186470,0.250000,-0.063530,1
+2022,gss-S13003068,strathearn-gss-s13003068,Strathearn,perth-and-kinross,Perth and Kinross,Scottish council,3,4466,0.242275,0.250000,-0.007725,1
+2022,gss-S13003069,strathallan-gss-s13003069,Strathallan,perth-and-kinross,Perth and Kinross,Scottish council,3,4785,0.169697,0.250000,-0.080303,1
+2022,gss-S13003072,perth-city-south-gss-s13003072,Perth City South,perth-and-kinross,Perth and Kinross,Scottish council,4,6833,0.134933,0.200000,-0.065067,1
+2022,gss-S13003073,perth-city-north-gss-s13003073,Perth City North,perth-and-kinross,Perth and Kinross,Scottish council,3,3457,0.153312,0.250000,-0.096688,1
+2022,gss-S13003080,paisley-southeast-gss-s13003080,Paisley Southeast,renfrewshire,Renfrewshire,Scottish council,3,4080,0.169853,0.250000,-0.080147,1
+2022,gss-S13003083,johnstone-north-kilbarchan-howwood-and-lochwinnoch-gss-s13003083,"Johnstone North, Kilbarchan, Howwood and Lochwinnoch",renfrewshire,Renfrewshire,Scottish council,4,5821,0.118365,0.200000,-0.081635,1
+2022,gss-S13003078,paisley-northwest-gss-s13003078,Paisley Northwest,renfrewshire,Renfrewshire,Scottish council,4,4779,0.142080,0.200000,-0.057920,1
+2022,gss-S13003075,renfrew-north-and-braehead-gss-s13003075,Renfrew North and Braehead,renfrewshire,Renfrewshire,Scottish council,4,5621,0.159580,0.200000,-0.040420,1
+2022,gss-S13003077,paisley-northeast-and-ralston-gss-s13003077,Paisley Northeast and Ralston,renfrewshire,Renfrewshire,Scottish council,3,4581,0.198428,0.250000,-0.051572,1
+2022,gss-S13003079,paisley-east-and-central-gss-s13003079,Paisley East and Central,renfrewshire,Renfrewshire,Scottish council,3,3829,0.126926,0.250000,-0.123074,1
+2022,gss-S13003081,paisley-southwest-gss-s13003081,Paisley Southwest,renfrewshire,Renfrewshire,Scottish council,4,5264,0.143237,0.200000,-0.056763,1
+2022,gss-S13003085,bishopton-bridge-of-weir-and-langbank-gss-s13003085,"Bishopton, Bridge of Weir and Langbank",renfrewshire,Renfrewshire,Scottish council,3,6565,0.206093,0.250000,-0.043907,1
+2022,gss-S13003076,renfrew-south-and-gallowhill-gss-s13003076,Renfrew South and Gallowhill,renfrewshire,Renfrewshire,Scottish council,3,3761,0.223877,0.250000,-0.026123,1
+2022,gss-S13003082,johnstone-south-and-elderslie-gss-s13003082,Johnstone South and Elderslie,renfrewshire,Renfrewshire,Scottish council,4,5563,0.113967,0.200000,-0.086033,1
+2022,gss-S13003084,houston-crosslee-and-linwood-gss-s13003084,"Houston, Crosslee and Linwood",renfrewshire,Renfrewshire,Scottish council,4,5609,0.181851,0.200000,-0.018149,1
+2022,gss-S13003086,erskine-and-inchinnan-gss-s13003086,Erskine and Inchinnan,renfrewshire,Renfrewshire,Scottish council,4,5945,0.177292,0.200000,-0.022708,1
+2022,gss-S13002767,east-berwickshire-gss-s13002767,East Berwickshire,scottish-borders,The Scottish Borders,Scottish council,3,4238,0.132610,0.250000,-0.117390,1
+2022,gss-S13002768,kelso-and-district-gss-s13002768,Kelso and District,scottish-borders,The Scottish Borders,Scottish council,3,3920,0.230612,0.250000,-0.019388,1
+2022,gss-S13002765,leaderdale-and-melrose-gss-s13002765,Leaderdale and Melrose,scottish-borders,The Scottish Borders,Scottish council,3,4650,0.197419,0.250000,-0.052581,1
+2022,gss-S13002769,jedburgh-and-district-gss-s13002769,Jedburgh and District,scottish-borders,The Scottish Borders,Scottish council,3,3507,0.192472,0.250000,-0.057528,1
+2022,gss-S13002763,galashiels-and-district-gss-s13002763,Galashiels and District,scottish-borders,The Scottish Borders,Scottish council,4,4557,0.090410,0.200000,-0.109590,1
+2022,gss-S13002770,hawick-and-denholm-gss-s13002770,Hawick and Denholm,scottish-borders,The Scottish Borders,Scottish council,3,3271,0.094467,0.250000,-0.155533,1
+2022,gss-S13002766,mid-berwickshire-gss-s13002766,Mid Berwickshire,scottish-borders,The Scottish Borders,Scottish council,3,4178,0.171135,0.250000,-0.078865,1
+2022,gss-S13002761,tweeddale-west-gss-s13002761,Tweeddale West,scottish-borders,The Scottish Borders,Scottish council,3,4829,0.184924,0.250000,-0.065076,1
+2022,gss-S13002764,selkirkshire-gss-s13002764,Selkirkshire,scottish-borders,The Scottish Borders,Scottish council,3,4007,0.217869,0.250000,-0.032131,1
+2022,gss-S13002771,hawick-and-hermitage-gss-s13002771,Hawick and Hermitage,scottish-borders,The Scottish Borders,Scottish council,3,3045,0.167159,0.250000,-0.082841,1
+2022,gss-S13002762,tweeddale-east-gss-s13002762,Tweeddale East,scottish-borders,The Scottish Borders,Scottish council,3,4895,0.183044,0.250000,-0.066956,1
+2022,gss-S13003090,ayr-east-gss-s13003090,Ayr East,south-ayrshire,South Ayrshire,Scottish council,3,4936,0.164911,0.250000,-0.085089,1
+2022,gss-S13003091,ayr-west-gss-s13003091,Ayr West,south-ayrshire,South Ayrshire,Scottish council,4,8369,0.083523,0.200000,-0.116477,1
+2022,gss-S13003094,girvan-and-south-carrick-gss-s13003094,Girvan and South Carrick,south-ayrshire,South Ayrshire,Scottish council,3,4056,0.141272,0.250000,-0.108728,1
+2022,gss-S13003093,maybole-north-carrick-and-coylton-gss-s13003093,"Maybole, North Carrick and Coylton",south-ayrshire,South Ayrshire,Scottish council,3,4282,0.176553,0.250000,-0.073447,1
+2022,gss-S13003092,kyle-gss-s13003092,Kyle,south-ayrshire,South Ayrshire,Scottish council,3,4820,0.198133,0.250000,-0.051867,1
+2022,gss-S13003089,ayr-north-gss-s13003089,Ayr North,south-ayrshire,South Ayrshire,Scottish council,4,4922,0.069890,0.200000,-0.130110,1
+2022,gss-S13003087,troon-gss-s13003087,Troon,south-ayrshire,South Ayrshire,Scottish council,4,6979,0.145436,0.200000,-0.054564,1
+2022,gss-S13003088,prestwick-gss-s13003088,Prestwick,south-ayrshire,South Ayrshire,Scottish council,4,6642,0.153568,0.200000,-0.046432,1
+2022,gss-S13003104,east-kilbride-east-gss-s13003104,East Kilbride East,south-lanarkshire,South Lanarkshire,Scottish council,3,4921,0.127210,0.250000,-0.122790,1
+2022,gss-S13003114,larkhall-gss-s13003114,Larkhall,south-lanarkshire,South Lanarkshire,Scottish council,4,6193,0.074762,0.200000,-0.125238,1
+2022,gss-S13003098,clydesdale-south-gss-s13003098,Clydesdale South,south-lanarkshire,South Lanarkshire,Scottish council,3,5260,0.187452,0.250000,-0.062548,1
+2022,gss-S13003112,hamilton-west-and-earnock-gss-s13003112,Hamilton West and Earnock,south-lanarkshire,South Lanarkshire,Scottish council,4,5823,0.116778,0.200000,-0.083222,1
+2022,gss-S13003100,east-kilbride-south-gss-s13003100,East Kilbride South,south-lanarkshire,South Lanarkshire,Scottish council,3,5274,0.117747,0.250000,-0.132253,1
+2022,gss-S13003097,clydesdale-east-gss-s13003097,Clydesdale East,south-lanarkshire,South Lanarkshire,Scottish council,3,5289,0.164303,0.250000,-0.085697,1
+2022,gss-S13003105,rutherglen-south-gss-s13003105,Rutherglen South,south-lanarkshire,South Lanarkshire,Scottish council,3,5729,0.232327,0.250000,-0.017673,1
+2022,gss-S13003107,cambuslang-west-gss-s13003107,Cambuslang West,south-lanarkshire,South Lanarkshire,Scottish council,3,5735,0.127289,0.250000,-0.122711,1
+2022,gss-S13003099,avondale-and-stonehouse-gss-s13003099,Avondale and Stonehouse,south-lanarkshire,South Lanarkshire,Scottish council,3,6869,0.198428,0.250000,-0.051572,1
+2022,gss-S13003109,blantyre-gss-s13003109,Blantyre,south-lanarkshire,South Lanarkshire,Scottish council,3,5206,0.156550,0.250000,-0.093450,1
+2022,gss-S13003095,clydesdale-west-gss-s13003095,Clydesdale West,south-lanarkshire,South Lanarkshire,Scottish council,4,7393,0.146355,0.200000,-0.053645,1
+2022,gss-S13003096,clydesdale-north-gss-s13003096,Clydesdale North,south-lanarkshire,South Lanarkshire,Scottish council,3,5686,0.269082,0.250000,0.019082,0
+2022,gss-S13003101,east-kilbride-central-south-gss-s13003101,East Kilbride Central South,south-lanarkshire,South Lanarkshire,Scottish council,3,5202,0.137063,0.250000,-0.112937,1
+2022,gss-S13003102,east-kilbride-central-north-gss-s13003102,East Kilbride Central North,south-lanarkshire,South Lanarkshire,Scottish council,3,5705,0.107274,0.250000,-0.142726,1
+2022,gss-S13003103,east-kilbride-west-gss-s13003103,East Kilbride West,south-lanarkshire,South Lanarkshire,Scottish council,3,6709,0.153674,0.250000,-0.096326,1
+2022,gss-S13003106,rutherglen-central-and-north-gss-s13003106,Rutherglen Central and North,south-lanarkshire,South Lanarkshire,Scottish council,3,5076,0.142829,0.250000,-0.107171,1
+2022,gss-S13003108,cambuslang-east-gss-s13003108,Cambuslang East,south-lanarkshire,South Lanarkshire,Scottish council,3,5104,0.203174,0.250000,-0.046826,1
+2022,gss-S13003110,bothwell-and-uddingston-gss-s13003110,Bothwell and Uddingston,south-lanarkshire,South Lanarkshire,Scottish council,3,5381,0.171715,0.250000,-0.078285,1
+2022,gss-S13003111,hamilton-north-and-east-gss-s13003111,Hamilton North and East,south-lanarkshire,South Lanarkshire,Scottish council,3,4757,0.189615,0.250000,-0.060385,1
+2022,gss-S13003113,hamilton-south-gss-s13003113,Hamilton South,south-lanarkshire,South Lanarkshire,Scottish council,4,7306,0.151246,0.200000,-0.048754,1
+2022,gss-S13003116,forth-and-endrick-gss-s13003116,Forth and Endrick,stirling,Stirling,Scottish council,3,6023,0.140462,0.250000,-0.109538,1
+2022,gss-S13003115,trossachs-and-teith-gss-s13003115,Trossachs and Teith,stirling,Stirling,Scottish council,3,5372,0.071668,0.250000,-0.178332,1
+2022,gss-S13003121,bannockburn-gss-s13003121,Bannockburn,stirling,Stirling,Scottish council,3,3679,0.203588,0.250000,-0.046412,1
+2022,gss-S13003117,dunblane-and-bridge-of-allan-gss-s13003117,Dunblane and Bridge of Allan,stirling,Stirling,Scottish council,4,7097,0.118642,0.200000,-0.081358,1
+2022,gss-S13003120,stirling-east-gss-s13003120,Stirling East,stirling,Stirling,Scottish council,3,3834,0.216223,0.250000,-0.033777,1
+2022,gss-S13003118,stirling-north-gss-s13003118,Stirling North,stirling,Stirling,Scottish council,4,5086,0.126229,0.200000,-0.073771,1
+2022,gss-S13003119,stirling-west-gss-s13003119,Stirling West,stirling,Stirling,Scottish council,3,5505,0.199818,0.250000,-0.050182,1
+2022,gss-S13003124,dumbarton-gss-s13003124,Dumbarton,west-dunbartonshire,West Dunbartonshire,Scottish council,4,6524,0.081085,0.200000,-0.118915,1
+2022,gss-S13003127,clydebank-waterfront-gss-s13003127,Clydebank Waterfront,west-dunbartonshire,West Dunbartonshire,Scottish council,4,4696,0.114991,0.200000,-0.085009,1
+2022,gss-S13003122,lomond-gss-s13003122,Lomond,west-dunbartonshire,West Dunbartonshire,Scottish council,3,4326,0.166204,0.250000,-0.083796,1
+2022,gss-S13003123,leven-gss-s13003123,Leven,west-dunbartonshire,West Dunbartonshire,Scottish council,4,5822,0.163689,0.200000,-0.036311,1
+2022,gss-S13003125,kilpatrick-gss-s13003125,Kilpatrick,west-dunbartonshire,West Dunbartonshire,Scottish council,3,3876,0.070175,0.250000,-0.179825,1
+2022,gss-S13003126,clydebank-central-gss-s13003126,Clydebank Central,west-dunbartonshire,West Dunbartonshire,Scottish council,4,4644,0.114341,0.200000,-0.085659,1
+2022,gss-S13002822,livingston-north-gss-s13002822,Livingston North,west-lothian,West Lothian,Scottish council,4,7229,0.173745,0.200000,-0.026255,1
+2022,gss-S13002827,bathgate-gss-s13002827,Bathgate,west-lothian,West Lothian,Scottish council,4,7413,0.050587,0.200000,-0.149413,1
+2022,gss-S13002825,fauldhouse-and-the-breich-valley-gss-s13002825,Fauldhouse and the Breich Valley,west-lothian,West Lothian,Scottish council,3,5072,0.182177,0.250000,-0.067823,1
+2022,gss-S13002820,linlithgow-gss-s13002820,Linlithgow,west-lothian,West Lothian,Scottish council,3,7117,0.195448,0.250000,-0.054552,1
+2022,gss-S13002821,broxburn-uphall-and-winchburgh-gss-s13002821,"Broxburn, Uphall and Winchburgh",west-lothian,West Lothian,Scottish council,4,6853,0.128411,0.200000,-0.071589,1
+2022,gss-S13002823,livingston-south-gss-s13002823,Livingston South,west-lothian,West Lothian,Scottish council,4,7566,0.092255,0.200000,-0.107745,1
+2022,gss-S13002824,east-livingston-and-east-calder-gss-s13002824,East Livingston and East Calder,west-lothian,West Lothian,Scottish council,4,6587,0.094428,0.200000,-0.105572,1
+2022,gss-S13002826,whitburn-and-blackburn-gss-s13002826,Whitburn and Blackburn,west-lothian,West Lothian,Scottish council,4,6136,0.103651,0.200000,-0.096349,1
+2022,gss-S13002828,armadale-and-blackridge-gss-s13002828,Armadale and Blackridge,west-lothian,West Lothian,Scottish council,3,5256,0.141172,0.250000,-0.108828,1
 2026,local.adur.buckingham.2026-05-07,buckingham-local-adur-buckingham-2026-05-07,Buckingham,adur,Adur,,1,1643,0.384662,0.500000,-0.115338,1
 2026,local.adur.churchill.2026-05-07,churchill-local-adur-churchill-2026-05-07,Churchill,adur,Adur,,1,1545,0.297087,0.500000,-0.202913,1
 2026,local.adur.cokeham.2026-05-07,cokeham-local-adur-cokeham-2026-05-07,Cokeham,adur,Adur,,1,1521,0.427350,0.500000,-0.072650,1

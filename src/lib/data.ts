@@ -138,6 +138,10 @@ export function distortionLeaderboard(): DistortionRow[] {
   const rows: DistortionRow[] = [];
   for (const view of allPartyViews) {
     if (view.rows.length === 0) continue;
+    // The FPTP-distortion framing only applies to FPTP councils. STV
+    // councils get their own dedicated comparison panel and don't
+    // belong on the FPTP leaderboard.
+    if ((view.system ?? 'FPTP') !== 'FPTP') continue;
     const reallocated = Math.round(
       view.rows.reduce((sum, r) => sum + Math.abs(r.seatDelta), 0) / 2
     );
@@ -197,6 +201,43 @@ export function distortionLeaderboard(): DistortionRow[] {
       b.reallocatedShare - a.reallocatedShare ||
       b.year - a.year
   );
+}
+
+/**
+ * Same metric as distortionLeaderboard, but restricted to STV councils
+ * (Scotland 2022 + any future Welsh STV adopters from 2027). Used by
+ * the homepage to show side-by-side how proportional STV looks
+ * compared to the FPTP councils.
+ */
+export interface StvDistortionRow {
+  year: number;
+  council: string;
+  councilSlug: string;
+  totalSeats: number;
+  totalVotes: number;
+  reallocated: number;
+  reallocatedShare: number;
+}
+
+export function stvDistortionPerCouncil(): StvDistortionRow[] {
+  const rows: StvDistortionRow[] = [];
+  for (const view of allPartyViews) {
+    if ((view.system ?? 'FPTP') !== 'STV') continue;
+    if (view.rows.length === 0 || view.totalSeats === 0) continue;
+    const reallocated = Math.round(
+      view.rows.reduce((sum, r) => sum + Math.abs(r.seatDelta), 0) / 2
+    );
+    rows.push({
+      year: view.year,
+      council: view.council,
+      councilSlug: view.councilSlug,
+      totalSeats: view.totalSeats,
+      totalVotes: view.totalVotes,
+      reallocated,
+      reallocatedShare: reallocated / view.totalSeats
+    });
+  }
+  return rows.sort((a, b) => a.reallocatedShare - b.reallocatedShare);
 }
 
 /**

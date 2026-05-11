@@ -604,8 +604,12 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2023,wyre,Wyre,SDA,24,50,1,0.020000
 2023,wyre-forest,Wyre Forest,SDA,12,33,1,0.030303
 2023,york,York,UAA,21,47,4,0.085106
+2022,aberdeen-city,Aberdeen City,Scottish council,13,45,27,0.600000
+2022,aberdeenshire,Aberdeenshire,Scottish council,19,70,37,0.528571
 2022,adur,Adur,SDT,14,14,4,0.285714
 2022,amber-valley,Amber Valley,SDT,15,15,6,0.400000
+2022,angus,Angus,Scottish council,8,28,14,0.500000
+2022,argyll-and-bute,Argyll and Bute,Scottish council,11,36,19,0.527778
 2022,barking-and-dagenham,Barking and Dagenham,LB,19,51,0,0.000000
 2022,barnet,Barnet,LB,24,63,0,0.000000
 2022,barnsley,Barnsley,MB,21,21,8,0.380952
@@ -636,6 +640,8 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,cheltenham,Cheltenham,SDT,20,21,2,0.095238
 2022,cherwell,Cherwell,SDT,16,17,8,0.470588
 2022,chorley,Chorley,SDT,14,14,2,0.142857
+2022,edinburgh,City of Edinburgh,Scottish council,17,63,38,0.603175
+2022,clackmannanshire,Clackmannanshire,Scottish council,5,18,8,0.444444
 2022,colchester,Colchester,SDT,17,18,3,0.166667
 2022,conwy,Conwy,UAA,30,55,5,0.090909
 2022,coventry,Coventry,MB,18,18,7,0.388889
@@ -645,15 +651,24 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,denbighshire,Denbighshire,UAA,28,47,1,0.021277
 2022,derby,Derby,UAT,17,17,5,0.294118
 2022,dudley,Dudley,MB,24,25,7,0.280000
+2022,dumfries-and-galloway,Dumfries and Galloway,Scottish council,12,43,20,0.465116
+2022,dundee-city,Dundee City,Scottish council,8,29,16,0.551724
 2022,ealing,Ealing,LB,24,70,0,0.000000
+2022,east-ayrshire,East Ayrshire,Scottish council,9,32,17,0.531250
+2022,east-dunbartonshire,East Dunbartonshire,Scottish council,7,22,13,0.590909
+2022,east-lothian,East Lothian,Scottish council,6,22,12,0.545455
+2022,east-renfrewshire,East Renfrewshire,Scottish council,5,18,7,0.388889
 2022,eastleigh,Eastleigh,SDT,14,14,4,0.285714
 2022,elmbridge,Elmbridge,SDT,16,16,6,0.375000
 2022,enfield,Enfield,LB,25,63,0,0.000000
 2022,epping-forest,Epping Forest,SDT,20,20,2,0.100000
 2022,exeter,Exeter,SDT,13,17,6,0.352941
+2022,falkirk,Falkirk,Scottish council,9,30,18,0.600000
 2022,fareham,Fareham,SDT,15,16,8,0.500000
+2022,fife,Fife,Scottish council,22,75,42,0.560000
 2022,flintshire,Flintshire,UAA,43,65,6,0.092308
 2022,gateshead,Gateshead,MB,22,22,5,0.227273
+2022,glasgow-city,Glasgow City,Scottish council,23,85,47,0.552941
 2022,gosport,Gosport,SDT,14,28,0,0.000000
 2022,greenwich,Greenwich,LB,23,55,0,0.000000
 2022,gwynedd,Gwynedd,UAA,38,41,5,0.121951
@@ -668,10 +683,12 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,hastings,Hastings,SDT,16,16,10,0.625000
 2022,havant,Havant,SDT,14,14,6,0.428571
 2022,havering,Havering,LB,20,55,0,0.000000
+2022,highland,Highland,Scottish council,20,71,39,0.549296
 2022,hillingdon,Hillingdon,LB,21,53,0,0.000000
 2022,hounslow,Hounslow,LB,22,62,0,0.000000
 2022,huntingdonshire,Huntingdonshire,SDA,24,48,2,0.041667
 2022,hyndburn,Hyndburn,SDT,11,12,2,0.166667
+2022,inverclyde,Inverclyde,Scottish council,6,19,7,0.368421
 2022,ipswich,Ipswich,SDT,16,17,5,0.294118
 2022,isle-of-anglesey,Isle of Anglesey,UAA,14,35,0,0.000000
 2022,islington,Islington,LB,17,51,0,0.000000
@@ -688,9 +705,11 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,manchester,Manchester,MB,32,32,3,0.093750
 2022,merthyr-tydfil,Merthyr Tydfil,UAA,11,30,0,0.000000
 2022,merton,Merton,LB,20,57,0,0.000000
+2022,midlothian,Midlothian,Scottish council,6,18,11,0.611111
 2022,milton-keynes,Milton Keynes,UAT,19,19,9,0.473684
 2022,mole-valley,Mole Valley,SDT,14,14,2,0.142857
 2022,monmouthshire,Monmouthshire,UAA,39,46,20,0.434783
+2022,moray,Moray,Scottish council,7,23,9,0.391304
 2022,neath-port-talbot,Neath Port Talbot,UAA,32,57,3,0.052632
 2022,newcastle-upon-tyne,Newcastle upon Tyne,MB,26,27,8,0.296296
 2022,newcastle-under-lyme,Newcastle-under-Lyme,SDA,21,44,1,0.022727
@@ -698,6 +717,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,newport,Newport,UAA,21,51,0,0.000000
 2022,north-east-lincolnshire,North East Lincolnshire,UAT,15,16,4,0.250000
 2022,north-hertfordshire,North Hertfordshire,SDT,18,18,7,0.388889
+2022,north-lanarkshire,North Lanarkshire,Scottish council,21,77,37,0.480519
 2022,north-tyneside,North Tyneside,MB,20,20,5,0.250000
 2022,north-yorkshire,North Yorkshire,UAA,89,90,39,0.433333
 2022,norwich,Norwich,SDT,13,13,1,0.076923
@@ -706,6 +726,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,oxford,Oxford,SDT,24,24,14,0.583333
 2022,pembrokeshire,Pembrokeshire,UAA,40,41,9,0.219512
 2022,pendle,Pendle,SDT,10,12,2,0.166667
+2022,perth-and-kinross,Perth and Kinross,Scottish council,12,40,25,0.625000
 2022,peterborough,Peterborough,UAT,18,19,7,0.368421
 2022,plymouth,Plymouth,UAT,19,19,6,0.315789
 2022,portsmouth,Portsmouth,UAT,14,14,12,0.857143
@@ -715,6 +736,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,redbridge,Redbridge,LB,22,63,0,0.000000
 2022,redditch,Redditch,SDT,10,11,5,0.454545
 2022,reigate-and-banstead,Reigate and Banstead,SDT,15,15,7,0.466667
+2022,renfrewshire,Renfrewshire,Scottish council,12,43,18,0.418605
 2022,rhondda-cynon-taf,Rhondda Cynon Taf,UAA,46,75,5,0.066667
 2022,richmond-upon-thames,Richmond upon Thames,LB,17,51,0,0.000000
 2022,rochdale,Rochdale,MB,20,60,0,0.000000
@@ -730,7 +752,9 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,slough,Slough,UAT,14,14,3,0.214286
 2022,solihull,Solihull,MB,17,17,4,0.235294
 2022,somerset,Somerset,UAA,55,110,3,0.027273
+2022,south-ayrshire,South Ayrshire,Scottish council,8,28,17,0.607143
 2022,south-cambridgeshire,South Cambridgeshire,SDA,26,45,4,0.088889
+2022,south-lanarkshire,South Lanarkshire,Scottish council,20,64,29,0.453125
 2022,south-tyneside,South Tyneside,MB,18,19,6,0.315789
 2022,southampton,Southampton,UAT,16,17,8,0.470588
 2022,southend-on-sea,Southend-on-Sea,UAT,17,18,10,0.555556
@@ -738,6 +762,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,st-albans,St Albans,SDT,20,56,0,0.000000
 2022,st-helens,St. Helens,MB,18,48,0,0.000000
 2022,stevenage,Stevenage,SDT,13,13,8,0.615385
+2022,stirling,Stirling,Scottish council,7,23,16,0.695652
 2022,stockport,Stockport,MB,21,21,7,0.333333
 2022,sunderland,Sunderland,MB,25,25,10,0.400000
 2022,sutton,Sutton,LB,20,55,0,0.000000
@@ -746,6 +771,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,tameside,Tameside,MB,19,19,2,0.105263
 2022,tamworth,Tamworth,SDT,10,10,2,0.200000
 2022,tandridge,Tandridge,SDT,14,14,8,0.571429
+2022,scottish-borders,The Scottish Borders,Scottish council,11,34,20,0.588235
 2022,three-rivers,Three Rivers,SDT,13,14,3,0.214286
 2022,thurrock,Thurrock,UAT,16,16,2,0.125000
 2022,torfaen,Torfaen,UAA,18,40,0,0.000000
@@ -759,7 +785,9 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,wandsworth,Wandsworth,LB,22,58,0,0.000000
 2022,watford,Watford,SDT,12,12,1,0.083333
 2022,welwyn-hatfield,Welwyn Hatfield,SDT,16,17,5,0.294118
+2022,west-dunbartonshire,West Dunbartonshire,Scottish council,6,22,12,0.545455
 2022,west-lancashire,West Lancashire,SDT,19,20,3,0.150000
+2022,west-lothian,West Lothian,Scottish council,9,33,21,0.636364
 2022,west-oxfordshire,West Oxfordshire,SDT,16,16,7,0.437500
 2022,westminster,Westminster,LB,18,54,0,0.000000
 2022,westmorland-and-furness,Westmorland and Furness,UAA,33,65,2,0.030769

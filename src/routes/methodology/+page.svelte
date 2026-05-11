@@ -338,6 +338,27 @@
     sheet-name and column-name drift across years.
   </p>
   <p>
+    <strong>Scottish STV (2022).</strong> Council elections in Scotland
+    use Single Transferable Vote. Per-candidate first preferences,
+    round-by-round transfers, per-ward electorate / valid poll / quota
+    are sourced from
+    <a href="https://election.indylive.radio/download/" rel="external noopener">indylive radio</a>'s
+    aggregated CSV (their redistribution of council eCount exports +
+    Democracy Club candidate metadata) under
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external noopener">CC&nbsp;BY-SA&nbsp;4.0</a>.
+    The raw CSV is mirrored at
+    <a href="/data/stv/scotland-2022.csv"><code>/data/stv/scotland-2022.csv</code></a>
+    so sister projects (notably
+    <a href="https://stv.vote" rel="external noopener">stv.vote</a>) can
+    pull the round-by-round data directly. The
+    &ldquo;unfairly awarded&rdquo; measure (party first-pref share vs
+    party seat share) uses the same arithmetic as the FPTP map; the
+    contrast on the homepage is the same metric, different counting
+    rule. Wales's 2022 elections were FPTP &mdash; the Local
+    Government and Elections (Wales) Act 2021 enables councils to opt
+    in to STV from 2027; no Welsh council has yet adopted it.
+  </p>
+  <p>
     <strong>Election results (2026, preliminary)</strong> &mdash; sourced
     from
     <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>'s

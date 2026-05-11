@@ -6,6 +6,13 @@ export interface Candidate {
   rank: number;
 }
 
+/** Voting system used for this race. FPTP covers single-member and
+ *  bloc-vote multi-member English/Welsh wards; STV is Scotland (and
+ *  any future Welsh STV adopters from 2027). The site's distortion /
+ *  below-quota framing applies only to FPTP — STV races are surfaced
+ *  separately as the contrast. */
+export type VotingSystem = 'FPTP' | 'STV';
+
 export interface Race {
   year: number;
   electionDate: string;
@@ -16,6 +23,9 @@ export interface Race {
   councilSlug: string;
   authorityType: string;
   electionType: string;
+  /** Voting system this race used. Default 'FPTP' for legacy snapshots
+   *  that pre-date the field. */
+  system?: VotingSystem;
   seats: number;
   /** Null when the source doesn't report it (most pre-2025 LEH cycles
    *  omit it, DC 2026 leaves it blank for most wards). */
@@ -71,6 +81,9 @@ export interface PartyView {
   year: number;
   council: string;
   councilSlug: string;
+  /** Voting system this council used. Default 'FPTP' for legacy
+   *  snapshots that pre-date the field. */
+  system?: VotingSystem;
   totalSeats: number;
   totalVotes: number;
   rows: PartyViewRow[];
