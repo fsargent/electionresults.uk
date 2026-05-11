@@ -17,10 +17,18 @@ export interface Race {
   authorityType: string;
   electionType: string;
   seats: number;
-  electorate: number;
-  ballots: number;
-  invalidVotes: number;
-  /** ballots cast minus spoiled / invalid ballots */
+  /** Null when the source doesn't report it (most pre-2025 LEH cycles
+   *  omit it, DC 2026 leaves it blank for most wards). */
+  electorate: number | null;
+  /** Ballots cast as reported by the source. Null when the source
+   *  doesn't publish it; in that case validBallots is approximated as
+   *  votesSum / seats (the standard ERS bloc-vote adjustment). */
+  ballots: number | null;
+  /** Invalid / spoiled ballots; null when not reported. */
+  invalidVotes: number | null;
+  /** Voters who cast a valid ballot. From `ballots − invalidVotes`
+   *  when both source-reported, otherwise approximated from
+   *  votesSum / seats. */
   validBallots: number;
   candidates: Candidate[];
   /** marginal-elected-candidate share of valid ballots; computed by ETL */

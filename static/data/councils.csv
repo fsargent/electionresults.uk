@@ -6,7 +6,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2026,basildon,Basildon,,14,14,12,0.857143
 2026,basingstoke-and-deane,Basingstoke & Deane,,18,19,17,0.894737
 2026,bexley,Bexley,,17,45,0,0.000000
-2026,birmingham,Birmingham,,36,49,26,0.530612
+2026,birmingham,Birmingham,,67,97,46,0.474227
 2026,blackburn-with-darwen,Blackburn With Darwen,,17,17,13,0.764706
 2026,bolton,Bolton,,20,20,20,1.000000
 2026,bradford,Bradford,,29,87,0,0.000000
@@ -27,7 +27,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2026,city-of-lincoln,City Of Lincoln,,11,11,11,1.000000
 2026,colchester,Colchester,,17,17,16,0.941176
 2026,coventry,Coventry,,18,54,0,0.000000
-2026,crawley,Crawley,,11,12,12,1.000000
+2026,crawley,Crawley,,12,13,13,1.000000
 2026,croydon,Croydon,,28,70,6,0.085714
 2026,dudley,Dudley,,24,25,20,0.800000
 2026,ealing,Ealing,,24,70,1,0.014286
@@ -57,10 +57,10 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2026,hartlepool,Hartlepool,,12,12,7,0.583333
 2026,hastings,Hastings,,16,17,11,0.647059
 2026,havant,Havant,,12,12,9,0.750000
-2026,havering,Havering,,7,19,4,0.210526
+2026,havering,Havering,,20,55,4,0.072727
 2026,hertfordshire,Hertfordshire,,1,1,1,1.000000
 2026,hertsmere,Hertsmere,,1,1,1,1.000000
-2026,hillingdon,Hillingdon,,1,3,0,0.000000
+2026,hillingdon,Hillingdon,,20,51,7,0.137255
 2026,horsham,Horsham,,1,1,1,1.000000
 2026,hounslow,Hounslow,,22,62,3,0.048387
 2026,huntingdonshire,Huntingdonshire,,26,52,10,0.192308
@@ -71,7 +71,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2026,kensington-and-chelsea,Kensington and Chelsea,,15,42,0,0.000000
 2026,kingston-upon-hull,Kingston Upon Hull,,19,19,16,0.842105
 2026,kingston-upon-thames,Kingston upon Thames,,19,48,0,0.000000
-2026,kirklees,Kirklees,,1,3,0,0.000000
+2026,kirklees,Kirklees,,23,69,0,0.000000
 2026,knowsley,Knowsley,,15,16,12,0.750000
 2026,lambeth,Lambeth,,25,63,3,0.047619
 2026,leeds,Leeds,,33,36,25,0.694444
@@ -107,29 +107,36 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2026,rugby,Rugby,,14,15,15,1.000000
 2026,rushmoor,Rushmoor,,13,14,12,0.857143
 2026,salford,Salford,,20,21,18,0.857143
-2026,sandwell,Sandwell,,23,69,0,0.000000
+2026,sandwell,Sandwell,,24,72,0,0.000000
 2026,sefton,Sefton,,22,66,0,0.000000
 2026,sheffield,Sheffield,,28,30,20,0.666667
 2026,solihull,Solihull,,17,51,0,0.000000
 2026,somerset,Somerset,,1,1,1,1.000000
-2026,south-cambridgeshire,South Cambridgeshire,,7,10,5,0.500000
+2026,south-cambridgeshire,South Cambridgeshire,,26,45,9,0.200000
+2026,south-tyneside,South Tyneside,,18,54,0,0.000000
 2026,southampton,Southampton,,17,17,17,1.000000
 2026,southend-on-sea,Southend On Sea,,17,17,17,1.000000
 2026,southwark,Southwark,,23,63,1,0.015873
+2026,st-albans,St Albans,,20,22,12,0.545455
+2026,st-helens,St Helens,,17,46,2,0.043478
+2026,stevenage,Stevenage,,13,14,12,0.857143
 2026,stockport,Stockport,,21,21,18,0.857143
 2026,stratford-on-avon,Stratford On Avon,,1,1,1,1.000000
-2026,suffolk,Suffolk,,23,23,22,0.956522
+2026,suffolk,Suffolk,,69,70,66,0.942857
+2026,sunderland,Sunderland,,25,75,0,0.000000
 2026,surrey,Surrey,,1,1,1,1.000000
 2026,sutton,Sutton,,20,55,1,0.018182
 2026,swindon,Swindon,,25,57,2,0.035088
 2026,tameside,Tameside,,19,19,18,0.947368
 2026,tamworth,Tamworth,,9,9,3,0.333333
 2026,three-rivers,Three Rivers,,13,13,10,0.769231
+2026,thurrock,Thurrock,,20,49,0,0.000000
+2026,tower-hamlets,Tower Hamlets,,20,45,11,0.244444
 2026,trafford,Trafford,,21,21,18,0.857143
 2026,tunbridge-wells,Tunbridge Wells,,13,15,9,0.600000
 2026,wakefield,Wakefield,,21,63,0,0.000000
 2026,walsall,Walsall,,20,60,0,0.000000
-2026,waltham-forest,Waltham Forest,,2,5,0,0.000000
+2026,waltham-forest,Waltham Forest,,22,60,0,0.000000
 2026,wandsworth,Wandsworth,,22,58,0,0.000000
 2026,watford,Watford,,12,12,9,0.750000
 2026,welwyn-hatfield,Welwyn Hatfield,,16,17,14,0.823529

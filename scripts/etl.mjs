@@ -5,7 +5,7 @@
 // schema. Output: SQLite database (sceptic-grade), per-table CSVs, and a
 // JSON snapshot consumed by the SvelteKit server load functions.
 
-import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as XLSX from 'xlsx';
@@ -377,10 +377,17 @@ function ingestCycle(cycle) {
 
     const seatsRaw = Number(w[wc.seats] ?? 0);
     const seats = Number.isFinite(seatsRaw) && seatsRaw >= 1 ? seatsRaw : 1;
-    const electorate = Number(w[wc.electorate] ?? 0);
+    // Use null (not 0) when the source omits a value, so the UI can
+    // distinguish "not reported" from "really zero" instead of
+    // rendering a misleading "Electorate 0" / "Ballots 0".
+    const electorateRaw = Number(w[wc.electorate] ?? 0);
+    const electorate = Number.isFinite(electorateRaw) && electorateRaw > 0 ? electorateRaw : null;
     const authorityType = w[wc.authorityType] ? String(w[wc.authorityType]).trim() : null;
-    const ballots = wc.ballots != null ? Number(w[wc.ballots] ?? 0) : null;
-    const invalidVotes = wc.invalidVotes != null ? Number(w[wc.invalidVotes] ?? 0) : null;
+    const ballotsRaw = wc.ballots != null ? Number(w[wc.ballots] ?? 0) : null;
+    const ballots = Number.isFinite(ballotsRaw) && ballotsRaw > 0 ? ballotsRaw : null;
+    const invalidVotesRaw = wc.invalidVotes != null ? Number(w[wc.invalidVotes] ?? 0) : null;
+    const invalidVotes =
+      invalidVotesRaw != null && Number.isFinite(invalidVotesRaw) ? invalidVotesRaw : null;
 
     wardsByKey.set(key, {
       year: cycle.year,
@@ -468,15 +475,18 @@ function ingestCycle(cycle) {
   for (const w of wardsByKey.values()) {
     if (w.candidates.length === 0) continue;
     const votesSum = w.candidates.reduce((a, c) => a + (Number.isFinite(c.votes) ? c.votes : 0), 0);
+    // ballots / invalidVotes are kept as null when the source doesn't
+    // report them (most LEH cycles before 2025, all of DC 2026), so the
+    // per-race meta line on the UI doesn't render fake zeros. The
+    // approximation only flows into validBallots so the per-candidate
+    // share calculation has a sensible denominator.
     let validBallots;
-    let ballots = w.ballots;
-    let invalidVotes = w.invalidVotes;
+    const ballots = w.ballots;
+    const invalidVotes = w.invalidVotes;
     if (ballots != null && invalidVotes != null && ballots - invalidVotes > 0) {
       validBallots = ballots - invalidVotes;
     } else {
       validBallots = w.seats >= 1 ? votesSum / w.seats : votesSum;
-      ballots = ballots ?? Math.round(validBallots);
-      invalidVotes = invalidVotes ?? 0;
     }
     if (validBallots <= 0) continue;
 
@@ -544,14 +554,29 @@ function ingestCycle(cycle) {
 //   - Skip rows where votes_cast is empty (results not yet entered for
 //     that race; will get picked up on the next ETL run after DC publishes).
 
+// Latest DC candidates export under docs/ — picks the most recently
+// modified `*dc-candidates-*results_true-*.csv`. Refresh by dropping a
+// new export into docs/; no edit needed here. Sorted by mtime rather
+// than filename so `downloaded-...-` and bare `dc-...-` prefixes are
+// both ordered correctly.
+function findLatestDcExport() {
+  const docsDir = resolve(ROOT, 'docs');
+  const matches = readdirSync(docsDir)
+    .filter((f) => /dc-candidates-.*results_true-.*\.csv$/i.test(f))
+    .map((f) => {
+      const path = resolve(docsDir, f);
+      return { name: f, path, mtimeMs: statSync(path).mtimeMs };
+    })
+    .sort((a, b) => b.mtimeMs - a.mtimeMs);
+  return matches[0]?.path ?? null;
+}
+
+const DC_2026_FILE = findLatestDcExport();
 const DC_2026_CYCLE = {
   year: 2026,
   electionDate: '2026-05-07',
   electionDateLabel: '7 May 2026',
-  // Latest DC export filename — refresh by re-downloading from
-  // candidates.democracyclub.org.uk and committing to docs/.
-  file:
-    'docs/downloaded-2026-05-10-dc-candidates-election_date_2026-05-07__election_id_local__field_group_results__results_true-2026-05-10T09-40-37.csv'
+  file: DC_2026_FILE
 };
 
 // Council-name lookup so DC slugs render with the LEH-style display name
@@ -592,11 +617,16 @@ function councilSlugFromElectionId(electionId, electionDate) {
 }
 
 function ingestDcCycle(cycle) {
+  if (!cycle.file) {
+    console.warn(`[etl] skipping ${cycle.year}: no DC export found in docs/`);
+    return null;
+  }
   const file = resolve(ROOT, cycle.file);
   if (!existsSync(file)) {
     console.warn(`[etl] skipping ${cycle.year}: file not found ${file}`);
     return null;
   }
+  console.log(`[etl ${cycle.year}] DC source: ${cycle.file.split('/').pop()}`);
   const rows = parseCsv(readFileSync(file, 'utf8'));
 
   // Build wards keyed by ballot_paper_id (one race per ward).
@@ -617,7 +647,11 @@ function ingestDcCycle(cycle) {
     if (!councilSlug) continue;
     const wardName = normaliseWardName(String(r.post_label ?? '').trim());
     const seats = Number(r.seats_contested ?? 1) || 1;
-    const electorate = Number(r.total_electorate ?? 0) || 0;
+    // DC ships total_electorate empty for most 2026 wards. Keep null
+    // when missing so the UI can hide "Electorate 0" rather than
+    // misreporting it as zero.
+    const electorateRaw = Number(r.total_electorate ?? 0);
+    const electorate = Number.isFinite(electorateRaw) && electorateRaw > 0 ? electorateRaw : null;
     const partyRaw = r.party_name;
     // Keep all candidacies in memory regardless of whether votes have
     // been entered yet — the partial-results filter below drops the
@@ -717,7 +751,10 @@ function ingestDcCycle(cycle) {
     );
     if (votesSum <= 0) continue;
     const validBallots = w.seats >= 1 ? votesSum / w.seats : votesSum;
-    const ballots = Math.round(validBallots) + (w.invalidVotes ?? 0);
+    // DC doesn't publish ballots-issued, so we don't fabricate one.
+    // The race meta line on the UI hides this when null instead of
+    // showing the synthetic round(validBallots) we used to emit.
+    const ballots = null;
     const elected = w.candidates.filter((c) => c.elected);
     const electedPcts = elected.map((c) => c.votes / validBallots);
     const winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;

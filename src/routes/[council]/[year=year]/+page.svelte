@@ -254,10 +254,11 @@
       </table>
 
       <p class="muted small race-meta">
-        Electorate {num(race.electorate)} · Ballots cast {num(race.ballots)}
-        {#if race.invalidVotes > 0}· Invalid {num(race.invalidVotes)}{/if}
-        {#if race.wardCode}· EC ward code {race.wardCode}{/if}
-        · <a href="#wards">Back to ward index</a>
+        {#if race.electorate}Electorate {num(race.electorate)} · {/if}
+        {#if race.ballots}Ballots cast {num(race.ballots)} · {/if}
+        {#if race.invalidVotes && race.invalidVotes > 0}Invalid {num(race.invalidVotes)} · {/if}
+        {#if race.wardCode}EC ward code {race.wardCode} · {/if}
+        <a href="#wards">Back to ward index</a>
       </p>
     </section>
   {/each}
