@@ -451,20 +451,31 @@ function ingestCycle(cycle) {
     );
   }
 
-  // Compute per-race derived fields. valid_ballots = sum of candidate votes
-  // (the LEH "Valid vote turnout (HoC method)" denominator). For 2025 we
-  // also have explicit Ballots − Invalid votes; we keep both.
+  // Compute per-race derived fields. validBallots is meant to represent
+  // the number of voters (people who cast a ballot), so candidate_votes /
+  // validBallots gives a candidate's share of the *electorate that
+  // turned out* — comparable across single-member and multi-member
+  // wards.
+  //
+  // In bloc-vote (multi-member FPTP) wards each voter casts up to N
+  // votes, so summing candidate votes over-counts voters by ~N. When
+  // the source provides actual ballots-issued data (LEH 2025 has it
+  // explicitly), use ballots − invalid. Otherwise approximate voters
+  // as votesSum / seats. The approximation assumes voters use all N
+  // votes — most do — and matches the standard ERS adjustment for
+  // bloc-vote multi-member wards.
   const races = [];
   for (const w of wardsByKey.values()) {
     if (w.candidates.length === 0) continue;
     const votesSum = w.candidates.reduce((a, c) => a + (Number.isFinite(c.votes) ? c.votes : 0), 0);
-    let validBallots = votesSum;
+    let validBallots;
     let ballots = w.ballots;
     let invalidVotes = w.invalidVotes;
     if (ballots != null && invalidVotes != null && ballots - invalidVotes > 0) {
       validBallots = ballots - invalidVotes;
     } else {
-      ballots = ballots ?? validBallots;
+      validBallots = w.seats >= 1 ? votesSum / w.seats : votesSum;
+      ballots = ballots ?? Math.round(validBallots);
       invalidVotes = invalidVotes ?? 0;
     }
     if (validBallots <= 0) continue;
@@ -692,6 +703,11 @@ function ingestDcCycle(cycle) {
   }
 
   // Materialise races, mirroring ingestCycle()'s derived fields.
+  // DC doesn't (yet) report ballots-issued or turnout per race, so for
+  // multi-member (bloc-vote) wards we approximate voters as
+  // votesSum / seats — the standard ERS adjustment that makes the
+  // per-candidate "won at" % comparable to single-member wards and to
+  // the Droop quota benchmark.
   const races = [];
   for (const w of wardsByKey.values()) {
     if (w.candidates.length === 0) continue;
@@ -700,8 +716,8 @@ function ingestDcCycle(cycle) {
       0
     );
     if (votesSum <= 0) continue;
-    const validBallots = votesSum;
-    const ballots = validBallots + (w.invalidVotes ?? 0);
+    const validBallots = w.seats >= 1 ? votesSum / w.seats : votesSum;
+    const ballots = Math.round(validBallots) + (w.invalidVotes ?? 0);
     const elected = w.candidates.filter((c) => c.elected);
     const electedPcts = elected.map((c) => c.votes / validBallots);
     const winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;

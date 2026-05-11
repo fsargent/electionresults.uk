@@ -76,39 +76,52 @@
 
   <h2>Winning percentage</h2>
   <p>
-    For a single-member ward,
-    <code>winning_pct = winner_votes / valid_ballots</code>.
+    For every elected candidate we report
+    <code>candidate_votes / valid_ballots</code>, where
+    <code>valid_ballots</code> is the number of <strong>voters who cast
+    a valid ballot</strong> &mdash; not the sum of all candidate votes.
+    Reporting on a per-voter basis keeps the percentage comparable
+    across single-member and multi-member wards (under bloc vote a
+    voter casts up to N votes for an N-seat ward, so summing candidate
+    votes over-counts voters by ~N&times;).
   </p>
   <p>
-    For a multi-member ward (electing N councillors at once under bloc vote),
-    each elected candidate has their own
-    <code>candidate_votes / valid_ballots</code>. We headline the
-    <strong>elected candidate with the smallest share</strong> — the
-    seat-holder at the margin in that ward — because that figure shows
-    how little support a seat actually needed under bloc vote.
-    Per-candidate shares are also visible in the candidate table on
-    every council page.
-  </p>
-  <p>
-    <code>valid_ballots = ballots_cast − invalid_votes</code>. This matches
-    the House of Commons Library "Valid vote turnout (HoC method)" definition
-    in the source workbook.
+    For a multi-member ward we headline the <strong>elected candidate
+    with the smallest share of voters</strong> &mdash; the seat-holder
+    at the margin in that ward &mdash; because that figure shows how
+    little voter support a seat actually needed.
   </p>
 
-  <h3>A note on multi-member wards</h3>
+  <h3 id="bloc-vote-denominator">A note on the bloc-vote denominator</h3>
   <p>
-    In a multi-member ward (electing N councillors at once under bloc vote),
-    each voter may cast up to N votes &mdash; so a candidate's
-    <code>candidate_votes / valid_ballots</code> ratio understates the
-    share of voters who supported them, sometimes by a lot. We report the
-    ratio anyway, with the same denominator as single-member wards,
-    because (a) it is the figure used by the source workbook and
-    consistently comparable across ward types, and (b) any other choice
-    would require speculating about how voters distributed their second
-    and third votes. Readers interpreting multi-member percentages should
-    treat them as a lower bound on candidate support, not an upper one.
-    The proportional quota framing (above) is calibrated to this same
-    denominator, so the comparison stays apples-to-apples.
+    <code>valid_ballots</code> is sourced one of two ways:
+  </p>
+  <ul>
+    <li>
+      <strong>From the source data when available.</strong> The 2025
+      Local Election Handbook publishes per-ward
+      <code>Ballots</code> and <code>Invalid&nbsp;votes</code>;
+      <code>valid_ballots = Ballots − Invalid&nbsp;votes</code>.
+    </li>
+    <li>
+      <strong>Approximated when not.</strong> The 2021&ndash;2024 LEH
+      workbooks and the 2026 Democracy Club CSV don't carry that
+      column, so we approximate
+      <code>valid_ballots = sum(candidate_votes) / seats</code>. This
+      matches the standard ERS adjustment for bloc-vote multi-member
+      wards: each voter casts N votes; if everyone uses all N, the sum
+      of all candidate votes is N times the number of voters.
+    </li>
+  </ul>
+  <p>
+    The approximation has one knowable bias: voters who <em>plump</em>
+    (cast fewer than N votes) make the real ballot count higher than
+    <code>votes / N</code>, so the marginal winner's voter share is
+    slightly <em>lower</em> than the figure we publish. Treat any
+    multi-member percentage from a non-LEH-2025 cycle as an upper
+    bound; the cleanest figures on the site are the 2025 LEH cycle
+    where <code>Ballots − Invalid&nbsp;votes</code> is the actual
+    count.
   </p>
 
   <h2 id="quota">Proportional quota and "below quota"</h2>
