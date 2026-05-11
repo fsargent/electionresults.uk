@@ -634,6 +634,7 @@ function ingestDcCycle(cycle) {
   const wardsByKey = new Map();
   let skippedCancelled = 0;
   let skippedNoBallot = 0;
+  let skippedByElection = 0;
   for (const r of rows) {
     if (truthy(r.cancelled_poll)) {
       skippedCancelled++;
@@ -642,6 +643,17 @@ function ingestDcCycle(cycle) {
     const ballot = r.ballot_paper_id ? String(r.ballot_paper_id).trim() : '';
     if (!ballot) {
       skippedNoBallot++;
+      continue;
+    }
+    // By-elections held on the same day as the cohort vote (DC marks
+    // them with `.by.` in the ballot_paper_id, e.g.
+    // `local.chelmsford.broomfield-and-the-walthams.by.2026-05-07`).
+    // These aren't part of the council's full-cycle electorate, just a
+    // single mid-term seat being filled. Including them would make a
+    // non-cohort council appear on the 2026 map with one trivial 0%
+    // distortion datapoint.
+    if (/\.by\./i.test(ballot)) {
+      skippedByElection++;
       continue;
     }
     const councilSlug = councilSlugFromElectionId(r.election_id, cycle.electionDate);
@@ -792,7 +804,8 @@ function ingestDcCycle(cycle) {
 
   console.log(
     `[etl ${cycle.year}] DC: read ${rows.length} candidacy rows ` +
-      `(${skippedCancelled} cancelled, ${skippedNoBallot} no ballot id); ` +
+      `(${skippedCancelled} cancelled, ${skippedNoBallot} no ballot id, ` +
+      `${skippedByElection} by-election rows); ` +
       `dropped ${skippedPartialWards} wards still counting ` +
       `(${skippedPendingCands} pending candidacies); ` +
       `produced ${races.length} races, ` +
