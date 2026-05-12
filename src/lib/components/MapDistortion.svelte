@@ -68,7 +68,7 @@
 <div class="map-and-scale">
   <CouncilHexMap
     fills={fillsWithIncomplete}
-    title="UK councils — shaded by share of seats unfairly awarded (went to a different party than a proportional re-count of the same votes would have)"
+    title="GB councils — shaded by share of seats unfairly awarded (went to a different party than a proportional re-count of the same votes would have)"
   />
   <div class="legend">
     <span class="legend-label">Unfairly awarded seats</span>

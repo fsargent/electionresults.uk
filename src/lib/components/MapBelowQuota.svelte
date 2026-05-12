@@ -53,7 +53,7 @@
 <div class="map-and-scale">
   <CouncilHexMap
     fills={fillsWithIncomplete}
-    title="UK councils — most recent poll, shaded by % of seats below the proportional quota"
+    title="GB councils — most recent poll, shaded by % of seats below the proportional quota"
   />
   <div class="legend">
     <span class="legend-label">% below quota</span>

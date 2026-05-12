@@ -70,7 +70,7 @@
 <div class="map-and-scale">
   <CouncilHexMap
     fills={fillsWithIncomplete}
-    title="UK councils — most recent party-control flip, coloured by the incoming party"
+    title="GB councils — most recent party-control flip, coloured by the incoming party"
   />
   <div class="legend">
     <span class="legend-label">Incoming party (latest flip)</span>

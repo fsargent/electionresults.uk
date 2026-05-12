@@ -21,6 +21,13 @@
     primary?: string;
     /** Secondary line in the rich hover tooltip — typically year + share. */
     secondary?: string;
+    /** Optional override for the polygon outline (e.g. to highlight
+     *  gained / lost councils with a coloured ring). Falls back to
+     *  the map's default white separator stroke when unset. */
+    stroke?: string;
+    /** Stroke width in viewport units. Sensible range: 0.8 (default)
+     *  to 3 (chunky highlight). */
+    strokeWidth?: number;
   }
 
   let {
@@ -34,7 +41,12 @@
   const NEUTRAL_FILL = '#e5e3d6';
   const STROKE = 'rgba(255, 255, 255, 0.85)';
 
-  const hexes = hexData.hexes as Hex[];
+  // NI's 11 districts have used a proportional voting method since 1973,
+  // so an FPTP audit has nothing to say about them. Suppress them from
+  // the cartogram entirely; the "PR already exists in the UK" point is
+  // made in the caption that consumers render below the map.
+  const NI_REGION = 'N92000002';
+  const hexes = (hexData.hexes as Hex[]).filter((h) => h.region !== NI_REGION);
 
   const layout = layoutHexes(
     hexes.map((h) => ({ ...h, id: h.onsCode })),
@@ -67,6 +79,8 @@
         title: fill?.title ?? h.name,
         primary: fill?.primary ?? h.name,
         secondary: fill?.secondary ?? null,
+        stroke: fill?.stroke ?? STROKE,
+        strokeWidth: fill?.strokeWidth ?? 0.8,
         points: hexPolygonPoints(h.x, h.y, HEX_SIZE)
       };
     })
@@ -117,19 +131,25 @@
       <g
         class="hex-hit"
         class:clickable={!!item.href}
+        class:emphasised={item.strokeWidth > 1}
         onmouseenter={(e) => showTooltip(e, item)}
         onclick={() => navigate(item.href)}
       >
         <polygon
           points={item.points}
           fill={item.color}
-          stroke={STROKE}
-          stroke-width="0.8"
+          stroke={item.stroke}
+          stroke-width={item.strokeWidth}
           stroke-linejoin="round"
         ></polygon>
       </g>
     {/each}
   </svg>
+  <figcaption class="hex-caption">
+    Northern Ireland and Scotland already use proportional representation
+    for council elections — outside the scope of this audit. NI is
+    omitted from the map; Scottish councils appear inert.
+  </figcaption>
 </figure>
 
 {#if tooltip}
@@ -151,6 +171,12 @@
     margin: 0;
     max-width: 38rem;
   }
+  .hex-caption {
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin-top: 0.5rem;
+  }
   svg {
     width: 100%;
     height: auto;
@@ -163,10 +189,15 @@
   .hex-hit.clickable {
     cursor: pointer;
   }
-  .hex-hit.clickable:hover polygon {
+  .hex-hit.clickable:not(.emphasised):hover polygon {
     filter: brightness(1.1) saturate(1.1);
     stroke-width: 1.5;
     stroke: var(--fg);
+  }
+  /* Preserve coloured-ring highlight (e.g. gained / lost councils) on
+     hover — just brighten the fill so the highlight isn't lost. */
+  .hex-hit.emphasised.clickable:hover polygon {
+    filter: brightness(1.1) saturate(1.15);
   }
   .hex-tooltip {
     position: absolute;
