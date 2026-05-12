@@ -172,3 +172,69 @@ export interface CycleSummary {
   belowQuotaShare: number;
   councilCount: number;
 }
+
+/**
+ * Per (party, year) rollup powering /[party]/. Election-side numbers
+ * (contestedSeats, seatsWon, voteShare, seatShare) come from the cycle's
+ * partyView; chamber-side numbers (chamberSeats, chamberShare,
+ * councilsLargest) sum the latest-known opencouncildata composition per
+ * council ≤ year, so the chamber denominator is stable across years even
+ * when one year's source coverage is partial.
+ *
+ * Cycle-pair note: cycleFamily = year % 4. Different councils poll in
+ * different families, so year-on-year contestedSeats / seatsWon /
+ * voteShare are NOT apples-to-apples across families. Chamber-side
+ * numbers are comparable across all years.
+ */
+export interface PartyYearStats {
+  party: string;
+  year: number;
+  cycleFamily: number;
+  contestedSeats: number;
+  seatsWon: number;
+  votes: number;
+  voteShare: number;
+  seatShare: number;
+  councilsContested: number;
+  councilsWon: number;
+  chamberSeats: number;
+  chamberTotal: number;
+  chamberShare: number;
+  councilsLargest: number;
+  councilsWithComposition: number;
+}
+
+/** One row per (party, year, council) where the party ran or held seats
+ *  in that cycle's election. */
+export interface PartyCouncilCycle {
+  party: string;
+  year: number;
+  councilSlug: string;
+  council: string;
+  system: VotingSystem;
+  contestedSeats: number;
+  seatsWon: number;
+  votes: number;
+  voteShare: number;
+  seatShare: number;
+  dhondtSeats: number;
+  /** fptpSeats − dhondtSeats; positive = over-represented by FPTP */
+  seatDelta: number;
+}
+
+export interface PartyControlChange {
+  party: string;
+  year: number;
+  councilsGained: {
+    councilSlug: string;
+    council: string;
+    fromParty: string;
+    yearFrom: number;
+  }[];
+  councilsLost: {
+    councilSlug: string;
+    council: string;
+    toParty: string;
+    yearFrom: number;
+  }[];
+}

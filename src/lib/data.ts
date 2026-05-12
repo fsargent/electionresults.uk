@@ -7,7 +7,10 @@ import type {
   PartyView,
   CouncilFlip,
   CouncilReorganisation,
-  CompositionSnapshot
+  CompositionSnapshot,
+  PartyYearStats,
+  PartyCouncilCycle,
+  PartyControlChange
 } from './types';
 
 interface SnapshotMarginal {
@@ -51,6 +54,9 @@ interface Snapshot {
   flips: CouncilFlip[];
   compositions: CompositionSnapshot[];
   reorganisations: CouncilReorganisation[];
+  partyYearStats: PartyYearStats[];
+  partyCouncilCycles: PartyCouncilCycle[];
+  partyControlChanges: PartyControlChange[];
   cycle2026Coverage: Record<string, Cycle2026CouncilCoverage> | null;
 }
 
@@ -70,6 +76,11 @@ export const allPartyViews: PartyView[] = data.partyViews;
 export const allFlips: CouncilFlip[] = data.flips;
 export const allCompositions: CompositionSnapshot[] = data.compositions ?? [];
 export const allReorganisations: CouncilReorganisation[] = data.reorganisations;
+export const allPartyYearStats: PartyYearStats[] = data.partyYearStats ?? [];
+export const allPartyCouncilCycles: PartyCouncilCycle[] =
+  data.partyCouncilCycles ?? [];
+export const allPartyControlChanges: PartyControlChange[] =
+  data.partyControlChanges ?? [];
 export const cycle2026Coverage: Record<string, Cycle2026CouncilCoverage> =
   data.cycle2026Coverage ?? {};
 
@@ -616,4 +627,137 @@ export function yearOptions(): number[] {
 
 export function electedFromRace(race: Race): Candidate[] {
   return race.candidates.filter((c) => c.elected);
+}
+
+// --- Party pages -------------------------------------------------------
+//
+// First-class slug map for the seven major parties. Slugs intentionally
+// short and URL-friendly; the canonical full name from
+// scripts/party-normalize.mjs is the lookup key everywhere else in the
+// codebase, so this map is the single source of truth for /labour/
+// → "Labour Party" routing.
+const PARTY_SLUG_TO_NAME: Record<string, string> = {
+  labour: 'Labour Party',
+  conservative: 'Conservative Party',
+  'liberal-democrats': 'Liberal Democrats',
+  green: 'Green Party',
+  reform: 'Reform UK',
+  snp: 'Scottish National Party',
+  'plaid-cymru': 'Plaid Cymru'
+};
+const PARTY_NAME_TO_SLUG = Object.fromEntries(
+  Object.entries(PARTY_SLUG_TO_NAME).map(([slug, name]) => [name, slug])
+) as Record<string, string>;
+
+export function partySlugs(): string[] {
+  return Object.keys(PARTY_SLUG_TO_NAME);
+}
+
+export function partyForSlug(slug: string): string | null {
+  return PARTY_SLUG_TO_NAME[slug] ?? null;
+}
+
+export function slugForParty(party: string): string | null {
+  return PARTY_NAME_TO_SLUG[party] ?? null;
+}
+
+/** Trend rows for one party, ascending by year. */
+export function partyTrend(party: string): PartyYearStats[] {
+  return allPartyYearStats
+    .filter((s) => s.party === party)
+    .sort((a, b) => a.year - b.year);
+}
+
+export function partyYearStat(
+  party: string,
+  year: number
+): PartyYearStats | null {
+  return (
+    allPartyYearStats.find((s) => s.party === party && s.year === year) ?? null
+  );
+}
+
+/** Years a party has any rollup row for — the set of years /[party]/[year]
+ *  has data to render. Sorted descending. */
+export function yearsForParty(party: string): number[] {
+  const set = new Set<number>();
+  for (const s of allPartyYearStats) {
+    if (s.party === party && (s.contestedSeats > 0 || s.chamberTotal > 0)) {
+      set.add(s.year);
+    }
+  }
+  return [...set].sort((a, b) => b - a);
+}
+
+/** Per-council results for one (party, year), sorted by seats won desc. */
+export function partyCouncilCyclesFor(
+  party: string,
+  year: number
+): PartyCouncilCycle[] {
+  return allPartyCouncilCycles
+    .filter((r) => r.party === party && r.year === year)
+    .sort(
+      (a, b) =>
+        b.seatsWon - a.seatsWon ||
+        b.voteShare - a.voteShare ||
+        a.council.localeCompare(b.council)
+    );
+}
+
+/** Same as `partyCouncilCyclesFor` but indexed by previous-cycle data
+ *  for that council, so the per-cycle page can show net change. The
+ *  "previous cycle" for a council is the most recent earlier year that
+ *  council polled — typically year-4 for all-out councils, year-1 for
+ *  by-thirds. Returns rows with `prevSeatsWon` / `prevContestedSeats` /
+ *  `netChange` attached; prev fields are null when the council had no
+ *  earlier cycle in the dataset. */
+export interface PartyCouncilCycleWithChange extends PartyCouncilCycle {
+  prevYear: number | null;
+  prevSeatsWon: number | null;
+  prevContestedSeats: number | null;
+  netChange: number | null;
+}
+
+export function partyCouncilCyclesWithChange(
+  party: string,
+  year: number
+): PartyCouncilCycleWithChange[] {
+  const current = partyCouncilCyclesFor(party, year);
+  return current.map((row) => {
+    const earlier = allPartyCouncilCycles
+      .filter(
+        (r) =>
+          r.party === party &&
+          r.councilSlug === row.councilSlug &&
+          r.year < year
+      )
+      .sort((a, b) => b.year - a.year)[0];
+    if (!earlier) {
+      return {
+        ...row,
+        prevYear: null,
+        prevSeatsWon: null,
+        prevContestedSeats: null,
+        netChange: null
+      };
+    }
+    return {
+      ...row,
+      prevYear: earlier.year,
+      prevSeatsWon: earlier.seatsWon,
+      prevContestedSeats: earlier.contestedSeats,
+      netChange: row.seatsWon - earlier.seatsWon
+    };
+  });
+}
+
+export function partyControlChangesFor(
+  party: string,
+  year: number
+): PartyControlChange | null {
+  return (
+    allPartyControlChanges.find(
+      (c) => c.party === party && c.year === year
+    ) ?? null
+  );
 }

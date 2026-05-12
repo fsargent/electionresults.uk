@@ -20,6 +20,7 @@
   <a href="/flips">Flips</a>
   <a href="/distortion">Distortion</a>
   <a href="/below-quota">Below quota</a>
+  <a href="/parties">Parties</a>
   <a href="/methodology">Methodology</a>
   <a href="/data">Data</a>
 </nav>
@@ -43,13 +44,6 @@
       <a href="https://github.com/fsargent/electionresults.uk">GitHub</a>.
       Errata:
       <a href="mailto:felix.sargent@gmail.com">felix.sargent@gmail.com</a>.
-    </p>
-    <p class="muted">
-      <strong>Note on framing.</strong> Named winners on this site appear as
-      evidence of how First-Past-the-Post elects representatives when most
-      voters in a ward chose someone else. The voting method is the subject;
-      individuals are not. See <a href="/methodology">methodology</a> for the
-      full editorial frame.
     </p>
     <p class="muted">
       Want a fix? Back the call for a

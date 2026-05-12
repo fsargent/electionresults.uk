@@ -1888,6 +1888,187 @@ console.log(
   `[etl] flagged ${reorganisations.length} councils as touched by a known reorganisation`
 );
 
+// --- Party-level rollups -----------------------------------------------
+//
+// Per-party aggregates so the /[party]/ pages do flat reads instead of
+// recomputing on every load. Two granularities:
+//
+//   partyCouncilCycles — one row per (party, year, council) when the
+//     party either ran or held seats in that cycle's election. Used by
+//     /[party]/[year]/ to drive the per-council breakdown.
+//
+//   partyYearStats — one row per (party, year). Sums partyCouncilCycles
+//     to get election-side numbers (seats up, seats won, vote share),
+//     then layers chamber-side numbers from the composition snapshots
+//     (chamber seats, chamber share, councils-as-largest). Used by
+//     /[party]/ for the trend view.
+//
+// Cycle-pair note: UK locals run on overlapping 4-year families
+// (year mod 4). Different councils poll in different families, so
+// year-on-year comparisons across the full dataset are not apples-to-
+// apples. The page surfaces this caveat editorially; the data here is
+// the raw aggregate. Cycle family is exposed as `cycleFamily = year % 4`
+// so the trend view can colour-code or pair lines.
+const MAJOR_PARTIES = [
+  'Labour Party',
+  'Conservative Party',
+  'Liberal Democrats',
+  'Green Party',
+  'Reform UK',
+  'Scottish National Party',
+  'Plaid Cymru'
+];
+
+const partyCouncilCycles = [];
+for (const view of partyViews) {
+  for (const party of MAJOR_PARTIES) {
+    const row = view.rows.find((r) => r.party === party);
+    if (!row) continue;
+    partyCouncilCycles.push({
+      party,
+      year: view.year,
+      councilSlug: view.councilSlug,
+      council: view.council,
+      system: view.system ?? 'FPTP',
+      contestedSeats: view.totalSeats,
+      seatsWon: row.fptpSeats,
+      votes: row.votes,
+      voteShare: row.voteShare,
+      seatShare: row.fptpSeatShare,
+      dhondtSeats: row.dhondtSeats,
+      seatDelta: row.seatDelta
+    });
+  }
+}
+
+const partyYearStats = [];
+const allYearsSorted = [
+  ...new Set([
+    ...partyViews.map((v) => v.year),
+    ...compositions.map((c) => c.year)
+  ])
+].sort((a, b) => a - b);
+
+// For chamber rollups: at each year Y, use the latest-known composition
+// per council ≤ Y. This keeps the chamber denominator stable across
+// years even when one year's source coverage is partial — notably 2026,
+// where synthesised snapshots only exist for the 136-council cohort.
+// Non-cohort councils carry forward their 2025 (or earlier) snapshot,
+// matching how oncd publishes annual rolls forward for unchanged
+// chambers.
+const compositionByCouncilYear = new Map(); // councilSlug -> [{year, comp}, ...] asc
+for (const comp of compositions) {
+  const arr = compositionByCouncilYear.get(comp.councilSlug) ?? [];
+  arr.push(comp);
+  compositionByCouncilYear.set(comp.councilSlug, arr);
+}
+for (const arr of compositionByCouncilYear.values()) {
+  arr.sort((a, b) => a.year - b.year);
+}
+function latestCompAtOrBefore(slug, year) {
+  const arr = compositionByCouncilYear.get(slug);
+  if (!arr) return null;
+  let best = null;
+  for (const c of arr) {
+    if (c.year > year) break;
+    best = c;
+  }
+  return best;
+}
+const allCouncilSlugsForChamber = [...compositionByCouncilYear.keys()];
+
+for (const party of MAJOR_PARTIES) {
+  for (const year of allYearsSorted) {
+    let contestedSeats = 0;
+    let seatsWon = 0;
+    let votes = 0;
+    let totalVotes = 0;
+    let councilsContested = 0;
+    let councilsWon = 0;
+    for (const view of partyViews) {
+      if (view.year !== year) continue;
+      const row = view.rows.find((r) => r.party === party);
+      if (!row) continue;
+      contestedSeats += view.totalSeats;
+      seatsWon += row.fptpSeats;
+      votes += row.votes;
+      totalVotes += view.totalVotes;
+      councilsContested++;
+      if (row.fptpSeats > 0) councilsWon++;
+    }
+    let chamberSeats = 0;
+    let chamberTotal = 0;
+    let councilsLargest = 0;
+    let councilsWithComposition = 0;
+    for (const slug of allCouncilSlugsForChamber) {
+      const comp = latestCompAtOrBefore(slug, year);
+      if (!comp) continue;
+      chamberTotal += comp.totalSeats;
+      chamberSeats += comp.parties[party] ?? 0;
+      councilsWithComposition++;
+      if (comp.largestParty === party) councilsLargest++;
+    }
+    if (contestedSeats === 0 && chamberTotal === 0) continue;
+    partyYearStats.push({
+      party,
+      year,
+      cycleFamily: year % 4,
+      contestedSeats,
+      seatsWon,
+      votes,
+      voteShare: totalVotes > 0 ? votes / totalVotes : 0,
+      seatShare: contestedSeats > 0 ? seatsWon / contestedSeats : 0,
+      councilsContested,
+      councilsWon,
+      chamberSeats,
+      chamberTotal,
+      chamberShare: chamberTotal > 0 ? chamberSeats / chamberTotal : 0,
+      councilsLargest,
+      councilsWithComposition
+    });
+  }
+}
+
+// Per (party, year) council-control changes drawn from the flips table.
+// `gained` = councils where this party became the largest at this
+// election (yearTo === year && toParty === party); `lost` = councils
+// where this party stopped being the largest (yearTo === year &&
+// fromParty === party). One-cycle and 2025→2026-backfill flips both
+// keyed by yearTo, which is the election year readers care about.
+const partyControlChanges = [];
+for (const party of MAJOR_PARTIES) {
+  for (const year of allYearsSorted) {
+    const gained = flips
+      .filter((f) => f.yearTo === year && f.toParty === party)
+      .map((f) => ({
+        councilSlug: f.councilSlug,
+        council: f.council,
+        fromParty: f.fromParty,
+        yearFrom: f.yearFrom
+      }));
+    const lost = flips
+      .filter((f) => f.yearTo === year && f.fromParty === party)
+      .map((f) => ({
+        councilSlug: f.councilSlug,
+        council: f.council,
+        toParty: f.toParty,
+        yearFrom: f.yearFrom
+      }));
+    if (gained.length === 0 && lost.length === 0) continue;
+    partyControlChanges.push({
+      party,
+      year,
+      councilsGained: gained,
+      councilsLost: lost
+    });
+  }
+}
+console.log(
+  `[etl] party rollups: ${partyYearStats.length} (party,year) rows, ` +
+    `${partyCouncilCycles.length} (party,year,council) rows, ` +
+    `${partyControlChanges.length} (party,year) control-change rows`
+);
+
 const totals = {
   cycles: cycleSummaries.length,
   councils: councils.length,
@@ -2205,6 +2386,12 @@ const snapshot = {
   flips,
   compositions,
   reorganisations,
+  // Party-page rollups. partyYearStats is the trend-view spine,
+  // partyCouncilCycles powers the per-(party,year) breakdown,
+  // partyControlChanges carries the gained/lost-councils slices.
+  partyYearStats,
+  partyCouncilCycles,
+  partyControlChanges,
   // Per-council 2026 coverage so consumers (homepage maps) can render
   // cohort councils whose count is incomplete as black, instead of
   // colouring them by their partial subset of counted wards.
