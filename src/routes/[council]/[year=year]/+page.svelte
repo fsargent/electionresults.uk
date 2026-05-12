@@ -114,9 +114,9 @@
     </p>
   </section>
 
+  <h2 id="party-view">If votes were counted by party</h2>
   {#if data.partyView && data.partyView.rows.length > 1}
     {@const view = data.partyView}
-    <h2 id="party-view">If votes were counted by party</h2>
     <p>
       Across the {data.council.raceCount} ward{data.council.raceCount === 1 ? '' : 's'} in
       this cycle, parties received the vote totals below. The
@@ -131,6 +131,13 @@
     </p>
 
     <PartyViewBlock {view} />
+  {:else}
+    <p class="muted">
+      Not enough party-aligned candidates stood in this cycle to compare
+      vote share against seat share. Most candidates ran as independents
+      or were grouped under a single label, so the proportional check
+      doesn't have anything to redistribute.
+    </p>
   {/if}
 
   {#if data.compositionBefore || data.compositionAfter}
