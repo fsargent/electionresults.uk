@@ -9,7 +9,7 @@
     "build:og": "bun scripts/build-og.mjs",
     "refresh-data": "bun run etl && bun run build:map && bun run build:og",
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "svelte-kit sync && vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
