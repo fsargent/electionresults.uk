@@ -145,11 +145,6 @@
       </g>
     {/each}
   </svg>
-  <figcaption class="hex-caption">
-    Northern Ireland and Scotland already use proportional representation
-    for council elections — outside the scope of this audit. NI is
-    omitted from the map; Scottish councils appear inert.
-  </figcaption>
 </figure>
 
 {#if tooltip}
@@ -170,12 +165,6 @@
   .hex-map {
     margin: 0;
     max-width: 38rem;
-  }
-  .hex-caption {
-    color: var(--muted);
-    font-size: 0.78rem;
-    line-height: 1.4;
-    margin-top: 0.5rem;
   }
   svg {
     width: 100%;
