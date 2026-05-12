@@ -3,7 +3,12 @@
   import { partyColor } from '$lib/party-colors';
   import PairedBarChart from '$lib/charts/PairedBarChart.svelte';
   import SlopeChart from '$lib/charts/SlopeChart.svelte';
+  import CouncilHexMap, {
+    type CouncilFill
+  } from '$lib/components/CouncilHexMap.svelte';
   import type { PartyYearStats } from '$lib/types';
+
+  const NOC_FILL = '#c7c4b3';
 
   let { data } = $props();
 
@@ -241,6 +246,49 @@
     tooltip = null;
   }
 
+  // Current-control map: every council coloured by its largest single
+  // party in the latest composition snapshot, with NOC councils
+  // (where the catch-all 'other' bucket exceeds every named party)
+  // dropped into a neutral muted grey so the named-party shares
+  // remain legible. Clicking any hex drills into that council.
+  const controlFills = $derived.by<Record<string, CouncilFill>>(() => {
+    const out: Record<string, CouncilFill> = {};
+    const slugToName = Object.fromEntries(
+      data.parties.map((p) => [p.slug, p.name])
+    );
+    for (const [slug, info] of Object.entries(data.controlByCouncil)) {
+      const isNoc = info.bucket === data.NO_CONTROL;
+      const partyName = isNoc ? null : slugToName[info.bucket] ?? null;
+      const color = partyName ? partyColor(partyName) : NOC_FILL;
+      out[slug] = {
+        color,
+        href: `/${info.councilSlug}`,
+        primary: info.council,
+        secondary: isNoc
+          ? `No overall control (snapshot ${info.year})`
+          : `${partyName} largest — ${num(info.seats)} of ${num(info.totalSeats)} seats (${info.year})`,
+        title: isNoc
+          ? `${info.council}: no overall control (${info.year})`
+          : `${info.council}: ${partyName} largest (${info.year})`
+      };
+    }
+    return out;
+  });
+
+  // Sorted legend: parties whose count > 0, biggest control footprint
+  // first; NOC pinned to the end.
+  const controlLegend = $derived(
+    [...data.parties]
+      .map((p) => ({
+        slug: p.slug,
+        name: p.name,
+        color: partyColor(p.name),
+        count: data.controlCounts[p.slug] ?? 0
+      }))
+      .filter((row) => row.count > 0)
+      .sort((a, b) => b.count - a.count)
+  );
+
   // Cards: latest snapshot per party, click to navigate. Sorted by
   // current chamber share descending so the leaders read first.
   const orderedCards = $derived(
@@ -268,6 +316,39 @@
     below pairs the votes each party won against the seats they
     actually got — the gap is the story this site exists to tell.
   </p>
+
+  <h2 id="who-controls-what">Who controls what now</h2>
+  <p class="muted small">
+    Every UK council in our composition data, coloured by the largest
+    single party in its most recent snapshot. Hover any hex for the
+    council and seat split; click to drill in.
+  </p>
+
+  <div class="map-and-scale">
+    <CouncilHexMap
+      fills={controlFills}
+      title="GB councils — current largest single party in the running composition"
+    />
+    <div class="map-legend">
+      <p class="legend-label">Largest party</p>
+      <ul class="party-legend">
+        {#each controlLegend as row (row.slug)}
+          <li>
+            <span class="swatch" style:background={row.color}></span>
+            <a href={`/party/${row.slug}`}>{row.name}</a>
+            <span class="muted count">{num(row.count)}</span>
+          </li>
+        {/each}
+        {#if data.controlCounts[data.NO_CONTROL] > 0}
+          <li>
+            <span class="swatch noc"></span>
+            <span>No overall control</span>
+            <span class="muted count">{num(data.controlCounts[data.NO_CONTROL])}</span>
+          </li>
+        {/if}
+      </ul>
+    </div>
+  </div>
 
   <h2 id="pick-a-party">Pick a party</h2>
   <p class="muted small">
@@ -524,6 +605,65 @@
   }
   .small {
     font-size: 0.85rem;
+  }
+  .map-and-scale {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(10rem, 14rem);
+    gap: 1.25rem;
+    align-items: start;
+    margin: 0.6rem 0 1.5rem;
+  }
+  @media (max-width: 640px) {
+    .map-and-scale {
+      grid-template-columns: 1fr;
+    }
+  }
+  .map-legend .legend-label {
+    margin: 0 0 0.4rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+  .party-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0;
+    display: grid;
+    gap: 0.3rem;
+    font-size: 0.88rem;
+  }
+  .party-legend li {
+    display: grid;
+    grid-template-columns: 1.1rem 1fr auto;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+  .party-legend a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .party-legend a:hover {
+    text-decoration: underline;
+  }
+  .party-legend .swatch {
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+  }
+  .party-legend .swatch.noc {
+    background: #c7c4b3;
+  }
+  .party-legend .count {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  @media (prefers-color-scheme: dark) {
+    .party-legend .swatch {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
   }
   .cycle-panels {
     display: grid;

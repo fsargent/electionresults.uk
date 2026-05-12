@@ -3,9 +3,10 @@ import {
   partySlugs,
   partyTrend,
   allPartyControlChanges,
-  allCycles
+  allCycles,
+  allCompositions
 } from '$lib/data';
-import type { PartyYearStats } from '$lib/types';
+import type { CompositionSnapshot, PartyYearStats } from '$lib/types';
 
 export const prerender = true;
 
@@ -93,10 +94,63 @@ export function load() {
     'reform'
   ]);
 
+  // Current control map: take each council's most recent composition
+  // snapshot and assign it to its largest single party. Councils where
+  // the catch-all 'other' bucket (Independents + minor locals) exceeds
+  // every named party land in the 'no overall control' bucket — that
+  // matches oncd's NOC framing without us having to label specific
+  // local-party majorities by hand.
+  const NO_CONTROL = '__noc__';
+  const latestPerCouncil = new Map<string, CompositionSnapshot>();
+  for (const c of allCompositions) {
+    const prev = latestPerCouncil.get(c.councilSlug);
+    if (!prev || c.year > prev.year) latestPerCouncil.set(c.councilSlug, c);
+  }
+  const controlByCouncil: Record<
+    string,
+    {
+      councilSlug: string;
+      council: string;
+      year: number;
+      bucket: string;
+      partyName: string | null;
+      seats: number;
+      totalSeats: number;
+    }
+  > = {};
+  const controlCounts: Record<string, number> = { [NO_CONTROL]: 0 };
+  for (const slug of partySlugs()) controlCounts[slug] = 0;
+  for (const snap of latestPerCouncil.values()) {
+    const isNoc =
+      snap.largestIsOtherDominant ||
+      snap.largestParty === null ||
+      snap.largestPartySeats === 0;
+    let bucket = NO_CONTROL;
+    if (!isNoc && snap.largestParty) {
+      const partySlug = partySlugs().find(
+        (s) => partyForSlug(s) === snap.largestParty
+      );
+      bucket = partySlug ?? NO_CONTROL;
+    }
+    controlByCouncil[snap.councilSlug] = {
+      councilSlug: snap.councilSlug,
+      council: snap.council,
+      year: snap.year,
+      bucket,
+      partyName: bucket === NO_CONTROL ? null : snap.largestParty,
+      seats: snap.largestPartySeats,
+      totalSeats: snap.totalSeats
+    };
+    controlCounts[bucket] = (controlCounts[bucket] ?? 0) + 1;
+  }
+
   return {
     parties,
     years,
     recentCycles,
-    defaultVisible: [...defaultVisible]
+    defaultVisible: [...defaultVisible],
+    controlByCouncil,
+    controlCounts,
+    NO_CONTROL
   };
 }
