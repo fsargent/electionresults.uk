@@ -4,6 +4,7 @@
   import Frac from '$lib/components/Frac.svelte';
   import PartyViewBlock from '$lib/components/PartyViewBlock.svelte';
   import SeatChart from '$lib/components/SeatChart.svelte';
+  import Tooltip from '$lib/components/Tooltip.svelte';
   let { data } = $props();
   const council = $derived(data.council);
   const races = $derived(data.races);
@@ -204,6 +205,7 @@
   <h2>Race results</h2>
 
   {#each races as { race } (race.wardSlug)}
+    {@const votesSum = race.candidates.reduce((a, c) => a + c.votes, 0)}
     <section class="race" id={race.wardSlug}>
       <h3>
         {race.wardName}
@@ -214,7 +216,16 @@
 
       <p class="race-stats">
         <span class="stat">
-          <span class="stat-label">Marginal winner</span>
+          <span class="stat-label">
+            <Tooltip
+              icon
+              body={race.seats > 1
+                ? `Voter-share estimate of the lowest-vote elected candidate. Comparable to the proportional quota. The raw vote share would be ~${race.seats}× smaller.`
+                : `Winning candidate's share of valid ballots.`}
+            >
+              Marginal winner
+            </Tooltip>
+          </span>
           <span class="stat-value pct" class:warn={race.isBelowQuota}>
             {pct(race.winningPct)}
           </span>
@@ -224,19 +235,42 @@
           <span class="stat-value pct">{pct(race.quota)}</span>
         </span>
         <span class="stat">
-          <span
-            class="stat-label"
-            title="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
-          >Below quota</span>
+          <span class="stat-label">
+            <Tooltip
+              icon
+              body="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
+            >
+              Below quota
+            </Tooltip>
+          </span>
           <span class="stat-value pct" class:warn={race.isBelowQuota}>
             {pts(race.underPar)}
           </span>
         </span>
         <span class="stat">
-          <span class="stat-label">Valid ballots</span>
-          <span class="stat-value">{num(race.validBallots)}</span>
+          <span class="stat-label">
+            <Tooltip
+              icon
+              body={race.ballots != null
+                ? 'Voters who cast a valid ballot, from source data.'
+                : `Estimated voters: total votes ÷ ${race.seats} seats. Source data does not publish a ballot count for this cycle.`}
+            >
+              {race.ballots != null ? 'Valid ballots' : 'Valid ballots (est.)'}
+            </Tooltip>
+          </span>
+          <span class="stat-value">{num(Math.round(race.validBallots))}</span>
         </span>
       </p>
+
+      {#if race.seats > 1 && race.ballots == null}
+        <p class="muted small bloc-note">
+          This is a {race.seats}-seat ward under bloc vote — each voter could cast up to {race.seats} votes,
+          so summing candidate votes overcounts voters by ~{race.seats}×. We show
+          <strong>share of votes</strong> (matches the council's published figure) and
+          <strong>share of voters (est.)</strong> (raw share × {race.seats}, the figure
+          comparable to the proportional quota). <a href="/methodology#bloc-vote-denominator">Why two columns →</a>
+        </p>
+      {/if}
 
       <table>
         <thead>
@@ -245,24 +279,49 @@
             <th>Candidate</th>
             <th>Party</th>
             <th class="num">Votes</th>
-            <th class="num">Share</th>
-            <th
-              class="num"
-              title="Each elected candidate's share of valid ballots minus the proportional quota for this race. Negative = won the seat below the quota; positive = cleared it."
-            >Below quota</th>
+            <th class="num">
+              <Tooltip
+                icon
+                body="Candidate votes ÷ total votes cast in this ward. Matches the share the council publishes."
+              >
+                Share of votes
+              </Tooltip>
+            </th>
+            {#if race.seats > 1}
+              <th class="num">
+                <Tooltip
+                  icon
+                  body={`Estimated share of voters who supported this candidate, comparable across single- and multi-seat wards. Each voter could cast up to ${race.seats} votes, so we approximate ballots as total votes ÷ ${race.seats}. This is the figure compared against the proportional quota.`}
+                >
+                  Share of voters (est.)
+                </Tooltip>
+              </th>
+            {/if}
+            <th class="num">
+              <Tooltip
+                icon
+                body="Each elected candidate's share of valid ballots minus the proportional quota for this race. Negative = won the seat below the quota; positive = cleared it."
+              >
+                Below quota
+              </Tooltip>
+            </th>
             <th>Elected</th>
           </tr>
         </thead>
         <tbody>
           {#each race.candidates as c (race.wardSlug + ':' + c.rank)}
-            {@const share = race.validBallots > 0 ? c.votes / race.validBallots : 0}
-            {@const drift = share - race.quota}
+            {@const rawShare = votesSum > 0 ? c.votes / votesSum : 0}
+            {@const voterShare = race.validBallots > 0 ? c.votes / race.validBallots : 0}
+            {@const drift = voterShare - race.quota}
             <tr class:elected={c.elected}>
               <td class="num">{c.rank}</td>
               <td>{c.name}</td>
               <td><Party name={c.party} /></td>
               <td class="num">{num(c.votes)}</td>
-              <td class="num pct">{pct(share)}</td>
+              <td class="num pct">{pct(rawShare)}</td>
+              {#if race.seats > 1}
+                <td class="num pct">{pct(voterShare)}</td>
+              {/if}
               <td class="num pct" class:warn={c.elected && drift < 0}>
                 {#if c.elected}{pts(drift)}{:else}<span class="muted">—</span>{/if}
               </td>
@@ -367,6 +426,13 @@
     font-size: 0.95rem;
   }
   .race-meta { margin: 0.6rem 0 0; }
+  .bloc-note {
+    margin: 0 0 0.8rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(11, 61, 46, 0.04);
+    border-left: 2px solid var(--rule);
+    line-height: 1.4;
+  }
 
   .composition-pair {
     display: grid;

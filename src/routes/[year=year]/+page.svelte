@@ -2,6 +2,7 @@
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
   import CouncilHexMap from '$lib/components/CouncilHexMap.svelte';
+  import Tooltip from '$lib/components/Tooltip.svelte';
   import { belowQuotaColor } from '$lib/below-quota-color';
   let { data } = $props();
 
@@ -93,10 +94,14 @@
           <th class="num">Seats</th>
           <th class="num">Won at</th>
           <th class="num">Quota</th>
-          <th
-            class="num"
-            title="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
-          >Below quota</th>
+          <th class="num">
+            <Tooltip
+              icon
+              body="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
+            >
+              Below quota
+            </Tooltip>
+          </th>
         </tr>
       </thead>
       <tbody>

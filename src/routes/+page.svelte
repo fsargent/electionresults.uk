@@ -4,6 +4,7 @@
   import MapBelowQuota from '$lib/components/MapBelowQuota.svelte';
   import MapDistortion from '$lib/components/MapDistortion.svelte';
   import MapFlips from '$lib/components/MapFlips.svelte';
+  import Tooltip from '$lib/components/Tooltip.svelte';
   let { data } = $props();
   // One filter drives every section on the page (lede totals + example,
   // all four maps, all four tables). Default to the just-finished
@@ -144,7 +145,14 @@
           <th>Cycle</th>
           <th>Council</th>
           <th>Largest party changed</th>
-          <th class="num" title="Incoming party's seat share of the full council in the year-after minus the year-before — composition truth-set, not per-cycle.">Composition shift (incoming)</th>
+          <th class="num">
+            <Tooltip
+              icon
+              body="Incoming party's seat share of the full council in the year-after minus the year-before — composition truth-set, not per-cycle."
+            >
+              Composition shift (incoming)
+            </Tooltip>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -202,7 +210,14 @@
         <th>Year</th>
         <th>Council</th>
         <th class="num">Seats</th>
-        <th class="num" title="Number of seats that went to a different party than a proportional re-count of the same votes would have produced.">Unfairly awarded</th>
+        <th class="num">
+          <Tooltip
+            icon
+            body="Number of seats that went to a different party than a proportional re-count of the same votes would have produced."
+          >
+            Unfairly awarded
+          </Tooltip>
+        </th>
         <th class="num">% of seats</th>
         <th>Most over-represented</th>
       </tr>
@@ -338,10 +353,14 @@
         <th class="num">Seats</th>
         <th class="num">Won at</th>
         <th class="num">Quota</th>
-        <th
-          class="num"
-          title="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
-        >Below quota</th>
+        <th class="num">
+          <Tooltip
+            icon
+            body="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
+          >
+            Below quota
+          </Tooltip>
+        </th>
       </tr>
     </thead>
     <tbody>

@@ -127,6 +127,21 @@
     where <code>Ballots − Invalid&nbsp;votes</code> is the actual
     count.
   </p>
+  <p>
+    <strong>Why the candidate table shows two share columns.</strong>
+    For multi-seat wards (2+ seats) the per-candidate row carries both
+    <em>share of votes</em> &mdash;
+    <code>candidate_votes / total_votes_cast</code>, the figure the
+    council publishes &mdash; and <em>share of voters (est.)</em>
+    &mdash; <code>candidate_votes / valid_ballots</code>, equivalent
+    to the raw share multiplied by the seat count when we are
+    approximating. The first reconciles with the official source; the
+    second is the figure that is comparable across single- and
+    multi-seat wards and the one the proportional-quota indictment is
+    measured against. Both are correct; they answer different
+    questions, and people coming from the council's results page
+    should see both side by side.
+  </p>
 
   <h2 id="quota">Proportional quota and "below quota"</h2>
   <p>

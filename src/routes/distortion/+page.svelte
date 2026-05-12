@@ -2,6 +2,7 @@
   import { num, pct, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
   import MapDistortion from '$lib/components/MapDistortion.svelte';
+  import Tooltip from '$lib/components/Tooltip.svelte';
   import { partyDisplayName } from '$lib/party-colors';
   let { data } = $props();
 
@@ -113,8 +114,22 @@
         <th>Year</th>
         <th>Council</th>
         <th class="num" title="Total seats elected this single cycle.">Seats</th>
-        <th class="num" title="Number of seats First-Past-the-Post placed differently from a proportional allocation. 0 = perfectly proportional; higher = more distorted.">Reallocated</th>
-        <th class="num" title="Reallocated / total seats this cycle. The headline distortion measure: how much of the council's representation FPTP moved.">% of seats</th>
+        <th class="num">
+          <Tooltip
+            icon
+            body="Number of seats First-Past-the-Post placed differently from a proportional allocation. 0 = perfectly proportional; higher = more distorted."
+          >
+            Reallocated
+          </Tooltip>
+        </th>
+        <th class="num">
+          <Tooltip
+            icon
+            body="Reallocated / total seats this cycle. The headline distortion measure: how much of the council's representation FPTP moved."
+          >
+            % of seats
+          </Tooltip>
+        </th>
         <th>Most over-represented (FPTP gain vs proportional)</th>
       </tr>
     </thead>
