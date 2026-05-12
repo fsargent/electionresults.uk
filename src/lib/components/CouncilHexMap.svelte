@@ -43,7 +43,9 @@
 
   // Build the per-hex render input: pixel position + the fill / link from
   // the parent's `fills` map. Try the canonical slug first, then any
-  // aliases (LEH naming inconsistency across years).
+  // aliases (LEH naming inconsistency across years). Every hex links to
+  // its council page by default — even when the parent didn't supply a
+  // fill — so visitors can drill into any council shown on the map.
   const items = $derived(
     layout.positions.map((h) => {
       let fill: CouncilFill | undefined = fills[h.slug];
@@ -61,7 +63,7 @@
         x: h.x,
         y: h.y,
         color: fill?.color ?? NEUTRAL_FILL,
-        href: fill?.href,
+        href: fill?.href ?? `/${h.slug}`,
         title: fill?.title ?? h.name,
         primary: fill?.primary ?? h.name,
         secondary: fill?.secondary ?? null,
