@@ -1,24 +1,25 @@
 <script lang="ts">
   import { num, pct, pts } from '$lib/format';
   import { partyColor } from '$lib/party-colors';
+  import PairedBarChart from '$lib/charts/PairedBarChart.svelte';
+  import SlopeChart from '$lib/charts/SlopeChart.svelte';
   import type { PartyYearStats } from '$lib/types';
 
   let { data } = $props();
 
   // Persisted UI state across navigation. We use localStorage rather
   // than URL query params so the user's choices follow them around the
-  // site (drilling into /labour and back) without polluting the URL or
+  // site (drilling into /party/labour and back) without polluting the URL or
   // breaking prerender. Reads happen in an onMount-style $effect after
   // hydration; the SSR pass uses defaults so the prerendered HTML is
   // stable and uniform for all visitors.
-  const STORAGE_KEY_METRIC = 'er-uk:parties:metric';
   const STORAGE_KEY_VISIBILITY = 'er-uk:parties:visibility';
 
   // Toggle state per party slug. Initialised from the server's
   // defaultVisible set (majors on, regionals off) but the user can
-  // turn anything on/off interactively. Initial values only — the
-  // server data is prerendered and does not change at runtime, so
-  // referencing `data` here is intentional.
+  // turn anything on/off interactively. Drives Section C (cumulative
+  // footprint) only — Sections A and B always show every party with
+  // data for the relevant cycle.
   // svelte-ignore state_referenced_locally
   const visibility = $state<Record<string, boolean>>(
     Object.fromEntries(
@@ -44,59 +45,105 @@
     data.parties.filter((p) => visibility[p.slug])
   );
 
-  // Active metric: chamber share is comparable across all years and is
-  // the headline by default. Vote/seat share are election-only and
-  // need cycle-pair caveats — we offer them but mark accordingly.
-  type Metric = 'chamberShare' | 'voteShare' | 'seatShare';
-  let metric = $state<Metric>('chamberShare');
-  const metricLabels: Record<Metric, string> = {
-    chamberShare: 'Chamber share (rolled forward)',
-    voteShare: 'Vote share (election only)',
-    seatShare: 'Seat share of seats up (election only)'
-  };
-  const metricCaveats: Record<Metric, string> = {
-    chamberShare:
-      'Share of all council seats this party holds across every council with composition data. Comparable across the full window — composition rolls forward year-on-year.',
-    voteShare:
-      'Share of valid votes in the cycle’s elections. UK locals run on overlapping 4-year cycles; the same set of councils typically polls four years apart. Compare 2022 to 2026, or 2021 to 2025 — but not 2025 to 2026.',
-    seatShare:
-      'Share of seats up that this party won. Same cycle-pair caveat as vote share — compare years four cycles apart.'
-  };
+  // --- Section A: paired bars per cycle ---------------------------------
+  //
+  // For each recent cycle, build a sorted-by-vote-share list of the
+  // parties that contested seats in that cycle. Order parties so the
+  // reader's eye lands on the largest first.
+  function barsForCycle(year: number) {
+    return data.parties
+      .map((p) => {
+        const row = p.trend.find(
+          (s) => s.year === year && s.contestedSeats > 0
+        );
+        if (!row) return null;
+        return {
+          name: p.name,
+          href: `/party/${p.slug}`,
+          color: partyColor(p.name),
+          voteShare: row.voteShare,
+          seatShare: row.seatShare
+        };
+      })
+      .filter((b): b is NonNullable<typeof b> => b !== null)
+      .sort((a, b) => b.voteShare - a.voteShare);
+  }
 
-  // Plot dimensions. Two stacked plots in this page would be visual
-  // noise — instead we surface one big plot whose metric is user-
-  // toggled, plus a secondary cycle-family vote-share view inside the
-  // table-of-cards section below.
+  // --- Section B: slope per party in the most recent cycle pair --------
+  //
+  // For each party, find the most recent year in which they contested
+  // seats and pair it with the same party's prior cycle (year − 4).
+  // Skip the party if either end is missing — a single point is not a
+  // slope, and "0% → 12%" is honest only when the 0% is real, not
+  // missing data.
+  type Slope = {
+    party: string;
+    slug: string;
+    color: string;
+    startYear: number;
+    startValue: number;
+    endYear: number;
+    endValue: number;
+  };
+  const slopes = $derived.by<Slope[]>(() => {
+    const out: Slope[] = [];
+    for (const p of data.parties) {
+      const elections = p.trend
+        .filter((s) => s.contestedSeats > 0)
+        .sort((a, b) => b.year - a.year);
+      const last = elections[0];
+      if (!last) continue;
+      const prior = p.trend.find(
+        (s) => s.year === last.year - 4 && s.contestedSeats > 0
+      );
+      if (!prior) continue;
+      out.push({
+        party: p.name,
+        slug: p.slug,
+        color: partyColor(p.name),
+        startYear: prior.year,
+        startValue: prior.voteShare,
+        endYear: last.year,
+        endValue: last.voteShare
+      });
+    }
+    // Most-recent-cycle slopes lead, then by absolute movement so the
+    // biggest swings sit nearby for visual comparison.
+    return out.sort(
+      (a, b) =>
+        b.endYear - a.endYear ||
+        Math.abs(b.endValue - b.startValue) -
+          Math.abs(a.endValue - a.startValue)
+    );
+  });
+
+  // --- Section C: cumulative footprint chart ----------------------------
+  //
+  // This is the existing chamber-share line chart, retained as-is but
+  // demoted to context. The metric is comparable across the full
+  // window because composition rolls forward year-on-year.
   const W = 760;
   const H = 320;
   const PAD = { l: 48, r: 16, t: 16, b: 36 };
   const innerW = W - PAD.l - PAD.r;
   const innerH = H - PAD.t - PAD.b;
 
-  // X-axis range is metric-aware: chamber-share uses the full window
-  // (composition rolls forward from 2016), but vote-share and seat-share
-  // only have data from 2021 onwards (the LEH workbooks our ETL covers).
-  // Clipping the axis to election years for those metrics avoids the
-  // misleading "lines hugging the floor" stretch on the left.
-  const yearsForMetric = $derived.by(() => {
-    if (metric === 'chamberShare') {
-      return data.years.filter((y) =>
-        data.parties.some((p) =>
-          p.trend.some((s) => s.year === y && s.chamberTotal > 0)
-        )
-      );
-    }
-    return data.years.filter((y) =>
+  const chamberYears = $derived(
+    data.years.filter((y) =>
       data.parties.some((p) =>
-        p.trend.some((s) => s.year === y && s.contestedSeats > 0)
+        p.trend.some((s) => s.year === y && s.chamberTotal > 0)
       )
-    );
-  });
+    )
+  );
   const minYear = $derived(
-    yearsForMetric.length > 0 ? Math.min(...yearsForMetric) : Math.min(...data.years)
+    chamberYears.length > 0
+      ? Math.min(...chamberYears)
+      : Math.min(...data.years)
   );
   const maxYear = $derived(
-    yearsForMetric.length > 0 ? Math.max(...yearsForMetric) : Math.max(...data.years)
+    chamberYears.length > 0
+      ? Math.max(...chamberYears)
+      : Math.max(...data.years)
   );
   const yearSpan = $derived(Math.max(1, maxYear - minYear));
 
@@ -107,17 +154,14 @@
     return PAD.t + (1 - share / yMax) * innerH;
   }
 
-  // Auto-fit Y axis to the visible data + selected metric. Round up to
-  // the next 10% so the gridlines stay readable.
+  // Auto-fit Y axis to the visible data. Round up to the next 10% so
+  // the gridlines stay readable.
   const yMax = $derived.by(() => {
     let raw = 0;
     for (const p of visibleParties) {
       for (const s of p.trend) {
-        if (metric === 'voteShare' && s.contestedSeats === 0) continue;
-        if (metric === 'seatShare' && s.contestedSeats === 0) continue;
-        if (metric === 'chamberShare' && s.chamberTotal === 0) continue;
-        const v = s[metric];
-        if (v > raw) raw = v;
+        if (s.chamberTotal === 0) continue;
+        if (s.chamberShare > raw) raw = s.chamberShare;
       }
     }
     if (raw <= 0) return 0.1;
@@ -137,7 +181,7 @@
 
   // --- Persistence -----------------------------------------------------
   //
-  // Hydrate stored selection on the client (SSR can't read
+  // Hydrate stored visibility on the client (SSR can't read
   // localStorage). Wrap reads in try/catch so a corrupt value or a
   // strict storage policy (Safari private mode) just falls back to
   // defaults instead of crashing the page.
@@ -145,10 +189,6 @@
   $effect(() => {
     if (hydrated) return;
     try {
-      const m = localStorage.getItem(STORAGE_KEY_METRIC);
-      if (m === 'chamberShare' || m === 'voteShare' || m === 'seatShare') {
-        metric = m;
-      }
       const vis = localStorage.getItem(STORAGE_KEY_VISIBILITY);
       if (vis) {
         const parsed = JSON.parse(vis);
@@ -163,14 +203,6 @@
     }
     hydrated = true;
   });
-  // Write-through after hydration. Skipping pre-hydration writes avoids
-  // overwriting stored values with the defaults during the initial pass.
-  $effect(() => {
-    if (!hydrated) return;
-    try {
-      localStorage.setItem(STORAGE_KEY_METRIC, metric);
-    } catch {}
-  });
   $effect(() => {
     if (!hydrated) return;
     try {
@@ -178,34 +210,7 @@
     } catch {}
   });
 
-  // For chamber metric: a single continuous line per party.
-  // For vote/seat metric: split into cycle families so we don't draw
-  // misleading inter-family connector segments.
-  function plotPoints(
-    party: typeof data.parties[number]
-  ): { line: PartyYearStats[]; family: number }[] {
-    const usable = party.trend.filter((s) => {
-      if (metric === 'chamberShare') return s.chamberTotal > 0;
-      return s.contestedSeats > 0;
-    });
-    if (metric === 'chamberShare') {
-      return [{ line: usable.sort((a, b) => a.year - b.year), family: -1 }];
-    }
-    const byFamily = new Map<number, PartyYearStats[]>();
-    for (const s of usable) {
-      const arr = byFamily.get(s.cycleFamily) ?? [];
-      arr.push(s);
-      byFamily.set(s.cycleFamily, arr);
-    }
-    return [...byFamily.entries()]
-      .map(([family, line]) => ({
-        family,
-        line: line.sort((a, b) => a.year - b.year)
-      }))
-      .sort((a, b) => a.family - b.family);
-  }
-
-  // Tooltip shown on hover over a data point.
+  // Tooltip shown on hover over a Section C data point.
   type Tooltip = {
     x: number;
     y: number;
@@ -222,36 +227,14 @@
     cx: number,
     cy: number
   ): Tooltip {
-    if (metric === 'chamberShare') {
-      return {
-        x: cx,
-        y: cy,
-        party: party.name,
-        color: partyColor(party.name),
-        year: s.year,
-        primary: `${pct(s.chamberShare)}`,
-        secondary: `${num(s.chamberSeats)} of ${num(s.chamberTotal)} seats — largest in ${num(s.councilsLargest)}/${num(s.councilsWithComposition)} councils`
-      };
-    }
-    if (metric === 'voteShare') {
-      return {
-        x: cx,
-        y: cy,
-        party: party.name,
-        color: partyColor(party.name),
-        year: s.year,
-        primary: `${pct(s.voteShare)}`,
-        secondary: `${num(s.votes)} votes across ${num(s.councilsContested)} councils`
-      };
-    }
     return {
       x: cx,
       y: cy,
       party: party.name,
       color: partyColor(party.name),
       year: s.year,
-      primary: `${pct(s.seatShare)}`,
-      secondary: `${num(s.seatsWon)} of ${num(s.contestedSeats)} seats up`
+      primary: `${pct(s.chamberShare)}`,
+      secondary: `${num(s.chamberSeats)} of ${num(s.chamberTotal)} seats — largest in ${num(s.councilsLargest)}/${num(s.councilsWithComposition)} councils`
     };
   }
   function clearTooltip() {
@@ -272,7 +255,7 @@
   <title>Parties — electionresults.uk</title>
   <meta
     name="description"
-    content="UK major parties at local-government level — vote share, seat share, and chamber composition compared across 2016–2026."
+    content="UK major parties at local-government level — disproportionality between vote share and seat share, four-year movement, and chamber footprint."
   />
   <link rel="canonical" href="https://electionresults.uk/parties" />
 </svelte:head>
@@ -281,32 +264,122 @@
   <h1>Parties</h1>
 
   <p>
-    The seven national parties active in UK local government, compared
-    on one chart. Click any card to drill in to that party's full
-    history, or any data point on the chart to jump to that party-year.
+    Seven national parties active in UK local government. The chart
+    below pairs the votes each party won against the seats they
+    actually got — the gap is the story this site exists to tell.
   </p>
 
-  <div class="metric-tabs" role="tablist" aria-label="Metric">
-    {#each (['chamberShare', 'voteShare', 'seatShare'] as Metric[]) as m (m)}
-      <button
-        role="tab"
-        type="button"
-        aria-selected={metric === m}
-        class:active={metric === m}
-        onclick={() => (metric = m)}
-      >
-        {metricLabels[m]}
-      </button>
+  <h2 id="pick-a-party">Pick a party</h2>
+  <p class="muted small">
+    Drill into any party for its full per-cycle history, the councils
+    it gained and lost, and where its footprint shifted.
+  </p>
+
+  <div class="cards">
+    {#each orderedCards as p (p.slug)}
+      {@const color = partyColor(p.name)}
+      {@const latest = p.latest}
+      {@const earliest = p.trend.filter((s) => s.chamberTotal > 0)[0]}
+      {@const swing = latest && earliest
+        ? latest.chamberShare - earliest.chamberShare
+        : null}
+      <a class="card" href="/party/{p.slug}" style:--accent-color={color}>
+        <header>
+          <span class="swatch" style:background={color} aria-hidden="true"></span>
+          <h3>{p.name}</h3>
+          <span class="chev" aria-hidden="true">→</span>
+        </header>
+        {#if latest}
+          <p class="big">{pct(latest.chamberShare)}</p>
+          <p class="muted small">
+            {num(latest.chamberSeats)} of {num(latest.chamberTotal)} seats ({latest.year})
+          </p>
+          <p class="small">
+            Largest in <strong>{num(latest.councilsLargest)}</strong> of
+            {num(latest.councilsWithComposition)} councils.
+          </p>
+          {#if swing != null && earliest}
+            <p class="small">
+              Since {earliest.year}: <strong>{pts(swing)}</strong>
+              footprint share.
+            </p>
+          {/if}
+          <p class="small">
+            Council-control swing in window:
+            <strong class="pos">+{p.totalGained}</strong>
+            /
+            <strong class="neg">−{p.totalLost}</strong>
+          </p>
+        {:else}
+          <p class="muted">No chamber data.</p>
+        {/if}
+      </a>
     {/each}
   </div>
 
-  <p class="muted caveat">
-    {metricCaveats[metric]}
+  <h2 id="votes-vs-seats">Votes vs seats, by cycle</h2>
+  <p class="muted small">
+    For each recent cycle, the bars show every party's share of valid
+    votes (filled) against its share of the seats actually up
+    (outlined). The signed gap is the disproportionality.
+  </p>
+
+  <div class="cycle-panels">
+    {#each data.recentCycles as cycle (cycle.year)}
+      {@const bars = barsForCycle(cycle.year)}
+      <section class="cycle-panel" id={`cycle-${cycle.year}`}>
+        <header>
+          <h3>{cycle.electionDateLabel}</h3>
+          <p class="muted small">
+            {num(cycle.councilCount)} councils · {num(cycle.seatCount)} seats up{#if cycle.priorYear}
+              · same councils last polled in {cycle.priorYear}{/if}.
+          </p>
+        </header>
+        {#if bars.length > 0}
+          <PairedBarChart {bars} />
+        {:else}
+          <p class="muted">No party-level data for this cycle yet.</p>
+        {/if}
+      </section>
+    {/each}
+  </div>
+
+  <h2 id="four-year-movement">Four-year movement</h2>
+  <p class="muted small">
+    Vote share, four years apart. Same councils, same cycle. One panel
+    per party with both ends of a comparable cycle in our data.
+  </p>
+
+  {#if slopes.length > 0}
+    <div class="slope-grid">
+      {#each slopes as s (s.slug)}
+        <SlopeChart
+          title={s.party}
+          href={`/party/${s.slug}`}
+          color={s.color}
+          startYear={s.startYear}
+          startValue={s.startValue}
+          endYear={s.endYear}
+          endValue={s.endValue}
+          compact
+        />
+      {/each}
+    </div>
+  {:else}
+    <p class="muted">
+      Not enough cycle-paired data yet to draw four-year movement.
+    </p>
+  {/if}
+
+  <h2 id="cumulative-footprint">Cumulative footprint</h2>
+  <p class="muted">
+    <strong>Share of all UK council seats held.</strong> Across all
+    councils in our dataset, including those not polling this year.
+    Weighted by chamber size — bigger councils count for more.
   </p>
 
   <div class="chartwrap">
-    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Party comparison chart">
-      <!-- Y gridlines -->
+    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Cumulative footprint chart">
       {#each yTicks as v (v)}
         <line
           x1={PAD.l}
@@ -326,7 +399,6 @@
           {Math.round(v * 100)}%
         </text>
       {/each}
-      <!-- X labels (every other year if span is wide) -->
       {#each yearTicks as y (y)}
         {#if yearSpan <= 8 || y % 2 === 0}
           <text
@@ -341,47 +413,44 @@
         {/if}
       {/each}
 
-      <!-- Party lines -->
       {#each visibleParties as party (party.slug)}
         {@const color = partyColor(party.name)}
-        {#each plotPoints(party) as group (group.family)}
-          {#if group.line.length >= 2}
-            <polyline
-              points={group.line
-                .map((s) => `${xFor(s.year)},${yFor(s[metric])}`)
-                .join(' ')}
-              fill="none"
-              stroke={color}
-              stroke-width="2.4"
-              stroke-linejoin="round"
-              stroke-linecap="round"
+        {@const points = party.trend
+          .filter((s) => s.chamberTotal > 0)
+          .sort((a, b) => a.year - b.year)}
+        {#if points.length >= 2}
+          <polyline
+            points={points
+              .map((s) => `${xFor(s.year)},${yFor(s.chamberShare)}`)
+              .join(' ')}
+            fill="none"
+            stroke={color}
+            stroke-width="2.4"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          />
+        {/if}
+        {#each points as s (s.year)}
+          {@const cx = xFor(s.year)}
+          {@const cy = yFor(s.chamberShare)}
+          <a
+            href={`/party/${party.slug}`}
+            aria-label={`${party.name} ${s.year}`}
+            onpointerenter={() => (tooltip = buildTooltip(party, s, cx, cy))}
+            onpointerleave={clearTooltip}
+            onfocus={() => (tooltip = buildTooltip(party, s, cx, cy))}
+            onblur={clearTooltip}
+          >
+            <circle
+              cx={cx}
+              cy={cy}
+              r="5"
+              fill={color}
+              stroke="var(--bg)"
+              stroke-width="1.5"
+              style="cursor:pointer"
             />
-          {/if}
-          {#each group.line as s (s.year)}
-            {@const cx = xFor(s.year)}
-            {@const cy = yFor(s[metric])}
-            {@const href = s.contestedSeats > 0
-              ? `/${party.slug}/${s.year}`
-              : `/${party.slug}`}
-            <a
-              href={href}
-              aria-label={`${party.name} ${s.year}`}
-              onpointerenter={() => (tooltip = buildTooltip(party, s, cx, cy))}
-              onpointerleave={clearTooltip}
-              onfocus={() => (tooltip = buildTooltip(party, s, cx, cy))}
-              onblur={clearTooltip}
-            >
-              <circle
-                cx={cx}
-                cy={cy}
-                r="5"
-                fill={color}
-                stroke="var(--bg)"
-                stroke-width="1.5"
-                style="cursor:pointer"
-              />
-            </a>
-          {/each}
+          </a>
         {/each}
       {/each}
 
@@ -440,53 +509,7 @@
     </div>
   </fieldset>
 
-  <h2>Party cards</h2>
-  <p class="muted">
-    Latest snapshot for each party, sorted by current chamber share.
-  </p>
-
-  <div class="cards">
-    {#each orderedCards as p (p.slug)}
-      {@const color = partyColor(p.name)}
-      {@const latest = p.latest}
-      {@const earliest = p.trend.filter((s) => s.chamberTotal > 0)[0]}
-      {@const swing = latest && earliest
-        ? latest.chamberShare - earliest.chamberShare
-        : null}
-      <a class="card" href="/{p.slug}" style:--accent-color={color}>
-        <header>
-          <span class="swatch" style:background={color} aria-hidden="true"></span>
-          <h3>{p.name}</h3>
-        </header>
-        {#if latest}
-          <p class="big">{pct(latest.chamberShare)}</p>
-          <p class="muted small">
-            {num(latest.chamberSeats)} of {num(latest.chamberTotal)} seats ({latest.year})
-          </p>
-          <p class="small">
-            Largest in <strong>{num(latest.councilsLargest)}</strong> of
-            {num(latest.councilsWithComposition)} councils.
-          </p>
-          {#if swing != null && earliest}
-            <p class="small">
-              Since {earliest.year}: <strong>{pts(swing)}</strong>
-              chamber share.
-            </p>
-          {/if}
-          <p class="small">
-            Council-control swing in window:
-            <strong class="pos">+{p.totalGained}</strong>
-            /
-            <strong class="neg">−{p.totalLost}</strong>
-          </p>
-        {:else}
-          <p class="muted">No chamber data.</p>
-        {/if}
-      </a>
-    {/each}
-  </div>
-
-  <p class="muted">
+  <p class="muted small">
     Definitions and caveats live in the <a href="/methodology">methodology</a>
     page. UK locals run on a 4-year cycle, with different councils
     polling in different years — so vote and seat share are only
@@ -496,29 +519,44 @@
 </main>
 
 <style>
-  .metric-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin: 1rem 0 0.4rem;
+  h2 {
+    margin-top: 2rem;
   }
-  .metric-tabs button {
-    border: 1px solid var(--rule);
-    background: var(--bg);
-    color: var(--fg);
-    padding: 0.4rem 0.8rem;
-    cursor: pointer;
-    font-size: 0.9rem;
-    border-radius: 3px;
-  }
-  .metric-tabs button.active {
-    background: var(--accent);
-    color: var(--accent-fg);
-    border-color: var(--accent);
-  }
-  .caveat {
+  .small {
     font-size: 0.85rem;
-    margin-top: 0.4rem;
+  }
+  .cycle-panels {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin: 0.8rem 0 1.2rem;
+  }
+  @media (min-width: 980px) {
+    .cycle-panels {
+      grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    }
+  }
+  .cycle-panel {
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: 0.8rem 1rem 1rem;
+    background: var(--bg);
+  }
+  .cycle-panel header {
+    margin: 0 0 0.6rem;
+  }
+  .cycle-panel h3 {
+    margin: 0 0 0.15rem;
+    font-size: 1.05rem;
+  }
+  .cycle-panel header p {
+    margin: 0;
+  }
+  .slope-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.6rem;
+    margin: 0.8rem 0 1.2rem;
   }
   .chartwrap {
     margin: 0.6rem 0 0.4rem;
@@ -620,6 +658,16 @@
     margin: 0;
     font-size: 1rem;
     font-family: inherit;
+    flex: 1;
+  }
+  .card .chev {
+    color: var(--muted);
+    font-size: 1.1rem;
+    transition: transform 0.15s ease;
+  }
+  .card:hover .chev {
+    color: var(--accent-color, var(--accent));
+    transform: translateX(2px);
   }
   .card .swatch {
     display: inline-block;

@@ -1,10 +1,65 @@
 <script lang="ts">
   import { num, pct, pts } from '$lib/format';
   import { partyColor, partyDisplayName } from '$lib/party-colors';
+  import CouncilHexMap, {
+    type CouncilFill
+  } from '$lib/components/CouncilHexMap.svelte';
 
   let { data } = $props();
   const partyHex = $derived(partyColor(data.partyName));
   const summary = $derived(data.summary);
+
+  // Gained / lost ring colours. Green for gain, warn for loss — strong
+  // enough to read against any party brand colour, including Reform's
+  // teal which is closest to a "gain" green.
+  const GAINED_RING = '#1c7a3a';
+  const LOST_RING = '#b94a2c';
+
+  const controlFills = $derived.by<Record<string, CouncilFill>>(() => {
+    const out: Record<string, CouncilFill> = {};
+    // 1) Held / gained: every council the party led as of {year}.
+    //    These fill in the party brand colour.
+    for (const c of data.controlledCouncils) {
+      out[c.councilSlug] = {
+        color: partyHex,
+        href: `/${c.councilSlug}`,
+        primary: c.council,
+        secondary: `${num(c.seats)} of ${num(c.totalSeats)} seats (snapshot ${c.year})`,
+        title: `${c.council}: ${num(c.seats)} of ${num(c.totalSeats)} seats — largest party as of ${c.year}`
+      };
+    }
+    // 2) Gained at this election: keep the party fill, add a green
+    //    ring so the wins stand out against the held set.
+    if (data.controls) {
+      for (const g of data.controls.councilsGained) {
+        out[g.councilSlug] = {
+          ...(out[g.councilSlug] ?? {
+            color: partyHex,
+            href: `/${g.councilSlug}`,
+            primary: g.council
+          }),
+          stroke: GAINED_RING,
+          strokeWidth: 2.4,
+          secondary: `Gained from ${g.fromParty} (was largest in ${g.yearFrom})`,
+          title: `${g.council}: gained from ${g.fromParty}`
+        };
+      }
+      // 3) Lost at this election: drop the party fill (they no longer
+      //    lead) and ring in warn red.
+      for (const l of data.controls.councilsLost) {
+        out[l.councilSlug] = {
+          color: '#e5e3d6',
+          href: `/${l.councilSlug}`,
+          primary: l.council,
+          secondary: `Lost to ${l.toParty} (was largest in ${l.yearFrom})`,
+          title: `${l.council}: lost to ${l.toParty}`,
+          stroke: LOST_RING,
+          strokeWidth: 2.4
+        };
+      }
+    }
+    return out;
+  });
 </script>
 
 <svelte:head>
@@ -15,13 +70,13 @@
   />
   <link
     rel="canonical"
-    href="https://electionresults.uk/{data.partySlug}/{data.year}"
+    href="https://electionresults.uk/party/{data.partySlug}/{data.year}"
   />
 </svelte:head>
 
 <main class="wide">
   <p class="crumbs">
-    <a href="/{data.partySlug}">{data.partyName}</a> &rsaquo; {data.year}
+    <a href="/party/{data.partySlug}">{data.partyName}</a> &rsaquo; {data.year}
   </p>
   <h1>
     <span class="swatch" style:background={partyHex} aria-hidden="true"></span>
@@ -62,6 +117,47 @@
       </li>
     {/if}
   </ul>
+
+  {#if data.controlledCouncils.length > 0 || (data.controls && (data.controls.councilsGained.length + data.controls.councilsLost.length) > 0)}
+    {@const gainedCount = data.controls?.councilsGained.length ?? 0}
+    {@const lostCount = data.controls?.councilsLost.length ?? 0}
+    <h2>Where {data.partyName} led, as of {data.year}</h2>
+    <p class="muted small">
+      Councils where {data.partyName} was the largest single party in
+      the most recent composition snapshot at or before {data.year}.
+      Greens ring councils gained at this election; reds ring those
+      lost. Click any hex to drill in.
+    </p>
+    <div class="map-and-scale">
+      <CouncilHexMap
+        fills={controlFills}
+        title={`UK councils where ${data.partyName} was largest as of ${data.year}`}
+      />
+      <div class="map-legend">
+        <p class="legend-label">As of {data.year}</p>
+        <p class="legend-count">
+          <span class="swatch" style:background={partyHex}></span>
+          <strong>{num(data.controlledCouncils.length)}</strong> councils led
+        </p>
+        {#if gainedCount > 0}
+          <p class="legend-count">
+            <span class="swatch ring-gain" style:background={partyHex}></span>
+            <strong class="pos">+{num(gainedCount)}</strong> gained this cycle
+          </p>
+        {/if}
+        {#if lostCount > 0}
+          <p class="legend-count">
+            <span class="swatch ring-lost"></span>
+            <strong class="neg">−{num(lostCount)}</strong> lost this cycle
+          </p>
+        {/if}
+        <p class="muted xsmall">
+          Grey hexes are councils where another party led, or where we
+          don't have a snapshot for that year.
+        </p>
+      </div>
+    </div>
+  {/if}
 
   {#if data.controls && (data.controls.councilsGained.length > 0 || data.controls.councilsLost.length > 0)}
     <h2>Council-control changes</h2>
@@ -252,6 +348,67 @@
   }
   ul.headline li {
     margin: 0.4em 0;
+  }
+  .small {
+    font-size: 0.85rem;
+  }
+  .xsmall {
+    font-size: 0.75rem;
+    margin: 0.2rem 0 0;
+  }
+  .map-and-scale {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(8rem, 13rem);
+    gap: 1.25rem;
+    align-items: start;
+    margin: 0.5rem 0 1.5rem;
+  }
+  @media (max-width: 640px) {
+    .map-and-scale {
+      grid-template-columns: 1fr;
+    }
+  }
+  .map-legend .legend-label {
+    margin: 0 0 0.4rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+  .map-legend .legend-count {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+  }
+  .map-legend .legend-count strong {
+    font-size: 1.4rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .map-legend .swatch {
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    margin-right: 0.4em;
+    border-radius: 2px;
+    vertical-align: -0.05em;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+  }
+  .map-legend .swatch.ring-gain {
+    border: 2px solid #1c7a3a;
+  }
+  .map-legend .swatch.ring-lost {
+    background: #e5e3d6;
+    border: 2px solid #b94a2c;
+  }
+  .map-legend .pos {
+    color: #1c7a3a;
+  }
+  .map-legend .neg {
+    color: var(--warn);
+  }
+  @media (prefers-color-scheme: dark) {
+    .map-legend .swatch {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
   }
   ul.flips,
   ul.flat-list {

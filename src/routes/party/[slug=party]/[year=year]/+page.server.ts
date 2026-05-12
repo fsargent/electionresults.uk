@@ -6,8 +6,10 @@ import {
   partyYearStat,
   partyCouncilCyclesWithChange,
   partyControlChangesFor,
-  cycleByYear
+  cycleByYear,
+  allCompositions
 } from '$lib/data';
+import type { CompositionSnapshot } from '$lib/types';
 
 export const prerender = true;
 
@@ -15,22 +17,22 @@ export function entries() {
   // Only emit per-year pages for years the party actually contested —
   // chamber-only carry-forward years (e.g. Labour in 2020, before the
   // dataset starts) have no election to break down.
-  const out: { party: string; year: string }[] = [];
+  const out: { slug: string; year: string }[] = [];
   for (const slug of partySlugs()) {
     const partyName = partyForSlug(slug);
     if (!partyName) continue;
     for (const stat of partyTrend(partyName)) {
       if (stat.contestedSeats > 0) {
-        out.push({ party: slug, year: String(stat.year) });
+        out.push({ slug, year: String(stat.year) });
       }
     }
   }
   return out;
 }
 
-export function load({ params }: { params: { party: string; year: string } }) {
-  const partyName = partyForSlug(params.party);
-  if (!partyName) throw error(404, `Unknown party: ${params.party}`);
+export function load({ params }: { params: { slug: string; year: string } }) {
+  const partyName = partyForSlug(params.slug);
+  if (!partyName) throw error(404, `Unknown party: ${params.slug}`);
 
   const year = Number(params.year);
   if (!Number.isFinite(year)) throw error(404, `Bad year: ${params.year}`);
@@ -65,9 +67,31 @@ export function load({ params }: { params: { party: string; year: string } }) {
     0
   );
 
+  // Councils the party "had" as of {year} = take each council's latest
+  // composition snapshot with year ≤ {year} and keep the ones where
+  // this party was the named largest party. The "as-of" interpretation
+  // (snapshot ≤ year) is more honest than year == X when oncd doesn't
+  // publish a snapshot for every council every year.
+  const asOf = new Map<string, CompositionSnapshot>();
+  for (const c of allCompositions) {
+    if (c.year > year) continue;
+    const prev = asOf.get(c.councilSlug);
+    if (!prev || c.year > prev.year) asOf.set(c.councilSlug, c);
+  }
+  const controlledCouncils = [...asOf.values()]
+    .filter((c) => c.largestParty === partyName)
+    .map((c) => ({
+      councilSlug: c.councilSlug,
+      council: c.council,
+      year: c.year,
+      seats: c.largestPartySeats,
+      totalSeats: c.totalSeats
+    }))
+    .sort((a, b) => a.council.localeCompare(b.council));
+
   return {
     partyName,
-    partySlug: params.party,
+    partySlug: params.slug,
     year,
     summary,
     cycle,
@@ -77,6 +101,7 @@ export function load({ params }: { params: { party: string; year: string } }) {
     flat,
     debut,
     totalNet,
-    controls
+    controls,
+    controlledCouncils
   };
 }

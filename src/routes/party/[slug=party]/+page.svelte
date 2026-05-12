@@ -1,97 +1,110 @@
 <script lang="ts">
   import { num, pct, pts } from '$lib/format';
   import { partyColor } from '$lib/party-colors';
+  import PairedBarChart from '$lib/charts/PairedBarChart.svelte';
+  import SlopeChart from '$lib/charts/SlopeChart.svelte';
+  import CouncilHexMap, {
+    type CouncilFill
+  } from '$lib/components/CouncilHexMap.svelte';
   import type { PartyYearStats } from '$lib/types';
 
   let { data } = $props();
   const trend = $derived(data.trend as PartyYearStats[]);
   const partyHex = $derived(partyColor(data.partyName));
 
-  // Cycle-pair grouping: group years by year % 4. Two years in the same
-  // family are roughly comparable (mostly the same councils polled);
-  // years across families are not. We render each family as its own
-  // sub-line so the chart is honest about what's being compared.
-  type Family = { mod: number; rows: PartyYearStats[]; label: string };
-  const familyLabels: Record<number, string> = {
-    0: '2020 / 2024 cycle',
-    1: '2021 / 2025 cycle',
-    2: '2022 / 2026 cycle',
-    3: '2023 / 2027 cycle'
-  };
-  const families = $derived.by<Family[]>(() => {
-    const byMod = new Map<number, PartyYearStats[]>();
-    for (const r of trend) {
-      if (r.contestedSeats === 0) continue;
-      const arr = byMod.get(r.cycleFamily) ?? [];
-      arr.push(r);
-      byMod.set(r.cycleFamily, arr);
+  // Hex-map fills: one entry per council where this party is the
+  // currently-largest party. Other councils fall through to the
+  // CouncilHexMap default neutral fill.
+  const controlFills = $derived.by<Record<string, CouncilFill>>(() => {
+    const out: Record<string, CouncilFill> = {};
+    for (const c of data.controlledCouncils) {
+      out[c.councilSlug] = {
+        color: partyHex,
+        href: `/${c.councilSlug}`,
+        primary: c.council,
+        secondary: `${num(c.seats)} of ${num(c.totalSeats)} seats (${c.year})`,
+        title: `${c.council}: ${num(c.seats)} of ${num(c.totalSeats)} seats — largest party (${c.year})`
+      };
     }
-    return [...byMod.entries()]
-      .map(([mod, rows]) => ({
-        mod,
-        rows: rows.sort((a, b) => a.year - b.year),
-        label: familyLabels[mod] ?? `mod-${mod} cycle`
-      }))
-      .sort((a, b) => a.mod - b.mod);
+    return out;
   });
 
-  // Chamber trend line: composition rolls forward year to year so this
-  // single line is comparable across the whole window (unlike the
-  // election-side numbers above).
-  const chamberPoints = $derived(
-    trend.filter((r) => r.chamberTotal > 0)
+  // Section A: one bar pair per cycle this party contested. Rows are
+  // cycles (most recent first); each row pairs vote share vs seat
+  // share. The accumulating gap across the rows is the disproportion
+  // story scoped to one party.
+  const cycleBars = $derived(
+    trend
+      .filter((r) => r.contestedSeats > 0)
+      .sort((a, b) => b.year - a.year)
+      .map((r) => ({
+        name: String(r.year),
+        color: partyHex,
+        voteShare: r.voteShare,
+        seatShare: r.seatShare,
+        href: `/party/${data.partySlug}/${r.year}`
+      }))
   );
 
-  // Inline-SVG plot dimensions. We render two stacked plots: one for
-  // election-side metrics (faceted by cycle family) and one for the
-  // continuous chamber trend. They use independent X ranges so the
-  // election-side chart isn't padded with empty pre-2021 space.
+  // Section B: slope per cycle-pair, most recent first. Pair years
+  // four apart (same family) so the comparison is real. Skip a slope
+  // when either end is missing.
+  type Slope = {
+    label: string;
+    startYear: number;
+    startValue: number;
+    endYear: number;
+    endValue: number;
+  };
+  const cycleSlopes = $derived.by<Slope[]>(() => {
+    const elections = trend
+      .filter((r) => r.contestedSeats > 0)
+      .sort((a, b) => b.year - a.year);
+    const out: Slope[] = [];
+    const used = new Set<number>();
+    for (const end of elections) {
+      if (used.has(end.year)) continue;
+      const start = elections.find((s) => s.year === end.year - 4);
+      if (!start) continue;
+      out.push({
+        label: `${start.year} → ${end.year} cycle`,
+        startYear: start.year,
+        startValue: start.voteShare,
+        endYear: end.year,
+        endValue: end.voteShare
+      });
+      used.add(end.year);
+      used.add(start.year);
+    }
+    return out;
+  });
+
+  // Section C: cumulative footprint line — share of all UK council
+  // seats held, full window. Composition rolls forward year-on-year
+  // so this metric IS comparable across all years.
+  const chamberPoints = $derived(
+    trend
+      .filter((r) => r.chamberTotal > 0)
+      .sort((a, b) => a.year - b.year)
+  );
+
   const W = 720;
   const H = 240;
   const PAD = { l: 44, r: 16, t: 14, b: 32 };
   const innerW = W - PAD.l - PAD.r;
   const innerH = H - PAD.t - PAD.b;
 
-  // Election-side range: only years with actual contested-cycle data.
-  const electionYears = $derived(
-    trend.filter((r) => r.contestedSeats > 0).map((r) => r.year)
-  );
-  const electionMinYear = $derived(
-    electionYears.length > 0 ? Math.min(...electionYears) : 0
-  );
-  const electionMaxYear = $derived(
-    electionYears.length > 0 ? Math.max(...electionYears) : 0
-  );
-  const electionYearSpan = $derived(
-    Math.max(1, electionMaxYear - electionMinYear)
-  );
-  const electionYearTicks = $derived(
-    electionYears.length > 0
-      ? Array.from(
-          { length: electionYearSpan + 1 },
-          (_, i) => electionMinYear + i
-        )
-      : []
-  );
-  function xForElection(year: number): number {
-    return PAD.l + ((year - electionMinYear) / electionYearSpan) * innerW;
-  }
-
-  // Chamber range: full window, since composition rolls forward from 2016.
-  const chamberYears = $derived(
-    trend.filter((r) => r.chamberTotal > 0).map((r) => r.year)
-  );
   const chamberMinYear = $derived(
-    chamberYears.length > 0 ? Math.min(...chamberYears) : 0
+    chamberPoints.length > 0 ? chamberPoints[0].year : 0
   );
   const chamberMaxYear = $derived(
-    chamberYears.length > 0 ? Math.max(...chamberYears) : 0
+    chamberPoints.length > 0 ? chamberPoints[chamberPoints.length - 1].year : 0
   );
   const chamberYearSpan = $derived(
     Math.max(1, chamberMaxYear - chamberMinYear)
   );
   const chamberYearTicks = $derived(
-    chamberYears.length > 0
+    chamberPoints.length > 0
       ? Array.from(
           { length: chamberYearSpan + 1 },
           (_, i) => chamberMinYear + i
@@ -101,23 +114,13 @@
   function xForChamber(year: number): number {
     return PAD.l + ((year - chamberMinYear) / chamberYearSpan) * innerW;
   }
-
   function yFor(share: number): number {
     return PAD.t + (1 - share) * innerH;
   }
-
-  // Y-axis range: 0–60% covers all realistic seat-share / vote-share /
-  // chamber-share points the seven major parties hit in our window.
   function yShareTicks(): { v: number; y: number }[] {
     return [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6].map((v) => ({ v, y: yFor(v) }));
   }
 
-  // --- Tooltips --------------------------------------------------------
-  //
-  // One tooltip state per chart. Anchored above the hovered dot so the
-  // reader's eye doesn't have to jump to a fixed corner. Falls back to
-  // below the dot when there isn't room above; clamps horizontally so
-  // the box never spills past the chart bounds.
   type Tooltip = {
     cx: number;
     cy: number;
@@ -126,17 +129,11 @@
     tertiary?: string;
     color: string;
   };
-  let electionTip = $state<Tooltip | null>(null);
   let chamberTip = $state<Tooltip | null>(null);
-
-  // Tooltip box dimensions used by both charts.
   const TIP_W = 250;
   const TIP_H = 60;
-  const TIP_GAP = 12; // distance between dot and tooltip edge
+  const TIP_GAP = 12;
 
-  /** Place the tooltip box above the dot when there's room, otherwise
-   *  below it; clamp x so the box stays within the chart. Returns the
-   *  top-left corner for an SVG `<g transform="translate(...)" />`. */
   function tipPosition(t: Tooltip): { x: number; y: number; below: boolean } {
     const wantAboveY = t.cy - TIP_GAP - TIP_H;
     const below = wantAboveY < PAD.t;
@@ -148,34 +145,11 @@
     return { x, y, below };
   }
 
-  function showVoteShare(r: PartyYearStats) {
-    electionTip = {
-      cx: xForElection(r.year),
-      cy: yFor(r.voteShare),
-      primary: `${r.year} · vote share: ${pct(r.voteShare)}`,
-      secondary: `${num(r.votes)} votes across ${num(r.councilsContested)} councils`,
-      tertiary: `Cycle: ${familyLabels[r.cycleFamily] ?? `mod-${r.cycleFamily}`}`,
-      color: partyHex
-    };
-  }
-  function showSeatShare(r: PartyYearStats) {
-    electionTip = {
-      cx: xForElection(r.year),
-      cy: yFor(r.seatShare),
-      primary: `${r.year} · seat share: ${pct(r.seatShare)}`,
-      secondary: `${num(r.seatsWon)} of ${num(r.contestedSeats)} seats up`,
-      tertiary: `Cycle: ${familyLabels[r.cycleFamily] ?? `mod-${r.cycleFamily}`}`,
-      color: partyHex
-    };
-  }
-  function clearElection() {
-    electionTip = null;
-  }
   function showChamber(r: PartyYearStats) {
     chamberTip = {
       cx: xForChamber(r.year),
       cy: yFor(r.chamberShare),
-      primary: `${r.year} · chamber share: ${pct(r.chamberShare)}`,
+      primary: `${r.year} · ${pct(r.chamberShare)}`,
       secondary: `${num(r.chamberSeats)} of ${num(r.chamberTotal)} seats`,
       tertiary: `Largest party in ${num(r.councilsLargest)} of ${num(r.councilsWithComposition)} councils`,
       color: partyHex
@@ -184,15 +158,26 @@
   function clearChamber() {
     chamberTip = null;
   }
+
+  // Familiar Y cap for the per-party slope (let outliers like SNP
+  // 2017-style results push above 50% if it ever happens).
+  const slopeYMax = $derived.by(() => {
+    let raw = 0.5;
+    for (const r of trend) {
+      if (r.contestedSeats === 0) continue;
+      if (r.voteShare > raw) raw = r.voteShare;
+    }
+    return Math.min(1, Math.ceil(raw * 10) / 10);
+  });
 </script>
 
 <svelte:head>
   <title>{data.partyName} — electionresults.uk</title>
   <meta
     name="description"
-    content="Vote share, seat share, and chamber composition for {data.partyName} across UK local elections 2021–2026."
+    content="Vote share, seat share, and chamber footprint for {data.partyName} across UK local elections 2021–2026."
   />
-  <link rel="canonical" href="https://electionresults.uk/{data.partySlug}" />
+  <link rel="canonical" href="https://electionresults.uk/party/{data.partySlug}" />
 </svelte:head>
 
 <main class="wide">
@@ -209,16 +194,6 @@
     snapshots).
   </p>
 
-  <p class="muted">
-    <strong>Reading note.</strong> UK locals run on a 4-year cycle, with
-    different councils polling in different years. The election-side
-    metrics below are only directly comparable between elections four
-    years apart (e.g. 2022 vs 2026, or 2021 vs 2025) — that's why the
-    vote-share and seat-share lines are drawn separately, one per
-    cycle. The chamber composition line is comparable across all years
-    (it sums every chamber, rolled forward where no fresh snapshot exists).
-  </p>
-
   <h2>Headline</h2>
   <ul class="headline">
     <li>
@@ -230,7 +205,7 @@
       {@const first = chamberPoints[0]}
       {@const last = chamberPoints[chamberPoints.length - 1]}
       <li>
-        Chamber share moved from <strong>{pct(first.chamberShare)}</strong>
+        Footprint share moved from <strong>{pct(first.chamberShare)}</strong>
         ({first.year}) to <strong>{pct(last.chamberShare)}</strong>
         ({last.year}) &mdash; a {pts(last.chamberShare - first.chamberShare)}{' '}
         shift across {num(last.councilsWithComposition)} councils.
@@ -243,173 +218,147 @@
     {/if}
   </ul>
 
-  <h2>Election-side trend (cycle-paired)</h2>
-  <p class="muted">
-    Vote share (solid) and seat share (dashed) of the seats actually up
-    in each cycle. Each line is one cycle family.
+  <h2>Where {data.partyName} leads</h2>
+  <p class="muted small">
+    Councils where {data.partyName} is the largest single party in the
+    most recent composition snapshot. Hover any hex for the council
+    name and seat count; click to drill in.
   </p>
 
-  <div class="chartwrap">
-    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Vote share and seat share by cycle family">
-      <!-- Y gridlines + labels -->
-      {#each yShareTicks() as t (t.v)}
-        <line
-          x1={PAD.l}
-          x2={W - PAD.r}
-          y1={t.y}
-          y2={t.y}
-          stroke="var(--rule)"
-          stroke-width="1"
-        />
-        <text x={PAD.l - 6} y={t.y + 3} text-anchor="end" font-size="11" fill="var(--muted)">
-          {Math.round(t.v * 100)}%
-        </text>
-      {/each}
-      <!-- X labels -->
-      {#each electionYearTicks as y}
-        <text
-          x={xForElection(y)}
-          y={H - PAD.b + 16}
-          text-anchor="middle"
-          font-size="11"
-          fill="var(--muted)"
-        >
-          {y}
-        </text>
-      {/each}
+  {#if data.controlledCouncils.length > 0}
+    <div class="map-and-scale">
+      <CouncilHexMap
+        fills={controlFills}
+        title={`UK councils where ${data.partyName} is currently the largest party`}
+      />
+      <div class="map-legend">
+        <p class="legend-label">Currently largest in</p>
+        <p class="legend-count">
+          <span class="swatch" style:background={partyHex}></span>
+          <strong>{num(data.controlledCouncils.length)}</strong> councils
+        </p>
+        <p class="muted xsmall">
+          From the most recent composition snapshot per council. Grey
+          hexes are councils where another party leads (or where we
+          don't yet have a snapshot).
+        </p>
+      </div>
+    </div>
+  {:else}
+    <p class="muted">
+      No councils where {data.partyName} is currently the largest party
+      in our composition data.
+    </p>
+  {/if}
 
-      <!-- Cycle-family lines (vote share solid, seat share dashed) -->
-      {#each families as fam (fam.mod)}
-        {#if fam.rows.length >= 1}
-          <!-- Vote share line -->
-          <polyline
-            points={fam.rows.map((r) => `${xForElection(r.year)},${yFor(r.voteShare)}`).join(' ')}
-            fill="none"
-            stroke={partyHex}
-            stroke-width="2.5"
-            opacity={0.6 + 0.1 * fam.mod}
-          />
-          {#each fam.rows as r}
-            <circle
-              cx={xForElection(r.year)}
-              cy={yFor(r.voteShare)}
-              r="6"
-              fill={partyHex}
-              stroke="var(--bg)"
-              stroke-width="1.5"
-              tabindex="0"
-              role="button"
-              aria-label={`${r.year} vote share`}
-              onpointerenter={() => showVoteShare(r)}
-              onpointerleave={clearElection}
-              onfocus={() => showVoteShare(r)}
-              onblur={clearElection}
-              style="cursor:pointer"
-            />
-          {/each}
-          <!-- Seat share line -->
-          <polyline
-            points={fam.rows.map((r) => `${xForElection(r.year)},${yFor(r.seatShare)}`).join(' ')}
-            fill="none"
-            stroke={partyHex}
-            stroke-width="2"
-            stroke-dasharray="4 4"
-            opacity={0.6 + 0.1 * fam.mod}
-          />
-          {#each fam.rows as r}
-            <circle
-              cx={xForElection(r.year)}
-              cy={yFor(r.seatShare)}
-              r="5"
-              fill="var(--bg)"
-              stroke={partyHex}
-              stroke-width="2"
-              tabindex="0"
-              role="button"
-              aria-label={`${r.year} seat share`}
-              onpointerenter={() => showSeatShare(r)}
-              onpointerleave={clearElection}
-              onfocus={() => showSeatShare(r)}
-              onblur={clearElection}
-              style="cursor:pointer"
-            />
-          {/each}
+  <h2>Cycles</h2>
+  <p class="muted small">
+    Click into any cycle for a full breakdown — councils gained, lost,
+    and where the seats came from.
+  </p>
+
+  <div class="cycle-cards">
+    {#each [...trend].filter((r) => r.contestedSeats > 0).sort((a, b) => b.year - a.year) as row (row.year)}
+      {@const gap = row.seatShare - row.voteShare}
+      {@const ctrl = data.controlByYear[row.year]}
+      <a class="cycle-card" href="/party/{data.partySlug}/{row.year}" style:--accent-color={partyHex}>
+        <h3>{row.year}</h3>
+        <p class="stat">
+          <strong>{num(row.seatsWon)}</strong>
+          <span class="muted">of {num(row.contestedSeats)} seats won</span>
+        </p>
+        <p class="stat">
+          <strong>{pct(row.voteShare, 0)}</strong>
+          <span class="arrow">→</span>
+          <strong>{pct(row.seatShare, 0)}</strong>
+          <span class="gap" class:over={gap > 0.005} class:under={gap < -0.005}>
+            {pts(gap, 0)}
+          </span>
+        </p>
+        {#if ctrl}
+          <p class="stat control">
+            Control:
+            <strong class="pos">+{num(ctrl.gained)}</strong>
+            <span class="muted">/</span>
+            <strong class="neg">−{num(ctrl.lost)}</strong>
+            <span class="muted">councils</span>
+          </p>
         {/if}
-      {/each}
-
-      {#if electionTip}
-        {@const pos = tipPosition(electionTip)}
-        <g style="pointer-events: none">
-          <line
-            x1={electionTip.cx}
-            y1={electionTip.cy}
-            x2={electionTip.cx}
-            y2={pos.below ? pos.y : pos.y + TIP_H}
-            stroke={electionTip.color}
-            stroke-width="1"
-            stroke-dasharray="2 2"
-            opacity="0.5"
-          />
-          <g transform="translate({pos.x}, {pos.y})">
-            <rect
-              x="0"
-              y="0"
-              width={TIP_W}
-              height={TIP_H}
-              rx="5"
-              fill="var(--bg)"
-              stroke={electionTip.color}
-              stroke-width="2"
-            />
-            <text x="10" y="18" font-size="12.5" font-weight="600" fill="var(--fg)">
-              {electionTip.primary}
-            </text>
-            <text x="10" y="34" font-size="11" fill="var(--muted)">
-              {electionTip.secondary}
-            </text>
-            {#if electionTip.tertiary}
-              <text x="10" y="50" font-size="11" fill="var(--muted)">
-                {electionTip.tertiary}
-              </text>
-            {/if}
-          </g>
-        </g>
-      {/if}
-    </svg>
+        <p class="muted xsmall">{num(row.councilsContested)} councils contested</p>
+      </a>
+    {/each}
   </div>
 
-  <ul class="legend">
-    <li><span class="swatch-line solid" style:background={partyHex}></span> Vote share</li>
-    <li><span class="swatch-line dashed" style:--c={partyHex}></span> Seat share (FPTP)</li>
-  </ul>
+  <h2>Votes vs seats, by cycle</h2>
+  <p class="muted small">
+    For each cycle this party contested, the bars show vote share
+    (filled) against seat share (outlined). The signed gap is the
+    disproportionality.
+  </p>
 
-  <h2>Chamber composition (running total)</h2>
-  <p class="muted">
-    Share of all council seats this party holds across every council
-    we have composition data for, year by year. Comparable across the
-    full window.
+  {#if cycleBars.length > 0}
+    <PairedBarChart bars={cycleBars} />
+  {:else}
+    <p class="muted">No election-side data for this party.</p>
+  {/if}
+
+  <h2>Four-year movement</h2>
+  <p class="muted small">
+    Vote share across each cycle pair (same councils, four years apart).
+  </p>
+
+  {#if cycleSlopes.length > 0}
+    <div class="slope-row">
+      {#each cycleSlopes as s, i (s.label)}
+        <SlopeChart
+          title={s.label}
+          color={partyHex}
+          startYear={s.startYear}
+          startValue={s.startValue}
+          endYear={s.endYear}
+          endValue={s.endValue}
+          yMax={slopeYMax}
+          compact={i > 0}
+        />
+      {/each}
+    </div>
+  {:else}
+    <p class="muted">
+      Not enough cycle-paired data yet to draw four-year movement for
+      this party.
+    </p>
+  {/if}
+
+  <h2>Cumulative footprint</h2>
+  <p class="muted small">
+    <strong>Share of all UK council seats held.</strong> Across all
+    councils in our dataset, including those not polling this year.
+    Comparable across the full window because composition rolls forward
+    year-on-year.
   </p>
 
   <div class="chartwrap">
-    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Chamber share over time">
+    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Cumulative footprint over time">
       {#each yShareTicks() as t (t.v)}
         <line x1={PAD.l} x2={W - PAD.r} y1={t.y} y2={t.y} stroke="var(--rule)" stroke-width="1" />
         <text x={PAD.l - 6} y={t.y + 3} text-anchor="end" font-size="11" fill="var(--muted)">
           {Math.round(t.v * 100)}%
         </text>
       {/each}
-      {#each chamberYearTicks as y}
+      {#each chamberYearTicks as y (y)}
         <text x={xForChamber(y)} y={H - PAD.b + 16} text-anchor="middle" font-size="11" fill="var(--muted)">
           {y}
         </text>
       {/each}
-      <polyline
-        points={chamberPoints.map((r) => `${xForChamber(r.year)},${yFor(r.chamberShare)}`).join(' ')}
-        fill="none"
-        stroke={partyHex}
-        stroke-width="2.5"
-      />
-      {#each chamberPoints as r}
+      {#if chamberPoints.length >= 2}
+        <polyline
+          points={chamberPoints.map((r) => `${xForChamber(r.year)},${yFor(r.chamberShare)}`).join(' ')}
+          fill="none"
+          stroke={partyHex}
+          stroke-width="2.5"
+        />
+      {/if}
+      {#each chamberPoints as r (r.year)}
         <circle
           cx={xForChamber(r.year)}
           cy={yFor(r.chamberShare)}
@@ -419,7 +368,7 @@
           stroke-width="1.5"
           tabindex="0"
           role="button"
-          aria-label={`${r.year} chamber share`}
+          aria-label={`${r.year} footprint share`}
           onpointerenter={() => showChamber(r)}
           onpointerleave={clearChamber}
           onfocus={() => showChamber(r)}
@@ -478,7 +427,7 @@
         <th class="r">Won</th>
         <th class="r">Vote share</th>
         <th class="r">Seat share</th>
-        <th class="r">Chamber share</th>
+        <th class="r">Footprint share</th>
         <th class="r">Largest in</th>
         <th></th>
       </tr>
@@ -495,7 +444,7 @@
           <td class="r">{row.chamberTotal > 0 ? `${num(row.councilsLargest)} / ${num(row.councilsWithComposition)}` : '—'}</td>
           <td>
             {#if data.years.includes(row.year)}
-              <a href="/{data.partySlug}/{row.year}">Details &rarr;</a>
+              <a href="/party/{data.partySlug}/{row.year}">Details &rarr;</a>
             {/if}
           </td>
         </tr>
@@ -503,7 +452,7 @@
     </tbody>
   </table>
 
-  <p class="muted">
+  <p class="muted small">
     See <a href="/methodology">methodology</a> for how we normalise
     party names, why "Labour and Co-operative" collapses to "Labour
     Party", and the bloc-vote vote-share caveat for multi-member wards.
@@ -511,6 +460,104 @@
 </main>
 
 <style>
+  .map-and-scale {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(8rem, 13rem);
+    gap: 1.25rem;
+    align-items: start;
+    margin: 0.6rem 0 1.5rem;
+  }
+  @media (max-width: 640px) {
+    .map-and-scale {
+      grid-template-columns: 1fr;
+    }
+  }
+  .map-legend {
+    font-size: 0.85rem;
+  }
+  .map-legend .legend-label {
+    margin: 0 0 0.4rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+  .map-legend .legend-count {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+  }
+  .map-legend .legend-count strong {
+    font-size: 1.4rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .map-legend .swatch {
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    margin-right: 0.4em;
+    border-radius: 2px;
+    vertical-align: -0.05em;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    .map-legend .swatch {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+  .cycle-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.6rem;
+    margin: 0.6rem 0 1.5rem;
+  }
+  .cycle-card {
+    display: block;
+    padding: 0.7rem 0.9rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent-color, var(--accent));
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--fg);
+    text-decoration: none;
+  }
+  .cycle-card:hover {
+    border-color: var(--accent-color, var(--accent));
+    text-decoration: none;
+  }
+  .cycle-card h3 {
+    margin: 0 0 0.2rem;
+    font-size: 1.4rem;
+    color: var(--accent-color, var(--accent));
+  }
+  .cycle-card .stat {
+    margin: 0.15rem 0;
+    font-size: 0.88rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .cycle-card .stat .arrow {
+    color: var(--muted);
+    margin: 0 0.2rem;
+  }
+  .cycle-card .stat .gap {
+    margin-left: 0.4rem;
+    font-weight: 600;
+  }
+  .cycle-card .stat .gap.over {
+    color: #1c7a3a;
+  }
+  .cycle-card .stat .gap.under {
+    color: var(--warn);
+  }
+  .cycle-card .stat.control .pos {
+    color: #1c7a3a;
+  }
+  .cycle-card .stat.control .neg {
+    color: var(--warn);
+  }
+  .xsmall {
+    font-size: 0.75rem;
+    margin: 0.2rem 0 0;
+  }
   h1 .swatch {
     display: inline-block;
     width: 0.9em;
@@ -519,12 +566,24 @@
     margin-right: 0.4em;
     vertical-align: -0.05em;
   }
+  h2 {
+    margin-top: 2rem;
+  }
+  .small {
+    font-size: 0.85rem;
+  }
   ul.headline {
     list-style: disc;
     padding-left: 1.2rem;
   }
   ul.headline li {
     margin: 0.4em 0;
+  }
+  .slope-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.6rem;
+    margin: 0.8rem 0 1.2rem;
   }
   .chartwrap {
     margin: 0.8rem 0 0.4rem;
@@ -534,28 +593,6 @@
     height: auto;
     max-width: 100%;
     display: block;
-  }
-  ul.legend {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem;
-    display: flex;
-    gap: 1.2rem;
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-  .swatch-line {
-    display: inline-block;
-    width: 1.2rem;
-    height: 0.18rem;
-    vertical-align: middle;
-    margin-right: 0.35rem;
-  }
-  .swatch-line.dashed {
-    background: transparent !important;
-    border-top: 2px dashed var(--c, var(--fg));
-    height: 0;
-    margin-bottom: 0.18rem;
   }
   th.r,
   td.r {
