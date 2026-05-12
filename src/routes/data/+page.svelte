@@ -11,7 +11,7 @@
   // trailing-slash normalize collapsing /explorer/ → /explorer, which
   // would then be caught by the [council] dynamic route.
   const datasetteUrl =
-    '/explorer/index.html?url=/data/results.sqlite#/results/races?_sort_desc=under_par';
+    '/explorer/index.html?url=/data/results.sqlite#/results';
   let explorerOpen = $state(false);
 </script>
 
