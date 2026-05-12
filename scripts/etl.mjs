@@ -531,6 +531,202 @@ function ingestCycle(cycle) {
   return { cycle, races };
 }
 
+// --- LEAP 2016–2019 adapter -------------------------------------------------
+//
+// Andrew Teale's Local Elections Archive Project (https://www.andrewteale.me.uk/leap/)
+// fills the pre-LEH gap so two-cycles-back trend analysis works for the
+// 2026 cohort. Source CSVs are positional, no header row:
+//
+//   council_name, council_ons, ward_name, ward_ons, candidate_name,
+//   party_short, votes, elected_flag (1/0)
+//
+// Per-ward fields LEH provides (electorate, ballots, invalid votes,
+// authorityType, vacancies) are not in LEAP; we leave them null and let
+// validBallots fall back to votesSum / seats, same as the DC adapter.
+//
+// Seats per ward are derived from the count of source-elected flags
+// (LEAP doesn't ship a vacancies column). We then re-rank elected
+// top-N-by-votes for cross-source consistency, same correction the LEH
+// adapter applies.
+//
+// Scotland is excluded — Scottish councils have run STV since 2007 but
+// LEAP only carries first-preference votes, no transfer rounds. Running
+// FPTP-shaped distortion analysis on first prefs would be misleading.
+// Welsh councils are included (FPTP until 2027 reform).
+//
+// Licence: CC-BY-SA 3.0 / GFDL (Andrew Teale). Any LEAP-derived
+// download published by the site inherits CC-BY-SA — see
+// docs/leap-source.md.
+
+const LEAP_CYCLES = [
+  {
+    year: 2016,
+    electionDate: '2016-05-05',
+    electionDateLabel: '5 May 2016',
+    file: 'docs/leap/2016/leap-2016-05-05.csv'
+  },
+  {
+    year: 2017,
+    electionDate: '2017-05-04',
+    electionDateLabel: '4 May 2017',
+    file: 'docs/leap/2017/leap-2017-05-04.csv'
+  },
+  {
+    year: 2018,
+    electionDate: '2018-05-03',
+    electionDateLabel: '3 May 2018',
+    file: 'docs/leap/2018/leap-2018-05-03.csv'
+  },
+  {
+    year: 2019,
+    electionDate: '2019-05-02',
+    electionDateLabel: '2 May 2019',
+    file: 'docs/leap/2019/leap-2019-05-02.csv'
+  }
+];
+
+function ingestLeapCycle(cycle) {
+  const file = resolve(ROOT, cycle.file);
+  if (!existsSync(file)) {
+    console.warn(`[etl] skipping LEAP ${cycle.year}: file not found ${file}`);
+    return null;
+  }
+  // No header row — read as array-of-arrays (header: 1).
+  const wb = XLSX.read(readFileSync(file, 'utf8'), { type: 'string' });
+  const ws = wb.Sheets[wb.SheetNames[0]];
+  const rows = XLSX.utils.sheet_to_json(ws, { defval: null, raw: false, header: 1 });
+
+  const wardsByKey = new Map();
+  let skippedScotland = 0;
+  let skippedNoCouncil = 0;
+  for (const r of rows) {
+    if (!r || r.length < 7) continue;
+    const councilName = String(r[0] ?? '').trim();
+    const councilOns = String(r[1] ?? '').trim();
+    if (!councilName) {
+      skippedNoCouncil++;
+      continue;
+    }
+    if (councilOns.startsWith('S')) {
+      skippedScotland++;
+      continue;
+    }
+    const wardName = normaliseWardName(String(r[2] ?? '').trim());
+    const wardOns = r[3] != null ? String(r[3]).trim() : '';
+    const candName = String(r[4] ?? '').trim();
+    const partyRaw = r[5];
+    const votes = Number(r[6] ?? 0) || 0;
+    const electedFlag = String(r[7] ?? '').trim() === '1';
+    const councilSlug = councilSlugify(councilName);
+    const wardCode = wardOns || null;
+    const key = wardCode
+      ? `${cycle.year}::${wardCode}`
+      : deriveWardKey(cycle, councilSlug, wardName);
+
+    let ward = wardsByKey.get(key);
+    if (!ward) {
+      ward = {
+        year: cycle.year,
+        electionDate: cycle.electionDate,
+        key,
+        wardCode,
+        wardName,
+        council: councilName,
+        councilSlug,
+        authorityType: null,
+        seats: 0, // derived from elected-flag count below
+        electorate: null,
+        ballots: null,
+        invalidVotes: null,
+        candidates: []
+      };
+      wardsByKey.set(key, ward);
+    }
+    ward.candidates.push({
+      name: candName,
+      party: normalizeParty(partyRaw) ?? '',
+      votes,
+      electedSource: electedFlag,
+      elected: false // recomputed
+    });
+  }
+
+  // Derive seats per ward from the source elected-flag count, then
+  // recompute elected as top-N-by-votes for parity with LEH/DC adapters.
+  let electedOverrides = 0;
+  let zeroSeatWards = 0;
+  for (const ward of wardsByKey.values()) {
+    const sourceElected = ward.candidates.filter((c) => c.electedSource).length;
+    if (sourceElected === 0) {
+      // No elected flags — treat as a single-seat race so the rank
+      // sort still produces a notional winner. Rare in LEAP but
+      // happens for uncontested or data-incomplete wards.
+      zeroSeatWards++;
+      ward.seats = 1;
+    } else {
+      ward.seats = sourceElected;
+    }
+    ward.candidates.sort((a, b) => b.votes - a.votes);
+    for (let i = 0; i < ward.candidates.length; i++) {
+      const should = i < ward.seats;
+      if (should !== ward.candidates[i].electedSource) electedOverrides += 1;
+      ward.candidates[i].elected = should;
+      ward.candidates[i].rank = i + 1;
+    }
+  }
+
+  // Materialise races (mirror ingestCycle).
+  const races = [];
+  for (const w of wardsByKey.values()) {
+    if (w.candidates.length === 0) continue;
+    const votesSum = w.candidates.reduce(
+      (a, c) => a + (Number.isFinite(c.votes) ? c.votes : 0),
+      0
+    );
+    if (votesSum <= 0) continue;
+    const validBallots = w.seats >= 1 ? votesSum / w.seats : votesSum;
+    const elected = w.candidates.filter((c) => c.elected);
+    const electedPcts = elected.map((c) => c.votes / validBallots);
+    const winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;
+    const quota = quotaForSeats(w.seats);
+    const underPar = winningPct - quota;
+    const wardSlug = w.wardCode
+      ? slugify(`${w.wardName}-${w.wardCode}`)
+      : slugify(w.wardName);
+    races.push({
+      year: w.year,
+      electionDate: w.electionDate,
+      key: w.key,
+      wardCode: w.wardCode ?? '',
+      wardName: w.wardName,
+      wardSlug,
+      council: w.council,
+      councilSlug: w.councilSlug,
+      authorityType: w.authorityType ?? '',
+      electionType: '',
+      system: 'FPTP',
+      seats: w.seats,
+      electorate: w.electorate,
+      ballots: w.ballots,
+      invalidVotes: w.invalidVotes,
+      validBallots,
+      winningPct,
+      quota,
+      underPar,
+      isBelowQuota: underPar < 0,
+      candidates: w.candidates
+    });
+  }
+
+  console.log(
+    `[etl ${cycle.year}] LEAP: read ${rows.length} candidacy rows ` +
+      `(${skippedScotland} Scottish skipped, ${skippedNoCouncil} no council); ` +
+      `produced ${races.length} races, ${electedOverrides} source-elected overrides` +
+      (zeroSeatWards > 0 ? `, ${zeroSeatWards} wards w/ no elected flag` : '')
+  );
+  return { cycle, races };
+}
+
 // --- Democracy Club 2026 adapter --------------------------------------------
 //
 // Polling-night-onward live(ish) results for the 2026 cohort. Source shape
@@ -952,6 +1148,39 @@ const cycleSummaries = [];
 // the DC adapter, so DC's slug-only rows can pick up the LEH display
 // name (e.g. "Adur" not "adur" → "Adur"; "City of London" not "city-of-
 // london" → "City Of London").
+
+// LEAP 2016–2019 first (year-ordered cycle summaries; LEH starts at 2021).
+// Andrew Teale's archive is CC-BY-SA 3.0 — see docs/leap-source.md for
+// the redistribution terms that follow from including this data.
+for (const cycle of LEAP_CYCLES) {
+  const result = ingestLeapCycle(cycle);
+  if (!result) continue;
+  for (const r of result.races) rememberCouncilName(r.councilSlug, r.council);
+  allRaces.push(...result.races);
+  const totalSeats = result.races.reduce(
+    (a, r) => a + r.candidates.filter((c) => c.elected).length,
+    0
+  );
+  const belowQuotaSeats = result.races.reduce((a, r) => {
+    let n = 0;
+    for (const c of r.candidates) {
+      if (c.elected && c.votes / r.validBallots < r.quota) n += 1;
+    }
+    return a + n;
+  }, 0);
+  const distinctCouncils = new Set(result.races.map((r) => r.councilSlug));
+  cycleSummaries.push({
+    year: cycle.year,
+    electionDate: cycle.electionDate,
+    electionDateLabel: cycle.electionDateLabel,
+    raceCount: result.races.length,
+    seatCount: totalSeats,
+    belowQuotaSeatCount: belowQuotaSeats,
+    belowQuotaShare: totalSeats > 0 ? belowQuotaSeats / totalSeats : 0,
+    councilCount: distinctCouncils.size
+  });
+}
+
 for (const cycle of CYCLES) {
   const result = ingestCycle(cycle);
   if (!result) continue;
@@ -2361,7 +2590,10 @@ ensureDir(SNAPSHOT_PATH);
 
 const snapshotMeta = {
   generatedAt: new Date().toISOString(),
-  source: 'docs/LEH-{2021..2025}-results-HoC*.xlsx',
+  source:
+    'docs/leap/{2016..2019}/leap-*.csv (LEAP, CC-BY-SA 3.0); ' +
+    'docs/LEH-{2021..2025}-results-HoC*.xlsx; ' +
+    'docs/dc-candidates-*.csv (Democracy Club 2026)',
   totals
 };
 const racesSlim = allRaces.map((r) => ({

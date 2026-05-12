@@ -4,10 +4,10 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2026,barnet,Barnet,,24,63,5,0.079365
 2026,barnsley,Barnsley,,21,63,0,0.000000
 2026,basildon,Basildon,,14,14,12,0.857143
-2026,basingstoke-and-deane,Basingstoke & Deane,,18,19,17,0.894737
+2026,basingstoke-and-deane,Basingstoke and Deane,,18,19,17,0.894737
 2026,bexley,Bexley,,17,45,0,0.000000
 2026,birmingham,Birmingham,,69,101,50,0.495050
-2026,blackburn-with-darwen,Blackburn With Darwen,,17,17,13,0.764706
+2026,blackburn-with-darwen,Blackburn with Darwen,,17,17,13,0.764706
 2026,bolton,Bolton,,20,20,20,1.000000
 2026,bradford,Bradford,,29,87,0,0.000000
 2026,brent,Brent,,22,57,5,0.087719
@@ -58,7 +58,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2026,huntingdonshire,Huntingdonshire,,26,52,10,0.192308
 2026,hyndburn,Hyndburn,,11,11,11,1.000000
 2026,ipswich,Ipswich,,16,16,16,1.000000
-2026,isle-of-wight,Isle Of Wight,,39,39,29,0.743590
+2026,isle-of-wight,Isle of Wight,,39,39,29,0.743590
 2026,islington,Islington,,17,51,0,0.000000
 2026,kensington-and-chelsea,Kensington and Chelsea,,18,50,0,0.000000
 2026,kingston-upon-hull,Kingston Upon Hull,,19,19,16,0.842105
@@ -71,14 +71,14 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2026,manchester,Manchester,,32,32,26,0.812500
 2026,merton,Merton,,20,57,0,0.000000
 2026,milton-keynes,Milton Keynes,,21,60,2,0.033333
-2026,newcastle-upon-tyne,Newcastle Upon Tyne,,26,78,0,0.000000
-2026,newcastle-under-lyme,Newcastle-Under-Lyme,,21,44,4,0.090909
+2026,newcastle-upon-tyne,Newcastle upon Tyne,,26,78,0,0.000000
+2026,newcastle-under-lyme,Newcastle-under-Lyme,,21,44,4,0.090909
 2026,newham,Newham,,24,66,3,0.045455
 2026,norfolk,Norfolk,,84,84,78,0.928571
 2026,north-east-lincolnshire,North East Lincolnshire,,15,15,11,0.733333
 2026,north-tyneside,North Tyneside,,20,20,20,1.000000
 2026,norwich,Norwich,,13,14,8,0.571429
-2026,nuneaton-and-bedworth,Nuneaton & Bedworth,,19,19,15,0.789474
+2026,nuneaton-and-bedworth,Nuneaton and Bedworth,,19,19,15,0.789474
 2026,oldham,Oldham,,20,20,13,0.650000
 2026,oxford,Oxford,,24,24,18,0.750000
 2026,pendle,Pendle,,10,10,8,0.800000
@@ -102,7 +102,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2026,south-cambridgeshire,South Cambridgeshire,,26,45,9,0.200000
 2026,south-tyneside,South Tyneside,,18,54,0,0.000000
 2026,southampton,Southampton,,17,17,17,1.000000
-2026,southend-on-sea,Southend On Sea,,17,17,17,1.000000
+2026,southend-on-sea,Southend-on-Sea,,17,17,17,1.000000
 2026,southwark,Southwark,,23,63,1,0.015873
 2026,st-albans,St Albans,,20,22,12,0.545455
 2026,st-helens,St Helens,,17,46,2,0.043478
@@ -1010,3 +1010,675 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2021,wychavon,Wychavon,SC,12,12,1,0.083333
 2021,wyre,Wyre,SC,8,8,0,0.000000
 2021,wyre-forest,Wyre Forest,SC,9,10,4,0.400000
+2019,allerdale,Allerdale,,20,45,1,0.022222
+2019,amber-valley,Amber Valley,,15,15,11,0.733333
+2019,arun,Arun,,23,54,0,0.000000
+2019,ashfield,Ashfield,,23,35,0,0.000000
+2019,ashford,Ashford,,33,41,9,0.219512
+2019,babergh,Babergh,,24,32,9,0.281250
+2019,barnsley,Barnsley,,21,21,13,0.619048
+2019,barrow-in-furness,Barrow-in-Furness,,13,36,0,0.000000
+2019,basildon,Basildon,,14,14,5,0.357143
+2019,basingstoke-and-deane,Basingstoke and Deane,,20,20,4,0.200000
+2019,bassetlaw,Bassetlaw,,24,47,2,0.042553
+2019,bath-and-north-east-somerset,Bath and North East Somerset,,33,59,4,0.067797
+2019,bedford,Bedford,,27,40,2,0.050000
+2019,blaby,Blaby,,16,34,0,0.000000
+2019,blackburn-with-darwen,Blackburn with Darwen,,17,17,4,0.235294
+2019,blackpool,Blackpool,,21,42,0,0.000000
+2019,bolsover,Bolsover,,16,35,1,0.028571
+2019,bolton,Bolton,,20,20,10,0.500000
+2019,boston,Boston,,15,30,2,0.066667
+2019,bournemouth-christchurch-and-poole,"Bournemouth, Christchurch and Poole",,33,76,8,0.105263
+2019,bracknell-forest,Bracknell Forest,,18,42,0,0.000000
+2019,bradford,Bradford,,30,30,15,0.500000
+2019,braintree,Braintree,,26,49,0,0.000000
+2019,breckland,Breckland,,27,49,0,0.000000
+2019,brentwood,Brentwood,,12,12,4,0.333333
+2019,brighton-and-hove,Brighton and Hove,,21,54,0,0.000000
+2019,broadland,Broadland,,27,47,5,0.106383
+2019,bromsgrove,Bromsgrove,,30,31,6,0.193548
+2019,broxbourne,Broxbourne,,10,11,1,0.090909
+2019,broxtowe,Broxtowe,,20,44,3,0.068182
+2019,burnley,Burnley,,15,15,8,0.533333
+2019,bury,Bury,,17,17,10,0.588235
+2019,calderdale,Calderdale,,17,17,8,0.470588
+2019,cambridge,Cambridge,,14,16,9,0.562500
+2019,cambridgeshire,Cambridgeshire,,1,1,1,1.000000
+2019,cannock-chase,Cannock Chase,,15,15,9,0.600000
+2019,canterbury,Canterbury,,21,39,6,0.153846
+2019,carlisle,Carlisle,,13,39,0,0.000000
+2019,castle-point,Castle Point,,14,14,4,0.285714
+2019,central-bedfordshire,Central Bedfordshire,,31,59,4,0.067797
+2019,charnwood,Charnwood,,28,52,0,0.000000
+2019,chelmsford,Chelmsford,,24,57,0,0.000000
+2019,cherwell,Cherwell,,16,17,7,0.411765
+2019,cheshire-east,Cheshire East,,51,81,7,0.086420
+2019,cheshire-west-and-chester,Cheshire West and Chester,,45,70,3,0.042857
+2019,chesterfield,Chesterfield,,19,48,0,0.000000
+2019,chichester,Chichester,,21,36,1,0.027778
+2019,chorley,Chorley,,15,15,5,0.333333
+2019,colchester,Colchester,,17,17,5,0.294118
+2019,copeland,Copeland,,16,31,1,0.032258
+2019,cotswold,Cotswold,,32,34,2,0.058824
+2019,coventry,Coventry,,18,18,10,0.555556
+2019,craven,Craven,,11,11,3,0.272727
+2019,crawley,Crawley,,13,36,0,0.000000
+2019,dacorum,Dacorum,,25,51,3,0.058824
+2019,darlington,Darlington,,20,50,0,0.000000
+2019,dartford,Dartford,,20,42,1,0.023810
+2019,derby,Derby,,17,17,9,0.529412
+2019,derbyshire-dales,Derbyshire Dales,,25,39,4,0.102564
+2019,dorset,Dorset,,52,82,16,0.195122
+2019,dover,Dover,,17,32,3,0.093750
+2019,dudley,Dudley,,24,24,15,0.625000
+2019,county-durham,Durham,,2,2,2,1.000000
+2019,east-cambridgeshire,East Cambridgeshire,,14,28,0,0.000000
+2019,east-devon,East Devon,,28,57,2,0.035088
+2019,east-hampshire,East Hampshire,,30,42,9,0.214286
+2019,east-hertfordshire,East Hertfordshire,,28,48,2,0.041667
+2019,east-lindsey,East Lindsey,,35,50,3,0.060000
+2019,east-riding,East Riding,,26,67,1,0.014925
+2019,east-staffordshire,East Staffordshire,,19,37,0,0.000000
+2019,east-suffolk,East Suffolk,,29,55,10,0.181818
+2019,eastbourne,Eastbourne,,9,27,0,0.000000
+2019,eastleigh,Eastleigh,,13,13,4,0.307692
+2019,eden,Eden,,27,35,2,0.057143
+2019,elmbridge,Elmbridge,,16,16,5,0.312500
+2019,epping-forest,Epping Forest,,16,16,4,0.250000
+2019,epsom-and-ewell,Epsom and Ewell,,13,38,0,0.000000
+2019,erewash,Erewash,,19,47,0,0.000000
+2019,exeter,Exeter,,13,14,11,0.785714
+2019,fenland,Fenland,,14,27,0,0.000000
+2019,folkestone-and-hythe,Folkestone and Hythe,,13,30,1,0.033333
+2019,forest-of-dean,Forest of Dean,,21,38,4,0.105263
+2019,fylde,Fylde,,21,51,0,0.000000
+2019,gateshead,Gateshead,,22,22,6,0.272727
+2019,gedling,Gedling,,19,41,0,0.000000
+2019,gloucestershire,Gloucestershire,,1,1,1,1.000000
+2019,gravesham,Gravesham,,18,44,0,0.000000
+2019,great-yarmouth,Great Yarmouth,,17,39,0,0.000000
+2019,guildford,Guildford,,22,48,1,0.020833
+2019,halton,Halton,,19,19,3,0.157895
+2019,hambleton,Hambleton,,16,27,0,0.000000
+2019,harborough,Harborough,,18,33,0,0.000000
+2019,harlow,Harlow,,11,11,7,0.636364
+2019,hart,Hart,,11,12,1,0.083333
+2019,hartlepool,Hartlepool,,11,11,8,0.727273
+2019,havant,Havant,,10,11,8,0.727273
+2019,herefordshire,Herefordshire,,53,53,15,0.283019
+2019,hertsmere,Hertsmere,,16,39,0,0.000000
+2019,high-peak,High Peak,,28,43,8,0.186047
+2019,hinckley-and-bosworth,Hinckley and Bosworth,,16,34,0,0.000000
+2019,horsham,Horsham,,22,48,0,0.000000
+2019,hyndburn,Hyndburn,,12,12,1,0.083333
+2019,ipswich,Ipswich,,16,16,11,0.687500
+2019,kent,Kent,,2,2,2,1.000000
+2019,king-s-lynn-and-west-norfolk,King's Lynn and West Norfolk,,35,55,7,0.127273
+2019,kingston-upon-hull-city-of,Kingston upon Hull,,19,19,3,0.157895
+2019,kirklees,Kirklees,,23,23,12,0.521739
+2019,knowsley,Knowsley,,15,15,1,0.066667
+2019,lancaster,Lancaster,,27,60,5,0.083333
+2019,leeds,Leeds,,33,33,20,0.606061
+2019,leicester,Leicester,,21,54,0,0.000000
+2019,lewes,Lewes,,21,41,2,0.048780
+2019,lichfield,Lichfield,,18,40,0,0.000000
+2019,lincoln,Lincoln,,11,11,9,0.818182
+2019,liverpool,Liverpool,,30,30,3,0.100000
+2019,luton,Luton,,19,48,0,0.000000
+2019,maidstone,Maidstone,,18,18,6,0.333333
+2019,maldon,Maldon,,16,29,2,0.068966
+2019,malvern-hills,Malvern Hills,,19,34,0,0.000000
+2019,manchester,Manchester,,32,33,8,0.242424
+2019,mansfield,Mansfield,,36,36,19,0.527778
+2019,medway,Medway,,22,55,0,0.000000
+2019,melton,Melton,,12,23,0,0.000000
+2019,mendip,Mendip,,34,47,7,0.148936
+2019,mid-devon,Mid Devon,,23,41,3,0.073171
+2019,mid-suffolk,Mid Suffolk,,26,34,2,0.058824
+2019,mid-sussex,Mid Sussex,,24,50,1,0.020000
+2019,middlesbrough,Middlesbrough,,20,46,0,0.000000
+2019,milton-keynes,Milton Keynes,,19,19,12,0.631579
+2019,mole-valley,Mole Valley,,14,14,4,0.285714
+2019,new-forest,New Forest,,33,59,2,0.033898
+2019,newark-and-sherwood,Newark and Sherwood,,20,38,1,0.026316
+2019,newcastle-upon-tyne,Newcastle upon Tyne,,26,27,13,0.481481
+2019,north-devon,North Devon,,25,42,5,0.119048
+2019,north-east-derbyshire,North East Derbyshire,,24,53,0,0.000000
+2019,north-east-lincolnshire,North East Lincolnshire,,15,16,7,0.437500
+2019,north-hertfordshire,North Hertfordshire,,16,16,8,0.500000
+2019,north-kesteven,North Kesteven,,23,39,3,0.076923
+2019,north-lincolnshire,North Lincolnshire,,17,43,0,0.000000
+2019,north-norfolk,North Norfolk,,32,40,9,0.225000
+2019,north-somerset,North Somerset,,35,50,6,0.120000
+2019,north-tyneside,North Tyneside,,20,20,7,0.350000
+2019,north-warwickshire,North Warwickshire,,17,35,0,0.000000
+2019,north-west-leicestershire,North West Leicestershire,,38,38,16,0.421053
+2019,northumberland,Northumberland,,1,1,0,0.000000
+2019,norwich,Norwich,,13,39,0,0.000000
+2019,nottingham,Nottingham,,20,55,0,0.000000
+2019,oadby-and-wigston,Oadby and Wigston,,10,26,0,0.000000
+2019,oldham,Oldham,,20,20,13,0.650000
+2019,pendle,Pendle,,17,17,4,0.235294
+2019,peterborough,Peterborough,,20,20,11,0.550000
+2019,plymouth,Plymouth,,19,19,12,0.631579
+2019,portsmouth,Portsmouth,,14,15,12,0.800000
+2019,preston,Preston,,16,48,0,0.000000
+2019,reading,Reading,,15,16,8,0.500000
+2019,redcar-and-cleveland,Redcar and Cleveland,,24,59,1,0.016949
+2019,redditch,Redditch,,10,10,9,0.900000
+2019,reigate-and-banstead,Reigate and Banstead,,15,45,0,0.000000
+2019,ribble-valley,Ribble Valley,,24,38,0,0.000000
+2019,richmondshire,Richmondshire,,16,24,1,0.041667
+2019,rochdale,Rochdale,,20,20,8,0.400000
+2019,rochford,Rochford,,12,12,7,0.583333
+2019,rossendale,Rossendale,,12,12,2,0.166667
+2019,rother,Rother,,21,38,5,0.131579
+2019,rugby,Rugby,,14,14,6,0.428571
+2019,runnymede,Runnymede,,14,41,0,0.000000
+2019,rushcliffe,Rushcliffe,,23,42,2,0.047619
+2019,rushmoor,Rushmoor,,13,13,8,0.615385
+2019,rutland,Rutland,,10,19,1,0.052632
+2019,ryedale,Ryedale,,17,27,2,0.074074
+2019,salford,Salford,,20,20,11,0.550000
+2019,sandwell,Sandwell,,24,24,9,0.375000
+2019,scarborough,Scarborough,,20,46,3,0.065217
+2019,sedgemoor,Sedgemoor,,23,48,0,0.000000
+2019,sefton,Sefton,,22,23,12,0.521739
+2019,selby,Selby,,19,31,2,0.064516
+2019,sevenoaks,Sevenoaks,,22,49,1,0.020408
+2019,sheffield,Sheffield,,28,28,20,0.714286
+2019,slough,Slough,,14,14,3,0.214286
+2019,solihull,Solihull,,17,17,5,0.294118
+2019,somerset-west-and-taunton,Somerset West and Taunton,,34,58,4,0.068966
+2019,south-derbyshire,South Derbyshire,,15,36,0,0.000000
+2019,south-gloucestershire,South Gloucestershire,,28,61,2,0.032787
+2019,south-hams,South Hams,,20,31,4,0.129032
+2019,south-holland,South Holland,,14,32,1,0.031250
+2019,south-kesteven,South Kesteven,,28,54,2,0.037037
+2019,south-lakeland,South Lakeland,,16,16,8,0.500000
+2019,south-norfolk,South Norfolk,,26,46,5,0.108696
+2019,south-oxfordshire,South Oxfordshire,,21,36,2,0.055556
+2019,south-ribble,South Ribble,,23,50,0,0.000000
+2019,south-somerset,South Somerset,,35,60,3,0.050000
+2019,south-staffordshire,South Staffordshire,,22,45,0,0.000000
+2019,south-tyneside,South Tyneside,,18,19,11,0.578947
+2019,southampton,Southampton,,16,16,14,0.875000
+2019,southend-on-sea,Southend-on-Sea,,17,17,14,0.823529
+2019,spelthorne,Spelthorne,,13,39,0,0.000000
+2019,st-albans,St Albans,,20,21,9,0.428571
+2019,st-helens,St Helens,,16,16,8,0.500000
+2019,stafford,Stafford,,22,38,1,0.026316
+2019,staffordshire-moorlands,Staffordshire Moorlands,,27,56,1,0.017857
+2019,stevenage,Stevenage,,13,13,11,0.846154
+2019,stockport,Stockport,,21,21,9,0.428571
+2019,stockton-on-tees,Stockton-on-Tees,,26,56,0,0.000000
+2019,stoke-on-trent,Stoke-on-Trent,,37,44,17,0.386364
+2019,stratford-on-avon,Stratford-on-Avon,,36,36,10,0.277778
+2019,sunderland,Sunderland,,25,26,21,0.807692
+2019,surrey,Surrey,,1,1,0,0.000000
+2019,surrey-heath,Surrey Heath,,14,35,0,0.000000
+2019,swale,Swale,,24,47,2,0.042553
+2019,swindon,Swindon,,19,19,7,0.368421
+2019,tameside,Tameside,,19,19,14,0.736842
+2019,tamworth,Tamworth,,10,10,9,0.900000
+2019,tandridge,Tandridge,,14,14,3,0.214286
+2019,teignbridge,Teignbridge,,24,47,4,0.085106
+2019,telford-and-wrekin,Telford and Wrekin,,30,54,3,0.055556
+2019,tendring,Tendring,,32,48,7,0.145833
+2019,test-valley,Test Valley,,18,41,0,0.000000
+2019,tewkesbury,Tewkesbury,,20,38,3,0.078947
+2019,thanet,Thanet,,23,56,1,0.017857
+2019,three-rivers,Three Rivers,,13,14,4,0.285714
+2019,thurrock,Thurrock,,16,17,10,0.588235
+2019,tonbridge-and-malling,Tonbridge and Malling,,23,52,1,0.019231
+2019,torbay,Torbay,,16,36,4,0.111111
+2019,torridge,Torridge,,15,34,1,0.029412
+2019,trafford,Trafford,,21,21,8,0.380952
+2019,tunbridge-wells,Tunbridge Wells,,16,18,9,0.500000
+2019,uttlesford,Uttlesford,,22,39,3,0.076923
+2019,vale-of-white-horse,Vale of White Horse,,23,37,2,0.054054
+2019,wakefield,Wakefield,,21,21,17,0.809524
+2019,walsall,Walsall,,20,20,7,0.350000
+2019,warwick,Warwick,,17,44,1,0.022727
+2019,watford,Watford,,12,13,1,0.076923
+2019,waverley,Waverley,,27,55,0,0.000000
+2019,wealden,Wealden,,40,44,11,0.250000
+2019,welwyn-hatfield,Welwyn Hatfield,,16,18,7,0.388889
+2019,west-berkshire,West Berkshire,,24,43,1,0.023256
+2019,west-devon,West Devon,,16,27,0,0.000000
+2019,west-lancashire,West Lancashire,,18,18,2,0.111111
+2019,west-lindsey,West Lindsey,,16,32,0,0.000000
+2019,west-oxfordshire,West Oxfordshire,,16,16,10,0.625000
+2019,west-suffolk,West Suffolk,,35,56,4,0.071429
+2019,west-sussex,West Sussex,,1,1,1,1.000000
+2019,wigan,Wigan,,25,25,18,0.720000
+2019,winchester,Winchester,,16,16,5,0.312500
+2019,windsor-and-maidenhead,Windsor and Maidenhead,,19,41,0,0.000000
+2019,wirral,Wirral,,22,22,6,0.272727
+2019,woking,Woking,,10,10,6,0.600000
+2019,wokingham,Wokingham,,18,18,10,0.555556
+2019,wolverhampton,Wolverhampton,,20,22,3,0.136364
+2019,worcester,Worcester,,11,11,8,0.727273
+2019,worthing,Worthing,,11,11,10,0.909091
+2019,wychavon,Wychavon,,25,37,1,0.027027
+2019,wyre,Wyre,,24,50,0,0.000000
+2019,wyre-forest,Wyre Forest,,12,33,1,0.030303
+2019,york,York,,21,47,3,0.063830
+2018,adur,Adur,,14,14,6,0.428571
+2018,amber-valley,Amber Valley,,15,15,8,0.533333
+2018,barking-and-dagenham,Barking and Dagenham,,17,51,0,0.000000
+2018,barnet,Barnet,,21,63,0,0.000000
+2018,barnsley,Barnsley,,21,21,2,0.095238
+2018,basildon,Basildon,,14,15,4,0.266667
+2018,basingstoke-and-deane,Basingstoke and Deane,,20,20,5,0.250000
+2018,bexley,Bexley,,17,45,0,0.000000
+2018,birmingham,Birmingham,,69,101,5,0.049505
+2018,blackburn-with-darwen,Blackburn with Darwen,,17,51,0,0.000000
+2018,bolton,Bolton,,20,21,7,0.333333
+2018,bradford,Bradford,,30,30,9,0.300000
+2018,brent,Brent,,21,63,0,0.000000
+2018,brentwood,Brentwood,,13,13,3,0.230769
+2018,bromley,Bromley,,22,60,0,0.000000
+2018,broxbourne,Broxbourne,,10,10,0,0.000000
+2018,burnley,Burnley,,15,15,5,0.333333
+2018,bury,Bury,,17,17,4,0.235294
+2018,calderdale,Calderdale,,17,17,6,0.352941
+2018,cambridge,Cambridge,,14,15,6,0.400000
+2018,camden,Camden,,18,54,0,0.000000
+2018,cannock-chase,Cannock Chase,,13,13,7,0.538462
+2018,carlisle,Carlisle,,17,17,1,0.058824
+2018,castle-point,Castle Point,,14,14,1,0.071429
+2018,cheltenham,Cheltenham,,20,21,8,0.380952
+2018,cherwell,Cherwell,,16,17,5,0.294118
+2018,cheshire-west-and-chester,Cheshire West and Chester,,1,1,0,0.000000
+2018,chorley,Chorley,,17,17,1,0.058824
+2018,colchester,Colchester,,17,17,9,0.529412
+2018,coventry,Coventry,,18,18,4,0.222222
+2018,craven,Craven,,9,9,3,0.333333
+2018,crawley,Crawley,,12,12,4,0.333333
+2018,croydon,Croydon,,28,70,0,0.000000
+2018,daventry,Daventry,,13,13,3,0.230769
+2018,derby,Derby,,17,17,6,0.352941
+2018,dudley,Dudley,,24,24,10,0.416667
+2018,ealing,Ealing,,23,69,0,0.000000
+2018,eastleigh,Eastleigh,,14,39,0,0.000000
+2018,elmbridge,Elmbridge,,16,16,8,0.500000
+2018,enfield,Enfield,,21,63,0,0.000000
+2018,epping-forest,Epping Forest,,19,21,2,0.095238
+2018,exeter,Exeter,,13,13,7,0.538462
+2018,fareham,Fareham,,15,16,2,0.125000
+2018,gateshead,Gateshead,,22,23,1,0.043478
+2018,gosport,Gosport,,17,18,5,0.277778
+2018,great-yarmouth,Great Yarmouth,,13,14,1,0.071429
+2018,greenwich,Greenwich,,17,51,0,0.000000
+2018,hackney,Hackney,,21,57,0,0.000000
+2018,halton,Halton,,17,18,1,0.055556
+2018,hammersmith-and-fulham,Hammersmith and Fulham,,16,46,0,0.000000
+2018,haringey,Haringey,,19,57,0,0.000000
+2018,harlow,Harlow,,11,11,4,0.363636
+2018,harrogate,Harrogate,,40,40,15,0.375000
+2018,harrow,Harrow,,21,63,0,0.000000
+2018,hart,Hart,,11,11,3,0.272727
+2018,hartlepool,Hartlepool,,11,11,6,0.545455
+2018,hastings,Hastings,,16,32,0,0.000000
+2018,havant,Havant,,14,15,2,0.133333
+2018,havering,Havering,,18,54,0,0.000000
+2018,hillingdon,Hillingdon,,22,65,0,0.000000
+2018,hounslow,Hounslow,,20,60,0,0.000000
+2018,huntingdonshire,Huntingdonshire,,26,52,0,0.000000
+2018,hyndburn,Hyndburn,,11,11,3,0.272727
+2018,ipswich,Ipswich,,16,16,1,0.062500
+2018,islington,Islington,,16,48,0,0.000000
+2018,kensington-and-chelsea,Kensington and Chelsea,,18,50,0,0.000000
+2018,kingston-upon-hull-city-of,Kingston upon Hull,,21,57,0,0.000000
+2018,kingston-upon-thames,Kingston upon Thames,,16,48,0,0.000000
+2018,kirklees,Kirklees,,23,24,10,0.416667
+2018,knowsley,Knowsley,,15,15,1,0.066667
+2018,lambeth,Lambeth,,21,63,0,0.000000
+2018,leeds,Leeds,,33,99,0,0.000000
+2018,lewisham,Lewisham,,18,54,0,0.000000
+2018,lincoln,Lincoln,,11,11,2,0.181818
+2018,liverpool,Liverpool,,30,31,4,0.129032
+2018,maidstone,Maidstone,,18,18,7,0.388889
+2018,manchester,Manchester,,32,96,0,0.000000
+2018,merton,Merton,,20,60,0,0.000000
+2018,milton-keynes,Milton Keynes,,19,20,10,0.500000
+2018,mole-valley,Mole Valley,,14,14,3,0.214286
+2018,newcastle-upon-tyne,Newcastle upon Tyne,,26,78,0,0.000000
+2018,newcastle-under-lyme,Newcastle-under-Lyme,,21,44,1,0.022727
+2018,newham,Newham,,20,60,0,0.000000
+2018,north-east-lincolnshire,North East Lincolnshire,,15,16,7,0.437500
+2018,north-hertfordshire,North Hertfordshire,,18,19,7,0.368421
+2018,north-tyneside,North Tyneside,,20,20,5,0.250000
+2018,norwich,Norwich,,13,13,5,0.384615
+2018,nuneaton-and-bedworth,Nuneaton and Bedworth,,17,17,4,0.235294
+2018,oldham,Oldham,,20,22,6,0.272727
+2018,oxford,Oxford,,24,24,5,0.208333
+2018,pendle,Pendle,,16,16,3,0.187500
+2018,peterborough,Peterborough,,18,18,11,0.611111
+2018,plymouth,Plymouth,,19,19,4,0.210526
+2018,portsmouth,Portsmouth,,14,14,11,0.785714
+2018,preston,Preston,,19,20,1,0.050000
+2018,reading,Reading,,15,18,3,0.166667
+2018,redbridge,Redbridge,,22,63,0,0.000000
+2018,redditch,Redditch,,10,10,5,0.500000
+2018,reigate-and-banstead,Reigate and Banstead,,17,18,6,0.333333
+2018,richmond-upon-thames,Richmond upon Thames,,18,54,0,0.000000
+2018,rochdale,Rochdale,,20,20,5,0.250000
+2018,rochford,Rochford,,13,14,7,0.500000
+2018,rossendale,Rossendale,,12,12,2,0.166667
+2018,rugby,Rugby,,14,14,4,0.285714
+2018,runnymede,Runnymede,,14,16,3,0.187500
+2018,rushmoor,Rushmoor,,13,14,3,0.214286
+2018,salford,Salford,,20,20,3,0.150000
+2018,sandwell,Sandwell,,24,26,2,0.076923
+2018,sefton,Sefton,,22,23,9,0.391304
+2018,sheffield,Sheffield,,28,28,15,0.535714
+2018,slough,Slough,,14,14,0,0.000000
+2018,solihull,Solihull,,17,17,4,0.235294
+2018,south-cambridgeshire,South Cambridgeshire,,26,45,5,0.111111
+2018,south-lakeland,South Lakeland,,18,51,0,0.000000
+2018,south-tyneside,South Tyneside,,18,18,3,0.166667
+2018,southampton,Southampton,,16,16,12,0.750000
+2018,southend-on-sea,Southend-on-Sea,,17,17,10,0.588235
+2018,southwark,Southwark,,23,63,0,0.000000
+2018,st-albans,St Albans,,20,20,7,0.350000
+2018,st-edmundsbury,St Edmundsbury,,2,2,1,0.500000
+2018,st-helens,St Helens,,16,16,4,0.250000
+2018,stevenage,Stevenage,,13,13,6,0.461538
+2018,stockport,Stockport,,21,21,6,0.285714
+2018,sunderland,Sunderland,,25,25,9,0.360000
+2018,sutton,Sutton,,18,54,0,0.000000
+2018,swindon,Swindon,,19,19,8,0.421053
+2018,tameside,Tameside,,19,19,6,0.315789
+2018,tamworth,Tamworth,,10,10,6,0.600000
+2018,tandridge,Tandridge,,14,14,6,0.428571
+2018,three-rivers,Three Rivers,,13,13,3,0.230769
+2018,thurrock,Thurrock,,16,16,8,0.500000
+2018,tower-hamlets,Tower Hamlets,,20,45,7,0.155556
+2018,trafford,Trafford,,21,22,5,0.227273
+2018,tunbridge-wells,Tunbridge Wells,,16,16,8,0.500000
+2018,wakefield,Wakefield,,21,21,4,0.190476
+2018,walsall,Walsall,,20,21,4,0.190476
+2018,waltham-forest,Waltham Forest,,20,60,0,0.000000
+2018,wandsworth,Wandsworth,,20,60,0,0.000000
+2018,warwickshire,Warwickshire,,1,1,1,1.000000
+2018,watford,Watford,,12,12,5,0.416667
+2018,welwyn-hatfield,Welwyn Hatfield,,16,19,7,0.368421
+2018,west-lancashire,West Lancashire,,18,18,2,0.111111
+2018,west-oxfordshire,West Oxfordshire,,16,17,4,0.235294
+2018,westminster,Westminster,,20,60,0,0.000000
+2018,weymouth-and-portland,Weymouth and Portland,,1,1,1,1.000000
+2018,wigan,Wigan,,25,25,7,0.280000
+2018,winchester,Winchester,,15,15,3,0.200000
+2018,wirral,Wirral,,22,23,5,0.217391
+2018,woking,Woking,,10,10,7,0.700000
+2018,wokingham,Wokingham,,18,18,8,0.444444
+2018,wolverhampton,Wolverhampton,,20,22,2,0.090909
+2018,worcester,Worcester,,12,13,5,0.384615
+2018,worthing,Worthing,,13,13,6,0.461538
+2018,wyre-forest,Wyre Forest,,11,11,9,0.818182
+2017,birmingham,Birmingham,,2,2,2,1.000000
+2017,blackburn-with-darwen,Blackburn with Darwen,,1,1,1,1.000000
+2017,blaenau-gwent,Blaenau Gwent,,16,42,1,0.023810
+2017,bradford,Bradford,,1,1,0,0.000000
+2017,breckland,Breckland,,1,1,0,0.000000
+2017,bridgend,Bridgend,,39,54,12,0.222222
+2017,buckinghamshire,Buckinghamshire,,49,49,14,0.285714
+2017,bury,Bury,,1,1,0,0.000000
+2017,caerphilly,Caerphilly,,32,72,1,0.013889
+2017,cambridge,Cambridge,,1,1,1,1.000000
+2017,cambridgeshire,Cambridgeshire,,59,61,32,0.524590
+2017,camden,Camden,,1,1,0,0.000000
+2017,cardiff,Cardiff,,29,75,4,0.053333
+2017,carlisle,Carlisle,,2,2,2,1.000000
+2017,carmarthenshire,Carmarthenshire,,54,70,13,0.185714
+2017,central-bedfordshire,Central Bedfordshire,,2,2,1,0.500000
+2017,ceredigion,Ceredigion,,32,34,4,0.117647
+2017,chelmsford,Chelmsford,,1,1,1,1.000000
+2017,cheltenham,Cheltenham,,1,1,0,0.000000
+2017,conwy,Conwy,,32,53,7,0.132075
+2017,cornwall,Cornwall,,122,123,66,0.536585
+2017,craven,Craven,,1,1,0,0.000000
+2017,crawley,Crawley,,1,1,0,0.000000
+2017,cumbria,Cumbria,,84,84,30,0.357143
+2017,dacorum,Dacorum,,1,1,1,1.000000
+2017,daventry,Daventry,,1,1,0,0.000000
+2017,denbighshire,Denbighshire,,26,42,4,0.095238
+2017,derbyshire,Derbyshire,,61,64,27,0.421875
+2017,devon,Devon,,58,60,27,0.450000
+2017,doncaster,Doncaster,,21,55,0,0.000000
+2017,dorset,Dorset,,40,46,14,0.304348
+2017,county-durham,Durham,,63,126,8,0.063492
+2017,east-sussex,East Sussex,,50,50,13,0.260000
+2017,eastleigh,Eastleigh,,1,1,0,0.000000
+2017,essex,Essex,,70,75,26,0.346667
+2017,exeter,Exeter,,1,1,1,1.000000
+2017,flintshire,Flintshire,,46,56,7,0.125000
+2017,gloucestershire,Gloucestershire,,53,53,21,0.396226
+2017,gwynedd,Gwynedd,,50,54,10,0.185185
+2017,hampshire,Hampshire,,76,78,21,0.269231
+2017,hartlepool,Hartlepool,,1,1,1,1.000000
+2017,havant,Havant,,1,1,0,0.000000
+2017,hertfordshire,Hertfordshire,,78,78,31,0.397436
+2017,huntingdonshire,Huntingdonshire,,1,1,1,1.000000
+2017,ipswich,Ipswich,,1,1,1,1.000000
+2017,isle-of-anglesey,Isle of Anglesey,,11,30,0,0.000000
+2017,isle-of-wight,Isle of Wight,,39,40,17,0.425000
+2017,isles-of-scilly,Isles of Scilly,,1,12,0,0.000000
+2017,kent,Kent,,72,81,25,0.308642
+2017,lancashire,Lancashire,,82,84,24,0.285714
+2017,leicestershire,Leicestershire,,53,55,13,0.236364
+2017,lincolnshire,Lincolnshire,,70,70,27,0.385714
+2017,liverpool,Liverpool,,1,1,0,0.000000
+2017,maidstone,Maidstone,,1,1,0,0.000000
+2017,malvern-hills,Malvern Hills,,1,1,1,1.000000
+2017,manchester,Manchester,,1,1,0,0.000000
+2017,mendip,Mendip,,1,1,1,1.000000
+2017,merthyr-tydfil,Merthyr Tydfil,,11,33,0,0.000000
+2017,mid-suffolk,Mid Suffolk,,1,1,0,0.000000
+2017,monmouthshire,Monmouthshire,,42,43,17,0.395349
+2017,neath-port-talbot,Neath Port Talbot,,40,60,8,0.133333
+2017,newark-and-sherwood,Newark and Sherwood,,1,1,0,0.000000
+2017,newport,Newport,,20,50,1,0.020000
+2017,norfolk,Norfolk,,84,84,31,0.369048
+2017,north-dorset,North Dorset,,1,1,1,1.000000
+2017,north-hertfordshire,North Hertfordshire,,2,2,1,0.500000
+2017,north-yorkshire,North Yorkshire,,66,70,16,0.228571
+2017,northamptonshire,Northamptonshire,,57,57,21,0.368421
+2017,northumberland,Northumberland,,66,67,23,0.343284
+2017,nottingham,Nottingham,,1,1,0,0.000000
+2017,nottinghamshire,Nottinghamshire,,56,66,11,0.166667
+2017,nuneaton-and-bedworth,Nuneaton and Bedworth,,1,1,0,0.000000
+2017,oxford,Oxford,,1,1,1,1.000000
+2017,oxfordshire,Oxfordshire,,61,63,22,0.349206
+2017,pembrokeshire,Pembrokeshire,,47,47,17,0.361702
+2017,powys,Powys,,56,56,15,0.267857
+2017,preston,Preston,,2,2,1,0.500000
+2017,reigate-and-banstead,Reigate and Banstead,,1,1,0,0.000000
+2017,rhondda-cynon-taf,Rhondda Cynon Taf,,52,75,14,0.186667
+2017,rugby,Rugby,,2,2,0,0.000000
+2017,runnymede,Runnymede,,1,1,0,0.000000
+2017,rushcliffe,Rushcliffe,,1,1,0,0.000000
+2017,rushmoor,Rushmoor,,1,1,0,0.000000
+2017,sedgemoor,Sedgemoor,,1,1,1,1.000000
+2017,sheffield,Sheffield,,1,1,1,1.000000
+2017,shropshire,Shropshire,,62,73,7,0.095890
+2017,slough,Slough,,1,1,1,1.000000
+2017,somerset,Somerset,,54,55,27,0.490909
+2017,south-cambridgeshire,South Cambridgeshire,,1,1,1,1.000000
+2017,south-lakeland,South Lakeland,,1,1,0,0.000000
+2017,spelthorne,Spelthorne,,1,1,0,0.000000
+2017,staffordshire,Staffordshire,,60,62,18,0.290323
+2017,stevenage,Stevenage,,1,1,1,1.000000
+2017,suffolk,Suffolk,,63,75,24,0.320000
+2017,surrey,Surrey,,81,81,25,0.308642
+2017,swansea,Swansea,,36,72,10,0.138889
+2017,test-valley,Test Valley,,1,1,0,0.000000
+2017,torfaen,Torfaen,,24,44,5,0.113636
+2017,trafford,Trafford,,1,1,1,1.000000
+2017,vale-of-glamorgan,Vale of Glamorgan,,23,47,1,0.021277
+2017,warwickshire,Warwickshire,,57,57,20,0.350877
+2017,watford,Watford,,3,3,1,0.333333
+2017,welwyn-hatfield,Welwyn Hatfield,,1,1,1,1.000000
+2017,west-devon,West Devon,,1,1,0,0.000000
+2017,west-oxfordshire,West Oxfordshire,,1,1,0,0.000000
+2017,west-sussex,West Sussex,,70,70,30,0.428571
+2017,weymouth-and-portland,Weymouth and Portland,,1,1,1,1.000000
+2017,wiltshire,Wiltshire,,97,97,30,0.309278
+2017,windsor-and-maidenhead,Windsor and Maidenhead,,1,1,1,1.000000
+2017,wirral,Wirral,,1,1,0,0.000000
+2017,worcestershire,Worcestershire,,52,57,22,0.385965
+2017,wrexham,Wrexham,,44,49,15,0.306122
+2017,wyre-forest,Wyre Forest,,1,1,1,1.000000
+2016,adur,Adur,,14,15,9,0.600000
+2016,amber-valley,Amber Valley,,15,15,11,0.733333
+2016,barnet,Barnet,,1,1,1,1.000000
+2016,barnsley,Barnsley,,21,21,6,0.285714
+2016,barrow-in-furness,Barrow-in-Furness,,1,1,1,1.000000
+2016,basildon,Basildon,,14,14,10,0.714286
+2016,basingstoke-and-deane,Basingstoke and Deane,,20,20,5,0.250000
+2016,birmingham,Birmingham,,40,40,16,0.400000
+2016,blackburn-with-darwen,Blackburn with Darwen,,22,22,3,0.136364
+2016,bolton,Bolton,,20,20,12,0.600000
+2016,bradford,Bradford,,30,30,18,0.600000
+2016,breckland,Breckland,,1,1,1,1.000000
+2016,brent,Brent,,1,1,0,0.000000
+2016,brentwood,Brentwood,,12,13,2,0.153846
+2016,bristol,Bristol,,34,70,5,0.071429
+2016,broxbourne,Broxbourne,,10,10,3,0.300000
+2016,burnley,Burnley,,15,15,8,0.533333
+2016,bury,Bury,,17,17,9,0.529412
+2016,calderdale,Calderdale,,17,17,12,0.705882
+2016,cambridge,Cambridge,,14,14,8,0.571429
+2016,cannock-chase,Cannock Chase,,13,13,11,0.846154
+2016,canterbury,Canterbury,,1,1,1,1.000000
+2016,carlisle,Carlisle,,17,17,6,0.352941
+2016,castle-point,Castle Point,,13,14,10,0.714286
+2016,cheltenham,Cheltenham,,20,20,10,0.500000
+2016,cherwell,Cherwell,,16,48,1,0.020833
+2016,chorley,Chorley,,15,15,5,0.333333
+2016,colchester,Colchester,,17,51,0,0.000000
+2016,coventry,Coventry,,18,18,7,0.388889
+2016,craven,Craven,,11,11,6,0.545455
+2016,crawley,Crawley,,13,13,2,0.153846
+2016,croydon,Croydon,,1,1,0,0.000000
+2016,daventry,Daventry,,12,12,2,0.166667
+2016,derby,Derby,,17,17,10,0.588235
+2016,doncaster,Doncaster,,1,1,1,1.000000
+2016,dudley,Dudley,,24,25,17,0.680000
+2016,east-riding,East Riding,,1,1,0,0.000000
+2016,eastleigh,Eastleigh,,15,15,8,0.533333
+2016,elmbridge,Elmbridge,,16,48,0,0.000000
+2016,epping-forest,Epping Forest,,20,21,2,0.095238
+2016,exeter,Exeter,,13,39,0,0.000000
+2016,fareham,Fareham,,15,16,4,0.250000
+2016,forest-heath,Forest Heath,,2,2,1,0.500000
+2016,gateshead,Gateshead,,22,22,4,0.181818
+2016,gloucester,Gloucester,,18,39,1,0.025641
+2016,gloucestershire,Gloucestershire,,1,1,0,0.000000
+2016,gosport,Gosport,,17,17,5,0.294118
+2016,great-yarmouth,Great Yarmouth,,13,13,11,0.846154
+2016,greenwich,Greenwich,,1,1,0,0.000000
+2016,guildford,Guildford,,1,1,1,1.000000
+2016,hackney,Hackney,,2,2,0,0.000000
+2016,halton,Halton,,19,19,2,0.105263
+2016,harlow,Harlow,,11,11,8,0.727273
+2016,harrogate,Harrogate,,16,16,1,0.062500
+2016,hart,Hart,,11,11,1,0.090909
+2016,hartlepool,Hartlepool,,11,11,6,0.545455
+2016,hastings,Hastings,,16,17,4,0.235294
+2016,havant,Havant,,14,14,9,0.642857
+2016,havering,Havering,,1,1,1,1.000000
+2016,huntingdonshire,Huntingdonshire,,17,18,8,0.444444
+2016,hyndburn,Hyndburn,,12,12,5,0.416667
+2016,ipswich,Ipswich,,16,17,6,0.352941
+2016,kensington-and-chelsea,Kensington and Chelsea,,1,2,0,0.000000
+2016,kingston-upon-hull-city-of,Kingston upon Hull,,20,20,7,0.350000
+2016,kirklees,Kirklees,,23,23,11,0.478261
+2016,knowsley,Knowsley,,15,45,0,0.000000
+2016,leeds,Leeds,,33,33,13,0.393939
+2016,lincoln,Lincoln,,11,33,0,0.000000
+2016,liverpool,Liverpool,,30,32,4,0.125000
+2016,maidstone,Maidstone,,19,19,13,0.684211
+2016,manchester,Manchester,,32,32,0,0.000000
+2016,merton,Merton,,1,1,0,0.000000
+2016,milton-keynes,Milton Keynes,,19,20,10,0.500000
+2016,mole-valley,Mole Valley,,13,14,5,0.357143
+2016,newcastle-upon-tyne,Newcastle upon Tyne,,26,26,8,0.307692
+2016,newcastle-under-lyme,Newcastle-under-Lyme,,19,20,7,0.350000
+2016,north-dorset,North Dorset,,2,2,2,1.000000
+2016,north-east-lincolnshire,North East Lincolnshire,,12,12,8,0.666667
+2016,north-hertfordshire,North Hertfordshire,,15,15,13,0.866667
+2016,north-tyneside,North Tyneside,,20,20,6,0.300000
+2016,norwich,Norwich,,13,13,5,0.384615
+2016,nuneaton-and-bedworth,Nuneaton and Bedworth,,17,18,9,0.500000
+2016,oldham,Oldham,,20,20,8,0.400000
+2016,oxford,Oxford,,24,24,9,0.375000
+2016,pendle,Pendle,,16,18,7,0.388889
+2016,peterborough,Peterborough,,22,60,0,0.000000
+2016,plymouth,Plymouth,,19,19,16,0.842105
+2016,portsmouth,Portsmouth,,14,14,12,0.857143
+2016,preston,Preston,,18,18,5,0.277778
+2016,reading,Reading,,16,16,3,0.187500
+2016,redbridge,Redbridge,,1,1,1,1.000000
+2016,redditch,Redditch,,9,9,8,0.888889
+2016,reigate-and-banstead,Reigate and Banstead,,17,17,9,0.529412
+2016,rochdale,Rochdale,,20,20,5,0.250000
+2016,rochford,Rochford,,13,39,0,0.000000
+2016,rossendale,Rossendale,,12,12,5,0.416667
+2016,rotherham,Rotherham,,21,63,0,0.000000
+2016,rugby,Rugby,,14,14,5,0.357143
+2016,runnymede,Runnymede,,14,15,4,0.266667
+2016,rushmoor,Rushmoor,,13,13,8,0.615385
+2016,salford,Salford,,20,21,6,0.285714
+2016,sandwell,Sandwell,,24,24,1,0.041667
+2016,sefton,Sefton,,22,23,9,0.391304
+2016,sheffield,Sheffield,,28,84,0,0.000000
+2016,slough,Slough,,14,14,2,0.142857
+2016,solihull,Solihull,,17,17,5,0.294118
+2016,south-cambridgeshire,South Cambridgeshire,,19,19,9,0.473684
+2016,south-lakeland,South Lakeland,,17,17,3,0.176471
+2016,south-ribble,South Ribble,,1,1,0,0.000000
+2016,south-tyneside,South Tyneside,,18,18,6,0.333333
+2016,southampton,Southampton,,16,18,13,0.722222
+2016,southend-on-sea,Southend-on-Sea,,17,17,15,0.882353
+2016,southwark,Southwark,,2,2,0,0.000000
+2016,spelthorne,Spelthorne,,1,1,1,1.000000
+2016,st-albans,St Albans,,18,18,12,0.666667
+2016,st-edmundsbury,St Edmundsbury,,1,1,1,1.000000
+2016,st-helens,St Helens,,16,17,2,0.117647
+2016,stevenage,Stevenage,,13,13,9,0.692308
+2016,stockport,Stockport,,21,21,10,0.476190
+2016,stroud,Stroud,,27,51,5,0.098039
+2016,sunderland,Sunderland,,25,25,4,0.160000
+2016,swansea,Swansea,,1,1,0,0.000000
+2016,swindon,Swindon,,19,19,9,0.473684
+2016,tameside,Tameside,,19,20,4,0.200000
+2016,tamworth,Tamworth,,10,10,9,0.900000
+2016,tandridge,Tandridge,,14,14,8,0.571429
+2016,tendring,Tendring,,1,1,1,1.000000
+2016,three-rivers,Three Rivers,,13,15,2,0.133333
+2016,thurrock,Thurrock,,17,17,13,0.764706
+2016,trafford,Trafford,,21,21,8,0.380952
+2016,tunbridge-wells,Tunbridge Wells,,16,16,5,0.312500
+2016,wakefield,Wakefield,,21,21,11,0.523810
+2016,walsall,Walsall,,20,20,4,0.200000
+2016,warrington,Warrington,,22,58,0,0.000000
+2016,watford,Watford,,12,36,0,0.000000
+2016,waveney,Waveney,,1,1,1,1.000000
+2016,welwyn-hatfield,Welwyn Hatfield,,16,48,0,0.000000
+2016,west-lancashire,West Lancashire,,18,18,3,0.166667
+2016,west-oxfordshire,West Oxfordshire,,17,17,8,0.470588
+2016,westminster,Westminster,,1,1,0,0.000000
+2016,weymouth-and-portland,Weymouth and Portland,,12,13,5,0.384615
+2016,wigan,Wigan,,25,25,8,0.320000
+2016,winchester,Winchester,,16,45,0,0.000000
+2016,wirral,Wirral,,22,23,3,0.130435
+2016,woking,Woking,,10,30,0,0.000000
+2016,wokingham,Wokingham,,18,19,6,0.315789
+2016,wolverhampton,Wolverhampton,,20,20,5,0.250000
+2016,worcester,Worcester,,12,12,4,0.333333
+2016,worthing,Worthing,,13,13,11,0.846154
+2016,wyre-forest,Wyre Forest,,11,11,10,0.909091

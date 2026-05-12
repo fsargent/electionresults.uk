@@ -83,3 +83,18 @@ src/routes/sitemap.xml/    Build-time sitemap
 See [`_bmad-output/implementation-artifacts/deferred-work.md`](_bmad-output/implementation-artifacts/deferred-work.md)
 (local only) for items raised during adversarial review that are real but
 out of scope for the current slice.
+
+## Licence
+
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) for the
+repository — code, ETL pipeline, generated tables, charts, and prose.
+
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) for any
+dataset derived from Andrew Teale's [Local Elections Archive
+Project](https://www.andrewteale.me.uk/leap/) (`docs/leap/**`), which
+is upstream CC BY-SA 3.0 / GFDL — see [`docs/leap-source.md`](docs/leap-source.md).
+
+Upstream third-party data in `docs/` (House of Commons Library LEH,
+Democracy Club, Open Council Data UK, IndyLive Scottish STV) is
+reproduced under its respective upstream licence — full breakdown in
+[`LICENSE`](LICENSE).

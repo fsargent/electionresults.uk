@@ -1,0 +1,69 @@
+# Licence
+
+## Default — CC BY 4.0
+
+Copyright © Felix Sargent and contributors.
+
+Except where stated otherwise below, the original contents of this
+repository — site code, ETL pipeline, generated tables, charts, prose,
+SVG and PNG outputs — are licensed under the Creative Commons
+Attribution 4.0 International licence:
+
+> https://creativecommons.org/licenses/by/4.0/
+
+You may share and adapt the work for any purpose, including
+commercially, provided you give appropriate credit, link to the
+licence, and indicate if changes were made. Suggested attribution:
+
+> "electionresults.uk by Felix Sargent (https://electionresults.uk),
+> licensed under CC BY 4.0."
+
+Note that Creative Commons does not recommend CC licences for
+software in general. The choice is deliberate here: this repository
+publishes a single static analysis site, the code and the derived
+data are intended to be reused under one consistent attribution
+regime, and the patent / source-distribution concerns CC licences
+don't address don't apply to a prerendered web project.
+
+## Carve-out — LEAP-derived data: CC BY-SA 4.0
+
+The CSV files under `docs/leap/` are republished from Andrew Teale's
+Local Elections Archive Project (https://www.andrewteale.me.uk/leap/)
+under their original CC BY-SA 3.0 / GFDL terms. Any dataset
+**derived** from these files — including aggregated tables, joined
+extracts, and downloads on the site that incorporate LEAP rows — is
+released under the one-way-compatible upgrade:
+
+> Creative Commons Attribution-ShareAlike 4.0 International
+> https://creativecommons.org/licenses/by-sa/4.0/
+
+with attribution to Andrew Teale and a link back to the LEAP archive.
+
+The share-alike obligation rides on the **data**, not on the analysis
+code or the editorial prose around it. Code, charts, and pages
+remain CC BY 4.0 even when they describe LEAP-derived figures.
+
+## Upstream third-party data
+
+The following materials in `docs/` are reproduced under their
+upstream licences and are not relicensed by this repository:
+
+- House of Commons Library Local Election Handbooks
+  (`docs/LEH-*.xlsx`, `docs/local_elections_*.xlsx`,
+  `docs/local-elections-*.xlsx`, `docs/CBP*.xlsx`,
+  `docs/data_tables.xlsx`) — Open Parliament Licence v3.0
+  (https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence/)
+- Democracy Club candidate / results exports
+  (`docs/dc-candidates-*.csv`, `docs/downloaded-*.csv`) — CC BY 4.0
+  (https://democracyclub.org.uk/copyright/)
+- Open Council Data UK rolls and history
+  (`docs/opencouncildata_*.csv`, `docs/history*.csv`) — CC BY-SA 4.0
+  (https://opencouncildata.co.uk/)
+- IndyLive Radio 2022 Scottish STV CSV
+  (`docs/scotland-2022-stv-indylive.csv`) — CC BY-SA 4.0
+- LEAP — Andrew Teale (`docs/leap/**`) — CC BY-SA 3.0 / GFDL,
+  see `docs/leap-source.md`
+
+In every case the files are reproduced for analytical use under the
+upstream licence; consult the upstream source for refresh, errata,
+and re-use beyond what those licences permit.

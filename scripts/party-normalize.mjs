@@ -14,6 +14,13 @@ const ABBREV_TO_FULL = {
   'LAB CO OP': 'Labour Party',
   'LAB COOP': 'Labour Party',
   CON: 'Conservative Party',
+  // Andrew Teale's LEAP archive uses single-letter "C" for Conservative
+  // and "Grn" for Green. LEH uses CON / GREEN. Map both shapes here so
+  // the LEAP and LEH cycles share canonical party names downstream.
+  C: 'Conservative Party',
+  GRN: 'Green Party',
+  SNP: 'Scottish National Party',
+  PC: 'Plaid Cymru',
   LD: 'Liberal Democrats',
   GREEN: 'Green Party',
   REF: 'Reform UK',

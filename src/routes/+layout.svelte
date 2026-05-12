@@ -35,10 +35,16 @@
       <a href="https://www.makevotesmatter.co.uk/">Make Votes Matter</a>.
       Source data: House of Commons Library Local Election Handbooks
       (2021&ndash;2025), published under the Open Parliament Licence;
-      preliminary 2026 results from
-      <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>,
-      reused under
-      <a href="https://creativecommons.org/licenses/by/4.0/" rel="external noopener">CC&nbsp;BY&nbsp;4.0</a>.
+      pre-2021 ward results from
+      <a href="https://www.andrewteale.me.uk/leap/" rel="external noopener">Andrew Teale's
+      Local Elections Archive Project</a>
+      (CC&nbsp;BY-SA&nbsp;3.0); preliminary 2026 results from
+      <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>
+      (CC&nbsp;BY&nbsp;4.0).
+      Site released under
+      <a href="https://creativecommons.org/licenses/by/4.0/" rel="external noopener">CC&nbsp;BY&nbsp;4.0</a>;
+      LEAP-derived data downloads under
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external noopener">CC&nbsp;BY-SA&nbsp;4.0</a>.
       Methodology and raw data are <a href="/data">open for inspection</a>;
       full source on
       <a href="https://github.com/fsargent/electionresults.uk">GitHub</a>.
