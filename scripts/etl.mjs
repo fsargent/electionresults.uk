@@ -2343,58 +2343,102 @@ writeCsv(
 );
 
 // --- JSON snapshot for SvelteKit server load fns ----------------------------
+//
+// Split into per-domain files so the SvelteKit data layer's module
+// init triggers several bounded JSON.parse calls instead of one giant
+// one. The 32 MB monolithic snapshot was OOM'ing V8 on Cloudflare's
+// build container during prerender. Splitting by domain caps each
+// individual parse at ~17 MB (races) and lets the rest stream in
+// parallel module loads.
+//
+// Single `generated.json` is also kept (concatenation of the splits)
+// because scripts/build-og.mjs and external consumers reading it as a
+// download still want one file. Bun has plenty of heap to parse it.
 function ensureDir(p) {
   mkdirSync(dirname(p), { recursive: true });
 }
 ensureDir(SNAPSHOT_PATH);
-const snapshot = {
+
+const snapshotMeta = {
   generatedAt: new Date().toISOString(),
   source: 'docs/LEH-{2021..2025}-results-HoC*.xlsx',
-  totals,
+  totals
+};
+const racesSlim = allRaces.map((r) => ({
+  year: r.year,
+  electionDate: r.electionDate,
+  wardName: r.wardName,
+  wardSlug: r.wardSlug,
+  wardCode: r.wardCode,
+  council: r.council,
+  councilSlug: r.councilSlug,
+  authorityType: r.authorityType,
+  electionType: r.electionType,
+  seats: r.seats,
+  electorate: r.electorate,
+  ballots: r.ballots,
+  invalidVotes: r.invalidVotes,
+  validBallots: r.validBallots,
+  system: r.system ?? 'FPTP',
+  candidates: r.candidates.map((c) => ({
+    name: c.name,
+    party: c.party,
+    votes: c.votes,
+    elected: c.elected,
+    rank: c.rank
+  })),
+  winningPct: r.winningPct,
+  quota: r.quota,
+  underPar: r.underPar,
+  isBelowQuota: r.isBelowQuota
+}));
+
+// Per-domain split files, all in src/lib/data/.
+const SPLIT_DIR = dirname(SNAPSHOT_PATH);
+function writeSplit(name, payload) {
+  const p = resolve(SPLIT_DIR, name);
+  writeFileSync(p, JSON.stringify(payload));
+  const mb = (JSON.stringify(payload).length / 1024 / 1024).toFixed(2);
+  console.log(`[etl] wrote ${p} (${mb} MB)`);
+}
+writeSplit('core.json', {
+  ...snapshotMeta,
   cycles: cycleSummaries,
   councils,
-  races: allRaces.map((r) => ({
-    year: r.year,
-    electionDate: r.electionDate,
-    wardName: r.wardName,
-    wardSlug: r.wardSlug,
-    wardCode: r.wardCode,
-    council: r.council,
-    councilSlug: r.councilSlug,
-    authorityType: r.authorityType,
-    electionType: r.electionType,
-    seats: r.seats,
-    electorate: r.electorate,
-    ballots: r.ballots,
-    invalidVotes: r.invalidVotes,
-    validBallots: r.validBallots,
-    system: r.system ?? 'FPTP',
-    candidates: r.candidates.map((c) => ({
-      name: c.name,
-      party: c.party,
-      votes: c.votes,
-      elected: c.elected,
-      rank: c.rank
-    })),
-    winningPct: r.winningPct,
-    quota: r.quota,
-    underPar: r.underPar,
-    isBelowQuota: r.isBelowQuota
-  })),
-  marginalWinners: marginal,
-  partyViews,
-  flips,
-  compositions,
   reorganisations,
+  // Per-council 2026 coverage so consumers (homepage maps) can render
+  // cohort councils whose count is incomplete as black, instead of
+  // colouring them by their partial subset of counted wards.
+  cycle2026Coverage
+});
+writeSplit('races.json', { races: racesSlim });
+writeSplit('marginal.json', { marginalWinners: marginal });
+writeSplit('parties.json', {
+  partyViews,
   // Party-page rollups. partyYearStats is the trend-view spine,
   // partyCouncilCycles powers the per-(party,year) breakdown,
   // partyControlChanges carries the gained/lost-councils slices.
   partyYearStats,
   partyCouncilCycles,
+  partyControlChanges
+});
+writeSplit('flips-comp.json', { flips, compositions });
+
+// Combined snapshot for build-og.mjs and the public /data download.
+// Same shape as before so external consumers don't break.
+const snapshot = {
+  ...snapshotMeta,
+  cycles: cycleSummaries,
+  councils,
+  races: racesSlim,
+  marginalWinners: marginal,
+  partyViews,
+  flips,
+  compositions,
+  reorganisations,
+  partyYearStats,
+  partyCouncilCycles,
   partyControlChanges,
-  // Per-council 2026 coverage so consumers (homepage maps) can render
-  // cohort councils whose count is incomplete as black, instead of
-  // colouring them by their partial subset of counted wards.
   cycle2026Coverage
 };
 writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot));

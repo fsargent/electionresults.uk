@@ -1,5 +1,5 @@
 import type { ParamMatcher } from '@sveltejs/kit';
-import { partySlugs } from '$lib/data';
+import { partySlugs } from '$lib/parties';
 
 const VALID = new Set(partySlugs());
 

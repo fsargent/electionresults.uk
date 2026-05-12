@@ -1,4 +1,25 @@
-import snapshot from './data/generated.json';
+// Per-domain split files. Vite tries to inline JSON imports as JS
+// object literals, which produced a single 42 MB SSR chunk that V8
+// OOM'd parsing on Cloudflare's prerender container. Reading the
+// files via fs at module init sidesteps the inlining: each
+// JSON.parse hits V8's dedicated JsonParser (much more efficient than
+// parsing equivalent-size JS source), and the slices stay independent
+// instead of being merged back into one chunk.
+//
+// data.ts is only loaded during SSR / prerender (the Cloudflare
+// Worker tree-shakes it out for the static-asset routes), so node:fs
+// is available wherever this module actually runs. ETL still emits
+// the merged generated.json for build-og.mjs and the public download.
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+function loadSplit<T>(name: string): T {
+  // Resolve from project root — prerender always runs from there
+  // (`bun run build` invokes vite from the package directory). Using
+  // process.cwd() instead of import.meta.url keeps this working after
+  // Vite bundles data.ts into .svelte-kit/output/server/chunks/.
+  const path = resolve(process.cwd(), 'src/lib/data', name);
+  return JSON.parse(readFileSync(path, 'utf8')) as T;
+}
 import type {
   Race,
   CouncilSummary,
@@ -36,7 +57,7 @@ export interface Cycle2026CouncilCoverage {
   complete: boolean;
 }
 
-interface Snapshot {
+interface CoreSnapshot {
   generatedAt: string;
   source: string;
   totals: {
@@ -48,41 +69,53 @@ interface Snapshot {
   };
   cycles: CycleSummary[];
   councils: CouncilSummary[];
-  races: Race[];
-  marginalWinners: SnapshotMarginal[];
-  partyViews: PartyView[];
-  flips: CouncilFlip[];
-  compositions: CompositionSnapshot[];
   reorganisations: CouncilReorganisation[];
+  cycle2026Coverage: Record<string, Cycle2026CouncilCoverage> | null;
+}
+interface RacesSnapshot {
+  races: Race[];
+}
+interface MarginalSnapshot {
+  marginalWinners: SnapshotMarginal[];
+}
+interface PartiesSnapshot {
+  partyViews: PartyView[];
   partyYearStats: PartyYearStats[];
   partyCouncilCycles: PartyCouncilCycle[];
   partyControlChanges: PartyControlChange[];
-  cycle2026Coverage: Record<string, Cycle2026CouncilCoverage> | null;
+}
+interface FlipsCompSnapshot {
+  flips: CouncilFlip[];
+  compositions: CompositionSnapshot[];
 }
 
-const data = snapshot as unknown as Snapshot;
+const coreData = loadSplit<CoreSnapshot>('core.json');
+const racesSnap = loadSplit<RacesSnapshot>('races.json');
+const marginalSnap = loadSplit<MarginalSnapshot>('marginal.json');
+const partiesSnap = loadSplit<PartiesSnapshot>('parties.json');
+const flipsCompSnap = loadSplit<FlipsCompSnapshot>('flips-comp.json');
 
-export const generatedAt = data.generatedAt;
-export const sourceLabel = data.source;
-export const totals = data.totals;
+export const generatedAt = coreData.generatedAt;
+export const sourceLabel = coreData.source;
+export const totals = coreData.totals;
 
-export const allCycles: CycleSummary[] = [...data.cycles].sort(
+export const allCycles: CycleSummary[] = [...coreData.cycles].sort(
   (a, b) => b.year - a.year
 );
-export const allCouncils: CouncilSummary[] = data.councils;
-export const allRaces: Race[] = data.races;
-export const allMarginalWinners: SnapshotMarginal[] = data.marginalWinners;
-export const allPartyViews: PartyView[] = data.partyViews;
-export const allFlips: CouncilFlip[] = data.flips;
-export const allCompositions: CompositionSnapshot[] = data.compositions ?? [];
-export const allReorganisations: CouncilReorganisation[] = data.reorganisations;
-export const allPartyYearStats: PartyYearStats[] = data.partyYearStats ?? [];
+export const allCouncils: CouncilSummary[] = coreData.councils;
+export const allRaces: Race[] = racesSnap.races;
+export const allMarginalWinners: SnapshotMarginal[] = marginalSnap.marginalWinners;
+export const allPartyViews: PartyView[] = partiesSnap.partyViews;
+export const allFlips: CouncilFlip[] = flipsCompSnap.flips;
+export const allCompositions: CompositionSnapshot[] = flipsCompSnap.compositions ?? [];
+export const allReorganisations: CouncilReorganisation[] = coreData.reorganisations;
+export const allPartyYearStats: PartyYearStats[] = partiesSnap.partyYearStats ?? [];
 export const allPartyCouncilCycles: PartyCouncilCycle[] =
-  data.partyCouncilCycles ?? [];
+  partiesSnap.partyCouncilCycles ?? [];
 export const allPartyControlChanges: PartyControlChange[] =
-  data.partyControlChanges ?? [];
+  partiesSnap.partyControlChanges ?? [];
 export const cycle2026Coverage: Record<string, Cycle2026CouncilCoverage> =
-  data.cycle2026Coverage ?? {};
+  coreData.cycle2026Coverage ?? {};
 
 /** Slugs of cohort councils with at least one ward still being counted in 2026. */
 export function incomplete2026Councils(): Set<string> {
@@ -631,35 +664,10 @@ export function electedFromRace(race: Race): Candidate[] {
 
 // --- Party pages -------------------------------------------------------
 //
-// First-class slug map for the seven major parties. Slugs intentionally
-// short and URL-friendly; the canonical full name from
-// scripts/party-normalize.mjs is the lookup key everywhere else in the
-// codebase, so this map is the single source of truth for /labour/
-// → "Labour Party" routing.
-const PARTY_SLUG_TO_NAME: Record<string, string> = {
-  labour: 'Labour Party',
-  conservative: 'Conservative Party',
-  'liberal-democrats': 'Liberal Democrats',
-  green: 'Green Party',
-  reform: 'Reform UK',
-  snp: 'Scottish National Party',
-  'plaid-cymru': 'Plaid Cymru'
-};
-const PARTY_NAME_TO_SLUG = Object.fromEntries(
-  Object.entries(PARTY_SLUG_TO_NAME).map(([slug, name]) => [name, slug])
-) as Record<string, string>;
-
-export function partySlugs(): string[] {
-  return Object.keys(PARTY_SLUG_TO_NAME);
-}
-
-export function partyForSlug(slug: string): string | null {
-  return PARTY_SLUG_TO_NAME[slug] ?? null;
-}
-
-export function slugForParty(party: string): string | null {
-  return PARTY_NAME_TO_SLUG[party] ?? null;
-}
+// Slug map lives in $lib/parties so the param matcher (browser-safe)
+// can share the same source of truth without pulling in this
+// server-only module.
+export { partySlugs, partyForSlug, slugForParty } from './parties';
 
 /** Trend rows for one party, ascending by year. */
 export function partyTrend(party: string): PartyYearStats[] {
