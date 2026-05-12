@@ -166,7 +166,8 @@
     height: 720px;
     border: 1px solid var(--rule, #ddd);
     border-radius: 4px;
-    background: #fff;
+    background: var(--bg);
+    color-scheme: light dark;
   }
   .loader {
     font: inherit;
