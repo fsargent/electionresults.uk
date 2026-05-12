@@ -7,9 +7,11 @@
 
   // Vendored Datasette Lite at /explorer/ (see static/explorer/) — themed
   // and same-origin so the worker can fetch /data/results.sqlite without
-  // cross-origin overhead.
+  // cross-origin overhead. Explicit index.html avoids SvelteKit's
+  // trailing-slash normalize collapsing /explorer/ → /explorer, which
+  // would then be caught by the [council] dynamic route.
   const datasetteUrl =
-    '/explorer/?url=/data/results.sqlite#/results/races?_sort_desc=under_par';
+    '/explorer/index.html?url=/data/results.sqlite#/results/races?_sort_desc=under_par';
   let explorerOpen = $state(false);
 </script>
 
