@@ -2,8 +2,14 @@
   import { num } from '$lib/format';
   let { data } = $props();
   const generatedAt = $derived(data.generatedAt);
-  const sourceLabel = $derived(data.sourceLabel);
   const totals = $derived(data.totals);
+  const generatedAtLabel = $derived(
+    new Date(generatedAt).toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    })
+  );
 
   // Vendored Datasette Lite at /explorer/ (see static/explorer/) — themed
   // and same-origin so the worker can fetch /data/results.sqlite without
@@ -32,10 +38,10 @@
   </p>
 
   <p class="muted">
-    Snapshot generated <code>{generatedAt}</code> · source
-    <code>{sourceLabel}</code> · {num(totals.cycles)} election cycles,
-    {num(totals.races)} races, {num(totals.seats)} elected seats across
-    {num(totals.councils)} council&times;cycle pairs.
+    Snapshot {generatedAtLabel} · {num(totals.cycles)} cycles ·
+    {num(totals.races)} races · {num(totals.seats)} elected seats ·
+    {num(totals.councils)} council&times;cycle pairs. Sources listed
+    under <a href="#licensing">Licensing &amp; sources</a>.
   </p>
 
   <h2>Downloads</h2>
@@ -134,7 +140,7 @@
     </tbody>
   </table>
 
-  <h2>Licensing &amp; sources</h2>
+  <h2 id="licensing">Licensing &amp; sources</h2>
   <p>
     <strong>Election results</strong> &mdash; published by the House of
     Commons Library under the Open Parliament Licence; ingested from the
