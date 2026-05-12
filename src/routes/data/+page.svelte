@@ -11,13 +11,19 @@
     })
   );
 
-  // Vendored Datasette Lite at /explorer/ (see static/explorer/) — themed
-  // and same-origin so the worker can fetch /data/results.sqlite without
-  // cross-origin overhead. Explicit index.html avoids SvelteKit's
+  // The SQLite database itself lives in the repo at data-export/ and
+  // is served directly from GitHub raw — Cloudflare Workers Static
+  // Assets cap individual files at 25 MiB, and the database is ~32 MiB.
+  // raw.githubusercontent.com sets `Access-Control-Allow-Origin: *`
+  // so the vendored Datasette Lite at /explorer/ can fetch it
+  // cross-origin without proxying.
+  const SQLITE_URL =
+    'https://raw.githubusercontent.com/fsargent/electionresults.uk/main/data-export/results.sqlite';
+  // Vendored Datasette Lite at /explorer/ (see static/explorer/) —
+  // themed to match the site. Explicit index.html avoids SvelteKit's
   // trailing-slash normalize collapsing /explorer/ → /explorer, which
   // would then be caught by the [council] dynamic route.
-  const datasetteUrl =
-    '/explorer/index.html?url=/data/results.sqlite#/results';
+  const datasetteUrl = `/explorer/index.html?url=${encodeURIComponent(SQLITE_URL)}#/results`;
   let explorerOpen = $state(false);
 </script>
 
@@ -46,7 +52,7 @@
 
   <h2>Downloads</h2>
   <ul>
-    <li><a href="/data/results.sqlite" download>results.sqlite</a> — full database for all cycles (open in DBeaver, sqlite3, DuckDB CLI, Python, R, or any SQLite-compatible tool)</li>
+    <li><a href={SQLITE_URL} download="results.sqlite">results.sqlite</a> — full database for all cycles (open in DBeaver, sqlite3, DuckDB CLI, Python, R, or any SQLite-compatible tool). Hosted on <a href="https://github.com/fsargent/electionresults.uk/tree/main/data-export" rel="external noopener">GitHub</a> because it's larger than the per-file Cloudflare Workers Static Assets cap.</li>
     <li><a href="/data/cycles.csv" download>cycles.csv</a> — one row per election cycle</li>
     <li><a href="/data/councils.csv" download>councils.csv</a> — one row per (year, council) pair</li>
     <li><a href="/data/races.csv" download>races.csv</a> — one row per ward race</li>

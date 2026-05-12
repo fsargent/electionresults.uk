@@ -16,7 +16,13 @@ import { reorganisationIndex } from './council-reorganisations.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const OUT_DIR = resolve(ROOT, 'static/data');
-const SQLITE_PATH = resolve(OUT_DIR, 'results.sqlite');
+// SQLite is too big for the Cloudflare Workers Static Assets cap
+// (25 MiB per file). Write it to a sibling `data-export/` directory
+// kept in the repo so GitHub raw URLs serve it directly to consumers
+// (CORS-open via raw.githubusercontent.com), while the CSV mirrors
+// under static/data/ keep working as in-build downloads.
+const SQLITE_OUT_DIR = resolve(ROOT, 'data-export');
+const SQLITE_PATH = resolve(SQLITE_OUT_DIR, 'results.sqlite');
 const SNAPSHOT_PATH = resolve(ROOT, 'src/lib/data/generated.json');
 
 // --- Cycle configuration -----------------------------------------------------
@@ -2312,6 +2318,7 @@ console.log(
 
 // --- Emit SQLite -------------------------------------------------------------
 mkdirSync(OUT_DIR, { recursive: true });
+mkdirSync(SQLITE_OUT_DIR, { recursive: true });
 if (existsSync(SQLITE_PATH)) rmSync(SQLITE_PATH);
 const db = new Database(SQLITE_PATH, { create: true });
 db.exec('PRAGMA journal_mode = DELETE');
