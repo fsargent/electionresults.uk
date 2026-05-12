@@ -106,12 +106,23 @@
   <h2>Year-over-year flips</h2>
   <p class="muted">
     Each council where the leading party changed between consecutive cycles,
-    coloured by the party that took the lead. Councils that haven't
-    flipped (or that we only have one cycle for) stay grey. Hover for
-    the cycle and the party transition; click to see the council's full
-    history.
+    coloured by the party that took the lead.
+    {#if isCycle}
+      In the 2026 view, cohort councils that polled but didn't flip are
+      shown in a darker neutral tone; councils that weren't up for
+      election this cycle stay default-grey.
+    {:else}
+      Councils that haven't flipped (or that we only have one cycle for)
+      stay grey.
+    {/if}
+    Hover for the cycle and the party transition; click to see the
+    council's full history.
   </p>
-  <MapFlips entries={view.flipMapEntries} incompleteCouncils={view.incompleteCouncils} />
+  <MapFlips
+    entries={view.flipMapEntries}
+    incompleteCouncils={view.incompleteCouncils}
+    polledNoFlipCouncils={view.polledNoFlipCouncils}
+  />
 
   <h3>
     {#if isCycle}

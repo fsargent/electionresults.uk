@@ -126,6 +126,13 @@ export function incomplete2026Councils(): Set<string> {
   return out;
 }
 
+/** Slugs of every council that polled in 2026 (the full cohort, regardless
+ *  of count completeness). Used by maps to distinguish "polled, no
+ *  flip" from "didn't poll this cycle". */
+export function cohort2026Councils(): Set<string> {
+  return new Set(Object.keys(cycle2026Coverage));
+}
+
 export interface DistortionRow {
   year: number;
   council: string;

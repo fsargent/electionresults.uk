@@ -11,6 +11,7 @@ import {
   allFlips,
   cycleByYear,
   incomplete2026Councils,
+  cohort2026Councils,
   stvDistortionPerCouncil
 } from '$lib/data';
 
@@ -119,6 +120,19 @@ function buildView(scopeYear: number | null) {
     ? [...incomplete2026Councils()]
     : [];
 
+  // 2026 cohort councils that polled but didn't flip — election
+  // happened, leading party unchanged. Lets the flip map distinguish
+  // these from councils that simply weren't up for election (which
+  // should stay default-grey). Only meaningful for the 2026 view.
+  let polledNoFlipCouncils: string[] = [];
+  if (scopeYear === 2026) {
+    const flipped = new Set(flipMapEntries.map((f) => f.councilSlug));
+    const incompleteSet = new Set(incompleteCouncils);
+    polledNoFlipCouncils = [...cohort2026Councils()].filter(
+      (slug) => !flipped.has(slug) && !incompleteSet.has(slug)
+    );
+  }
+
   return {
     totals: scopedTotals,
     lowestWinner,
@@ -128,7 +142,8 @@ function buildView(scopeYear: number | null) {
     latestByCouncil,
     flipMapEntries,
     topFlipsByShift,
-    incompleteCouncils
+    incompleteCouncils,
+    polledNoFlipCouncils
   };
 }
 
