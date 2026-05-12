@@ -441,7 +441,6 @@
 
   <h2>What is <em>not</em> here yet</h2>
   <ul>
-    <li>An in-page SQL console (<em>datasette-lite</em>) — deferred.</li>
     <li>DuckDB-WASM widgets for live-querying tables in the browser
       — deferred.</li>
     <li>The full system-anomalies lens beyond

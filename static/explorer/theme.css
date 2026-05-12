@@ -1,0 +1,152 @@
+/* Site-palette overrides for vendored Datasette Lite. Loaded after
+   app.css so cascade wins. Keep this file the only place we touch — the
+   vendored app.css / index.html / webworker.js stay close to upstream so
+   `curl https://raw.githubusercontent.com/simonw/datasette-lite/main/...`
+   refreshes cleanly. */
+
+:root {
+  --er-bg: #f6f5ee;
+  --er-fg: #1a1a1a;
+  --er-muted: #5a5a5a;
+  --er-rule: #d8d4c4;
+  --er-accent: #0b3d2e;
+  --er-accent-fg: #f6f5ee;
+  --er-warn: #b94a2c;
+  --er-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+  --er-serif: Georgia, 'Times New Roman', serif;
+  --er-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+body {
+  background-color: var(--er-bg);
+  color: var(--er-fg);
+  font-family: var(--er-sans);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Headings — match site's Georgia for h1/h2/h3 */
+h1, .header1, h2, .header2, h3, .header3 {
+  font-family: var(--er-serif);
+  font-weight: 600;
+}
+
+/* Links */
+a:link, a:visited {
+  color: var(--er-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a:hover, a:focus, a:active {
+  color: var(--er-accent);
+  text-decoration-thickness: 2px;
+}
+button.button-as-link {
+  color: var(--er-accent);
+}
+button.button-as-link:hover, button.button-as-link:focus {
+  color: var(--er-accent);
+}
+
+/* Header / footer — flatten the upstream blue gradient bar to a quiet
+   site-toned strip. The explorer lives inside our /data iframe, so a
+   loud chrome competes with the parent page. */
+header, footer {
+  background: var(--er-bg);
+  background-image: none;
+  color: var(--er-fg);
+  border-bottom: 1px solid var(--er-rule);
+}
+footer {
+  border-top: 1px solid var(--er-rule);
+  border-bottom: 0;
+}
+header a:link, header a:visited, header a:hover, header a:focus, header a:active,
+footer a:link, footer a:visited, footer a:hover, footer a:focus, footer a:active,
+header button.button-as-link, footer button.button-as-link {
+  color: var(--er-accent);
+  text-decoration: underline;
+}
+
+/* Page-header thick rule on the left of titles */
+.page-header {
+  border-left-color: var(--er-accent);
+}
+
+/* Action menu pill button */
+.page-action-menu .icon-text {
+  background: var(--er-accent);
+  background-image: none;
+  border-color: var(--er-accent);
+  color: var(--er-accent-fg);
+}
+
+/* Submit / button styling — site accent instead of bootstrap blue */
+form input[type=submit] {
+  background: var(--er-accent);
+  background-image: none;
+  border-color: var(--er-accent);
+  color: var(--er-accent-fg);
+}
+form button[type=button] {
+  color: var(--er-accent);
+  background-color: var(--er-bg);
+  border-color: var(--er-accent);
+}
+
+/* Tables — match the rule colour and tighten the busy borders */
+table {
+  font-size: 0.95rem;
+}
+td {
+  border-top: 1px solid var(--er-rule);
+  border-right: 0;
+  padding: 0.4rem 0.6rem;
+}
+th {
+  padding: 0.4rem 0.8rem 0.4rem 0;
+  font-weight: 600;
+  border-bottom: 1px solid var(--er-rule);
+}
+
+/* SQL editor + inputs */
+form.sql textarea,
+form input[type=text],
+form input[type=search],
+.filters input.filter-value {
+  border: 1px solid var(--er-rule);
+  background: #fff;
+  color: var(--er-fg);
+  font-family: var(--er-mono);
+  border-radius: 3px;
+}
+form.sql textarea {
+  font-size: 1em;
+}
+
+.select-wrapper {
+  border-color: var(--er-rule);
+  background-color: #fff;
+}
+
+code, pre {
+  font-family: var(--er-mono);
+}
+
+/* Dim the load-more buttons row at the bottom */
+#load-custom button {
+  background: var(--er-bg);
+  color: var(--er-accent);
+  border: 1px solid var(--er-rule);
+  border-radius: 3px;
+  padding: 0.4em 0.8em;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+#load-custom button:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+#load-custom a {
+  color: var(--er-accent) !important;
+}

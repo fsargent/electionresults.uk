@@ -4,6 +4,13 @@
   const generatedAt = $derived(data.generatedAt);
   const sourceLabel = $derived(data.sourceLabel);
   const totals = $derived(data.totals);
+
+  // Vendored Datasette Lite at /explorer/ (see static/explorer/) — themed
+  // and same-origin so the worker can fetch /data/results.sqlite without
+  // cross-origin overhead.
+  const datasetteUrl =
+    '/explorer/?url=/data/results.sqlite#/results/races?_sort_desc=under_par';
+  let explorerOpen = $state(false);
 </script>
 
 <svelte:head>
@@ -37,6 +44,36 @@
     <li><a href="/data/races.csv" download>races.csv</a> — one row per ward race</li>
     <li><a href="/data/candidates.csv" download>candidates.csv</a> — one row per candidacy</li>
   </ul>
+
+  <h2>Browse in your browser</h2>
+  <p>
+    Run SQL against the database without installing anything, via
+    <a href="https://lite.datasette.io" rel="external noopener">Datasette Lite</a>
+    (Simon Willison's <a href="https://datasette.io" rel="external noopener">Datasette</a>
+    compiled to WebAssembly). Once loaded, every query runs locally in
+    your browser — nothing is sent to a server.
+  </p>
+  {#if explorerOpen}
+    <iframe
+      src={datasetteUrl}
+      title="Datasette Lite — electionresults.uk database explorer"
+      referrerpolicy="no-referrer"
+    ></iframe>
+    <p class="muted">
+      <a href={datasetteUrl} rel="external noopener">Open in a new tab</a>
+      for more room.
+    </p>
+  {:else}
+    <p>
+      <button type="button" class="loader" onclick={() => (explorerOpen = true)}>
+        Load explorer (downloads ~32&nbsp;MB)
+      </button>
+    </p>
+    <p class="muted">
+      Click to fetch the SQLite file. Skipped by default so visitors on
+      metered connections aren't charged for it.
+    </p>
+  {/if}
 
   <h2>Schema</h2>
 
@@ -122,6 +159,22 @@
 
 <style>
   .lede { font-size: 1.1rem; }
+  iframe {
+    width: 100%;
+    height: 720px;
+    border: 1px solid var(--rule, #ddd);
+    border-radius: 4px;
+    background: #fff;
+  }
+  .loader {
+    font: inherit;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--rule, #ddd);
+    border-radius: 4px;
+    background: var(--bg, #f6f5ee);
+    cursor: pointer;
+  }
+  .loader:hover { background: rgba(0, 0, 0, 0.05); }
   code {
     background: rgba(0, 0, 0, 0.05);
     padding: 0.05rem 0.3rem;

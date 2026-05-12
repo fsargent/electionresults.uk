@@ -1,0 +1,5 @@
+# Datasette Lite (lite.datasette.io) fetches the SQLite cross-origin;
+# CSV downloads are also useful from third-party tooling. Wide-open CORS
+# is fine — these are public, prerendered, attributable data files.
+/data/*
+  Access-Control-Allow-Origin: *
