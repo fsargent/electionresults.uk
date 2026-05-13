@@ -5,6 +5,7 @@ node_modules
 .env
 .env.*
 !.env.example
+.claude/
 
 # ETL artefacts are CHECKED IN — they're the source of truth for the
 # deployed site, so deploys (and CI/Cloudflare builds) skip the ETL
