@@ -212,6 +212,89 @@
     allocation here.
   </p>
 
+  <h2 id="gallagher">Gallagher disproportionality index</h2>
+  <p>
+    Above the &ldquo;If votes were counted by party&rdquo; table on every
+    council page we show a single number called the
+    <strong>Gallagher index</strong> (sometimes
+    <strong>LSq</strong>, for least-squares). It is the academic standard
+    summary of how proportionally an election translated votes into
+    seats &mdash; one number, computed across every party that stood,
+    that you can compare from council to council and cycle to cycle.
+  </p>
+  <p>The formula, from <a href="https://en.wikipedia.org/wiki/Gallagher_index" rel="external noopener">Michael Gallagher (1991)</a>:</p>
+  <p class="formula">
+    Gallagher = √( ½ &middot; &Sigma; (V<sub>i</sub> &minus; S<sub>i</sub>)<sup>2</sup> )
+  </p>
+  <p>
+    where V<sub>i</sub> and S<sub>i</sub> are party <em>i</em>&rsquo;s
+    vote share and seat share, both expressed as percentages (0&ndash;100).
+    Squaring the differences before summing means a single very large
+    gap (e.g. one party getting 60% of the seats on 35% of the vote)
+    contributes much more than several small ones &mdash; the index
+    weights big distortions heavily, which is the editorial point.
+    Halving the sum and taking the square root puts the result back in
+    the same percentage-point units as the inputs, so the number is
+    directly readable.
+  </p>
+  <h3>How to read the number</h3>
+  <p>
+    Higher means more disproportional. Gallagher's own rough bands,
+    widely used in the literature:
+  </p>
+  <ul>
+    <li><strong>0&ndash;5</strong> &mdash; highly proportional. Typical
+      list-PR or STV result.</li>
+    <li><strong>5&ndash;10</strong> &mdash; moderate distortion. Most
+      mixed-member systems sit here.</li>
+    <li><strong>10&ndash;15</strong> &mdash; noticeable distortion. The
+      seat allocation is visibly skewed from the vote shares.</li>
+    <li><strong>15+</strong> &mdash; severe. The norm for UK
+      First-Past-the-Post general elections (the 2024 Westminster
+      general election scored ~24).</li>
+  </ul>
+  <h3>Worked example</h3>
+  <p>
+    Take a council where the cycle delivered:
+    Conservative 35.1% votes &rarr; 59.3% seats;
+    Labour 30.2% &rarr; 40.7%;
+    Green 17.7% &rarr; 0%;
+    Reform 10.8% &rarr; 0%;
+    Lib&nbsp;Dem 6.2% &rarr; 0%.
+    Squaring each (V&minus;S) gap and halving the sum gives
+    &asymp;583, whose square root is <strong>~24.1</strong>. That is
+    Gallagher saying: across all parties, this election was severely
+    disproportional &mdash; not just because the Conservative bonus
+    was 24 points, but because the Green, Reform and Lib&nbsp;Dem
+    shutouts compound on top.
+  </p>
+  <h3>Gallagher vs. the per-party Δ table</h3>
+  <p>
+    The two views are complementary. The per-party
+    <strong>Δ</strong> column tells you <em>who</em> the system
+    over- and under-represented in this specific cycle &mdash; which
+    party got an unearned bonus and which votes counted for nothing.
+    Gallagher tells you <em>how bad</em> the overall mismatch was, in a
+    single number you can rank councils by or watch over time. Use Δ to
+    name the affected parties; use Gallagher to compare elections.
+  </p>
+  <p>
+    A note on what Gallagher is <em>not</em>: it is purely descriptive.
+    It scores a particular vote-to-seat translation; it does not
+    prescribe what the seats <em>should</em> have been (we use D'Hondt
+    on the same page as a separate proxy for that). High Gallagher just
+    means &ldquo;these vote shares and these seat shares don't match
+    well.&rdquo;
+  </p>
+  <p class="muted">
+    A caveat carries over from the &ldquo;If votes were counted by
+    party&rdquo; table: in multi-member bloc-vote wards each voter casts
+    multiple votes, so candidate totals over-count parties that ran a
+    full slate and under-count those that didn't. The vote shares feeding
+    Gallagher inherit that bias; treat the absolute number as
+    <em>directional</em> for councils with many multi-member wards.
+  </p>
+
   <h2>Cycle-over-cycle comparison</h2>
   <p>
     Each council overview page (<code>/[council]</code>) compares the
@@ -504,6 +587,18 @@
 
 <style>
   .lede { font-size: 1.1rem; }
+  .formula {
+    font-size: 1.05rem;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    margin: 0.6rem 0 1rem;
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    .formula { background: rgba(255, 255, 255, 0.06); }
+  }
   code {
     background: rgba(0, 0, 0, 0.05);
     padding: 0.05rem 0.3rem;

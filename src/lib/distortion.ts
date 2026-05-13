@@ -1,4 +1,4 @@
-import type { Candidate, Race } from './types';
+import type { Candidate, PartyViewRow, Race } from './types';
 
 export function candidateWinningPct(c: Candidate, r: Race): number {
   if (r.validBallots <= 0) return 0;
@@ -94,4 +94,42 @@ export function dhondt(
     seats.set(bestName, seats.get(bestName)! + 1);
   }
   return seats;
+}
+
+/**
+ * Gallagher disproportionality index (least-squares, LSq).
+ *
+ *   Gallagher = sqrt( ½ · Σ (Vᵢ − Sᵢ)² )
+ *
+ * where Vᵢ and Sᵢ are party i's vote share and seat share expressed as
+ * percentages (0–100). The result is in the same units. Gallagher (1991)
+ * proposed it as a single-number summary of how proportionally an
+ * election translated votes into seats, weighting larger gaps more
+ * heavily than the simpler Loosemore–Hanby sum.
+ *
+ *   0    = perfect proportionality
+ *   ~5   = mildly disproportional (typical PR result)
+ *   ~10  = noticeable distortion
+ *   15+  = severe (most UK FPTP general elections sit here)
+ *
+ * Returns NaN when there are no seats or no votes — the caller should
+ * decide whether to suppress the metric in that case.
+ */
+export function gallagherIndex(rows: PartyViewRow[]): number {
+  if (rows.length === 0) return NaN;
+  let totalVotes = 0;
+  let totalSeats = 0;
+  for (const r of rows) {
+    totalVotes += r.votes;
+    totalSeats += r.fptpSeats;
+  }
+  if (totalVotes <= 0 || totalSeats <= 0) return NaN;
+  let sumSq = 0;
+  for (const r of rows) {
+    const v = (r.votes / totalVotes) * 100;
+    const s = (r.fptpSeats / totalSeats) * 100;
+    const d = v - s;
+    sumSq += d * d;
+  }
+  return Math.sqrt(sumSq / 2);
 }

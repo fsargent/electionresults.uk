@@ -7,9 +7,22 @@ import {
   quotaForSeats,
   underPar,
   isBelowQuota,
-  dhondt
+  dhondt,
+  gallagherIndex
 } from './distortion';
-import type { Race, Candidate } from './types';
+import type { PartyViewRow, Race, Candidate } from './types';
+
+const row = (overrides: Partial<PartyViewRow> = {}): PartyViewRow => ({
+  party: 'Test Party',
+  votes: 0,
+  voteShare: 0,
+  fptpSeats: 0,
+  fptpSeatShare: 0,
+  dhondtSeats: 0,
+  dhondtSeatShare: 0,
+  seatDelta: 0,
+  ...overrides
+});
 
 const cand = (overrides: Partial<Candidate> = {}): Candidate => ({
   name: 'Alex Example',
@@ -294,5 +307,55 @@ describe('isBelowQuota', () => {
       ]
     });
     expect(isBelowQuota(r)).toBe(false);
+  });
+});
+
+describe('gallagherIndex', () => {
+  it('is 0 for perfect proportionality', () => {
+    const rows = [
+      row({ party: 'A', votes: 60, fptpSeats: 6 }),
+      row({ party: 'B', votes: 40, fptpSeats: 4 })
+    ];
+    expect(gallagherIndex(rows)).toBeCloseTo(0, 6);
+  });
+
+  it('matches the canonical Westminster cycle (2026)', () => {
+    // Vote totals from the screenshot the user shared: 18-ward cycle, 54
+    // seats, six parties. Gallagher should land in the high teens —
+    // headline-grade FPTP distortion.
+    const rows = [
+      row({ party: 'Conservative Party', votes: 47619, fptpSeats: 32 }),
+      row({ party: 'Labour Party', votes: 40986, fptpSeats: 22 }),
+      row({ party: 'Green Party', votes: 24105, fptpSeats: 0 }),
+      row({ party: 'Reform UK', votes: 14610, fptpSeats: 0 }),
+      row({ party: 'Liberal Democrats', votes: 8389, fptpSeats: 0 }),
+      row({ party: 'Independent', votes: 57, fptpSeats: 0 }),
+      row({ party: 'Workers Party of Britain', votes: 54, fptpSeats: 0 })
+    ];
+    // Hand-checked: shares (V−S in pp): Con 35.06−59.26=−24.20,
+    //   Lab 30.18−40.74=−10.56, Grn 17.75−0=17.75, Ref 10.76−0=10.76,
+    //   LD 6.18−0=6.18, Ind+Wpb ≈0. sumSq ≈ 1166 → sqrt(583) ≈ 24.15.
+    expect(gallagherIndex(rows)).toBeCloseTo(24.15, 2);
+  });
+
+  it('two-party case with 60/40 vote → 100/0 seats reduces to the gap', () => {
+    // When one party takes everything from a two-way split, Gallagher
+    // collapses to |V−S| = the winner's seat-vote gap. 40-point gap
+    // → Gallagher 40.
+    const rows = [
+      row({ party: 'A', votes: 60, fptpSeats: 10 }),
+      row({ party: 'B', votes: 40, fptpSeats: 0 })
+    ];
+    expect(gallagherIndex(rows)).toBeCloseTo(40, 6);
+  });
+
+  it('returns NaN when there are no seats or no votes', () => {
+    expect(gallagherIndex([])).toBeNaN();
+    expect(
+      gallagherIndex([row({ party: 'A', votes: 100, fptpSeats: 0 })])
+    ).toBeNaN();
+    expect(
+      gallagherIndex([row({ party: 'A', votes: 0, fptpSeats: 5 })])
+    ).toBeNaN();
   });
 });

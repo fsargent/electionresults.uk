@@ -1,12 +1,52 @@
 <script lang="ts">
   import { pct, num } from '$lib/format';
+  import { gallagherIndex } from '$lib/distortion';
   import Party from './Party.svelte';
   import PartyBars from './PartyBars.svelte';
   import SeatChart from './SeatChart.svelte';
   import type { PartyView } from '$lib/types';
 
   let { view }: { view: PartyView } = $props();
+
+  const gallagher = $derived(gallagherIndex(view.rows));
+  // Gallagher's own rough thresholds (1991): <5 highly proportional,
+  // 5–10 moderate, 10–15 noticeable, 15+ severe.
+  const gallagherBand = $derived(
+    !Number.isFinite(gallagher)
+      ? null
+      : gallagher < 5
+        ? 'low'
+        : gallagher < 10
+          ? 'moderate'
+          : gallagher < 15
+            ? 'noticeable'
+            : 'severe'
+  );
+  const gallagherLabel = $derived(
+    gallagherBand === 'low'
+      ? 'highly proportional'
+      : gallagherBand === 'moderate'
+        ? 'moderate distortion'
+        : gallagherBand === 'noticeable'
+          ? 'noticeable distortion'
+          : 'severe distortion'
+  );
 </script>
+
+{#if Number.isFinite(gallagher)}
+  <aside class="gallagher" class:low={gallagherBand === 'low'} class:moderate={gallagherBand === 'moderate'} class:noticeable={gallagherBand === 'noticeable'} class:severe={gallagherBand === 'severe'}>
+    <div class="value">
+      <span class="num">{gallagher.toFixed(1)}</span>
+      <span class="label">Gallagher index</span>
+    </div>
+    <p class="gloss">
+      {gallagherLabel} &mdash; one number summarising how far the seat
+      allocation diverged from the vote shares across all parties (0 =
+      perfectly proportional; 15+ is what most UK FPTP elections score).
+      <a href="/methodology#gallagher">How it's calculated →</a>
+    </p>
+  </aside>
+{/if}
 
 <table class="party-view">
   <thead>
@@ -101,5 +141,45 @@
     display: grid;
     gap: 0.4rem;
     margin: 0.8rem 0 1.5rem;
+  }
+
+  aside.gallagher {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1rem;
+    align-items: center;
+    margin: 1rem 0 1.2rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--rule);
+    border-left-width: 4px;
+    border-radius: 4px;
+    background: var(--card-bg, transparent);
+  }
+  aside.gallagher.low { border-left-color: #2a7f4f; }
+  aside.gallagher.moderate { border-left-color: #c8a32a; }
+  aside.gallagher.noticeable { border-left-color: #d97706; }
+  aside.gallagher.severe { border-left-color: var(--warn); }
+  aside.gallagher .value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+  }
+  aside.gallagher .value .num {
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  aside.gallagher.severe .value .num { color: var(--warn); }
+  aside.gallagher .value .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+  aside.gallagher .gloss {
+    margin: 0;
+    font-size: 0.92rem;
   }
 </style>
