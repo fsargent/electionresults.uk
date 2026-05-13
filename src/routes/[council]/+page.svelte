@@ -35,6 +35,13 @@
     ].sort((a, b) => b.seats - a.seats);
   }
   const truthRows = $derived(compositionSegments(composition));
+  // Year-by-year timeline, newest → oldest. Includes the latest year
+  // even though the headline "Council composition as of {year}" snapshot
+  // shows the same data — gapping the most recent row out of the
+  // timeline reads as missing data, not deduplication.
+  const compositionHistoryEntries = $derived(
+    [...data.compositionHistory].sort((a, b) => b.year - a.year)
+  );
 </script>
 
 <svelte:head>
@@ -125,9 +132,9 @@
       {num(composition.totalSeats)} councillors, by party. One square per seat.
       Source:
       <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
-      annual snapshot &mdash; reflects the council on 1 January {composition.year}
-      including by-elections and defections. Hover any seat for the
-      party.
+      annual snapshot &mdash; reflects the council at the end of {composition.year}
+      (after that year's elections, by-elections and defections). Hover
+      any seat for the party.
     </p>
     <div class="council-seats">
       <SeatChart segments={truthRows} minSize={18} />
@@ -170,55 +177,29 @@
 
     <PartyViewBlock {view} />
 
-    {#if data.compositionBefore || data.compositionAfter}
-      {@const fullSeats =
-        data.compositionAfter?.totalSeats ??
-        data.compositionBefore?.totalSeats ??
-        0}
-      {@const isAllOut = fullSeats > 0 && cycle.totalSeatCount >= fullSeats * 0.9}
-      <h3 class="bars-heading">Council composition: what this election replaced</h3>
-      <p class="muted">
-        {#if isAllOut}
-          The {cycle.year} cycle was an all-out election &mdash; every
-          seat was contested. The two
-          <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
-          snapshots below show the council immediately after the {cycle.year} election
-          (current) and on the eve of it ({cycle.year - 1}), so you can see
-          what the result replaced.
-        {:else}
-          Two
-          <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
-          snapshots: the council immediately after the {cycle.year} election (current)
-          and immediately before it ({cycle.year - 1}). Only ~⅓ of seats were
-          contested in {cycle.year} &mdash; most of the bench is unchanged,
-          and the cycle's effect on the overall composition is what shifts.
-        {/if}
-      </p>
-      <div class="composition-pair">
-        {#if data.compositionAfter}
-          <div>
-            <SeatChart
-              label={`Current (${cycle.year})`}
-              segments={compositionSegments(data.compositionAfter)}
-              minSize={14}
-            />
-          </div>
-        {/if}
-        {#if data.compositionBefore}
-          <div>
-            <SeatChart
-              label={`Previous (${cycle.year - 1})`}
-              segments={compositionSegments(data.compositionBefore)}
-              minSize={14}
-            />
-          </div>
-        {/if}
-      </div>
-    {/if}
-
     <p class="muted">
       <a href="/{history.councilSlug}/{cycle.year}">Full ward-by-ward results for {cycle.year} →</a>
     </p>
+  {/if}
+
+  {#if compositionHistoryEntries.length > 0}
+    <h2>Composition history</h2>
+    <p class="muted">
+      One row per
+      <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>
+      annual snapshot — the council at the end of each year (after that
+      year's elections, by-elections and defections). Newest first;
+      hover any seat for the party.
+    </p>
+    <div class="composition-history">
+      {#each compositionHistoryEntries as snap (snap.year)}
+        <SeatChart
+          label={String(snap.year)}
+          segments={compositionSegments(snap)}
+          minSize={14}
+        />
+      {/each}
+    </div>
   {/if}
 
   {#if data.wards.years.length > 1 && data.wards.rows.length > 0}
@@ -307,14 +288,11 @@
 
   .council-seats {
     margin: 0.6rem 0 1.5rem;
-    max-width: 36rem;
   }
-  .composition-pair {
+  .composition-history {
+    margin: 0.6rem 0 1.5rem;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-    margin: 0.8rem 0 1.5rem;
-    max-width: 36rem;
+    gap: 0.4rem;
   }
   .approx {
     font-size: 0.6em;
@@ -336,8 +314,9 @@
     font-family: -apple-system, sans-serif;
   }
   .reorg-flag p { margin: 0; }
-  /* The standalone seat chart on this page doesn't need the left-label
-     column — collapse the row layout to a single column. */
+  /* The headline seat chart at the top of the page has no label, so drop
+     the SeatChart left-label column. The composition-history block below
+     keeps it (year labels). */
   .council-seats :global(.seat-row) {
     grid-template-columns: 1fr;
   }

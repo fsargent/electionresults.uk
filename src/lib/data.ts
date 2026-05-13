@@ -311,14 +311,31 @@ export function compositionForCouncilYear(
  * Most recent composition snapshot for a council. Used by the per-council
  * page to display the running composition (replacing the older sum-
  * across-cycles approximation when truth-set data is available).
+ * Skips `staleCopy` rows so the headline reflects the latest *real*
+ * snapshot rather than an oncd carry-forward placeholder.
  */
 export function latestCompositionForCouncil(
   slug: string
 ): CompositionSnapshot | undefined {
   const ours = allCompositions
-    .filter((c) => c.councilSlug === slug)
+    .filter((c) => c.councilSlug === slug && !c.staleCopy)
     .sort((a, b) => b.year - a.year);
   return ours[0];
+}
+
+/**
+ * All composition snapshots for a council, sorted oldest → newest. Used
+ * by the per-council page to render a year-by-year seat-grid history
+ * across every annual snapshot opencouncildata gives us. Skips
+ * `staleCopy` rows so the timeline doesn't double-print the previous
+ * year as a placeholder for an unpublished oncd update.
+ */
+export function compositionsForCouncil(
+  slug: string
+): CompositionSnapshot[] {
+  return allCompositions
+    .filter((c) => c.councilSlug === slug && !c.staleCopy)
+    .sort((a, b) => a.year - b.year);
 }
 
 export function reorganisationForCouncil(

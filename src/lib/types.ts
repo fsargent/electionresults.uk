@@ -139,6 +139,12 @@ export interface CompositionSnapshot {
    *  2026 results). Will be replaced by a real oncd row when oncd
    *  publishes its 2026 snapshot. */
   synthesised?: boolean;
+  /** True when this is the latest oncd row for the council AND it is
+   *  byte-identical to the previous year — almost always means oncd
+   *  hasn't yet refreshed for this council and the row is a placeholder
+   *  carry-forward. The data layer hides these from public views but
+   *  keeps them available as a baseline for synthesise2026. */
+  staleCopy?: boolean;
 }
 
 export interface CouncilFlip {

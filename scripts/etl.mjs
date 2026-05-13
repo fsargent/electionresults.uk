@@ -43,6 +43,9 @@ const CYCLES = [
     wardHeaderRow: 1,
     cols: {
       cand: {
+        // 2021 candidate sheet has no Type column, but candidates join to
+        // wards by ward code, so council mis-attribution on this side is
+        // overwritten by the ward's (correctly-overridden) council below.
         council: 'Local authority name',
         wardCode: 'Ward/ED code',
         wardName: 'Ward/ED name',
@@ -52,7 +55,15 @@ const CYCLES = [
         electedSource: 'Elected'
       },
       ward: {
+        // Two-tier rule: shire-county rows ('SC') file the borough as
+        // 'Local authority name' and the actual elected body (the county
+        // council) as 'County name'. Override so Lancashire 2021 lands
+        // under `lancashire`, not split across Burnley/Pendle/Preston/etc.
         council: 'Local authority name',
+        councilOverride: (r) =>
+          String(r['Type'] ?? '').trim() === 'SC'
+            ? String(r['County name'] ?? '').trim() || null
+            : null,
         wardCode: 'Ward/ED code',
         wardName: 'Ward/ED name',
         seats: 'Vacancies',
@@ -161,8 +172,16 @@ const CYCLES = [
     candHeaderRow: 1,
     wardHeaderRow: 1,
     cols: {
+      // Two-tier rule: county-council elections (Local authority type 'CC')
+      // record the upper tier (Lancashire, Surrey, …) as the elected body
+      // and the lower tier (Rossendale, Reigate & Banstead, …) as the
+      // geographic district holding the division. We file by upper tier so
+      // Lancashire 2025 lands under `lancashire`, not scattered across the
+      // boroughs whose wards happen to share the division name. For
+      // unitaries (UC) and metropolitan boroughs (MB) the two columns are
+      // identical, so this is also correct for the single-tier cohort.
       cand: {
-        council: 'Lower tier authority',
+        council: 'Upper tier authority',
         wardCode: 'EC ward code',
         wardName: 'Ward/ County Electoral District name',
         candidateName: 'Candidate name',
@@ -171,7 +190,7 @@ const CYCLES = [
         electedSource: 'Elected'
       },
       ward: {
-        council: 'Lower tier authority',
+        council: 'Upper tier authority',
         wardCode: 'EC ward code',
         wardName: 'Ward/ County Electoral District name',
         seats: 'Seats',
@@ -371,7 +390,11 @@ function ingestCycle(cycle) {
   const wardsByKey = new Map();
   for (const w of wardsRaw) {
     const wc = cycle.cols.ward;
-    const council = String(w[wc.council] ?? '').trim();
+    // councilOverride lets a cycle re-attribute specific rows (e.g. 2021
+    // shire-county divisions land under the county, not the borough whose
+    // ward they happen to be named after).
+    const overridden = wc.councilOverride ? wc.councilOverride(w) : null;
+    const council = String(overridden ?? w[wc.council] ?? '').trim();
     if (!council) continue;
     const wardName = normaliseWardName(String(w[wc.wardName] ?? '').trim());
     const wardCodeRaw = wc.wardCode ? w[wc.wardCode] : null;
@@ -1689,6 +1712,43 @@ function ingestCompositions() {
 }
 
 const compositions = ingestCompositions();
+// opencouncildata publishes the year-N CSV row in early year-N+1; until
+// it lands they leave a placeholder identical to year-(N-1). Surfacing
+// those rows on /[council] is misleading — they imply we know the
+// council's current state when in fact we just have last year's data
+// restamped (e.g. Rossendale 2025 is byte-identical to Rossendale 2024
+// because the borough didn't poll in 2025 and oncd hasn't refreshed).
+// Mark only the tail row per council when it's byte-identical to the
+// previous year, so the data layer can hide them from the composition
+// timeline without losing them as a baseline for 2026 synthesis. (We
+// don't trim earlier identical rows because zero-movement mid-timeline
+// years are real history, not placeholders.)
+{
+  const sig = (c) =>
+    JSON.stringify({ p: c.parties, o: c.otherSeats, t: c.totalSeats });
+  const byCouncil = new Map();
+  for (const c of compositions) {
+    const arr = byCouncil.get(c.councilSlug) ?? [];
+    arr.push(c);
+    byCouncil.set(c.councilSlug, arr);
+  }
+  let staleTail = 0;
+  for (const arr of byCouncil.values()) {
+    arr.sort((a, b) => a.year - b.year);
+    if (arr.length < 2) continue;
+    const last = arr[arr.length - 1];
+    const prev = arr[arr.length - 2];
+    if (sig(last) === sig(prev)) {
+      last.staleCopy = true;
+      staleTail++;
+    }
+  }
+  if (staleTail > 0) {
+    console.log(
+      `[etl] flagged ${staleTail} oncd composition snapshots as staleCopy (latest-year row identical to previous; treated as placeholder for an unpublished update)`
+    );
+  }
+}
 const compositionByKey = new Map();
 for (const c of compositions) {
   compositionByKey.set(`${c.councilSlug}::${c.year}`, c);

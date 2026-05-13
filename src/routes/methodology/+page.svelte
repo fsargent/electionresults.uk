@@ -457,10 +457,48 @@
   </ul>
 
   <h2>Errata</h2>
+
+  <h3>2026-05-13 — county-council elections mis-attributed in 2021 and 2025</h3>
   <p>
-    No errata recorded yet. When a methodological correction is required, an
-    entry will be published here with a date, a one-paragraph explanation,
-    the diff (what number changed, by how much), and the affected pages.
+    The LEH workbooks for county-election years (2021, 2025) record the
+    upper tier (e.g. Lancashire) as the elected body and the lower tier
+    (e.g. Rossendale) as the geographic district that holds each
+    division. Our ETL was filing every race under the lower tier, so
+    Reform UK's 2025 Lancashire County Council sweep showed up as
+    phantom races on Rossendale, Burnley, Pendle, Preston, and West
+    Lancashire borough pages, while
+    <a href="/lancashire">/lancashire</a> appeared to have no data after
+    2017. The fix re-attributes shire-county rows (2021
+    <code>Type=SC</code>, 2025 <code>Local authority type=CC</code>) to
+    the actual county council. Affected: every district that overlaps a
+    two-tier county lost its phantom 2021/2025 cycle; 21 county
+    councils gained their 2021 cycle (Norfolk, Lancashire, Surrey,
+    Hertfordshire, Hampshire, Kent, Essex, Lincolnshire, West Sussex,
+    Suffolk, Derbyshire, Oxfordshire, Staffordshire, Cambridgeshire,
+    Devon, Warwickshire, Nottinghamshire, Gloucestershire,
+    Leicestershire, Worcestershire, East Sussex), 14 of those gained
+    their 2025 cycle (the others had their 2025 elections postponed for
+    local-government reorganisation). 18 new county-council flips
+    surface in the data — most notably the 2021→2025
+    Conservative-collapse rows (Reform UK or Liberal Democrats taking
+    13 of the 14 county councils that polled). Total flip count
+    218 → 220.
+  </p>
+
+  <h3>2026-05-13 — opencouncildata "stale tail" rows hidden</h3>
+  <p>
+    opencouncildata publishes the year-N composition row in early year
+    N+1; until it lands they leave a placeholder identical to the
+    previous year. The composition history on each council page was
+    surfacing those placeholders as if they were real snapshots — most
+    visibly on Rossendale, whose 2025 row was a byte-identical copy of
+    its 2024 row because the borough didn't poll in 2025 and oncd
+    hadn't refreshed yet. The ETL now flags such tail rows
+    <code>staleCopy: true</code> and the data layer hides them from
+    public timelines and from the headline "council composition as of
+    {'{year}'}" callout. The rows remain in the underlying file so
+    they can still serve as a 2025 baseline for the 2026 synthesis
+    step. 109 rows are currently flagged.
   </p>
 </main>
 

@@ -9,7 +9,8 @@
   // One filter drives every section on the page (lede totals + example,
   // all four maps, all four tables). Default to the just-finished
   // cycle so the post-election audit leads; "all cycles" toggles to
-  // the historical leaderboards across 2021-2026.
+  // the historical leaderboards across 2016-2026 (no 2020 cycle —
+  // postponed for COVID).
   let filter = $state<'2026' | 'all'>('2026');
   const view = $derived(data.views[filter]);
   const isCycle = $derived(filter !== 'all');
@@ -19,7 +20,7 @@
   <title>electionresults.uk — auditing UK council seats won when most voters chose someone else</title>
   <meta
     name="description"
-    content="A volunteer audit of UK local-election results across six cycles (2021–2026). For every ward, we ask: did the winner clear the share of votes a fair, proportional system would require?"
+    content="A volunteer audit of UK local-election results across ten cycles (2016–2026, no 2020). For every ward, we ask: did the winner clear the share of votes a fair, proportional system would require?"
   />
   <link rel="canonical" href="https://electionresults.uk/" />
   <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
@@ -58,7 +59,7 @@
       class:active={filter === 'all'}
       aria-pressed={filter === 'all'}
       onclick={() => (filter = 'all')}
-    >All cycles (2021&ndash;2026)</button>
+    >All cycles (2016&ndash;2026)</button>
   </div>
 
   {#if view.lowestWinner}
@@ -89,9 +90,10 @@
       {#if isCycle}
         The 2026-05-07 cycle covered
       {:else}
-        Across six cycles of UK local elections &mdash; covering county
-        councils, unitary authorities, metropolitan boroughs, district
-        councils and London boroughs &mdash; that's
+        Across ten cycles of UK local elections (2016&ndash;2026, no
+        2020 &mdash; postponed for COVID) covering county councils,
+        unitary authorities, metropolitan boroughs, district councils
+        and London boroughs, that's
       {/if}
       <strong>{num(view.totals.councils)}</strong>
       {isCycle ? 'councils' : 'council-cycles'},

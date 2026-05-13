@@ -27,14 +27,16 @@
       entries.map((f) => {
         const fromName = partyDisplayName(f.fromParty);
         const toName = partyDisplayName(f.toParty);
+        const toColor = partyColor(f.toParty);
         return [
           f.councilSlug,
           {
-            color: partyColor(f.toParty),
+            color: toColor,
             href: `/${f.councilSlug}`,
             title: `${f.council}: ${fromName} → ${toName} (${f.yearFrom} → ${f.yearTo})`,
             primary: `${f.council} (${f.yearFrom} → ${f.yearTo})`,
-            secondary: `${fromName} → ${toName} · ${pts(f.seatSwingNew)} seat shift on ${pts(f.voteSwingNew)} vote shift`
+            secondary: `${fromName} → ${toName} · ${pts(f.seatSwingNew)} seat shift on ${pts(f.voteSwingNew)} vote shift`,
+            swatchColor: toColor
           }
         ];
       })

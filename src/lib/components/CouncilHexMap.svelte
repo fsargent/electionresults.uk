@@ -21,6 +21,9 @@
     primary?: string;
     /** Secondary line in the rich hover tooltip — typically year + share. */
     secondary?: string;
+    /** Optional color square shown to the left of the tooltip primary —
+     *  e.g. the incoming party's brand colour on the flip map. */
+    swatchColor?: string;
     /** Optional override for the polygon outline (e.g. to highlight
      *  gained / lost councils with a coloured ring). Falls back to
      *  the map's default white separator stroke when unset. */
@@ -79,6 +82,7 @@
         title: fill?.title ?? h.name,
         primary: fill?.primary ?? h.name,
         secondary: fill?.secondary ?? null,
+        swatchColor: fill?.swatchColor ?? null,
         stroke: fill?.stroke ?? STROKE,
         strokeWidth: fill?.strokeWidth ?? 0.8,
         points: hexPolygonPoints(h.x, h.y, HEX_SIZE)
@@ -86,7 +90,13 @@
     })
   );
 
-  type Tooltip = { x: number; y: number; primary: string; secondary: string | null };
+  type Tooltip = {
+    x: number;
+    y: number;
+    primary: string;
+    secondary: string | null;
+    swatchColor: string | null;
+  };
   let tooltip: Tooltip | null = $state(null);
 
   function showTooltip(event: MouseEvent, item: (typeof items)[number]) {
@@ -94,7 +104,8 @@
       x: event.clientX + window.scrollX,
       y: event.clientY + window.scrollY,
       primary: item.primary,
-      secondary: item.secondary
+      secondary: item.secondary,
+      swatchColor: item.swatchColor
     };
   }
 
@@ -154,7 +165,15 @@
     style:top={`${tooltip.y}px`}
     role="tooltip"
   >
-    <div class="primary">{tooltip.primary}</div>
+    <div class="primary">
+      {#if tooltip.swatchColor}
+        <span
+          class="tooltip-swatch"
+          aria-hidden="true"
+          style:background-color={tooltip.swatchColor}
+        ></span>
+      {/if}{tooltip.primary}
+    </div>
     {#if tooltip.secondary}
       <div class="secondary">{tooltip.secondary}</div>
     {/if}
@@ -205,6 +224,15 @@
   }
   .hex-tooltip .primary {
     font-weight: 600;
+  }
+  .hex-tooltip .tooltip-swatch {
+    display: inline-block;
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 2px;
+    margin-right: 0.4em;
+    vertical-align: -0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
   .hex-tooltip .secondary {
     opacity: 0.8;

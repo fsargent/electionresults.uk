@@ -6,7 +6,7 @@ import {
   currentCouncilComposition,
   partyViewForYearAndCouncil,
   latestCompositionForCouncil,
-  compositionForCouncilYear,
+  compositionsForCouncil,
   reorganisationForCouncil
 } from '$lib/data';
 
@@ -40,16 +40,11 @@ export function load({ params }: { params: { council: string } }) {
   const latestPartyView = latestCycle
     ? partyViewForYearAndCouncil(latestCycle.year, params.council) ?? null
     : null;
-  // Before/after pair for the most recent election: opencouncildata's
-  // year-Y snapshot reflects the council AFTER the May-Y elections
-  // (verified empirically — e.g. Rushmoor 2023→2024 captures Labour's
-  // 2024 gains), so before = year-1, after = year.
-  const compositionBefore = latestCycle
-    ? compositionForCouncilYear(params.council, latestCycle.year - 1) ?? null
-    : null;
-  const compositionAfter = latestCycle
-    ? compositionForCouncilYear(params.council, latestCycle.year) ?? null
-    : null;
+  // Year-by-year composition history (opencouncildata annual snapshots,
+  // oldest → newest). Replaces the old "what this election replaced"
+  // before/after pair with the full timeline so readers can see every
+  // election move the council through; new entries land each year.
+  const compositionHistory = compositionsForCouncil(params.council);
   return {
     history,
     wards,
@@ -58,7 +53,6 @@ export function load({ params }: { params: { council: string } }) {
     reorganisation,
     latestCycle,
     latestPartyView,
-    compositionBefore,
-    compositionAfter
+    compositionHistory
   };
 }
