@@ -75,11 +75,11 @@
   <div class="legend">
     <span class="legend-label">Incoming party (latest flip)</span>
     <ul class="party-legend">
-      <li><span class="swatch" style:background-color={partyColor('Labour Party')}></span> Labour</li>
-      <li><span class="swatch" style:background-color={partyColor('Conservative Party')}></span> Conservative</li>
-      <li><span class="swatch" style:background-color={partyColor('Liberal Democrats')}></span> Liberal Democrats</li>
-      <li><span class="swatch" style:background-color={partyColor('Reform UK')}></span> Reform UK</li>
-      <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> Green</li>
+      <li><span class="swatch" style:background-color={partyColor('Labour Party')}></span> <a href="/party/labour">Labour</a></li>
+      <li><span class="swatch" style:background-color={partyColor('Conservative Party')}></span> <a href="/party/conservative">Conservative</a></li>
+      <li><span class="swatch" style:background-color={partyColor('Liberal Democrats')}></span> <a href="/party/liberal-democrats">Liberal Democrats</a></li>
+      <li><span class="swatch" style:background-color={partyColor('Reform UK')}></span> <a href="/party/reform">Reform UK</a></li>
+      <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> <a href="/party/green">Green</a></li>
       <li><span class="swatch" style:background-color={partyColor('Independent')}></span> Independent / other</li>
       {#if polledNoFlipCouncils.length > 0}
         <li><span class="swatch polled-no-flip"></span> Polled, no change ({polledNoFlipCouncils.length})</li>

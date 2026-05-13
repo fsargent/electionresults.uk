@@ -1,8 +1,14 @@
 <script lang="ts">
   import { partyColor, partyDisplayName } from '$lib/party-colors';
-  let { name }: { name: string | null | undefined } = $props();
+  import { slugForParty } from '$lib/parties';
+  let {
+    name,
+    link = true
+  }: { name: string | null | undefined; link?: boolean } = $props();
   const colour = $derived(partyColor(name));
   const display = $derived(partyDisplayName(name));
+  const slug = $derived(name ? slugForParty(name) : null);
+  const href = $derived(link && slug ? `/party/${slug}` : null);
 </script>
 
 <span class="party">
@@ -10,7 +16,7 @@
     class="party-swatch"
     aria-hidden="true"
     style:background-color={colour}
-  ></span>{display}
+  ></span>{#if href}<a {href}>{display}</a>{:else}{display}{/if}
 </span>
 
 <style>
