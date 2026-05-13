@@ -4,6 +4,7 @@
   import MapBelowQuota from '$lib/components/MapBelowQuota.svelte';
   import MapDistortion from '$lib/components/MapDistortion.svelte';
   import MapFlips from '$lib/components/MapFlips.svelte';
+  import PostcodeLookup from '$lib/components/PostcodeLookup.svelte';
   import Tooltip from '$lib/components/Tooltip.svelte';
   let { data } = $props();
   // One filter drives every section on the page (lede totals + example,
@@ -45,6 +46,8 @@
 
 <main class="wide">
   <h1>How many UK councillors won when most voters chose someone else?</h1>
+
+  <PostcodeLookup councilSlugs={data.allCouncils} />
 
   <div class="filter-bar filter-bar--top" role="group" aria-label="Cycle filter">
     <span class="filter-label">Showing:</span>
