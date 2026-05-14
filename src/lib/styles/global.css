@@ -65,11 +65,27 @@ hr {
   margin: 2rem 0;
 }
 
+/* Stop wide leaderboard tables from pushing the viewport horizontally
+   on narrow screens. Tables themselves become a scrollable block on
+   mobile (same pattern as GitHub-flavored markdown) — the browser
+   inserts an anonymous table wrapper inside, so column widths still
+   share across rows. The body-level guard catches anything else
+   (overlong words, embedded media) that might overflow. */
+html, body { overflow-x: hidden; }
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
   font-size: 0.95rem;
+}
+@media (max-width: 700px) {
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 th, td {
   text-align: left;

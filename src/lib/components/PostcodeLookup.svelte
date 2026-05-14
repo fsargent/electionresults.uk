@@ -158,25 +158,43 @@
       id="postcode-lookup"
       type="text"
       inputmode="text"
+      autocapitalize="characters"
       autocomplete="postal-code"
-      placeholder="e.g. SW1A 1AA"
+      spellcheck="false"
+      placeholder="SW1A 1AA"
       bind:value={postcode}
       disabled={busy}
       aria-describedby={error ? 'lookup-error' : undefined}
     />
-    <button type="submit" disabled={busy || postcode.trim().length === 0}>
-      {busy ? 'Looking up…' : 'Go'}
-    </button>
     <button
-      type="button"
-      class="locate"
-      onclick={useMyLocation}
-      disabled={busy}
-      title="Use my current location"
+      type="submit"
+      class="primary"
+      disabled={busy || postcode.trim().length === 0}
     >
-      Use my location
+      {busy ? '…' : 'Go'}
     </button>
   </div>
+  <button
+    type="button"
+    class="locate"
+    onclick={useMyLocation}
+    disabled={busy}
+  >
+    <svg
+      class="pin"
+      viewBox="0 0 16 16"
+      width="14"
+      height="14"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        fill="currentColor"
+        d="M8 0a5 5 0 0 0-5 5c0 4 5 11 5 11s5-7 5-11a5 5 0 0 0-5-5Zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"
+      />
+    </svg>
+    or use my current location
+  </button>
   {#if error}
     <p id="lookup-error" class="lookup-error" role="alert">{error}</p>
   {/if}
@@ -198,14 +216,15 @@
   }
   .lookup-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
     align-items: stretch;
   }
   input {
-    flex: 1 1 12rem;
+    flex: 1 1 auto;
     min-width: 0;
-    padding: 0.55rem 0.7rem;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 0 0.7rem;
     font: inherit;
     color: var(--fg);
     background: var(--bg);
@@ -213,13 +232,20 @@
     border-radius: 4px;
     text-transform: uppercase;
   }
+  input::placeholder {
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
   input:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 1px;
     border-color: var(--accent);
   }
-  button {
-    padding: 0.55rem 0.9rem;
+  button.primary {
+    flex: 0 0 auto;
+    height: 44px;
+    padding: 0 1.1rem;
     font: inherit;
     font-weight: 600;
     color: var(--accent-fg);
@@ -227,11 +253,21 @@
     border: 1px solid var(--accent);
     border-radius: 4px;
     cursor: pointer;
-    min-height: 44px;
   }
   button.locate {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0;
+    font: inherit;
+    font-size: 0.9rem;
     color: var(--accent);
     background: transparent;
+    border: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
   button:disabled {
     opacity: 0.5;
@@ -241,17 +277,12 @@
     outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
+  .pin {
+    flex: 0 0 auto;
+  }
   .lookup-error {
     margin: 0.5rem 0 0;
     color: var(--warn);
     font-size: 0.9rem;
-  }
-  @media (max-width: 480px) {
-    .lookup-row {
-      flex-direction: column;
-    }
-    button {
-      width: 100%;
-    }
   }
 </style>
