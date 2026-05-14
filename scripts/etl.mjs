@@ -285,20 +285,33 @@ function slugify(s) {
     .replace(/^-+|-+$/g, '');
 }
 
-// LEH source data uses inconsistent council names across cycles
-// (e.g. 2024 calls it "Durham", earlier cycles "County Durham"). Map
-// the slugified-but-non-canonical form to the canonical councilSlug
-// used elsewhere on the site so all years agree on one identity per
-// real council. New mismatches will appear in the composition-LEH
-// join audit at the end of this script.
-const LEH_COUNCIL_SLUG_ALIASES = {
+// Each upstream source slugifies the council slightly differently — LEH
+// drops the apostrophe in "King's Lynn", LEAP keeps "East Riding" short,
+// DC's election_id uses "city-of-lincoln" / "kingston-upon-hull", oncd
+// records "Bristol" without "City of", etc. Apply this map in every
+// slug-creation site (LEH/LEAP via councilSlugify, DC via
+// councilSlugFromElectionId, oncd compositions and councillor snapshots
+// via slugify+aliasCouncilSlug) so all sources funnel to one identity
+// per council and the cross-source joins (race ↔ composition ↔ hex)
+// don't fragment. Canonical slugs match the odileeds hex layout
+// (`scripts/build-hexmap.mjs` SLUG_ALIASES) so map fills always resolve.
+// New mismatches surface in the composition-LEH join audit at the end
+// of this script.
+const COUNCIL_SLUG_ALIASES = {
+  bristol: 'bristol-city-of',
+  'city-of-lincoln': 'lincoln',
   durham: 'county-durham',
-  'kingston-upon-hull': 'kingston-upon-hull-city-of'
+  'east-riding': 'east-riding-of-yorkshire',
+  'kingston-upon-hull': 'kingston-upon-hull-city-of',
+  'kings-lynn-and-west-norfolk': 'king-s-lynn-and-west-norfolk'
 };
 
+function aliasCouncilSlug(rawSlug) {
+  return COUNCIL_SLUG_ALIASES[rawSlug] ?? rawSlug;
+}
+
 function councilSlugify(name) {
-  const raw = slugify(name);
-  return LEH_COUNCIL_SLUG_ALIASES[raw] ?? raw;
+  return aliasCouncilSlug(slugify(name));
 }
 
 function truthy(v) {
@@ -833,13 +846,15 @@ function parseCsv(text) {
 
 function councilSlugFromElectionId(electionId, electionDate) {
   // election_id format: "local.<slug>.<YYYY-MM-DD>". Strip the "local."
-  // prefix and the trailing date.
+  // prefix and the trailing date, then run the slug through the global
+  // alias map so DC's `bristol` / `kingston-upon-hull` / `city-of-lincoln`
+  // align with the canonical (oncd-/hex-matching) slugs used elsewhere.
   if (!electionId) return null;
   let s = String(electionId).trim();
   if (s.startsWith('local.')) s = s.slice('local.'.length);
   const dateSuffix = `.${electionDate}`;
   if (s.endsWith(dateSuffix)) s = s.slice(0, -dateSuffix.length);
-  return s || null;
+  return s ? aliasCouncilSlug(s) : null;
 }
 
 function ingestDcCycle(cycle) {
@@ -1462,16 +1477,9 @@ const COMP_PARTY_COLS = {
   // catch-all bucket. See largestParty derivation below.
 };
 
-// LEH and opencouncildata use slightly different conventions for some
-// council names — LEH appends "City of" / "County" suffixes, drops
-// apostrophes inconsistently. Map opencouncildata's slugified authority
-// to our canonical LEH councilSlug for these specific cases.
-const COMP_SLUG_ALIASES = {
-  bristol: 'bristol-city-of',
-  durham: 'county-durham',
-  'king-s-lynn-and-west-norfolk': 'kings-lynn-and-west-norfolk',
-  'kingston-upon-hull': 'kingston-upon-hull-city-of'
-};
+// Note: per-source slug aliasing now lives in COUNCIL_SLUG_ALIASES at
+// the top of this file. Composition ingest applies it via
+// aliasCouncilSlug below.
 
 // The per-councillor CSVs use different party-name conventions from
 // the canonical names we use across the site. Normalise to canonical.
@@ -1604,7 +1612,7 @@ function ingestCouncillorSnapshots() {
       const partyNormalised =
         COUNCILLOR_PARTY_NORMALISE[partyRaw] ?? partyRaw;
       const rawSlug = slugify(authority);
-      const slug = COMP_SLUG_ALIASES[rawSlug] ?? rawSlug;
+      const slug = aliasCouncilSlug(rawSlug);
       const wardSlug = wardName ? slugify(wardName) : null;
       // LEH-refine the oncd party label where possible.
       const party = wardSlug
@@ -1686,7 +1694,7 @@ function ingestCompositions() {
       largestSeats = otherSeats;
     }
     const rawSlug = slugify(authority);
-    const finalSlug = COMP_SLUG_ALIASES[rawSlug] ?? rawSlug;
+    const finalSlug = aliasCouncilSlug(rawSlug);
     // Pull the per-councillor breakdown for this (council, year) if we
     // have it. Object form keyed by canonical party name → seat count.
     const detailedMap = councillorSnapshots.get(`${finalSlug}::${year}`);
@@ -1801,7 +1809,7 @@ function ingestCouncillors2025NextElection() {
     if (!partyRaw || partyRaw === 'Vacant') continue;
     const party = COUNCILLOR_PARTY_NORMALISE[partyRaw] ?? partyRaw;
     const rawSlug = slugify(authority);
-    const slug = COMP_SLUG_ALIASES[rawSlug] ?? rawSlug;
+    const slug = aliasCouncilSlug(rawSlug);
     const nextElection = String(r['Next Election'] ?? '').trim() || null;
     if (!out.has(slug)) out.set(slug, []);
     out.get(slug).push({ party, nextElection });

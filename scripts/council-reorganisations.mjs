@@ -101,6 +101,41 @@ export const REORGANISATIONS = [
       'Somerset West and Taunton',
       'South Somerset'
     ]
+  },
+  // Surrey LGR — the 2-tier county is split into two new unitaries that
+  // polled for the first time on 2026-05-07. The 11 boroughs are
+  // abolished alongside Surrey CC; the boroughs split geographically
+  // between the two new unitaries (verified against the May 2026 ward
+  // lists DC published — every East Surrey ward sits in one of Elmbridge,
+  // Epsom & Ewell, Mole Valley, Reigate & Banstead or Tandridge; every
+  // West Surrey ward in Guildford, Runnymede, Spelthorne, Surrey Heath,
+  // Waverley or Woking). Surrey (county) is listed under both new
+  // unitaries because it's split between them; reorganisationIndex
+  // merges the counterparts so /surrey shows both as successors.
+  {
+    date: '2026-04-01',
+    newCouncil: 'East Surrey',
+    abolished: [
+      'Surrey (county)',
+      'Elmbridge',
+      'Epsom and Ewell',
+      'Mole Valley',
+      'Reigate and Banstead',
+      'Tandridge'
+    ]
+  },
+  {
+    date: '2026-04-01',
+    newCouncil: 'West Surrey',
+    abolished: [
+      'Surrey (county)',
+      'Guildford',
+      'Runnymede',
+      'Spelthorne',
+      'Surrey Heath',
+      'Waverley',
+      'Woking'
+    ]
   }
 ];
 
@@ -128,10 +163,20 @@ function slugify(s) {
  */
 export function reorganisationIndex() {
   const out = new Map();
-  // Pass 1: insert abolished events
+  // Pass 1: insert abolished events. When the same abolished slug is
+  // referenced by multiple new unitaries (Surrey CC was split between
+  // East Surrey and West Surrey), merge the counterparts so the
+  // resulting entry lists every successor.
   for (const r of REORGANISATIONS) {
     for (const old of r.abolished) {
       const oldSlug = slugify(old);
+      const existing = out.get(oldSlug);
+      if (existing && existing.event === 'abolished') {
+        if (!existing.counterparts.includes(r.newCouncil)) {
+          existing.counterparts.push(r.newCouncil);
+        }
+        continue;
+      }
       out.set(oldSlug, {
         councilSlug: oldSlug,
         councilName: old,
