@@ -8,12 +8,30 @@
   let { data } = $props();
   const partyHex = $derived(partyColor(data.partyName));
   const summary = $derived(data.summary);
+  const showFptpEffect = $derived(
+    data.fptpEffect.fptpSeats > 0 || data.fptpEffect.dhondtSeats > 0
+  );
+  const showCumulativeFptpEffect = $derived(
+    data.cumulativeFptpEffect.yearStart < data.year &&
+      Math.abs(data.cumulativeFptpEffect.seatDelta) >= 10
+  );
 
   // Gained / lost ring colours. Green for gain, warn for loss — strong
   // enough to read against any party brand colour, including Reform's
   // teal which is closest to a "gain" green.
   const GAINED_RING = '#1c7a3a';
   const LOST_RING = '#b94a2c';
+
+  function signedSeats(v: number): string {
+    if (v > 0) return `+${num(v)}`;
+    return num(v);
+  }
+
+  function benchmarkDirection(v: number): string {
+    if (v > 0) return 'unfairly awarded by FPTP';
+    if (v < 0) return 'denied by FPTP';
+    return 'moved by FPTP';
+  }
 
   const controlFills = $derived.by<Record<string, CouncilFill>>(() => {
     const out: Record<string, CouncilFill> = {};
@@ -117,6 +135,60 @@
       </li>
     {/if}
   </ul>
+
+  {#if showFptpEffect}
+    <section class="fptp-benchmark" aria-labelledby="fptp-benchmark-title">
+      <h3 id="fptp-benchmark-title">Same votes, different counting rule</h3>
+      <p class="muted">
+        Compare the seats {data.partyName} actually won under FPTP with
+        a proportional re-count of the same council-level votes. Positive
+        means seats unfairly awarded by FPTP; negative means seats the party
+        was denied by FPTP.
+      </p>
+      <div class="benchmark-cards">
+        <div
+          class="benchmark-card"
+          class:benchmark-card--over={data.fptpEffect.seatDelta > 0}
+          class:benchmark-card--under={data.fptpEffect.seatDelta < 0}
+        >
+          <div class="benchmark-system">This cycle</div>
+          <div class="benchmark-where">
+            {num(data.fptpEffect.councilCount)} FPTP council results in {data.year}
+          </div>
+          <div class="benchmark-figure">
+            {signedSeats(data.fptpEffect.seatDelta)} <span>seats</span>
+          </div>
+          <div class="benchmark-detail">
+            {benchmarkDirection(data.fptpEffect.seatDelta)}
+            ({num(data.fptpEffect.fptpSeats)} actual vs
+            {num(data.fptpEffect.dhondtSeats)} benchmark)
+          </div>
+        </div>
+        {#if showCumulativeFptpEffect}
+          <div
+            class="benchmark-card"
+            class:benchmark-card--over={data.cumulativeFptpEffect.seatDelta > 0}
+            class:benchmark-card--under={data.cumulativeFptpEffect.seatDelta < 0}
+          >
+            <div class="benchmark-system">
+              {data.cumulativeFptpEffect.yearStart}&ndash;{data.year} window
+            </div>
+            <div class="benchmark-where">
+              {num(data.cumulativeFptpEffect.councilCount)} FPTP council-cycles
+            </div>
+            <div class="benchmark-figure">
+              {signedSeats(data.cumulativeFptpEffect.seatDelta)} <span>seats</span>
+            </div>
+            <div class="benchmark-detail">
+              {benchmarkDirection(data.cumulativeFptpEffect.seatDelta)}
+              ({num(data.cumulativeFptpEffect.fptpSeats)} actual vs
+              {num(data.cumulativeFptpEffect.dhondtSeats)} benchmark)
+            </div>
+          </div>
+        {/if}
+      </div>
+    </section>
+  {/if}
 
   {#if data.controlledCouncils.length > 0 || (data.controls && (data.controls.councilsGained.length + data.controls.councilsLost.length) > 0)}
     {@const gainedCount = data.controls?.councilsGained.length ?? 0}
@@ -355,6 +427,69 @@
   .xsmall {
     font-size: 0.75rem;
     margin: 0.2rem 0 0;
+  }
+  .fptp-benchmark {
+    margin: 1rem 0 1.6rem;
+  }
+  .fptp-benchmark h3 {
+    margin-bottom: 0.3rem;
+  }
+  .benchmark-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 0.6rem;
+    max-width: 56rem;
+  }
+  .benchmark-cards:has(.benchmark-card:only-child) {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 29rem;
+  }
+  .benchmark-card {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    background: var(--bg);
+  }
+  .benchmark-card--over {
+    border-color: var(--warn);
+  }
+  .benchmark-card--under {
+    border-color: var(--accent);
+  }
+  .benchmark-system {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .benchmark-where {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+  .benchmark-figure {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0.3rem 0 0.15rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .benchmark-card--over .benchmark-figure {
+    color: var(--warn);
+  }
+  .benchmark-card--under .benchmark-figure {
+    color: var(--accent);
+  }
+  .benchmark-detail {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  @media (max-width: 640px) {
+    .benchmark-cards {
+      grid-template-columns: 1fr;
+    }
   }
   .map-and-scale {
     display: grid;

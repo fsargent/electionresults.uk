@@ -7,7 +7,8 @@ import {
   partyCouncilCyclesWithChange,
   partyControlChangesFor,
   cycleByYear,
-  allCompositions
+  allCompositions,
+  allPartyCouncilCycles
 } from '$lib/data';
 import type { CompositionSnapshot } from '$lib/types';
 
@@ -30,6 +31,31 @@ export function entries() {
   return out;
 }
 
+function fptpEffectFor(
+  partyName: string,
+  year: number,
+  mode: 'cycle' | 'cumulative'
+) {
+  const rows = allPartyCouncilCycles.filter(
+    (r) =>
+      r.party === partyName &&
+      (mode === 'cumulative' ? r.year <= year : r.year === year) &&
+      (r.system ?? 'FPTP') === 'FPTP'
+  );
+  const fptpSeats = rows.reduce((sum, r) => sum + r.seatsWon, 0);
+  const dhondtSeats = rows.reduce((sum, r) => sum + r.dhondtSeats, 0);
+  const seatDelta = rows.reduce((sum, r) => sum + r.seatDelta, 0);
+  const years = rows.map((r) => r.year);
+  return {
+    fptpSeats,
+    dhondtSeats,
+    seatDelta,
+    councilCount: new Set(rows.map((r) => `${r.year}:${r.councilSlug}`)).size,
+    yearStart: years.length > 0 ? Math.min(...years) : year,
+    yearEnd: year
+  };
+}
+
 export function load({ params }: { params: { slug: string; year: string } }) {
   const partyName = partyForSlug(params.slug);
   if (!partyName) throw error(404, `Unknown party: ${params.slug}`);
@@ -45,6 +71,8 @@ export function load({ params }: { params: { slug: string; year: string } }) {
   const cycle = cycleByYear(year) ?? null;
   const councilRows = partyCouncilCyclesWithChange(partyName, year);
   const controls = partyControlChangesFor(partyName, year);
+  const fptpEffect = fptpEffectFor(partyName, year, 'cycle');
+  const cumulativeFptpEffect = fptpEffectFor(partyName, year, 'cumulative');
 
   // Derived breakdowns the template renders directly. Buckets:
   //   gainedSeats  — councils where we won more seats than last cycle
@@ -102,6 +130,8 @@ export function load({ params }: { params: { slug: string; year: string } }) {
     debut,
     totalNet,
     controls,
+    fptpEffect,
+    cumulativeFptpEffect,
     controlledCouncils
   };
 }

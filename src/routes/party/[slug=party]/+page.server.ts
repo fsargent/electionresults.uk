@@ -5,7 +5,8 @@ import {
   partyTrend,
   yearsForParty,
   allPartyControlChanges,
-  allCompositions
+  allCompositions,
+  allPartyCouncilCycles
 } from '$lib/data';
 import type { CompositionSnapshot } from '$lib/types';
 
@@ -13,6 +14,28 @@ export const prerender = true;
 
 export function entries() {
   return partySlugs().map((slug) => ({ slug }));
+}
+
+function fptpEffectFor(partyName: string, years: number[] | null) {
+  const yearSet = years ? new Set(years) : null;
+  const rows = allPartyCouncilCycles.filter(
+    (r) =>
+      r.party === partyName &&
+      (yearSet ? yearSet.has(r.year) : true) &&
+      (r.system ?? 'FPTP') === 'FPTP'
+  );
+  const fptpSeats = rows.reduce((sum, r) => sum + r.seatsWon, 0);
+  const dhondtSeats = rows.reduce((sum, r) => sum + r.dhondtSeats, 0);
+  const seatDelta = rows.reduce((sum, r) => sum + r.seatDelta, 0);
+  const rowYears = rows.map((r) => r.year);
+  return {
+    fptpSeats,
+    dhondtSeats,
+    seatDelta,
+    councilCount: new Set(rows.map((r) => `${r.year}:${r.councilSlug}`)).size,
+    yearStart: rowYears.length > 0 ? Math.min(...rowYears) : null,
+    yearEnd: rowYears.length > 0 ? Math.max(...rowYears) : null
+  };
 }
 
 export function load({ params }: { params: { slug: string } }) {
@@ -31,6 +54,10 @@ export function load({ params }: { params: { slug: string } }) {
   const years = yearsForParty(partyName).filter((y) =>
     trend.some((s) => s.year === y && s.contestedSeats > 0)
   );
+  const latestYear = years[0] ?? null;
+  const latestFptpEffect =
+    latestYear != null ? fptpEffectFor(partyName, [latestYear]) : null;
+  const cumulativeFptpEffect = fptpEffectFor(partyName, null);
 
   // Headline: net council-control swing across our entire window.
   const partyChanges = allPartyControlChanges.filter(
@@ -80,6 +107,8 @@ export function load({ params }: { params: { slug: string } }) {
     totalGained,
     totalLost,
     controlByYear,
+    latestFptpEffect,
+    cumulativeFptpEffect,
     controlledCouncils
   };
 }
