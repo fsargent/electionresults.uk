@@ -56,12 +56,12 @@
         };
       }
       for (const slug of incompleteCouncils) {
+        const existing = out[slug];
         out[slug] = {
+          ...existing,
           color: '#000',
           href: `/${slug}`,
-          primary: out[slug]?.primary ?? slug,
-          secondary: 'Count still in progress — flip not yet known',
-          title: `${out[slug]?.primary ?? slug}: count still in progress`
+          secondary: 'Count still in progress — flip not yet known'
         };
       }
       return out;

@@ -36,12 +36,12 @@
     (() => {
       const out = { ...fills };
       for (const slug of incompleteCouncils) {
+        const existing = out[slug];
         out[slug] = {
+          ...existing,
           color: '#000',
           href: `/${slug}`,
-          primary: out[slug]?.primary ?? slug,
-          secondary: 'Count still in progress — not enough data yet',
-          title: `${out[slug]?.primary ?? slug}: count still in progress`
+          secondary: 'Count still in progress — not enough data yet'
         };
       }
       return out;
