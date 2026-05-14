@@ -126,6 +126,26 @@ export function incomplete2026Councils(): Set<string> {
   return out;
 }
 
+/** Per-council coverage detail for cohort councils still mid-count.
+ *  Maps render this as a dashed highlight and surface the
+ *  "X of Y wards counted" line in tooltips. */
+export function incomplete2026Coverage(): {
+  councilSlug: string;
+  wardsCounted: number;
+  wardsExpected: number;
+}[] {
+  const out: { councilSlug: string; wardsCounted: number; wardsExpected: number }[] = [];
+  for (const [slug, c] of Object.entries(cycle2026Coverage)) {
+    if (c.complete) continue;
+    out.push({
+      councilSlug: slug,
+      wardsCounted: c.wardsCounted,
+      wardsExpected: c.wardsExpected
+    });
+  }
+  return out;
+}
+
 /** Slugs of every council that polled in 2026 (the full cohort, regardless
  *  of count completeness). Used by maps to distinguish "polled, no
  *  flip" from "didn't poll this cycle". */

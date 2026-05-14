@@ -1,12 +1,19 @@
 <script lang="ts">
   import { pct } from '$lib/format';
-  import CouncilHexMap from './CouncilHexMap.svelte';
+  import CouncilHexMap, { type CouncilFill } from './CouncilHexMap.svelte';
   import { belowQuotaColor } from '$lib/below-quota-color';
   import type { CouncilSummary } from '$lib/types';
   let {
     councils,
     incompleteCouncils = []
-  }: { councils: CouncilSummary[]; incompleteCouncils?: string[] } = $props();
+  }: {
+    councils: CouncilSummary[];
+    /** Cohort councils whose count is still in progress, with per-council
+     *  ward coverage. The dashed-outline highlight overlays whatever
+     *  shading the council already has — partial-data colour is left
+     *  visible (the dashed border is the "watch this one" cue). */
+    incompleteCouncils?: { councilSlug: string; wardsCounted: number; wardsExpected: number }[];
+  } = $props();
 
   const dataMax = $derived(
     councils.length > 0
@@ -34,14 +41,20 @@
   );
   const fillsWithIncomplete = $derived(
     (() => {
-      const out = { ...fills };
-      for (const slug of incompleteCouncils) {
-        const existing = out[slug];
-        out[slug] = {
+      const out: Record<string, CouncilFill> = { ...fills };
+      for (const c of incompleteCouncils) {
+        const existing = out[c.councilSlug];
+        out[c.councilSlug] = {
           ...existing,
-          color: '#000',
-          href: `/${slug}`,
-          secondary: 'Count still in progress — not enough data yet'
+          href: existing?.href ?? `/${c.councilSlug}`,
+          // Keep the partial-data shade if we have one. Otherwise just
+          // outline the hex — no fill colour overrides the data we
+          // don't yet trust.
+          color: existing?.color ?? belowQuotaColor(0),
+          incomplete: {
+            wardsCounted: c.wardsCounted,
+            wardsExpected: c.wardsExpected
+          }
         };
       }
       return out;
@@ -131,8 +144,12 @@
     display: inline-block;
     width: 0.9rem;
     height: 0.9rem;
-    background: #000;
+    background: transparent;
+    border: 1.5px dashed #1f2330;
     border-radius: 2px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .legend-incomplete-swatch { border-color: rgba(255, 255, 255, 0.85); }
   }
   .small { font-size: 0.78rem; }
 </style>

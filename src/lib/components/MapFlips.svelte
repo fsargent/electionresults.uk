@@ -9,7 +9,11 @@
     polledNoFlipCouncils = []
   }: {
     entries: CouncilFlip[];
-    incompleteCouncils?: string[];
+    /** Cohort councils whose count is still in progress, with per-council
+     *  ward coverage. Maps render these with a dashed-outline highlight
+     *  on top of whatever fill the council already has — so a flip we
+     *  can already determine from the counted wards still surfaces. */
+    incompleteCouncils?: { councilSlug: string; wardsCounted: number; wardsExpected: number }[];
     /** Cohort councils that polled this cycle but didn't flip — distinct
      *  from "didn't poll this cycle" so the map can tell the two apart.
      *  Pass [] in the all-cycles view (the distinction is meaningless
@@ -55,13 +59,19 @@
           secondary: 'Polled this cycle — leading party unchanged'
         };
       }
-      for (const slug of incompleteCouncils) {
-        const existing = out[slug];
-        out[slug] = {
+      for (const c of incompleteCouncils) {
+        const existing = out[c.councilSlug];
+        // Keep whatever fill we already have (flip color, polled-no-flip
+        // grey, or nothing). The dashed outline + tooltip ward count is
+        // the highlight; we don't overwrite the colour.
+        out[c.councilSlug] = {
           ...existing,
-          color: '#000',
-          href: `/${slug}`,
-          secondary: 'Count still in progress — flip not yet known'
+          href: existing?.href ?? `/${c.councilSlug}`,
+          color: existing?.color ?? POLLED_NO_FLIP_FILL,
+          incomplete: {
+            wardsCounted: c.wardsCounted,
+            wardsExpected: c.wardsExpected
+          }
         };
       }
       return out;
@@ -90,7 +100,7 @@
         <li><span class="swatch grey"></span> No flip in our data</li>
       {/if}
       {#if incompleteCouncils.length > 0}
-        <li><span class="swatch black"></span> Count still in progress ({incompleteCouncils.length})</li>
+        <li><span class="swatch dashed"></span> Count still in progress ({incompleteCouncils.length})</li>
       {/if}
     </ul>
   </div>
@@ -135,8 +145,15 @@
   }
   .party-legend .swatch.grey { background: #e5e3d6; }
   .party-legend .swatch.polled-no-flip { background: #c7c4b3; }
-  .party-legend .swatch.black { background: #000; }
+  /* Dashed outline matches the in-progress hex highlight. The fill is
+     transparent because the highlight rides on top of whichever color
+     the council already has. */
+  .party-legend .swatch.dashed {
+    background: transparent;
+    border: 1.5px dashed #1f2330;
+  }
   @media (prefers-color-scheme: dark) {
     .party-legend .swatch { border-color: rgba(255, 255, 255, 0.25); }
+    .party-legend .swatch.dashed { border-color: rgba(255, 255, 255, 0.85); }
   }
 </style>

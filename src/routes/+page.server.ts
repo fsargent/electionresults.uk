@@ -10,7 +10,7 @@ import {
   latestFlipByCouncil,
   allFlips,
   cycleByYear,
-  incomplete2026Councils,
+  incomplete2026Coverage,
   cohort2026Councils,
   stvDistortionPerCouncil
 } from '$lib/data';
@@ -111,25 +111,27 @@ function buildView(scopeYear: number | null) {
     };
   }
 
-  // 2026 cohort councils with wards still being counted: every map
-  // surfaces these as black so a partial-count colour doesn't mislead.
-  // Only meaningful for the 2026 view; in the all-cycles view we have
-  // no such "in progress" set (each council's latest cycle is the
-  // most recent finished one), so we pass an empty array.
-  const incompleteCouncils = scopeYear === 2026
-    ? [...incomplete2026Councils()]
-    : [];
+  // 2026 cohort councils with wards still being counted. Maps render
+  // these with a dashed outline highlight (rather than overriding the
+  // colour to black), so any flip we can already determine from the
+  // counted wards still surfaces. Only meaningful for the 2026 view; in
+  // the all-cycles view we have no such "in progress" set (each
+  // council's latest cycle is the most recent finished one), so we
+  // pass an empty list.
+  const incompleteCouncils = scopeYear === 2026 ? incomplete2026Coverage() : [];
 
   // 2026 cohort councils that polled but didn't flip — election
   // happened, leading party unchanged. Lets the flip map distinguish
   // these from councils that simply weren't up for election (which
-  // should stay default-grey). Only meaningful for the 2026 view.
+  // should stay default-grey). Incomplete councils still belong here
+  // when no flip has been detected from the wards we do have — the
+  // dashed-outline decoration signals that the picture may still
+  // change. Only meaningful for the 2026 view.
   let polledNoFlipCouncils: string[] = [];
   if (scopeYear === 2026) {
     const flipped = new Set(flipMapEntries.map((f) => f.councilSlug));
-    const incompleteSet = new Set(incompleteCouncils);
     polledNoFlipCouncils = [...cohort2026Councils()].filter(
-      (slug) => !flipped.has(slug) && !incompleteSet.has(slug)
+      (slug) => !flipped.has(slug)
     );
   }
 

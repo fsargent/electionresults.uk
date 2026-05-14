@@ -1,12 +1,19 @@
 <script lang="ts">
   import { pct } from '$lib/format';
-  import CouncilHexMap from './CouncilHexMap.svelte';
+  import CouncilHexMap, { type CouncilFill } from './CouncilHexMap.svelte';
   import { belowQuotaColor } from '$lib/below-quota-color';
   import type { DistortionRow } from '$lib/data';
   let {
     entries,
     incompleteCouncils = []
-  }: { entries: DistortionRow[]; incompleteCouncils?: string[] } = $props();
+  }: {
+    entries: DistortionRow[];
+    /** Cohort councils whose count is still in progress, with per-council
+     *  ward coverage. The dashed-outline highlight overlays whatever
+     *  shading the council already has — partial-data colour stays
+     *  visible so a clear early signal isn't suppressed. */
+    incompleteCouncils?: { councilSlug: string; wardsCounted: number; wardsExpected: number }[];
+  } = $props();
 
   // Stretch the cream→red palette across the data's actual range, not
   // 0–100%. Pure-FPTP councils rarely cross 50% so a fixed-1 scale wastes
@@ -41,20 +48,25 @@
       ])
     )
   );
-  // Override the fill for cohort councils whose count is incomplete:
-  // their partial-data row would otherwise show a misleading colour
-  // (e.g. an early-reporting Labour stronghold flashing low distortion
-  // because most of its competitive wards haven't reported yet).
+  // Mark cohort councils whose count is still in progress with a dashed
+  // outline. Their distortion shade still renders — a partial-data
+  // shade can be misleading (e.g. an early-reporting Labour stronghold
+  // flashing low distortion when its competitive wards haven't reported
+  // yet), so the dashed outline + tooltip ward count is the cue to
+  // treat the colour as preliminary.
   const fillsWithIncomplete = $derived(
     (() => {
-      const out = { ...fills };
-      for (const slug of incompleteCouncils) {
-        const existing = out[slug];
-        out[slug] = {
+      const out: Record<string, CouncilFill> = { ...fills };
+      for (const c of incompleteCouncils) {
+        const existing = out[c.councilSlug];
+        out[c.councilSlug] = {
           ...existing,
-          color: '#000',
-          href: `/${slug}`,
-          secondary: 'Count still in progress — not enough data yet'
+          href: existing?.href ?? `/${c.councilSlug}`,
+          color: existing?.color ?? belowQuotaColor(0),
+          incomplete: {
+            wardsCounted: c.wardsCounted,
+            wardsExpected: c.wardsExpected
+          }
         };
       }
       return out;
@@ -148,8 +160,12 @@
     display: inline-block;
     width: 0.9rem;
     height: 0.9rem;
-    background: #000;
+    background: transparent;
+    border: 1.5px dashed #1f2330;
     border-radius: 2px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .legend-incomplete-swatch { border-color: rgba(255, 255, 255, 0.85); }
   }
   .small { font-size: 0.78rem; }
 </style>

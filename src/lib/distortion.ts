@@ -97,6 +97,16 @@ export function dhondt(
 }
 
 /**
+ * Count of seats FPTP allocated to a different party than the proportional
+ * (D'Hondt) benchmark would have. Each over-allocation has a matching
+ * under-allocation, so we sum |delta| and halve to avoid double-counting.
+ * Rounded because the underlying deltas are already integers per party.
+ */
+export function reallocatedSeats(rows: { seatDelta: number }[]): number {
+  return Math.round(rows.reduce((sum, r) => sum + Math.abs(r.seatDelta), 0) / 2);
+}
+
+/**
  * Gallagher disproportionality index (least-squares, LSq).
  *
  *   Gallagher = sqrt( ½ · Σ (Vᵢ − Sᵢ)² )

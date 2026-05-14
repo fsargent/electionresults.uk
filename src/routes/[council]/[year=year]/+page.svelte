@@ -1,15 +1,29 @@
 <script lang="ts">
   import { pct, num, pts } from '$lib/format';
   import Party from '$lib/components/Party.svelte';
-  import Frac from '$lib/components/Frac.svelte';
   import PartyViewBlock from '$lib/components/PartyViewBlock.svelte';
   import SeatChart from '$lib/components/SeatChart.svelte';
   import Tooltip from '$lib/components/Tooltip.svelte';
+  import { reallocatedSeats } from '$lib/distortion';
   let { data } = $props();
   const council = $derived(data.council);
   const races = $derived(data.races);
   const cycle = $derived(data.cycle);
   const belowQuotaRaces = $derived(races.filter((r) => r.race.isBelowQuota).length);
+  // Unfairly-awarded ("reallocated") seats — present only when we have
+  // a comparable party view. STV councils and councils whose candidates
+  // ran almost entirely as independents won't have one, in which case
+  // we suppress the related KPIs rather than show "0".
+  const partyView = $derived(data.partyView);
+  const hasPartyView = $derived(!!partyView && partyView.rows.length > 1);
+  const reallocated = $derived(
+    hasPartyView ? reallocatedSeats(partyView!.rows) : 0
+  );
+  const reallocatedShare = $derived(
+    hasPartyView && partyView!.totalSeats > 0
+      ? reallocated / partyView!.totalSeats
+      : 0
+  );
   // Same composition-segment shape used on the council overview page.
   // Prefer the per-councillor snapshot (partiesDetailed) when present so
   // small parties / independents keep their own labels.
@@ -82,37 +96,50 @@
       <span class="figure">{num(council.totalSeatCount)}</span>
       <span class="label">seats</span>
     </div>
-    <div class="kpi">
-      <span class="figure warn">{num(council.belowQuotaSeatCount)}</span>
-      <span class="label">elected below the proportional quota</span>
-    </div>
-    <div class="kpi">
-      <span class="figure pct">{pct(council.belowQuotaShare)}</span>
-      <span class="label">of seats below quota</span>
-    </div>
+    {#if council.belowQuotaSeatCount > 0}
+      <div class="kpi">
+        <span class="figure warn">{num(council.belowQuotaSeatCount)}</span>
+        <span class="label">
+          <Tooltip
+            icon
+            body="Seats whose marginal winner cleared less than the proportional quota — the share they'd need under any common proportional voting method."
+          >
+            elected below the proportional quota
+          </Tooltip>
+        </span>
+      </div>
+      <div class="kpi">
+        <span class="figure pct">{pct(council.belowQuotaShare)}</span>
+        <span class="label">of seats below quota</span>
+      </div>
+    {/if}
+    {#if hasPartyView}
+      <div class="kpi">
+        <span class="figure" class:warn={reallocated > 0}>{num(reallocated)}</span>
+        <span class="label">
+          <Tooltip
+            icon
+            body="Seats FPTP gave to a different party than a proportional re-count of the same votes would have. Sum of |actual − proportional| seat deltas across parties, halved."
+          >
+            unfairly awarded seats
+          </Tooltip>
+        </span>
+      </div>
+      <div class="kpi">
+        <span class="figure pct" class:warn={reallocatedShare > 0}>
+          {pct(reallocatedShare)}
+        </span>
+        <span class="label">of seats unfairly awarded</span>
+      </div>
+    {/if}
   </div>
 
-  <section class="frame">
-    <h2>How to read this page</h2>
-    <p>
-      Each race below shows the share of valid ballots the marginal
-      elected candidate actually won, and compares it to the
-      <strong>proportional quota</strong>: the share they'd need to
-      clinch the seat under any proportional voting method
-      (<Frac num="1" denom="seats + 1" />). For a 1-seat ward
-      the quota is 50%; for 2 seats, 33.3%; for 3 seats, 25%.
-    </p>
-    <p>
-      Where the actual winning share fell below the quota, we show
-      the signed gap as <strong>points below quota</strong> (a negative
-      number) &mdash; the editorial indictment. Above-quota results
-      clear the bar and pass without comment. The voting method is
-      the subject of every observation here. Named candidates appear
-      as the public election record requires; the cause being audited
-      is the voting method, not the individuals. See the
-      <a href="/methodology">methodology page</a> for derivations.
-    </p>
-  </section>
+  <p class="muted methodology-note">
+    Each race compares the marginal winner's share of valid ballots to
+    the <strong>proportional quota</strong> — the share they'd need under
+    any common proportional method.
+    <a href="/methodology">How the numbers are derived →</a>
+  </p>
 
   <h2 id="party-view">If votes were counted by party</h2>
   {#if data.partyView && data.partyView.rows.length > 1}
@@ -373,18 +400,11 @@
     font-size: 0.85rem;
     color: var(--muted);
   }
-  .frame {
-    background: rgba(11, 61, 46, 0.05);
-    padding: 0.75rem 1.1rem;
-    border-left: 3px solid var(--accent);
-    font-size: 0.95rem;
-    margin: 1rem 0 1.5rem;
+  .methodology-note {
+    margin: 0.4rem 0 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
   }
-  .frame h2 {
-    font-size: 1.05rem;
-    margin: 0.2rem 0 0.4rem;
-  }
-  .frame p { margin: 0.4em 0; }
   .toc {
     columns: 22rem 2;
     gap: 1.5rem;

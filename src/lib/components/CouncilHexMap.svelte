@@ -31,6 +31,11 @@
     /** Stroke width in viewport units. Sensible range: 0.8 (default)
      *  to 3 (chunky highlight). */
     strokeWidth?: number;
+    /** Coverage marker for cohort councils still mid-count. When set,
+     *  the polygon picks up a dashed contrasting outline (the underlying
+     *  fill still shows, so any flip we can already determine surfaces),
+     *  and the tooltip appends an "X of Y wards counted" line. */
+    incomplete?: { wardsCounted: number; wardsExpected: number };
   }
 
   let {
@@ -43,6 +48,13 @@
 
   const NEUTRAL_FILL = '#e5e3d6';
   const STROKE = 'rgba(255, 255, 255, 0.85)';
+  // Outline used when a cohort council is still mid-count. Dark and
+  // dashed so it reads as a "watch this one" highlight on top of any
+  // colour we already know about (flip party, distortion shade, etc.)
+  // rather than overwriting it.
+  const INCOMPLETE_STROKE = '#1f2330';
+  const INCOMPLETE_DASH = '1.4 1.0';
+  const INCOMPLETE_STROKE_WIDTH = 1.4;
 
   // NI's 11 districts have used a proportional voting method since 1973,
   // so an FPTP audit has nothing to say about them. Suppress them from
@@ -72,6 +84,16 @@
           }
         }
       }
+      const incomplete = fill?.incomplete;
+      const incompleteLine = incomplete
+        ? `${incomplete.wardsCounted} of ${incomplete.wardsExpected} wards counted`
+        : null;
+      const baseSecondary = fill?.secondary ?? null;
+      const secondary = incompleteLine
+        ? baseSecondary
+          ? `${baseSecondary} · ${incompleteLine}`
+          : incompleteLine
+        : baseSecondary;
       return {
         slug: h.slug,
         name: h.name,
@@ -81,10 +103,15 @@
         href: fill?.href ?? `/${h.slug}`,
         title: fill?.title ?? h.name,
         primary: fill?.primary ?? h.name,
-        secondary: fill?.secondary ?? null,
+        secondary,
         swatchColor: fill?.swatchColor ?? null,
-        stroke: fill?.stroke ?? STROKE,
-        strokeWidth: fill?.strokeWidth ?? 0.8,
+        // An explicit stroke override wins; otherwise an in-progress
+        // council picks up the dashed highlight; otherwise the map's
+        // default white separator stroke.
+        stroke: fill?.stroke ?? (incomplete ? INCOMPLETE_STROKE : STROKE),
+        strokeWidth:
+          fill?.strokeWidth ?? (incomplete ? INCOMPLETE_STROKE_WIDTH : 0.8),
+        strokeDasharray: fill?.stroke ? null : incomplete ? INCOMPLETE_DASH : null,
         points: hexPolygonPoints(h.x, h.y, HEX_SIZE)
       };
     })
@@ -152,6 +179,7 @@
           stroke={item.stroke}
           stroke-width={item.strokeWidth}
           stroke-linejoin="round"
+          stroke-dasharray={item.strokeDasharray}
         ></polygon>
       </g>
     {/each}
