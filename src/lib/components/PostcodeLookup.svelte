@@ -12,8 +12,13 @@
   // admin_county. $derived so Svelte 5 doesn't warn about a prop being
   // captured by a top-level constant.
   const slugSet = $derived(new Set(councilSlugs.map((c) => c.councilSlug)));
+  // Case-folded display name → slug, for matching free-text council
+  // input against the canonical name from the dataset.
+  const nameToSlug = $derived(
+    new Map(councilSlugs.map((c) => [c.council.toLowerCase(), c.councilSlug]))
+  );
 
-  let postcode = $state('');
+  let query = $state('');
   let busy = $state(false);
   let error = $state<string | null>(null);
 
@@ -30,6 +35,23 @@
       .replace(/[''']/g, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '');
+  }
+
+  /**
+   * Resolve a free-text council name to a slug. Tries:
+   *   1. Exact (case-insensitive) match against the canonical display name.
+   *   2. Slugified match — handles users typing "City of London" /
+   *      "city-of-london" / "CITY OF LONDON" alike.
+   * Returns null if nothing matches.
+   */
+  function matchCouncilName(raw: string): string | null {
+    const trimmed = raw.trim();
+    if (!trimmed) return null;
+    const exact = nameToSlug.get(trimmed.toLowerCase());
+    if (exact) return exact;
+    const slug = slugifyDistrict(trimmed);
+    if (slug && slugSet.has(slug)) return slug;
+    return null;
   }
 
   /**
@@ -143,9 +165,26 @@
     );
   }
 
-  function onSubmit(event: SubmitEvent) {
+  async function onSubmit(event: SubmitEvent) {
     event.preventDefault();
-    if (!busy) lookupPostcode(postcode);
+    if (busy) return;
+    const raw = query.trim();
+    if (!raw) return;
+    // If it parses as a postcode, route to the postcodes.io path.
+    // Otherwise try to resolve as a council name. We check name FIRST
+    // when the input clearly isn't postcode-shaped so users typing
+    // "Tamworth" don't see a "doesn't look like a UK postcode" error.
+    if (POSTCODE_RE.test(raw.toUpperCase())) {
+      await lookupPostcode(raw);
+      return;
+    }
+    const slug = matchCouncilName(raw);
+    if (slug) {
+      error = null;
+      await goto(`/${slug}`);
+      return;
+    }
+    error = `No council matching "${raw}". Try a postcode, or pick from the suggestions.`;
   }
 </script>
 
@@ -158,22 +197,27 @@
       id="postcode-lookup"
       type="text"
       inputmode="text"
-      autocapitalize="characters"
-      autocomplete="postal-code"
+      autocomplete="off"
       spellcheck="false"
-      placeholder="SW1A 1AA"
-      bind:value={postcode}
+      list="council-suggestions"
+      placeholder="Postcode or council name"
+      bind:value={query}
       disabled={busy}
       aria-describedby={error ? 'lookup-error' : undefined}
     />
     <button
       type="submit"
       class="primary"
-      disabled={busy || postcode.trim().length === 0}
+      disabled={busy || query.trim().length === 0}
     >
       {busy ? '…' : 'Go'}
     </button>
   </div>
+  <datalist id="council-suggestions">
+    {#each councilSlugs as c (c.councilSlug)}
+      <option value={c.council}></option>
+    {/each}
+  </datalist>
   <button
     type="button"
     class="locate"
@@ -230,11 +274,9 @@
     background: var(--bg);
     border: 1px solid var(--rule);
     border-radius: 4px;
-    text-transform: uppercase;
   }
   input::placeholder {
     color: var(--muted);
-    text-transform: none;
     letter-spacing: 0.02em;
   }
   input:focus-visible {
