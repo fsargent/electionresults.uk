@@ -99,14 +99,7 @@
     {#if council.belowQuotaSeatCount > 0}
       <div class="kpi">
         <span class="figure warn">{num(council.belowQuotaSeatCount)}</span>
-        <span class="label">
-          <Tooltip
-            icon
-            body="Seats whose marginal winner cleared less than the proportional quota — the share they'd need under any common proportional voting method."
-          >
-            elected below the proportional quota
-          </Tooltip>
-        </span>
+        <span class="label">elected below the proportional quota</span>
       </div>
       <div class="kpi">
         <span class="figure pct">{pct(council.belowQuotaShare)}</span>
@@ -116,14 +109,7 @@
     {#if hasPartyView}
       <div class="kpi">
         <span class="figure" class:warn={reallocated > 0}>{num(reallocated)}</span>
-        <span class="label">
-          <Tooltip
-            icon
-            body="Seats FPTP gave to a different party than a proportional re-count of the same votes would have. Sum of |actual − proportional| seat deltas across parties, halved."
-          >
-            unfairly awarded seats
-          </Tooltip>
-        </span>
+        <span class="label">unfairly awarded seats</span>
       </div>
       <div class="kpi">
         <span class="figure pct" class:warn={reallocatedShare > 0}>

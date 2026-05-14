@@ -5,6 +5,8 @@
   import PartyViewBlock from '$lib/components/PartyViewBlock.svelte';
   let { data } = $props();
   const history = $derived(data.history);
+  const aggregateDistortion = $derived(data.aggregateDistortion);
+  const aggregateBelowQuota = $derived(data.aggregateBelowQuota);
   // composition is the opencouncildata truth-set snapshot when we have
   // one (preferred); compositionApprox is the fallback sum-across-cycles
   // approximation for councils oncd doesn't cover for that year.
@@ -81,6 +83,39 @@
   <p class="muted">
     Every election cycle we have data for, most recent first.
   </p>
+
+  <div class="summary">
+    <div class="kpi">
+      <span class="figure">{num(history.cycles.length)}</span>
+      <span class="label">
+        cycle{history.cycles.length === 1 ? '' : 's'} in our data
+      </span>
+    </div>
+    {#if aggregateBelowQuota && aggregateBelowQuota.belowQuotaSeats > 0}
+      <div class="kpi">
+        <span class="figure pct warn">{pct(aggregateBelowQuota.share)}</span>
+        <span class="label">
+          all-time seats elected below the quota
+          ({num(aggregateBelowQuota.belowQuotaSeats)} of
+          {num(aggregateBelowQuota.totalSeats)})
+        </span>
+      </div>
+    {/if}
+    {#if aggregateDistortion}
+      <div class="kpi">
+        <span class="figure pct" class:warn={aggregateDistortion.share > 0}>
+          {pct(aggregateDistortion.share)}
+        </span>
+        <span class="label">
+          all-time seats unfairly awarded
+          ({num(aggregateDistortion.reallocated)} of
+          {num(aggregateDistortion.totalSeats)} across
+          {num(aggregateDistortion.cycleCount)}
+          cycle{aggregateDistortion.cycleCount === 1 ? '' : 's'})
+        </span>
+      </div>
+    {/if}
+  </div>
 
   {#if data.reorganisation}
     {@const r = data.reorganisation}
@@ -251,6 +286,30 @@
 </main>
 
 <style>
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .kpi {
+    border: 1px solid var(--rule);
+    padding: 0.75rem 0.9rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+  }
+  .kpi .figure {
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .kpi .figure.warn { color: var(--warn); }
+  .kpi .label {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
   .cycle-list {
     list-style: none;
     padding: 0;

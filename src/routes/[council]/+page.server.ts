@@ -7,8 +7,10 @@ import {
   partyViewForYearAndCouncil,
   latestCompositionForCouncil,
   compositionsForCouncil,
-  reorganisationForCouncil
+  reorganisationForCouncil,
+  allPartyViews
 } from '$lib/data';
+import { reallocatedSeats } from '$lib/distortion';
 
 export const prerender = true;
 
@@ -45,6 +47,49 @@ export function load({ params }: { params: { council: string } }) {
   // before/after pair with the full timeline so readers can see every
   // election move the council through; new entries land each year.
   const compositionHistory = compositionsForCouncil(params.council);
+
+  // Aggregate FPTP-distortion across every cycle this council has data
+  // for. Weighted by seats (not by cycle) so a small by-thirds round
+  // doesn't outweigh an all-out election. Suppressed when no FPTP party
+  // view exists (STV councils, councils dominated by independents).
+  const fptpPartyViews = allPartyViews.filter(
+    (v) => v.councilSlug === params.council && (v.system ?? 'FPTP') === 'FPTP'
+  );
+  let aggReallocated = 0;
+  let aggDistortionSeats = 0;
+  for (const v of fptpPartyViews) {
+    aggReallocated += reallocatedSeats(v.rows);
+    aggDistortionSeats += v.totalSeats;
+  }
+  const aggregateDistortion =
+    aggDistortionSeats > 0
+      ? {
+          reallocated: aggReallocated,
+          totalSeats: aggDistortionSeats,
+          share: aggReallocated / aggDistortionSeats,
+          cycleCount: fptpPartyViews.length
+        }
+      : null;
+
+  // Aggregate below-quota share across every cycle. Same seat-weighted
+  // denominator so cycles compare like-for-like. Always available
+  // (every council with cycles has belowQuotaSeatCount), but we
+  // suppress the tile when zero so a clean record reads as "all
+  // wards above quota" rather than a stark 0%.
+  let aggBelowQuotaSeats = 0;
+  let aggBelowQuotaTotal = 0;
+  for (const c of history.cycles) {
+    aggBelowQuotaSeats += c.belowQuotaSeatCount;
+    aggBelowQuotaTotal += c.totalSeatCount;
+  }
+  const aggregateBelowQuota = aggBelowQuotaTotal > 0
+    ? {
+        belowQuotaSeats: aggBelowQuotaSeats,
+        totalSeats: aggBelowQuotaTotal,
+        share: aggBelowQuotaSeats / aggBelowQuotaTotal
+      }
+    : null;
+
   return {
     history,
     wards,
@@ -53,6 +98,8 @@ export function load({ params }: { params: { council: string } }) {
     reorganisation,
     latestCycle,
     latestPartyView,
-    compositionHistory
+    compositionHistory,
+    aggregateDistortion,
+    aggregateBelowQuota
   };
 }
