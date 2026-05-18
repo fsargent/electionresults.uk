@@ -31,6 +31,7 @@
       <li><a href="#caveats">Data caveats &amp; tokens</a></li>
       <li><a href="#sources">Source lineage &amp; attribution</a></li>
       <li><a href="#reproducibility">Reproducibility</a></li>
+      <li><a href="#csv-mapping">CSV column mapping</a></li>
       <li><a href="#errata">Errata &amp; corrections</a></li>
     </ul>
   </nav>
@@ -276,6 +277,50 @@
     CSV exports under <code>/data/parliament/&lt;year&gt;/</code>;
     column mappings are documented at
     <a href="/parliament/data">/parliament/data</a>.
+  </p>
+
+  <h2 id="csv-mapping">CSV column mapping</h2>
+  <p>
+    CSV downloads under
+    <a href="/parliament/data">/parliament/data</a> use
+    <strong>snake_case</strong> headers &mdash; the analyst convention
+    in pandas, R, and Excel &mdash; distinct from the camelCase JSON
+    served to the SvelteKit loaders. The translation is mechanical:
+    every JSON <code>partyDisplayName</code> becomes a CSV
+    <code>party_display_name</code> column, <code>isWinner</code>
+    becomes <code>is_winner</code> (rendered as <code>1</code> /
+    <code>0</code>, matching the council CSV convention),
+    <code>caveats[]</code> becomes a semicolon-joined string in a
+    <code>caveats</code> column.
+  </p>
+  <p>
+    Three CSV files per ingested year:
+  </p>
+  <ul>
+    <li>
+      <code>parliament-&lt;year&gt;-constituencies.csv</code> &mdash;
+      one row per contest, with winner, runner-up, and majority
+      denormalised onto the row so analysts can compute headline
+      numbers without a join.
+    </li>
+    <li>
+      <code>parliament-&lt;year&gt;-candidates.csv</code> &mdash; one
+      row per candidate. The full unpivoted result set.
+    </li>
+    <li>
+      <code>parliament-&lt;year&gt;-national-totals.csv</code> &mdash;
+      one row per party, with vote share, seat share, and seat-delta.
+    </li>
+  </ul>
+  <p>
+    Full column reference (every column, every type, every source
+    field) is in
+    <a
+      href="https://github.com/fsargent/electionresults.uk/blob/main/docs/parliament-schema.md"
+      rel="external noopener"
+      ><code>docs/parliament-schema.md</code></a>
+    in the repository &mdash; the same document the ETL author and
+    UI loaders both reference.
   </p>
 
   <h2 id="errata">Errata &amp; corrections</h2>

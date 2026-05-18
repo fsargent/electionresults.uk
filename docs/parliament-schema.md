@@ -157,7 +157,79 @@ When a metric excludes a row, the exclusion is reported in `NationalSummary.excl
 - Missing values are `null` — never `0`, `-1`, or `"N/A"`.
 - Dates are ISO 8601 strings.
 
-CSV downloads (Story 4.2) use **snake_case** headers — an analyst convention in pandas/R — distinct from JSON's camelCase. The JSON ↔ CSV column mapping is documented at `/parliament/methodology`.
+CSV downloads use **snake_case** headers — an analyst convention in pandas/R — distinct from JSON's camelCase.
+
+## CSV downloads
+
+Three files per ingested year under `static/data/parliament/<year>/`, served at `/data/parliament/<year>/`:
+
+- `parliament-<year>-constituencies.csv` — one row per contest, with winner + runner-up + majority denormalised in
+- `parliament-<year>-candidates.csv` — one row per candidate
+- `parliament-<year>-national-totals.csv` — one row per party
+
+Caveat tokens render as `;`-joined strings (e.g. `"uncontested"`, `"speaker;missing-turnout"`). Null values render as empty fields. Booleans render as `0`/`1` (matches the council CSV convention; see `static/data/candidates.csv:elected`).
+
+### `parliament-<year>-constituencies.csv`
+
+| Column | JSON source | Notes |
+|---|---|---|
+| `election_id` | `electionId` | `ge-2024` |
+| `constituency_id` | `constituencyId` | Composite key `${boundarySet}:${slug}` |
+| `constituency_slug` | `constituencySlug` | URL slug |
+| `constituency_name` | `constituencyName` | Display name |
+| `country` | `country` | `england` / `scotland` / `wales` / `northern-ireland` |
+| `contest_type` | `contestType` | `single-member` / `multi-member-historical` |
+| `electorate` | `electorate` | Null when source does not report |
+| `valid_votes` | `validVotes` | Null when source does not report |
+| `turnout` | `turnout` | Fraction in [0, 1] |
+| `caveats` | `caveats[]` | `;`-joined tokens |
+| `winning_party_id` | `candidates[isWinner].partyId` | Denormalised |
+| `winning_party` | `candidates[isWinner].partyDisplayName` | Denormalised |
+| `winning_candidate` | `candidates[isWinner].candidateName` | Denormalised |
+| `winning_votes` | `candidates[isWinner].votes` | Denormalised |
+| `winning_share` | `candidates[isWinner].share` | Denormalised |
+| `runner_up_party_id` | `candidates[position=2].partyId` | Denormalised |
+| `runner_up_party` | `candidates[position=2].partyDisplayName` | Denormalised |
+| `runner_up_candidate` | `candidates[position=2].candidateName` | Denormalised |
+| `runner_up_votes` | `candidates[position=2].votes` | Denormalised |
+| `runner_up_share` | `candidates[position=2].share` | Denormalised |
+| `majority` | computed | `winning_votes − runner_up_votes`; null when either side missing |
+
+### `parliament-<year>-candidates.csv`
+
+| Column | JSON source | Notes |
+|---|---|---|
+| `election_id` | `electionId` | |
+| `constituency_id` | `constituencyId` | |
+| `constituency_slug` | `constituencySlug` | |
+| `constituency_name` | `constituencyName` | |
+| `candidate_name` | `candidateName` | |
+| `party_id` | `partyId` | Canonical kebab-case slug |
+| `party_display_name` | `partyDisplayName` | Post-normalisation |
+| `party_source_label` | `partySourceLabel` | Raw source string |
+| `votes` | `votes` | |
+| `share` | `share` | Fraction in [0, 1]; null when validVotes is null |
+| `position` | `position` | 1-based finishing position |
+| `is_winner` | `isWinner` | `1` / `0` |
+| `caveats` | `caveats[]` | `;`-joined tokens |
+
+### `parliament-<year>-national-totals.csv`
+
+| Column | JSON source | Notes |
+|---|---|---|
+| `election_id` | `electionId` | |
+| `party_id` | `partyId` | |
+| `party_display_name` | `partyDisplayName` | |
+| `party_source_label` | `partySourceLabel` | |
+| `votes` | `votes` | National sum |
+| `vote_share` | `voteShare` | Fraction in [0, 1] |
+| `seats` | `seats` | National sum |
+| `seat_share` | `seatShare` | Fraction in [0, 1] |
+| `seat_delta` | `seatDelta` | `seatShare − voteShare`; positive = over-represented |
+
+### Reproducibility check
+
+Headline metrics computed from a CSV must match the JSON envelope. For example, counting `winning_share < 0.5` rows in `parliament-2024-constituencies.csv` after excluding `uncontested` and `multi-member-historical` caveats produces 554 — equal to `national-summary.json.minorityWinnerCount`.
 
 ## Reading the data
 
@@ -166,7 +238,7 @@ Always go through `src/lib/parliament/data.ts`:
 ```ts
 // src/routes/parliament/[year]/+page.server.ts
 import {
-  constituencyContestsForYear,
+  constituenciesForYear,
   nationalSummaryForYear,
   partyTotalsForYear
 } from '$lib/parliament/data';
@@ -176,7 +248,7 @@ export const prerender = true;
 export function load({ params }) {
   const year = Number(params.year);
   return {
-    contests: constituencyContestsForYear(year),
+    contests: constituenciesForYear(year),
     summary: nationalSummaryForYear(year),
     partyTotals: partyTotalsForYear(year)
   };

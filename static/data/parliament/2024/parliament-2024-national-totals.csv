@@ -1,0 +1,97 @@
+election_id,party_id,party_display_name,party_source_label,votes,vote_share,seats,seat_share,seat_delta
+ge-2024,labour-party,Labour Party,Labour,9708716,0.33739666859609413,411,0.6332819722650231,0.295885303668929
+ge-2024,conservative-party,Conservative Party,Conservative,6828925,0.23731835858547948,121,0.1864406779661017,-0.05087768061937778
+ge-2024,reform-uk,Reform UK,Reform UK,4117610,0.14309491559728013,5,0.007704160246533128,-0.13539075535074702
+ge-2024,liberal-democrats,Liberal Democrats,Liberal Democrat,3519143,0.12229702923777608,72,0.11093990755007704,-0.011357121687699034
+ge-2024,green-party,Green Party,Green,1931146,0.06711106051229357,4,0.0061633281972265025,-0.06094773231506707
+ge-2024,scottish-national-party,Scottish National Party,Scottish National Party,724758,0.025186742998597134,9,0.01386748844375963,-0.011319254554837503
+ge-2024,independent,Independent,Independent,564042,0.01960155099276548,6,0.009244992295839754,-0.010356558696925726
+ge-2024,sinn-fein,Sinn Féin,Sinn Fein,210891,0.007328870350816615,7,0.01078582434514638,0.003456953994329765
+ge-2024,workers-party-of-britain,Workers Party of Britain,Workers Party of Britain,210252,0.007306663864270618,0,0,-0.007306663864270618
+ge-2024,plaid-cymru,Plaid Cymru,Plaid Cymru,194811,0.0067700592339783846,4,0.0061633281972265025,-0.000606731036751882
+ge-2024,democratic-unionist-party,Democratic Unionist Party,Democratic Unionist Party,172058,0.005979348454039315,5,0.007704160246533128,0.0017248117924938133
+ge-2024,alliance,Alliance,Alliance,117191,0.004072614029439615,1,0.0015408320493066256,-0.00253178198013299
+ge-2024,ulster-unionist-party,Ulster Unionist Party,Ulster Unionist Party,94779,0.003293753659378769,1,0.0015408320493066256,-0.0017529216100721434
+ge-2024,social-democratic-and-labour-party,Social Democratic and Labour Party,Social Democratic and Labour Party,86861,0.003018587837045118,2,0.0030816640986132513,0.00006307626156813306
+ge-2024,traditional-unionist-voice,Traditional Unionist Voice,Traditional Unionist Voice,48685,0.0016918979616460962,1,0.0015408320493066256,-0.0001510659123394706
+ge-2024,social-democratic-party,Social Democratic Party,Social Democratic Party,33811,0.0011749976785707336,0,0,-0.0011749976785707336
+ge-2024,the-yorkshire-party,The Yorkshire Party,The Yorkshire Party,17236,0.0005989843538447595,0,0,-0.0005989843538447595
+ge-2024,independent-network,Independent Network,Independent Network,13663,0.00047481568963686174,0,0,-0.00047481568963686174
+ge-2024,trade-unionist-and-socialist-coalition,Trade Unionist and Socialist Coalition,Trade Unionist and Socialist Coalition,12269,0.00042637149207016444,0,0,-0.00042637149207016444
+ge-2024,alba-party,Alba Party,Alba Party,11784,0.00040951680353368795,0,0,-0.00040951680353368795
+ge-2024,rejoin-eu,Rejoin EU,Rejoin EU,9288,0.000322775973457306,0,0,-0.000322775973457306
+ge-2024,green-party-northern-ireland,Green Party Northern Ireland,Green Party Northern Ireland,8692,0.00030206382012175966,0,0,-0.00030206382012175966
+ge-2024,people-before-profit-alliance,People Before Profit Alliance,People Before Profit Alliance,8438,0.00029323682859956374,0,0,-0.00029323682859956374
+ge-2024,aontu,Aontú,Aontú,7466,0.0002594579476563573,0,0,-0.0002594579476563573
+ge-2024,newham-independents-party,Newham Independents Party,Newham Independents Party,7180,0.0002495188942101052,0,0,-0.0002495188942101052
+ge-2024,heritage-party,Heritage Party,Heritage Party,6597,0.00022925851603120668,0,0,-0.00022925851603120668
+ge-2024,uk-independence-party,UK Independence Party,UK Independence Party,6530,0.00022693013637771405,0,0,-0.00022693013637771405
+ge-2024,liberal,Liberal,Liberal,6375,0.00022154358643306695,0,0,-0.00022154358643306695
+ge-2024,ashfield-independents,Ashfield Independents,Ashfield Independents,6276,0.00021810314485551813,0,0,-0.00021810314485551813
+ge-2024,official-monster-raving-loony-party,Official Monster Raving Loony Party,Official Monster Raving Loony Party,5814,0.00020204775082695704,0,0,-0.00020204775082695704
+ge-2024,christian-peoples-alliance,Christian Peoples Alliance,Christian Peoples Alliance,5604,0.00019474984445033838,0,0,-0.00019474984445033838
+ge-2024,scottish-family-party,Scottish Family Party,Scottish Family Party,5425,0.0001885292480626491,0,0,-0.0001885292480626491
+ge-2024,english-democrats,English Democrats,English Democrats,5182,0.0001800845278268475,0,0,-0.0001800845278268475
+ge-2024,party-of-women,Party of Women,Party of Women,5077,0.00017643557463853818,0,0,-0.00017643557463853818
+ge-2024,lincolnshire-independents-lincolnshire-first,Lincolnshire Independents Lincolnshire First,Lincolnshire Independents Lincolnshire First,4277,0.00014863402653713368,0,0,-0.00014863402653713368
+ge-2024,one-leicester,One Leicester,One Leicester,4008,0.00013928575598803645,0,0,-0.00013928575598803645
+ge-2024,socialist-labour-party,Socialist Labour Party,Socialist Labour Party,3609,0.00012541973387246094,0,0,-0.00012541973387246094
+ge-2024,liverpool-community-independents,Liverpool Community Independents,Liverpool Community Independents,3294,0.00011447287430753295,0,0,-0.00011447287430753295
+ge-2024,swale-independents,Swale Independents,Swale Independents,3238,0.00011252676594043463,0,0,-0.00011252676594043463
+ge-2024,hampshire-independents,Hampshire Independents,Hampshire Independents,2872,0.00009980755768404208,0,0,-0.00009980755768404208
+ge-2024,communist-party-of-britain,Communist Party of Britain,Communist Party of Britain,2622,0.00009111957390235318,0,0,-0.00009111957390235318
+ge-2024,independent-oxford-alliance,Independent Oxford Alliance,Independent Oxford Alliance,2381,0.00008274435753680507,0,0,-0.00008274435753680507
+ge-2024,climate-party,Climate Party,Climate Party,1967,0.00006835705639432826,0,0,-0.00006835705639432826
+ge-2024,south-devon-alliance,South Devon Alliance,South Devon Alliance,1924,0.00006686272318387777,0,0,-0.00006686272318387777
+ge-2024,british-democratic-party,British Democratic Party,British Democratic Party,1860,0.00006463859933576541,0,0,-0.00006463859933576541
+ge-2024,alliance-for-democracy-and-freedom,Alliance for Democracy and Freedom,Alliance for Democracy and Freedom,1769,0.00006147617323923065,0,0,-0.00006147617323923065
+ge-2024,true-and-fair-party,True & Fair Party,True & Fair Party,1695,0.00005890453003985074,0,0,-0.00005890453003985074
+ge-2024,the-north-east-party,The North East Party,The North East Party,1581,0.0000549428094354006,0,0,-0.0000549428094354006
+ge-2024,abolish-the-welsh-assembly-party,Abolish the Welsh Assembly Party,Abolish the Welsh Assembly Party,1521,0.00005285769332779527,0,0,-0.00005285769332779527
+ge-2024,animal-welfare-party,Animal Welfare Party,Animal Welfare Party,1486,0.00005164137559835882,0,0,-0.00005164137559835882
+ge-2024,consensus,Consensus,Consensus,1289,0.00004479524437838797,0,0,-0.00004479524437838797
+ge-2024,women-s-equality-party,Women's Equality Party,Women's Equality Party,1275,0.00004430871728661339,0,0,-0.00004430871728661339
+ge-2024,workers-revolutionary-party,Workers Revolutionary Party,Workers Revolutionary Party,1190,0.00004135480280083916,0,0,-0.00004135480280083916
+ge-2024,kingston-independent-residents-group,Kingston Independent Residents Group,Kingston Independent Residents Group,1177,0.000040903027644191337,0,0,-0.000040903027644191337
+ge-2024,propel,Propel,Propel,1041,0.00003617676446695258,0,0,-0.00003617676446695258
+ge-2024,scottish-socialist-party,Scottish Socialist Party,Scottish Socialist Party,1007,0.000034995198672642885,0,0,-0.000034995198672642885
+ge-2024,independent-alliance-kent,Independent Alliance (Kent),Independent Alliance (Kent),926,0.000032180291927375685,0,0,-0.000032180291927375685
+ge-2024,freedom-alliance,Freedom Alliance,Freedom Alliance,895,0.00003110298193844626,0,0,-0.00003110298193844626
+ge-2024,christian-party-proclaiming-christ-s-lordship,"Christian Party, Proclaiming Christ's Lordship","Christian Party, Proclaiming Christ's Lordship",806,0.000028010059712165013,0,0,-0.000028010059712165013
+ge-2024,confelicity,Confelicity,Confelicity,750,0.0000260639513450667,0,0,-0.0000260639513450667
+ge-2024,portsmouth-independent-party,Portsmouth Independent Party,Portsmouth Independent Party,733,0.000025473168447911854,0,0,-0.000025473168447911854
+ge-2024,independence-for-scotland-party,Independence for Scotland Party,Independence for Scotland Party,678,0.000023561812015940294,0,0,-0.000023561812015940294
+ge-2024,shared-ground,Shared Ground,Shared Ground,664,0.000023075284924165718,0,0,-0.000023075284924165718
+ge-2024,cross-community-labour-alternative,Cross-Community Labour Alternative,Cross-Community Labour Alternative,624,0.000021685207519095495,0,0,-0.000021685207519095495
+ge-2024,british-unionist-party-b-u-p,British Unionist Party B.U.P.,British Unionist Party B.U.P.,614,0.000021337688167827938,0,0,-0.000021337688167827938
+ge-2024,transform-party,Transform Party,Transform Party,595,0.00002067740140041958,0,0,-0.00002067740140041958
+ge-2024,putting-crewe-first-independent-residents-group,"Putting Crewe First, Independent Residents Group","Putting Crewe First, Independent Residents Group",588,0.00002043413785453229,0,0,-0.00002043413785453229
+ge-2024,english-constitution-party,English Constitution Party,English Constitution Party,556,0.000019322075930476112,0,0,-0.000019322075930476112
+ge-2024,scottish-libertarian-party,Scottish Libertarian Party,Scottish Libertarian Party,536,0.000018627037227941002,0,0,-0.000018627037227941002
+ge-2024,the-peace-party-non-violence-justice-environment,"The Peace Party - Non-violence, Justice, Environment","The Peace Party - Non-violence, Justice, Environment",531,0.000018453277552307222,0,0,-0.000018453277552307222
+ge-2024,taking-the-initiative-party,Taking The Initiative Party,Taking The Initiative Party,503,0.000017480223368758066,0,0,-0.000017480223368758066
+ge-2024,blue-revolution,Blue Revolution,Blue Revolution,397,0.000013796518245321973,0,0,-0.000013796518245321973
+ge-2024,alliance-for-green-socialism,Alliance for Green Socialism,Alliance for Green Socialism,378,0.000013136231477913617,0,0,-0.000013136231477913617
+ge-2024,chesterfield-and-north-derbyshire-independents-candi,Chesterfield And North Derbyshire Independents (CANDI),Chesterfield And North Derbyshire Independents (CANDI),363,0.000012614952451012282,0,0,-0.000012614952451012282
+ge-2024,the-mitre-tw9,The Mitre TW9,The Mitre TW9,349,0.000012128425359237704,0,0,-0.000012128425359237704
+ge-2024,count-binface-party,Count Binface Party,Count Binface Party,308,0.000010703596019040724,0,0,-0.000010703596019040724
+ge-2024,sovereignty,Sovereignty,Sovereignty,304,0.000010564588278533702,0,0,-0.000010564588278533702
+ge-2024,social-justice-party,Social Justice party,Social Justice party,285,0.000009904301511125346,0,0,-0.000009904301511125346
+ge-2024,volt-united-kingdom,Volt United Kingdom,Volt United Kingdom,267,0.000009278766678843744,0,0,-0.000009278766678843744
+ge-2024,rebooting-democracy,Rebooting Democracy,Rebooting Democracy,265,0.000009209262808590233,0,0,-0.000009209262808590233
+ge-2024,the-yoruba-party-in-the-uk,The Yoruba Party in the UK,The Yoruba Party in the UK,261,0.000009070255068083211,0,0,-0.000009070255068083211
+ge-2024,national-health-action-party,National Health Action Party,National Health Action Party,247,0.000008583727976308633,0,0,-0.000008583727976308633
+ge-2024,fairer-voting-party,Fairer Voting Party,Fairer Voting Party,240,0.000008340464430421343,0,0,-0.000008340464430421343
+ge-2024,socialist-equality-party,Socialist Equality Party,Socialist Equality Party,239,0.000008305712495294588,0,0,-0.000008305712495294588
+ge-2024,communist-league-election-campaign,Communist League Election Campaign,Communist League Election Campaign,230,0.000007992945079153788,0,0,-0.000007992945079153788
+ge-2024,common-good-party,Common Good Party,Common Good Party,215,0.000007471666052252454,0,0,-0.000007471666052252454
+ge-2024,the-socialist-party-of-great-britain,The Socialist Party of Great Britain,The Socialist Party of Great Britain,193,0.000006707123479463831,0,0,-0.000006707123479463831
+ge-2024,stockport-fights-austerity-no-to-cuts,Stockport Fights Austerity No To Cuts,Stockport Fights Austerity No To Cuts,193,0.000006707123479463831,0,0,-0.000006707123479463831
+ge-2024,new-open-non-political-organised-leadership,New Open Non-Political Organised Leadership,New Open Non-Political Organised Leadership,186,0.000006463859933576541,0,0,-0.000006463859933576541
+ge-2024,save-us-now,Save Us Now,Save Us Now,170,0.000005907828971548452,0,0,-0.000005907828971548452
+ge-2024,uk-voice,UK Voice,UK Voice,150,0.0000052127902690133395,0,0,-0.0000052127902690133395
+ge-2024,communist-future,Communist Future,Communist Future,131,0.000004552503501604983,0,0,-0.000004552503501604983
+ge-2024,libertarian-party,Libertarian Party,Libertarian Party,113,0.000003926968669323382,0,0,-0.000003926968669323382
+ge-2024,psychedelic-movement,Psychedelic Movement,Psychedelic Movement,99,0.000003440441577548804,0,0,-0.000003440441577548804
+ge-2024,the-common-people,The Common People,The Common People,91,0.0000031624260965347596,0,0,-0.0000031624260965347596
+ge-2024,independents-for-direct-democracy,Independents for Direct Democracy,Independents for Direct Democracy,45,0.000001563837080704002,0,0,-0.000001563837080704002
