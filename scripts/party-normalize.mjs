@@ -67,12 +67,29 @@ const ABBREV_TO_FULL = {
 // collapse to the canonical site labels for cross-cycle consistency.
 const LONG_FORM_REMAP = {
   'Labour and Co-operative Party': 'Labour Party',
+  'Labour and Co-operative': 'Labour Party',
   'Conservative and Unionist Party': 'Conservative Party',
   'Scottish National Party (SNP)': 'Scottish National Party',
   'Scottish Green Party': 'Green Party',
   'Scottish Conservative and Unionist Party': 'Conservative Party',
   'Scottish Liberal Democrats': 'Liberal Democrats',
-  'Scottish Labour Party': 'Labour Party'
+  'Scottish Labour Party': 'Labour Party',
+  // Commons Library parliamentary-data labels — the GE source uses
+  // the bare nominal ("Labour", "Conservative") and singular forms
+  // ("Liberal Democrat") that the council LEH workbooks don't.
+  // Mapping to the canonical site label keeps cross-domain party
+  // colours and links consistent without forking the normalizer.
+  Conservative: 'Conservative Party',
+  Labour: 'Labour Party',
+  'Liberal Democrat': 'Liberal Democrats',
+  Green: 'Green Party',
+  'Sinn Fein': 'Sinn Féin',
+  // The Speaker stands as "Speaker seeking re-election" with no
+  // party. Keep the source label as-is so the caveat-detection step
+  // (scripts/lib/parliament-validate.mjs) recognises and tags the
+  // Chorley seat; the metrics layer excludes Speaker from party
+  // totals.
+  Speaker: 'Speaker'
 };
 
 export function normalizeParty(raw) {
