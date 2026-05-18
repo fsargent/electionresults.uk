@@ -17,10 +17,9 @@ const config = {
     }),
     prerender: {
       handleHttpError: ({ path, message }) => {
-        // Parliament stack: routes referenced by ingested-year pages
-        // land in subsequent stories. Drop entries as each story merges.
-        //   /parliament/methodology         — Story 4.1
-        if (path === '/parliament/methodology') return;
+        // Parliament stack: routes referenced by methodology land in
+        // Story 4.3. Drop this entry once /parliament/data ships.
+        if (path === '/parliament/data') return;
         throw new Error(message);
       },
       handleMissingId: 'fail'
