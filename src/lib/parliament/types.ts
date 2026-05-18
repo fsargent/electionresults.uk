@@ -36,6 +36,8 @@ export interface BoundarySet {
   notes?: string;
 }
 
+export type Country = 'england' | 'scotland' | 'wales' | 'northern-ireland';
+
 export interface Constituency {
   /** Composite key: `${boundarySet}:${slug}`. Name alone is NOT stable
    *  across boundary reviews — same name can refer to different
@@ -49,8 +51,7 @@ export interface Constituency {
   sourceLabel: string;
   /** BoundarySet.id this constituency belongs to. */
   boundarySet: string;
-  /** Country code: 'england' | 'scotland' | 'wales' | 'northern-ireland'. */
-  country: 'england' | 'scotland' | 'wales' | 'northern-ireland';
+  country: Country;
 }
 
 export type ContestType = 'single-member' | 'multi-member-historical';
@@ -73,6 +74,9 @@ export interface ConstituencyContest {
   /** For convenience in UI loaders; mirrors Constituency.name. */
   constituencyName: string;
   contestType: ContestType;
+  /** Country mirror of Constituency.country — denormalised onto the
+   *  contest so disk readers don't need a secondary join. */
+  country: Country;
   /** Registered electorate; null when source does not report it. */
   electorate: number | null;
   /** Valid votes cast (sum of candidate votes for single-member contests). */
@@ -81,6 +85,13 @@ export interface ConstituencyContest {
   turnout: number | null;
   /** Always present, possibly empty. Never null, never omitted. */
   caveats: CaveatToken[];
+}
+
+/** Disk shape: ConstituencyContest with its full candidate list inlined.
+ *  The ETL writes this denormalised form to constituencies.json so the
+ *  drill-down loader can render an entire result with one disk read. */
+export interface IngestedConstituency extends ConstituencyContest {
+  candidates: CandidateResult[];
 }
 
 export interface CandidateResult {

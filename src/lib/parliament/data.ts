@@ -13,7 +13,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type {
-  ConstituencyContest,
+  IngestedConstituency,
   NationalSummary,
   NationalPartyTotal,
   ParliamentIndex,
@@ -37,8 +37,8 @@ export function ingestedYears(): number[] {
   return [...readIndex().years].sort((a, b) => b - a);
 }
 
-export function constituencyContestsForYear(year: number): ConstituencyContest[] {
-  return readSplit<ConstituencyContest[]>(year, 'constituencies.json').data;
+export function constituenciesForYear(year: number): IngestedConstituency[] {
+  return readSplit<IngestedConstituency[]>(year, 'constituencies.json').data;
 }
 
 export function nationalSummaryForYear(year: number): NationalSummary {
