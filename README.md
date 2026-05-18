@@ -49,6 +49,26 @@ The ETL produces three artefacts in addition to the SQLite + CSVs:
   server load functions only (never imported from a `.svelte` component,
   or the JSON ships to the browser)
 
+### Parliamentary data
+
+`bun run refresh-data:parliament` runs `scripts/etl-parliament.mjs`
+against the Commons Library general-election workbooks under
+`source-data/parliament/{year}/` and writes:
+
+- `src/lib/data/parliament/{year}/manifest.json` — source provenance
+- `src/lib/data/parliament/{year}/constituencies.json` — every contest
+  with its candidate list (each candidate's `partyDisplayName` is the
+  canonical site name; `partySourceLabel` is the raw publisher label)
+- `src/lib/data/parliament/{year}/party-totals.json` — national vote +
+  seat totals per party
+- `src/lib/data/parliament/index.json` — list of ingested years
+
+The parliamentary ETL never touches `src/lib/data/*.json` (the council
+files) — the two domains have separate accessors and separate refresh
+commands. See [`docs/parliament-data-sources.md`](docs/parliament-data-sources.md)
+for source provenance and [`docs/parliament-schema.md`](docs/parliament-schema.md)
+for the per-year folder layout and type contracts.
+
 ### `Elected` flag
 
 The LEH-2025 source workbook's `Elected` column is internally inconsistent

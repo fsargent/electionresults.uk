@@ -1,0 +1,20 @@
+{
+  "_manifest": {
+    "id": "parliament-ge-2024-cbp-10009",
+    "sourceName": "House of Commons Library general election results 2024",
+    "sourceUrl": "https://commonslibrary.parliament.uk/research-briefings/cbp-10009/",
+    "licence": "Open Parliament Licence v3.0",
+    "retrievalDate": "2026-05-18",
+    "publicationDate": "2026-01-05",
+    "generatedAt": "2026-05-18T14:43:28.593Z",
+    "etlVersion": "parliament-etl@1",
+    "caveats": []
+  },
+  "data": {
+    "electionId": "ge-2024",
+    "year": 2024,
+    "boundarySet": "2023-review",
+    "constituenciesFile": "constituencies.json",
+    "partyTotalsFile": "party-totals.json"
+  }
+}
