@@ -1,0 +1,20 @@
+{
+  "_comment": "Boundary-set table consumed by scripts/etl-parliament.mjs and scripts/lib/parliament-validate.mjs (boundaryCaveatFor). Each entry's `comparableTo` lists other boundary set IDs where the geographies are close enough that election-to-election comparisons hold up without a boundary-comparability caveat. Empty `comparableTo` = no cross-set comparability without a caveat.",
+  "boundarySets": [
+    {
+      "id": "2010-review",
+      "name": "2010 Periodic Review",
+      "inForceFrom": "2010-05-06",
+      "inForceTo": "2024-07-03",
+      "notes": "Last in force for the 2019 General Election. Constituencies drawn by the Boundary Commissions' 2010 Sixth Periodic Review.",
+      "comparableTo": []
+    },
+    {
+      "id": "2023-review",
+      "name": "2023 Periodic Review",
+      "inForceFrom": "2024-07-04",
+      "notes": "First in force for the 2024 General Election. Constituencies drawn by the Boundary Commissions' 2023 Periodic Review. Parliament approved November 2023.",
+      "comparableTo": []
+    }
+  ]
+}
