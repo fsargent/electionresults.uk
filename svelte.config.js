@@ -16,7 +16,18 @@ const config = {
       routes: { include: ['/*'], exclude: [] }
     }),
     prerender: {
-      handleHttpError: 'fail',
+      handleHttpError: ({ path, message }) => {
+        // Parliament stack: routes referenced by /parliament land in
+        // subsequent stories. Drop entries as each story merges.
+        //   /parliament/[year]       — Story 3.2
+        //   /parliament/methodology  — Story 4.1
+        const pendingParliamentRoutes = new Set([
+          '/parliament/2024',
+          '/parliament/methodology'
+        ]);
+        if (pendingParliamentRoutes.has(path)) return;
+        throw new Error(message);
+      },
       handleMissingId: 'fail'
     }
   }

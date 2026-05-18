@@ -1,42 +1,59 @@
 // Parliament data accessor. SSR-only — every function reads the
 // per-year JSON from disk via node:fs at call time and returns the
-// unwrapped payload (the `_manifest` block is still accessible by
-// loaders that need it; see `manifestForYear`).
+// unwrapped `data` payload. Loaders that also need provenance call
+// `manifestForYear`.
 //
 // Stays mutually unaware of `src/lib/data.ts` per AR5: never imports
 // from the council accessor, and the council accessor never imports
 // from this file. The two domains evolve independently.
 //
-// Stubs throw `not yet implemented` until Story 2.5 lands. They're
-// here in Story 2.1 so types compile and downstream stories can wire
-// loaders against the final shape without further refactoring.
+// We resolve paths from process.cwd() (mirrors src/lib/data.ts) so the
+// accessor keeps working after Vite bundles it into the SSR output.
 
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import type {
   ConstituencyContest,
   NationalSummary,
   NationalPartyTotal,
+  ParliamentIndex,
+  ParliamentSplit,
   SourceManifest
 } from './types';
 
-const NOT_YET_IMPLEMENTED =
-  'src/lib/parliament/data.ts: not yet implemented — lands in Story 2.5 (parliament ETL).';
+const DATA_ROOT = 'src/lib/data/parliament';
 
-export function constituencyContestsForYear(_year: number): ConstituencyContest[] {
-  throw new Error(NOT_YET_IMPLEMENTED);
+function readSplit<T>(year: number, name: string): ParliamentSplit<T> {
+  const path = resolve(process.cwd(), DATA_ROOT, String(year), name);
+  return JSON.parse(readFileSync(path, 'utf8')) as ParliamentSplit<T>;
 }
 
-export function nationalSummaryForYear(_year: number): NationalSummary {
-  throw new Error(NOT_YET_IMPLEMENTED);
-}
-
-export function partyTotalsForYear(_year: number): NationalPartyTotal[] {
-  throw new Error(NOT_YET_IMPLEMENTED);
-}
-
-export function manifestForYear(_year: number): SourceManifest {
-  throw new Error(NOT_YET_IMPLEMENTED);
+function readIndex(): ParliamentIndex {
+  const path = resolve(process.cwd(), DATA_ROOT, 'index.json');
+  return JSON.parse(readFileSync(path, 'utf8')) as ParliamentIndex;
 }
 
 export function ingestedYears(): number[] {
-  throw new Error(NOT_YET_IMPLEMENTED);
+  return [...readIndex().years].sort((a, b) => b - a);
+}
+
+export function constituencyContestsForYear(year: number): ConstituencyContest[] {
+  return readSplit<ConstituencyContest[]>(year, 'constituencies.json').data;
+}
+
+export function nationalSummaryForYear(year: number): NationalSummary {
+  return readSplit<NationalSummary>(year, 'national-summary.json').data;
+}
+
+export function partyTotalsForYear(year: number): NationalPartyTotal[] {
+  return readSplit<NationalPartyTotal[]>(year, 'party-totals.json').data;
+}
+
+/**
+ * Source manifest for a given ingested year. Every per-year split file
+ * carries the same manifest block, so we read the lightest one
+ * (`manifest.json`) rather than parse the full constituencies payload.
+ */
+export function manifestForYear(year: number): SourceManifest {
+  return readSplit<unknown>(year, 'manifest.json')._manifest;
 }
