@@ -12,16 +12,13 @@
     votesPerSeat: number | null;
   } = $props();
 
-  // Bars share a 0–100% axis. Visible width is capped at 100% via CSS,
-  // but we clamp here too as a defense against bad data (>100 share is
-  // a data bug, not a UX scenario worth styling for).
   const votePct = $derived(Math.min(100, party.voteShare * 100));
   const seatPct = $derived(Math.min(100, party.seatShare * 100));
   const gapPp = $derived((party.seatShare - party.voteShare) * 100);
   const colour = $derived(partyColor(party.partyDisplayName));
 
-  // Plain-language outcome label that conveys over/under independently
-  // of the bar visual (NFR10 — colour is not the only signal). Threshold
+  // Plain-language outcome label so the over/under-representation
+  // signal carries independently of the colour bars (NFR10). Threshold
   // of 0.5pp avoids labelling rounding noise as "over-represented".
   const outcome = $derived.by(() => {
     if (Math.abs(gapPp) < 0.5) return 'Proportionally represented';
@@ -33,7 +30,7 @@
 <tr>
   <th scope="row">
     <span class="swatch" style="background:{colour}" aria-hidden="true"></span>
-    <span class="name">{party.partyDisplayName}</span>
+    {party.partyDisplayName}
   </th>
   <td>
     <div class="bars" aria-hidden="true">
@@ -41,17 +38,14 @@
         <div class="bar vote" style="width:{votePct}%; background:{colour}"></div>
       </div>
       <div class="track">
-        <div
-          class="bar seat"
-          style="width:{seatPct}%; border-color:{colour}"
-        ></div>
+        <div class="bar seat" style="width:{seatPct}%; border-color:{colour}"></div>
       </div>
     </div>
-    <p class="summary">
+    <div class="summary">
       {pct(party.voteShare, 1)} of votes,
       {pct(party.seatShare, 1)} of seats &mdash;
       <strong>{outcome}</strong>
-    </p>
+    </div>
   </td>
   <td class="num">
     {#if votesPerSeat == null}
@@ -63,14 +57,6 @@
 </tr>
 
 <style>
-  th[scope='row'] {
-    text-align: left;
-    font-weight: 500;
-    vertical-align: top;
-    padding-right: 0.6rem;
-    white-space: nowrap;
-  }
-
   .swatch {
     display: inline-block;
     width: 0.7rem;
@@ -80,23 +66,18 @@
     vertical-align: baseline;
   }
 
-  td {
-    vertical-align: top;
-  }
-
   .bars {
     display: grid;
-    gap: 0.25rem;
+    gap: 0.2rem;
     min-width: 8rem;
   }
 
   .track {
     width: 100%;
     height: 0.55rem;
-    background: var(--bg);
+    background: rgba(0, 0, 0, 0.04);
     border-radius: 2px;
     overflow: hidden;
-    position: relative;
   }
 
   .bar {
@@ -104,21 +85,15 @@
     border-radius: 2px;
   }
 
-  /* .bar.vote is filled with the party colour set inline; no extra
-     style needed beyond .bar's height + radius. */
-
   .bar.seat {
     background: transparent;
     border: 2px solid;
-    /* Hatched outline conveys seat share independently of colour. */
+    /* Outlined — distinguishes seat share from vote share without
+       relying on colour alone. */
   }
 
   .summary {
-    margin: 0.35rem 0 0;
+    margin-top: 0.3rem;
     font-size: 0.92rem;
-  }
-
-  .muted {
-    color: var(--muted);
   }
 </style>

@@ -140,10 +140,7 @@
     machine consumers can branch on them without parsing prose. The
     canonical list:
   </p>
-  <table class="caveats">
-    <caption>
-      Canonical caveat tokens used by the parliament dataset.
-    </caption>
+  <table>
     <thead>
       <tr>
         <th scope="col">Token</th>
@@ -345,94 +342,14 @@
 </main>
 
 <style>
-  .lede {
-    font-size: 1.05rem;
-  }
-
-  nav.toc {
-    margin: 1.5rem 0;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--rule);
-    border-radius: 6px;
-    background: color-mix(in srgb, var(--rule) 20%, transparent);
-  }
-
-  nav.toc h2 {
-    margin: 0;
-    font-size: 1rem;
-    font-family: inherit;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-  }
-
-  nav.toc ul {
-    margin: 0.5rem 0 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.3rem;
-  }
-
-  nav.toc a {
-    text-decoration: none;
-    color: var(--accent);
-  }
-
-  nav.toc a:hover,
-  nav.toc a:focus-visible {
-    text-decoration: underline;
-  }
-
-  nav.toc a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
 
   .formula {
+    /* Block-quoted formula, system-note styling so it reads as
+       editorial annotation rather than running prose. */
+    border-left: 3px solid var(--accent);
+    padding: 0.4rem 0.8rem;
+    background: rgba(11, 61, 46, 0.06);
     margin: 1rem 0;
-    padding: 0.75rem 1rem;
-    background: color-mix(in srgb, var(--rule) 25%, transparent);
-    border-left: 4px solid var(--accent);
-    border-radius: 0 4px 4px 0;
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1.05rem;
-  }
-
-  code {
-    background: color-mix(in srgb, var(--rule) 35%, transparent);
-    padding: 0.05rem 0.3rem;
-    border-radius: 3px;
-    font-size: 0.9em;
-  }
-
-  table.caveats {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-    font-size: 0.95rem;
-  }
-
-  table.caveats caption {
-    text-align: left;
-    color: var(--muted);
-    font-size: 0.9rem;
-    margin-bottom: 0.4rem;
-  }
-
-  table.caveats th,
-  table.caveats td {
-    padding: 0.55rem 0.6rem;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-    text-align: left;
-  }
-
-  table.caveats thead th {
-    border-bottom: 2px solid var(--rule);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    color: var(--muted);
   }
 </style>

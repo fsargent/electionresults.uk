@@ -27,14 +27,13 @@
 
 <main>
   <h1>Parliament data</h1>
-  <p class="lede">
+  <p>
     Every published parliamentary metric is reproducible from these
     files. Source manifest, licence, and schema documentation travel
     with every download.
   </p>
   <p class="muted">
-    Looking for council data? See
-    <a href="/data">/data</a>.
+    Looking for council data? See <a href="/data">/data</a>.
   </p>
 
   {#if data.years.length === 0}
@@ -44,191 +43,70 @@
     </p>
   {:else}
     {#each data.years as y (y.year)}
-      <section aria-labelledby={`year-${y.year}-heading`} class="year">
-        <h2 id={`year-${y.year}-heading`}>{y.year} UK general election</h2>
+      <h2>{y.year} UK general election</h2>
 
-        <h3>Downloads</h3>
-        <ul class="downloads">
-          {#each y.csvs as f (f.filename)}
-            <li>
-              <a href={f.href} download class="dl">
-                <span class="filename">{f.filename}</span>
-                <span class="meta">({fmtBytes(f.bytes)})</span>
-              </a>
-              <p class="desc">{f.description}</p>
-            </li>
-          {/each}
-          <li class="sqlite">
-            <span class="filename muted">parliament-{y.year}.sqlite</span>
-            <span class="meta muted">(coming soon)</span>
-            <p class="desc">
-              Bundled SQLite of all per-year tables. Not yet generated;
-              the per-table CSVs above carry the same content in the
-              meantime.
-            </p>
+      <h3>Downloads</h3>
+      <ul>
+        {#each y.csvs as f (f.filename)}
+          <li>
+            <a href={f.href} download><code>{f.filename}</code></a>
+            <span class="muted">({fmtBytes(f.bytes)})</span> &mdash;
+            {f.description}
           </li>
-        </ul>
+        {/each}
+        <li class="muted">
+          <code>parliament-{y.year}.sqlite</code> (coming soon) &mdash;
+          bundled SQLite of all per-year tables.
+        </li>
+      </ul>
 
-        <details class="manifest">
-          <summary>Source manifest &amp; licence</summary>
-          <dl>
-            <div><dt>Source</dt><dd>{y.manifest.sourceName}</dd></div>
-            <div>
-              <dt>URL</dt>
-              <dd>
+      <details>
+        <summary>Source manifest &amp; licence</summary>
+        <table>
+          <tbody>
+            <tr><th scope="row">Source</th><td>{y.manifest.sourceName}</td></tr>
+            <tr>
+              <th scope="row">URL</th>
+              <td>
                 <a href={y.manifest.sourceUrl} rel="external noopener"
                   >{y.manifest.sourceUrl}</a>
-              </dd>
-            </div>
-            <div><dt>Licence</dt><dd>{y.manifest.licence}</dd></div>
-            <div><dt>Source published</dt><dd>{y.manifest.publicationDate}</dd></div>
-            <div><dt>Retrieved</dt><dd>{y.manifest.retrievalDate}</dd></div>
-            <div><dt>Generated</dt><dd>{fmtDate(y.manifest.generatedAt)}</dd></div>
-            <div><dt>ETL version</dt><dd><code>{y.manifest.etlVersion}</code></dd></div>
-            <div>
-              <dt>Manifest ID</dt>
-              <dd><code>{y.manifest.id}</code></dd>
-            </div>
-          </dl>
-          {#if y.manifest.caveats.length > 0}
-            <p class="muted">
-              Dataset-level caveats:
-              {#each y.manifest.caveats as c, i (c)}
-                <code>{c}</code>{i < y.manifest.caveats.length - 1 ? '; ' : ''}
-              {/each}.
-            </p>
-          {/if}
-        </details>
+              </td>
+            </tr>
+            <tr><th scope="row">Licence</th><td>{y.manifest.licence}</td></tr>
+            <tr>
+              <th scope="row">Source published</th>
+              <td>{y.manifest.publicationDate}</td>
+            </tr>
+            <tr><th scope="row">Retrieved</th><td>{y.manifest.retrievalDate}</td></tr>
+            <tr>
+              <th scope="row">Generated</th>
+              <td>{fmtDate(y.manifest.generatedAt)}</td>
+            </tr>
+            <tr>
+              <th scope="row">ETL version</th>
+              <td><code>{y.manifest.etlVersion}</code></td>
+            </tr>
+            <tr>
+              <th scope="row">Manifest ID</th>
+              <td><code>{y.manifest.id}</code></td>
+            </tr>
+          </tbody>
+        </table>
+        {#if y.manifest.caveats.length > 0}
+          <p class="muted">
+            Dataset-level caveats:
+            {#each y.manifest.caveats as c, i (c)}
+              <code>{c}</code>{i < y.manifest.caveats.length - 1 ? '; ' : ''}
+            {/each}.
+          </p>
+        {/if}
+      </details>
 
-        <p class="muted">
-          <a href="/parliament/methodology#csv-mapping">Schema &amp; column reference</a>
-          &middot; <a href="/parliament/methodology">methodology</a>
-        </p>
-      </section>
+      <p class="muted">
+        <a href="/parliament/methodology#csv-mapping"
+          >Schema &amp; column reference</a> ·
+        <a href="/parliament/methodology">methodology</a>
+      </p>
     {/each}
   {/if}
 </main>
-
-<style>
-  .lede {
-    font-size: 1.05rem;
-  }
-
-  .year {
-    margin: 2rem 0;
-    padding-top: 1rem;
-    border-top: 1px solid var(--rule);
-  }
-
-  .year:first-of-type {
-    border-top: 0;
-    padding-top: 0;
-  }
-
-  ul.downloads {
-    list-style: none;
-    padding: 0;
-    margin: 0.5rem 0 1rem;
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  ul.downloads li {
-    padding: 0.6rem 0.75rem;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-  }
-
-  .dl {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.4rem 0.6rem;
-    text-decoration: none;
-    color: var(--accent);
-    /* ≥44×44 tap target on mobile (NFR — implicit accessibility) */
-    min-height: 44px;
-    align-content: center;
-  }
-
-  .dl:hover,
-  .dl:focus-visible {
-    text-decoration: underline;
-  }
-
-  .dl:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-
-  .filename {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.95rem;
-  }
-
-  .meta {
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-
-  .desc {
-    margin: 0.3rem 0 0;
-    font-size: 0.9rem;
-  }
-
-  li.sqlite .filename {
-    /* Visually de-emphasised — the file isn't there yet. */
-    text-decoration: line-through;
-  }
-
-  .manifest {
-    margin: 1rem 0;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    background: color-mix(in srgb, var(--rule) 20%, transparent);
-  }
-
-  .manifest summary {
-    cursor: pointer;
-    font-weight: 600;
-    /* ≥44px tap target */
-    padding: 0.5rem 0;
-  }
-
-  .manifest dl {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-    gap: 0.5rem 1rem;
-    margin: 0.75rem 0 0.25rem;
-  }
-
-  .manifest dl div {
-    border-left: 3px solid var(--rule);
-    padding: 0.1rem 0 0.1rem 0.6rem;
-  }
-
-  .manifest dt {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-  }
-
-  .manifest dd {
-    margin: 0.1rem 0 0;
-    font-size: 0.95rem;
-    word-break: break-word;
-  }
-
-  code {
-    background: color-mix(in srgb, var(--rule) 35%, transparent);
-    padding: 0.05rem 0.3rem;
-    border-radius: 3px;
-    font-size: 0.9em;
-  }
-
-  .muted {
-    color: var(--muted);
-  }
-</style>
