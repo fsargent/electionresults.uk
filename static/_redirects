@@ -1,9 +1,21 @@
-# Party pages live at /councils/party/:slug/* after the /councils
-# namespace migration (2026-05-18). The original move from /:slug to
-# /party/:slug (2026-05-12) is still honoured because external bookmarks
-# from that era exist. Permanent redirects keep both shapes alive.
-# Order matters: the catch-all /:slug/:year line below would otherwise
-# hijack /:council/:year, so each party slug is listed explicitly.
+# Cloudflare Pages-style edge redirects. Order matters: Cloudflare
+# evaluates rules top to bottom and stops at the first match.
+#
+# Two waves of namespace migration live here:
+#
+#   2026-05-12: party pages moved /:slug/* → /party/:slug/*
+#   2026-05-18: every council route moved /<thing> → /councils/<thing>
+#
+# Both waves remain honoured so external bookmarks from either era
+# still resolve. The party-shortcut redirects now target the post-2026-05-18
+# /councils/party/<slug> form directly (one hop instead of two).
+#
+# Council-overview slugs (/birmingham, /tamworth, …) cannot be
+# enumerated here because there are ~400 of them and a few are added
+# whenever LGR (local-government reorganisation) lands a new unitary.
+# src/hooks.server.ts catches those at the Worker layer.
+
+# Party shortcuts — keep two-hop history alive (root → party → councils/party).
 /labour              /councils/party/labour              301
 /labour/*            /councils/party/labour/:splat       301
 /conservative        /councils/party/conservative        301
@@ -18,3 +30,31 @@
 /snp/*               /councils/party/snp/:splat          301
 /plaid-cymru         /councils/party/plaid-cymru         301
 /plaid-cymru/*       /councils/party/plaid-cymru/:splat  301
+
+# Council product surface moved into /councils/<name> on 2026-05-18.
+/distortion          /councils/distortion                301
+/distortion/*        /councils/distortion/:splat         301
+/flips               /councils/flips                     301
+/flips/*             /councils/flips/:splat              301
+/below-quota         /councils/below-quota               301
+/below-quota/*       /councils/below-quota/:splat        301
+/parties             /councils/parties                   301
+/parties/*           /councils/parties/:splat            301
+/methodology         /councils/methodology               301
+/methodology/*       /councils/methodology/:splat        301
+/party               /councils/party                     301
+/party/*             /councils/party/:splat              301
+
+# Year cohort URLs — enumerable (10 cycles, 2016–2026, no 2020).
+# Edge serving is preferable to the Worker hook for hot URLs that
+# appear in every external sitemap citation.
+/2016                /councils/2016                      301
+/2017                /councils/2017                      301
+/2018                /councils/2018                      301
+/2019                /councils/2019                      301
+/2021                /councils/2021                      301
+/2022                /councils/2022                      301
+/2023                /councils/2023                      301
+/2024                /councils/2024                      301
+/2025                /councils/2025                      301
+/2026                /councils/2026                      301
