@@ -50,6 +50,13 @@
     under <a href="#licensing">Licensing &amp; sources</a>.
   </p>
 
+  <p class="muted">
+    Parliamentary general-election downloads (CSV per year, separate
+    schema) live at <a href="/parliament/data">/parliament/data</a>
+    &mdash; not mixed into this list to keep council and parliamentary
+    datasets clearly distinct.
+  </p>
+
   <h2>Downloads</h2>
   <ul>
     <li><a href={SQLITE_URL} download="results.sqlite">results.sqlite</a> — full database for all cycles (open in DBeaver, sqlite3, DuckDB CLI, Python, R, or any SQLite-compatible tool). Hosted on <a href="https://github.com/fsargent/electionresults.uk/tree/main/data-export" rel="external noopener">GitHub</a> because it's larger than the per-file Cloudflare Workers Static Assets cap.</li>

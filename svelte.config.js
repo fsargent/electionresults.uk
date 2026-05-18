@@ -16,12 +16,7 @@ const config = {
       routes: { include: ['/*'], exclude: [] }
     }),
     prerender: {
-      handleHttpError: ({ path, message }) => {
-        // Parliament stack: routes referenced by methodology land in
-        // Story 4.3. Drop this entry once /parliament/data ships.
-        if (path === '/parliament/data') return;
-        throw new Error(message);
-      },
+      handleHttpError: 'fail',
       handleMissingId: 'fail'
     }
   }
