@@ -6,7 +6,7 @@
     "licence": "Open Parliament Licence v3.0",
     "retrievalDate": "2026-05-18",
     "publicationDate": "2026-01-05",
-    "generatedAt": "2026-05-18T14:43:28.593Z",
+    "generatedAt": "2026-05-18T14:46:34.632Z",
     "etlVersion": "parliament-etl@1",
     "caveats": []
   },
@@ -13351,7 +13351,9 @@
       "validVotes": 33964,
       "turnout": 0.45405810082752907,
       "country": "england",
-      "caveats": [],
+      "caveats": [
+        "speaker"
+      ],
       "candidates": [
         {
           "contestId": "ge-2024:2023-review:chorley",
@@ -13363,7 +13365,9 @@
           "share": 0.743080909,
           "position": 1,
           "isWinner": true,
-          "caveats": []
+          "caveats": [
+            "speaker"
+          ]
         },
         {
           "contestId": "ge-2024:2023-review:chorley",
@@ -13375,7 +13379,9 @@
           "share": 0.137292427,
           "position": 2,
           "isWinner": false,
-          "caveats": []
+          "caveats": [
+            "speaker"
+          ]
         },
         {
           "contestId": "ge-2024:2023-review:chorley",
@@ -13387,7 +13393,9 @@
           "share": 0.071369686,
           "position": 3,
           "isWinner": false,
-          "caveats": []
+          "caveats": [
+            "speaker"
+          ]
         },
         {
           "contestId": "ge-2024:2023-review:chorley",
@@ -13399,7 +13407,9 @@
           "share": 0.02964904,
           "position": 4,
           "isWinner": false,
-          "caveats": []
+          "caveats": [
+            "speaker"
+          ]
         },
         {
           "contestId": "ge-2024:2023-review:chorley",
@@ -13411,7 +13421,9 @@
           "share": 0.018607938,
           "position": 5,
           "isWinner": false,
-          "caveats": []
+          "caveats": [
+            "speaker"
+          ]
         }
       ]
     },

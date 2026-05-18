@@ -6,7 +6,7 @@
     "licence": "Open Parliament Licence v3.0",
     "retrievalDate": "2026-05-18",
     "publicationDate": "2026-01-05",
-    "generatedAt": "2026-05-18T14:43:28.593Z",
+    "generatedAt": "2026-05-18T14:46:34.632Z",
     "etlVersion": "parliament-etl@1",
     "caveats": []
   },
@@ -17,10 +17,10 @@
       "partyDisplayName": "Labour Party",
       "partySourceLabel": "Labour",
       "votes": 9708716,
-      "voteShare": 0.33699890382771697,
+      "voteShare": 0.33739666859609413,
       "seats": 411,
-      "seatShare": 0.6323076923076923,
-      "seatDelta": 0.2953087884799754
+      "seatShare": 0.6332819722650231,
+      "seatDelta": 0.295885303668929
     },
     {
       "electionId": "ge-2024",
@@ -28,10 +28,10 @@
       "partyDisplayName": "Conservative Party",
       "partySourceLabel": "Conservative",
       "votes": 6828925,
-      "voteShare": 0.23703857846101298,
+      "voteShare": 0.23731835858547948,
       "seats": 121,
-      "seatShare": 0.18615384615384614,
-      "seatDelta": -0.050884732307166836
+      "seatShare": 0.1864406779661017,
+      "seatDelta": -0.05087768061937778
     },
     {
       "electionId": "ge-2024",
@@ -39,10 +39,10 @@
       "partyDisplayName": "Reform UK",
       "partySourceLabel": "Reform UK",
       "votes": 4117610,
-      "voteShare": 0.14292621767801691,
+      "voteShare": 0.14309491559728013,
       "seats": 5,
-      "seatShare": 0.007692307692307693,
-      "seatDelta": -0.13523390998570922
+      "seatShare": 0.007704160246533128,
+      "seatDelta": -0.13539075535074702
     },
     {
       "electionId": "ge-2024",
@@ -50,21 +50,21 @@
       "partyDisplayName": "Liberal Democrats",
       "partySourceLabel": "Liberal Democrat",
       "votes": 3519143,
-      "voteShare": 0.12215285042975646,
+      "voteShare": 0.12229702923777608,
       "seats": 72,
-      "seatShare": 0.11076923076923077,
-      "seatDelta": -0.011383619660525687
+      "seatShare": 0.11093990755007704,
+      "seatDelta": -0.011357121687699034
     },
     {
       "electionId": "ge-2024",
       "partyId": "green-party",
       "partyDisplayName": "Green Party",
       "partySourceLabel": "Green",
-      "votes": 1935809,
-      "voteShare": 0.06719379895547763,
+      "votes": 1931146,
+      "voteShare": 0.06711106051229357,
       "seats": 4,
-      "seatShare": 0.006153846153846154,
-      "seatDelta": -0.06103995280163147
+      "seatShare": 0.0061633281972265025,
+      "seatDelta": -0.06094773231506707
     },
     {
       "electionId": "ge-2024",
@@ -72,10 +72,10 @@
       "partyDisplayName": "Scottish National Party",
       "partySourceLabel": "Scottish National Party",
       "votes": 724758,
-      "voteShare": 0.02515704976233402,
+      "voteShare": 0.025186742998597134,
       "seats": 9,
-      "seatShare": 0.013846153846153847,
-      "seatDelta": -0.011310895916180173
+      "seatShare": 0.01386748844375963,
+      "seatDelta": -0.011319254554837503
     },
     {
       "electionId": "ge-2024",
@@ -83,10 +83,10 @@
       "partyDisplayName": "Independent",
       "partySourceLabel": "Independent",
       "votes": 564042,
-      "voteShare": 0.019578442269069685,
+      "voteShare": 0.01960155099276548,
       "seats": 6,
-      "seatShare": 0.009230769230769232,
-      "seatDelta": -0.010347673038300453
+      "seatShare": 0.009244992295839754,
+      "seatDelta": -0.010356558696925726
     },
     {
       "electionId": "ge-2024",
@@ -94,10 +94,10 @@
       "partyDisplayName": "Sinn Féin",
       "partySourceLabel": "Sinn Fein",
       "votes": 210891,
-      "voteShare": 0.007320230175352854,
+      "voteShare": 0.007328870350816615,
       "seats": 7,
-      "seatShare": 0.010769230769230769,
-      "seatDelta": 0.0034490005938779145
+      "seatShare": 0.01078582434514638,
+      "seatDelta": 0.003456953994329765
     },
     {
       "electionId": "ge-2024",
@@ -105,10 +105,10 @@
       "partyDisplayName": "Workers Party of Britain",
       "partySourceLabel": "Workers Party of Britain",
       "votes": 210252,
-      "voteShare": 0.007298049868549574,
+      "voteShare": 0.007306663864270618,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.007298049868549574
+      "seatDelta": -0.007306663864270618
     },
     {
       "electionId": "ge-2024",
@@ -116,10 +116,10 @@
       "partyDisplayName": "Plaid Cymru",
       "partySourceLabel": "Plaid Cymru",
       "votes": 194811,
-      "voteShare": 0.006762077853918209,
+      "voteShare": 0.0067700592339783846,
       "seats": 4,
-      "seatShare": 0.006153846153846154,
-      "seatDelta": -0.0006082317000720549
+      "seatShare": 0.0061633281972265025,
+      "seatDelta": -0.000606731036751882
     },
     {
       "electionId": "ge-2024",
@@ -127,10 +127,10 @@
       "partyDisplayName": "Democratic Unionist Party",
       "partySourceLabel": "Democratic Unionist Party",
       "votes": 172058,
-      "voteShare": 0.0059722992612812375,
+      "voteShare": 0.005979348454039315,
       "seats": 5,
-      "seatShare": 0.007692307692307693,
-      "seatDelta": 0.0017200084310264553
+      "seatShare": 0.007704160246533128,
+      "seatDelta": 0.0017248117924938133
     },
     {
       "electionId": "ge-2024",
@@ -138,10 +138,10 @@
       "partyDisplayName": "Alliance",
       "partySourceLabel": "Alliance",
       "votes": 117191,
-      "voteShare": 0.004067812730177089,
+      "voteShare": 0.004072614029439615,
       "seats": 1,
-      "seatShare": 0.0015384615384615385,
-      "seatDelta": -0.00252935119171555
+      "seatShare": 0.0015408320493066256,
+      "seatDelta": -0.00253178198013299
     },
     {
       "electionId": "ge-2024",
@@ -149,10 +149,10 @@
       "partyDisplayName": "Ulster Unionist Party",
       "partySourceLabel": "Ulster Unionist Party",
       "votes": 94779,
-      "voteShare": 0.003289870576694919,
+      "voteShare": 0.003293753659378769,
       "seats": 1,
-      "seatShare": 0.0015384615384615385,
-      "seatDelta": -0.0017514090382333806
+      "seatShare": 0.0015408320493066256,
+      "seatDelta": -0.0017529216100721434
     },
     {
       "electionId": "ge-2024",
@@ -160,10 +160,10 @@
       "partyDisplayName": "Social Democratic and Labour Party",
       "partySourceLabel": "Social Democratic and Labour Party",
       "votes": 86861,
-      "voteShare": 0.0030150291537397247,
+      "voteShare": 0.003018587837045118,
       "seats": 2,
-      "seatShare": 0.003076923076923077,
-      "seatDelta": 0.00006189392318335218
+      "seatShare": 0.0030816640986132513,
+      "seatDelta": 0.00006307626156813306
     },
     {
       "electionId": "ge-2024",
@@ -171,10 +171,10 @@
       "partyDisplayName": "Traditional Unionist Voice",
       "partySourceLabel": "Traditional Unionist Voice",
       "votes": 48685,
-      "voteShare": 0.0016899033438461278,
+      "voteShare": 0.0016918979616460962,
       "seats": 1,
-      "seatShare": 0.0015384615384615385,
-      "seatDelta": -0.0001514418053845893
+      "seatShare": 0.0015408320493066256,
+      "seatDelta": -0.0001510659123394706
     },
     {
       "electionId": "ge-2024",
@@ -182,21 +182,10 @@
       "partyDisplayName": "Social Democratic Party",
       "partySourceLabel": "Social Democratic Party",
       "votes": 33811,
-      "voteShare": 0.0011736124465190803,
+      "voteShare": 0.0011749976785707336,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0011736124465190803
-    },
-    {
-      "electionId": "ge-2024",
-      "partyId": "speaker",
-      "partyDisplayName": "Speaker",
-      "partySourceLabel": "Speaker",
-      "votes": 25238,
-      "voteShare": 0.0008760353413163925,
-      "seats": 1,
-      "seatShare": 0.0015384615384615385,
-      "seatDelta": 0.0006624261971451459
+      "seatDelta": -0.0011749976785707336
     },
     {
       "electionId": "ge-2024",
@@ -204,10 +193,10 @@
       "partyDisplayName": "The Yorkshire Party",
       "partySourceLabel": "The Yorkshire Party",
       "votes": 17236,
-      "voteShare": 0.0005982781972790768,
+      "voteShare": 0.0005989843538447595,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0005982781972790768
+      "seatDelta": -0.0005989843538447595
     },
     {
       "electionId": "ge-2024",
@@ -215,21 +204,21 @@
       "partyDisplayName": "Independent Network",
       "partySourceLabel": "Independent Network",
       "votes": 13663,
-      "voteShare": 0.00047425591839313225,
+      "voteShare": 0.00047481568963686174,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00047425591839313225
+      "seatDelta": -0.00047481568963686174
     },
     {
       "electionId": "ge-2024",
       "partyId": "trade-unionist-and-socialist-coalition",
       "partyDisplayName": "Trade Unionist and Socialist Coalition",
       "partySourceLabel": "Trade Unionist and Socialist Coalition",
-      "votes": 12901,
-      "voteShare": 0.0004478061628624606,
+      "votes": 12269,
+      "voteShare": 0.00042637149207016444,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0004478061628624606
+      "seatDelta": -0.00042637149207016444
     },
     {
       "electionId": "ge-2024",
@@ -237,10 +226,10 @@
       "partyDisplayName": "Alba Party",
       "partySourceLabel": "Alba Party",
       "votes": 11784,
-      "voteShare": 0.00040903401466330016,
+      "voteShare": 0.00040951680353368795,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00040903401466330016
+      "seatDelta": -0.00040951680353368795
     },
     {
       "electionId": "ge-2024",
@@ -248,10 +237,10 @@
       "partyDisplayName": "Rejoin EU",
       "partySourceLabel": "Rejoin EU",
       "votes": 9288,
-      "voteShare": 0.000322395445365982,
+      "voteShare": 0.000322775973457306,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000322395445365982
+      "seatDelta": -0.000322775973457306
     },
     {
       "electionId": "ge-2024",
@@ -259,10 +248,10 @@
       "partyDisplayName": "Green Party Northern Ireland",
       "partySourceLabel": "Green Party Northern Ireland",
       "votes": 8692,
-      "voteShare": 0.0003017077100690262,
+      "voteShare": 0.00030206382012175966,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0003017077100690262
+      "seatDelta": -0.00030206382012175966
     },
     {
       "electionId": "ge-2024",
@@ -270,10 +259,10 @@
       "partyDisplayName": "People Before Profit Alliance",
       "partySourceLabel": "People Before Profit Alliance",
       "votes": 8438,
-      "voteShare": 0.0002928911248921357,
+      "voteShare": 0.00029323682859956374,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0002928911248921357
+      "seatDelta": -0.00029323682859956374
     },
     {
       "electionId": "ge-2024",
@@ -281,10 +270,10 @@
       "partyDisplayName": "Aontú",
       "partySourceLabel": "Aontú",
       "votes": 7466,
-      "voteShare": 0.0002591520666561608,
+      "voteShare": 0.0002594579476563573,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0002591520666561608
+      "seatDelta": -0.0002594579476563573
     },
     {
       "electionId": "ge-2024",
@@ -292,10 +281,10 @@
       "partyDisplayName": "Newham Independents Party",
       "partySourceLabel": "Newham Independents Party",
       "votes": 7180,
-      "voteShare": 0.0002492247305908431,
+      "voteShare": 0.0002495188942101052,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0002492247305908431
+      "seatDelta": -0.0002495188942101052
     },
     {
       "electionId": "ge-2024",
@@ -303,10 +292,10 @@
       "partyDisplayName": "Heritage Party",
       "partySourceLabel": "Heritage Party",
       "votes": 6597,
-      "voteShare": 0.00022898823784231085,
+      "voteShare": 0.00022925851603120668,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00022898823784231085
+      "seatDelta": -0.00022925851603120668
     },
     {
       "electionId": "ge-2024",
@@ -314,10 +303,10 @@
       "partyDisplayName": "UK Independence Party",
       "partySourceLabel": "UK Independence Party",
       "votes": 6530,
-      "voteShare": 0.0002266626031696665,
+      "voteShare": 0.00022693013637771405,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0002266626031696665
+      "seatDelta": -0.00022693013637771405
     },
     {
       "electionId": "ge-2024",
@@ -325,10 +314,10 @@
       "partyDisplayName": "Liberal",
       "partySourceLabel": "Liberal",
       "votes": 6375,
-      "voteShare": 0.00022128240355384746,
+      "voteShare": 0.00022154358643306695,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00022128240355384746
+      "seatDelta": -0.00022154358643306695
     },
     {
       "electionId": "ge-2024",
@@ -336,10 +325,10 @@
       "partyDisplayName": "Ashfield Independents",
       "partySourceLabel": "Ashfield Independents",
       "votes": 6276,
-      "voteShare": 0.00021784601799277594,
+      "voteShare": 0.00021810314485551813,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00021784601799277594
+      "seatDelta": -0.00021810314485551813
     },
     {
       "electionId": "ge-2024",
@@ -347,10 +336,10 @@
       "partyDisplayName": "Official Monster Raving Loony Party",
       "partySourceLabel": "Official Monster Raving Loony Party",
       "votes": 5814,
-      "voteShare": 0.0002018095520411089,
+      "voteShare": 0.00020204775082695704,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0002018095520411089
+      "seatDelta": -0.00020204775082695704
     },
     {
       "electionId": "ge-2024",
@@ -358,10 +347,10 @@
       "partyDisplayName": "Christian Peoples Alliance",
       "partySourceLabel": "Christian Peoples Alliance",
       "votes": 5604,
-      "voteShare": 0.0001945202493358057,
+      "voteShare": 0.00019474984445033838,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0001945202493358057
+      "seatDelta": -0.00019474984445033838
     },
     {
       "electionId": "ge-2024",
@@ -369,10 +358,10 @@
       "partyDisplayName": "Scottish Family Party",
       "partySourceLabel": "Scottish Family Party",
       "votes": 5425,
-      "voteShare": 0.00018830698655366627,
+      "voteShare": 0.0001885292480626491,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00018830698655366627
+      "seatDelta": -0.0001885292480626491
     },
     {
       "electionId": "ge-2024",
@@ -380,10 +369,10 @@
       "partyDisplayName": "English Democrats",
       "partySourceLabel": "English Democrats",
       "votes": 5182,
-      "voteShare": 0.00017987222199467256,
+      "voteShare": 0.0001800845278268475,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00017987222199467256
+      "seatDelta": -0.0001800845278268475
     },
     {
       "electionId": "ge-2024",
@@ -391,10 +380,10 @@
       "partyDisplayName": "Party of Women",
       "partySourceLabel": "Party of Women",
       "votes": 5077,
-      "voteShare": 0.00017622757064202096,
+      "voteShare": 0.00017643557463853818,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00017622757064202096
+      "seatDelta": -0.00017643557463853818
     },
     {
       "electionId": "ge-2024",
@@ -402,10 +391,10 @@
       "partyDisplayName": "Lincolnshire Independents Lincolnshire First",
       "partySourceLabel": "Lincolnshire Independents Lincolnshire First",
       "votes": 4277,
-      "voteShare": 0.00014845879843134206,
+      "voteShare": 0.00014863402653713368,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00014845879843134206
+      "seatDelta": -0.00014863402653713368
     },
     {
       "electionId": "ge-2024",
@@ -413,10 +402,10 @@
       "partyDisplayName": "One Leicester",
       "partySourceLabel": "One Leicester",
       "votes": 4008,
-      "voteShare": 0.00013912154877550128,
+      "voteShare": 0.00013928575598803645,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00013912154877550128
+      "seatDelta": -0.00013928575598803645
     },
     {
       "electionId": "ge-2024",
@@ -424,10 +413,10 @@
       "partyDisplayName": "Socialist Labour Party",
       "partySourceLabel": "Socialist Labour Party",
       "votes": 3609,
-      "voteShare": 0.00012527187363542517,
+      "voteShare": 0.00012541973387246094,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00012527187363542517
+      "seatDelta": -0.00012541973387246094
     },
     {
       "electionId": "ge-2024",
@@ -435,10 +424,10 @@
       "partyDisplayName": "Liverpool Community Independents",
       "partySourceLabel": "Liverpool Community Independents",
       "votes": 3294,
-      "voteShare": 0.00011433791957747036,
+      "voteShare": 0.00011447287430753295,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00011433791957747036
+      "seatDelta": -0.00011447287430753295
     },
     {
       "electionId": "ge-2024",
@@ -446,10 +435,10 @@
       "partyDisplayName": "Swale Independents",
       "partySourceLabel": "Swale Independents",
       "votes": 3238,
-      "voteShare": 0.00011239410552272284,
+      "voteShare": 0.00011252676594043463,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00011239410552272284
+      "seatDelta": -0.00011252676594043463
     },
     {
       "electionId": "ge-2024",
@@ -457,10 +446,10 @@
       "partyDisplayName": "Hampshire Independents",
       "partySourceLabel": "Hampshire Independents",
       "votes": 2872,
-      "voteShare": 0.00009968989223633725,
+      "voteShare": 0.00009980755768404208,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00009968989223633725
+      "seatDelta": -0.00009980755768404208
     },
     {
       "electionId": "ge-2024",
@@ -468,21 +457,10 @@
       "partyDisplayName": "Communist Party of Britain",
       "partySourceLabel": "Communist Party of Britain",
       "votes": 2622,
-      "voteShare": 0.00009101215092050008,
+      "voteShare": 0.00009111957390235318,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00009101215092050008
-    },
-    {
-      "electionId": "ge-2024",
-      "partyId": "democracy-for-chorley",
-      "partyDisplayName": "Democracy for Chorley",
-      "partySourceLabel": "Democracy for Chorley",
-      "votes": 2424,
-      "voteShare": 0.00008413937979835706,
-      "seats": 0,
-      "seatShare": 0,
-      "seatDelta": -0.00008413937979835706
+      "seatDelta": -0.00009111957390235318
     },
     {
       "electionId": "ge-2024",
@@ -490,10 +468,10 @@
       "partyDisplayName": "Independent Oxford Alliance",
       "partySourceLabel": "Independent Oxford Alliance",
       "votes": 2381,
-      "voteShare": 0.00008264680829203307,
+      "voteShare": 0.00008274435753680507,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00008264680829203307
+      "seatDelta": -0.00008274435753680507
     },
     {
       "electionId": "ge-2024",
@@ -501,10 +479,10 @@
       "partyDisplayName": "Climate Party",
       "partySourceLabel": "Climate Party",
       "votes": 1967,
-      "voteShare": 0.00006827646867300674,
+      "voteShare": 0.00006835705639432826,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00006827646867300674
+      "seatDelta": -0.00006835705639432826
     },
     {
       "electionId": "ge-2024",
@@ -512,10 +490,10 @@
       "partyDisplayName": "South Devon Alliance",
       "partySourceLabel": "South Devon Alliance",
       "votes": 1924,
-      "voteShare": 0.00006678389716668274,
+      "voteShare": 0.00006686272318387777,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00006678389716668274
+      "seatDelta": -0.00006686272318387777
     },
     {
       "electionId": "ge-2024",
@@ -523,10 +501,10 @@
       "partyDisplayName": "British Democratic Party",
       "partySourceLabel": "British Democratic Party",
       "votes": 1860,
-      "voteShare": 0.00006456239538982843,
+      "voteShare": 0.00006463859933576541,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00006456239538982843
+      "seatDelta": -0.00006463859933576541
     },
     {
       "electionId": "ge-2024",
@@ -534,10 +512,10 @@
       "partyDisplayName": "Alliance for Democracy and Freedom",
       "partySourceLabel": "Alliance for Democracy and Freedom",
       "votes": 1769,
-      "voteShare": 0.00006140369755086372,
+      "voteShare": 0.00006147617323923065,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00006140369755086372
+      "seatDelta": -0.00006147617323923065
     },
     {
       "electionId": "ge-2024",
@@ -545,10 +523,10 @@
       "partyDisplayName": "True & Fair Party",
       "partySourceLabel": "True & Fair Party",
       "votes": 1695,
-      "voteShare": 0.000058835086121375915,
+      "voteShare": 0.00005890453003985074,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000058835086121375915
+      "seatDelta": -0.00005890453003985074
     },
     {
       "electionId": "ge-2024",
@@ -556,21 +534,10 @@
       "partyDisplayName": "The North East Party",
       "partySourceLabel": "The North East Party",
       "votes": 1581,
-      "voteShare": 0.00005487803608135417,
+      "voteShare": 0.0000549428094354006,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00005487803608135417
-    },
-    {
-      "electionId": "ge-2024",
-      "partyId": "english-constitution-party",
-      "partyDisplayName": "English Constitution Party",
-      "partySourceLabel": "English Constitution Party",
-      "votes": 1563,
-      "voteShare": 0.000054253238706613894,
-      "seats": 0,
-      "seatShare": 0,
-      "seatDelta": -0.000054253238706613894
+      "seatDelta": -0.0000549428094354006
     },
     {
       "electionId": "ge-2024",
@@ -578,10 +545,10 @@
       "partyDisplayName": "Abolish the Welsh Assembly Party",
       "partySourceLabel": "Abolish the Welsh Assembly Party",
       "votes": 1521,
-      "voteShare": 0.00005279537816555325,
+      "voteShare": 0.00005285769332779527,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00005279537816555325
+      "seatDelta": -0.00005285769332779527
     },
     {
       "electionId": "ge-2024",
@@ -589,10 +556,10 @@
       "partyDisplayName": "Animal Welfare Party",
       "partySourceLabel": "Animal Welfare Party",
       "votes": 1486,
-      "voteShare": 0.00005158049438133605,
+      "voteShare": 0.00005164137559835882,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00005158049438133605
+      "seatDelta": -0.00005164137559835882
     },
     {
       "electionId": "ge-2024",
@@ -600,10 +567,10 @@
       "partyDisplayName": "Consensus",
       "partySourceLabel": "Consensus",
       "votes": 1289,
-      "voteShare": 0.00004474243422445637,
+      "voteShare": 0.00004479524437838797,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00004474243422445637
+      "seatDelta": -0.00004479524437838797
     },
     {
       "electionId": "ge-2024",
@@ -611,10 +578,10 @@
       "partyDisplayName": "Women's Equality Party",
       "partySourceLabel": "Women's Equality Party",
       "votes": 1275,
-      "voteShare": 0.000044256480710769494,
+      "voteShare": 0.00004430871728661339,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000044256480710769494
+      "seatDelta": -0.00004430871728661339
     },
     {
       "electionId": "ge-2024",
@@ -622,10 +589,10 @@
       "partyDisplayName": "Workers Revolutionary Party",
       "partySourceLabel": "Workers Revolutionary Party",
       "votes": 1190,
-      "voteShare": 0.00004130604866338486,
+      "voteShare": 0.00004135480280083916,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00004130604866338486
+      "seatDelta": -0.00004135480280083916
     },
     {
       "electionId": "ge-2024",
@@ -633,10 +600,10 @@
       "partyDisplayName": "Kingston Independent Residents Group",
       "partySourceLabel": "Kingston Independent Residents Group",
       "votes": 1177,
-      "voteShare": 0.00004085480611496133,
+      "voteShare": 0.000040903027644191337,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00004085480611496133
+      "seatDelta": -0.000040903027644191337
     },
     {
       "electionId": "ge-2024",
@@ -644,10 +611,10 @@
       "partyDisplayName": "Propel",
       "partySourceLabel": "Propel",
       "votes": 1041,
-      "voteShare": 0.000036134114839145914,
+      "voteShare": 0.00003617676446695258,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000036134114839145914
+      "seatDelta": -0.00003617676446695258
     },
     {
       "electionId": "ge-2024",
@@ -655,10 +622,10 @@
       "partyDisplayName": "Scottish Socialist Party",
       "partySourceLabel": "Scottish Socialist Party",
       "votes": 1007,
-      "voteShare": 0.000034953942020192065,
+      "voteShare": 0.000034995198672642885,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000034953942020192065
+      "seatDelta": -0.000034995198672642885
     },
     {
       "electionId": "ge-2024",
@@ -666,10 +633,10 @@
       "partyDisplayName": "Independent Alliance (Kent)",
       "partySourceLabel": "Independent Alliance (Kent)",
       "votes": 926,
-      "voteShare": 0.00003214235383386082,
+      "voteShare": 0.000032180291927375685,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00003214235383386082
+      "seatDelta": -0.000032180291927375685
     },
     {
       "electionId": "ge-2024",
@@ -677,10 +644,10 @@
       "partyDisplayName": "Freedom Alliance",
       "partySourceLabel": "Freedom Alliance",
       "votes": 895,
-      "voteShare": 0.000031066313910697014,
+      "voteShare": 0.00003110298193844626,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000031066313910697014
+      "seatDelta": -0.00003110298193844626
     },
     {
       "electionId": "ge-2024",
@@ -688,10 +655,10 @@
       "partyDisplayName": "Christian Party, Proclaiming Christ's Lordship",
       "partySourceLabel": "Christian Party, Proclaiming Christ's Lordship",
       "votes": 806,
-      "voteShare": 0.00002797703800225899,
+      "voteShare": 0.000028010059712165013,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00002797703800225899
+      "seatDelta": -0.000028010059712165013
     },
     {
       "electionId": "ge-2024",
@@ -699,10 +666,10 @@
       "partyDisplayName": "Confelicity",
       "partySourceLabel": "Confelicity",
       "votes": 750,
-      "voteShare": 0.000026033223947511468,
+      "voteShare": 0.0000260639513450667,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000026033223947511468
+      "seatDelta": -0.0000260639513450667
     },
     {
       "electionId": "ge-2024",
@@ -710,10 +677,10 @@
       "partyDisplayName": "Portsmouth Independent Party",
       "partySourceLabel": "Portsmouth Independent Party",
       "votes": 733,
-      "voteShare": 0.00002544313753803454,
+      "voteShare": 0.000025473168447911854,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00002544313753803454
+      "seatDelta": -0.000025473168447911854
     },
     {
       "electionId": "ge-2024",
@@ -721,10 +688,10 @@
       "partyDisplayName": "Independence for Scotland Party",
       "partySourceLabel": "Independence for Scotland Party",
       "votes": 678,
-      "voteShare": 0.000023534034448550365,
+      "voteShare": 0.000023561812015940294,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000023534034448550365
+      "seatDelta": -0.000023561812015940294
     },
     {
       "electionId": "ge-2024",
@@ -732,10 +699,10 @@
       "partyDisplayName": "Shared Ground",
       "partySourceLabel": "Shared Ground",
       "votes": 664,
-      "voteShare": 0.000023048080934863487,
+      "voteShare": 0.000023075284924165718,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000023048080934863487
+      "seatDelta": -0.000023075284924165718
     },
     {
       "electionId": "ge-2024",
@@ -743,10 +710,10 @@
       "partyDisplayName": "Cross-Community Labour Alternative",
       "partySourceLabel": "Cross-Community Labour Alternative",
       "votes": 624,
-      "voteShare": 0.00002165964232432954,
+      "voteShare": 0.000021685207519095495,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00002165964232432954
+      "seatDelta": -0.000021685207519095495
     },
     {
       "electionId": "ge-2024",
@@ -754,10 +721,10 @@
       "partyDisplayName": "British Unionist Party B.U.P.",
       "partySourceLabel": "British Unionist Party B.U.P.",
       "votes": 614,
-      "voteShare": 0.000021312532671696054,
+      "voteShare": 0.000021337688167827938,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000021312532671696054
+      "seatDelta": -0.000021337688167827938
     },
     {
       "electionId": "ge-2024",
@@ -765,10 +732,10 @@
       "partyDisplayName": "Transform Party",
       "partySourceLabel": "Transform Party",
       "votes": 595,
-      "voteShare": 0.00002065302433169243,
+      "voteShare": 0.00002067740140041958,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00002065302433169243
+      "seatDelta": -0.00002067740140041958
     },
     {
       "electionId": "ge-2024",
@@ -776,10 +743,21 @@
       "partyDisplayName": "Putting Crewe First, Independent Residents Group",
       "partySourceLabel": "Putting Crewe First, Independent Residents Group",
       "votes": 588,
-      "voteShare": 0.00002041004757484899,
+      "voteShare": 0.00002043413785453229,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00002041004757484899
+      "seatDelta": -0.00002043413785453229
+    },
+    {
+      "electionId": "ge-2024",
+      "partyId": "english-constitution-party",
+      "partyDisplayName": "English Constitution Party",
+      "partySourceLabel": "English Constitution Party",
+      "votes": 556,
+      "voteShare": 0.000019322075930476112,
+      "seats": 0,
+      "seatShare": 0,
+      "seatDelta": -0.000019322075930476112
     },
     {
       "electionId": "ge-2024",
@@ -787,10 +765,10 @@
       "partyDisplayName": "Scottish Libertarian Party",
       "partySourceLabel": "Scottish Libertarian Party",
       "votes": 536,
-      "voteShare": 0.00001860507738115486,
+      "voteShare": 0.000018627037227941002,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00001860507738115486
+      "seatDelta": -0.000018627037227941002
     },
     {
       "electionId": "ge-2024",
@@ -798,10 +776,10 @@
       "partyDisplayName": "The Peace Party - Non-violence, Justice, Environment",
       "partySourceLabel": "The Peace Party - Non-violence, Justice, Environment",
       "votes": 531,
-      "voteShare": 0.00001843152255483812,
+      "voteShare": 0.000018453277552307222,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00001843152255483812
+      "seatDelta": -0.000018453277552307222
     },
     {
       "electionId": "ge-2024",
@@ -809,10 +787,10 @@
       "partyDisplayName": "Taking The Initiative Party",
       "partySourceLabel": "Taking The Initiative Party",
       "votes": 503,
-      "voteShare": 0.000017459615527464356,
+      "voteShare": 0.000017480223368758066,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000017459615527464356
+      "seatDelta": -0.000017480223368758066
     },
     {
       "electionId": "ge-2024",
@@ -820,10 +798,10 @@
       "partyDisplayName": "Blue Revolution",
       "partySourceLabel": "Blue Revolution",
       "votes": 397,
-      "voteShare": 0.000013780253209549403,
+      "voteShare": 0.000013796518245321973,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000013780253209549403
+      "seatDelta": -0.000013796518245321973
     },
     {
       "electionId": "ge-2024",
@@ -831,10 +809,10 @@
       "partyDisplayName": "Alliance for Green Socialism",
       "partySourceLabel": "Alliance for Green Socialism",
       "votes": 378,
-      "voteShare": 0.000013120744869545779,
+      "voteShare": 0.000013136231477913617,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000013120744869545779
+      "seatDelta": -0.000013136231477913617
     },
     {
       "electionId": "ge-2024",
@@ -842,10 +820,10 @@
       "partyDisplayName": "Chesterfield And North Derbyshire Independents (CANDI)",
       "partySourceLabel": "Chesterfield And North Derbyshire Independents (CANDI)",
       "votes": 363,
-      "voteShare": 0.00001260008039059555,
+      "voteShare": 0.000012614952451012282,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00001260008039059555
+      "seatDelta": -0.000012614952451012282
     },
     {
       "electionId": "ge-2024",
@@ -853,10 +831,10 @@
       "partyDisplayName": "The Mitre TW9",
       "partySourceLabel": "The Mitre TW9",
       "votes": 349,
-      "voteShare": 0.00001211412687690867,
+      "voteShare": 0.000012128425359237704,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00001211412687690867
+      "seatDelta": -0.000012128425359237704
     },
     {
       "electionId": "ge-2024",
@@ -864,10 +842,10 @@
       "partyDisplayName": "Count Binface Party",
       "partySourceLabel": "Count Binface Party",
       "votes": 308,
-      "voteShare": 0.000010690977301111375,
+      "voteShare": 0.000010703596019040724,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000010690977301111375
+      "seatDelta": -0.000010703596019040724
     },
     {
       "electionId": "ge-2024",
@@ -875,10 +853,10 @@
       "partyDisplayName": "Sovereignty",
       "partySourceLabel": "Sovereignty",
       "votes": 304,
-      "voteShare": 0.00001055213344005798,
+      "voteShare": 0.000010564588278533702,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00001055213344005798
+      "seatDelta": -0.000010564588278533702
     },
     {
       "electionId": "ge-2024",
@@ -886,10 +864,10 @@
       "partyDisplayName": "Social Justice party",
       "partySourceLabel": "Social Justice party",
       "votes": 285,
-      "voteShare": 0.000009892625100054357,
+      "voteShare": 0.000009904301511125346,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000009892625100054357
+      "seatDelta": -0.000009904301511125346
     },
     {
       "electionId": "ge-2024",
@@ -897,10 +875,10 @@
       "partyDisplayName": "Volt United Kingdom",
       "partySourceLabel": "Volt United Kingdom",
       "votes": 267,
-      "voteShare": 0.000009267827725314082,
+      "voteShare": 0.000009278766678843744,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000009267827725314082
+      "seatDelta": -0.000009278766678843744
     },
     {
       "electionId": "ge-2024",
@@ -908,10 +886,10 @@
       "partyDisplayName": "Rebooting Democracy",
       "partySourceLabel": "Rebooting Democracy",
       "votes": 265,
-      "voteShare": 0.000009198405794787384,
+      "voteShare": 0.000009209262808590233,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000009198405794787384
+      "seatDelta": -0.000009209262808590233
     },
     {
       "electionId": "ge-2024",
@@ -919,10 +897,10 @@
       "partyDisplayName": "The Yoruba Party in the UK",
       "partySourceLabel": "The Yoruba Party in the UK",
       "votes": 261,
-      "voteShare": 0.00000905956193373399,
+      "voteShare": 0.000009070255068083211,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00000905956193373399
+      "seatDelta": -0.000009070255068083211
     },
     {
       "electionId": "ge-2024",
@@ -930,10 +908,10 @@
       "partyDisplayName": "National Health Action Party",
       "partySourceLabel": "National Health Action Party",
       "votes": 247,
-      "voteShare": 0.00000857360842004711,
+      "voteShare": 0.000008583727976308633,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00000857360842004711
+      "seatDelta": -0.000008583727976308633
     },
     {
       "electionId": "ge-2024",
@@ -941,10 +919,10 @@
       "partyDisplayName": "Fairer Voting Party",
       "partySourceLabel": "Fairer Voting Party",
       "votes": 240,
-      "voteShare": 0.00000833063166320367,
+      "voteShare": 0.000008340464430421343,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00000833063166320367
+      "seatDelta": -0.000008340464430421343
     },
     {
       "electionId": "ge-2024",
@@ -952,10 +930,10 @@
       "partyDisplayName": "Socialist Equality Party",
       "partySourceLabel": "Socialist Equality Party",
       "votes": 239,
-      "voteShare": 0.000008295920697940321,
+      "voteShare": 0.000008305712495294588,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000008295920697940321
+      "seatDelta": -0.000008305712495294588
     },
     {
       "electionId": "ge-2024",
@@ -963,10 +941,10 @@
       "partyDisplayName": "Communist League Election Campaign",
       "partySourceLabel": "Communist League Election Campaign",
       "votes": 230,
-      "voteShare": 0.000007983522010570183,
+      "voteShare": 0.000007992945079153788,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000007983522010570183
+      "seatDelta": -0.000007992945079153788
     },
     {
       "electionId": "ge-2024",
@@ -974,10 +952,10 @@
       "partyDisplayName": "Common Good Party",
       "partySourceLabel": "Common Good Party",
       "votes": 215,
-      "voteShare": 0.000007462857531619954,
+      "voteShare": 0.000007471666052252454,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000007462857531619954
+      "seatDelta": -0.000007471666052252454
     },
     {
       "electionId": "ge-2024",
@@ -985,10 +963,10 @@
       "partyDisplayName": "The Socialist Party of Great Britain",
       "partySourceLabel": "The Socialist Party of Great Britain",
       "votes": 193,
-      "voteShare": 0.000006699216295826284,
+      "voteShare": 0.000006707123479463831,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000006699216295826284
+      "seatDelta": -0.000006707123479463831
     },
     {
       "electionId": "ge-2024",
@@ -996,10 +974,10 @@
       "partyDisplayName": "Stockport Fights Austerity No To Cuts",
       "partySourceLabel": "Stockport Fights Austerity No To Cuts",
       "votes": 193,
-      "voteShare": 0.000006699216295826284,
+      "voteShare": 0.000006707123479463831,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000006699216295826284
+      "seatDelta": -0.000006707123479463831
     },
     {
       "electionId": "ge-2024",
@@ -1007,10 +985,10 @@
       "partyDisplayName": "New Open Non-Political Organised Leadership",
       "partySourceLabel": "New Open Non-Political Organised Leadership",
       "votes": 186,
-      "voteShare": 0.000006456239538982844,
+      "voteShare": 0.000006463859933576541,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000006456239538982844
+      "seatDelta": -0.000006463859933576541
     },
     {
       "electionId": "ge-2024",
@@ -1018,10 +996,10 @@
       "partyDisplayName": "Save Us Now",
       "partySourceLabel": "Save Us Now",
       "votes": 170,
-      "voteShare": 0.000005900864094769266,
+      "voteShare": 0.000005907828971548452,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000005900864094769266
+      "seatDelta": -0.000005907828971548452
     },
     {
       "electionId": "ge-2024",
@@ -1029,10 +1007,10 @@
       "partyDisplayName": "UK Voice",
       "partySourceLabel": "UK Voice",
       "votes": 150,
-      "voteShare": 0.000005206644789502293,
+      "voteShare": 0.0000052127902690133395,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000005206644789502293
+      "seatDelta": -0.0000052127902690133395
     },
     {
       "electionId": "ge-2024",
@@ -1040,10 +1018,10 @@
       "partyDisplayName": "Communist Future",
       "partySourceLabel": "Communist Future",
       "votes": 131,
-      "voteShare": 0.00000454713644949867,
+      "voteShare": 0.000004552503501604983,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.00000454713644949867
+      "seatDelta": -0.000004552503501604983
     },
     {
       "electionId": "ge-2024",
@@ -1051,10 +1029,10 @@
       "partyDisplayName": "Libertarian Party",
       "partySourceLabel": "Libertarian Party",
       "votes": 113,
-      "voteShare": 0.000003922339074758394,
+      "voteShare": 0.000003926968669323382,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000003922339074758394
+      "seatDelta": -0.000003926968669323382
     },
     {
       "electionId": "ge-2024",
@@ -1062,10 +1040,10 @@
       "partyDisplayName": "Psychedelic Movement",
       "partySourceLabel": "Psychedelic Movement",
       "votes": 99,
-      "voteShare": 0.0000034363855610715136,
+      "voteShare": 0.000003440441577548804,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0000034363855610715136
+      "seatDelta": -0.000003440441577548804
     },
     {
       "electionId": "ge-2024",
@@ -1073,10 +1051,10 @@
       "partyDisplayName": "The Common People",
       "partySourceLabel": "The Common People",
       "votes": 91,
-      "voteShare": 0.0000031586978389647247,
+      "voteShare": 0.0000031624260965347596,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.0000031586978389647247
+      "seatDelta": -0.0000031624260965347596
     },
     {
       "electionId": "ge-2024",
@@ -1084,10 +1062,10 @@
       "partyDisplayName": "Independents for Direct Democracy",
       "partySourceLabel": "Independents for Direct Democracy",
       "votes": 45,
-      "voteShare": 0.000001561993436850688,
+      "voteShare": 0.000001563837080704002,
       "seats": 0,
       "seatShare": 0,
-      "seatDelta": -0.000001561993436850688
+      "seatDelta": -0.000001563837080704002
     }
   ]
 }

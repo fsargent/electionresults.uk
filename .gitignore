@@ -17,3 +17,8 @@ node_modules
 
 .DS_Store
 vite.config.*.timestamp-*
+
+# Parliament ETL emits a per-run Markdown validation report (caveat
+# counts, schema status, exclusions). Local-only artefact — useful for
+# inspecting a data refresh, not for the deployed site.
+_bmad-output/etl-reports/
