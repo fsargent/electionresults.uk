@@ -6,7 +6,7 @@
     "licence": "Open Parliament Licence v3.0",
     "retrievalDate": "2026-05-18",
     "publicationDate": "2026-01-05",
-    "generatedAt": "2026-05-18T14:43:28.593Z",
+    "generatedAt": "2026-05-18T14:46:34.632Z",
     "etlVersion": "parliament-etl@1",
     "caveats": []
   },
@@ -15,6 +15,7 @@
     "year": 2024,
     "boundarySet": "2023-review",
     "constituenciesFile": "constituencies.json",
-    "partyTotalsFile": "party-totals.json"
+    "partyTotalsFile": "party-totals.json",
+    "nationalSummaryFile": "national-summary.json"
   }
 }

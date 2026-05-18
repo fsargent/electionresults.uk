@@ -15,13 +15,29 @@
 // Council data (src/lib/data/*.json) is never touched. AR5: parliament
 // ETL writes only under src/lib/data/parliament/.
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  existsSync,
+  statSync,
+  readdirSync
+} from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import xlsx from 'xlsx';
 
 import { normalizeParty } from './party-normalize.mjs';
-import { validateSchema } from './lib/parliament-validate.mjs';
+import { validateSchema, detectCaveats } from './lib/parliament-validate.mjs';
+// bun runs TS at import time — let the metrics module stay in one
+// authoritative copy under src/lib/parliament/metrics.ts and the ETL
+// re-use it instead of forking the formula here.
+import {
+  gallagherIndex,
+  voteVsSeatGap,
+  minorityWinnerCount,
+  lowWinningShareLeaderboard
+} from '../src/lib/parliament/metrics.ts';
 
 const ETL_VERSION = 'parliament-etl@1';
 
@@ -153,6 +169,16 @@ function buildContests({ constituencyRows, candidateRows, electionId, boundarySe
         ? validVotes / electorate
         : null;
 
+    const candidatesRaw = candidatesByOns.get(onsId) ?? [];
+
+    const caveats = detectCaveats({
+      constituencySlug: slug,
+      candidateCount: candidatesRaw.length,
+      electorate,
+      validVotes,
+      contestType: 'single-member'
+    });
+
     contests.push({
       electionId,
       constituencyId,
@@ -163,10 +189,10 @@ function buildContests({ constituencyRows, candidateRows, electionId, boundarySe
       validVotes,
       turnout,
       country,
-      caveats: []
+      caveats
     });
 
-    const contestCandidates = (candidatesByOns.get(onsId) ?? [])
+    const contestCandidates = candidatesRaw
       .map((c) => {
         const partySourceLabel = String(c['Party name'] ?? '').trim() || 'Unknown';
         const partyDisplayName = normalizeParty(partySourceLabel) ?? partySourceLabel;
@@ -187,7 +213,10 @@ function buildContests({ constituencyRows, candidateRows, electionId, boundarySe
           // position + isWinner assigned after sorting
           position: 0,
           isWinner: false,
-          caveats: []
+          // Per-candidate caveats inherit the contest-level set in v1.
+          // Per-row caveat detection (e.g. a candidate-specific
+          // discrepancy) can be added without changing the wire shape.
+          caveats: [...caveats]
         };
       })
       .sort((a, b) => b.votes - a.votes);
@@ -203,14 +232,33 @@ function buildContests({ constituencyRows, candidateRows, electionId, boundarySe
   return { contests, candidates };
 }
 
-function buildPartyTotals({ candidates, electionId }) {
-  // National totals: votes summed across all candidates per canonical
-  // party; seats = count of winning candidates per canonical party.
+// Caveats whose presence on a contest means that contest's votes/seats
+// should not feed national party totals: the Speaker stands as
+// "Speaker", not for a party. Uncontested rows still contribute their
+// single winner's seat but the vote-share denominator is degenerate;
+// we keep them in the totals (the seat is real) and only exclude
+// Speaker. Multi-member-historical doesn't apply to modern GEs but
+// would similarly distort per-party seat counts.
+const PARTY_TOTAL_EXCLUDING_CAVEATS = new Set(['speaker', 'multi-member-historical']);
+
+function contestExcludedFromPartyTotals(contest) {
+  return contest.caveats.some((c) => PARTY_TOTAL_EXCLUDING_CAVEATS.has(c));
+}
+
+function buildPartyTotals({ contests, candidates, electionId }) {
+  // Set of contestIds we'll skip when aggregating party totals.
+  const excludedContestIds = new Set(
+    contests
+      .filter(contestExcludedFromPartyTotals)
+      .map((c) => `${electionId}:${c.constituencyId}`)
+  );
+
   const totalsByParty = new Map();
   let totalVotes = 0;
   let totalSeats = 0;
 
   for (const c of candidates) {
+    if (excludedContestIds.has(c.contestId)) continue;
     totalVotes += c.votes;
     if (c.isWinner) totalSeats += 1;
     const existing = totalsByParty.get(c.partyId);
@@ -241,6 +289,112 @@ function buildPartyTotals({ candidates, electionId }) {
 
   totals.sort((a, b) => b.votes - a.votes);
   return totals;
+}
+
+function summariseCaveats(contests) {
+  const counts = new Map();
+  const examples = new Map();
+  for (const contest of contests) {
+    for (const caveat of contest.caveats) {
+      counts.set(caveat, (counts.get(caveat) ?? 0) + 1);
+      if (!examples.has(caveat)) examples.set(caveat, contest.constituencyName);
+    }
+  }
+  return [...counts.entries()]
+    .map(([caveat, count]) => ({ caveat, count, example: examples.get(caveat) }))
+    .sort((a, b) => b.count - a.count);
+}
+
+function buildNationalSummary({ contests, candidates, partyTotals, electionId }) {
+  const summary = {
+    electionId,
+    totalVotes: partyTotals.reduce((sum, p) => sum + p.votes, 0),
+    totalSeats: partyTotals.reduce((sum, p) => sum + p.seats, 0),
+    gallagher: gallagherIndex(partyTotals),
+    minorityWinnerCount: minorityWinnerCount(contests, candidates),
+    voteVsSeatGap: voteVsSeatGap(partyTotals),
+    lowWinningShareLeaderboard: lowWinningShareLeaderboard(contests, candidates, 20),
+    excludedFromMetrics: summariseCaveats(contests).map(({ caveat, count }) => ({
+      caveat,
+      count
+    }))
+  };
+  return summary;
+}
+
+function writeValidationReport({
+  reportPath,
+  electionYear,
+  sourceFiles,
+  contests,
+  candidates,
+  caveatBreakdown,
+  generatedAt
+}) {
+  const lines = [];
+  lines.push(`# Parliament ETL Report — ${electionYear} General Election`);
+  lines.push('');
+  lines.push(`Generated: ${generatedAt}`);
+  lines.push(`Source files: ${sourceFiles.join(', ')}`);
+  lines.push(`ETL version: ${ETL_VERSION}`);
+  lines.push('');
+  lines.push('## Summary');
+  lines.push('');
+  lines.push(`- Constituencies ingested: ${contests.length}`);
+  lines.push(`- Candidates ingested: ${candidates.length}`);
+  lines.push(`- Rows with caveats: ${contests.filter((c) => c.caveats.length > 0).length}`);
+  lines.push('- Build status: PASS');
+  lines.push('');
+  lines.push('## Caveat breakdown');
+  lines.push('');
+  if (caveatBreakdown.length === 0) {
+    lines.push('No caveats detected on any contest row.');
+  } else {
+    lines.push('| Caveat | Count | Example |');
+    lines.push('|---|---|---|');
+    for (const { caveat, count, example } of caveatBreakdown) {
+      lines.push(`| ${caveat} | ${count} | ${example ?? '—'} |`);
+    }
+  }
+  lines.push('');
+  lines.push('## Validation failures');
+  lines.push('');
+  lines.push('None.');
+  lines.push('');
+  mkdirSync(dirname(reportPath), { recursive: true });
+  writeFileSync(reportPath, lines.join('\n'));
+}
+
+const BUDGET_SINGLE_FILE_BYTES = 5 * 1024 * 1024; // 5 MB
+const BUDGET_TOTAL_BYTES = 50 * 1024 * 1024; // 50 MB
+
+function emitBudgetWarnings(rootDir) {
+  if (!existsSync(rootDir)) return;
+  let total = 0;
+  const walk = (dir) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = resolve(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+      } else if (entry.isFile()) {
+        const size = statSync(full).size;
+        total += size;
+        if (size > BUDGET_SINGLE_FILE_BYTES) {
+          console.warn(
+            `WARN: ${full} is ${(size / 1024 / 1024).toFixed(2)} MB ` +
+              `(budget: ${(BUDGET_SINGLE_FILE_BYTES / 1024 / 1024).toFixed(0)} MB single-file).`
+          );
+        }
+      }
+    }
+  };
+  walk(rootDir);
+  if (total > BUDGET_TOTAL_BYTES) {
+    console.warn(
+      `WARN: ${rootDir} totals ${(total / 1024 / 1024).toFixed(2)} MB ` +
+        `(budget: ${(BUDGET_TOTAL_BYTES / 1024 / 1024).toFixed(0)} MB).`
+    );
+  }
 }
 
 function buildManifest({ retrievalDate, publicationDate, generatedAt }) {
@@ -318,7 +472,14 @@ function main() {
     ).sort((a, b) => a.position - b.position)
   }));
 
-  const partyTotals = buildPartyTotals({ candidates, electionId });
+  const partyTotals = buildPartyTotals({ contests, candidates, electionId });
+  const nationalSummary = buildNationalSummary({
+    contests,
+    candidates,
+    partyTotals,
+    electionId
+  });
+  const caveatBreakdown = summariseCaveats(contests);
 
   const manifest = buildManifest({ retrievalDate, publicationDate, generatedAt });
 
@@ -335,7 +496,8 @@ function main() {
       year: electionYear,
       boundarySet,
       constituenciesFile: 'constituencies.json',
-      partyTotalsFile: 'party-totals.json'
+      partyTotalsFile: 'party-totals.json',
+      nationalSummaryFile: 'national-summary.json'
     }
   );
   writeSplitArtifact(
@@ -348,14 +510,49 @@ function main() {
     manifest,
     partyTotals
   );
+  writeSplitArtifact(
+    resolve(OUTPUT_DIR, 'national-summary.json'),
+    manifest,
+    nationalSummary
+  );
 
   // Years index. For now, only 2024 — Phase 2 ingest adds historical
   // years and this loop extends to enumerate them all.
   writeIndex({ generatedAt, years: [electionYear] });
 
+  const reportPath = resolve(
+    ROOT,
+    `_bmad-output/etl-reports/parliament-${electionYear}.md`
+  );
+  writeValidationReport({
+    reportPath,
+    electionYear,
+    sourceFiles: [
+      'HoC-GE2024-results-by-constituency.xlsx',
+      'HoC-GE2024-results-by-candidate.xlsx'
+    ],
+    contests,
+    candidates,
+    caveatBreakdown,
+    generatedAt
+  });
+
   console.log(`  ${contests.length} contests`);
   console.log(`  ${candidates.length} candidates`);
   console.log(`  ${partyTotals.length} parties (national totals)`);
+  console.log(
+    `  caveats: ${caveatBreakdown.length === 0 ? 'none' : caveatBreakdown
+        .map((c) => `${c.caveat}=${c.count}`)
+        .join(', ')}`
+  );
+  console.log(
+    `  Gallagher: ${nationalSummary.gallagher.toFixed(2)} · ` +
+      `minority-mandate seats: ${nationalSummary.minorityWinnerCount}`
+  );
+  console.log(`  validation report → ${reportPath}`);
+
+  emitBudgetWarnings(resolve(ROOT, 'src/lib/data/parliament'));
+
   console.log('parliament ETL: done.');
 }
 

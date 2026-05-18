@@ -1,0 +1,750 @@
+{
+  "_manifest": {
+    "id": "parliament-ge-2024-cbp-10009",
+    "sourceName": "House of Commons Library general election results 2024",
+    "sourceUrl": "https://commonslibrary.parliament.uk/research-briefings/cbp-10009/",
+    "licence": "Open Parliament Licence v3.0",
+    "retrievalDate": "2026-05-18",
+    "publicationDate": "2026-01-05",
+    "generatedAt": "2026-05-18T14:46:34.632Z",
+    "etlVersion": "parliament-etl@1",
+    "caveats": []
+  },
+  "data": {
+    "electionId": "ge-2024",
+    "totalVotes": 28775376,
+    "totalSeats": 649,
+    "gallagher": 23.730545041992503,
+    "minorityWinnerCount": 554,
+    "voteVsSeatGap": [
+      {
+        "partyId": "labour-party",
+        "partyDisplayName": "Labour Party",
+        "gap": 0.295885303668929
+      },
+      {
+        "partyId": "reform-uk",
+        "partyDisplayName": "Reform UK",
+        "gap": -0.13539075535074702
+      },
+      {
+        "partyId": "green-party",
+        "partyDisplayName": "Green Party",
+        "gap": -0.06094773231506707
+      },
+      {
+        "partyId": "conservative-party",
+        "partyDisplayName": "Conservative Party",
+        "gap": -0.05087768061937778
+      },
+      {
+        "partyId": "liberal-democrats",
+        "partyDisplayName": "Liberal Democrats",
+        "gap": -0.011357121687699034
+      },
+      {
+        "partyId": "scottish-national-party",
+        "partyDisplayName": "Scottish National Party",
+        "gap": -0.011319254554837503
+      },
+      {
+        "partyId": "independent",
+        "partyDisplayName": "Independent",
+        "gap": -0.010356558696925726
+      },
+      {
+        "partyId": "workers-party-of-britain",
+        "partyDisplayName": "Workers Party of Britain",
+        "gap": -0.007306663864270618
+      },
+      {
+        "partyId": "sinn-fein",
+        "partyDisplayName": "Sinn Féin",
+        "gap": 0.003456953994329765
+      },
+      {
+        "partyId": "alliance",
+        "partyDisplayName": "Alliance",
+        "gap": -0.00253178198013299
+      },
+      {
+        "partyId": "ulster-unionist-party",
+        "partyDisplayName": "Ulster Unionist Party",
+        "gap": -0.0017529216100721434
+      },
+      {
+        "partyId": "democratic-unionist-party",
+        "partyDisplayName": "Democratic Unionist Party",
+        "gap": 0.0017248117924938133
+      },
+      {
+        "partyId": "social-democratic-party",
+        "partyDisplayName": "Social Democratic Party",
+        "gap": -0.0011749976785707336
+      },
+      {
+        "partyId": "plaid-cymru",
+        "partyDisplayName": "Plaid Cymru",
+        "gap": -0.000606731036751882
+      },
+      {
+        "partyId": "the-yorkshire-party",
+        "partyDisplayName": "The Yorkshire Party",
+        "gap": -0.0005989843538447595
+      },
+      {
+        "partyId": "independent-network",
+        "partyDisplayName": "Independent Network",
+        "gap": -0.00047481568963686174
+      },
+      {
+        "partyId": "trade-unionist-and-socialist-coalition",
+        "partyDisplayName": "Trade Unionist and Socialist Coalition",
+        "gap": -0.00042637149207016444
+      },
+      {
+        "partyId": "alba-party",
+        "partyDisplayName": "Alba Party",
+        "gap": -0.00040951680353368795
+      },
+      {
+        "partyId": "rejoin-eu",
+        "partyDisplayName": "Rejoin EU",
+        "gap": -0.000322775973457306
+      },
+      {
+        "partyId": "green-party-northern-ireland",
+        "partyDisplayName": "Green Party Northern Ireland",
+        "gap": -0.00030206382012175966
+      },
+      {
+        "partyId": "people-before-profit-alliance",
+        "partyDisplayName": "People Before Profit Alliance",
+        "gap": -0.00029323682859956374
+      },
+      {
+        "partyId": "aontu",
+        "partyDisplayName": "Aontú",
+        "gap": -0.0002594579476563573
+      },
+      {
+        "partyId": "newham-independents-party",
+        "partyDisplayName": "Newham Independents Party",
+        "gap": -0.0002495188942101052
+      },
+      {
+        "partyId": "heritage-party",
+        "partyDisplayName": "Heritage Party",
+        "gap": -0.00022925851603120668
+      },
+      {
+        "partyId": "uk-independence-party",
+        "partyDisplayName": "UK Independence Party",
+        "gap": -0.00022693013637771405
+      },
+      {
+        "partyId": "liberal",
+        "partyDisplayName": "Liberal",
+        "gap": -0.00022154358643306695
+      },
+      {
+        "partyId": "ashfield-independents",
+        "partyDisplayName": "Ashfield Independents",
+        "gap": -0.00021810314485551813
+      },
+      {
+        "partyId": "official-monster-raving-loony-party",
+        "partyDisplayName": "Official Monster Raving Loony Party",
+        "gap": -0.00020204775082695704
+      },
+      {
+        "partyId": "christian-peoples-alliance",
+        "partyDisplayName": "Christian Peoples Alliance",
+        "gap": -0.00019474984445033838
+      },
+      {
+        "partyId": "scottish-family-party",
+        "partyDisplayName": "Scottish Family Party",
+        "gap": -0.0001885292480626491
+      },
+      {
+        "partyId": "english-democrats",
+        "partyDisplayName": "English Democrats",
+        "gap": -0.0001800845278268475
+      },
+      {
+        "partyId": "party-of-women",
+        "partyDisplayName": "Party of Women",
+        "gap": -0.00017643557463853818
+      },
+      {
+        "partyId": "traditional-unionist-voice",
+        "partyDisplayName": "Traditional Unionist Voice",
+        "gap": -0.0001510659123394706
+      },
+      {
+        "partyId": "lincolnshire-independents-lincolnshire-first",
+        "partyDisplayName": "Lincolnshire Independents Lincolnshire First",
+        "gap": -0.00014863402653713368
+      },
+      {
+        "partyId": "one-leicester",
+        "partyDisplayName": "One Leicester",
+        "gap": -0.00013928575598803645
+      },
+      {
+        "partyId": "socialist-labour-party",
+        "partyDisplayName": "Socialist Labour Party",
+        "gap": -0.00012541973387246094
+      },
+      {
+        "partyId": "liverpool-community-independents",
+        "partyDisplayName": "Liverpool Community Independents",
+        "gap": -0.00011447287430753295
+      },
+      {
+        "partyId": "swale-independents",
+        "partyDisplayName": "Swale Independents",
+        "gap": -0.00011252676594043463
+      },
+      {
+        "partyId": "hampshire-independents",
+        "partyDisplayName": "Hampshire Independents",
+        "gap": -0.00009980755768404208
+      },
+      {
+        "partyId": "communist-party-of-britain",
+        "partyDisplayName": "Communist Party of Britain",
+        "gap": -0.00009111957390235318
+      },
+      {
+        "partyId": "independent-oxford-alliance",
+        "partyDisplayName": "Independent Oxford Alliance",
+        "gap": -0.00008274435753680507
+      },
+      {
+        "partyId": "climate-party",
+        "partyDisplayName": "Climate Party",
+        "gap": -0.00006835705639432826
+      },
+      {
+        "partyId": "south-devon-alliance",
+        "partyDisplayName": "South Devon Alliance",
+        "gap": -0.00006686272318387777
+      },
+      {
+        "partyId": "british-democratic-party",
+        "partyDisplayName": "British Democratic Party",
+        "gap": -0.00006463859933576541
+      },
+      {
+        "partyId": "social-democratic-and-labour-party",
+        "partyDisplayName": "Social Democratic and Labour Party",
+        "gap": 0.00006307626156813306
+      },
+      {
+        "partyId": "alliance-for-democracy-and-freedom",
+        "partyDisplayName": "Alliance for Democracy and Freedom",
+        "gap": -0.00006147617323923065
+      },
+      {
+        "partyId": "true-and-fair-party",
+        "partyDisplayName": "True & Fair Party",
+        "gap": -0.00005890453003985074
+      },
+      {
+        "partyId": "the-north-east-party",
+        "partyDisplayName": "The North East Party",
+        "gap": -0.0000549428094354006
+      },
+      {
+        "partyId": "abolish-the-welsh-assembly-party",
+        "partyDisplayName": "Abolish the Welsh Assembly Party",
+        "gap": -0.00005285769332779527
+      },
+      {
+        "partyId": "animal-welfare-party",
+        "partyDisplayName": "Animal Welfare Party",
+        "gap": -0.00005164137559835882
+      },
+      {
+        "partyId": "consensus",
+        "partyDisplayName": "Consensus",
+        "gap": -0.00004479524437838797
+      },
+      {
+        "partyId": "women-s-equality-party",
+        "partyDisplayName": "Women's Equality Party",
+        "gap": -0.00004430871728661339
+      },
+      {
+        "partyId": "workers-revolutionary-party",
+        "partyDisplayName": "Workers Revolutionary Party",
+        "gap": -0.00004135480280083916
+      },
+      {
+        "partyId": "kingston-independent-residents-group",
+        "partyDisplayName": "Kingston Independent Residents Group",
+        "gap": -0.000040903027644191337
+      },
+      {
+        "partyId": "propel",
+        "partyDisplayName": "Propel",
+        "gap": -0.00003617676446695258
+      },
+      {
+        "partyId": "scottish-socialist-party",
+        "partyDisplayName": "Scottish Socialist Party",
+        "gap": -0.000034995198672642885
+      },
+      {
+        "partyId": "independent-alliance-kent",
+        "partyDisplayName": "Independent Alliance (Kent)",
+        "gap": -0.000032180291927375685
+      },
+      {
+        "partyId": "freedom-alliance",
+        "partyDisplayName": "Freedom Alliance",
+        "gap": -0.00003110298193844626
+      },
+      {
+        "partyId": "christian-party-proclaiming-christ-s-lordship",
+        "partyDisplayName": "Christian Party, Proclaiming Christ's Lordship",
+        "gap": -0.000028010059712165013
+      },
+      {
+        "partyId": "confelicity",
+        "partyDisplayName": "Confelicity",
+        "gap": -0.0000260639513450667
+      },
+      {
+        "partyId": "portsmouth-independent-party",
+        "partyDisplayName": "Portsmouth Independent Party",
+        "gap": -0.000025473168447911854
+      },
+      {
+        "partyId": "independence-for-scotland-party",
+        "partyDisplayName": "Independence for Scotland Party",
+        "gap": -0.000023561812015940294
+      },
+      {
+        "partyId": "shared-ground",
+        "partyDisplayName": "Shared Ground",
+        "gap": -0.000023075284924165718
+      },
+      {
+        "partyId": "cross-community-labour-alternative",
+        "partyDisplayName": "Cross-Community Labour Alternative",
+        "gap": -0.000021685207519095495
+      },
+      {
+        "partyId": "british-unionist-party-b-u-p",
+        "partyDisplayName": "British Unionist Party B.U.P.",
+        "gap": -0.000021337688167827938
+      },
+      {
+        "partyId": "transform-party",
+        "partyDisplayName": "Transform Party",
+        "gap": -0.00002067740140041958
+      },
+      {
+        "partyId": "putting-crewe-first-independent-residents-group",
+        "partyDisplayName": "Putting Crewe First, Independent Residents Group",
+        "gap": -0.00002043413785453229
+      },
+      {
+        "partyId": "english-constitution-party",
+        "partyDisplayName": "English Constitution Party",
+        "gap": -0.000019322075930476112
+      },
+      {
+        "partyId": "scottish-libertarian-party",
+        "partyDisplayName": "Scottish Libertarian Party",
+        "gap": -0.000018627037227941002
+      },
+      {
+        "partyId": "the-peace-party-non-violence-justice-environment",
+        "partyDisplayName": "The Peace Party - Non-violence, Justice, Environment",
+        "gap": -0.000018453277552307222
+      },
+      {
+        "partyId": "taking-the-initiative-party",
+        "partyDisplayName": "Taking The Initiative Party",
+        "gap": -0.000017480223368758066
+      },
+      {
+        "partyId": "blue-revolution",
+        "partyDisplayName": "Blue Revolution",
+        "gap": -0.000013796518245321973
+      },
+      {
+        "partyId": "alliance-for-green-socialism",
+        "partyDisplayName": "Alliance for Green Socialism",
+        "gap": -0.000013136231477913617
+      },
+      {
+        "partyId": "chesterfield-and-north-derbyshire-independents-candi",
+        "partyDisplayName": "Chesterfield And North Derbyshire Independents (CANDI)",
+        "gap": -0.000012614952451012282
+      },
+      {
+        "partyId": "the-mitre-tw9",
+        "partyDisplayName": "The Mitre TW9",
+        "gap": -0.000012128425359237704
+      },
+      {
+        "partyId": "count-binface-party",
+        "partyDisplayName": "Count Binface Party",
+        "gap": -0.000010703596019040724
+      },
+      {
+        "partyId": "sovereignty",
+        "partyDisplayName": "Sovereignty",
+        "gap": -0.000010564588278533702
+      },
+      {
+        "partyId": "social-justice-party",
+        "partyDisplayName": "Social Justice party",
+        "gap": -0.000009904301511125346
+      },
+      {
+        "partyId": "volt-united-kingdom",
+        "partyDisplayName": "Volt United Kingdom",
+        "gap": -0.000009278766678843744
+      },
+      {
+        "partyId": "rebooting-democracy",
+        "partyDisplayName": "Rebooting Democracy",
+        "gap": -0.000009209262808590233
+      },
+      {
+        "partyId": "the-yoruba-party-in-the-uk",
+        "partyDisplayName": "The Yoruba Party in the UK",
+        "gap": -0.000009070255068083211
+      },
+      {
+        "partyId": "national-health-action-party",
+        "partyDisplayName": "National Health Action Party",
+        "gap": -0.000008583727976308633
+      },
+      {
+        "partyId": "fairer-voting-party",
+        "partyDisplayName": "Fairer Voting Party",
+        "gap": -0.000008340464430421343
+      },
+      {
+        "partyId": "socialist-equality-party",
+        "partyDisplayName": "Socialist Equality Party",
+        "gap": -0.000008305712495294588
+      },
+      {
+        "partyId": "communist-league-election-campaign",
+        "partyDisplayName": "Communist League Election Campaign",
+        "gap": -0.000007992945079153788
+      },
+      {
+        "partyId": "common-good-party",
+        "partyDisplayName": "Common Good Party",
+        "gap": -0.000007471666052252454
+      },
+      {
+        "partyId": "stockport-fights-austerity-no-to-cuts",
+        "partyDisplayName": "Stockport Fights Austerity No To Cuts",
+        "gap": -0.000006707123479463831
+      },
+      {
+        "partyId": "the-socialist-party-of-great-britain",
+        "partyDisplayName": "The Socialist Party of Great Britain",
+        "gap": -0.000006707123479463831
+      },
+      {
+        "partyId": "new-open-non-political-organised-leadership",
+        "partyDisplayName": "New Open Non-Political Organised Leadership",
+        "gap": -0.000006463859933576541
+      },
+      {
+        "partyId": "save-us-now",
+        "partyDisplayName": "Save Us Now",
+        "gap": -0.000005907828971548452
+      },
+      {
+        "partyId": "uk-voice",
+        "partyDisplayName": "UK Voice",
+        "gap": -0.0000052127902690133395
+      },
+      {
+        "partyId": "communist-future",
+        "partyDisplayName": "Communist Future",
+        "gap": -0.000004552503501604983
+      },
+      {
+        "partyId": "libertarian-party",
+        "partyDisplayName": "Libertarian Party",
+        "gap": -0.000003926968669323382
+      },
+      {
+        "partyId": "psychedelic-movement",
+        "partyDisplayName": "Psychedelic Movement",
+        "gap": -0.000003440441577548804
+      },
+      {
+        "partyId": "the-common-people",
+        "partyDisplayName": "The Common People",
+        "gap": -0.0000031624260965347596
+      },
+      {
+        "partyId": "independents-for-direct-democracy",
+        "partyDisplayName": "Independents for Direct Democracy",
+        "gap": -0.000001563837080704002
+      }
+    ],
+    "lowWinningShareLeaderboard": [
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:south-west-norfolk",
+        "constituencySlug": "south-west-norfolk",
+        "constituencyName": "South West Norfolk",
+        "winningShare": 0.267215518,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Terry Jermy",
+        "runnerUpShare": 0.253005526,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:blackburn",
+        "constituencySlug": "blackburn",
+        "constituencyName": "Blackburn",
+        "winningShare": 0.270475995,
+        "winningPartyId": "independent",
+        "winningPartyDisplayName": "Independent",
+        "winningCandidateName": "Adnan Hussain",
+        "runnerUpShare": 0.267081544,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:east-londonderry",
+        "constituencySlug": "east-londonderry",
+        "constituencyName": "East Londonderry",
+        "winningShare": 0.278750878,
+        "winningPartyId": "democratic-unionist-party",
+        "winningPartyDisplayName": "Democratic Unionist Party",
+        "winningCandidateName": "Gregory Campbell",
+        "runnerUpShare": 0.274414323,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:north-antrim",
+        "constituencySlug": "north-antrim",
+        "constituencyName": "North Antrim",
+        "winningShare": 0.282675731,
+        "winningPartyId": "traditional-unionist-voice",
+        "winningPartyDisplayName": "Traditional Unionist Voice",
+        "winningCandidateName": "Jim Allister",
+        "runnerUpShare": 0.271749423,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:exmouth-and-exeter-east",
+        "constituencySlug": "exmouth-and-exeter-east",
+        "constituencyName": "Exmouth and Exeter East",
+        "winningShare": 0.287006002,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "David Reed",
+        "runnerUpShare": 0.284648063,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:east-antrim",
+        "constituencySlug": "east-antrim",
+        "constituencyName": "East Antrim",
+        "winningShare": 0.28889729,
+        "winningPartyId": "democratic-unionist-party",
+        "winningPartyDisplayName": "Democratic Unionist Party",
+        "winningCandidateName": "Sammy Wilson",
+        "runnerUpShare": 0.255979836,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:sittingbourne-and-sheppey",
+        "constituencySlug": "sittingbourne-and-sheppey",
+        "constituencyName": "Sittingbourne and Sheppey",
+        "winningShare": 0.290721499,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Kevin McKenna",
+        "runnerUpShare": 0.28206254,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:montgomeryshire-and-glyndwr",
+        "constituencySlug": "montgomeryshire-and-glyndwr",
+        "constituencyName": "Montgomeryshire and Glyndŵr",
+        "winningShare": 0.293788576,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Steve Witherden",
+        "runnerUpShare": 0.205598835,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:brecon-radnor-and-cwm-tawe",
+        "constituencySlug": "brecon-radnor-and-cwm-tawe",
+        "constituencyName": "Brecon, Radnor and Cwm Tawe",
+        "winningShare": 0.295093237,
+        "winningPartyId": "liberal-democrats",
+        "winningPartyDisplayName": "Liberal Democrats",
+        "winningCandidateName": "David Chadwick",
+        "runnerUpShare": 0.263469966,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:dumfries-and-galloway",
+        "constituencySlug": "dumfries-and-galloway",
+        "constituencyName": "Dumfries and Galloway",
+        "winningShare": 0.29551065,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "John Cooper",
+        "runnerUpShare": 0.275193883,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:aylesbury",
+        "constituencySlug": "aylesbury",
+        "constituencyName": "Aylesbury",
+        "winningShare": 0.301982379,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Laura Kyrke-Smith",
+        "runnerUpShare": 0.289367241,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:spelthorne",
+        "constituencySlug": "spelthorne",
+        "constituencyName": "Spelthorne",
+        "winningShare": 0.304076593,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Lincoln Jopp",
+        "runnerUpShare": 0.269635663,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:maidstone-and-malling",
+        "constituencySlug": "maidstone-and-malling",
+        "constituencyName": "Maidstone and Malling",
+        "winningShare": 0.304942982,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Helen Grant",
+        "runnerUpShare": 0.268856841,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:isle-of-wight-east",
+        "constituencySlug": "isle-of-wight-east",
+        "constituencyName": "Isle of Wight East",
+        "winningShare": 0.305974529,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Joe Robertson",
+        "runnerUpShare": 0.208462938,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:bridgwater",
+        "constituencySlug": "bridgwater",
+        "constituencyName": "Bridgwater",
+        "winningShare": 0.306038027,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Ashley Fox",
+        "runnerUpShare": 0.272421441,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:basildon-and-billericay",
+        "constituencySlug": "basildon-and-billericay",
+        "constituencyName": "Basildon and Billericay",
+        "winningShare": 0.306357421,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Richard Holden",
+        "runnerUpShare": 0.305882632,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:birmingham-hall-green-and-moseley",
+        "constituencySlug": "birmingham-hall-green-and-moseley",
+        "constituencyName": "Birmingham Hall Green and Moseley",
+        "winningShare": 0.307599865,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Tahir Ali",
+        "runnerUpShare": 0.171657934,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:havant",
+        "constituencySlug": "havant",
+        "constituencyName": "Havant",
+        "winningShare": 0.307827241,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Alan Mak",
+        "runnerUpShare": 0.305646423,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:south-basildon-and-east-thurrock",
+        "constituencySlug": "south-basildon-and-east-thurrock",
+        "constituencyName": "South Basildon and East Thurrock",
+        "winningShare": 0.307921819,
+        "winningPartyId": "reform-uk",
+        "winningPartyDisplayName": "Reform UK",
+        "winningCandidateName": "James McMurdock",
+        "runnerUpShare": 0.30544388,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2024",
+        "constituencyId": "2023-review:leicester-east",
+        "constituencySlug": "leicester-east",
+        "constituencyName": "Leicester East",
+        "winningShare": 0.31095603,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Shivani Raja",
+        "runnerUpShare": 0.216209273,
+        "caveats": []
+      }
+    ],
+    "excludedFromMetrics": [
+      {
+        "caveat": "speaker",
+        "count": 1
+      }
+    ]
+  }
+}
