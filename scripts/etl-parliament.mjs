@@ -44,6 +44,7 @@ const ETL_VERSION = 'parliament-etl@1';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE_DIR = resolve(ROOT, 'source-data/parliament/2024');
 const OUTPUT_DIR = resolve(ROOT, 'src/lib/data/parliament/2024');
+const CSV_OUTPUT_DIR = resolve(ROOT, 'static/data/parliament/2024');
 const INDEX_FILE = resolve(ROOT, 'src/lib/data/parliament/index.json');
 
 const CONSTITUENCY_FILE = resolve(
@@ -424,6 +425,189 @@ function writeIndex({ generatedAt, years }) {
   writeFileSync(INDEX_FILE, JSON.stringify({ generatedAt, years }, null, 2) + '\n');
 }
 
+// ── CSV emission ────────────────────────────────────────────────────────
+//
+// Story 4.2: analyst-facing CSV exports under static/data/parliament/.
+// snake_case headers (AR17, pandas/R convention) distinct from the
+// JSON camelCase, so a reader can tell which surface they're consuming.
+// Caveats render as semicolon-joined token strings; nulls render as
+// empty fields (no `0`/`-1`/`"N/A"` — matches JSON null semantics).
+
+/** RFC 4180 escape: wrap in quotes when the value contains a comma,
+ *  newline, or quote; double internal quotes. Plain values pass through
+ *  unchanged. */
+function csvEscape(value) {
+  if (value == null) return '';
+  const str = String(value);
+  if (str === '') return '';
+  if (/[",\r\n]/.test(str)) return `"${str.replace(/"/g, '""')}"`;
+  return str;
+}
+
+function writeCsv(path, headers, rows) {
+  mkdirSync(dirname(path), { recursive: true });
+  const lines = [headers.join(',')];
+  for (const row of rows) {
+    lines.push(headers.map((h) => csvEscape(row[h])).join(','));
+  }
+  // LF line endings (Unix convention) — pandas, R, and modern Excel
+  // all read this; some old Excel installs prefer CRLF but the trade-
+  // off isn't worth the diff noise on every refresh.
+  writeFileSync(path, lines.join('\n') + '\n');
+}
+
+function joinCaveats(tokens) {
+  return tokens && tokens.length > 0 ? tokens.join(';') : '';
+}
+
+/** Per-constituency rollup row — one row per contest with the winner
+ *  and runner-up fields denormalised in so an analyst can compute
+ *  national headline numbers from this single CSV. */
+function constituencyCsvRows(contestsWithCandidates) {
+  return contestsWithCandidates.map((c) => {
+    const winner = c.candidates.find((cand) => cand.isWinner) ?? null;
+    const runnerUp = c.candidates.find((cand) => cand.position === 2) ?? null;
+    const majority =
+      winner && runnerUp && winner.votes != null && runnerUp.votes != null
+        ? winner.votes - runnerUp.votes
+        : null;
+    return {
+      election_id: c.electionId,
+      constituency_id: c.constituencyId,
+      constituency_slug: c.constituencySlug,
+      constituency_name: c.constituencyName,
+      country: c.country,
+      contest_type: c.contestType,
+      electorate: c.electorate,
+      valid_votes: c.validVotes,
+      turnout: c.turnout,
+      caveats: joinCaveats(c.caveats),
+      winning_party_id: winner?.partyId ?? null,
+      winning_party: winner?.partyDisplayName ?? null,
+      winning_candidate: winner?.candidateName ?? null,
+      winning_votes: winner?.votes ?? null,
+      winning_share: winner?.share ?? null,
+      runner_up_party_id: runnerUp?.partyId ?? null,
+      runner_up_party: runnerUp?.partyDisplayName ?? null,
+      runner_up_candidate: runnerUp?.candidateName ?? null,
+      runner_up_votes: runnerUp?.votes ?? null,
+      runner_up_share: runnerUp?.share ?? null,
+      majority
+    };
+  });
+}
+
+const CONSTITUENCY_CSV_HEADERS = [
+  'election_id',
+  'constituency_id',
+  'constituency_slug',
+  'constituency_name',
+  'country',
+  'contest_type',
+  'electorate',
+  'valid_votes',
+  'turnout',
+  'caveats',
+  'winning_party_id',
+  'winning_party',
+  'winning_candidate',
+  'winning_votes',
+  'winning_share',
+  'runner_up_party_id',
+  'runner_up_party',
+  'runner_up_candidate',
+  'runner_up_votes',
+  'runner_up_share',
+  'majority'
+];
+
+function candidateCsvRows(contestsWithCandidates) {
+  const out = [];
+  for (const c of contestsWithCandidates) {
+    for (const cand of c.candidates) {
+      out.push({
+        election_id: c.electionId,
+        constituency_id: c.constituencyId,
+        constituency_slug: c.constituencySlug,
+        constituency_name: c.constituencyName,
+        candidate_name: cand.candidateName,
+        party_id: cand.partyId,
+        party_display_name: cand.partyDisplayName,
+        party_source_label: cand.partySourceLabel,
+        votes: cand.votes,
+        share: cand.share,
+        position: cand.position,
+        // Integer booleans match the council CSV convention
+        // (see static/data/candidates.csv: `elected` is 0/1).
+        is_winner: cand.isWinner ? 1 : 0,
+        caveats: joinCaveats(cand.caveats)
+      });
+    }
+  }
+  return out;
+}
+
+const CANDIDATE_CSV_HEADERS = [
+  'election_id',
+  'constituency_id',
+  'constituency_slug',
+  'constituency_name',
+  'candidate_name',
+  'party_id',
+  'party_display_name',
+  'party_source_label',
+  'votes',
+  'share',
+  'position',
+  'is_winner',
+  'caveats'
+];
+
+function nationalTotalsCsvRows(partyTotals) {
+  return partyTotals.map((p) => ({
+    election_id: p.electionId,
+    party_id: p.partyId,
+    party_display_name: p.partyDisplayName,
+    party_source_label: p.partySourceLabel,
+    votes: p.votes,
+    vote_share: p.voteShare,
+    seats: p.seats,
+    seat_share: p.seatShare,
+    seat_delta: p.seatDelta
+  }));
+}
+
+const NATIONAL_TOTALS_CSV_HEADERS = [
+  'election_id',
+  'party_id',
+  'party_display_name',
+  'party_source_label',
+  'votes',
+  'vote_share',
+  'seats',
+  'seat_share',
+  'seat_delta'
+];
+
+function writeCsvArtifacts({ electionYear, contestsWithCandidates, partyTotals }) {
+  const filePrefix = `parliament-${electionYear}`;
+  writeCsv(
+    resolve(CSV_OUTPUT_DIR, `${filePrefix}-constituencies.csv`),
+    CONSTITUENCY_CSV_HEADERS,
+    constituencyCsvRows(contestsWithCandidates)
+  );
+  writeCsv(
+    resolve(CSV_OUTPUT_DIR, `${filePrefix}-candidates.csv`),
+    CANDIDATE_CSV_HEADERS,
+    candidateCsvRows(contestsWithCandidates)
+  );
+  writeCsv(
+    resolve(CSV_OUTPUT_DIR, `${filePrefix}-national-totals.csv`),
+    NATIONAL_TOTALS_CSV_HEADERS,
+    nationalTotalsCsvRows(partyTotals)
+  );
+}
+
 function main() {
   const electionYear = 2024;
   const electionId = `ge-${electionYear}`;
@@ -519,6 +703,17 @@ function main() {
   // Years index. For now, only 2024 — Phase 2 ingest adds historical
   // years and this loop extends to enumerate them all.
   writeIndex({ generatedAt, years: [electionYear] });
+
+  // CSV exports for analyst tooling (pandas / R / Excel). Story 4.2.
+  // Written under static/data/parliament/ so Cloudflare serves them
+  // alongside the council CSVs; column mapping lives in
+  // docs/parliament-schema.md and /parliament/methodology.
+  console.log(`  writing CSV exports to ${CSV_OUTPUT_DIR}/`);
+  writeCsvArtifacts({
+    electionYear,
+    contestsWithCandidates,
+    partyTotals
+  });
 
   const reportPath = resolve(
     ROOT,
