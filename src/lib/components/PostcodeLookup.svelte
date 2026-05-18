@@ -105,7 +105,7 @@
         error = `${place} isn’t in our dataset yet.`;
         return;
       }
-      await goto(`/${slug}`);
+      await goto(`/councils/${slug}`);
     } catch {
       error = 'Lookup failed. Check your connection.';
     } finally {
@@ -147,7 +147,7 @@
             error = `${place} isn’t in our dataset yet.`;
             return;
           }
-          await goto(`/${slug}`);
+          await goto(`/councils/${slug}`);
         } catch {
           error = 'Lookup failed. Check your connection.';
         } finally {
@@ -181,7 +181,7 @@
     const slug = matchCouncilName(raw);
     if (slug) {
       error = null;
-      await goto(`/${slug}`);
+      await goto(`/councils/${slug}`);
       return;
     }
     error = `No council matching "${raw}". Try a postcode, or pick from the suggestions.`;

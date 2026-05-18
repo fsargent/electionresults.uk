@@ -61,7 +61,7 @@
     name="description"
     content="Every UK council where the largest party in the running composition changed between consecutive cycle years. Composition data via opencouncildata, sorted by recency."
   />
-  <link rel="canonical" href="https://electionresults.uk/flips" />
+  <link rel="canonical" href="https://electionresults.uk/councils/flips" />
   <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
   <meta property="og:image:width" content="1016" />
   <meta property="og:image:height" content="841" />
@@ -88,8 +88,8 @@
   </p>
   <p class="muted">
     For the FPTP-distortion story &mdash; small vote shifts producing
-    big seat reallocations &mdash; see <a href="/distortion">/distortion</a>.
-    See <a href="/methodology#flips">methodology</a> for the precise
+    big seat reallocations &mdash; see <a href="/councils/distortion">/councils/distortion</a>.
+    See <a href="/councils/methodology#flips">methodology</a> for the precise
     definition of a council-control change.
   </p>
 
@@ -158,7 +158,7 @@
       {#each filtered as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
         <tr>
           <td class="num">{f.yearFrom} → {f.yearTo}</td>
-          <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
+          <td><a href={`/councils/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
           <td>
             <Party name={f.fromParty} />
             <span class="muted" aria-hidden="true"> → </span>

@@ -41,7 +41,7 @@
     for (const c of data.controlledCouncils) {
       out[c.councilSlug] = {
         color: partyHex,
-        href: `/${c.councilSlug}`,
+        href: `/councils/${c.councilSlug}`,
         primary: c.council,
         secondary: `${num(c.seats)} of ${num(c.totalSeats)} seats (${c.year})`,
         title: `${c.council}: ${num(c.seats)} of ${num(c.totalSeats)} seats — largest party (${c.year})`
@@ -63,7 +63,7 @@
         color: partyHex,
         voteShare: r.voteShare,
         seatShare: r.seatShare,
-        href: `/party/${data.partySlug}/${r.year}`
+        href: `/councils/party/${data.partySlug}/${r.year}`
       }))
   );
 
@@ -198,7 +198,7 @@
     name="description"
     content="Vote share, seat share, and chamber footprint for {data.partyName} across UK local elections 2021–2026."
   />
-  <link rel="canonical" href="https://electionresults.uk/party/{data.partySlug}" />
+  <link rel="canonical" href="https://electionresults.uk/councils/party/{data.partySlug}" />
 </svelte:head>
 
 <main class="wide">
@@ -338,7 +338,7 @@
     {#each [...trend].filter((r) => r.contestedSeats > 0).sort((a, b) => b.year - a.year) as row (row.year)}
       {@const gap = row.seatShare - row.voteShare}
       {@const ctrl = data.controlByYear[row.year]}
-      <a class="cycle-card" href="/party/{data.partySlug}/{row.year}" style:--accent-color={partyHex}>
+      <a class="cycle-card" href="/councils/party/{data.partySlug}/{row.year}" style:--accent-color={partyHex}>
         <h3>{row.year}</h3>
         <p class="stat">
           <strong>{num(row.seatsWon)}</strong>
@@ -521,7 +521,7 @@
           <td class="r">{row.chamberTotal > 0 ? `${num(row.councilsLargest)} / ${num(row.councilsWithComposition)}` : '—'}</td>
           <td>
             {#if data.years.includes(row.year)}
-              <a href="/party/{data.partySlug}/{row.year}">Details &rarr;</a>
+              <a href="/councils/party/{data.partySlug}/{row.year}">Details &rarr;</a>
             {/if}
           </td>
         </tr>
@@ -530,7 +530,7 @@
   </table>
 
   <p class="muted small">
-    See <a href="/methodology">methodology</a> for how we normalise
+    See <a href="/councils/methodology">methodology</a> for how we normalise
     party names, why "Labour and Co-operative" collapses to "Labour
     Party", and the bloc-vote vote-share caveat for multi-member wards.
   </p>

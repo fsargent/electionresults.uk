@@ -1,18 +1,20 @@
-# Party pages moved from /:slug/* to /party/:slug/* on 2026-05-12.
-# Permanent redirects keep external bookmarks working. Order matters:
-# the catch-all /:slug/:year line below would otherwise hijack
-# /:council/:year, so each party slug is listed explicitly.
-/labour              /party/labour              301
-/labour/*            /party/labour/:splat       301
-/conservative        /party/conservative        301
-/conservative/*      /party/conservative/:splat 301
-/liberal-democrats   /party/liberal-democrats   301
-/liberal-democrats/* /party/liberal-democrats/:splat 301
-/green               /party/green               301
-/green/*             /party/green/:splat        301
-/reform              /party/reform              301
-/reform/*            /party/reform/:splat       301
-/snp                 /party/snp                 301
-/snp/*               /party/snp/:splat          301
-/plaid-cymru         /party/plaid-cymru         301
-/plaid-cymru/*       /party/plaid-cymru/:splat  301
+# Party pages live at /councils/party/:slug/* after the /councils
+# namespace migration (2026-05-18). The original move from /:slug to
+# /party/:slug (2026-05-12) is still honoured because external bookmarks
+# from that era exist. Permanent redirects keep both shapes alive.
+# Order matters: the catch-all /:slug/:year line below would otherwise
+# hijack /:council/:year, so each party slug is listed explicitly.
+/labour              /councils/party/labour              301
+/labour/*            /councils/party/labour/:splat       301
+/conservative        /councils/party/conservative        301
+/conservative/*      /councils/party/conservative/:splat 301
+/liberal-democrats   /councils/party/liberal-democrats   301
+/liberal-democrats/* /councils/party/liberal-democrats/:splat 301
+/green               /councils/party/green               301
+/green/*             /councils/party/green/:splat        301
+/reform              /councils/party/reform              301
+/reform/*            /councils/party/reform/:splat       301
+/snp                 /councils/party/snp                 301
+/snp/*               /councils/party/snp/:splat          301
+/plaid-cymru         /councils/party/plaid-cymru         301
+/plaid-cymru/*       /councils/party/plaid-cymru/:splat  301

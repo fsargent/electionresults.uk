@@ -100,7 +100,7 @@
         x: h.x,
         y: h.y,
         color: fill?.color ?? NEUTRAL_FILL,
-        href: fill?.href ?? `/${h.slug}`,
+        href: fill?.href ?? `/councils/${h.slug}`,
         title: fill?.title ?? h.name,
         primary: fill?.primary ?? h.name,
         secondary,

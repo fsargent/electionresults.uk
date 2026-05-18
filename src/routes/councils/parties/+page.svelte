@@ -64,7 +64,7 @@
         if (!row) return null;
         return {
           name: p.name,
-          href: `/party/${p.slug}`,
+          href: `/councils/party/${p.slug}`,
           color: partyColor(p.name),
           voteShare: row.voteShare,
           seatShare: row.seatShare
@@ -305,7 +305,7 @@
     name="description"
     content="UK major parties at local-government level — disproportionality between vote share and seat share, four-year movement, and chamber footprint."
   />
-  <link rel="canonical" href="https://electionresults.uk/parties" />
+  <link rel="canonical" href="https://electionresults.uk/councils/parties" />
 </svelte:head>
 
 <main class="wide">
@@ -335,7 +335,7 @@
         {#each controlLegend as row (row.slug)}
           <li>
             <span class="swatch" style:background={row.color}></span>
-            <a href={`/party/${row.slug}`}>{row.name}</a>
+            <a href={`/councils/party/${row.slug}`}>{row.name}</a>
             <span class="muted count">{num(row.count)}</span>
           </li>
         {/each}
@@ -364,7 +364,7 @@
       {@const swing = latest && earliest
         ? latest.chamberShare - earliest.chamberShare
         : null}
-      <a class="card" href="/party/{p.slug}" style:--accent-color={color}>
+      <a class="card" href="/councils/party/{p.slug}" style:--accent-color={color}>
         <header>
           <span class="swatch" style:background={color} aria-hidden="true"></span>
           <h3>{p.name}</h3>
@@ -436,7 +436,7 @@
       {#each slopes as s (s.slug)}
         <SlopeChart
           title={s.party}
-          href={`/party/${s.slug}`}
+          href={`/councils/party/${s.slug}`}
           color={s.color}
           startYear={s.startYear}
           startValue={s.startValue}
@@ -515,7 +515,7 @@
           {@const cx = xFor(s.year)}
           {@const cy = yFor(s.chamberShare)}
           <a
-            href={`/party/${party.slug}`}
+            href={`/councils/party/${party.slug}`}
             aria-label={`${party.name} ${s.year}`}
             onpointerenter={() => (tooltip = buildTooltip(party, s, cx, cy))}
             onpointerleave={clearTooltip}
@@ -591,7 +591,7 @@
   </fieldset>
 
   <p class="muted small">
-    Definitions and caveats live in the <a href="/methodology">methodology</a>
+    Definitions and caveats live in the <a href="/councils/methodology">methodology</a>
     page. UK locals run on a 4-year cycle, with different councils
     polling in different years — so vote and seat share are only
     directly comparable between elections four years apart (e.g. 2022
