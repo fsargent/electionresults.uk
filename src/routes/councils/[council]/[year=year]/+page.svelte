@@ -54,7 +54,7 @@
   />
   <link
     rel="canonical"
-    href={`https://electionresults.uk/${council.councilSlug}/${cycle.year}`}
+    href={`https://electionresults.uk/councils/${council.councilSlug}/${cycle.year}`}
   />
   <!-- Per-cycle social-share preview. Generated build-time by
        scripts/build-og.mjs. -->
@@ -79,8 +79,8 @@
 
 <main class="wide">
   <p class="muted">
-    <a href="/{council.councilSlug}">← {council.council} (all cycles)</a>
-    · <a href="/{cycle.year}">{cycle.electionDateLabel} cohort</a>
+    <a href="/councils/{council.councilSlug}">← {council.council} (all cycles)</a>
+    · <a href="/councils/{cycle.year}">{cycle.electionDateLabel} cohort</a>
   </p>
   <h1>{council.council} <span class="year-badge">{cycle.year}</span></h1>
   <p class="muted election-date">
@@ -124,7 +124,7 @@
     Each race compares the marginal winner's share of valid ballots to
     the <strong>proportional quota</strong> — the share they'd need under
     any common proportional method.
-    <a href="/methodology">How the numbers are derived →</a>
+    <a href="/councils/methodology">How the numbers are derived →</a>
   </p>
 
   <h2 id="party-view">If votes were counted by party</h2>
@@ -136,7 +136,7 @@
       <strong>proportional</strong> column shows what each party would
       have won if the {view.totalSeats} seat{view.totalSeats === 1 ? '' : 's'}
       had been shared out in proportion to votes received
-      (<a href="/methodology">how, with caveats</a>). The
+      (<a href="/councils/methodology">how, with caveats</a>). The
       <strong>Δ</strong> column is the actual seat count minus the
       proportional seat count &mdash; positive numbers are parties
       First-Past-the-Post over-represented; negative are parties it
@@ -288,7 +288,7 @@
           so summing candidate votes overcounts voters by ~{race.seats}×. We show
           <strong>share of votes</strong> (matches the council's published figure) and
           <strong>share of voters (est.)</strong> (raw share × {race.seats}, the figure
-          comparable to the proportional quota). <a href="/methodology#bloc-vote-denominator">Why two columns →</a>
+          comparable to the proportional quota). <a href="/councils/methodology#bloc-vote-denominator">Why two columns →</a>
         </p>
       {/if}
 

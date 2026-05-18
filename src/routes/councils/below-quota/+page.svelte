@@ -35,7 +35,7 @@
     name="description"
     content="Every council ward across the published cycles where the elected councillor (or, in multi-seat wards, the most-marginal of the elected councillors) won less than the proportional quota — the share that would be needed to be guaranteed that seat under a method that allocates seats in proportion to votes."
   />
-  <link rel="canonical" href="https://electionresults.uk/below-quota" />
+  <link rel="canonical" href="https://electionresults.uk/councils/below-quota" />
   <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
   <meta property="og:image:width" content="1016" />
   <meta property="og:image:height" content="841" />
@@ -124,9 +124,9 @@
       {#each filtered as r, i (r.year + r.councilSlug + r.wardSlug)}
         <tr>
           <td class="num">{i + 1}</td>
-          <td><a href={`/${r.year}`}>{r.year}</a></td>
+          <td><a href={`/councils/${r.year}`}>{r.year}</a></td>
           <td>
-            <a href={`/${r.councilSlug}/${r.year}#${r.wardSlug}`}>
+            <a href={`/councils/${r.councilSlug}/${r.year}#${r.wardSlug}`}>
               <strong>{r.wardName}</strong>
             </a>
             <br />

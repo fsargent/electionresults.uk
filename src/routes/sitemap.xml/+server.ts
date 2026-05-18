@@ -16,28 +16,30 @@ export function GET() {
   const today = generatedAt.slice(0, 10);
   const staticUrls = [
     '/',
-    '/flips',
-    '/below-quota',
-    '/methodology',
+    '/councils/flips',
+    '/councils/below-quota',
+    '/councils/methodology',
     '/data',
-    '/parties'
+    '/councils/parties'
   ];
-  const cycleUrls = allCycles.map((c) => `/${c.year}`);
+  const cycleUrls = allCycles.map((c) => `/councils/${c.year}`);
   // Both an overview per council and a per-cycle drill-down per (council, year)
   const distinctCouncilSlugs = new Set(allCouncils.map((c) => c.councilSlug));
-  const councilOverviewUrls = [...distinctCouncilSlugs].map((s) => `/${s}`);
-  const councilCycleUrls = allCouncils.map((c) => `/${c.councilSlug}/${c.year}`);
+  const councilOverviewUrls = [...distinctCouncilSlugs].map((s) => `/councils/${s}`);
+  const councilCycleUrls = allCouncils.map(
+    (c) => `/councils/${c.councilSlug}/${c.year}`
+  );
   const councilUrls = [...councilOverviewUrls, ...councilCycleUrls];
   // Party overview per slug; per-year drill-down for every (party, year)
   // pair where the party actually contested.
   const partyOverviewUrls = partySlugs()
     .filter((slug) => partyForSlug(slug) !== null)
-    .map((slug) => `/party/${slug}`);
+    .map((slug) => `/councils/party/${slug}`);
   const partyYearUrls = allPartyYearStats
     .filter((s) => s.contestedSeats > 0)
     .map((s) => {
       const slug = slugForParty(s.party);
-      return slug ? `/party/${slug}/${s.year}` : null;
+      return slug ? `/councils/party/${slug}/${s.year}` : null;
     })
     .filter((u): u is string => u !== null);
   const partyUrls = [...partyOverviewUrls, ...partyYearUrls];

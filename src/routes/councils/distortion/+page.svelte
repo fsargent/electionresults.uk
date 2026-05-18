@@ -31,7 +31,7 @@
     name="description"
     content="Single-cycle elections ranked by how many seats First-Past-the-Post reallocated vs a proportional (D'Hondt) allocation. The systemic FPTP failure mode, per election, apples-to-apples."
   />
-  <link rel="canonical" href="https://electionresults.uk/distortion" />
+  <link rel="canonical" href="https://electionresults.uk/councils/distortion" />
   <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
   <meta property="og:image:width" content="1016" />
   <meta property="og:image:height" content="841" />
@@ -45,7 +45,7 @@
     allocated under First-Past-the-Post versus how they would have been
     allocated proportionally (using D'Hondt as a proxy for any
     proportional method &mdash; see
-    <a href="/methodology">methodology</a>). The
+    <a href="/councils/methodology">methodology</a>). The
     <strong>seats reallocated</strong> column is the count of seats
     First-Past-the-Post moved from where a proportional system would
     have placed them. {num(data.rows.length)} cycles ranked by raw count
@@ -57,9 +57,9 @@
     This is per-cycle, apples-to-apples: it describes a single election
     in isolation, with no by-thirds caveat. For council-control changes
     (the rare event where the largest party of the running composition
-    actually flipped), see <a href="/flips">/flips</a>. For per-seat
+    actually flipped), see <a href="/councils/flips">/councils/flips</a>. For per-seat
     distortion (one councillor elected on a tiny share of valid
-    ballots), see <a href="/below-quota">/below-quota</a>.
+    ballots), see <a href="/councils/below-quota">/councils/below-quota</a>.
   </p>
   <p class="muted">
     Click a council name for the full per-cycle visualisation including
@@ -136,9 +136,9 @@
     <tbody>
       {#each filtered as r (r.councilSlug + ':' + r.year)}
         <tr>
-          <td class="num"><a href={`/${r.year}`}>{r.year}</a></td>
+          <td class="num"><a href={`/councils/${r.year}`}>{r.year}</a></td>
           <td>
-            <a href={`/${r.councilSlug}/${r.year}#party-view`}>
+            <a href={`/councils/${r.councilSlug}/${r.year}#party-view`}>
               <strong>{r.council}</strong>
             </a>
           </td>

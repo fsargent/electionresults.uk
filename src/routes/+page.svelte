@@ -74,7 +74,7 @@
         The most extreme case in our data: a councillor elected on
       {/if}
       <strong>{pct(lw.winningPct)}</strong> of the vote in
-      <a href={`/${lw.councilSlug}/${lw.year}#${lw.wardSlug}`}
+      <a href={`/councils/${lw.councilSlug}/${lw.year}#${lw.wardSlug}`}
         ><strong>{lw.wardName}</strong></a
       >
       ({lw.council}, {lw.year}) &mdash; meaning
@@ -86,7 +86,7 @@
       elected councillor's share of votes to the share they would need
       under a system where seats match votes.<sup class="fn"
         ><a
-          href="/methodology#quota"
+          href="/councils/methodology#quota"
           title="See the methodology page for the formula and worked examples"
         >(1)</a></sup
       >
@@ -145,9 +145,9 @@
     actually changed between cycles (per
     <a href="https://opencouncildata.co.uk" rel="external noopener">opencouncildata</a>'s
     annual snapshot; 2026 compositions are
-    <a href="/methodology#sources">synthesised</a>
+    <a href="/councils/methodology#sources">synthesised</a>
     from the 2025 snapshot plus the 2026 election results until oncd
-    publishes its 2026 row). See <a href="/flips">/flips</a> for the full list.
+    publishes its 2026 row). See <a href="/councils/flips">/councils/flips</a> for the full list.
   </p>
   {#if view.topFlipsByShift.length === 0}
     <p class="muted">
@@ -175,7 +175,7 @@
         {#each view.topFlipsByShift as f (f.councilSlug + ':' + f.yearFrom + ':' + f.yearTo)}
           <tr>
             <td class="num">{f.yearFrom} → {f.yearTo}</td>
-            <td><a href={`/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
+            <td><a href={`/councils/${f.councilSlug}`}><strong>{f.council}</strong></a></td>
             <td>
               <Party name={f.fromParty} />
               <span class="muted" aria-hidden="true"> → </span>
@@ -206,8 +206,8 @@
     unfairly awarded &mdash; that is, went to a different party than a
     proportional re-count of the same votes would have. Darker =
     bigger gap.
-    See <a href="/distortion">/distortion</a> for the full leaderboard
-    and <a href="/methodology#distortion">methodology</a> for the
+    See <a href="/councils/distortion">/councils/distortion</a> for the full leaderboard
+    and <a href="/councils/methodology#distortion">methodology</a> for the
     bloc-vote caveat in multi-member wards.
   </p>
   <MapDistortion entries={view.distortionMapEntries} incompleteCouncils={view.incompleteCouncils} />
@@ -241,9 +241,9 @@
     <tbody>
       {#each view.topDistortedCycles as r (r.councilSlug + ':' + r.year)}
         <tr>
-          <td class="num"><a href={`/${r.year}`}>{r.year}</a></td>
+          <td class="num"><a href={`/councils/${r.year}`}>{r.year}</a></td>
           <td>
-            <a href={`/${r.councilSlug}/${r.year}#party-view`}>
+            <a href={`/councils/${r.councilSlug}/${r.year}#party-view`}>
               <strong>{r.council}</strong>
             </a>
           </td>
@@ -382,9 +382,9 @@
     <tbody>
       {#each view.topLowestShares as r (r.year + r.councilSlug + r.wardSlug)}
         <tr>
-          <td><a href={`/${r.year}`}>{r.year}</a></td>
+          <td><a href={`/councils/${r.year}`}>{r.year}</a></td>
           <td>
-            <a href={`/${r.councilSlug}/${r.year}#${r.wardSlug}`}>
+            <a href={`/councils/${r.councilSlug}/${r.year}#${r.wardSlug}`}>
               <strong>{r.wardName}</strong>
             </a>
             <br />
@@ -405,7 +405,7 @@
   </table>
 
   <p>
-    See the <a href="/below-quota">full leaderboard of below-quota seats</a>
+    See the <a href="/councils/below-quota">full leaderboard of below-quota seats</a>
     across all cycles.
   </p>
 
@@ -417,7 +417,7 @@
   </p>
   <ul class="all-councils">
     {#each data.allCouncils as c (c.councilSlug)}
-      <li><a href={`/${c.councilSlug}`}>{c.council}</a></li>
+      <li><a href={`/councils/${c.councilSlug}`}>{c.council}</a></li>
     {/each}
   </ul>
 
@@ -425,7 +425,7 @@
   <ul class="cycle-list">
     {#each data.cycles as c (c.year)}
       <li>
-        <a href={`/${c.year}`} class="cycle">
+        <a href={`/councils/${c.year}`} class="cycle">
           <span class="cycle-year">{c.year}</span>
           <span class="cycle-date">{c.electionDateLabel}</span>
           <span class="cycle-stats">

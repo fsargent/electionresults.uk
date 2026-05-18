@@ -54,7 +54,7 @@
   />
   <link
     rel="canonical"
-    href={`https://electionresults.uk/${history.councilSlug}`}
+    href={`https://electionresults.uk/councils/${history.councilSlug}`}
   />
   <!-- Social-share preview: vote share vs FPTP vs proportional, latest
        cycle. Generated build-time by scripts/build-og.mjs. -->
@@ -146,7 +146,7 @@
   <ul class="cycle-list">
     {#each history.cycles as c (c.year)}
       <li>
-        <a class="cycle" href={`/${history.councilSlug}/${c.year}`}>
+        <a class="cycle" href={`/councils/${history.councilSlug}/${c.year}`}>
           <span class="cycle-year">{c.year}</span>
           <span class="cycle-stats">
             {num(c.raceCount)} race{c.raceCount === 1 ? '' : 's'} ·
@@ -203,7 +203,7 @@
       below shows what each party actually won &mdash; alongside what they
       would have won if the {view.totalSeats} seat{view.totalSeats === 1 ? '' : 's'}
       had been shared in proportion to votes received
-      (<a href="/methodology">how, with caveats</a>). The
+      (<a href="/councils/methodology">how, with caveats</a>). The
       <strong>Δ</strong> column is the actual seat count minus the
       proportional seat count &mdash; positive numbers are parties
       First-Past-the-Post over-represented; negative are parties it
@@ -213,7 +213,7 @@
     <PartyViewBlock {view} />
 
     <p class="muted">
-      <a href="/{history.councilSlug}/{cycle.year}">Full ward-by-ward results for {cycle.year} →</a>
+      <a href="/councils/{history.councilSlug}/{cycle.year}">Full ward-by-ward results for {cycle.year} →</a>
     </p>
   {/if}
 
@@ -269,7 +269,7 @@
                     style:background-color={c}
                     title={`${row.wardName} ${cell.year}: ${cell.winnerName} (${partyDisplayName(cell.winnerParty)}) — ${cell.winnerVotes} votes, ${pct(cell.winningPct)} of ${cell.validBallots} valid ballots`}
                   >
-                    <a href={`/${history.councilSlug}/${cell.year}#${cell.wardSlug}`} class="ward-link">
+                    <a href={`/councils/${history.councilSlug}/${cell.year}#${cell.wardSlug}`} class="ward-link">
                       {pct(cell.winningPct, 0)}
                     </a>
                   </td>

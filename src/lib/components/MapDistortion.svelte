@@ -34,7 +34,7 @@
         d.councilSlug,
         {
           color: belowQuotaColor(normalise(d.reallocatedShare)),
-          href: `/${d.councilSlug}/${d.year}#party-view`,
+          href: `/councils/${d.councilSlug}/${d.year}#party-view`,
           title:
             `${d.council} ${d.year}: ${d.reallocated} of ${d.totalSeats} seats ` +
             `(${pct(d.reallocatedShare)}) unfairly awarded — they went to a ` +
@@ -61,7 +61,7 @@
         const existing = out[c.councilSlug];
         out[c.councilSlug] = {
           ...existing,
-          href: existing?.href ?? `/${c.councilSlug}`,
+          href: existing?.href ?? `/councils/${c.councilSlug}`,
           color: existing?.color ?? belowQuotaColor(0),
           incomplete: {
             wardsCounted: c.wardsCounted,
@@ -106,7 +106,7 @@
       same votes (D'Hondt) would have produced. 0% = FPTP and
       proportional agreed; higher = bigger gap. Multi-member wards
       inflate the count slightly (bloc-vote caveat &mdash; see
-      <a href="/methodology#distortion">methodology</a>).
+      <a href="/councils/methodology#distortion">methodology</a>).
     </p>
   </div>
 </div>

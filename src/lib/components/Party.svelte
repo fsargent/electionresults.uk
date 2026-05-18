@@ -8,7 +8,7 @@
   const colour = $derived(partyColor(name));
   const display = $derived(partyDisplayName(name));
   const slug = $derived(name ? slugForParty(name) : null);
-  const href = $derived(link && slug ? `/party/${slug}` : null);
+  const href = $derived(link && slug ? `/councils/party/${slug}` : null);
 </script>
 
 <span class="party">

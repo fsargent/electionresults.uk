@@ -36,7 +36,7 @@
           f.councilSlug,
           {
             color: toColor,
-            href: `/${f.councilSlug}`,
+            href: `/councils/${f.councilSlug}`,
             title: `${f.council}: ${fromName} → ${toName} (${f.yearFrom} → ${f.yearTo})`,
             primary: `${f.council} (${f.yearFrom} → ${f.yearTo})`,
             secondary: `${fromName} → ${toName} · ${pts(f.seatSwingNew)} seat shift on ${pts(f.voteSwingNew)} vote shift`,
@@ -55,7 +55,7 @@
         // data council name (the slug isn't a display label).
         out[slug] = {
           color: POLLED_NO_FLIP_FILL,
-          href: `/${slug}`,
+          href: `/councils/${slug}`,
           secondary: 'Polled this cycle — leading party unchanged'
         };
       }
@@ -66,7 +66,7 @@
         // the highlight; we don't overwrite the colour.
         out[c.councilSlug] = {
           ...existing,
-          href: existing?.href ?? `/${c.councilSlug}`,
+          href: existing?.href ?? `/councils/${c.councilSlug}`,
           color: existing?.color ?? POLLED_NO_FLIP_FILL,
           incomplete: {
             wardsCounted: c.wardsCounted,
@@ -87,11 +87,11 @@
   <div class="legend">
     <span class="legend-label">Incoming party (latest flip)</span>
     <ul class="party-legend">
-      <li><span class="swatch" style:background-color={partyColor('Labour Party')}></span> <a href="/party/labour">Labour</a></li>
-      <li><span class="swatch" style:background-color={partyColor('Conservative Party')}></span> <a href="/party/conservative">Conservative</a></li>
-      <li><span class="swatch" style:background-color={partyColor('Liberal Democrats')}></span> <a href="/party/liberal-democrats">Liberal Democrats</a></li>
-      <li><span class="swatch" style:background-color={partyColor('Reform UK')}></span> <a href="/party/reform">Reform UK</a></li>
-      <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> <a href="/party/green">Green</a></li>
+      <li><span class="swatch" style:background-color={partyColor('Labour Party')}></span> <a href="/councils/party/labour">Labour</a></li>
+      <li><span class="swatch" style:background-color={partyColor('Conservative Party')}></span> <a href="/councils/party/conservative">Conservative</a></li>
+      <li><span class="swatch" style:background-color={partyColor('Liberal Democrats')}></span> <a href="/councils/party/liberal-democrats">Liberal Democrats</a></li>
+      <li><span class="swatch" style:background-color={partyColor('Reform UK')}></span> <a href="/councils/party/reform">Reform UK</a></li>
+      <li><span class="swatch" style:background-color={partyColor('Green Party')}></span> <a href="/councils/party/green">Green</a></li>
       <li><span class="swatch" style:background-color={partyColor('Independent')}></span> Independent / other</li>
       {#if polledNoFlipCouncils.length > 0}
         <li><span class="swatch polled-no-flip"></span> Polled, no change ({polledNoFlipCouncils.length})</li>

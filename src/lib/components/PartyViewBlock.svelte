@@ -43,7 +43,7 @@
       {gallagherLabel} &mdash; one number summarising how far the seat
       allocation diverged from the vote shares across all parties (0 =
       perfectly proportional; 15+ is what most UK FPTP elections score).
-      <a href="/methodology#gallagher">How it's calculated →</a>
+      <a href="/councils/methodology#gallagher">How it's calculated →</a>
     </p>
   </aside>
 {/if}

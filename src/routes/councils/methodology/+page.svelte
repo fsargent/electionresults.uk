@@ -11,7 +11,7 @@
     name="description"
     content="How every figure on electionresults.uk is computed, where the source data comes from, and the editorial frame that names the voting method (not individual candidates) as the subject."
   />
-  <link rel="canonical" href="https://electionresults.uk/methodology" />
+  <link rel="canonical" href="https://electionresults.uk/councils/methodology" />
   <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
   <meta property="og:image:width" content="1016" />
   <meta property="og:image:height" content="841" />
@@ -323,7 +323,7 @@
       count by party, including by-elections and defections, so the
       flip reflects a real change in who holds the most seats on the
       whole council &mdash; not just who topped the table in a single
-      cycle's election. The <a href="/flips">/flips lens</a> lists
+      cycle's election. The <a href="/councils/flips">/councils/flips lens</a> lists
       every council-control change in our window, sorted by recency.
       Per-flip visualisation on each council page shows the running
       composition before and after.
@@ -367,7 +367,7 @@
     FPTP gave one party 2 extra seats has total reallocation = 2.
   </p>
   <p>
-    The <a href="/distortion">/distortion lens</a> ranks cycles by
+    The <a href="/councils/distortion">/councils/distortion lens</a> ranks cycles by
     reallocated share (reallocated seats &divide; total seats elected
     that cycle), so a small council with 4 of 12 seats reallocated
     (33%) ranks above a big council with 4 of 60 (7%). The metric is
@@ -403,19 +403,19 @@
   </p>
   <ul>
     <li>
-      <a href="/below-quota">/below-quota</a> &middot; every elected
+      <a href="/councils/below-quota">/councils/below-quota</a> &middot; every elected
       seat anywhere in the data where the marginal winner's share fell
       below the proportional quota for that ward. Sortable, filterable
       by year, party, and council.
     </li>
     <li>
-      <a href="/distortion">/distortion</a> &middot; every cycle in
+      <a href="/councils/distortion">/councils/distortion</a> &middot; every cycle in
       our data ranked by FPTP-vs-proportional seats reallocated. See
       <a href="#distortion">FPTP per-election distortion</a> above for
       the metric definition.
     </li>
     <li>
-      <a href="/flips">/flips</a> &middot; every council where the
+      <a href="/councils/flips">/councils/flips</a> &middot; every council where the
       largest party in the running composition changed between
       consecutive cycle years, sorted by recency. See
       <a href="#flips">council-control changes</a> above for the
@@ -527,7 +527,7 @@
     <li>DuckDB-WASM widgets for live-querying tables in the browser
       — deferred.</li>
     <li>The full system-anomalies lens beyond
-      <a href="/below-quota">/below-quota</a> and <a href="/flips">/flips</a>
+      <a href="/councils/below-quota">/councils/below-quota</a> and <a href="/councils/flips">/councils/flips</a>
       &mdash; smallest absolute winning vote count, vote-share-to-seat-share
       inversions, third-place-by-party-share-wins-seat, and high-turnout
       wards with low-mandate winners are all computable but don't yet
@@ -550,7 +550,7 @@
     Reform UK's 2025 Lancashire County Council sweep showed up as
     phantom races on Rossendale, Burnley, Pendle, Preston, and West
     Lancashire borough pages, while
-    <a href="/lancashire">/lancashire</a> appeared to have no data after
+    <a href="/councils/lancashire">/councils/lancashire</a> appeared to have no data after
     2017. The fix re-attributes shire-county rows (2021
     <code>Type=SC</code>, 2025 <code>Local authority type=CC</code>) to
     the actual county council. Affected: every district that overlaps a

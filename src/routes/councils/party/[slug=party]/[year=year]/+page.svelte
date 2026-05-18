@@ -40,7 +40,7 @@
     for (const c of data.controlledCouncils) {
       out[c.councilSlug] = {
         color: partyHex,
-        href: `/${c.councilSlug}`,
+        href: `/councils/${c.councilSlug}`,
         primary: c.council,
         secondary: `${num(c.seats)} of ${num(c.totalSeats)} seats (snapshot ${c.year})`,
         title: `${c.council}: ${num(c.seats)} of ${num(c.totalSeats)} seats — largest party as of ${c.year}`
@@ -53,7 +53,7 @@
         out[g.councilSlug] = {
           ...(out[g.councilSlug] ?? {
             color: partyHex,
-            href: `/${g.councilSlug}`,
+            href: `/councils/${g.councilSlug}`,
             primary: g.council
           }),
           stroke: GAINED_RING,
@@ -67,7 +67,7 @@
       for (const l of data.controls.councilsLost) {
         out[l.councilSlug] = {
           color: '#e5e3d6',
-          href: `/${l.councilSlug}`,
+          href: `/councils/${l.councilSlug}`,
           primary: l.council,
           secondary: `Lost to ${l.toParty} (was largest in ${l.yearFrom})`,
           title: `${l.council}: lost to ${l.toParty}`,
@@ -88,13 +88,13 @@
   />
   <link
     rel="canonical"
-    href="https://electionresults.uk/party/{data.partySlug}/{data.year}"
+    href="https://electionresults.uk/councils/party/{data.partySlug}/{data.year}"
   />
 </svelte:head>
 
 <main class="wide">
   <p class="crumbs">
-    <a href="/party/{data.partySlug}">{data.partyName}</a> &rsaquo; {data.year}
+    <a href="/councils/party/{data.partySlug}">{data.partyName}</a> &rsaquo; {data.year}
   </p>
   <h1>
     <span class="swatch" style:background={partyHex} aria-hidden="true"></span>
@@ -236,7 +236,7 @@
     <p class="muted">
       Councils where the largest party in the running composition
       changed at this election.
-      <a href="/methodology#flips">How a flip is defined &rarr;</a>
+      <a href="/councils/methodology#flips">How a flip is defined &rarr;</a>
     </p>
 
     {#if data.controls.councilsGained.length > 0}
@@ -244,7 +244,7 @@
       <ul class="flips">
         {#each data.controls.councilsGained as g}
           <li>
-            <a href="/{g.councilSlug}">{g.council}</a>
+            <a href="/councils/{g.councilSlug}">{g.council}</a>
             <span class="muted">
               from <span class="party-pill" style:background={partyColor(g.fromParty)}>
                 {partyDisplayName(g.fromParty)}
@@ -260,7 +260,7 @@
       <ul class="flips">
         {#each data.controls.councilsLost as l}
           <li>
-            <a href="/{l.councilSlug}">{l.council}</a>
+            <a href="/councils/{l.councilSlug}">{l.council}</a>
             <span class="muted">
               to <span class="party-pill" style:background={partyColor(l.toParty)}>
                 {partyDisplayName(l.toParty)}
@@ -299,7 +299,7 @@
         <tbody>
           {#each data.gained as r}
             <tr>
-              <td><a href="/{r.councilSlug}">{r.council}</a></td>
+              <td><a href="/councils/{r.councilSlug}">{r.council}</a></td>
               <td class="r">{num(r.seatsWon)}</td>
               <td class="r">
                 {r.prevSeatsWon != null ? `${num(r.prevSeatsWon)} (${r.prevYear})` : '—'}
@@ -333,7 +333,7 @@
         <tbody>
           {#each data.lost as r}
             <tr>
-              <td><a href="/{r.councilSlug}">{r.council}</a></td>
+              <td><a href="/councils/{r.councilSlug}">{r.council}</a></td>
               <td class="r">{num(r.seatsWon)}</td>
               <td class="r">
                 {r.prevSeatsWon != null ? `${num(r.prevSeatsWon)} (${r.prevYear})` : '—'}
@@ -365,7 +365,7 @@
         <tbody>
           {#each data.debut as r}
             <tr>
-              <td><a href="/{r.councilSlug}">{r.council}</a></td>
+              <td><a href="/councils/{r.councilSlug}">{r.council}</a></td>
               <td class="r">{num(r.seatsWon)}</td>
               <td class="r">{pct(r.voteShare)}</td>
               <td class="r">{pct(r.seatShare)}</td>
@@ -382,7 +382,7 @@
       <ul class="flat-list">
         {#each data.flat as r}
           <li>
-            <a href="/{r.councilSlug}">{r.council}</a>
+            <a href="/councils/{r.councilSlug}">{r.council}</a>
             <span class="muted">{num(r.seatsWon)} seats (unchanged from {r.prevYear})</span>
           </li>
         {/each}
@@ -396,7 +396,7 @@
     that's the previous all-out cycle (typically four years prior); for
     by-thirds councils it's last year's slice. Cross-cycle ward boundary
     changes can produce small artefacts &mdash; see
-    <a href="/methodology">methodology</a>.
+    <a href="/councils/methodology">methodology</a>.
   </p>
 </main>
 

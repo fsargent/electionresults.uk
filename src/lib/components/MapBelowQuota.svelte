@@ -31,7 +31,7 @@
         c.councilSlug,
         {
           color: belowQuotaColor(normalise(c.belowQuotaShare)),
-          href: `/${c.councilSlug}`,
+          href: `/councils/${c.councilSlug}`,
           title: `${c.council} — ${c.year}: ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`,
           primary: `${c.council} (${c.year})`,
           secondary: `${pct(c.belowQuotaShare)} of seats below quota — ${c.belowQuotaSeatCount} of ${c.totalSeatCount}`
@@ -46,7 +46,7 @@
         const existing = out[c.councilSlug];
         out[c.councilSlug] = {
           ...existing,
-          href: existing?.href ?? `/${c.councilSlug}`,
+          href: existing?.href ?? `/councils/${c.councilSlug}`,
           // Keep the partial-data shade if we have one. Otherwise just
           // outline the hex — no fill colour overrides the data we
           // don't yet trust.
