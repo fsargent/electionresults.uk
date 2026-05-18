@@ -14,6 +14,7 @@ import {
   nationalSummaryForYear,
   partyTotalsForYear
 } from '$lib/parliament/data';
+import { partyEfficiency } from '$lib/parliament/metrics';
 import type {
   NationalPartyTotal,
   NationalSummary,
@@ -26,10 +27,16 @@ export function entries() {
   return ingestedYears().map((year) => ({ year: String(year) }));
 }
 
+export interface PartyRow {
+  party: NationalPartyTotal;
+  votesPerSeat: number | null;
+}
+
 export function load({ params }: { params: { year: string } }): {
   year: number;
   summary: NationalSummary;
   partyTotals: NationalPartyTotal[];
+  partyRows: PartyRow[];
   manifest: SourceManifest;
 } {
   const year = Number(params.year);
@@ -39,10 +46,21 @@ export function load({ params }: { params: { year: string } }): {
   if (!ingestedYears().includes(year)) {
     throw error(404, `No ingested parliamentary election for year ${year}`);
   }
+  const partyTotals = partyTotalsForYear(year);
+  // partyEfficiency preserves input order — pre-sort here so the page
+  // can render PartyVoteSeatBar rows directly (vote share desc) without
+  // recomputing the sort or re-joining the efficiency lookup.
+  const sortedTotals = [...partyTotals].sort((a, b) => b.voteShare - a.voteShare);
+  const efficiency = partyEfficiency(sortedTotals);
+  const partyRows: PartyRow[] = sortedTotals.map((party, i) => ({
+    party,
+    votesPerSeat: efficiency[i].votesPerSeat
+  }));
   return {
     year,
     summary: nationalSummaryForYear(year),
-    partyTotals: partyTotalsForYear(year),
+    partyTotals,
+    partyRows,
     manifest: manifestForYear(year)
   };
 }
