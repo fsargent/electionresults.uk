@@ -1,6 +1,7 @@
 <script lang="ts">
   import { num, pct } from '$lib/format';
   import NationalDistortionSummary from '$lib/parliament/components/NationalDistortionSummary.svelte';
+  import PartyVoteSeatBar from '$lib/parliament/components/PartyVoteSeatBar.svelte';
 
   let { data } = $props();
 
@@ -67,6 +68,46 @@
 
   <NationalDistortionSummary summary={data.summary} />
 
+  <section aria-labelledby="party-bars-heading" class="party-section">
+    <h2 id="party-bars-heading">Vote share vs seat share by party</h2>
+    <p>
+      Each row pairs the party&rsquo;s national vote share (filled bar)
+      with its national seat share (outlined bar) on the same axis. The
+      gap is what First Past the Post produced &mdash; not what any
+      party did wrong.
+    </p>
+    <div class="table-scroll">
+      <table class="party-bars">
+        <caption class="visually-hidden">
+          Vote share, seat share, FPTP outcome, and votes per seat for
+          every party that contested the {data.year} UK general election,
+          ordered by vote share descending.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Party</th>
+            <th scope="col">Vote share vs seat share</th>
+            <th scope="col" class="num">Votes per seat</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#each data.partyRows as row (row.party.partyId)}
+            <PartyVoteSeatBar
+              party={row.party}
+              votesPerSeat={row.votesPerSeat}
+            />
+          {/each}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted">
+      Votes-per-seat is a rough efficiency measure: total votes the
+      party received nationally divided by the seats it won. Parties
+      with no seats show &ldquo;no seats won&rdquo; rather than a
+      divide-by-zero result.
+    </p>
+  </section>
+
   <footer class="page-footer">
     <p class="muted">
       How these numbers are computed:
@@ -96,6 +137,61 @@
 
   .prologue {
     font-size: 1.05rem;
+  }
+
+  .party-section {
+    margin: 2rem 0;
+  }
+
+  /* Horizontal scroll for the bars table on narrow viewports — same
+     pattern as global tables (see global.css). Bars cell is at least
+     8rem (set on .bars in the component) so the visualisation never
+     collapses to a sliver. */
+  .table-scroll {
+    overflow-x: auto;
+  }
+
+  table.party-bars {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0;
+    font-size: 0.95rem;
+  }
+
+  /* tbody cells live in PartyVoteSeatBar; :global() reaches across the
+     component boundary so the table owns its own row spacing. */
+  table.party-bars thead th,
+  table.party-bars :global(tbody th),
+  table.party-bars :global(tbody td) {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  table.party-bars thead th {
+    text-align: left;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+    border-bottom: 2px solid var(--rule);
+  }
+
+  table.party-bars .num {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .page-footer {
