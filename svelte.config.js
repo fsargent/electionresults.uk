@@ -17,14 +17,11 @@ const config = {
     }),
     prerender: {
       handleHttpError: ({ path, message }) => {
-        // Parliament stack: routes referenced by /parliament land in
-        // subsequent stories. Drop entries as each story merges.
-        //   /parliament/[year]       — Story 3.2
-        //   /parliament/methodology  — Story 4.1
-        const pendingParliamentRoutes = new Set([
-          '/parliament/2024',
-          '/parliament/methodology'
-        ]);
+        // Parliament stack: routes referenced by ingested-year pages
+        // land in subsequent stories. Drop entries as each story merges.
+        //   /parliament/methodology       — Story 4.1
+        //   /parliament/2024/[constituency] — Story 3.5
+        const pendingParliamentRoutes = new Set(['/parliament/methodology']);
         if (pendingParliamentRoutes.has(path)) return;
         throw new Error(message);
       },
