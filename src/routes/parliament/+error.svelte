@@ -38,17 +38,3 @@
   </ul>
 </main>
 
-<style>
-  ul {
-    padding-left: 1.5rem;
-  }
-
-  ul li {
-    margin: 0.4rem 0;
-  }
-
-  a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-</style>

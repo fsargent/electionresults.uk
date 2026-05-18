@@ -26,6 +26,19 @@
       ? data.partyTotals.find((p) => p.partyId === mostUnder.partyId)
       : null
   );
+
+  // Trim the long tail of micro-parties from the visual table — 96 rows
+  // including parties on <0.001% of the vote drowns the FPTP story in
+  // noise. CSV exports under /parliament/data still ship every party.
+  const PARTY_VISIBILITY_THRESHOLD = 0.01;
+  const visibleParties = $derived(
+    data.partyRows.filter(
+      (r) => r.party.voteShare >= PARTY_VISIBILITY_THRESHOLD
+    )
+  );
+  const hiddenPartyCount = $derived(
+    data.partyRows.length - visibleParties.length
+  );
 </script>
 
 <svelte:head>
@@ -37,10 +50,10 @@
   <link rel="canonical" href={`https://electionresults.uk/parliament/${data.year}`} />
 </svelte:head>
 
-<main>
+<main class="wide">
   <h1>{data.year} UK general election &mdash; FPTP audit</h1>
 
-  <p class="prologue">
+  <p>
     Under First Past the Post,
     <strong>{num(data.summary.minorityWinnerCount)} of
       {num(data.summary.totalSeats)}</strong>
@@ -68,147 +81,70 @@
 
   <NationalDistortionSummary summary={data.summary} />
 
-  <section aria-labelledby="party-bars-heading" class="party-section">
-    <h2 id="party-bars-heading">Vote share vs seat share by party</h2>
-    <p>
-      Each row pairs the party&rsquo;s national vote share (filled bar)
-      with its national seat share (outlined bar) on the same axis. The
-      gap is what First Past the Post produced &mdash; not what any
-      party did wrong.
-    </p>
-    <div class="table-scroll">
-      <table class="party-bars">
-        <caption class="visually-hidden">
-          Vote share, seat share, FPTP outcome, and votes per seat for
-          every party that contested the {data.year} UK general election,
-          ordered by vote share descending.
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Party</th>
-            <th scope="col">Vote share vs seat share</th>
-            <th scope="col" class="num">Votes per seat</th>
-          </tr>
-        </thead>
-        <tbody>
-          {#each data.partyRows as row (row.party.partyId)}
-            <PartyVoteSeatBar
-              party={row.party}
-              votesPerSeat={row.votesPerSeat}
-            />
-          {/each}
-        </tbody>
-      </table>
-    </div>
+  <h2>Vote share vs seat share by party</h2>
+  <p>
+    Each row pairs the party&rsquo;s national vote share (filled bar)
+    with its national seat share (outlined bar) on the same axis. The
+    gap is what First Past the Post produced &mdash; not what any
+    party did wrong.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Party</th>
+        <th scope="col">Vote share vs seat share</th>
+        <th scope="col" class="num">Votes per seat</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each visibleParties as row (row.party.partyId)}
+        <PartyVoteSeatBar party={row.party} votesPerSeat={row.votesPerSeat} />
+      {/each}
+    </tbody>
+  </table>
+  {#if hiddenPartyCount > 0}
     <p class="muted">
-      Votes-per-seat is a rough efficiency measure: total votes the
-      party received nationally divided by the seats it won. Parties
-      with no seats show &ldquo;no seats won&rdquo; rather than a
-      divide-by-zero result.
+      {num(hiddenPartyCount)} smaller parties (under
+      {pct(PARTY_VISIBILITY_THRESHOLD, 0)} of valid votes) hidden &mdash;
+      the full party-by-party totals are in the
+      <a href="/parliament/data">CSV downloads</a>.
     </p>
-  </section>
+  {/if}
+  <p class="muted">
+    Votes-per-seat is total votes the party received nationally divided
+    by the seats it won. Parties with no seats show
+    &ldquo;no seats won&rdquo; rather than a divide-by-zero result.
+  </p>
 
   {#if data.summary.lowWinningShareLeaderboard.length > 0}
-    <section aria-labelledby="leaderboard-heading" class="leaderboard-section">
-      <h2 id="leaderboard-heading">
-        Constituencies won without majority support &mdash; lowest
-        winning shares
-      </h2>
-      <p>
-        Every row here is a constituency where First Past the Post
-        seated a candidate the majority of voters did not back. The
-        winning candidate&rsquo;s name appears as a factual record of
-        who took the seat; the subject of analysis is the voting method
-        that produced the result.
-      </p>
-      <LowWinningShareTable
-        rows={data.summary.lowWinningShareLeaderboard}
-        year={data.year}
-      />
-      <p class="muted">
-        Sorted ascending by winning share. Click a constituency name to
-        see the full candidate record.
-      </p>
-    </section>
+    <h2>
+      Constituencies won without majority support &mdash; lowest winning
+      shares
+    </h2>
+    <p>
+      Every row here is a constituency where First Past the Post seated
+      a candidate the majority of voters did not back. The winning
+      candidate&rsquo;s name appears as a factual record of who took
+      the seat; the subject of analysis is the voting method that
+      produced the result.
+    </p>
+    <LowWinningShareTable
+      rows={data.summary.lowWinningShareLeaderboard}
+      year={data.year}
+    />
+    <p class="muted">
+      Sorted ascending by winning share. Click a constituency name to
+      see the full candidate record.
+    </p>
   {/if}
 
-  <footer class="page-footer">
-    <p class="muted">
-      How these numbers are computed:
-      <a href="/parliament/methodology">methodology</a>. Source data:
-      <a href={data.manifest.sourceUrl} rel="external noopener"
-        >{data.manifest.sourceName}</a
-      >, retrieved {data.manifest.retrievalDate}, generated
-      {new Date(data.manifest.generatedAt).toISOString().slice(0, 10)}
-      ({data.manifest.licence}).
-    </p>
-  </footer>
+  <p class="muted">
+    How these numbers are computed:
+    <a href="/parliament/methodology">methodology</a>. Source data:
+    <a href={data.manifest.sourceUrl} rel="external noopener"
+      >{data.manifest.sourceName}</a>, retrieved
+    {data.manifest.retrievalDate}, generated
+    {new Date(data.manifest.generatedAt).toISOString().slice(0, 10)}
+    ({data.manifest.licence}).
+  </p>
 </main>
-
-<style>
-  .prologue {
-    font-size: 1.05rem;
-  }
-
-  .party-section,
-  .leaderboard-section {
-    margin: 2rem 0;
-  }
-
-  /* Horizontal scroll for the bars table on narrow viewports — same
-     pattern as global tables (see global.css). Bars cell is at least
-     8rem (set on .bars in the component) so the visualisation never
-     collapses to a sliver. */
-  .table-scroll {
-    overflow-x: auto;
-  }
-
-  table.party-bars {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0.75rem 0;
-    font-size: 0.95rem;
-  }
-
-  /* tbody cells live in PartyVoteSeatBar; :global() reaches across the
-     component boundary so the table owns its own row spacing. */
-  table.party-bars thead th,
-  table.party-bars :global(tbody th),
-  table.party-bars :global(tbody td) {
-    padding: 0.5rem 0.6rem;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-  }
-
-  table.party-bars thead th {
-    text-align: left;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    color: var(--muted);
-    border-bottom: 2px solid var(--rule);
-  }
-
-  table.party-bars .num {
-    text-align: right;
-    white-space: nowrap;
-  }
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  .page-footer {
-    margin-top: 2.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--rule);
-  }
-</style>

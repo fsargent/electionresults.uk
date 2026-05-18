@@ -3,17 +3,9 @@
   import { page } from '$app/state';
   let { children } = $props();
 
-  // Domain badge driven by URL path so the layout owns it (UX-G4).
-  // Individual pages no longer ship their own badges. The badge is
-  // strictly limited to the two audit-product subtrees — homepage
-  // and /data are neutral so the council-launch hero isn't visually
-  // re-themed on the front page.
-  const domain = $derived.by<'parliament' | 'councils' | null>(() => {
-    const p = page.url?.pathname ?? '';
-    if (p.startsWith('/parliament')) return 'parliament';
-    if (p.startsWith('/councils')) return 'councils';
-    return null;
-  });
+  const onParliament = $derived(
+    (page.url?.pathname ?? '').startsWith('/parliament')
+  );
 </script>
 
 <svelte:head>
@@ -36,22 +28,9 @@
   <a href="/councils/parties">Parties</a>
   <a href="/councils/methodology">Methodology</a>
   <a href="/data">Data</a>
-  {#if domain === 'parliament'}
-    <a class="secondary current" href="/parliament" aria-current="page"
-      >Parliament</a>
-  {:else}
-    <a class="secondary" href="/parliament">Parliament</a>
-  {/if}
-  {#if domain}
-    <span
-      class="domain-badge"
-      class:parliament={domain === 'parliament'}
-      class:councils={domain === 'councils'}
-      aria-label={`Currently viewing: ${domain === 'parliament' ? 'Parliament' : 'Councils'}`}
-    >
-      {domain === 'parliament' ? 'Parliament' : 'Councils'}
-    </span>
-  {/if}
+  <a
+    href="/parliament"
+    aria-current={onParliament ? 'page' : undefined}>Parliament</a>
 </nav>
 
 {@render children?.()}
@@ -87,55 +66,3 @@
     </p>
   </div>
 </footer>
-
-<style>
-  /* Secondary nav item — visually distinct from the primary council
-     links so the homepage hero isn't taken over by Parliament. Reads
-     as "and there's also this audit surface" rather than a peer link. */
-  nav.site :global(a.secondary) {
-    padding: 0.05rem 0.55rem;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    text-decoration: none;
-    color: var(--fg);
-    /* ≥44×44 tap target on mobile */
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  nav.site :global(a.secondary:hover),
-  nav.site :global(a.secondary:focus-visible) {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  nav.site :global(a.secondary.current) {
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* Persistent domain badge so a reader always knows which surface
-     they're on, even after deep-linking past the page-level <h1>.
-     Margin-left:auto pushes it to the right of the nav row on wide
-     viewports; it stays visible inline on narrow viewports (the nav
-     wraps gracefully via flex-wrap). */
-  .domain-badge {
-    margin-left: auto;
-    padding: 0.2rem 0.6rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    border-radius: 3px;
-    color: var(--accent-fg);
-    background: var(--accent);
-    align-self: center;
-  }
-
-  /* .domain-badge.parliament / .domain-badge.councils share the same
-     accent today — site identity stays consistent. Class hooks are
-     present on the element so a follow-up design tweak can
-     differentiate them without touching this layout. */
-</style>
