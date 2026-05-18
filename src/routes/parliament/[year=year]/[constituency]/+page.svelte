@@ -41,7 +41,6 @@
 </svelte:head>
 
 <main>
-  <p class="badge" aria-label="Section: Parliament">Parliament</p>
   <nav class="crumbs" aria-label="Breadcrumb">
     <a href="/parliament">UK general elections</a>
     <span aria-hidden="true">›</span>
@@ -146,19 +145,6 @@
 </main>
 
 <style>
-  .badge {
-    display: inline-block;
-    margin: 0 0 0.25rem;
-    padding: 0.15rem 0.55rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent-fg);
-    background: var(--accent);
-    border-radius: 3px;
-  }
-
   .crumbs {
     margin: 0 0 0.5rem;
     font-size: 0.9rem;

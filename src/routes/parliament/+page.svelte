@@ -13,7 +13,6 @@
 </svelte:head>
 
 <main>
-  <p class="badge" aria-label="Section: Parliament">Parliament</p>
   <h1>UK general elections</h1>
   <p>
     This section is a First-Past-the-Post audit of UK general elections
@@ -66,19 +65,6 @@
 </main>
 
 <style>
-  .badge {
-    display: inline-block;
-    margin: 0 0 0.25rem;
-    padding: 0.15rem 0.55rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent-fg);
-    background: var(--accent);
-    border-radius: 3px;
-  }
-
   ul.elections {
     list-style: none;
     padding: 0;
