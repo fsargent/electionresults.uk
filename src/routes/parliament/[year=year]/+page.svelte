@@ -2,6 +2,7 @@
   import { num, pct } from '$lib/format';
   import NationalDistortionSummary from '$lib/parliament/components/NationalDistortionSummary.svelte';
   import PartyVoteSeatBar from '$lib/parliament/components/PartyVoteSeatBar.svelte';
+  import LowWinningShareTable from '$lib/parliament/components/LowWinningShareTable.svelte';
 
   let { data } = $props();
 
@@ -108,6 +109,30 @@
     </p>
   </section>
 
+  {#if data.summary.lowWinningShareLeaderboard.length > 0}
+    <section aria-labelledby="leaderboard-heading" class="leaderboard-section">
+      <h2 id="leaderboard-heading">
+        Constituencies won without majority support &mdash; lowest
+        winning shares
+      </h2>
+      <p>
+        Every row here is a constituency where First Past the Post
+        seated a candidate the majority of voters did not back. The
+        winning candidate&rsquo;s name appears as a factual record of
+        who took the seat; the subject of analysis is the voting method
+        that produced the result.
+      </p>
+      <LowWinningShareTable
+        rows={data.summary.lowWinningShareLeaderboard}
+        year={data.year}
+      />
+      <p class="muted">
+        Sorted ascending by winning share. Click a constituency name to
+        see the full candidate record.
+      </p>
+    </section>
+  {/if}
+
   <footer class="page-footer">
     <p class="muted">
       How these numbers are computed:
@@ -139,7 +164,8 @@
     font-size: 1.05rem;
   }
 
-  .party-section {
+  .party-section,
+  .leaderboard-section {
     margin: 2rem 0;
   }
 
