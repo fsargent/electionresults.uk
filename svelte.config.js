@@ -20,9 +20,7 @@ const config = {
         // Parliament stack: routes referenced by ingested-year pages
         // land in subsequent stories. Drop entries as each story merges.
         //   /parliament/methodology         — Story 4.1
-        //   /parliament/<year>/<slug>       — Story 3.5
         if (path === '/parliament/methodology') return;
-        if (/^\/parliament\/\d{4}\/[a-z0-9-]+$/.test(path)) return;
         throw new Error(message);
       },
       handleMissingId: 'fail'

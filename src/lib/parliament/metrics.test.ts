@@ -37,6 +37,7 @@ function contest(over: Partial<ConstituencyContest>): ConstituencyContest {
     constituencySlug: 'somewhere',
     constituencyName: 'Somewhere',
     contestType: 'single-member',
+    country: 'england',
     electorate: 70000,
     validVotes: 45000,
     turnout: 45000 / 70000,
