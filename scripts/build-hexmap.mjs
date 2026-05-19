@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const HEXJSON = resolve(ROOT, 'docs/uk-lad-2025.hexjson');
+const HEXJSON = resolve(ROOT, 'source-data/council/uk-lad-2025.hexjson');
 const OUT = resolve(ROOT, 'src/lib/data/hexes.json');
 
 function slugify(s) {

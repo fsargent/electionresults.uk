@@ -1,0 +1,21 @@
+{
+  "_manifest": {
+    "id": "parliament-ge-2019-cbp-8749",
+    "sourceName": "House of Commons Library general election results 2019",
+    "sourceUrl": "https://commonslibrary.parliament.uk/research-briefings/cbp-8749/",
+    "licence": "Open Parliament Licence v3.0",
+    "retrievalDate": "2026-05-19",
+    "publicationDate": "2025-05-02",
+    "generatedAt": "2026-05-19T10:34:00.422Z",
+    "etlVersion": "parliament-etl@1",
+    "caveats": []
+  },
+  "data": {
+    "electionId": "ge-2019",
+    "year": 2019,
+    "boundarySet": "2010-review",
+    "constituenciesFile": "constituencies.json",
+    "partyTotalsFile": "party-totals.json",
+    "nationalSummaryFile": "national-summary.json"
+  }
+}

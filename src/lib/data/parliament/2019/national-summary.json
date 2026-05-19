@@ -1,0 +1,620 @@
+{
+  "_manifest": {
+    "id": "parliament-ge-2019-cbp-8749",
+    "sourceName": "House of Commons Library general election results 2019",
+    "sourceUrl": "https://commonslibrary.parliament.uk/research-briefings/cbp-8749/",
+    "licence": "Open Parliament Licence v3.0",
+    "retrievalDate": "2026-05-19",
+    "publicationDate": "2025-05-02",
+    "generatedAt": "2026-05-19T10:34:00.422Z",
+    "etlVersion": "parliament-etl@1",
+    "caveats": []
+  },
+  "data": {
+    "electionId": "ge-2019",
+    "totalVotes": 31974240,
+    "totalSeats": 649,
+    "gallagher": 11.830976237267013,
+    "minorityWinnerCount": 229,
+    "voteVsSeatGap": [
+      {
+        "partyId": "conservative-party",
+        "partyDisplayName": "Conservative Party",
+        "gap": 0.12560038382901317
+      },
+      {
+        "partyId": "liberal-democrats",
+        "partyDisplayName": "Liberal Democrats",
+        "gap": -0.09865700416377557
+      },
+      {
+        "partyId": "scottish-national-party",
+        "partyDisplayName": "Scottish National Party",
+        "gap": 0.03510428456540798
+      },
+      {
+        "partyId": "green-party",
+        "partyDisplayName": "Green Party",
+        "gap": -0.025359541501401694
+      },
+      {
+        "partyId": "the-brexit-party",
+        "partyDisplayName": "The Brexit Party",
+        "gap": -0.020149251397374886
+      },
+      {
+        "partyId": "labour-party",
+        "partyDisplayName": "Labour Party",
+        "gap": -0.009918308728125547
+      },
+      {
+        "partyId": "independent",
+        "partyDisplayName": "Independent",
+        "gap": -0.006162679707164267
+      },
+      {
+        "partyId": "sinn-fein",
+        "partyDisplayName": "Sinn Féin",
+        "gap": 0.005098339669982873
+      },
+      {
+        "partyId": "democratic-unionist-party",
+        "partyDisplayName": "Democratic Unionist Party",
+        "gap": 0.004691510101687329
+      },
+      {
+        "partyId": "ulster-unionist-party",
+        "partyDisplayName": "Ulster Unionist Party",
+        "gap": -0.002912438262801555
+      },
+      {
+        "partyId": "alliance",
+        "partyDisplayName": "Alliance",
+        "gap": -0.00265363824928374
+      },
+      {
+        "partyId": "plaid-cymru",
+        "partyDisplayName": "Plaid Cymru",
+        "gap": 0.0013699382683337435
+      },
+      {
+        "partyId": "the-yorkshire-party",
+        "partyDisplayName": "The Yorkshire Party",
+        "gap": -0.0009132664294757279
+      },
+      {
+        "partyId": "uk-independence-party",
+        "partyDisplayName": "UK Independence Party",
+        "gap": -0.0007136057025905854
+      },
+      {
+        "partyId": "social-democratic-and-labour-party",
+        "partyDisplayName": "Social Democratic & Labour Party",
+        "gap": -0.0006318565354972079
+      },
+      {
+        "partyId": "ashfield-independents",
+        "partyDisplayName": "Ashfield Independents",
+        "gap": -0.00042215233262776536
+      },
+      {
+        "partyId": "liberal",
+        "partyDisplayName": "Liberal",
+        "gap": -0.00034014881979993895
+      },
+      {
+        "partyId": "the-independent-group-for-change",
+        "partyDisplayName": "The Independent Group for Change",
+        "gap": -0.0003129394162300652
+      },
+      {
+        "partyId": "aontu",
+        "partyDisplayName": "Aontú",
+        "gap": -0.00030693458233878274
+      },
+      {
+        "partyId": "official-monster-raving-loony-party",
+        "partyDisplayName": "Official Monster Raving Loony Party",
+        "gap": -0.0003045889441000005
+      },
+      {
+        "partyId": "people-before-profit-alliance",
+        "partyDisplayName": "People Before Profit Alliance",
+        "gap": -0.00023537697846766646
+      },
+      {
+        "partyId": "birkenhead-social-justice-party",
+        "partyDisplayName": "Birkenhead Social Justice Party",
+        "gap": -0.00022783966092704627
+      },
+      {
+        "partyId": "christian-peoples-alliance",
+        "partyDisplayName": "Christian Peoples Alliance",
+        "gap": -0.00020285079488988636
+      },
+      {
+        "partyId": "heavy-woollen-district-independents",
+        "partyDisplayName": "Heavy Woollen District Independents",
+        "gap": -0.00020116193535796317
+      },
+      {
+        "partyId": "social-democratic-party",
+        "partyDisplayName": "Social Democratic Party",
+        "gap": -0.00010305170662383219
+      },
+      {
+        "partyId": "animal-welfare-party",
+        "partyDisplayName": "Animal Welfare Party",
+        "gap": -0.00009651519473175907
+      },
+      {
+        "partyId": "the-north-east-party",
+        "partyDisplayName": "The North East Party",
+        "gap": -0.00008247264047558284
+      },
+      {
+        "partyId": "lincolnshire-independents-lincolnshire-first",
+        "partyDisplayName": "Lincolnshire Independents Lincolnshire First",
+        "gap": -0.00006251907785767543
+      },
+      {
+        "partyId": "green-party-northern-ireland",
+        "partyDisplayName": "Green Party Northern Ireland",
+        "gap": -0.00006242525232812413
+      },
+      {
+        "partyId": "english-democrats",
+        "partyDisplayName": "English Democrats",
+        "gap": -0.00006214377573947028
+      },
+      {
+        "partyId": "libertarian-party",
+        "partyDisplayName": "Libertarian Party",
+        "gap": -0.000055669814200431345
+      },
+      {
+        "partyId": "mebyon-kernow-the-party-for-cornwall",
+        "partyDisplayName": "Mebyon Kernow - The Party for Cornwall",
+        "gap": -0.00005191679301837979
+      },
+      {
+        "partyId": "proud-of-oldham-and-saddleworth",
+        "partyDisplayName": "Proud of Oldham & Saddleworth",
+        "gap": -0.000050227933486456596
+      },
+      {
+        "partyId": "independent-network",
+        "partyDisplayName": "Independent Network",
+        "gap": -0.00004822632218936244
+      },
+      {
+        "partyId": "gwlad-gwlad",
+        "partyDisplayName": "Gwlad Gwlad",
+        "gap": -0.000047381892423400836
+      },
+      {
+        "partyId": "the-cynon-valley-party",
+        "partyDisplayName": "The Cynon Valley Party",
+        "gap": -0.00004134578335560126
+      },
+      {
+        "partyId": "veterans-and-people-s-party",
+        "partyDisplayName": "Veterans and People's Party",
+        "gap": -0.000038124440174340346
+      },
+      {
+        "partyId": "burnley-and-padiham-independent-party",
+        "partyDisplayName": "Burnley and Padiham Independent Party",
+        "gap": -0.000036341755112865855
+      },
+      {
+        "partyId": "shropshire-party",
+        "partyDisplayName": "Shropshire Party",
+        "gap": -0.000035684976406006835
+      },
+      {
+        "partyId": "cumbria-first",
+        "partyDisplayName": "Cumbria First",
+        "gap": -0.000033464438873293
+      },
+      {
+        "partyId": "the-peace-party-non-violence-justice-environment",
+        "partyDisplayName": "The Peace Party - Non-violence, Justice, Environment",
+        "gap": -0.000030024169456412412
+      },
+      {
+        "partyId": "wycombe-independents",
+        "partyDisplayName": "Wycombe Independents",
+        "gap": -0.00002896081345483114
+      },
+      {
+        "partyId": "the-justice-and-anti-corruption-party",
+        "partyDisplayName": "The Justice & Anti-Corruption Party",
+        "gap": -0.000022768328504446077
+      },
+      {
+        "partyId": "christian-party-proclaiming-christ-s-lordship",
+        "partyDisplayName": "Christian Party, Proclaiming Christ's Lordship",
+        "gap": -0.000022048999444552865
+      },
+      {
+        "partyId": "renew",
+        "partyDisplayName": "Renew",
+        "gap": -0.000017044971201817462
+      },
+      {
+        "partyId": "workers-revolutionary-party",
+        "partyDisplayName": "Workers Revolutionary Party",
+        "gap": -0.000016388192494958442
+      },
+      {
+        "partyId": "british-national-party",
+        "partyDisplayName": "British National Party",
+        "gap": -0.000015950340023719092
+      },
+      {
+        "partyId": "socialist-labour-party",
+        "partyDisplayName": "Socialist Labour Party",
+        "gap": -0.000015449937199445553
+      },
+      {
+        "partyId": "scottish-family-party",
+        "partyDisplayName": "Scottish Family Party",
+        "gap": -0.000014542957080449761
+      },
+      {
+        "partyId": "women-s-equality-party",
+        "partyDisplayName": "Women's Equality Party",
+        "gap": -0.000013010473431112045
+      },
+      {
+        "partyId": "communities-united-party",
+        "partyDisplayName": "Communities United Party",
+        "gap": -0.000012291144371218832
+      },
+      {
+        "partyId": "psychedelic-movement",
+        "partyDisplayName": "Psychedelic Movement",
+        "gap": -0.000011477989781774328
+      },
+      {
+        "partyId": "the-universal-good-party",
+        "partyDisplayName": "The Universal Good Party",
+        "gap": -0.000011352889075705944
+      },
+      {
+        "partyId": "advance-together",
+        "partyDisplayName": "Advance Together",
+        "gap": -0.000010977586957500788
+      },
+      {
+        "partyId": "young-people-s-party",
+        "partyDisplayName": "Young People's Party",
+        "gap": -0.000009726579896816938
+      },
+      {
+        "partyId": "alliance-for-green-socialism",
+        "partyDisplayName": "Alliance for Green Socialism",
+        "gap": -0.00000869449907175276
+      },
+      {
+        "partyId": "motherworld-party",
+        "partyDisplayName": "Motherworld Party",
+        "gap": -0.000008444297659615991
+      },
+      {
+        "partyId": "the-best-for-luton-party",
+        "partyDisplayName": "The Best for Luton Party",
+        "gap": -0.000008381747306581798
+      },
+      {
+        "partyId": "the-citizens-movement-party-uk",
+        "partyDisplayName": "The Citizens Movement Party UK",
+        "gap": -0.000008037720364893739
+      },
+      {
+        "partyId": "yeshua",
+        "partyDisplayName": "Yeshua",
+        "gap": -0.0000063801360094876375
+      },
+      {
+        "partyId": "the-constitution-and-reform-party",
+        "partyDisplayName": "The Constitution and Reform Party",
+        "gap": -0.000005817182832179905
+      },
+      {
+        "partyId": "church-of-the-militant-elvis-party",
+        "partyDisplayName": "Church of the Militant Elvis Party",
+        "gap": -0.000005379330360940557
+      },
+      {
+        "partyId": "socialist-equality-party",
+        "partyDisplayName": "Socialist Equality Party",
+        "gap": -0.000005379330360940557
+      },
+      {
+        "partyId": "the-socialist-party-of-great-britain",
+        "partyDisplayName": "The Socialist Party of Great Britain",
+        "gap": -0.000004910202713184114
+      },
+      {
+        "partyId": "the-common-people",
+        "partyDisplayName": "The Common People",
+        "gap": -0.000004128323300256707
+      },
+      {
+        "partyId": "space-navies-party",
+        "partyDisplayName": "Space Navies Party",
+        "gap": -0.000003690470829017359
+      },
+      {
+        "partyId": "patria",
+        "partyDisplayName": "Patria",
+        "gap": -0.0000034089942403634925
+      },
+      {
+        "partyId": "communist-league-election-campaign",
+        "partyDisplayName": "Communist League Election Campaign",
+        "gap": -0.0000031275176517096263
+      },
+      {
+        "partyId": "rebooting-democracy",
+        "partyDisplayName": "Rebooting Democracy",
+        "gap": -0.0000020954368266454495
+      },
+      {
+        "partyId": "touch-love-worldwide-uk",
+        "partyDisplayName": "Touch Love Worldwide (UK)",
+        "gap": -0.0000014699332963035243
+      }
+    ],
+    "lowWinningShareLeaderboard": [
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:south-down",
+        "constituencySlug": "south-down",
+        "constituencyName": "South Down",
+        "winningShare": 0.3242835898878662,
+        "winningPartyId": "sinn-fein",
+        "winningPartyDisplayName": "Sinn Féin",
+        "winningCandidateName": "Chris Hazzard",
+        "runnerUpShare": 0.2917286282705679,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:sheffield-hallam",
+        "constituencySlug": "sheffield-hallam",
+        "constituencyName": "Sheffield, Hallam",
+        "winningShare": 0.3464709501626088,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Olivia Blake",
+        "runnerUpShare": 0.3339544695438165,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:kirkcaldy-and-cowdenbeath",
+        "constituencySlug": "kirkcaldy-and-cowdenbeath",
+        "constituencyName": "Kirkcaldy and Cowdenbeath",
+        "winningShare": 0.3524731411551963,
+        "winningPartyId": "scottish-national-party",
+        "winningPartyDisplayName": "Scottish National Party",
+        "winningCandidateName": "Neale Hanvey",
+        "runnerUpShare": 0.3260291458355494,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:south-antrim",
+        "constituencySlug": "south-antrim",
+        "constituencyName": "South Antrim",
+        "winningShare": 0.3525154744729371,
+        "winningPartyId": "democratic-unionist-party",
+        "winningPartyDisplayName": "Democratic Unionist Party",
+        "winningCandidateName": "Paul Girvan",
+        "runnerUpShare": 0.2899427560850747,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:ynys-mon",
+        "constituencySlug": "ynys-mon",
+        "constituencyName": "Ynys Môn",
+        "winningShare": 0.3545360035018604,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Virginia Crosbie",
+        "runnerUpShare": 0.3006949004158459,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:east-lothian",
+        "constituencySlug": "east-lothian",
+        "constituencyName": "East Lothian",
+        "winningShare": 0.3615606788235093,
+        "winningPartyId": "scottish-national-party",
+        "winningPartyDisplayName": "Scottish National Party",
+        "winningCandidateName": "Kenny MacAskill",
+        "runnerUpShare": 0.295148086749953,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:east-dunbartonshire",
+        "constituencySlug": "east-dunbartonshire",
+        "constituencyName": "East Dunbartonshire",
+        "winningShare": 0.3709528389055458,
+        "winningPartyId": "scottish-national-party",
+        "winningPartyDisplayName": "Scottish National Party",
+        "winningCandidateName": "Amy Callaghan",
+        "runnerUpShare": 0.3681431615470197,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:caithness-sutherland-and-easter-ross",
+        "constituencySlug": "caithness-sutherland-and-easter-ross",
+        "constituencyName": "Caithness, Sutherland and Easter Ross",
+        "winningShare": 0.3720952411228026,
+        "winningPartyId": "liberal-democrats",
+        "winningPartyDisplayName": "Liberal Democrats",
+        "winningCandidateName": "Jamie Stone",
+        "runnerUpShare": 0.3656101980481292,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:hemsworth",
+        "constituencySlug": "hemsworth",
+        "constituencyName": "Hemsworth",
+        "winningShare": 0.374883276015214,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Jon Trickett",
+        "runnerUpShare": 0.3480082902498463,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:barnsley-east",
+        "constituencySlug": "barnsley-east",
+        "constituencyName": "Barnsley East",
+        "winningShare": 0.3763856054636196,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Stephanie Peacock",
+        "runnerUpShare": 0.2918833727344366,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:hartlepool",
+        "constituencySlug": "hartlepool",
+        "constituencyName": "Hartlepool",
+        "winningShare": 0.3768306650096255,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Mike Hill",
+        "runnerUpShare": 0.2892267953310427,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:normanton-pontefract-and-castleford",
+        "constituencySlug": "normanton-pontefract-and-castleford",
+        "constituencyName": "Normanton, Pontefract and Castleford",
+        "winningShare": 0.37914171449885,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Yvette Cooper",
+        "runnerUpShare": 0.3527010505812387,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:ceredigion",
+        "constituencySlug": "ceredigion",
+        "constituencyName": "Ceredigion",
+        "winningShare": 0.3792045879566139,
+        "winningPartyId": "plaid-cymru",
+        "winningPartyDisplayName": "Plaid Cymru",
+        "winningCandidateName": "Ben Lake",
+        "runnerUpShare": 0.2213938411669368,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:kensington",
+        "constituencySlug": "kensington",
+        "constituencyName": "Kensington",
+        "winningShare": 0.3831634751610987,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Felicity Buchan",
+        "runnerUpShare": 0.3797358438828207,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:wimbledon",
+        "constituencySlug": "wimbledon",
+        "constituencyName": "Wimbledon",
+        "winningShare": 0.3842005016312445,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Stephen Hammond",
+        "runnerUpShare": 0.3723574782657891,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:doncaster-north",
+        "constituencySlug": "doncaster-north",
+        "constituencyName": "Doncaster North",
+        "winningShare": 0.3867511917047521,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Edward Miliband",
+        "runnerUpShare": 0.3285173718610251,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:carmarthen-east-and-dinefwr",
+        "constituencySlug": "carmarthen-east-and-dinefwr",
+        "constituencyName": "Carmarthen East and Dinefwr",
+        "winningShare": 0.3887371347739135,
+        "winningPartyId": "plaid-cymru",
+        "winningPartyDisplayName": "Plaid Cymru",
+        "winningCandidateName": "Jonathan Edwards",
+        "runnerUpShare": 0.34461733573972,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:kingston-upon-hull-east",
+        "constituencySlug": "kingston-upon-hull-east",
+        "constituencyName": "Kingston upon Hull East",
+        "winningShare": 0.3918685654398619,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Karl Turner",
+        "runnerUpShare": 0.3536773318537698,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:ashfield",
+        "constituencySlug": "ashfield",
+        "constituencyName": "Ashfield",
+        "winningShare": 0.3926296447529604,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Lee Anderson",
+        "runnerUpShare": 0.2755818701510821,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2019",
+        "constituencyId": "2010-review:cities-of-london-and-westminster",
+        "constituencySlug": "cities-of-london-and-westminster",
+        "constituencyName": "Cities of London and Westminster",
+        "winningShare": 0.3990590548416544,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Nickie Aiken",
+        "runnerUpShare": 0.3065327809376682,
+        "caveats": []
+      }
+    ],
+    "excludedFromMetrics": [
+      {
+        "caveat": "speaker",
+        "count": 1
+      }
+    ]
+  }
+}

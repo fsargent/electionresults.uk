@@ -1,0 +1,71 @@
+election_id,party_id,party_display_name,party_source_label,votes,vote_share,seats,seat_share,seat_delta
+ge-2019,conservative-party,Conservative Party,Conservative,13966454,0.4368033141679052,365,0.5624036979969184,0.12560038382901317
+ge-2019,labour-party,Labour Party,Labour,10269051,0.3211663826880639,202,0.31124807395993837,-0.009918308728125547
+ge-2019,liberal-democrats,Liberal Democrats,Liberal Democrat,3696419,0.11560615670614845,11,0.01694915254237288,-0.09865700416377557
+ge-2019,scottish-national-party,Scottish National Party,Scottish National Party,1242380,0.03885565380131006,48,0.07395993836671803,0.03510428456540798
+ge-2019,green-party,Green Party,Green Party,860119,0.02690037355070832,1,0.0015408320493066256,-0.025359541501401694
+ge-2019,the-brexit-party,The Brexit Party,The Brexit Party,644257,0.020149251397374886,0,0,-0.020149251397374886
+ge-2019,democratic-unionist-party,Democratic Unionist Party,Democratic Unionist Party,244128,0.007635146292765676,8,0.012326656394453005,0.004691510101687329
+ge-2019,independent,Independent,Independent,197047,0.006162679707164267,0,0,-0.006162679707164267
+ge-2019,sinn-fein,Sinn Féin,Sinn Féin,181853,0.005687484675163506,7,0.01078582434514638,0.005098339669982873
+ge-2019,plaid-cymru,Plaid Cymru,Plaid Cymru,153265,0.004793389928892759,4,0.0061633281972265025,0.0013699382683337435
+ge-2019,alliance,Alliance,Alliance,134115,0.004194470298590366,1,0.0015408320493066256,-0.00265363824928374
+ge-2019,social-democratic-and-labour-party,Social Democratic & Labour Party,Social Democratic & Labour Party,118737,0.003713520634110459,2,0.0030816640986132513,-0.0006318565354972079
+ge-2019,ulster-unionist-party,Ulster Unionist Party,Ulster Unionist Party,93123,0.002912438262801555,0,0,-0.002912438262801555
+ge-2019,the-yorkshire-party,The Yorkshire Party,The Yorkshire Party,29201,0.0009132664294757279,0,0,-0.0009132664294757279
+ge-2019,uk-independence-party,UK Independence Party,UK Independence Party,22817,0.0007136057025905854,0,0,-0.0007136057025905854
+ge-2019,ashfield-independents,Ashfield Independents,Ashfield Independents,13498,0.00042215233262776536,0,0,-0.00042215233262776536
+ge-2019,liberal,Liberal,Liberal,10876,0.00034014881979993895,0,0,-0.00034014881979993895
+ge-2019,the-independent-group-for-change,The Independent Group for Change,The Independent Group for Change,10006,0.0003129394162300652,0,0,-0.0003129394162300652
+ge-2019,aontu,Aontú,Aontú,9814,0.00030693458233878274,0,0,-0.00030693458233878274
+ge-2019,official-monster-raving-loony-party,Official Monster Raving Loony Party,Official Monster Raving Loony Party,9739,0.0003045889441000005,0,0,-0.0003045889441000005
+ge-2019,people-before-profit-alliance,People Before Profit Alliance,People Before Profit Alliance,7526,0.00023537697846766646,0,0,-0.00023537697846766646
+ge-2019,birkenhead-social-justice-party,Birkenhead Social Justice Party,Birkenhead Social Justice Party,7285,0.00022783966092704627,0,0,-0.00022783966092704627
+ge-2019,christian-peoples-alliance,Christian Peoples Alliance,Christian Peoples Alliance,6486,0.00020285079488988636,0,0,-0.00020285079488988636
+ge-2019,heavy-woollen-district-independents,Heavy Woollen District Independents,Heavy Woollen District Independents,6432,0.00020116193535796317,0,0,-0.00020116193535796317
+ge-2019,social-democratic-party,Social Democratic Party,Social Democratic Party,3295,0.00010305170662383219,0,0,-0.00010305170662383219
+ge-2019,animal-welfare-party,Animal Welfare Party,Animal Welfare Party,3086,0.00009651519473175907,0,0,-0.00009651519473175907
+ge-2019,the-north-east-party,The North East Party,The North East Party,2637,0.00008247264047558284,0,0,-0.00008247264047558284
+ge-2019,lincolnshire-independents-lincolnshire-first,Lincolnshire Independents Lincolnshire First,Lincolnshire Independents Lincolnshire First,1999,0.00006251907785767543,0,0,-0.00006251907785767543
+ge-2019,green-party-northern-ireland,Green Party Northern Ireland,Green Party Northern Ireland,1996,0.00006242525232812413,0,0,-0.00006242525232812413
+ge-2019,english-democrats,English Democrats,English Democrats,1987,0.00006214377573947028,0,0,-0.00006214377573947028
+ge-2019,libertarian-party,Libertarian Party,Libertarian Party,1780,0.000055669814200431345,0,0,-0.000055669814200431345
+ge-2019,mebyon-kernow-the-party-for-cornwall,Mebyon Kernow - The Party for Cornwall,Mebyon Kernow - The Party for Cornwall,1660,0.00005191679301837979,0,0,-0.00005191679301837979
+ge-2019,proud-of-oldham-and-saddleworth,Proud of Oldham & Saddleworth,Proud of Oldham & Saddleworth,1606,0.000050227933486456596,0,0,-0.000050227933486456596
+ge-2019,independent-network,Independent Network,Independent Network,1542,0.00004822632218936244,0,0,-0.00004822632218936244
+ge-2019,gwlad-gwlad,Gwlad Gwlad,Gwlad Gwlad,1515,0.000047381892423400836,0,0,-0.000047381892423400836
+ge-2019,the-cynon-valley-party,The Cynon Valley Party,The Cynon Valley Party,1322,0.00004134578335560126,0,0,-0.00004134578335560126
+ge-2019,veterans-and-people-s-party,Veterans and People's Party,Veterans and People's Party,1219,0.000038124440174340346,0,0,-0.000038124440174340346
+ge-2019,burnley-and-padiham-independent-party,Burnley and Padiham Independent Party,Burnley and Padiham Independent Party,1162,0.000036341755112865855,0,0,-0.000036341755112865855
+ge-2019,shropshire-party,Shropshire Party,Shropshire Party,1141,0.000035684976406006835,0,0,-0.000035684976406006835
+ge-2019,cumbria-first,Cumbria First,Cumbria First,1070,0.000033464438873293,0,0,-0.000033464438873293
+ge-2019,the-peace-party-non-violence-justice-environment,"The Peace Party - Non-violence, Justice, Environment","The Peace Party - Non-violence, Justice, Environment",960,0.000030024169456412412,0,0,-0.000030024169456412412
+ge-2019,wycombe-independents,Wycombe Independents,Wycombe Independents,926,0.00002896081345483114,0,0,-0.00002896081345483114
+ge-2019,the-justice-and-anti-corruption-party,The Justice & Anti-Corruption Party,The Justice & Anti-Corruption Party,728,0.000022768328504446077,0,0,-0.000022768328504446077
+ge-2019,christian-party-proclaiming-christ-s-lordship,"Christian Party, Proclaiming Christ's Lordship","Christian Party, Proclaiming Christ's Lordship",705,0.000022048999444552865,0,0,-0.000022048999444552865
+ge-2019,renew,Renew,Renew,545,0.000017044971201817462,0,0,-0.000017044971201817462
+ge-2019,workers-revolutionary-party,Workers Revolutionary Party,Workers Revolutionary Party,524,0.000016388192494958442,0,0,-0.000016388192494958442
+ge-2019,british-national-party,British National Party,British National Party,510,0.000015950340023719092,0,0,-0.000015950340023719092
+ge-2019,socialist-labour-party,Socialist Labour Party,Socialist Labour Party,494,0.000015449937199445553,0,0,-0.000015449937199445553
+ge-2019,scottish-family-party,Scottish Family Party,Scottish Family Party,465,0.000014542957080449761,0,0,-0.000014542957080449761
+ge-2019,women-s-equality-party,Women's Equality Party,Women's Equality Party,416,0.000013010473431112045,0,0,-0.000013010473431112045
+ge-2019,communities-united-party,Communities United Party,Communities United Party,393,0.000012291144371218832,0,0,-0.000012291144371218832
+ge-2019,psychedelic-movement,Psychedelic Movement,Psychedelic Movement,367,0.000011477989781774328,0,0,-0.000011477989781774328
+ge-2019,the-universal-good-party,The Universal Good Party,The Universal Good Party,363,0.000011352889075705944,0,0,-0.000011352889075705944
+ge-2019,advance-together,Advance Together,Advance Together,351,0.000010977586957500788,0,0,-0.000010977586957500788
+ge-2019,young-people-s-party,Young People's Party,Young People's Party,311,0.000009726579896816938,0,0,-0.000009726579896816938
+ge-2019,alliance-for-green-socialism,Alliance for Green Socialism,Alliance for Green Socialism,278,0.00000869449907175276,0,0,-0.00000869449907175276
+ge-2019,motherworld-party,Motherworld Party,Motherworld Party,270,0.000008444297659615991,0,0,-0.000008444297659615991
+ge-2019,the-best-for-luton-party,The Best for Luton Party,The Best for Luton Party,268,0.000008381747306581798,0,0,-0.000008381747306581798
+ge-2019,the-citizens-movement-party-uk,The Citizens Movement Party UK,The Citizens Movement Party UK,257,0.000008037720364893739,0,0,-0.000008037720364893739
+ge-2019,yeshua,Yeshua,Yeshua,204,0.0000063801360094876375,0,0,-0.0000063801360094876375
+ge-2019,the-constitution-and-reform-party,The Constitution and Reform Party,The Constitution and Reform Party,186,0.000005817182832179905,0,0,-0.000005817182832179905
+ge-2019,church-of-the-militant-elvis-party,Church of the Militant Elvis Party,Church of the Militant Elvis Party,172,0.000005379330360940557,0,0,-0.000005379330360940557
+ge-2019,socialist-equality-party,Socialist Equality Party,Socialist Equality Party,172,0.000005379330360940557,0,0,-0.000005379330360940557
+ge-2019,the-socialist-party-of-great-britain,The Socialist Party of Great Britain,The Socialist Party of Great Britain,157,0.000004910202713184114,0,0,-0.000004910202713184114
+ge-2019,the-common-people,The Common People,The Common People,132,0.000004128323300256707,0,0,-0.000004128323300256707
+ge-2019,space-navies-party,Space Navies Party,Space Navies Party,118,0.000003690470829017359,0,0,-0.000003690470829017359
+ge-2019,patria,Patria,Patria,109,0.0000034089942403634925,0,0,-0.0000034089942403634925
+ge-2019,communist-league-election-campaign,Communist League Election Campaign,Communist League Election Campaign,100,0.0000031275176517096263,0,0,-0.0000031275176517096263
+ge-2019,rebooting-democracy,Rebooting Democracy,Rebooting Democracy,67,0.0000020954368266454495,0,0,-0.0000020954368266454495
+ge-2019,touch-love-worldwide-uk,Touch Love Worldwide (UK),Touch Love Worldwide (UK),47,0.0000014699332963035243,0,0,-0.0000014699332963035243

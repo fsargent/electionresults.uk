@@ -37,7 +37,7 @@ or styles, `bun run dev` picks up changes without re-running the ETL.
 
 ## Data
 
-The development fixture is `docs/LEH-2025-results-HoC.xlsx` — the House of
+The development fixture is `source-data/council/LEH-2025-results-HoC.xlsx` — the House of
 Commons Library Local Election Handbook for the 1 May 2025 English locals.
 It is **not deployed** (the `/data` page documents that this is a dev
 fixture; the 2026 LEH lands months out and ingests through the same adapter).
@@ -111,10 +111,10 @@ repository — code, ETL pipeline, generated tables, charts, and prose.
 
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) for any
 dataset derived from Andrew Teale's [Local Elections Archive
-Project](https://www.andrewteale.me.uk/leap/) (`docs/leap/**`), which
-is upstream CC BY-SA 3.0 / GFDL — see [`docs/leap-source.md`](docs/leap-source.md).
+Project](https://www.andrewteale.me.uk/leap/) (`source-data/council/leap/**`),
+which is upstream CC BY-SA 3.0 / GFDL — see [`docs/leap-source.md`](docs/leap-source.md).
 
-Upstream third-party data in `docs/` (House of Commons Library LEH,
-Democracy Club, Open Council Data UK, IndyLive Scottish STV) is
-reproduced under its respective upstream licence — full breakdown in
-[`LICENSE`](LICENSE).
+Upstream third-party data in `source-data/council/` (House of Commons
+Library LEH, Democracy Club, Open Council Data UK, IndyLive Scottish
+STV) is reproduced under its respective upstream licence — full
+breakdown in [`LICENSE`](LICENSE).

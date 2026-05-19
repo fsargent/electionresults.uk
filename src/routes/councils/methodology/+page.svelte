@@ -483,7 +483,7 @@
     a hand-maintained register of UK council membership going back to
     1973, published under
     <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external noopener">CC&nbsp;BY-SA&nbsp;4.0</a>.
-    Snapshot file (<code>docs/history2016-2025.csv</code>) is committed
+    Snapshot file (<code>source-data/council/history2016-2025.csv</code>) is committed
     in the repo; refresh by re-downloading from oncd. Slug aliases for
     the small number of councils that LEH and oncd name slightly
     differently (Bristol, County Durham, King's Lynn and West Norfolk,

@@ -36,7 +36,7 @@ const CYCLES = [
     year: 2021,
     electionDate: '2021-05-06',
     electionDateLabel: '6 May 2021',
-    file: 'docs/local_elections_2021_results-2.xlsx',
+    file: 'source-data/council/local_elections_2021_results-2.xlsx',
     candSheet: 'Candidates-results',
     wardSheet: 'Wards-results',
     candHeaderRow: 1,
@@ -76,7 +76,7 @@ const CYCLES = [
     year: 2022,
     electionDate: '2022-05-05',
     electionDateLabel: '5 May 2022',
-    file: 'docs/local-elections-2022.xlsx',
+    file: 'source-data/council/local-elections-2022.xlsx',
     candSheet: 'Candidates-results',
     wardSheet: 'Wards-results',
     candHeaderRow: 1,
@@ -105,7 +105,7 @@ const CYCLES = [
     year: 2023,
     electionDate: '2023-05-04',
     electionDateLabel: '4 May 2023',
-    file: 'docs/LEH-Candidates-2023.xlsx',
+    file: 'source-data/council/LEH-Candidates-2023.xlsx',
     candSheet: 'Cand_Table',
     wardSheet: 'Ward_Level',
     candHeaderRow: 0,
@@ -137,7 +137,7 @@ const CYCLES = [
     year: 2024,
     electionDate: '2024-05-02',
     electionDateLabel: '2 May 2024',
-    file: 'docs/LEH-2024-results-HoC-version.xlsx',
+    file: 'source-data/council/LEH-2024-results-HoC-version.xlsx',
     candSheet: 'Candidates results',
     wardSheet: 'Wards results',
     candHeaderRow: 1,
@@ -166,7 +166,7 @@ const CYCLES = [
     year: 2025,
     electionDate: '2025-05-01',
     electionDateLabel: '1 May 2025',
-    file: 'docs/LEH-2025-results-HoC.xlsx',
+    file: 'source-data/council/LEH-2025-results-HoC.xlsx',
     candSheet: 'Candidates result',
     wardSheet: 'Ward results',
     candHeaderRow: 1,
@@ -599,31 +599,32 @@ function ingestCycle(cycle) {
 // Licence: CC-BY-SA 3.0 / GFDL (Andrew Teale). Any LEAP-derived
 // download published by the site inherits CC-BY-SA — see
 // docs/leap-source.md.
+// Source files live under source-data/council/leap/.
 
 const LEAP_CYCLES = [
   {
     year: 2016,
     electionDate: '2016-05-05',
     electionDateLabel: '5 May 2016',
-    file: 'docs/leap/2016/leap-2016-05-05.csv'
+    file: 'source-data/council/leap/2016/leap-2016-05-05.csv'
   },
   {
     year: 2017,
     electionDate: '2017-05-04',
     electionDateLabel: '4 May 2017',
-    file: 'docs/leap/2017/leap-2017-05-04.csv'
+    file: 'source-data/council/leap/2017/leap-2017-05-04.csv'
   },
   {
     year: 2018,
     electionDate: '2018-05-03',
     electionDateLabel: '3 May 2018',
-    file: 'docs/leap/2018/leap-2018-05-03.csv'
+    file: 'source-data/council/leap/2018/leap-2018-05-03.csv'
   },
   {
     year: 2019,
     electionDate: '2019-05-02',
     electionDateLabel: '2 May 2019',
-    file: 'docs/leap/2019/leap-2019-05-02.csv'
+    file: 'source-data/council/leap/2019/leap-2019-05-02.csv'
   }
 ];
 
@@ -793,17 +794,17 @@ function ingestLeapCycle(cycle) {
 //   - Skip rows where votes_cast is empty (results not yet entered for
 //     that race; will get picked up on the next ETL run after DC publishes).
 
-// Latest DC candidates export under docs/ — picks the most recently
-// modified `*dc-candidates-*results_true-*.csv`. Refresh by dropping a
-// new export into docs/; no edit needed here. Sorted by mtime rather
-// than filename so `downloaded-...-` and bare `dc-...-` prefixes are
-// both ordered correctly.
+// Latest DC candidates export under source-data/council/ — picks the most
+// recently modified `*dc-candidates-*results_true-*.csv`. Refresh by
+// dropping a new export into source-data/council/; no edit needed here.
+// Sorted by mtime rather than filename so `downloaded-...-` and bare
+// `dc-...-` prefixes are both ordered correctly.
 function findLatestDcExport() {
-  const docsDir = resolve(ROOT, 'docs');
-  const matches = readdirSync(docsDir)
+  const sourceDir = resolve(ROOT, 'source-data/council');
+  const matches = readdirSync(sourceDir)
     .filter((f) => /dc-candidates-.*results_true-.*\.csv$/i.test(f))
     .map((f) => {
-      const path = resolve(docsDir, f);
+      const path = resolve(sourceDir, f);
       return { name: f, path, mtimeMs: statSync(path).mtimeMs };
     })
     .sort((a, b) => b.mtimeMs - a.mtimeMs);
@@ -859,7 +860,7 @@ function councilSlugFromElectionId(electionId, electionDate) {
 
 function ingestDcCycle(cycle) {
   if (!cycle.file) {
-    console.warn(`[etl] skipping ${cycle.year}: no DC export found in docs/`);
+    console.warn(`[etl] skipping ${cycle.year}: no DC export found in source-data/council/`);
     return null;
   }
   const file = resolve(ROOT, cycle.file);
@@ -1076,7 +1077,7 @@ const SCOTLAND_STV_CYCLE = {
   year: 2022,
   electionDate: '2022-05-05',
   electionDateLabel: '5 May 2022',
-  file: 'docs/scotland-2022-stv-indylive.csv',
+  file: 'source-data/council/scotland-2022-stv-indylive.csv',
   region: 'Scotland'
 };
 
@@ -1195,6 +1196,7 @@ const cycleSummaries = [];
 
 // LEAP 2016–2019 first (year-ordered cycle summaries; LEH starts at 2021).
 // Andrew Teale's archive is CC-BY-SA 3.0 — see docs/leap-source.md for
+// source provenance; raw CSVs live under source-data/council/leap/.
 // the redistribution terms that follow from including this data.
 for (const cycle of LEAP_CYCLES) {
   const result = ingestLeapCycle(cycle);
@@ -1461,9 +1463,9 @@ marginal.sort((a, b) => a.underPar - b.underPar || a.votes - b.votes);
 //   (b) replace the "Council composition (approx.)" sum-across-cycles
 //       approximation on per-council pages with the actual snapshot
 //
-// Provenance: docs/history2016-2025.csv, downloaded from
+// Provenance: source-data/council/history2016-2025.csv, downloaded from
 // opencouncildata.co.uk (CC BY-SA 4.0). Refresh by re-downloading and
-// committing to docs/.
+// committing to source-data/council/.
 const COMP_PARTY_COLS = {
   con: 'Conservative Party',
   lab: 'Labour Party',
@@ -1498,7 +1500,7 @@ const COUNCILLOR_PARTY_NORMALISE = {
 };
 
 // Per-councillor snapshot ingest. Each year's CSV at
-// docs/opencouncildata_councillors_YYYY.csv carries one row per sitting
+// source-data/council/opencouncildata_councillors_YYYY.csv carries one row per sitting
 // councillor — Council, Ward, Councillor Name, Next Election, Party,
 // EC Code. We aggregate per (councilSlug, year) into a partiesDetailed
 // dict (canonical-party-name → seat count). This lets the SeatChart on
@@ -1591,7 +1593,7 @@ function ingestCouncillorSnapshots() {
   let refinedCount = 0;
   let unrefinedOtherCount = 0;
   for (let year = 2016; year <= 2025; year++) {
-    const csvPath = resolve(ROOT, `docs/opencouncildata_councillors_${year}.csv`);
+    const csvPath = resolve(ROOT, `source-data/council/opencouncildata_councillors_${year}.csv`);
     if (!existsSync(csvPath)) continue;
     const wb = XLSX.read(readFileSync(csvPath, 'utf8'), { type: 'string' });
     const ws = wb.Sheets[wb.SheetNames[0]];
@@ -1638,7 +1640,7 @@ function ingestCouncillorSnapshots() {
 }
 
 function ingestCompositions() {
-  const csvPath = resolve(ROOT, 'docs/history2016-2025.csv');
+  const csvPath = resolve(ROOT, 'source-data/council/history2016-2025.csv');
   if (!existsSync(csvPath)) {
     console.warn('[etl] composition CSV not found; skipping');
     return [];
@@ -1788,7 +1790,7 @@ function ingestCouncillors2025NextElection() {
   // Returns Map<councilSlug, Array<{party, nextElection: string|null}>>.
   // We keep one row per councillor so the retain/replace partition is
   // computed on actual headcount rather than aggregate party counts.
-  const csvPath = resolve(ROOT, 'docs/opencouncildata_councillors_2025.csv');
+  const csvPath = resolve(ROOT, 'source-data/council/opencouncildata_councillors_2025.csv');
   if (!existsSync(csvPath)) {
     console.warn('[etl] 2025 per-councillor CSV not found; skipping 2026 synthesis');
     return null;
@@ -2666,9 +2668,9 @@ ensureDir(SNAPSHOT_PATH);
 const snapshotMeta = {
   generatedAt: new Date().toISOString(),
   source:
-    'docs/leap/{2016..2019}/leap-*.csv (LEAP, CC-BY-SA 3.0); ' +
-    'docs/LEH-{2021..2025}-results-HoC*.xlsx; ' +
-    'docs/dc-candidates-*.csv (Democracy Club 2026)',
+    'source-data/council/leap/{2016..2019}/leap-*.csv (LEAP, CC-BY-SA 3.0); ' +
+    'source-data/council/LEH-{2021..2025}-results-HoC*.xlsx; ' +
+    'source-data/council/dc-candidates-*.csv (Democracy Club 2026)',
   totals
 };
 const racesSlim = allRaces.map((r) => ({

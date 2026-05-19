@@ -1,11 +1,13 @@
 #!/usr/bin/env node
-// Parliamentary ETL — happy-path ingest of the 2024 General Election.
+// Parliamentary ETL — ingest of UK General Elections.
 //
-// Reads two House of Commons Library workbooks (constituencies +
-// candidates) from source-data/parliament/2024/, joins them, runs
-// party labels through scripts/party-normalize.mjs, and writes four
-// JSON files under src/lib/data/parliament/2024/ wrapped in the
-// ParliamentSplit<T> envelope (top-level `_manifest` + `data`).
+// For each entry in ELECTIONS below, reads two House of Commons Library
+// workbooks (constituencies + candidates) from source-data/parliament/
+// {year}/, joins them, runs party labels through party-normalize.mjs,
+// and writes four JSON files under src/lib/data/parliament/{year}/
+// wrapped in the ParliamentSplit<T> envelope (top-level `_manifest` +
+// `data`). Adding an election is an entry in ELECTIONS plus the source
+// files; the rest of the pipeline is year-agnostic.
 //
 // Story 2.5 (this file): happy path only. caveats[] is always present
 // on contest and candidate rows but empty — Story 2.6 wires
@@ -42,19 +44,57 @@ import {
 const ETL_VERSION = 'parliament-etl@1';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SOURCE_DIR = resolve(ROOT, 'source-data/parliament/2024');
-const OUTPUT_DIR = resolve(ROOT, 'src/lib/data/parliament/2024');
-const CSV_OUTPUT_DIR = resolve(ROOT, 'static/data/parliament/2024');
 const INDEX_FILE = resolve(ROOT, 'src/lib/data/parliament/index.json');
 
-const CONSTITUENCY_FILE = resolve(
-  SOURCE_DIR,
-  'HoC-GE2024-results-by-constituency.xlsx'
-);
-const CANDIDATE_FILE = resolve(
-  SOURCE_DIR,
-  'HoC-GE2024-results-by-candidate.xlsx'
-);
+// Election register. Add an entry here + drop the publisher's workbooks
+// under source-data/parliament/{year}/ to ingest a new general election.
+// The Commons Library workbooks share a stable shape (Data sheet, row 3
+// header, the columns enumerated below) across the 2010-review and
+// 2023-review boundary sets, so the same loader handles every year.
+const ELECTIONS = [
+  {
+    year: 2019,
+    electionId: 'ge-2019',
+    boundarySet: '2010-review',
+    constituencyFile: 'HoC-GE2019-results-by-constituency.xlsx',
+    candidateFile: 'HoC-GE2019-results-by-candidate.xlsx',
+    retrievalDate: '2026-05-19',
+    // From the `About` sheet inside each workbook: "Last updated:
+    // Friday, 2nd May 2025". Updates in lockstep with each refresh.
+    publicationDate: '2025-05-02',
+    manifest: {
+      id: 'parliament-ge-2019-cbp-8749',
+      sourceName: 'House of Commons Library general election results 2019',
+      sourceUrl: 'https://commonslibrary.parliament.uk/research-briefings/cbp-8749/'
+    }
+  },
+  {
+    year: 2024,
+    electionId: 'ge-2024',
+    boundarySet: '2023-review',
+    constituencyFile: 'HoC-GE2024-results-by-constituency.xlsx',
+    candidateFile: 'HoC-GE2024-results-by-candidate.xlsx',
+    retrievalDate: '2026-05-18',
+    // From the `About` sheet inside each workbook: "Last updated:
+    // Monday, 5th January 2026". Updates in lockstep with each refresh.
+    publicationDate: '2026-01-05',
+    manifest: {
+      id: 'parliament-ge-2024-cbp-10009',
+      sourceName: 'House of Commons Library general election results 2024',
+      sourceUrl: 'https://commonslibrary.parliament.uk/research-briefings/cbp-10009/'
+    }
+  }
+];
+
+function sourceDirFor(year) {
+  return resolve(ROOT, `source-data/parliament/${year}`);
+}
+function outputDirFor(year) {
+  return resolve(ROOT, `src/lib/data/parliament/${year}`);
+}
+function csvOutputDirFor(year) {
+  return resolve(ROOT, `static/data/parliament/${year}`);
+}
 
 // Real header in row 3 (1-based); xlsx's `range: 2` is 0-based row
 // offset, so the third row becomes the header.
@@ -398,11 +438,11 @@ function emitBudgetWarnings(rootDir) {
   }
 }
 
-function buildManifest({ retrievalDate, publicationDate, generatedAt }) {
+function buildManifest({ manifestSeed, retrievalDate, publicationDate, generatedAt }) {
   return {
-    id: 'parliament-ge-2024-cbp-10009',
-    sourceName: 'House of Commons Library general election results 2024',
-    sourceUrl: 'https://commonslibrary.parliament.uk/research-briefings/cbp-10009/',
+    id: manifestSeed.id,
+    sourceName: manifestSeed.sourceName,
+    sourceUrl: manifestSeed.sourceUrl,
     licence: 'Open Parliament Licence v3.0',
     retrievalDate,
     publicationDate,
@@ -589,46 +629,57 @@ const NATIONAL_TOTALS_CSV_HEADERS = [
   'seat_delta'
 ];
 
-function writeCsvArtifacts({ electionYear, contestsWithCandidates, partyTotals }) {
+function writeCsvArtifacts({
+  electionYear,
+  csvOutputDir,
+  contestsWithCandidates,
+  partyTotals
+}) {
   const filePrefix = `parliament-${electionYear}`;
   writeCsv(
-    resolve(CSV_OUTPUT_DIR, `${filePrefix}-constituencies.csv`),
+    resolve(csvOutputDir, `${filePrefix}-constituencies.csv`),
     CONSTITUENCY_CSV_HEADERS,
     constituencyCsvRows(contestsWithCandidates)
   );
   writeCsv(
-    resolve(CSV_OUTPUT_DIR, `${filePrefix}-candidates.csv`),
+    resolve(csvOutputDir, `${filePrefix}-candidates.csv`),
     CANDIDATE_CSV_HEADERS,
     candidateCsvRows(contestsWithCandidates)
   );
   writeCsv(
-    resolve(CSV_OUTPUT_DIR, `${filePrefix}-national-totals.csv`),
+    resolve(csvOutputDir, `${filePrefix}-national-totals.csv`),
     NATIONAL_TOTALS_CSV_HEADERS,
     nationalTotalsCsvRows(partyTotals)
   );
 }
 
-function main() {
-  const electionYear = 2024;
-  const electionId = `ge-${electionYear}`;
-  const boundarySet = '2023-review';
-  const retrievalDate = '2026-05-18';
-  // From the `About` sheet inside each workbook: "Last updated:
-  // Monday, 5th January 2026". Updates in lockstep with each refresh.
-  const publicationDate = '2026-01-05';
-  const generatedAt = new Date().toISOString();
+function ingestElection(election, generatedAt) {
+  const {
+    year: electionYear,
+    electionId,
+    boundarySet,
+    constituencyFile,
+    candidateFile,
+    retrievalDate,
+    publicationDate,
+    manifest: manifestSeed
+  } = election;
+
+  const sourceDir = sourceDirFor(electionYear);
+  const outputDir = outputDirFor(electionYear);
+  const csvOutputDir = csvOutputDirFor(electionYear);
 
   console.log(`parliament ETL: reading ${electionYear} source files...`);
 
   const constituencyRows = readWorkbook(
-    CONSTITUENCY_FILE,
+    resolve(sourceDir, constituencyFile),
     CONSTITUENCY_COLUMNS,
-    'constituency workbook'
+    `${electionYear} constituency workbook`
   );
   const candidateRows = readWorkbook(
-    CANDIDATE_FILE,
+    resolve(sourceDir, candidateFile),
     CANDIDATE_COLUMNS,
-    'candidate workbook'
+    `${electionYear} candidate workbook`
   );
 
   console.log(
@@ -642,7 +693,6 @@ function main() {
     boundarySet
   });
 
-  // Join contests with their candidates for the per-row output.
   const candidatesByContest = new Map();
   for (const c of candidates) {
     const list = candidatesByContest.get(c.contestId);
@@ -665,15 +715,16 @@ function main() {
   });
   const caveatBreakdown = summariseCaveats(contests);
 
-  const manifest = buildManifest({ retrievalDate, publicationDate, generatedAt });
+  const manifest = buildManifest({
+    manifestSeed,
+    retrievalDate,
+    publicationDate,
+    generatedAt
+  });
 
-  console.log(`  writing artefacts to ${OUTPUT_DIR}/`);
-  // manifest.json's _manifest carries the source provenance; `data`
-  // carries the per-year inventory so the downloads page (Story 4.3)
-  // can render file sizes and per-file links without re-statting the
-  // filesystem from the browser.
+  console.log(`  writing artefacts to ${outputDir}/`);
   writeSplitArtifact(
-    resolve(OUTPUT_DIR, 'manifest.json'),
+    resolve(outputDir, 'manifest.json'),
     manifest,
     {
       electionId,
@@ -685,32 +736,25 @@ function main() {
     }
   );
   writeSplitArtifact(
-    resolve(OUTPUT_DIR, 'constituencies.json'),
+    resolve(outputDir, 'constituencies.json'),
     manifest,
     contestsWithCandidates
   );
   writeSplitArtifact(
-    resolve(OUTPUT_DIR, 'party-totals.json'),
+    resolve(outputDir, 'party-totals.json'),
     manifest,
     partyTotals
   );
   writeSplitArtifact(
-    resolve(OUTPUT_DIR, 'national-summary.json'),
+    resolve(outputDir, 'national-summary.json'),
     manifest,
     nationalSummary
   );
 
-  // Years index. For now, only 2024 — Phase 2 ingest adds historical
-  // years and this loop extends to enumerate them all.
-  writeIndex({ generatedAt, years: [electionYear] });
-
-  // CSV exports for analyst tooling (pandas / R / Excel). Story 4.2.
-  // Written under static/data/parliament/ so Cloudflare serves them
-  // alongside the council CSVs; column mapping lives in
-  // docs/parliament-schema.md and /parliament/methodology.
-  console.log(`  writing CSV exports to ${CSV_OUTPUT_DIR}/`);
+  console.log(`  writing CSV exports to ${csvOutputDir}/`);
   writeCsvArtifacts({
     electionYear,
+    csvOutputDir,
     contestsWithCandidates,
     partyTotals
   });
@@ -722,10 +766,7 @@ function main() {
   writeValidationReport({
     reportPath,
     electionYear,
-    sourceFiles: [
-      'HoC-GE2024-results-by-constituency.xlsx',
-      'HoC-GE2024-results-by-candidate.xlsx'
-    ],
+    sourceFiles: [constituencyFile, candidateFile],
     contests,
     candidates,
     caveatBreakdown,
@@ -745,9 +786,20 @@ function main() {
       `minority-mandate seats: ${nationalSummary.minorityWinnerCount}`
   );
   console.log(`  validation report → ${reportPath}`);
+}
 
+function main() {
+  const generatedAt = new Date().toISOString();
+  for (const election of ELECTIONS) {
+    ingestElection(election, generatedAt);
+  }
+  // Years index enumerates every ingested election so the overview
+  // page, downloads page, and sitemap fragment stay in lockstep.
+  writeIndex({
+    generatedAt,
+    years: ELECTIONS.map((e) => e.year).sort((a, b) => a - b)
+  });
   emitBudgetWarnings(resolve(ROOT, 'src/lib/data/parliament'));
-
   console.log('parliament ETL: done.');
 }
 

@@ -2,12 +2,12 @@
 
 Source for ward-level UK local-election candidate results 2016–2019.
 Used by `scripts/etl.mjs` to fill the pre-LEH gap (LEH-shape data only
-exists in `docs/` from 2021 onwards).
+exists in `source-data/council/` from 2021 onwards).
 
 ## Files in repo
 
 ```
-docs/leap/
+source-data/council/leap/
 ├── 2016/leap-2016-05-05.csv  (10,880 rows)
 ├── 2017/leap-2017-05-04.csv  (15,862 rows)
 ├── 2018/leap-2018-05-03.csv  (16,063 rows)
@@ -51,7 +51,7 @@ Scotland is excluded at ingest. Scottish councils have run STV since
 2007, but LEAP only carries first-preference votes — no transfer
 rounds — so FPTP-shaped distortion analysis on the data would be
 misleading. (For 2022 Scottish STV we use the indylive CC-BY-SA 4.0
-export at `docs/scotland-2022-stv-indylive.csv`.)
+export at `source-data/council/scotland-2022-stv-indylive.csv`.)
 
 Wales is included (FPTP for council elections until the 2027 STV
 reform).
@@ -59,7 +59,7 @@ reform).
 ## Refresh procedure
 
 ```bash
-mkdir -p docs/leap && cd docs/leap
+mkdir -p source-data/council/leap && cd source-data/council/leap
 for url_year in \
     "2016 https://www.andrewteale.me.uk/2016/2016-results.csv.zip" \
     "2017 https://www.andrewteale.me.uk/2017/leap-2017-05-04.zip" \
