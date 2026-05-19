@@ -147,8 +147,9 @@
   {#if data.slopes.length > 0}
     <h2 id="movement">Cycle-over-cycle movement</h2>
     <p class="muted small">
-      Vote share between adjacent ingested general elections. Same
-      country, same voting system, four-and-a-bit years apart.
+      Vote share (solid) and seat share (dashed) between adjacent
+      ingested general elections. Same country, same voting system,
+      four-and-a-bit years apart.
     </p>
 
     <div class="slope-grid">
@@ -160,6 +161,8 @@
           startValue={s.startValue}
           endYear={s.endYear}
           endValue={s.endValue}
+          startSeatValue={s.startSeatValue}
+          endSeatValue={s.endSeatValue}
           compact
         />
       {/each}

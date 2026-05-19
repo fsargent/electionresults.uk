@@ -82,6 +82,12 @@ export interface PartySlope {
   startValue: number;
   endYear: number;
   endValue: number;
+  /** Seat-share endpoints paired with the vote-share endpoints above.
+   *  Always set when the slope exists — the slope itself is keyed off
+   *  finding the same party in two ingested cycles, and party totals
+   *  carry both shares together. */
+  startSeatValue: number;
+  endSeatValue: number;
 }
 
 function buildConstituencyFills(
@@ -197,28 +203,34 @@ export function load(): {
   if (years.length >= 2) {
     const latestVisible = cycles[0].bars;
     const olderYears = years.slice(1); // already desc
+    const latestTotals = perYear.get(latestYear)!.totals;
     for (const bar of latestVisible) {
       let priorYear: number | null = null;
-      let priorShare = 0;
+      let priorVote = 0;
+      let priorSeat = 0;
       for (const py of olderYears) {
         const match = perYear
           .get(py)!
           .totals.find((p) => p.partyId === bar.partyId);
         if (match && match.voteShare > 0) {
           priorYear = py;
-          priorShare = match.voteShare;
+          priorVote = match.voteShare;
+          priorSeat = match.seatShare;
           break;
         }
       }
       if (priorYear == null) continue;
+      const latestTotal = latestTotals.find((p) => p.partyId === bar.partyId)!;
       slopes.push({
         partyId: bar.partyId,
         name: bar.name,
         color: bar.color,
         startYear: priorYear,
-        startValue: priorShare,
+        startValue: priorVote,
         endYear: latestYear,
-        endValue: bar.voteShare
+        endValue: bar.voteShare,
+        startSeatValue: priorSeat,
+        endSeatValue: latestTotal.seatShare
       });
     }
     // Largest absolute movement first so the biggest swings cluster
