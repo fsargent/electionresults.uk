@@ -127,6 +127,184 @@ nav.site .brand {
   text-decoration: none;
   color: var(--fg);
 }
+/* "/parliament" suffix on the brand when the reader is in the
+   parliament section — same line, slightly de-emphasised so the
+   primary identity stays readable. */
+nav.site .brand-section {
+  color: var(--muted);
+  font-weight: 500;
+}
+nav.site .cross-domain {
+  margin-left: auto;
+  font-weight: 600;
+}
+
+/* Filter bar — a row of segmented buttons or anchor links used to
+   switch the active view of a page. Used by the homepage (cycle
+   filter) and the parliament front page (year switcher). Inner items
+   can be <button> or <a> — both are styled. */
+.filter-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin: 0.4rem 0 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.filter-bar button,
+.filter-bar a {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--rule);
+  padding: 0.35rem 0.85rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.1s, color 0.1s;
+}
+.filter-bar > :last-child { border-right: none; }
+.filter-bar button:hover,
+.filter-bar a:hover {
+  background: rgba(11, 61, 46, 0.04);
+  color: inherit;
+}
+.filter-bar button.active,
+.filter-bar a.active {
+  background: var(--accent);
+  color: #fff;
+}
+/* Top-level variant: more prominent, includes a label, sits above the
+   lede with slightly larger hit targets and a soft background. */
+.filter-bar--top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0.5rem 0 1.25rem;
+  border: none;
+  background: rgba(11, 61, 46, 0.06);
+  padding: 0.3rem 0.4rem;
+  border-radius: 8px;
+  gap: 0.25rem;
+}
+.filter-bar--top .filter-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 0 0.5rem 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.filter-bar--top button,
+.filter-bar--top a {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.4rem 0.95rem;
+  font-size: 0.95rem;
+  color: inherit;
+}
+.filter-bar--top button.active,
+.filter-bar--top a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.filter-bar--top button:not(.active):hover,
+.filter-bar--top a:not(.active):hover {
+  background: rgba(11, 61, 46, 0.1);
+}
+
+/* KPI cards row — three-ish headline figures across the top of a
+   page. Used on the homepage and on /parliament/[year]. */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.75rem;
+  margin: 0.5rem 0 1.25rem;
+}
+.kpi {
+  border: 1px solid var(--rule);
+  padding: 0.75rem 0.9rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+.kpi .figure {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+/* Descriptive-text variant of the KPI figure — used when the headline
+   slot carries a phrase ("Severely disproportional") instead of a
+   number. Slightly smaller and tighter line-height so multi-word
+   phrases fit without re-flowing the grid. */
+.kpi .figure--text {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-variant-numeric: normal;
+}
+.kpi .figure.warn { color: var(--warn); }
+.kpi .label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Hex-cartogram + side legend pattern. Used by /, /councils/parties,
+   /councils/party/[slug], and /parliament/[year]. Keep these in global
+   so every map surface inherits the same layout without per-page CSS
+   duplication. */
+.map-and-scale {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 13rem);
+  gap: 1.25rem;
+  align-items: start;
+  margin: 0.6rem 0 1.5rem;
+}
+@media (max-width: 640px) {
+  .map-and-scale { grid-template-columns: 1fr; }
+}
+.map-and-scale .legend {
+  font-size: 0.85rem;
+}
+.map-and-scale .legend-label {
+  display: block;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.map-and-scale .party-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0;
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.88rem;
+}
+.map-and-scale .party-legend li {
+  display: grid;
+  grid-template-columns: 1.1rem 1fr auto;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+.map-and-scale .party-legend .swatch {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+.map-and-scale .party-legend .count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+@media (prefers-color-scheme: dark) {
+  .map-and-scale .party-legend .swatch {
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+}
 
 footer {
   border-top: 1px solid var(--rule);

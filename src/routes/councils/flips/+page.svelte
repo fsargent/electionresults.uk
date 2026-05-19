@@ -150,8 +150,7 @@
         <th>Cycle</th>
         <th>Council</th>
         <th>Largest party changed</th>
-        <th>Composition before</th>
-        <th>Composition after</th>
+        <th>Composition (before &rarr; after)</th>
       </tr>
     </thead>
     <tbody>
@@ -165,35 +164,39 @@
             <Party name={f.toParty} />
           </td>
           <td class="comp-cell">
-            {#if f.compositionFrom}
-              <span class="comp-label muted">{f.yearFrom}</span>
-              <span class="comp-bar" aria-label={`Composition ${f.yearFrom}: ${f.compositionFrom.totalSeats} seats`}>
-                {#each compositionRows(f.compositionFrom) as row (row.party)}
-                  <span
-                    class="comp-seg"
-                    style:flex={row.seats}
-                    style:background-color={row.color}
-                    title={`${partyDisplayName(row.party)}: ${row.seats} of ${f.compositionFrom.totalSeats} seats`}
-                  ></span>
-                {/each}
-              </span>
-            {:else}
-              <span class="muted small">—</span>
-            {/if}
-          </td>
-          <td class="comp-cell">
-            {#if f.compositionTo}
-              <span class="comp-label muted">{f.yearTo}</span>
-              <span class="comp-bar" aria-label={`Composition ${f.yearTo}: ${f.compositionTo.totalSeats} seats`}>
-                {#each compositionRows(f.compositionTo) as row (row.party)}
-                  <span
-                    class="comp-seg"
-                    style:flex={row.seats}
-                    style:background-color={row.color}
-                    title={`${partyDisplayName(row.party)}: ${row.seats} of ${f.compositionTo.totalSeats} seats`}
-                  ></span>
-                {/each}
-              </span>
+            {#if f.compositionFrom || f.compositionTo}
+              <div class="comp-pair">
+                {#if f.compositionFrom}
+                  <div class="comp-row">
+                    <span class="comp-label muted">{f.yearFrom}</span>
+                    <span class="comp-bar" aria-label={`Composition ${f.yearFrom}: ${f.compositionFrom.totalSeats} seats`}>
+                      {#each compositionRows(f.compositionFrom) as row (row.party)}
+                        <span
+                          class="comp-seg"
+                          style:flex={row.seats}
+                          style:background-color={row.color}
+                          title={`${partyDisplayName(row.party)}: ${row.seats} of ${f.compositionFrom.totalSeats} seats`}
+                        ></span>
+                      {/each}
+                    </span>
+                  </div>
+                {/if}
+                {#if f.compositionTo}
+                  <div class="comp-row">
+                    <span class="comp-label muted">{f.yearTo}</span>
+                    <span class="comp-bar" aria-label={`Composition ${f.yearTo}: ${f.compositionTo.totalSeats} seats`}>
+                      {#each compositionRows(f.compositionTo) as row (row.party)}
+                        <span
+                          class="comp-seg"
+                          style:flex={row.seats}
+                          style:background-color={row.color}
+                          title={`${partyDisplayName(row.party)}: ${row.seats} of ${f.compositionTo.totalSeats} seats`}
+                        ></span>
+                      {/each}
+                    </span>
+                  </div>
+                {/if}
+              </div>
             {:else}
               <span class="muted small">—</span>
             {/if}
@@ -213,14 +216,26 @@
   }
   .small { font-size: 0.78rem; }
   .comp-cell {
-    min-width: 12rem;
+    min-width: 16rem;
+  }
+  /* Pair the before/after bars vertically in one cell so a reader's
+     eye can land on the same party-coloured slice in both rows and
+     read the swing immediately, instead of having to scan between
+     two columns. */
+  .comp-pair {
+    display: grid;
+    gap: 0.25rem;
+  }
+  .comp-row {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 0.5rem;
+    align-items: center;
   }
   .comp-label {
-    display: block;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.2rem;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
   }
   .comp-bar {
     display: flex;

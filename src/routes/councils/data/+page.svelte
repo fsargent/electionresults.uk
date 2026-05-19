@@ -11,12 +11,10 @@
     })
   );
 
-  // The SQLite database itself lives in the repo at data-export/ and
-  // is served directly from GitHub raw — Cloudflare Workers Static
-  // Assets cap individual files at 25 MiB, and the database is ~32 MiB.
-  // raw.githubusercontent.com sets `Access-Control-Allow-Origin: *`
-  // so the vendored Datasette Lite at /explorer/ can fetch it
-  // cross-origin without proxying.
+  // The SQLite database lives in the repo at data-export/ and is
+  // served from GitHub raw. raw.githubusercontent.com sets
+  // `Access-Control-Allow-Origin: *` so the vendored Datasette Lite
+  // at /explorer/ can fetch it cross-origin without proxying.
   const SQLITE_URL =
     'https://raw.githubusercontent.com/fsargent/electionresults.uk/main/data-export/results.sqlite';
   // Vendored Datasette Lite at /explorer/ (see static/explorer/) —
@@ -24,7 +22,6 @@
   // trailing-slash normalize collapsing /explorer/ → /explorer, which
   // would then be caught by the [council] dynamic route.
   const datasetteUrl = `/explorer/index.html?url=${encodeURIComponent(SQLITE_URL)}#/results`;
-  let explorerOpen = $state(false);
 </script>
 
 <svelte:head>
@@ -33,7 +30,7 @@
     name="description"
     content="Download the full results database (SQLite) and per-table CSVs underlying every figure on electionresults.uk. Schema documented inline."
   />
-  <link rel="canonical" href="https://electionresults.uk/data" />
+  <link rel="canonical" href="https://electionresults.uk/councils/data" />
 </svelte:head>
 
 <main>
@@ -59,7 +56,7 @@
 
   <h2>Downloads</h2>
   <ul>
-    <li><a href={SQLITE_URL} download="results.sqlite">results.sqlite</a> — full database for all cycles (open in DBeaver, sqlite3, DuckDB CLI, Python, R, or any SQLite-compatible tool). Hosted on <a href="https://github.com/fsargent/electionresults.uk/tree/main/data-export" rel="external noopener">GitHub</a> because it's larger than the per-file Cloudflare Workers Static Assets cap.</li>
+    <li><a href={SQLITE_URL} download="results.sqlite">results.sqlite</a> — full database for all cycles (open in DBeaver, sqlite3, DuckDB CLI, Python, R, or any SQLite-compatible tool).</li>
     <li><a href="/data/cycles.csv" download>cycles.csv</a> — one row per election cycle</li>
     <li><a href="/data/councils.csv" download>councils.csv</a> — one row per (year, council) pair</li>
     <li><a href="/data/races.csv" download>races.csv</a> — one row per ward race</li>
@@ -72,29 +69,22 @@
     <a href="https://lite.datasette.io" rel="external noopener">Datasette Lite</a>
     (Simon Willison's <a href="https://datasette.io" rel="external noopener">Datasette</a>
     compiled to WebAssembly). Once loaded, every query runs locally in
-    your browser — nothing is sent to a server.
+    your browser &mdash; nothing is sent to a server.
   </p>
-  {#if explorerOpen}
-    <iframe
-      src={datasetteUrl}
-      title="Datasette Lite — electionresults.uk database explorer"
-      referrerpolicy="no-referrer"
-    ></iframe>
-    <p class="muted">
-      <a href={datasetteUrl} rel="external noopener">Open in a new tab</a>
-      for more room.
-    </p>
-  {:else}
-    <p>
-      <button type="button" class="loader" onclick={() => (explorerOpen = true)}>
-        Load explorer (downloads ~32&nbsp;MB)
-      </button>
-    </p>
-    <p class="muted">
-      Click to fetch the SQLite file. Skipped by default so visitors on
-      metered connections aren't charged for it.
-    </p>
-  {/if}
+  <p>
+    <a
+      class="cta"
+      href={datasetteUrl}
+      target="_blank"
+      rel="external noopener"
+    >
+      Open the database in Datasette Lite &nearr;
+    </a>
+  </p>
+  <p class="muted">
+    Opens in a new tab and downloads the SQLite file (~32&nbsp;MB) on
+    first load.
+  </p>
 
   <h2>Schema</h2>
 
@@ -180,23 +170,21 @@
 
 <style>
   .lede { font-size: 1.1rem; }
-  iframe {
-    width: 100%;
-    height: 720px;
-    border: 1px solid var(--rule, #ddd);
-    border-radius: 4px;
-    background: var(--bg);
-    color-scheme: light dark;
-  }
-  .loader {
+  .cta {
+    display: inline-block;
     font: inherit;
-    padding: 0.6rem 1rem;
-    border: 1px solid var(--rule, #ddd);
-    border-radius: 4px;
-    background: var(--bg, #f6f5ee);
-    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.65rem 1.1rem;
+    background: var(--accent);
+    color: var(--accent-fg, #fff);
+    border-radius: 6px;
+    text-decoration: none;
   }
-  .loader:hover { background: rgba(0, 0, 0, 0.05); }
+  .cta:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
   code {
     background: rgba(0, 0, 0, 0.05);
     padding: 0.05rem 0.3rem;

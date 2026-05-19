@@ -58,3 +58,9 @@
 /2024                /councils/2024                      301
 /2025                /councils/2025                      301
 /2026                /councils/2026                      301
+
+# /data downloads page moved into the council namespace on
+# 2026-05-19. The page itself moves; static asset paths under
+# /data/*.csv stay where they are so downstream bookmarks to CSV /
+# SQLite files keep working without a content move (no splat rule).
+/data                /councils/data                      301

@@ -466,29 +466,6 @@
   .lede {
     font-size: 1.15rem;
   }
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-    gap: 0.75rem;
-    margin: 0.5rem 0 1.25rem;
-  }
-  .kpi {
-    border: 1px solid var(--rule);
-    padding: 0.75rem 0.9rem;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-  }
-  .kpi .figure {
-    font-size: 1.6rem;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-  }
-  .kpi .figure.warn { color: var(--warn); }
-  .kpi .label {
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
   .fn { font-size: 0.7em; }
   .fn a { text-decoration: none; color: var(--muted); }
   .fn a:hover { text-decoration: underline; color: var(--accent); }
@@ -536,68 +513,6 @@
     font-variant-numeric: tabular-nums;
   }
   .warn { color: var(--warn); }
-
-  .filter-bar {
-    display: inline-flex;
-    align-items: center;
-    gap: 0;
-    margin: 0.4rem 0 0.6rem;
-    border: 1px solid var(--rule);
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  .filter-bar button {
-    appearance: none;
-    background: transparent;
-    border: none;
-    border-right: 1px solid var(--rule);
-    padding: 0.35rem 0.85rem;
-    font: inherit;
-    font-size: 0.9rem;
-    color: var(--muted);
-    cursor: pointer;
-    transition: background 0.1s, color 0.1s;
-  }
-  .filter-bar button:last-child { border-right: none; }
-  .filter-bar button:hover { background: rgba(11, 61, 46, 0.04); color: inherit; }
-  .filter-bar button.active {
-    background: var(--accent);
-    color: #fff;
-  }
-  /* Top-level filter is more prominent: includes a label, sits above
-     the lede, and uses slightly larger hit targets. */
-  .filter-bar--top {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 0.5rem 0 1.25rem;
-    border: none;
-    background: rgba(11, 61, 46, 0.06);
-    padding: 0.3rem 0.4rem;
-    border-radius: 8px;
-    gap: 0.25rem;
-  }
-  .filter-bar--top .filter-label {
-    font-size: 0.85rem;
-    color: var(--muted);
-    padding: 0 0.5rem 0 0.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .filter-bar--top button {
-    border: 1px solid transparent;
-    border-radius: 6px;
-    padding: 0.4rem 0.95rem;
-    font-size: 0.95rem;
-    color: inherit;
-  }
-  .filter-bar--top button.active {
-    background: var(--accent);
-    color: #fff;
-  }
-  .filter-bar--top button:not(.active):hover {
-    background: rgba(11, 61, 46, 0.1);
-  }
 
   .contrast-cards {
     display: grid;

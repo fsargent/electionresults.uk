@@ -1,5 +1,6 @@
 <script lang="ts">
   import { num, pct } from '$lib/format';
+  import { gallagherDescriptor } from '../gallagher-descriptor';
   import type { NationalSummary } from '../types';
 
   let { summary }: { summary: NationalSummary } = $props();
@@ -11,6 +12,7 @@
   const mostUnder = $derived(
     [...summary.voteVsSeatGap].sort((a, b) => a.gap - b.gap)[0] ?? null
   );
+  const gallagherLabel = $derived(gallagherDescriptor(summary.gallagher));
 </script>
 
 <h2>National FPTP audit</h2>
@@ -30,8 +32,8 @@
           >Gallagher index</a>)
       </th>
       <td class="num">
-        {summary.gallagher.toFixed(1)}
-        <span class="muted">/ 0 = perfectly proportional</span>
+        {gallagherLabel}
+        <span class="muted">({summary.gallagher.toFixed(1)})</span>
       </td>
     </tr>
     {#if mostOver && mostOver.gap > 0}

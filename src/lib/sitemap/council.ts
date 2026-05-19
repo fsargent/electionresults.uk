@@ -17,8 +17,8 @@ import {
 // either domain's data shape never edits the other's helper.
 //
 // Outputs use the post-2026-05-18 `/councils/...` namespace. Static
-// council surfaces ('/' for the council homepage, '/data' for the
-// shared download surface) live in `staticCouncilUrls` so the
+// council surfaces ('/' for the council homepage, '/councils/data'
+// for the council download page) live in `staticCouncilUrls` so the
 // +server.ts can decide once whether they belong in each composed
 // document.
 
@@ -27,7 +27,7 @@ export const staticCouncilUrls = [
   '/councils/flips',
   '/councils/below-quota',
   '/councils/methodology',
-  '/data',
+  '/councils/data',
   '/councils/parties'
 ];
 

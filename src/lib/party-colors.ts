@@ -30,6 +30,20 @@ const PARTY_COLORS: Record<string, string> = {
   'UK Independence Party (UKIP)': '#70147A',
   'Social Democratic Party': '#5784D7',
 
+  // Devolved-nation parties — Westminster-relevant for the parliament
+  // audit. Brand colours from each party's own style guidance.
+  'Scottish National Party': '#FDF38E',
+  'Plaid Cymru': '#005B54',
+  'Alba Party': '#005EB8',
+
+  // Northern Ireland — Westminster seats. Brand colours per party.
+  'Democratic Unionist Party': '#D46A4C',
+  'Sinn Féin': '#326760',
+  'Ulster Unionist Party': '#9999FF',
+  'Social Democratic and Labour Party': '#2AA82C',
+  'Alliance': '#F6CB2F',
+  'Traditional Unionist Voice': '#0C3A6A',
+
   // "Independent" = literally an unaffiliated councillor.
   // "Independent / Other" = oncd's residual bucket — independents AND any
   // minor party they don't break out as a column. Subtly different shade

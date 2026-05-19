@@ -33,7 +33,7 @@
     with every download.
   </p>
   <p class="muted">
-    Looking for council data? See <a href="/data">/data</a>.
+    Looking for council data? See <a href="/councils/data">/councils/data</a>.
   </p>
 
   {#if data.years.length === 0}
