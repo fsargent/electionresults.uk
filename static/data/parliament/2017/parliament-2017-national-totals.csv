@@ -1,0 +1,73 @@
+election_id,party_id,party_display_name,party_source_label,votes,vote_share,seats,seat_share,seat_delta
+ge-2017,conservative-party,Conservative Party,Conservative,13636684,0.42413827906345286,317,0.4884437596302003,0.06430548056674745
+ge-2017,labour-party,Labour Party,Labour,12877918,0.4005385750993616,262,0.4036979969183359,0.0031594218189743284
+ge-2017,liberal-democrats,Liberal Democrats,Liberal Democrat,2371861,0.07377138333026712,12,0.01848998459167951,-0.0552813987385876
+ge-2017,scottish-national-party,Scottish National Party,Scottish National Party,977568,0.03040504635786101,35,0.053929121725731895,0.023524075367870885
+ge-2017,uk-independence-party,UK Independence Party,UK Independence Party,589900,0.018347508149307475,0,0,-0.018347508149307475
+ge-2017,green-party,Green Party,Green Party,509639,0.015851170886090712,1,0.0015408320493066256,-0.014310338836784087
+ge-2017,democratic-unionist-party,Democratic Unionist Party,Democratic Unionist Party,292316,0.00909182944935237,10,0.015408320493066256,0.006316491043713885
+ge-2017,sinn-fein,Sinn Féin,Sinn Féin,238915,0.007430911865556527,7,0.01078582434514638,0.003354912479589853
+ge-2017,plaid-cymru,Plaid Cymru,Plaid Cymru,164466,0.005115343745183935,4,0.0061633281972265025,0.0010479844520425675
+ge-2017,independent,Independent,Independent,145833,0.004535806333171651,1,0.0015408320493066256,-0.0029949742838650253
+ge-2017,social-democratic-and-labour-party,Social Democratic & Labour Party,Social Democratic & Labour Party,95419,0.002967792642988252,0,0,-0.002967792642988252
+ge-2017,ulster-unionist-party,Ulster Unionist Party,Ulster Unionist Party,83280,0.002590236444608114,0,0,-0.002590236444608114
+ge-2017,alliance,Alliance,Alliance,64553,0.002007775374745288,0,0,-0.002007775374745288
+ge-2017,the-yorkshire-party,The Yorkshire Party,The Yorkshire Party,20958,0.0006518512896985693,0,0,-0.0006518512896985693
+ge-2017,national-health-action-party,National Health Action Party,National Health Action Party,16119,0.0005013451158818226,0,0,-0.0005013451158818226
+ge-2017,green-party-northern-ireland,Green Party Northern Ireland,Green Party Northern Ireland,7452,0.00023177764151320444,0,0,-0.00023177764151320444
+ge-2017,christian-peoples-alliance,Christian Peoples Alliance,Christian Peoples Alliance,5869,0.00018254199920034848,0,0,-0.00018254199920034848
+ge-2017,people-before-profit-alliance,People Before Profit Alliance,People Before Profit Alliance,5509,0.00017134501168763328,0,0,-0.00017134501168763328
+ge-2017,ashfield-independents,Ashfield Independents,Ashfield Independents,4612,0.00014344585113511794,0,0,-0.00014344585113511794
+ge-2017,british-national-party,British National Party,British National Party,4580,0.00014245056335620993,0,0,-0.00014245056335620993
+ge-2017,official-monster-raving-loony-party,Official Monster Raving Loony Party,Official Monster Raving Loony Party,3890,0.0001209896706235058,0,0,-0.0001209896706235058
+ge-2017,liberal,Liberal,Liberal,3672,0.00011420927262969495,0,0,-0.00011420927262969495
+ge-2017,women-s-equality-party,Women's Equality Party,Women's Equality Party,3580,0.00011134782026533439,0,0,-0.00011134782026533439
+ge-2017,traditional-unionist-voice,Traditional Unionist Voice,Traditional Unionist Voice,3282,0.00010207920282425348,0,0,-0.00010207920282425348
+ge-2017,the-north-east-party,The North East Party,The North East Party,2355,0.00007324695997901187,0,0,-0.00007324695997901187
+ge-2017,pirate-party-uk,Pirate Party UK,Pirate Party UK,2321,0.0000721894667139221,0,0,-0.0000721894667139221
+ge-2017,english-democrats,English Democrats,English Democrats,1913,0.00005949954753284488,0,0,-0.00005949954753284488
+ge-2017,christian-party-proclaiming-christ-s-lordship,"Christian Party, Proclaiming Christ's Lordship","Christian Party, Proclaiming Christ's Lordship",1720,0.000053496718116305906,0,0,-0.000053496718116305906
+ge-2017,independent-save-withybush-save-lives,Independent Save Withybush Save Lives,Independent Save Withybush Save Lives,1209,0.000037603216396868515,0,0,-0.000037603216396868515
+ge-2017,socialist-labour-party,Socialist Labour Party,Socialist Labour Party,1154,0.000035892565526870357,0,0,-0.000035892565526870357
+ge-2017,the-justice-and-anti-corruption-party,The Justice & Anti-Corruption Party,The Justice & Anti-Corruption Party,991,0.00003082281840305765,0,0,-0.00003082281840305765
+ge-2017,animal-welfare-party,Animal Welfare Party,Animal Welfare Party,955,0.00002970311965178613,0,0,-0.00002970311965178613
+ge-2017,southampton-independents,Southampton Independents,Southampton Independents,816,0.00002537983836215443,0,0,-0.00002537983836215443
+ge-2017,workers-revolutionary-party,Workers Revolutionary Party,Workers Revolutionary Party,771,0.000023980214923065033,0,0,-0.000023980214923065033
+ge-2017,the-workers-party,The Workers' Party,The Workers' Party,708,0.000022020742108339873,0,0,-0.000022020742108339873
+ge-2017,something-new,Something New,Something New,552,0.000017168714186163292,0,0,-0.000017168714186163292
+ge-2017,demos-direct-initiative-party,Demos Direct Initiative Party,Demos Direct Initiative Party,551,0.000017137611443072415,0,0,-0.000017137611443072415
+ge-2017,libertarian-party,Libertarian Party,Libertarian Party,524,0.000016297837379618777,0,0,-0.000016297837379618777
+ge-2017,social-democratic-party,Social Democratic Party,Social Democratic Party,469,0.000014587186509620624,0,0,-0.000014587186509620624
+ge-2017,the-peace-party-non-violence-justice-environment,"The Peace Party - Non-violence, Justice, Environment","The Peace Party - Non-violence, Justice, Environment",468,0.000014556083766529748,0,0,-0.000014556083766529748
+ge-2017,friends-party,Friends Party,Friends Party,435,0.000013529693244530854,0,0,-0.000013529693244530854
+ge-2017,better-for-bradford,Better for Bradford,Better for Bradford,420,0.000013063152098167721,0,0,-0.000013063152098167721
+ge-2017,citizens-independent-social-thought-alliance,Citizens Independent Social Thought Alliance,Citizens Independent Social Thought Alliance,393,0.000012223378034714082,0,0,-0.000012223378034714082
+ge-2017,the-radical-party,The Radical Party,The Radical Party,392,0.000012192275291623207,0,0,-0.000012192275291623207
+ge-2017,north-of-england-community-alliance,North of England Community Alliance,North of England Community Alliance,353,0.000010979268311079061,0,0,-0.000010979268311079061
+ge-2017,southend-independent-association,Southend Independent Association,Southend Independent Association,305,0.000009486336642717036,0,0,-0.000009486336642717036
+ge-2017,apolitical-democrats,Apolitical Democrats,Apolitical Democrats,304,0.00000945523389962616,0,0,-0.00000945523389962616
+ge-2017,blue-revolution,Blue Revolution,Blue Revolution,283,0.000008802076294717775,0,0,-0.000008802076294717775
+ge-2017,humanity,Humanity,Humanity,282,0.000008770973551626899,0,0,-0.000008770973551626899
+ge-2017,war-veteran-s-pro-traditional-family-party,War Veteran's Pro-Traditional Family Party,War Veteran's Pro-Traditional Family Party,269,0.000008366637891445517,0,0,-0.000008366637891445517
+ge-2017,greater-manchester-homeless-voice,Greater Manchester Homeless Voice,Greater Manchester Homeless Voice,242,0.000007526863827991878,0,0,-0.000007526863827991878
+ge-2017,independent-sovereign-democratic-britain,Independent Sovereign Democratic Britain,Independent Sovereign Democratic Britain,224,0.000006967014452356118,0,0,-0.000006967014452356118
+ge-2017,wessex-regionalists,Wessex Regionalists,Wessex Regionalists,223,0.000006935911709265242,0,0,-0.000006935911709265242
+ge-2017,alliance-for-green-socialism,Alliance for Green Socialism,Alliance for Green Socialism,212,0.000006593781535265612,0,0,-0.000006593781535265612
+ge-2017,young-people-s-party,Young People's Party,Young People's Party,198,0.000006158343131993354,0,0,-0.000006158343131993354
+ge-2017,church-of-the-militant-elvis-party,Church of the Militant Elvis Party,Church of the Militant Elvis Party,195,0.000006065034902720728,0,0,-0.000006065034902720728
+ge-2017,common-good,Common Good,Common Good,155,0.000004820925179085707,0,0,-0.000004820925179085707
+ge-2017,the-socialist-party-of-great-britain,The Socialist Party of Great Britain,The Socialist Party of Great Britain,145,0.000004509897748176952,0,0,-0.000004509897748176952
+ge-2017,movement-for-active-democracy-m-a-d,Movement for Active Democracy (M.A.D.),Movement for Active Democracy (M.A.D.),142,0.000004416589518904325,0,0,-0.000004416589518904325
+ge-2017,rebooting-democracy,Rebooting Democracy,Rebooting Democracy,133,0.000004136664831086445,0,0,-0.000004136664831086445
+ge-2017,scotland-s-independence-referendum-party,Scotland's Independence Referendum Party,Scotland's Independence Referendum Party,132,0.00000410556208799557,0,0,-0.00000410556208799557
+ge-2017,money-free-party,Money Free Party,Money Free Party,101,0.0000031413770521784282,0,0,-0.0000031413770521784282
+ge-2017,open-borders-party,Open Borders Party,Open Borders Party,99,0.000003079171565996677,0,0,-0.000003079171565996677
+ge-2017,concordia,Concordia,Concordia,85,0.00000264373316272442,0,0,-0.00000264373316272442
+ge-2017,patria,Patria,Patria,84,0.0000026126304196335443,0,0,-0.0000026126304196335443
+ge-2017,space-navies-party,Space Navies Party,Space Navies Party,81,0.0000025193221903609178,0,0,-0.0000025193221903609178
+ge-2017,the-realists-party,The Realists' Party,The Realists' Party,61,0.0000018972673285434073,0,0,-0.0000018972673285434073
+ge-2017,the-just-political-party,The Just Political Party,The Just Political Party,52,0.0000016173426407255274,0,0,-0.0000016173426407255274
+ge-2017,populist-party,Populist Party,Populist Party,50,0.0000015551371545437763,0,0,-0.0000015551371545437763
+ge-2017,compass-party,Compass Party,Compass Party,38,0.00000118190423745327,0,0,-0.00000118190423745327
+ge-2017,communist-league-election-campaign,Communist League Election Campaign,Communist League Election Campaign,34,0.000001057493265089768,0,0,-0.000001057493265089768
+ge-2017,the-new-society-of-worth,The New Society of Worth,The New Society of Worth,31,9.641850358171414e-7,0,0,-9.641850358171414e-7

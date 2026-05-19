@@ -139,6 +139,16 @@
   the full candidate record. Northern Ireland is included &mdash;
   Westminster elections use First Past the Post across the whole UK.
 </p>
+{#if year < 2024}
+  <p class="muted small">
+    Heads up: the hex cartogram is built on the
+    <strong>2024 boundary set</strong>. Cycles that ran under the
+    earlier (2010 review) boundaries will show neutral-grey hexes
+    wherever a constituency name didn&rsquo;t carry through the
+    boundary review &mdash; about a third of the map. The drill-down
+    links from each hex always open the right cycle&rsquo;s contest.
+  </p>
+{/if}
 <div class="map-and-scale">
   <ConstituencyHexMap
     fills={constituencyFills}

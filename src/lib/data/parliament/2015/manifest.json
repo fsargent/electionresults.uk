@@ -1,0 +1,23 @@
+{
+  "_manifest": {
+    "id": "parliament-ge-2015-psephology",
+    "sourceName": "UK Parliament psephology database",
+    "sourceUrl": "https://github.com/ukparliament/psephology-datasette",
+    "licence": "Open Parliament Licence v3.0",
+    "retrievalDate": "2026-05-19",
+    "publicationDate": "2015-05-07",
+    "generatedAt": "2026-05-19T12:19:03.837Z",
+    "etlVersion": "parliament-etl-psephology@1",
+    "caveats": [
+      "© House of Commons 2026. Re-use our content freely and flexibly with only a few conditions under the Open Parliament Licence."
+    ]
+  },
+  "data": {
+    "electionId": "ge-2015",
+    "year": 2015,
+    "boundarySet": "2010-review",
+    "constituenciesFile": "constituencies.json",
+    "partyTotalsFile": "party-totals.json",
+    "nationalSummaryFile": "national-summary.json"
+  }
+}

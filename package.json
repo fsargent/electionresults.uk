@@ -6,6 +6,7 @@
   "scripts": {
     "etl": "bun scripts/etl.mjs",
     "etl:parliament": "bun scripts/etl-parliament.mjs",
+    "etl:parliament:psephology": "bun scripts/etl-parliament-psephology.mjs",
     "build:map": "bun scripts/build-hexmap.mjs",
     "build:og": "bun scripts/build-og.mjs",
     "refresh-data": "bun run etl && bun run build:map && bun run build:og",

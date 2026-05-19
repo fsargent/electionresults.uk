@@ -1,0 +1,942 @@
+{
+  "_manifest": {
+    "id": "parliament-ge-2010-psephology",
+    "sourceName": "UK Parliament psephology database",
+    "sourceUrl": "https://github.com/ukparliament/psephology-datasette",
+    "licence": "Open Parliament Licence v3.0",
+    "retrievalDate": "2026-05-19",
+    "publicationDate": "2010-05-06",
+    "generatedAt": "2026-05-19T12:19:03.837Z",
+    "etlVersion": "parliament-etl-psephology@1",
+    "caveats": [
+      "© House of Commons 2026. Re-use our content freely and flexibly with only a few conditions under the Open Parliament Licence."
+    ]
+  },
+  "data": {
+    "electionId": "ge-2010",
+    "totalVotes": 29639269,
+    "totalSeats": 649,
+    "gallagher": 15.101079538591728,
+    "minorityWinnerCount": 433,
+    "voteVsSeatGap": [
+      {
+        "partyId": "liberal-democrats",
+        "partyDisplayName": "Liberal Democrats",
+        "gap": -0.14282090665550629
+      },
+      {
+        "partyId": "conservative-party",
+        "partyDisplayName": "Conservative Party",
+        "gap": 0.11036377083137316
+      },
+      {
+        "partyId": "labour-party",
+        "partyDisplayName": "Labour Party",
+        "gap": 0.1071591874634576
+      },
+      {
+        "partyId": "uk-independence-party",
+        "partyDisplayName": "UK Independence Party",
+        "gap": -0.03073861234566885
+      },
+      {
+        "partyId": "british-national-party",
+        "partyDisplayName": "British National Party",
+        "gap": -0.019006575364594856
+      },
+      {
+        "partyId": "independent",
+        "partyDisplayName": "Independent",
+        "gap": -0.00812215930179586
+      },
+      {
+        "partyId": "green-party",
+        "partyDisplayName": "Green Party",
+        "gap": -0.007975934372969173
+      },
+      {
+        "partyId": "scottish-national-party",
+        "partyDisplayName": "Scottish National Party",
+        "gap": -0.007333891616580624
+      },
+      {
+        "partyId": "democratic-unionist-party",
+        "partyDisplayName": "Democratic Unionist Party",
+        "gap": 0.006651212779429976
+      },
+      {
+        "partyId": "english-democrats",
+        "partyDisplayName": "English Democrats",
+        "gap": -0.0021871659520347818
+      },
+      {
+        "partyId": "sinn-fein",
+        "partyDisplayName": "Sinn Féin",
+        "gap": 0.001903005029108569
+      },
+      {
+        "partyId": "respect-party",
+        "partyDisplayName": "Respect Party",
+        "gap": -0.0011218562778994314
+      },
+      {
+        "partyId": "plaid-cymru",
+        "partyDisplayName": "Plaid Cymru",
+        "gap": -0.0009577359421495506
+      },
+      {
+        "partyId": "traditional-unionist-voice",
+        "partyDisplayName": "Traditional Unionist Voice",
+        "gap": -0.0008873363239828891
+      },
+      {
+        "partyId": "social-democratic-and-labour-party",
+        "partyDisplayName": "Social Democratic & Labour Party",
+        "gap": 0.0008784766850916947
+      },
+      {
+        "partyId": "christian-party-proclaiming-christ-s-lordship",
+        "partyDisplayName": "Christian Party, Proclaiming Christ's Lordship",
+        "gap": -0.0006158384000631054
+      },
+      {
+        "partyId": "independent-kidderminster-hospital-and-health-concern",
+        "partyDisplayName": "Independent Kidderminster Hospital and Health Concern",
+        "gap": -0.0005448852331682
+      },
+      {
+        "partyId": "independent-save-our-green-belt",
+        "partyDisplayName": "Independent Save Our Green Belt",
+        "gap": -0.00041073887483527346
+      },
+      {
+        "partyId": "trade-unionist-and-socialist-coalition",
+        "partyDisplayName": "Trade Unionist and Socialist Coalition",
+        "gap": -0.0004019329896428957
+      },
+      {
+        "partyId": "national-front",
+        "partyDisplayName": "National Front",
+        "gap": -0.0003638416318567101
+      },
+      {
+        "partyId": "socialist-labour-party",
+        "partyDisplayName": "Socialist Labour Party",
+        "gap": -0.00024278601472931064
+      },
+      {
+        "partyId": "liberal",
+        "partyDisplayName": "Liberal",
+        "gap": -0.0002287843198831928
+      },
+      {
+        "partyId": "official-monster-raving-loony-party",
+        "partyDisplayName": "Official Monster Raving Loony Party",
+        "gap": -0.0002244994638700435
+      },
+      {
+        "partyId": "blaenau-gwent-people-s-voice",
+        "partyDisplayName": "Blaenau Gwent People's Voice",
+        "gap": -0.0002178866152198288
+      },
+      {
+        "partyId": "christian-peoples-alliance",
+        "partyDisplayName": "Christian Peoples Alliance",
+        "gap": -0.0002117461129017723
+      },
+      {
+        "partyId": "mebyon-kernow-the-party-for-cornwall",
+        "partyDisplayName": "Mebyon Kernow - The Party for Cornwall",
+        "gap": -0.00018148220861992245
+      },
+      {
+        "partyId": "lincolnshire-independents-lincolnshire-first",
+        "partyDisplayName": "Lincolnshire Independents Lincolnshire First",
+        "gap": -0.00017918795500658266
+      },
+      {
+        "partyId": "mansfield-independents",
+        "partyDisplayName": "Mansfield Independents",
+        "gap": -0.0001463936239453139
+      },
+      {
+        "partyId": "green-party-northern-ireland",
+        "partyDisplayName": "Green Party Northern Ireland",
+        "gap": -0.00011950362203602254
+      },
+      {
+        "partyId": "socialist-alternative",
+        "partyDisplayName": "Socialist Alternative",
+        "gap": -0.00011127130024697977
+      },
+      {
+        "partyId": "trust",
+        "partyDisplayName": "Trust",
+        "gap": -0.00010907826370481675
+      },
+      {
+        "partyId": "scottish-socialist-party",
+        "partyDisplayName": "Scottish Socialist Party",
+        "gap": -0.00010651409790167227
+      },
+      {
+        "partyId": "people-before-profit-alliance",
+        "partyDisplayName": "People Before Profit Alliance",
+        "gap": -0.00009905777365831796
+      },
+      {
+        "partyId": "alliance",
+        "partyDisplayName": "Alliance",
+        "gap": 0.00009808391675315419
+      },
+      {
+        "partyId": "the-macclesfield-independent",
+        "partyDisplayName": "The Macclesfield Independent",
+        "gap": -0.0000873840714492655
+      },
+      {
+        "partyId": "bromsgrove-independent-conservative",
+        "partyDisplayName": "Bromsgrove Independent Conservative",
+        "gap": -0.00007361854976922676
+      },
+      {
+        "partyId": "local-liberals-people-before-politics-party",
+        "partyDisplayName": "Local Liberals People Before Politics Party",
+        "gap": -0.0000662634425970492
+      },
+      {
+        "partyId": "alliance-for-green-socialism",
+        "partyDisplayName": "Alliance for Green Socialism",
+        "gap": -0.0000533413965101501
+      },
+      {
+        "partyId": "social-democratic-party",
+        "partyDisplayName": "Social Democratic Party",
+        "gap": -0.00005232922579838254
+      },
+      {
+        "partyId": "bushra-irfan-of-blackburn",
+        "partyDisplayName": "Bushra Irfan of Blackburn",
+        "gap": -0.00004804436978523323
+      },
+      {
+        "partyId": "pirate-party-uk",
+        "partyDisplayName": "Pirate Party UK",
+        "gap": -0.00004548020398208876
+      },
+      {
+        "partyId": "staffordshire-independent-group",
+        "partyDisplayName": "Staffordshire Independent Group",
+        "gap": -0.000040756740660506844
+      },
+      {
+        "partyId": "common-sense-party",
+        "partyDisplayName": "Common Sense Party",
+        "gap": -0.00003957587483011136
+      },
+      {
+        "partyId": "tendring-first",
+        "partyDisplayName": "Tendring First",
+        "gap": -0.000036370667576180776
+      },
+      {
+        "partyId": "solihull-and-meriden-residents-association",
+        "partyDisplayName": "Solihull and Meriden Residents Association",
+        "gap": -0.00003296302617989668
+      },
+      {
+        "partyId": "communist-party-of-britain",
+        "partyDisplayName": "Communist Party of Britain",
+        "gap": -0.000031950855468129126
+      },
+      {
+        "partyId": "democratic-labour-party",
+        "partyDisplayName": "Democratic Labour Party",
+        "gap": -0.000028408257976942685
+      },
+      {
+        "partyId": "english-independence-party",
+        "partyDisplayName": "English Independence Party",
+        "gap": -0.000027092436051644863
+      },
+      {
+        "partyId": "democratic-nationalists",
+        "partyDisplayName": "Democratic Nationalists",
+        "gap": -0.000025405484865365605
+      },
+      {
+        "partyId": "save-king-george-hospital",
+        "partyDisplayName": "Save King George Hospital",
+        "gap": -0.00002516931169928651
+      },
+      {
+        "partyId": "workers-revolutionary-party",
+        "partyDisplayName": "Workers Revolutionary Party",
+        "gap": -0.00002489939950948183
+      },
+      {
+        "partyId": "the-peace-party-non-violence-justice-environment",
+        "partyDisplayName": "The Peace Party - Non-violence, Justice, Environment",
+        "gap": -0.000024865660485756243
+      },
+      {
+        "partyId": "independent-voice-for-halifax",
+        "partyDisplayName": "Independent Voice for Halifax",
+        "gap": -0.000024359575129872466
+      },
+      {
+        "partyId": "animal-protection-party",
+        "partyDisplayName": "Animal Protection Party",
+        "gap": -0.000022773841014769965
+      },
+      {
+        "partyId": "middle-england-party",
+        "partyDisplayName": "Middle England Party",
+        "gap": -0.000020783238614960443
+      },
+      {
+        "partyId": "christian-movement-for-great-britain",
+        "partyDisplayName": "Christian Movement for Great Britain",
+        "gap": -0.00002017593618789991
+      },
+      {
+        "partyId": "new-millennium-bean-party",
+        "partyDisplayName": "New Millennium Bean Party",
+        "gap": -0.000018826375238876506
+      },
+      {
+        "partyId": "islam-zinda-baad-platform",
+        "partyDisplayName": "Islam Zinda Baad Platform",
+        "gap": -0.0000183877679304439
+      },
+      {
+        "partyId": "unity-for-peace-and-socialism",
+        "partyDisplayName": "Unity for Peace and Socialism",
+        "gap": -0.000016667077720439058
+      },
+      {
+        "partyId": "impact-party",
+        "partyDisplayName": "Impact Party",
+        "gap": -0.00001609351431710411
+      },
+      {
+        "partyId": "a-vote-against-mp-expense-abuse",
+        "partyDisplayName": "A Vote Against MP Expense Abuse",
+        "gap": -0.00001602603626965294
+      },
+      {
+        "partyId": "best-of-a-bad-bunch",
+        "partyDisplayName": "Best of a Bad Bunch",
+        "gap": -0.000015992297245927354
+      },
+      {
+        "partyId": "the-justice-and-anti-corruption-party",
+        "partyDisplayName": "The Justice & Anti-Corruption Party",
+        "gap": -0.000014406563130824853
+      },
+      {
+        "partyId": "the-cornish-democrats",
+        "partyDisplayName": "The Cornish Democrats",
+        "gap": -0.000013360653395331714
+      },
+      {
+        "partyId": "independents-to-save-queen-mary-s-hospital",
+        "partyDisplayName": "Independents to Save Queen Mary's Hospital",
+        "gap": -0.000013259436324154958
+      },
+      {
+        "partyId": "reform-2000-party",
+        "partyDisplayName": "Reform 2000 Party",
+        "gap": -0.000012787089991996766
+      },
+      {
+        "partyId": "cambridge-socialists",
+        "partyDisplayName": "Cambridge Socialists",
+        "gap": -0.000012213526588661819
+      },
+      {
+        "partyId": "people-before-profit",
+        "partyDisplayName": "People Before Profit",
+        "gap": -0.000011201355876894265
+      },
+      {
+        "partyId": "the-p-n-d-p",
+        "partyDisplayName": "The P.N.D.P.",
+        "gap": -0.00001116761685316868
+      },
+      {
+        "partyId": "independents-federation-uk",
+        "partyDisplayName": "Independents Federation UK",
+        "gap": -0.00001103266075826634
+      },
+      {
+        "partyId": "no-candidate-deserves-my-vote",
+        "partyDisplayName": "No Candidate Deserves My Vote!",
+        "gap": -0.00001103266075826634
+      },
+      {
+        "partyId": "northampton-save-our-public-services",
+        "partyDisplayName": "Northampton - Save Our Public Services",
+        "gap": -0.000010965182710815169
+      },
+      {
+        "partyId": "equal-parenting-alliance",
+        "partyDisplayName": "Equal Parenting Alliance",
+        "gap": -0.000010762748568461659
+      },
+      {
+        "partyId": "you-party",
+        "partyDisplayName": "You Party",
+        "gap": -0.000010762748568461659
+      },
+      {
+        "partyId": "citizens-for-undead-rights-and-equality",
+        "partyDisplayName": "Citizens for Undead Rights and Equality",
+        "gap": -0.000010695270521010488
+      },
+      {
+        "partyId": "common-good",
+        "partyDisplayName": "Common Good",
+        "gap": -0.000010290402236303465
+      },
+      {
+        "partyId": "city-independents",
+        "partyDisplayName": "City Independents",
+        "gap": -0.000010222924188852296
+      },
+      {
+        "partyId": "the-true-english-poetry-party",
+        "partyDisplayName": "The True English (Poetry) Party",
+        "gap": -0.00001005422907022437
+      },
+      {
+        "partyId": "the-scottish-jacobite-party",
+        "partyDisplayName": "The Scottish Jacobite Party",
+        "gap": -0.000009784316880419689
+      },
+      {
+        "partyId": "freedom-and-responsibility",
+        "partyDisplayName": "Freedom and Responsibility",
+        "gap": -0.000009109536405907987
+      },
+      {
+        "partyId": "independent-people-together",
+        "partyDisplayName": "Independent People Together",
+        "gap": -0.00000894084128728006
+      },
+      {
+        "partyId": "justice-party",
+        "partyDisplayName": "Justice Party",
+        "gap": -0.00000894084128728006
+      },
+      {
+        "partyId": "your-right-to-democracy-party-limited",
+        "partyDisplayName": "Your Right To Democracy Party Limited",
+        "gap": -0.000008907102263554476
+      },
+      {
+        "partyId": "get-snouts-out-the-trough",
+        "partyDisplayName": "Get Snouts Out The Trough",
+        "gap": -0.00000873840714492655
+      },
+      {
+        "partyId": "independent-leave-the-eu-alliance",
+        "partyDisplayName": "INDEPENDENT Leave-the-EU Alliance",
+        "gap": -0.000007962409599238092
+      },
+      {
+        "partyId": "movement-for-active-democracy-m-a-d",
+        "partyDisplayName": "Movement for Active Democracy (M.A.D.)",
+        "gap": -0.000007861192528061337
+      },
+      {
+        "partyId": "integrity-uk",
+        "partyDisplayName": "Integrity UK",
+        "gap": -0.000007759975456884581
+      },
+      {
+        "partyId": "clause-28-children-s-protection-christian-democrats",
+        "partyDisplayName": "Clause 28, Children's Protection Christian Democrats",
+        "gap": -0.000007321368148451974
+      },
+      {
+        "partyId": "united-voice",
+        "partyDisplayName": "United Voice",
+        "gap": -0.000007051455958647293
+      },
+      {
+        "partyId": "fancy-dress-party",
+        "partyDisplayName": "Fancy Dress Party",
+        "gap": -0.000006983977911196123
+      },
+      {
+        "partyId": "direct-democracy-communist-party",
+        "partyDisplayName": "Direct Democracy (Communist) Party",
+        "gap": -0.000006815282792568197
+      },
+      {
+        "partyId": "the-science-party",
+        "partyDisplayName": "The Science Party",
+        "gap": -0.0000066465876739402715
+      },
+      {
+        "partyId": "new-independent-centralists",
+        "partyDisplayName": "New Independent Centralists",
+        "gap": -0.000006612848650214686
+      },
+      {
+        "partyId": "independent-ealing-acton-communities-public-services",
+        "partyDisplayName": "Independent Ealing Acton Communities Public Services",
+        "gap": -0.000006410414507861176
+      },
+      {
+        "partyId": "libertarian-party",
+        "partyDisplayName": "Libertarian Party",
+        "gap": -0.000006140502318056495
+      },
+      {
+        "partyId": "money-reform-party",
+        "partyDisplayName": "Money Reform Party",
+        "gap": -0.000005836851104526228
+      },
+      {
+        "partyId": "socialist-equality-party",
+        "partyDisplayName": "Socialist Equality Party",
+        "gap": -0.000005735634033349473
+      },
+      {
+        "partyId": "hugh-salmon-for-battersea-party",
+        "partyDisplayName": "Hugh Salmon for Battersea Party",
+        "gap": -0.000005668155985898302
+      },
+      {
+        "partyId": "campaign-for-independent-politicians",
+        "partyDisplayName": "Campaign for Independent Politicians",
+        "gap": -0.000005634416962172718
+      },
+      {
+        "partyId": "communist-league-election-campaign",
+        "partyDisplayName": "Communist League Election Campaign",
+        "gap": -0.000005330765748642451
+      },
+      {
+        "partyId": "reduce-tax-on-beer",
+        "partyDisplayName": "Reduce Tax On Beer",
+        "gap": -0.000005162070630014525
+      },
+      {
+        "partyId": "animal-welfare-party",
+        "partyDisplayName": "Animal Welfare Party",
+        "gap": -0.000005027114535112185
+      },
+      {
+        "partyId": "the-socialist-party-of-great-britain",
+        "partyDisplayName": "The Socialist Party of Great Britain",
+        "gap": -0.0000048246803927586745
+      },
+      {
+        "partyId": "scotland-against-crooked-lawyers",
+        "partyDisplayName": "Scotland Against Crooked Lawyers",
+        "gap": -0.0000046559852741307486
+      },
+      {
+        "partyId": "tamsin-omond-to-the-commons",
+        "partyDisplayName": "Tamsin Omond to the Commons",
+        "gap": -0.000004149899918246972
+      },
+      {
+        "partyId": "scrap-members-allowances",
+        "partyDisplayName": "Scrap Members Allowances",
+        "gap": -0.000004014943823344631
+      },
+      {
+        "partyId": "the-new-party",
+        "partyDisplayName": "The New Party",
+        "gap": -0.000003981204799619046
+      },
+      {
+        "partyId": "church-of-the-militant-elvis-party",
+        "partyDisplayName": "Church of the Militant Elvis Party",
+        "gap": -0.000003778770657265535
+      },
+      {
+        "partyId": "anticapitalists-workers-power",
+        "partyDisplayName": "Anticapitalists - Workers Power",
+        "gap": -0.0000036775535860887798
+      },
+      {
+        "partyId": "medway-independent-party",
+        "partyDisplayName": "Medway Independent Party",
+        "gap": -0.0000036775535860887798
+      },
+      {
+        "partyId": "matriarchal-party-united-kingdom-great-britain",
+        "partyDisplayName": "Matriarchal Party United Kingdom Great Britain",
+        "gap": -0.0000033739023725585133
+      },
+      {
+        "partyId": "apolitical-democrats",
+        "partyDisplayName": "Apolitical Democrats",
+        "gap": -0.000003205207253930588
+      },
+      {
+        "partyId": "the-youth-party",
+        "partyDisplayName": "The Youth Party",
+        "gap": -0.000003205207253930588
+      },
+      {
+        "partyId": "national-liberal-party-true-liberalism",
+        "partyDisplayName": "National Liberal Party - True Liberalism",
+        "gap": -0.0000031377292064794176
+      },
+      {
+        "partyId": "the-joy-of-talk",
+        "partyDisplayName": "The Joy of Talk",
+        "gap": -0.0000031377292064794176
+      },
+      {
+        "partyId": "fight-for-an-anti-war-government",
+        "partyDisplayName": "Fight For an Anti-War Government",
+        "gap": -0.0000030702511590282473
+      },
+      {
+        "partyId": "nationwide-reform-party",
+        "partyDisplayName": "Nationwide Reform Party",
+        "gap": -0.000002834077992949151
+      },
+      {
+        "partyId": "virtue-currency-cognitive-appraisal-party",
+        "partyDisplayName": "Virtue Currency Cognitive Appraisal Party",
+        "gap": -0.000002834077992949151
+      },
+      {
+        "partyId": "alliance-for-workers-liberty",
+        "partyDisplayName": "Alliance for Workers' Liberty",
+        "gap": -0.000002530426779418885
+      },
+      {
+        "partyId": "nobody-party",
+        "partyDisplayName": "Nobody Party",
+        "gap": -0.000002462948731967715
+      },
+      {
+        "partyId": "the-magna-carta-party",
+        "partyDisplayName": "The Magna Carta Party",
+        "gap": -0.0000022942536133397894
+      },
+      {
+        "partyId": "wessex-regionalists",
+        "partyDisplayName": "Wessex Regionalists",
+        "gap": -0.0000020918194709862785
+      },
+      {
+        "partyId": "land-party",
+        "partyDisplayName": "Land Party",
+        "gap": -0.0000019231243523583526
+      },
+      {
+        "partyId": "humanity",
+        "partyDisplayName": "Humanity",
+        "gap": -0.0000016869511862792567
+      },
+      {
+        "partyId": "restoration-party",
+        "partyDisplayName": "Restoration Party",
+        "gap": -0.000001518256067651331
+      },
+      {
+        "partyId": "magna-carta-conservation-party-great-britain",
+        "partyDisplayName": "Magna Carta Conservation Party Great Britain",
+        "gap": -0.0000014845170439257458
+      },
+      {
+        "partyId": "peoples-party-essex",
+        "partyDisplayName": "Peoples Party Essex",
+        "gap": -0.0000011808658303954798
+      },
+      {
+        "partyId": "the-better-britain-party",
+        "partyDisplayName": "The Better Britain Party",
+        "gap": -0.0000011808658303954798
+      },
+      {
+        "partyId": "all-the-south-party",
+        "partyDisplayName": "All The South Party",
+        "gap": -0.0000010459097354931393
+      },
+      {
+        "partyId": "blue-environment-party",
+        "partyDisplayName": "Blue Environment Party",
+        "gap": -5.735634033349473e-7
+      }
+    ],
+    "lowWinningShareLeaderboard": [
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:norwich-south",
+        "constituencySlug": "norwich-south",
+        "constituencyName": "Norwich South",
+        "winningVotes": 13960,
+        "winningShare": 0.29358,
+        "winningPartyId": "liberal-democrats",
+        "winningPartyDisplayName": "Liberal Democrats",
+        "winningCandidateName": "Simon Wright",
+        "runnerUpShare": 0.28706,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:brighton-pavilion",
+        "constituencySlug": "brighton-pavilion",
+        "constituencyName": "Brighton, Pavilion",
+        "winningVotes": 16238,
+        "winningShare": 0.313269,
+        "winningPartyId": "green-party",
+        "winningPartyDisplayName": "Green Party",
+        "winningCandidateName": "Caroline Lucas",
+        "runnerUpShare": 0.289115,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:argyll-and-bute",
+        "constituencySlug": "argyll-and-bute",
+        "constituencyName": "Argyll and Bute",
+        "winningVotes": 14292,
+        "winningShare": 0.316146,
+        "winningPartyId": "liberal-democrats",
+        "winningPartyDisplayName": "Liberal Democrats",
+        "winningCandidateName": "Alan Reid",
+        "runnerUpShare": 0.24025,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:oldham-east-and-saddleworth",
+        "constituencySlug": "oldham-east-and-saddleworth",
+        "constituencyName": "Oldham East and Saddleworth",
+        "winningVotes": 14186,
+        "winningShare": 0.318643,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Phil Woolas",
+        "runnerUpShare": 0.31633,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:great-grimsby",
+        "constituencySlug": "great-grimsby",
+        "constituencyName": "Great Grimsby",
+        "winningVotes": 10777,
+        "winningShare": 0.327032,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Austin Mitchell",
+        "runnerUpShare": 0.305365,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:hampstead-and-kilburn",
+        "constituencySlug": "hampstead-and-kilburn",
+        "constituencyName": "Hampstead and Kilburn",
+        "winningVotes": 17332,
+        "winningShare": 0.328121,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Glenda Jackson",
+        "runnerUpShare": 0.327326,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:birmingham-hall-green",
+        "constituencySlug": "birmingham-hall-green",
+        "constituencyName": "Birmingham, Hall Green",
+        "winningVotes": 16039,
+        "winningShare": 0.32916,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Roger Godsiff",
+        "runnerUpShare": 0.251195,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:derby-north",
+        "constituencySlug": "derby-north",
+        "constituencyName": "Derby North",
+        "winningVotes": 14896,
+        "winningShare": 0.330435,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Chris Williamson",
+        "runnerUpShare": 0.316837,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:ynys-mon",
+        "constituencySlug": "ynys-mon",
+        "constituencyName": "Ynys Môn",
+        "winningVotes": 11490,
+        "winningShare": 0.333585,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Albert Owen",
+        "runnerUpShare": 0.262136,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:ashfield",
+        "constituencySlug": "ashfield",
+        "constituencyName": "Ashfield",
+        "winningVotes": 16239,
+        "winningShare": 0.336937,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Gloria de Piero",
+        "runnerUpShare": 0.332953,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:bradford-east",
+        "constituencySlug": "bradford-east",
+        "constituencyName": "Bradford East",
+        "winningVotes": 13637,
+        "winningShare": 0.337074,
+        "winningPartyId": "liberal-democrats",
+        "winningPartyDisplayName": "Liberal Democrats",
+        "winningCandidateName": "David Ward",
+        "runnerUpShare": 0.328052,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:upper-bann",
+        "constituencySlug": "upper-bann",
+        "constituencyName": "Upper Bann",
+        "winningVotes": 14000,
+        "winningShare": 0.338303,
+        "winningPartyId": "democratic-unionist-party",
+        "winningPartyDisplayName": "Democratic Unionist Party",
+        "winningCandidateName": "David Simpson",
+        "runnerUpShare": 0.257086,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:south-antrim",
+        "constituencySlug": "south-antrim",
+        "constituencyName": "South Antrim",
+        "winningVotes": 11536,
+        "winningShare": 0.339204,
+        "winningPartyId": "democratic-unionist-party",
+        "winningPartyDisplayName": "Democratic Unionist Party",
+        "winningCandidateName": "William McCrea",
+        "runnerUpShare": 0.304419,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:northampton-north",
+        "constituencySlug": "northampton-north",
+        "constituencyName": "Northampton North",
+        "winningVotes": 13735,
+        "winningShare": 0.341064,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Michael Ellis",
+        "runnerUpShare": 0.29299,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:plymouth-sutton-and-devonport",
+        "constituencySlug": "plymouth-sutton-and-devonport",
+        "constituencyName": "Plymouth, Sutton and Devonport",
+        "winningVotes": 15050,
+        "winningShare": 0.342871,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Oliver Colvile",
+        "runnerUpShare": 0.316695,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:east-londonderry",
+        "constituencySlug": "east-londonderry",
+        "constituencyName": "East Londonderry",
+        "winningVotes": 12097,
+        "winningShare": 0.346123,
+        "winningPartyId": "democratic-unionist-party",
+        "winningPartyDisplayName": "Democratic Unionist Party",
+        "winningCandidateName": "Gregory Campbell",
+        "runnerUpShare": 0.192904,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:swansea-west",
+        "constituencySlug": "swansea-west",
+        "constituencyName": "Swansea West",
+        "winningVotes": 12335,
+        "winningShare": 0.346557,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Geraint Davies",
+        "runnerUpShare": 0.332397,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:edinburgh-south",
+        "constituencySlug": "edinburgh-south",
+        "constituencyName": "Edinburgh South",
+        "winningVotes": 15215,
+        "winningShare": 0.347366,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Ian Murray",
+        "runnerUpShare": 0.340152,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:luton-south",
+        "constituencySlug": "luton-south",
+        "constituencyName": "Luton South",
+        "winningVotes": 14725,
+        "winningShare": 0.348801,
+        "winningPartyId": "labour-party",
+        "winningPartyDisplayName": "Labour Party",
+        "winningCandidateName": "Gavin Shuker",
+        "runnerUpShare": 0.293633,
+        "caveats": []
+      },
+      {
+        "electionId": "ge-2010",
+        "constituencyId": "2010-review:watford",
+        "constituencySlug": "watford",
+        "constituencyName": "Watford",
+        "winningVotes": 19291,
+        "winningShare": 0.349424,
+        "winningPartyId": "conservative-party",
+        "winningPartyDisplayName": "Conservative Party",
+        "winningCandidateName": "Richard Harrington",
+        "runnerUpShare": 0.323613,
+        "caveats": []
+      }
+    ],
+    "excludedFromMetrics": [
+      {
+        "caveat": "speaker",
+        "count": 1
+      }
+    ]
+  }
+}

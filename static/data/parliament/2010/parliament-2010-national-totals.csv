@@ -1,0 +1,131 @@
+election_id,party_id,party_display_name,party_source_label,votes,vote_share,seats,seat_share,seat_delta
+ge-2010,conservative-party,Conservative Party,Conservative,10703654,0.36113083625645426,306,0.4714946070878274,0.11036377083137316
+ge-2010,labour-party,Labour Party,Labour,8606517,0.2903754812576518,258,0.3975346687211094,0.1071591874634576
+ge-2010,liberal-democrats,Liberal Democrats,Liberal Democrat,6836248,0.23064833346598393,57,0.08782742681047766,-0.14282090665550629
+ge-2010,uk-independence-party,UK Independence Party,UK Independence Party,911070,0.03073861234566885,0,0,-0.03073861234566885
+ge-2010,british-national-party,British National Party,British National Party,563341,0.019006575364594856,0,0,-0.019006575364594856
+ge-2010,scottish-national-party,Scottish National Party,Scottish National Party,491386,0.016578883912420378,6,0.009244992295839754,-0.007333891616580624
+ge-2010,independent,Independent,Independent,286404,0.009662991351102485,1,0.0015408320493066256,-0.00812215930179586
+ge-2010,green-party,Green Party,Scottish Green Party,282070,0.009516766422275799,1,0.0015408320493066256,-0.007975934372969173
+ge-2010,sinn-fein,Sinn Féin,Sinn Féin,171942,0.005801155217424559,5,0.007704160246533128,0.001903005029108569
+ge-2010,democratic-unionist-party,Democratic Unionist Party,Democratic Unionist Party,168216,0.005675443615023029,8,0.012326656394453005,0.006651212779429976
+ge-2010,plaid-cymru,Plaid Cymru,Plaid Cymru,165394,0.005580232090069428,3,0.004622496147919877,-0.0009577359421495506
+ge-2010,social-democratic-and-labour-party,Social Democratic & Labour Party,Social Democratic & Labour Party,110970,0.0037440194628281824,3,0.004622496147919877,0.0008784766850916947
+ge-2010,english-democrats,English Democrats,English Democrats,64826,0.0021871659520347818,0,0,-0.0021871659520347818
+ge-2010,alliance,Alliance,Alliance,42762,0.0014427481325534714,1,0.0015408320493066256,0.00009808391675315419
+ge-2010,respect-party,Respect Party,Respect Party,33251,0.0011218562778994314,0,0,-0.0011218562778994314
+ge-2010,traditional-unionist-voice,Traditional Unionist Voice,Traditional Unionist Voice,26300,0.0008873363239828891,0,0,-0.0008873363239828891
+ge-2010,christian-party-proclaiming-christ-s-lordship,"Christian Party, Proclaiming Christ's Lordship","Christian Party, Proclaiming Christ's Lordship",18253,0.0006158384000631054,0,0,-0.0006158384000631054
+ge-2010,independent-kidderminster-hospital-and-health-concern,Independent Kidderminster Hospital and Health Concern,Independent Kidderminster Hospital and Health Concern,16150,0.0005448852331682,0,0,-0.0005448852331682
+ge-2010,independent-save-our-green-belt,Independent Save Our Green Belt,Independent Save Our Green Belt,12174,0.00041073887483527346,0,0,-0.00041073887483527346
+ge-2010,trade-unionist-and-socialist-coalition,Trade Unionist and Socialist Coalition,Trade Unionist and Socialist Coalition,11913,0.0004019329896428957,0,0,-0.0004019329896428957
+ge-2010,national-front,National Front,National Front,10784,0.0003638416318567101,0,0,-0.0003638416318567101
+ge-2010,socialist-labour-party,Socialist Labour Party,Socialist Labour Party,7196,0.00024278601472931064,0,0,-0.00024278601472931064
+ge-2010,liberal,Liberal,Liberal,6781,0.0002287843198831928,0,0,-0.0002287843198831928
+ge-2010,official-monster-raving-loony-party,Official Monster Raving Loony Party,Official Monster Raving Loony Party,6654,0.0002244994638700435,0,0,-0.0002244994638700435
+ge-2010,blaenau-gwent-people-s-voice,Blaenau Gwent People's Voice,Blaenau Gwent People's Voice,6458,0.0002178866152198288,0,0,-0.0002178866152198288
+ge-2010,christian-peoples-alliance,Christian Peoples Alliance,Christian Peoples Alliance,6276,0.0002117461129017723,0,0,-0.0002117461129017723
+ge-2010,mebyon-kernow-the-party-for-cornwall,Mebyon Kernow - The Party for Cornwall,Mebyon Kernow - The Party for Cornwall,5379,0.00018148220861992245,0,0,-0.00018148220861992245
+ge-2010,lincolnshire-independents-lincolnshire-first,Lincolnshire Independents Lincolnshire First,Lincolnshire Independents Lincolnshire First,5311,0.00017918795500658266,0,0,-0.00017918795500658266
+ge-2010,mansfield-independents,Mansfield Independents,Mansfield Independents,4339,0.0001463936239453139,0,0,-0.0001463936239453139
+ge-2010,green-party-northern-ireland,Green Party Northern Ireland,Green Party Northern Ireland,3542,0.00011950362203602254,0,0,-0.00011950362203602254
+ge-2010,socialist-alternative,Socialist Alternative,Socialist Alternative,3298,0.00011127130024697977,0,0,-0.00011127130024697977
+ge-2010,trust,Trust,Trust,3233,0.00010907826370481675,0,0,-0.00010907826370481675
+ge-2010,scottish-socialist-party,Scottish Socialist Party,Scottish Socialist Party,3157,0.00010651409790167227,0,0,-0.00010651409790167227
+ge-2010,people-before-profit-alliance,People Before Profit Alliance,People Before Profit Alliance,2936,0.00009905777365831796,0,0,-0.00009905777365831796
+ge-2010,the-macclesfield-independent,The Macclesfield Independent,The Macclesfield Independent,2590,0.0000873840714492655,0,0,-0.0000873840714492655
+ge-2010,bromsgrove-independent-conservative,Bromsgrove Independent Conservative,Bromsgrove Independent Conservative,2182,0.00007361854976922676,0,0,-0.00007361854976922676
+ge-2010,local-liberals-people-before-politics-party,Local Liberals People Before Politics Party,Local Liberals People Before Politics Party,1964,0.0000662634425970492,0,0,-0.0000662634425970492
+ge-2010,alliance-for-green-socialism,Alliance for Green Socialism,Alliance for Green Socialism,1581,0.0000533413965101501,0,0,-0.0000533413965101501
+ge-2010,social-democratic-party,Social Democratic Party,Social Democratic Party,1551,0.00005232922579838254,0,0,-0.00005232922579838254
+ge-2010,bushra-irfan-of-blackburn,Bushra Irfan of Blackburn,Bushra Irfan of Blackburn,1424,0.00004804436978523323,0,0,-0.00004804436978523323
+ge-2010,pirate-party-uk,Pirate Party UK,Pirate Party UK,1348,0.00004548020398208876,0,0,-0.00004548020398208876
+ge-2010,staffordshire-independent-group,Staffordshire Independent Group,Staffordshire Independent Group,1208,0.000040756740660506844,0,0,-0.000040756740660506844
+ge-2010,common-sense-party,Common Sense Party,Common Sense Party,1173,0.00003957587483011136,0,0,-0.00003957587483011136
+ge-2010,tendring-first,Tendring First,Tendring First,1078,0.000036370667576180776,0,0,-0.000036370667576180776
+ge-2010,solihull-and-meriden-residents-association,Solihull and Meriden Residents Association,Solihull and Meriden Residents Association,977,0.00003296302617989668,0,0,-0.00003296302617989668
+ge-2010,communist-party-of-britain,Communist Party of Britain,Communist Party of Britain,947,0.000031950855468129126,0,0,-0.000031950855468129126
+ge-2010,democratic-labour-party,Democratic Labour Party,Democratic Labour Party,842,0.000028408257976942685,0,0,-0.000028408257976942685
+ge-2010,english-independence-party,English Independence Party,English Independence Party,803,0.000027092436051644863,0,0,-0.000027092436051644863
+ge-2010,democratic-nationalists,Democratic Nationalists,Democratic Nationalists,753,0.000025405484865365605,0,0,-0.000025405484865365605
+ge-2010,save-king-george-hospital,Save King George Hospital,Save King George Hospital,746,0.00002516931169928651,0,0,-0.00002516931169928651
+ge-2010,workers-revolutionary-party,Workers Revolutionary Party,Workers Revolutionary Party,738,0.00002489939950948183,0,0,-0.00002489939950948183
+ge-2010,the-peace-party-non-violence-justice-environment,"The Peace Party - Non-violence, Justice, Environment","The Peace Party - Non-violence, Justice, Environment",737,0.000024865660485756243,0,0,-0.000024865660485756243
+ge-2010,independent-voice-for-halifax,Independent Voice for Halifax,Independent Voice for Halifax,722,0.000024359575129872466,0,0,-0.000024359575129872466
+ge-2010,animal-protection-party,Animal Protection Party,Animal Protection Party,675,0.000022773841014769965,0,0,-0.000022773841014769965
+ge-2010,middle-england-party,Middle England Party,Middle England Party,616,0.000020783238614960443,0,0,-0.000020783238614960443
+ge-2010,christian-movement-for-great-britain,Christian Movement for Great Britain,Christian Movement for Great Britain,598,0.00002017593618789991,0,0,-0.00002017593618789991
+ge-2010,new-millennium-bean-party,New Millennium Bean Party,New Millennium Bean Party,558,0.000018826375238876506,0,0,-0.000018826375238876506
+ge-2010,islam-zinda-baad-platform,Islam Zinda Baad Platform,Islam Zinda Baad Platform,545,0.0000183877679304439,0,0,-0.0000183877679304439
+ge-2010,unity-for-peace-and-socialism,Unity for Peace and Socialism,Unity for Peace and Socialism,494,0.000016667077720439058,0,0,-0.000016667077720439058
+ge-2010,impact-party,Impact Party,Impact Party,477,0.00001609351431710411,0,0,-0.00001609351431710411
+ge-2010,a-vote-against-mp-expense-abuse,A Vote Against MP Expense Abuse,A Vote Against MP Expense Abuse,475,0.00001602603626965294,0,0,-0.00001602603626965294
+ge-2010,best-of-a-bad-bunch,Best of a Bad Bunch,Best of a Bad Bunch,474,0.000015992297245927354,0,0,-0.000015992297245927354
+ge-2010,the-justice-and-anti-corruption-party,The Justice & Anti-Corruption Party,The Justice & Anti-Corruption Party,427,0.000014406563130824853,0,0,-0.000014406563130824853
+ge-2010,the-cornish-democrats,The Cornish Democrats,The Cornish Democrats,396,0.000013360653395331714,0,0,-0.000013360653395331714
+ge-2010,independents-to-save-queen-mary-s-hospital,Independents to Save Queen Mary's Hospital,Independents to Save Queen Mary's Hospital,393,0.000013259436324154958,0,0,-0.000013259436324154958
+ge-2010,reform-2000-party,Reform 2000 Party,Reform 2000 Party,379,0.000012787089991996766,0,0,-0.000012787089991996766
+ge-2010,cambridge-socialists,Cambridge Socialists,Cambridge Socialists,362,0.000012213526588661819,0,0,-0.000012213526588661819
+ge-2010,people-before-profit,People Before Profit,People Before Profit,332,0.000011201355876894265,0,0,-0.000011201355876894265
+ge-2010,the-p-n-d-p,The P.N.D.P.,The P.N.D.P.,331,0.00001116761685316868,0,0,-0.00001116761685316868
+ge-2010,independents-federation-uk,Independents Federation UK,Independents Federation UK,327,0.00001103266075826634,0,0,-0.00001103266075826634
+ge-2010,no-candidate-deserves-my-vote,No Candidate Deserves My Vote!,No Candidate Deserves My Vote!,327,0.00001103266075826634,0,0,-0.00001103266075826634
+ge-2010,northampton-save-our-public-services,Northampton - Save Our Public Services,Northampton - Save Our Public Services,325,0.000010965182710815169,0,0,-0.000010965182710815169
+ge-2010,you-party,You Party,You Party,319,0.000010762748568461659,0,0,-0.000010762748568461659
+ge-2010,equal-parenting-alliance,Equal Parenting Alliance,Equal Parenting Alliance,319,0.000010762748568461659,0,0,-0.000010762748568461659
+ge-2010,citizens-for-undead-rights-and-equality,Citizens for Undead Rights and Equality,Citizens for Undead Rights and Equality,317,0.000010695270521010488,0,0,-0.000010695270521010488
+ge-2010,common-good,Common Good,Common Good,305,0.000010290402236303465,0,0,-0.000010290402236303465
+ge-2010,city-independents,City Independents,City Independents,303,0.000010222924188852296,0,0,-0.000010222924188852296
+ge-2010,the-true-english-poetry-party,The True English (Poetry) Party,The True English (Poetry) Party,298,0.00001005422907022437,0,0,-0.00001005422907022437
+ge-2010,the-scottish-jacobite-party,The Scottish Jacobite Party,The Scottish Jacobite Party,290,0.000009784316880419689,0,0,-0.000009784316880419689
+ge-2010,freedom-and-responsibility,Freedom and Responsibility,Freedom and Responsibility,270,0.000009109536405907987,0,0,-0.000009109536405907987
+ge-2010,justice-party,Justice Party,Justice Party,265,0.00000894084128728006,0,0,-0.00000894084128728006
+ge-2010,independent-people-together,Independent People Together,Independent People Together,265,0.00000894084128728006,0,0,-0.00000894084128728006
+ge-2010,your-right-to-democracy-party-limited,Your Right To Democracy Party Limited,Your Right To Democracy Party Limited,264,0.000008907102263554476,0,0,-0.000008907102263554476
+ge-2010,get-snouts-out-the-trough,Get Snouts Out The Trough,Get Snouts Out The Trough,259,0.00000873840714492655,0,0,-0.00000873840714492655
+ge-2010,independent-leave-the-eu-alliance,INDEPENDENT Leave-the-EU Alliance,INDEPENDENT Leave-the-EU Alliance,236,0.000007962409599238092,0,0,-0.000007962409599238092
+ge-2010,movement-for-active-democracy-m-a-d,Movement for Active Democracy (M.A.D.),Movement for Active Democracy (M.A.D.),233,0.000007861192528061337,0,0,-0.000007861192528061337
+ge-2010,integrity-uk,Integrity UK,Integrity UK,230,0.000007759975456884581,0,0,-0.000007759975456884581
+ge-2010,clause-28-children-s-protection-christian-democrats,"Clause 28, Children's Protection Christian Democrats","Clause 28, Children's Protection Christian Democrats",217,0.000007321368148451974,0,0,-0.000007321368148451974
+ge-2010,united-voice,United Voice,United Voice,209,0.000007051455958647293,0,0,-0.000007051455958647293
+ge-2010,fancy-dress-party,Fancy Dress Party,Fancy Dress Party,207,0.000006983977911196123,0,0,-0.000006983977911196123
+ge-2010,direct-democracy-communist-party,Direct Democracy (Communist) Party,Direct Democracy (Communist) Party,202,0.000006815282792568197,0,0,-0.000006815282792568197
+ge-2010,the-science-party,The Science Party,The Science Party,197,0.0000066465876739402715,0,0,-0.0000066465876739402715
+ge-2010,new-independent-centralists,New Independent Centralists,New Independent Centralists,196,0.000006612848650214686,0,0,-0.000006612848650214686
+ge-2010,independent-ealing-acton-communities-public-services,Independent Ealing Acton Communities Public Services,Independent Ealing Acton Communities Public Services,190,0.000006410414507861176,0,0,-0.000006410414507861176
+ge-2010,libertarian-party,Libertarian Party,Libertarian Party,182,0.000006140502318056495,0,0,-0.000006140502318056495
+ge-2010,money-reform-party,Money Reform Party,Money Reform Party,173,0.000005836851104526228,0,0,-0.000005836851104526228
+ge-2010,socialist-equality-party,Socialist Equality Party,Socialist Equality Party,170,0.000005735634033349473,0,0,-0.000005735634033349473
+ge-2010,hugh-salmon-for-battersea-party,Hugh Salmon for Battersea Party,Hugh Salmon for Battersea Party,168,0.000005668155985898302,0,0,-0.000005668155985898302
+ge-2010,campaign-for-independent-politicians,Campaign for Independent Politicians,Campaign for Independent Politicians,167,0.000005634416962172718,0,0,-0.000005634416962172718
+ge-2010,communist-league-election-campaign,Communist League Election Campaign,Communist League Election Campaign,158,0.000005330765748642451,0,0,-0.000005330765748642451
+ge-2010,reduce-tax-on-beer,Reduce Tax On Beer,Reduce Tax On Beer,153,0.000005162070630014525,0,0,-0.000005162070630014525
+ge-2010,animal-welfare-party,Animal Welfare Party,Animal Welfare Party,149,0.000005027114535112185,0,0,-0.000005027114535112185
+ge-2010,the-socialist-party-of-great-britain,The Socialist Party of Great Britain,The Socialist Party of Great Britain,143,0.0000048246803927586745,0,0,-0.0000048246803927586745
+ge-2010,scotland-against-crooked-lawyers,Scotland Against Crooked Lawyers,Scotland Against Crooked Lawyers,138,0.0000046559852741307486,0,0,-0.0000046559852741307486
+ge-2010,tamsin-omond-to-the-commons,Tamsin Omond to the Commons,Tamsin Omond to the Commons,123,0.000004149899918246972,0,0,-0.000004149899918246972
+ge-2010,scrap-members-allowances,Scrap Members Allowances,Scrap Members Allowances,119,0.000004014943823344631,0,0,-0.000004014943823344631
+ge-2010,the-new-party,The New Party,The New Party,118,0.000003981204799619046,0,0,-0.000003981204799619046
+ge-2010,church-of-the-militant-elvis-party,Church of the Militant Elvis Party,Church of the Militant Elvis Party,112,0.000003778770657265535,0,0,-0.000003778770657265535
+ge-2010,medway-independent-party,Medway Independent Party,Medway Independent Party,109,0.0000036775535860887798,0,0,-0.0000036775535860887798
+ge-2010,anticapitalists-workers-power,Anticapitalists - Workers Power,Anticapitalists - Workers Power,109,0.0000036775535860887798,0,0,-0.0000036775535860887798
+ge-2010,matriarchal-party-united-kingdom-great-britain,Matriarchal Party United Kingdom Great Britain,Matriarchal Party United Kingdom Great Britain,100,0.0000033739023725585133,0,0,-0.0000033739023725585133
+ge-2010,apolitical-democrats,Apolitical Democrats,Apolitical Democrats,95,0.000003205207253930588,0,0,-0.000003205207253930588
+ge-2010,the-youth-party,The Youth Party,The Youth Party,95,0.000003205207253930588,0,0,-0.000003205207253930588
+ge-2010,national-liberal-party-true-liberalism,National Liberal Party - True Liberalism,National Liberal Party - True Liberalism,93,0.0000031377292064794176,0,0,-0.0000031377292064794176
+ge-2010,the-joy-of-talk,The Joy of Talk,The Joy of Talk,93,0.0000031377292064794176,0,0,-0.0000031377292064794176
+ge-2010,fight-for-an-anti-war-government,Fight For an Anti-War Government,Fight For an Anti-War Government,91,0.0000030702511590282473,0,0,-0.0000030702511590282473
+ge-2010,nationwide-reform-party,Nationwide Reform Party,Nationwide Reform Party,84,0.000002834077992949151,0,0,-0.000002834077992949151
+ge-2010,virtue-currency-cognitive-appraisal-party,Virtue Currency Cognitive Appraisal Party,Virtue Currency Cognitive Appraisal Party,84,0.000002834077992949151,0,0,-0.000002834077992949151
+ge-2010,alliance-for-workers-liberty,Alliance for Workers' Liberty,Alliance for Workers' Liberty,75,0.000002530426779418885,0,0,-0.000002530426779418885
+ge-2010,nobody-party,Nobody Party,Nobody Party,73,0.000002462948731967715,0,0,-0.000002462948731967715
+ge-2010,the-magna-carta-party,The Magna Carta Party,The Magna Carta Party,68,0.0000022942536133397894,0,0,-0.0000022942536133397894
+ge-2010,wessex-regionalists,Wessex Regionalists,Wessex Regionalists,62,0.0000020918194709862785,0,0,-0.0000020918194709862785
+ge-2010,land-party,Land Party,Land Party,57,0.0000019231243523583526,0,0,-0.0000019231243523583526
+ge-2010,humanity,Humanity,Humanity,50,0.0000016869511862792567,0,0,-0.0000016869511862792567
+ge-2010,restoration-party,Restoration Party,Restoration Party,45,0.000001518256067651331,0,0,-0.000001518256067651331
+ge-2010,magna-carta-conservation-party-great-britain,Magna Carta Conservation Party Great Britain,Magna Carta Conservation Party Great Britain,44,0.0000014845170439257458,0,0,-0.0000014845170439257458
+ge-2010,peoples-party-essex,Peoples Party Essex,Peoples Party Essex,35,0.0000011808658303954798,0,0,-0.0000011808658303954798
+ge-2010,the-better-britain-party,The Better Britain Party,The Better Britain Party,35,0.0000011808658303954798,0,0,-0.0000011808658303954798
+ge-2010,all-the-south-party,All The South Party,All The South Party,31,0.0000010459097354931393,0,0,-0.0000010459097354931393
+ge-2010,blue-environment-party,Blue Environment Party,Blue Environment Party,17,5.735634033349473e-7,0,0,-5.735634033349473e-7

@@ -1,0 +1,129 @@
+election_id,party_id,party_display_name,party_source_label,votes,vote_share,seats,seat_share,seat_delta
+ge-2015,conservative-party,Conservative Party,Conservative,11299609,0.3687400659049408,330,0.5084745762711864,0.13973451036624562
+ge-2015,labour-party,Labour Party,Labour,9347273,0.30502949810488783,232,0.3574730354391371,0.05244353733424928
+ge-2015,uk-independence-party,UK Independence Party,UK Independence Party,3869424,0.12627088784878837,1,0.0015408320493066256,-0.12473005579948175
+ge-2015,liberal-democrats,Liberal Democrats,Liberal Democrat,2415916,0.07883857087982434,8,0.012326656394453005,-0.06651191448537133
+ge-2015,scottish-national-party,Scottish National Party,Scottish National Party,1454436,0.04746260038683803,56,0.08628659476117104,0.03882399437433301
+ge-2015,green-party,Green Party,Green Party,1143408,0.0373128257160258,1,0.0015408320493066256,-0.035771993666719175
+ge-2015,democratic-unionist-party,Democratic Unionist Party,Democratic Unionist Party,184260,0.006012955363645272,8,0.012326656394453005,0.006313701030807733
+ge-2015,plaid-cymru,Plaid Cymru,Plaid Cymru,181704,0.005929545432518184,3,0.004622496147919877,-0.001307049284598307
+ge-2015,sinn-fein,Sinn Féin,Sinn Féin,176232,0.005750977692640474,4,0.0061633281972265025,0.0004123505045860289
+ge-2015,ulster-unionist-party,Ulster Unionist Party,Ulster Unionist Party,114935,0.00375067309628009,2,0.0030816640986132513,-0.0006690089976668389
+ge-2015,independent,Independent,Independent,103426,0.003375099975254401,1,0.0015408320493066256,-0.0018342679259477754
+ge-2015,social-democratic-and-labour-party,Social Democratic & Labour Party,Social Democratic & Labour Party,99809,0.003257066438131287,3,0.004622496147919877,0.00136542970978859
+ge-2015,alliance,Alliance,Alliance,61556,0.002008756541650648,0,0,-0.002008756541650648
+ge-2015,trade-unionist-and-socialist-coalition,Trade Unionist and Socialist Coalition,Trade Unionist and Socialist Coalition,34061,0.0011115123881532704,0,0,-0.0011115123881532704
+ge-2015,traditional-unionist-voice,Traditional Unionist Voice,Traditional Unionist Voice,16538,0.0005396844448277734,0,0,-0.0005396844448277734
+ge-2015,national-health-action-party,National Health Action Party,National Health Action Party,12999,0.0004241962811897585,0,0,-0.0004241962811897585
+ge-2015,respect-party,Respect Party,Respect Party,9989,0.0003259709710596582,0,0,-0.0003259709710596582
+ge-2015,cannabis-is-safer-than-alcohol,Cannabis Is Safer Than Alcohol,Cannabis Is Safer Than Alcohol,8419,0.00027473717142369235,0,0,-0.00027473717142369235
+ge-2015,independent-kidderminster-hospital-and-health-concern,Independent Kidderminster Hospital and Health Concern,Independent Kidderminster Hospital and Health Concern,7211,0.0002353165153980574,0,0,-0.0002353165153980574
+ge-2015,green-party-northern-ireland,Green Party Northern Ireland,Green Party Northern Ireland,6822,0.00022262228096596142,0,0,-0.00022262228096596142
+ge-2015,yorkshire-first,Yorkshire First,Yorkshire First,6811,0.00022226331803857567,0,0,-0.00022226331803857567
+ge-2015,people-before-profit-alliance,People Before Profit Alliance,People Before Profit Alliance,6798,0.0002218390891243925,0,0,-0.0002218390891243925
+ge-2015,english-democrats,English Democrats,English Democrats,6531,0.00021312607988693843,0,0,-0.00021312607988693843
+ge-2015,mebyon-kernow-the-party-for-cornwall,Mebyon Kernow - The Party for Cornwall,Mebyon Kernow - The Party for Cornwall,5675,0.00018519223753764747,0,0,-0.00018519223753764747
+ge-2015,lincolnshire-independents-lincolnshire-first,Lincolnshire Independents Lincolnshire First,Lincolnshire Independents Lincolnshire First,5407,0.0001764465953067947,0,0,-0.0001764465953067947
+ge-2015,liberal,Liberal,Liberal,4480,0.0001461958104261957,0,0,-0.0001461958104261957
+ge-2015,official-monster-raving-loony-party,Official Monster Raving Loony Party,Official Monster Raving Loony Party,3898,0.00012720340826814975,0,0,-0.00012720340826814975
+ge-2015,independent-save-withybush-save-lives,Independent Save Withybush Save Lives,Independent Save Withybush Save Lives,3729,0.0001216884323837687,0,0,-0.0001216884323837687
+ge-2015,socialist-labour-party,Socialist Labour Party,Socialist Labour Party,3481,0.00011359545002089,0,0,-0.00011359545002089
+ge-2015,christian-peoples-alliance,Christian Peoples Alliance,Christian Peoples Alliance,3260,0.00010638355847977634,0,0,-0.00010638355847977634
+ge-2015,christian-party-proclaiming-christ-s-lordship,"Christian Party, Proclaiming Christ's Lordship","Christian Party, Proclaiming Christ's Lordship",3205,0.0001045887438428476,0,0,-0.0001045887438428476
+ge-2015,left-unity,Left Unity,Left Unity,2884,0.00009411355296186348,0,0,-0.00009411355296186348
+ge-2015,the-workers-party,The Workers' Party,The Workers' Party,2724,0.00008889227401807078,0,0,-0.00008889227401807078
+ge-2015,the-north-east-party,The North East Party,The North East Party,2138,0.00006976933988643,0,0,-0.00006976933988643
+ge-2015,the-party-for-poole-people-ltd,The Party for Poole People Ltd.,The Party for Poole People Ltd.,1766,0.00005762986634211197,0,0,-0.00005762986634211197
+ge-2015,british-national-party,British National Party,British National Party,1667,0.00005439919999564023,0,0,-0.00005439919999564023
+ge-2015,residents-for-uttlesford,Residents for Uttlesford,Residents for Uttlesford,1658,0.00005410550305505189,0,0,-0.00005410550305505189
+ge-2015,rochdale-first-party,Rochdale First Party,Rochdale First Party,1535,0.00005009164486701125,0,0,-0.00005009164486701125
+ge-2015,communist-party-of-britain,Communist Party of Britain,Communist Party of Britain,1229,0.00004010594888700771,0,0,-0.00004010594888700771
+ge-2015,pirate-party-uk,Pirate Party UK,Pirate Party UK,1130,0.00003687528254053597,0,0,-0.00003687528254053597
+ge-2015,national-front,National Front,National Front,1114,0.0000363531546461567,0,0,-0.0000363531546461567
+ge-2015,communities-united-party,Communities United Party,Communities United Party,1102,0.000035961558725372246,0,0,-0.000035961558725372246
+ge-2015,people-before-profit,People Before Profit,People Before Profit,1056,0.00003446044102903184,0,0,-0.00003446044102903184
+ge-2015,we-are-the-reality-party,We Are The Reality Party,We Are The Reality Party,1029,0.00003357935020726682,0,0,-0.00003357935020726682
+ge-2015,the-southport-party,The Southport Party,The Southport Party,992,0.00003237192945151476,0,0,-0.00003237192945151476
+ge-2015,all-people-s-party,All People's Party,All People's Party,981,0.00003201296652412901,0,0,-0.00003201296652412901
+ge-2015,the-peace-party-non-violence-justice-environment,"The Peace Party - Non-violence, Justice, Environment","The Peace Party - Non-violence, Justice, Environment",957,0.00003122977468256011,0,0,-0.00003122977468256011
+ge-2015,bournemouth-independent-alliance,Bournemouth Independent Alliance,Bournemouth Independent Alliance,903,0.000029467593039030072,0,0,-0.000029467593039030072
+ge-2015,the-socialist-party-of-great-britain,The Socialist Party of Great Britain,The Socialist Party of Great Britain,899,0.000029337061065435254,0,0,-0.000029337061065435254
+ge-2015,scottish-socialist-party,Scottish Socialist Party,Scottish Socialist Party,875,0.00002855386922386635,0,0,-0.00002855386922386635
+ge-2015,alliance-for-green-socialism,Alliance for Green Socialism,Alliance for Green Socialism,852,0.000027803310375696147,0,0,-0.000027803310375696147
+ge-2015,save-hartlepool-hospital,Save Hartlepool Hospital,Save Hartlepool Hospital,849,0.000027705411395500033,0,0,-0.000027705411395500033
+ge-2015,animal-welfare-party,Animal Welfare Party,Animal Welfare Party,736,0.000024017883141446438,0,0,-0.000024017883141446438
+ge-2015,something-new,Something New,Something New,695,0.000022679930412099555,0,0,-0.000022679930412099555
+ge-2015,consensus,Consensus,Consensus,637,0.000020787216794974702,0,0,-0.000020787216794974702
+ge-2015,national-liberal-party-true-liberalism,National Liberal Party - True Liberalism,National Liberal Party - True Liberalism,627,0.000020460886860987657,0,0,-0.000020460886860987657
+ge-2015,independence-from-europe,Independence from Europe,Independence from Europe,578,0.000018861870184451142,0,0,-0.000018861870184451142
+ge-2015,the-whig-party,The Whig Party,The Whig Party,561,0.00001830710929667317,0,0,-0.00001830710929667317
+ge-2015,guildford-greenbelt-group,Guildford Greenbelt Group,Guildford Greenbelt Group,538,0.000017556550448502967,0,0,-0.000017556550448502967
+ge-2015,class-war,Class War,Class War,526,0.000017164954527718514,0,0,-0.000017164954527718514
+ge-2015,the-above-and-beyond-party,The Above and Beyond Party,The Above and Beyond Party,522,0.000017034422554123697,0,0,-0.000017034422554123697
+ge-2015,workers-revolutionary-party,Workers Revolutionary Party,Workers Revolutionary Party,488,0.000015924900778567746,0,0,-0.000015924900778567746
+ge-2015,people-first-gwerin-gyntaf,People First - Gwerin Gyntaf,People First - Gwerin Gyntaf,407,0.000013281628313272691,0,0,-0.000013281628313272691
+ge-2015,the-northern-party,The Northern Party,The Northern Party,332,0.000010834153808369861,0,0,-0.000010834153808369861
+ge-2015,christian-movement-for-great-britain,Christian Movement for Great Britain,Christian Movement for Great Britain,292,0.000009528834072421684,0,0,-0.000009528834072421684
+ge-2015,liberty-gb,Liberty GB,Liberty GB,260,0.000008484578283663143,0,0,-0.000008484578283663143
+ge-2015,common-sense-party,Common Sense Party,Common Sense Party,256,0.000008354046310068326,0,0,-0.000008354046310068326
+ge-2015,apolitical-democrats,Apolitical Democrats,Apolitical Democrats,228,0.000007440322494904603,0,0,-0.000007440322494904603
+ge-2015,putting-croydon-first,Putting Croydon First!,Putting Croydon First!,221,0.000007211891541113672,0,0,-0.000007211891541113672
+ge-2015,justice-for-men-and-boys,Justice for Men & Boys,Justice for Men & Boys,216,0.00000704872657412015,0,0,-0.00000704872657412015
+ge-2015,british-democratic-party,British Democratic Party,British Democratic Party,210,0.000006852928613727924,0,0,-0.000006852928613727924
+ge-2015,patria,Patria,Patria,205,0.000006689763646734402,0,0,-0.000006689763646734402
+ge-2015,independents-for-bristol,Independents for Bristol,Independents for Bristol,204,0.000006657130653335697,0,0,-0.000006657130653335697
+ge-2015,party-for-a-united-thanet,Party for a United Thanet,Party for a United Thanet,199,0.000006493965686342175,0,0,-0.000006493965686342175
+ge-2015,ubuntu-party,Ubuntu Party,Ubuntu Party,197,0.0000064286996995447665,0,0,-0.0000064286996995447665
+ge-2015,islam-zinda-baad-platform,Islam Zinda Baad Platform,Islam Zinda Baad Platform,191,0.00000623290173915254,0,0,-0.00000623290173915254
+ge-2015,manston-airport-independent-party,Manston Airport Independent Party,Manston Airport Independent Party,191,0.00000623290173915254,0,0,-0.00000623290173915254
+ge-2015,rebooting-democracy,Rebooting Democracy,Rebooting Democracy,187,0.000006102369765557723,0,0,-0.000006102369765557723
+ge-2015,communist-league-election-campaign,Communist League Election Campaign,Communist League Election Campaign,174,0.0000056781408513745656,0,0,-0.0000056781408513745656
+ge-2015,the-justice-and-anti-corruption-party,The Justice & Anti-Corruption Party,The Justice & Anti-Corruption Party,171,0.000005580241871178452,0,0,-0.000005580241871178452
+ge-2015,socialist-equality-party,Socialist Equality Party,Socialist Equality Party,166,0.0000054170769041849304,0,0,-0.0000054170769041849304
+ge-2015,world-peace-through-song,World Peace Through Song,World Peace Through Song,165,0.000005384443910786226,0,0,-0.000005384443910786226
+ge-2015,movement-for-active-democracy-m-a-d,Movement for Active Democracy (M.A.D.),Movement for Active Democracy (M.A.D.),164,0.000005351810917387522,0,0,-0.000005351810917387522
+ge-2015,apni-party,Apni Party,Apni Party,156,0.0000050907469701978865,0,0,-0.0000050907469701978865
+ge-2015,vapers-in-power,Vapers In Power,Vapers In Power,152,0.000004960214996603069,0,0,-0.000004960214996603069
+ge-2015,young-people-s-party,Young People's Party,Young People's Party,152,0.000004960214996603069,0,0,-0.000004960214996603069
+ge-2015,war-veteran-s-pro-traditional-family-party,War Veteran's Pro-Traditional Family Party,War Veteran's Pro-Traditional Family Party,150,0.000004894949009805659,0,0,-0.000004894949009805659
+ge-2015,humanity,Humanity,Humanity,149,0.000004862316016406955,0,0,-0.000004862316016406955
+ge-2015,red-flag-anti-corruption,Red Flag - Anti-Corruption,Red Flag - Anti-Corruption,147,0.000004797050029609546,0,0,-0.000004797050029609546
+ge-2015,the-pilgrim-party,The Pilgrim Party,The Pilgrim Party,143,0.000004666518056014729,0,0,-0.000004666518056014729
+ge-2015,british-independents,British Independents,British Independents,143,0.000004666518056014729,0,0,-0.000004666518056014729
+ge-2015,digital-democracy,Digital Democracy,Digital Democracy,139,0.000004535986082419911,0,0,-0.000004535986082419911
+ge-2015,beer-baccy-and-scratchings,"Beer, Baccy and Scratchings","Beer, Baccy and Scratchings",133,0.000004340188122027685,0,0,-0.000004340188122027685
+ge-2015,social-democratic-party,Social Democratic Party,Social Democratic Party,125,0.00000407912417483805,0,0,-0.00000407912417483805
+ge-2015,the-sustainable-population-party,The Sustainable Population Party,The Sustainable Population Party,116,0.00000378542723424971,0,0,-0.00000378542723424971
+ge-2015,keep-it-real-party,Keep It Real Party,Keep It Real Party,116,0.00000378542723424971,0,0,-0.00000378542723424971
+ge-2015,wessex-regionalists,Wessex Regionalists,Wessex Regionalists,110,0.0000035896292738574837,0,0,-0.0000035896292738574837
+ge-2015,patriotic-socialist-party,Patriotic Socialist Party,Patriotic Socialist Party,106,0.000003459097300262666,0,0,-0.000003459097300262666
+ge-2015,magna-carta-conservation-party-great-britain,Magna Carta Conservation Party Great Britain,Magna Carta Conservation Party Great Britain,103,0.000003361198320066553,0,0,-0.000003361198320066553
+ge-2015,free-public-transport-party,Free Public Transport Party,Free Public Transport Party,100,0.00000326329933987044,0,0,-0.00000326329933987044
+ge-2015,mainstream,Mainstream,Mainstream,86,0.0000028064374322885784,0,0,-0.0000028064374322885784
+ge-2015,children-of-the-atom,Children of the Atom,Children of the Atom,83,0.0000027085384520924652,0,0,-0.0000027085384520924652
+ge-2015,population-party-uk,Population Party UK,Population Party UK,83,0.0000027085384520924652,0,0,-0.0000027085384520924652
+ge-2015,the-birthday-party,The Birthday Party,The Birthday Party,81,0.0000026432724652950564,0,0,-0.0000026432724652950564
+ge-2015,the-30-50-coalition,The 30-50 Coalition,The 30-50 Coalition,78,0.0000025453734850989433,0,0,-0.0000025453734850989433
+ge-2015,alter-change-politics-only-different,Alter Change - Politics. Only Different.,Alter Change - Politics. Only Different.,78,0.0000025453734850989433,0,0,-0.0000025453734850989433
+ge-2015,the-u-niversal-party,The U(niversal) Party,The U(niversal) Party,77,0.000002512740491700239,0,0,-0.000002512740491700239
+ge-2015,democratic-reform-party,Democratic Reform Party,Democratic Reform Party,74,0.0000024148415115041253,0,0,-0.0000024148415115041253
+ge-2015,the-roman-party-ave,The Roman Party. Ave,The Roman Party. Ave,64,0.0000020885115775170814,0,0,-0.0000020885115775170814
+ge-2015,the-uk-progressive-democracy-party,The UK Progressive Democracy Party,The UK Progressive Democracy Party,57,0.0000018600806237261507,0,0,-0.0000018600806237261507
+ge-2015,the-independent-political-alliance-party,The Independent Political Alliance Party,The Independent Political Alliance Party,56,0.0000018274476303274463,0,0,-0.0000018274476303274463
+ge-2015,reduce-vat-in-sport,Reduce VAT in Sport,Reduce VAT in Sport,56,0.0000018274476303274463,0,0,-0.0000018274476303274463
+ge-2015,restore-the-family-for-children-s-sake,Restore the Family For Children's Sake,Restore the Family For Children's Sake,52,0.0000016969156567326287,0,0,-0.0000016969156567326287
+ge-2015,the-eccentric-party-of-great-britain,The Eccentric Party of Great Britain,The Eccentric Party of Great Britain,50,0.00000163164966993522,0,0,-0.00000163164966993522
+ge-2015,hoi-polloi,Hoi Polloi,Hoi Polloi,45,0.000001468484702941698,0,0,-0.000001468484702941698
+ge-2015,the-evolution-party,The Evolution Party,The Evolution Party,41,0.0000013379527293468804,0,0,-0.0000013379527293468804
+ge-2015,europeans-party,Europeans Party,Europeans Party,39,0.0000012726867425494716,0,0,-0.0000012726867425494716
+ge-2015,the-principles-of-politics-party,The Principles of Politics Party,The Principles of Politics Party,37,0.0000012074207557520626,0,0,-0.0000012074207557520626
+ge-2015,give-me-back-elmo,Give Me Back Elmo,Give Me Back Elmo,37,0.0000012074207557520626,0,0,-0.0000012074207557520626
+ge-2015,land-party,Land Party,Land Party,35,0.0000011421547689546539,0,0,-0.0000011421547689546539
+ge-2015,the-democratic-party,The Democratic Party,The Democratic Party,33,0.000001076888782157245,0,0,-0.000001076888782157245
+ge-2015,al-zebabist-nation-of-ooog,Al-Zebabist Nation of Ooog,Al-Zebabist Nation of Ooog,30,9.78989801961132e-7,0,0,-9.78989801961132e-7
+ge-2015,campaign,Campaign,Campaign,28,9.137238151637231e-7,0,0,-9.137238151637231e-7
+ge-2015,new-independent-centralists,New Independent Centralists,New Independent Centralists,23,7.505588481702012e-7,0,0,-7.505588481702012e-7
+ge-2015,the-pluralist-party,The Pluralist Party,The Pluralist Party,23,7.505588481702012e-7,0,0,-7.505588481702012e-7
+ge-2015,the-new-society-of-worth,The New Society of Worth,The New Society of Worth,23,7.505588481702012e-7,0,0,-7.505588481702012e-7
+ge-2015,the-republican-socialist-party,The Republican Socialist Party,The Republican Socialist Party,20,6.52659867974088e-7,0,0,-6.52659867974088e-7
+ge-2015,the-realists-party,The Realists' Party,The Realists' Party,18,5.873938811766791e-7,0,0,-5.873938811766791e-7
