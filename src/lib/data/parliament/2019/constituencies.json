@@ -6,7 +6,7 @@
     "licence": "Open Parliament Licence v3.0",
     "retrievalDate": "2026-05-19",
     "publicationDate": "2025-05-02",
-    "generatedAt": "2026-05-19T12:08:10.946Z",
+    "generatedAt": "2026-05-19T12:25:30.513Z",
     "etlVersion": "parliament-etl@1",
     "caveats": []
   },
@@ -22531,9 +22531,9 @@
     },
     {
       "electionId": "ge-2019",
-      "constituencyId": "2010-review:isleof-wight",
-      "constituencySlug": "isleof-wight",
-      "constituencyName": "Isleof Wight",
+      "constituencyId": "2010-review:isle-of-wight",
+      "constituencySlug": "isle-of-wight",
+      "constituencyName": "Isle of Wight",
       "contestType": "single-member",
       "electorate": 113021,
       "validVotes": 74442,
@@ -22542,7 +22542,7 @@
       "caveats": [],
       "candidates": [
         {
-          "contestId": "ge-2019:2010-review:isleof-wight",
+          "contestId": "ge-2019:2010-review:isle-of-wight",
           "candidateName": "Bob Seely",
           "partyId": "conservative-party",
           "partyDisplayName": "Conservative Party",
@@ -22554,7 +22554,7 @@
           "caveats": []
         },
         {
-          "contestId": "ge-2019:2010-review:isleof-wight",
+          "contestId": "ge-2019:2010-review:isle-of-wight",
           "candidateName": "Richard Quigley",
           "partyId": "labour-party",
           "partyDisplayName": "Labour Party",
@@ -22566,7 +22566,7 @@
           "caveats": []
         },
         {
-          "contestId": "ge-2019:2010-review:isleof-wight",
+          "contestId": "ge-2019:2010-review:isle-of-wight",
           "candidateName": "Vix Lowthion",
           "partyId": "green-party",
           "partyDisplayName": "Green Party",
@@ -22578,7 +22578,7 @@
           "caveats": []
         },
         {
-          "contestId": "ge-2019:2010-review:isleof-wight",
+          "contestId": "ge-2019:2010-review:isle-of-wight",
           "candidateName": "Carl Feeney",
           "partyId": "independent-network",
           "partyDisplayName": "Independent Network",
@@ -22590,7 +22590,7 @@
           "caveats": []
         },
         {
-          "contestId": "ge-2019:2010-review:isleof-wight",
+          "contestId": "ge-2019:2010-review:isle-of-wight",
           "candidateName": "Karl Love",
           "partyId": "independent",
           "partyDisplayName": "Independent",
@@ -22602,7 +22602,7 @@
           "caveats": []
         },
         {
-          "contestId": "ge-2019:2010-review:isleof-wight",
+          "contestId": "ge-2019:2010-review:isle-of-wight",
           "candidateName": "Daryll Pitcher",
           "partyId": "independent",
           "partyDisplayName": "Independent",

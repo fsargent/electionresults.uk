@@ -195,7 +195,13 @@ function buildContests({ constituencyRows, candidateRows, electionId, boundarySe
 
   for (const row of constituencyRows) {
     const onsId = row['ONS ID'];
-    const constituencyName = row['Constituency name'];
+    // The HCL 2019 briefing publishes "Isleof Wight" with a missing
+    // space — corrected here so the slug round-trips against the hex
+    // cartogram and against every other year's data. Add new mappings
+    // as further typos are spotted.
+    const SOURCE_NAME_FIXES = { 'Isleof Wight': 'Isle of Wight' };
+    const rawName = row['Constituency name'];
+    const constituencyName = SOURCE_NAME_FIXES[rawName] ?? rawName;
     const slug = slugForName(constituencyName);
     const constituencyId = `${boundarySet}:${slug}`;
     const contestId = `${electionId}:${constituencyId}`;

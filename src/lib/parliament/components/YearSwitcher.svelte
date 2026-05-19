@@ -37,7 +37,7 @@
       aria-current={active ? 'page' : undefined}
       href={hrefForYear(y)}
     >
-      {y}{#if y === latestYear} (latest){/if}
+      {y}{#if y === latestYear}&nbsp;(latest){/if}
     </a>
   {/each}
 </div>

@@ -1,0 +1,6510 @@
+{
+  "source": "Open Innovations uk-constituencies-2019-BBC.hexjson",
+  "sourceUrl": "https://github.com/odileeds/hexmaps/blob/gh-pages/maps/uk-constituencies-2019-BBC.hexjson",
+  "boundarySet": "2010-review",
+  "layout": "odd-q",
+  "version": "1.0",
+  "seatCount": 650,
+  "seats": [
+    {
+      "id": "W07000049",
+      "name": "Aberavon",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 8,
+      "r": 11,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "W07000058",
+      "name": "Aberconwy",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 9,
+      "r": 18,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000530",
+      "name": "Aldershot",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 7,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000531",
+      "name": "Aldridge-Brownhills",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 20,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000532",
+      "name": "Altrincham and Sale West",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 18,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "W07000043",
+      "name": "Alyn and Deeside",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 11,
+      "r": 16,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000533",
+      "name": "Amber Valley",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 21,
+      "r": 20,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "W07000057",
+      "name": "Arfon",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 8,
+      "r": 18,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000534",
+      "name": "Arundel and South Downs",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 22,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000535",
+      "name": "Ashfield",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 22,
+      "r": 21,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000891",
+      "name": "Redcar",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 22,
+      "r": 30,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000892",
+      "name": "Redditch",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 15,
+      "r": 13,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000858",
+      "name": "North West Leicestershire",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 20,
+      "r": 19,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000893",
+      "name": "Reigate",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000859",
+      "name": "North West Norfolk",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 26,
+      "r": 17,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000831",
+      "name": "Newcastle upon Tyne Central",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 17,
+      "r": 31,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "W07000052",
+      "name": "Rhondda",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 10,
+      "r": 11,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000860",
+      "name": "North Wiltshire",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 13,
+      "r": 8,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000832",
+      "name": "Newcastle upon Tyne East",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 19,
+      "r": 32,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000894",
+      "name": "Ribble Valley",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 28,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000864",
+      "name": "Norwich South",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 32,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000833",
+      "name": "Newcastle upon Tyne North",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 16,
+      "r": 33,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000895",
+      "name": "Richmond (Yorks)",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 21,
+      "r": 29,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000865",
+      "name": "Nottingham East",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 25,
+      "r": 20,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "W07000056",
+      "name": "Newport West",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 12,
+      "r": 11,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000896",
+      "name": "Richmond Park",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 21,
+      "r": 6,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000866",
+      "name": "Nottingham North",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 23,
+      "r": 21,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000835",
+      "name": "Newton Abbot",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 7,
+      "r": 1,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000897",
+      "name": "Rochdale",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 26,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000827",
+      "name": "New Forest East",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 14,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000867",
+      "name": "Nottingham South",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 24,
+      "r": 20,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000898",
+      "name": "Rochester and Strood",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 31,
+      "r": 8,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000828",
+      "name": "New Forest West",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 13,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000868",
+      "name": "Nuneaton",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 20,
+      "r": 17,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000899",
+      "name": "Rochford and Southend East",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 32,
+      "r": 10,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000836",
+      "name": "Normanton, Pontefract and Castleford",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 23,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "W07000074",
+      "name": "Ogmore",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 8,
+      "r": 10,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000861",
+      "name": "Northampton North",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 24,
+      "r": 17,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000870",
+      "name": "Oldham East and Saddleworth",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 25,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000862",
+      "name": "Northampton South",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 23,
+      "r": 17,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "W07000076",
+      "name": "Caerphilly",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 11,
+      "r": 10,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000614",
+      "name": "Calder Valley",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 17,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000586",
+      "name": "Bracknell",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 9,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000615",
+      "name": "Camberwell and Peckham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 25,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000587",
+      "name": "Bradford East",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 18,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000557",
+      "name": "Bexhill and Battle",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 29,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000617",
+      "name": "Cambridge",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 25,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000588",
+      "name": "Bradford South",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 20,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000558",
+      "name": "Bexleyheath and Crayford",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 29,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000618",
+      "name": "Cannock Chase",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 21,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000589",
+      "name": "Bradford West",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 17,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000559",
+      "name": "Birkenhead",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 9,
+      "r": 20,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000619",
+      "name": "Canterbury",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 33,
+      "r": 7,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000590",
+      "name": "Braintree",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 28,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000560",
+      "name": "Birmingham, Edgbaston",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 15,
+      "r": 15,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "W07000050",
+      "name": "Cardiff Central",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 11,
+      "r": 9,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "W07000068",
+      "name": "Brecon and Radnorshire",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 12,
+      "r": 14,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000561",
+      "name": "Birmingham, Erdington",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 18,
+      "r": 18,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "W07000051",
+      "name": "Cardiff North",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 10,
+      "r": 10,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000593",
+      "name": "Brentford and Isleworth",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 21,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000562",
+      "name": "Birmingham, Hall Green",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 18,
+      "r": 16,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "W07000079",
+      "name": "Cardiff West",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 9,
+      "r": 9,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000594",
+      "name": "Brentwood and Ongar",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 30,
+      "r": 11,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000563",
+      "name": "Birmingham, Hodge Hill",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 18,
+      "r": 17,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000620",
+      "name": "Carlisle",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 31,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000591",
+      "name": "Brent Central",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 24,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000564",
+      "name": "Birmingham, Ladywood",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 16,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000592",
+      "name": "Brent North",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 21,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000565",
+      "name": "Birmingham, Northfield",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 14,
+      "r": 14,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000566",
+      "name": "Birmingham, Perry Barr",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 16,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000804",
+      "name": "Maidstone and The Weald",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 30,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000805",
+      "name": "Makerfield",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 22,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000775",
+      "name": "Knowsley",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 23,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "W07000066",
+      "name": "Carmarthen West and South Pembrokeshire",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 6,
+      "r": 10,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000806",
+      "name": "Maldon",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 32,
+      "r": 12,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000776",
+      "name": "Lancaster and Fleetwood",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 29,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "W07000065",
+      "name": "Preseli Pembrokeshire",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 5,
+      "r": 9,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14001051",
+      "name": "Wolverhampton South West",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 14,
+      "r": 16,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000745",
+      "name": "Hertsmere",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 21,
+      "r": 12,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000807",
+      "name": "Manchester Central",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 23,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000777",
+      "name": "Leeds Central",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 23,
+      "r": 27,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000715",
+      "name": "Gravesham",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 30,
+      "r": 8,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14001003",
+      "name": "Truro and Falmouth",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 3,
+      "r": 0,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14001020",
+      "name": "Washington and Sunderland West",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 19,
+      "r": 31,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14001052",
+      "name": "Worcester",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 14,
+      "r": 13,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000746",
+      "name": "Hexham",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 16,
+      "r": 31,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000808",
+      "name": "Manchester, Gorton",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 19,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000778",
+      "name": "Leeds East",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 21,
+      "r": 27,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000716",
+      "name": "Great Grimsby",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 25,
+      "r": 23,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14001053",
+      "name": "Workington",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 31,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001021",
+      "name": "Watford",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 20,
+      "r": 12,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000747",
+      "name": "Heywood and Middleton",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 26,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000809",
+      "name": "Manchester, Withington",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 19,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000717",
+      "name": "Great Yarmouth",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 32,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14001054",
+      "name": "Worsley and Eccles South",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 20,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001022",
+      "name": "Waveney",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 31,
+      "r": 12,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000779",
+      "name": "Leeds North East",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 19,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000748",
+      "name": "High Peak",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 20,
+      "r": 22,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000810",
+      "name": "Mansfield",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 22,
+      "r": 22,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000718",
+      "name": "Greenwich and Woolwich",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 28,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14001055",
+      "name": "Worthing West",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 22,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14001023",
+      "name": "Wealden",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 28,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000780",
+      "name": "Leeds North West",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 19,
+      "r": 27,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000749",
+      "name": "Hitchin and Harpenden",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 23,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000811",
+      "name": "Meon Valley",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000719",
+      "name": "Guildford",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "W07000044",
+      "name": "Wrexham",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 12,
+      "r": 16,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14001024",
+      "name": "Weaver Vale",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 19,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000781",
+      "name": "Leeds West",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 20,
+      "r": 28,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000750",
+      "name": "Holborn and St Pancras",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 23,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000812",
+      "name": "Meriden",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 14,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000720",
+      "name": "Hackney North and Stoke Newington",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 26,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14001056",
+      "name": "Wycombe",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 9,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14001025",
+      "name": "Wellingborough",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 25,
+      "r": 17,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000782",
+      "name": "Leicester East",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 22,
+      "r": 19,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000751",
+      "name": "Hornchurch and Upminster",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 29,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "W07000071",
+      "name": "Merthyr Tydfil and Rhymney",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 9,
+      "r": 12,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000752",
+      "name": "Hornsey and Wood Green",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 23,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000721",
+      "name": "Hackney South and Shoreditch",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 26,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14001057",
+      "name": "Wyre and Preston North",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 28,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001026",
+      "name": "Wells",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 10,
+      "r": 5,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000783",
+      "name": "Leicester South",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 22,
+      "r": 18,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000753",
+      "name": "Horsham",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 24,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000722",
+      "name": "Halesowen and Rowley Regis",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 14,
+      "r": 15,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14001058",
+      "name": "Wyre Forest",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 13,
+      "r": 12,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14001027",
+      "name": "Welwyn Hatfield",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 22,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000784",
+      "name": "Leicester West",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 21,
+      "r": 18,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000754",
+      "name": "Houghton and Sunderland South",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 20,
+      "r": 31,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000723",
+      "name": "Halifax",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 18,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14001059",
+      "name": "Wythenshawe and Sale East",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 18,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001028",
+      "name": "Wentworth and Dearne",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 24,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000724",
+      "name": "Haltemprice and Howden",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 25,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14001036",
+      "name": "Westminster North",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 22,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000686",
+      "name": "Eddisbury",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 18,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000991",
+      "name": "The Cotswolds",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 14,
+      "r": 9,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000687",
+      "name": "Edmonton",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 26,
+      "r": 12,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000967",
+      "name": "Stalybridge and Hyde",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 23,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000657",
+      "name": "Dagenham and Rainham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 29,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000992",
+      "name": "The Wrekin",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 22,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000688",
+      "name": "Ellesmere Port and Neston",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 10,
+      "r": 19,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000630",
+      "name": "Cheltenham",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 14,
+      "r": 10,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000968",
+      "name": "Stevenage",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 25,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000930",
+      "name": "Slough",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 19,
+      "r": 11,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000658",
+      "name": "Darlington",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 17,
+      "r": 28,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000993",
+      "name": "Thirsk and Malton",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 22,
+      "r": 29,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000689",
+      "name": "Elmet and Rothwell",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 20,
+      "r": 27,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000631",
+      "name": "Chesham and Amersham",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 11,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000969",
+      "name": "Stockport",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 18,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000931",
+      "name": "Solihull",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 15,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000659",
+      "name": "Dartford",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 29,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000994",
+      "name": "Thornbury and Yate",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 10,
+      "r": 7,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000690",
+      "name": "Eltham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 28,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000632",
+      "name": "Chesterfield",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 22,
+      "r": 23,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000970",
+      "name": "Stockton North",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 19,
+      "r": 29,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000932",
+      "name": "Somerton and Frome",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 9,
+      "r": 4,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000660",
+      "name": "Daventry",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 22,
+      "r": 17,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000995",
+      "name": "Thurrock",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 30,
+      "r": 9,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000691",
+      "name": "Enfield North",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 24,
+      "r": 13,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000633",
+      "name": "Chichester",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 20,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000971",
+      "name": "Stockton South",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 18,
+      "r": 29,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000955",
+      "name": "Southampton, Itchen",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 15,
+      "r": 3,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "W07000042",
+      "name": "Delyn",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 11,
+      "r": 17,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000996",
+      "name": "Tiverton and Honiton",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 8,
+      "r": 3,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000692",
+      "name": "Enfield, Southgate",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 23,
+      "r": 12,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000634",
+      "name": "Chingford and Woodford Green",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 27,
+      "r": 12,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000972",
+      "name": "Stoke-on-Trent Central",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 23,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000956",
+      "name": "Southampton, Test",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 14,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000661",
+      "name": "Denton and Reddish",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 22,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000997",
+      "name": "Tonbridge and Malling",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 19,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000693",
+      "name": "Epping Forest",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 22,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000635",
+      "name": "Chippenham",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 13,
+      "r": 7,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000973",
+      "name": "Stoke-on-Trent North",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 24,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000957",
+      "name": "Southend West",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 32,
+      "r": 11,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000664",
+      "name": "Derbyshire Dales",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 19,
+      "r": 21,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000998",
+      "name": "Tooting",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 22,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000694",
+      "name": "Epsom and Ewell",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 8,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000636",
+      "name": "Chipping Barnet",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 22,
+      "r": 12,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000974",
+      "name": "Stoke-on-Trent South",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 18,
+      "r": 23,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000958",
+      "name": "Southport",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 10,
+      "r": 24,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000662",
+      "name": "Derby North",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 20,
+      "r": 20,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000999",
+      "name": "Torbay",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 7,
+      "r": 0,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000695",
+      "name": "Erewash",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 23,
+      "r": 19,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000637",
+      "name": "Chorley",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 25,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000975",
+      "name": "Stone",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 18,
+      "r": 22,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000933",
+      "name": "South Basildon and East Thurrock",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 31,
+      "r": 9,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000663",
+      "name": "Derby South",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 21,
+      "r": 19,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "W07000053",
+      "name": "Torfaen",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 11,
+      "r": 12,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000638",
+      "name": "Christchurch",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 12,
+      "r": 5,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000976",
+      "name": "Stourbridge",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 13,
+      "r": 13,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000934",
+      "name": "South Cambridgeshire",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 24,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000665",
+      "name": "Devizes",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 13,
+      "r": 6,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000639",
+      "name": "Cities of London and Westminster",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 24,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000935",
+      "name": "South Derbyshire",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 19,
+      "r": 19,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000900",
+      "name": "Romford",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 29,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000901",
+      "name": "Romsey and Southampton North",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 14,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000871",
+      "name": "Oldham West and Royton",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 25,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000902",
+      "name": "Rossendale and Darwen",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 27,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000838",
+      "name": "North Devon",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 6,
+      "r": 4,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000869",
+      "name": "Old Bexley and Sidcup",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 28,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000904",
+      "name": "Rotherham",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 23,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000839",
+      "name": "North Dorset",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 10,
+      "r": 4,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000819",
+      "name": "Middlesbrough",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 20,
+      "r": 30,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000872",
+      "name": "Orpington",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 25,
+      "r": 5,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000840",
+      "name": "North Durham",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 18,
+      "r": 31,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000820",
+      "name": "Middlesbrough South and East Cleveland",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 23,
+      "r": 30,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000903",
+      "name": "Rother Valley",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 20,
+      "r": 23,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000873",
+      "name": "Oxford East",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 19,
+      "r": 12,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000841",
+      "name": "North East Bedfordshire",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 22,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000813",
+      "name": "Mid Bedfordshire",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 23,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000905",
+      "name": "Rugby",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 21,
+      "r": 16,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000874",
+      "name": "Oxford West and Abingdon",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 13,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000842",
+      "name": "North East Cambridgeshire",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 25,
+      "r": 16,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000814",
+      "name": "Mid Derbyshire",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 20,
+      "r": 21,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000906",
+      "name": "Ruislip, Northwood and Pinner",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 19,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000875",
+      "name": "Pendle",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 16,
+      "r": 28,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000876",
+      "name": "Penistone and Stocksbridge",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 21,
+      "r": 24,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000843",
+      "name": "North East Derbyshire",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 21,
+      "r": 22,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000815",
+      "name": "Mid Dorset and North Poole",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 11,
+      "r": 3,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000907",
+      "name": "Runnymede and Weybridge",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 8,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000877",
+      "name": "Penrith and The Border",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 16,
+      "r": 30,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000844",
+      "name": "North East Hampshire",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 15,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000816",
+      "name": "Mid Norfolk",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 28,
+      "r": 16,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000908",
+      "name": "Rushcliffe",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 25,
+      "r": 19,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000878",
+      "name": "Peterborough",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 24,
+      "r": 16,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000845",
+      "name": "North East Hertfordshire",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 25,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000817",
+      "name": "Mid Sussex",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 27,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000909",
+      "name": "Rutland and Melton",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 25,
+      "r": 18,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000879",
+      "name": "Plymouth, Moor View",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 5,
+      "r": 2,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000846",
+      "name": "North East Somerset",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 12,
+      "r": 6,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000818",
+      "name": "Mid Worcestershire",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 15,
+      "r": 12,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000847",
+      "name": "North Herefordshire",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 13,
+      "r": 11,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000821",
+      "name": "Milton Keynes North",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 19,
+      "r": 14,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000822",
+      "name": "Milton Keynes South",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 19,
+      "r": 13,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "W07000073",
+      "name": "Bridgend",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 7,
+      "r": 9,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000595",
+      "name": "Bridgwater and West Somerset",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 7,
+      "r": 4,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000567",
+      "name": "Birmingham, Selly Oak",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 15,
+      "r": 14,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000596",
+      "name": "Brigg and Goole",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 23,
+      "r": 24,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000536",
+      "name": "Ashford",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 32,
+      "r": 8,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000568",
+      "name": "Birmingham, Yardley",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 19,
+      "r": 16,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000597",
+      "name": "Brighton, Kemptown",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 26,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000537",
+      "name": "Ashton-under-Lyne",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 24,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000569",
+      "name": "Bishop Auckland",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 17,
+      "r": 29,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000598",
+      "name": "Brighton, Pavilion",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 25,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000538",
+      "name": "Aylesbury",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 10,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000570",
+      "name": "Blackburn",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 28,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000599",
+      "name": "Bristol East",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 11,
+      "r": 6,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000539",
+      "name": "Banbury",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 14,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000571",
+      "name": "Blackley and Broughton",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 23,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000600",
+      "name": "Bristol North West",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 9,
+      "r": 5,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000540",
+      "name": "Barking",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 28,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000572",
+      "name": "Blackpool North and Cleveleys",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 27,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000601",
+      "name": "Bristol South",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 11,
+      "r": 5,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000541",
+      "name": "Barnsley Central",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 21,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000573",
+      "name": "Blackpool South",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 26,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000602",
+      "name": "Bristol West",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 10,
+      "r": 6,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000542",
+      "name": "Barnsley East",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 20,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "W07000072",
+      "name": "Blaenau Gwent",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 10,
+      "r": 13,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000603",
+      "name": "Broadland",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 29,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000574",
+      "name": "Blaydon",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 16,
+      "r": 32,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000543",
+      "name": "Barrow and Furness",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 30,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000575",
+      "name": "Blyth Valley",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 19,
+      "r": 33,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000544",
+      "name": "Basildon and Billericay",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 30,
+      "r": 10,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000545",
+      "name": "Basingstoke",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 15,
+      "r": 7,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000785",
+      "name": "Leigh",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 21,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000755",
+      "name": "Hove",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 24,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14001060",
+      "name": "Yeovil",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 9,
+      "r": 3,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000786",
+      "name": "Lewes",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 27,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000789",
+      "name": "Lewisham, Deptford",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 27,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000756",
+      "name": "Huddersfield",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 19,
+      "r": 24,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000725",
+      "name": "Halton",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 11,
+      "r": 20,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001061",
+      "name": "York Central",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 22,
+      "r": 28,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14001037",
+      "name": "Westmorland and Lonsdale",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 29,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000787",
+      "name": "Lewisham East",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 27,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000757",
+      "name": "Huntingdon",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 22,
+      "r": 16,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000726",
+      "name": "Hammersmith",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 22,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14001062",
+      "name": "York Outer",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 23,
+      "r": 28,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14001029",
+      "name": "West Bromwich East",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 18,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000788",
+      "name": "Lewisham West and Penge",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 26,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000758",
+      "name": "Hyndburn",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 27,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000727",
+      "name": "Hampstead and Kilburn",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 21,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "W07000061",
+      "name": "Dwyfor Meirionnydd",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 11,
+      "r": 15,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14001030",
+      "name": "West Bromwich West",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 17,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000790",
+      "name": "Leyton and Wanstead",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 26,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000759",
+      "name": "Ilford North",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 28,
+      "r": 12,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000728",
+      "name": "Harborough",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 23,
+      "r": 18,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "W07000064",
+      "name": "Ceredigion",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 11,
+      "r": 13,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14001031",
+      "name": "West Dorset",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 10,
+      "r": 3,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000791",
+      "name": "Lichfield",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 18,
+      "r": 20,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000760",
+      "name": "Ilford South",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 27,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000729",
+      "name": "Harlow",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 26,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "W07000041",
+      "name": "Ynys M\u00f4n",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 7,
+      "r": 19,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14001032",
+      "name": "West Ham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 27,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000792",
+      "name": "Lincoln",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 24,
+      "r": 22,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000761",
+      "name": "Ipswich",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 30,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000730",
+      "name": "Harrogate and Knaresborough",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 19,
+      "r": 28,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "W07000055",
+      "name": "Newport East",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 12,
+      "r": 12,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14001033",
+      "name": "West Lancashire",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 10,
+      "r": 25,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000763",
+      "name": "Islington North",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 25,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000731",
+      "name": "Harrow East",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 20,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "W07000080",
+      "name": "Cardiff South and Penarth",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 12,
+      "r": 10,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14001034",
+      "name": "West Suffolk",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 27,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000793",
+      "name": "Liverpool, Riverside",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 10,
+      "r": 21,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000764",
+      "name": "Islington South and Finsbury",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 25,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000732",
+      "name": "Harrow West",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 20,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14001035",
+      "name": "West Worcestershire",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 14,
+      "r": 12,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000794",
+      "name": "Liverpool, Walton",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 11,
+      "r": 23,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001038",
+      "name": "Weston-Super-Mare",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 8,
+      "r": 5,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "W07000077",
+      "name": "Islwyn",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 10,
+      "r": 12,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000733",
+      "name": "Hartlepool",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 22,
+      "r": 31,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14001039",
+      "name": "Wigan",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 11,
+      "r": 24,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001000",
+      "name": "Torridge and West Devon",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 6,
+      "r": 3,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000734",
+      "name": "Harwich and North Essex",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 29,
+      "r": 12,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14001040",
+      "name": "Wimbledon",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 24,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000696",
+      "name": "Erith and Thamesmead",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 29,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14001001",
+      "name": "Totnes",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 6,
+      "r": 1,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000697",
+      "name": "Esher and Walton",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 7,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14001002",
+      "name": "Tottenham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 24,
+      "r": 12,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000977",
+      "name": "Stratford-on-Avon",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 13,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000666",
+      "name": "Dewsbury",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 20,
+      "r": 24,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000668",
+      "name": "Doncaster Central",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 21,
+      "r": 23,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000640",
+      "name": "City of Chester",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 11,
+      "r": 18,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001004",
+      "name": "Tunbridge Wells",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 29,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000978",
+      "name": "Streatham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 23,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000936",
+      "name": "South Dorset",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 11,
+      "r": 2,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000698",
+      "name": "Exeter",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 7,
+      "r": 2,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000669",
+      "name": "Doncaster North",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 24,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000641",
+      "name": "City of Durham",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 19,
+      "r": 30,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14001005",
+      "name": "Twickenham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 20,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000979",
+      "name": "Stretford and Urmston",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 20,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000699",
+      "name": "Fareham",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 3,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000937",
+      "name": "South East Cambridgeshire",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 26,
+      "r": 16,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000910",
+      "name": "Saffron Walden",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 26,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000667",
+      "name": "Don Valley",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 22,
+      "r": 24,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000642",
+      "name": "Clacton",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 30,
+      "r": 12,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14001006",
+      "name": "Tynemouth",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 20,
+      "r": 33,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000980",
+      "name": "Stroud",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 11,
+      "r": 7,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000700",
+      "name": "Faversham and Mid Kent",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 31,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000939",
+      "name": "South Holland and The Deepings",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 26,
+      "r": 20,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000911",
+      "name": "Salford and Eccles",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 20,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000670",
+      "name": "Dover",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 32,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000643",
+      "name": "Cleethorpes",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 26,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14001007",
+      "name": "Uxbridge and South Ruislip",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 19,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000960",
+      "name": "St Albans",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 20,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000701",
+      "name": "Feltham and Heston",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 19,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000940",
+      "name": "South Leicestershire",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 21,
+      "r": 17,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000912",
+      "name": "Salisbury",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 13,
+      "r": 5,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000671",
+      "name": "Dudley North",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 18,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "W07000062",
+      "name": "Clwyd South",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 12,
+      "r": 15,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "W07000060",
+      "name": "Vale of Clwyd",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 10,
+      "r": 18,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000961",
+      "name": "St Austell and Newquay",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 3,
+      "r": 1,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000702",
+      "name": "Filton and Bradley Stoke",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 9,
+      "r": 6,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000941",
+      "name": "South Norfolk",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 31,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000913",
+      "name": "Scarborough and Whitby",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 23,
+      "r": 29,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000672",
+      "name": "Dudley South",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 13,
+      "r": 14,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "W07000059",
+      "name": "Clwyd West",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 9,
+      "r": 17,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "W07000078",
+      "name": "Vale of Glamorgan",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 8,
+      "r": 9,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000962",
+      "name": "St Helens North",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 22,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000703",
+      "name": "Finchley and Golders Green",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 22,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000942",
+      "name": "South Northamptonshire",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 23,
+      "r": 16,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000914",
+      "name": "Scunthorpe",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 24,
+      "r": 24,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000673",
+      "name": "Dulwich and West Norwood",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 25,
+      "r": 7,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000644",
+      "name": "Colchester",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 28,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14001008",
+      "name": "Vauxhall",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 24,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000963",
+      "name": "St Helens South and Whiston",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 21,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000704",
+      "name": "Folkestone and Hythe",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 31,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000943",
+      "name": "South Ribble",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 11,
+      "r": 25,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000915",
+      "name": "Sedgefield",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 18,
+      "r": 30,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000674",
+      "name": "Ealing Central and Acton",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 21,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000645",
+      "name": "Colne Valley",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 16,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14001009",
+      "name": "Wakefield",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 19,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000981",
+      "name": "Suffolk Coastal",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 30,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000705",
+      "name": "Forest of Dean",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 12,
+      "r": 9,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000944",
+      "name": "South Shields",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 21,
+      "r": 32,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000916",
+      "name": "Sefton Central",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 10,
+      "r": 23,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000675",
+      "name": "Ealing North",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 20,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000646",
+      "name": "Congleton",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 16,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000982",
+      "name": "Sunderland Central",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 21,
+      "r": 31,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000945",
+      "name": "South Staffordshire",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 13,
+      "r": 15,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000917",
+      "name": "Selby and Ainsty",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 21,
+      "r": 28,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000647",
+      "name": "Copeland",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 30,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000946",
+      "name": "South Suffolk",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 29,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000918",
+      "name": "Sevenoaks",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 19,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000921",
+      "name": "Sheffield, Brightside and Hillsborough",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 22,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "W07000075",
+      "name": "Pontypridd",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 9,
+      "r": 10,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000881",
+      "name": "Poole",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 13,
+      "r": 3,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000848",
+      "name": "North Norfolk",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 30,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000882",
+      "name": "Poplar and Limehouse",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 27,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000849",
+      "name": "North Shropshire",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 15,
+      "r": 22,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000823",
+      "name": "Mitcham and Morden",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 23,
+      "r": 6,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000883",
+      "name": "Portsmouth North",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 19,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000850",
+      "name": "North Somerset",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 11,
+      "r": 8,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000824",
+      "name": "Mole Valley",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000885",
+      "name": "Preston",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 28,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000851",
+      "name": "North Swindon",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 14,
+      "r": 8,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "W07000054",
+      "name": "Monmouth",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 12,
+      "r": 13,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000886",
+      "name": "Pudsey",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 18,
+      "r": 28,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000852",
+      "name": "North Thanet",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 34,
+      "r": 7,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "W07000063",
+      "name": "Montgomeryshire",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 11,
+      "r": 14,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000887",
+      "name": "Putney",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 23,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000853",
+      "name": "North Tyneside",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 17,
+      "r": 32,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000825",
+      "name": "Morecambe and Lunesdale",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 16,
+      "r": 29,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000888",
+      "name": "Rayleigh and Wickford",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 31,
+      "r": 11,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000854",
+      "name": "North Warwickshire",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 19,
+      "r": 17,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000826",
+      "name": "Morley and Outwood",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 22,
+      "r": 27,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000889",
+      "name": "Reading East",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 8,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000855",
+      "name": "North West Cambridgeshire",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 23,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "W07000069",
+      "name": "Neath",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 9,
+      "r": 11,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000890",
+      "name": "Reading West",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 15,
+      "r": 8,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000856",
+      "name": "North West Durham",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 17,
+      "r": 30,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000829",
+      "name": "Newark",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 24,
+      "r": 23,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000857",
+      "name": "North West Hampshire",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 15,
+      "r": 10,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000830",
+      "name": "Newbury",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 15,
+      "r": 11,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000834",
+      "name": "Newcastle-under-Lyme",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 23,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000604",
+      "name": "Bromley and Chislehurst",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 27,
+      "r": 6,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000605",
+      "name": "Bromsgrove",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 15,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000576",
+      "name": "Bognor Regis and Littlehampton",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 21,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000606",
+      "name": "Broxbourne",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 21,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000577",
+      "name": "Bolsover",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 21,
+      "r": 21,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000546",
+      "name": "Bassetlaw",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 23,
+      "r": 23,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000607",
+      "name": "Broxtowe",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 23,
+      "r": 20,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000578",
+      "name": "Bolton North East",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 25,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000547",
+      "name": "Bath",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 12,
+      "r": 7,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000608",
+      "name": "Buckingham",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 11,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000579",
+      "name": "Bolton South East",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 24,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000548",
+      "name": "Batley and Spen",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 21,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000609",
+      "name": "Burnley",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 16,
+      "r": 27,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000580",
+      "name": "Bolton West",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 24,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000549",
+      "name": "Battersea",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 22,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000610",
+      "name": "Burton",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 19,
+      "r": 20,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000581",
+      "name": "Bootle",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 9,
+      "r": 22,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000550",
+      "name": "Beaconsfield",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 11,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000611",
+      "name": "Bury North",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 26,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000582",
+      "name": "Boston and Skegness",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 26,
+      "r": 21,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000551",
+      "name": "Beckenham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 26,
+      "r": 6,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000612",
+      "name": "Bury South",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 24,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000583",
+      "name": "Bosworth",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 20,
+      "r": 18,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000552",
+      "name": "Bedford",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 24,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000613",
+      "name": "Bury St Edmunds",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 28,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000584",
+      "name": "Bournemouth East",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 14,
+      "r": 3,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000553",
+      "name": "Bermondsey and Old Southwark",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 25,
+      "r": 9,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000585",
+      "name": "Bournemouth West",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 12,
+      "r": 4,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000555",
+      "name": "Bethnal Green and Bow",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 26,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000556",
+      "name": "Beverley and Holderness",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 24,
+      "r": 27,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000795",
+      "name": "Liverpool, Wavertree",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 11,
+      "r": 21,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000765",
+      "name": "Jarrow",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 20,
+      "r": 32,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000837",
+      "name": "North Cornwall",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 4,
+      "r": 2,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000796",
+      "name": "Liverpool, West Derby",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 11,
+      "r": 22,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000766",
+      "name": "Keighley",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 17,
+      "r": 27,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000884",
+      "name": "Portsmouth South",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 19,
+      "r": 3,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000735",
+      "name": "Hastings and Rye",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 30,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14001041",
+      "name": "Winchester",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "W07000045",
+      "name": "Llanelli",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 5,
+      "r": 10,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000767",
+      "name": "Kenilworth and Southam",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 13,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000762",
+      "name": "Isle of Wight",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 2,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14001010",
+      "name": "Wallasey",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 10,
+      "r": 22,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000736",
+      "name": "Havant",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 20,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14001042",
+      "name": "Windsor",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 10,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000797",
+      "name": "Loughborough",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 24,
+      "r": 19,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000768",
+      "name": "Kensington",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 23,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000554",
+      "name": "Berwick-upon-Tweed",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 17,
+      "r": 33,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14001011",
+      "name": "Walsall North",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 20,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14001043",
+      "name": "Wirral South",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 10,
+      "r": 20,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000737",
+      "name": "Hayes and Harlington",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 19,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000798",
+      "name": "Louth and Horncastle",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 26,
+      "r": 22,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000769",
+      "name": "Kettering",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 24,
+      "r": 18,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14001012",
+      "name": "Walsall South",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 19,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000938",
+      "name": "South East Cornwall",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 4,
+      "r": 1,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14001044",
+      "name": "Wirral West",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 9,
+      "r": 21,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000738",
+      "name": "Hazel Grove",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 21,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000799",
+      "name": "Ludlow",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 21,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000770",
+      "name": "Kingston and Surbiton",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 20,
+      "r": 6,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14001013",
+      "name": "Walthamstow",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 25,
+      "r": 12,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14001045",
+      "name": "Witham",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 27,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000739",
+      "name": "Hemel Hempstead",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 20,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000950",
+      "name": "South West Devon",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 6,
+      "r": 2,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000800",
+      "name": "Luton North",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 21,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000771",
+      "name": "Kingston upon Hull East",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 25,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14001014",
+      "name": "Wansbeck",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 18,
+      "r": 33,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000740",
+      "name": "Hemsworth",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 22,
+      "r": 26,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000880",
+      "name": "Plymouth, Sutton and Devonport",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 5,
+      "r": 1,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14001046",
+      "name": "Witney",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 12,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000801",
+      "name": "Luton South",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 21,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000772",
+      "name": "Kingston upon Hull North",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 26,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14001015",
+      "name": "Wantage",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 12,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000741",
+      "name": "Hendon",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 21,
+      "r": 11,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000863",
+      "name": "Norwich North",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 31,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14001048",
+      "name": "Wokingham",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 15,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000802",
+      "name": "Macclesfield",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 14,
+      "r": 17,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000773",
+      "name": "Kingston upon Hull West and Hessle",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 25,
+      "r": 24,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000964",
+      "name": "St Ives",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 1,
+      "r": 0,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14001016",
+      "name": "Warley",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 17,
+      "r": 17,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14001047",
+      "name": "Woking",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000803",
+      "name": "Maidenhead",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 10,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000742",
+      "name": "Henley",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 15,
+      "r": 9,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000774",
+      "name": "Kingswood",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 12,
+      "r": 8,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000616",
+      "name": "Camborne and Redruth",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 2,
+      "r": 1,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14001017",
+      "name": "Warrington North",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 19,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001049",
+      "name": "Wolverhampton North East",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 15,
+      "r": 16,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000743",
+      "name": "Hereford and South Herefordshire",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 14,
+      "r": 11,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14001018",
+      "name": "Warrington South",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 20,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14001050",
+      "name": "Wolverhampton South East",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 19,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000744",
+      "name": "Hertford and Stortford",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 26,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14001019",
+      "name": "Warwick and Leamington",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 14,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000706",
+      "name": "Fylde",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 27,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000676",
+      "name": "Ealing, Southall",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 20,
+      "r": 8,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000983",
+      "name": "Surrey Heath",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 17,
+      "r": 7,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000707",
+      "name": "Gainsborough",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 25,
+      "r": 22,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000984",
+      "name": "Sutton and Cheam",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 21,
+      "r": 5,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000947",
+      "name": "South Swindon",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 14,
+      "r": 7,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000677",
+      "name": "Easington",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 21,
+      "r": 30,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000648",
+      "name": "Corby",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 26,
+      "r": 18,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000708",
+      "name": "Garston and Halewood",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 11,
+      "r": 19,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000985",
+      "name": "Sutton Coldfield",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 19,
+      "r": 18,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000948",
+      "name": "South Thanet",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 33,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000684",
+      "name": "Eastbourne",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 28,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000649",
+      "name": "Coventry North East",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 20,
+      "r": 16,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "W07000067",
+      "name": "Carmarthen East and Dinefwr",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 6,
+      "r": 11,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000709",
+      "name": "Gateshead",
+      "nation": "England",
+      "regionCode": "E12000001",
+      "regionName": "North East",
+      "q": 18,
+      "r": 32,
+      "sourceColour": "#D60303"
+    },
+    {
+      "id": "E14000919",
+      "name": "Sheffield Central",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 17,
+      "r": 24,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "W07000048",
+      "name": "Swansea East",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 8,
+      "r": 12,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000949",
+      "name": "South West Bedfordshire",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 20,
+      "r": 15,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000685",
+      "name": "Eastleigh",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000650",
+      "name": "Coventry North West",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 18,
+      "r": 15,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000621",
+      "name": "Carshalton and Wallington",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 22,
+      "r": 6,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000710",
+      "name": "Gedling",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 24,
+      "r": 21,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000922",
+      "name": "Sheffield, Hallam",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 16,
+      "r": 25,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "W07000047",
+      "name": "Swansea West",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 7,
+      "r": 10,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000951",
+      "name": "South West Hertfordshire",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 18,
+      "r": 12,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000923",
+      "name": "Sheffield, Heeley",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 18,
+      "r": 24,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000678",
+      "name": "East Devon",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 8,
+      "r": 2,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000651",
+      "name": "Coventry South",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 19,
+      "r": 15,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000622",
+      "name": "Castle Point",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 31,
+      "r": 10,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000711",
+      "name": "Gillingham and Rainham",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 31,
+      "r": 7,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000952",
+      "name": "South West Norfolk",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 27,
+      "r": 16,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000920",
+      "name": "Sheffield South East",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 19,
+      "r": 23,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000680",
+      "name": "East Hampshire",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 15,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000652",
+      "name": "Crawley",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 26,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000986",
+      "name": "Tamworth",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 18,
+      "r": 19,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000712",
+      "name": "Gloucester",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 13,
+      "r": 9,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000623",
+      "name": "Central Devon",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 7,
+      "r": 3,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000953",
+      "name": "South West Surrey",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 16,
+      "r": 6,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000924",
+      "name": "Sherwood",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 23,
+      "r": 22,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000679",
+      "name": "East Ham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 28,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000653",
+      "name": "Crewe and Nantwich",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 12,
+      "r": 17,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000987",
+      "name": "Tatton",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 13,
+      "r": 17,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000713",
+      "name": "Gosport",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 3,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000624",
+      "name": "Central Suffolk and North Ipswich",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 29,
+      "r": 14,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "E14000954",
+      "name": "South West Wiltshire",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 11,
+      "r": 4,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000925",
+      "name": "Shipley",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 18,
+      "r": 27,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "W07000046",
+      "name": "Gower",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 7,
+      "r": 11,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000681",
+      "name": "East Surrey",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 5,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000654",
+      "name": "Croydon Central",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 24,
+      "r": 6,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000988",
+      "name": "Taunton Deane",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 8,
+      "r": 4,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000625",
+      "name": "Charnwood",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 22,
+      "r": 20,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000959",
+      "name": "Spelthorne",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 18,
+      "r": 9,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000926",
+      "name": "Shrewsbury and Atcham",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 15,
+      "r": 21,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000714",
+      "name": "Grantham and Stamford",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 26,
+      "r": 19,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000682",
+      "name": "East Worthing and Shoreham",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 23,
+      "r": 4,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000626",
+      "name": "Chatham and Aylesford",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 30,
+      "r": 7,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000655",
+      "name": "Croydon North",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 25,
+      "r": 6,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000989",
+      "name": "Telford",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 16,
+      "r": 22,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000966",
+      "name": "Staffordshire Moorlands",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 19,
+      "r": 22,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000927",
+      "name": "Sittingbourne and Sheppey",
+      "nation": "England",
+      "regionCode": "E12000008",
+      "regionName": "South East",
+      "q": 32,
+      "r": 7,
+      "sourceColour": "#67E767"
+    },
+    {
+      "id": "E14000683",
+      "name": "East Yorkshire",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 24,
+      "r": 28,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000627",
+      "name": "Cheadle",
+      "nation": "England",
+      "regionCode": "E12000002",
+      "regionName": "North West",
+      "q": 15,
+      "r": 17,
+      "sourceColour": "#1DD3A7"
+    },
+    {
+      "id": "E14000656",
+      "name": "Croydon South",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 23,
+      "r": 5,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "E14000990",
+      "name": "Tewkesbury",
+      "nation": "England",
+      "regionCode": "E12000009",
+      "regionName": "South West",
+      "q": 13,
+      "r": 10,
+      "sourceColour": "#178CFF"
+    },
+    {
+      "id": "E14000965",
+      "name": "Stafford",
+      "nation": "England",
+      "regionCode": "E12000005",
+      "regionName": "West Midlands",
+      "q": 18,
+      "r": 21,
+      "sourceColour": "#E6007C"
+    },
+    {
+      "id": "E14000928",
+      "name": "Skipton and Ripon",
+      "nation": "England",
+      "regionCode": "E12000003",
+      "regionName": "Yorkshire and The Humber",
+      "q": 20,
+      "r": 29,
+      "sourceColour": "#F9BC26"
+    },
+    {
+      "id": "E14000628",
+      "name": "Chelmsford",
+      "nation": "England",
+      "regionCode": "E12000006",
+      "regionName": "East of England",
+      "q": 27,
+      "r": 13,
+      "sourceColour": "#FF6700"
+    },
+    {
+      "id": "W07000070",
+      "name": "Cynon Valley",
+      "nation": "Wales",
+      "regionCode": "W92000004",
+      "regionName": "Wales",
+      "q": 11,
+      "r": 11,
+      "sourceColour": "#0DBC37"
+    },
+    {
+      "id": "E14000929",
+      "name": "Sleaford and North Hykeham",
+      "nation": "England",
+      "regionCode": "E12000004",
+      "regionName": "East Midlands",
+      "q": 25,
+      "r": 21,
+      "sourceColour": "#00B6FF"
+    },
+    {
+      "id": "E14000629",
+      "name": "Chelsea and Fulham",
+      "nation": "England",
+      "regionCode": "E12000007",
+      "regionName": "London",
+      "q": 24,
+      "r": 10,
+      "sourceColour": "#D73058"
+    },
+    {
+      "id": "S14000001",
+      "name": "Aberdeen North",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 15,
+      "r": 40,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000003",
+      "name": "Airdrie and Shotts",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 13,
+      "r": 36,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000004",
+      "name": "Angus",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 16,
+      "r": 38,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000008",
+      "name": "Berwickshire, Roxburgh and Selkirk",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 15,
+      "r": 32,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000011",
+      "name": "Coatbridge, Chryston and Bellshill",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 35,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000012",
+      "name": "Cumbernauld, Kilsyth and Kirkintilloch East",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 11,
+      "r": 38,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000014",
+      "name": "Dumfriesshire, Clydesdale and Tweeddale",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 11,
+      "r": 32,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000015",
+      "name": "Dundee East",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 39,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000016",
+      "name": "Dundee West",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 13,
+      "r": 39,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000017",
+      "name": "Dunfermline and West Fife",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 13,
+      "r": 38,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000018",
+      "name": "East Dunbartonshire",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 36,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000019",
+      "name": "East Kilbride, Strathaven and Lesmahagow",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 13,
+      "r": 33,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000021",
+      "name": "East Renfrewshire",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 11,
+      "r": 33,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000022",
+      "name": "Edinburgh East",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 16,
+      "r": 35,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000023",
+      "name": "Edinburgh North and Leith",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 15,
+      "r": 35,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000024",
+      "name": "Edinburgh South",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 15,
+      "r": 34,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000025",
+      "name": "Edinburgh South West",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 34,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000028",
+      "name": "Falkirk",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 39,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000029",
+      "name": "Glasgow Central",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 37,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000030",
+      "name": "Glasgow East",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 34,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000031",
+      "name": "Glasgow North",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 38,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000032",
+      "name": "Glasgow North East",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 13,
+      "r": 35,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000033",
+      "name": "Glasgow North West",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 11,
+      "r": 37,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000034",
+      "name": "Glasgow South",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 11,
+      "r": 34,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000035",
+      "name": "Glasgow South West",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 11,
+      "r": 35,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000036",
+      "name": "Glenrothes",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 15,
+      "r": 37,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000038",
+      "name": "Inverclyde",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 10,
+      "r": 36,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000039",
+      "name": "Inverness, Nairn, Badenoch and Strathspey",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 10,
+      "r": 38,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000040",
+      "name": "Kilmarnock and Loudoun",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 13,
+      "r": 32,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000042",
+      "name": "Lanark and Hamilton East",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 32,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000043",
+      "name": "Linlithgow and East Falkirk",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 13,
+      "r": 37,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000044",
+      "name": "Livingston",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 33,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000045",
+      "name": "Midlothian",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 15,
+      "r": 33,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000047",
+      "name": "Motherwell and Wishaw",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 13,
+      "r": 34,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000050",
+      "name": "Ochil and South Perthshire",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 13,
+      "r": 40,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000052",
+      "name": "Paisley and Renfrewshire North",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 11,
+      "r": 36,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000053",
+      "name": "Paisley and Renfrewshire South",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 10,
+      "r": 33,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000054",
+      "name": "Perth and North Perthshire",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 41,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000056",
+      "name": "Rutherglen and Hamilton West",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 33,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000057",
+      "name": "Stirling",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 40,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000059",
+      "name": "West Dunbartonshire",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 11,
+      "r": 39,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000009",
+      "name": "Caithness, Sutherland and Easter Ross",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 42,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000055",
+      "name": "Ross, Skye and Lochaber",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 10,
+      "r": 39,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000046",
+      "name": "Moray",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 40,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000051",
+      "name": "Orkney and Shetland",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 15,
+      "r": 42,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000027",
+      "name": "Na h-Eileanan an Iar",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 9,
+      "r": 40,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000005",
+      "name": "Argyll and Bute",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 10,
+      "r": 37,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000058",
+      "name": "West Aberdeenshire and Kincardine",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 15,
+      "r": 38,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000007",
+      "name": "Banff and Buchan",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 41,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000049",
+      "name": "North East Fife",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 38,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000037",
+      "name": "Gordon",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 15,
+      "r": 39,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000041",
+      "name": "Kirkcaldy and Cowdenbeath",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 36,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000002",
+      "name": "Aberdeen South",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 16,
+      "r": 40,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000026",
+      "name": "Edinburgh West",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 35,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000020",
+      "name": "East Lothian",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 14,
+      "r": 37,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000048",
+      "name": "North Ayrshire and Arran",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 9,
+      "r": 35,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000013",
+      "name": "Dumfries and Galloway",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 12,
+      "r": 32,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000006",
+      "name": "Ayr, Carrick and Cumnock",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 10,
+      "r": 34,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "S14000010",
+      "name": "Central Ayrshire",
+      "nation": "Scotland",
+      "regionCode": "S92000003",
+      "regionName": "Scotland",
+      "q": 10,
+      "r": 35,
+      "sourceColour": "#2254F4"
+    },
+    {
+      "id": "N06000001",
+      "name": "Belfast East",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 4,
+      "r": 26,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000002",
+      "name": "Belfast North",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 3,
+      "r": 26,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000003",
+      "name": "Belfast South",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 3,
+      "r": 25,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000004",
+      "name": "Belfast West",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 2,
+      "r": 26,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000005",
+      "name": "East Antrim",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 4,
+      "r": 28,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000006",
+      "name": "East Londonderry",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 2,
+      "r": 29,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000007",
+      "name": "Fermanagh and South Tyrone",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 0,
+      "r": 27,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000008",
+      "name": "Foyle",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 1,
+      "r": 28,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000009",
+      "name": "Lagan Valley",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 2,
+      "r": 27,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000010",
+      "name": "Mid Ulster",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 2,
+      "r": 28,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000011",
+      "name": "Newry and Armagh",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 1,
+      "r": 25,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000012",
+      "name": "North Antrim",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 3,
+      "r": 28,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000013",
+      "name": "North Down",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 4,
+      "r": 25,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000014",
+      "name": "South Antrim",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 3,
+      "r": 27,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000015",
+      "name": "South Down",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 2,
+      "r": 25,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000016",
+      "name": "Strangford",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 3,
+      "r": 24,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000017",
+      "name": "Upper Bann",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 1,
+      "r": 27,
+      "sourceColour": "#722EA5"
+    },
+    {
+      "id": "N06000018",
+      "name": "West Tyrone",
+      "nation": "Northern Ireland",
+      "regionCode": "N92000002",
+      "regionName": "Northern Ireland",
+      "q": 0,
+      "r": 28,
+      "sourceColour": "#722EA5"
+    }
+  ]
+}
