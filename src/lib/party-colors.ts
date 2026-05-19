@@ -32,7 +32,7 @@ const PARTY_COLORS: Record<string, string> = {
 
   // Devolved-nation parties — Westminster-relevant for the parliament
   // audit. Brand colours from each party's own style guidance.
-  'Scottish National Party': '#FDF38E',
+  'Scottish National Party': '#FFFF00',
   'Plaid Cymru': '#005B54',
   'Alba Party': '#005EB8',
 
