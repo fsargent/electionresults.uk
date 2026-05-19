@@ -9,8 +9,15 @@
     startValue,
     endYear,
     endValue,
-    /** Cap for the Y axis. 0–50% by default; lift for outliers. */
-    yMax = 0.5,
+    /** Optional second slope for seat share. Renders as a dashed line
+     *  with hollow endpoints when both values are supplied — mirrors
+     *  the "filled votes / outlined seats" convention used by
+     *  PairedBarChart so readers map the two charts together. */
+    startSeatValue,
+    endSeatValue,
+    /** Cap for the Y axis. Auto-fits to the largest endpoint (vote or
+     *  seat) when omitted, with a 5%-rounded cushion. */
+    yMax,
     compact = false
   }: {
     title: string;
@@ -20,9 +27,25 @@
     startValue: number;
     endYear: number;
     endValue: number;
+    startSeatValue?: number;
+    endSeatValue?: number;
     yMax?: number;
     compact?: boolean;
   } = $props();
+
+  const hasSeats = $derived(
+    startSeatValue != null && endSeatValue != null
+  );
+
+  const computedYMax = $derived.by(() => {
+    if (yMax != null) return yMax;
+    const values = [startValue, endValue];
+    if (hasSeats) values.push(startSeatValue as number, endSeatValue as number);
+    const raw = Math.max(...values, 0);
+    // Round up to the next 5% so the slope never touches the top edge.
+    if (raw <= 0) return 0.1;
+    return Math.min(1, Math.max(0.1, Math.ceil(raw * 20) / 20));
+  });
 
   const W = $derived(compact ? 220 : 320);
   const H = $derived(compact ? 140 : 180);
@@ -36,7 +59,7 @@
   const innerH = $derived(H - PAD.t - PAD.b);
 
   function y(v: number): number {
-    return PAD.t + (1 - Math.max(0, Math.min(yMax, v)) / yMax) * innerH;
+    return PAD.t + (1 - Math.max(0, Math.min(computedYMax, v)) / computedYMax) * innerH;
   }
   const x1 = $derived(PAD.l);
   const x2 = $derived(W - PAD.r);
@@ -44,6 +67,19 @@
   const trend = $derived(
     Math.abs(delta) < 0.005 ? 'flat' : delta > 0 ? 'up' : 'down'
   );
+  const seatDelta = $derived(
+    hasSeats ? (endSeatValue as number) - (startSeatValue as number) : 0
+  );
+  const seatTrend = $derived(
+    Math.abs(seatDelta) < 0.005 ? 'flat' : seatDelta > 0 ? 'up' : 'down'
+  );
+
+  // Above-line for the higher endpoint, below-line for the lower one
+  // at each end of the slope. Keeps vote and seat labels from
+  // colliding when they're close together.
+  function labelOffset(value: number, otherValue: number): number {
+    return value >= otherValue ? -8 : 14;
+  }
 </script>
 
 <figure class="slope" class:compact>
@@ -63,6 +99,7 @@
       stroke="var(--rule)"
       stroke-width="1"
     />
+    <!-- Vote slope: solid line, filled circles. -->
     <line
       x1={x1}
       y1={y(startValue)}
@@ -72,15 +109,91 @@
       stroke-width="2.5"
       stroke-linecap="round"
     />
-    <circle cx={x1} cy={y(startValue)} r="5" fill={color} />
-    <circle cx={x2} cy={y(endValue)} r="5" fill={color} />
+    <circle cx={x1} cy={y(startValue)} r="5" fill={color}>
+      <title>Vote share &mdash; {startYear}: {pct(startValue, 1)}</title>
+    </circle>
+    <circle cx={x2} cy={y(endValue)} r="5" fill={color}>
+      <title>Vote share &mdash; {endYear}: {pct(endValue, 1)}</title>
+    </circle>
 
-    <text x={x1} y={y(startValue) - 10} text-anchor="middle" font-size="11" fill="var(--fg)" font-weight="600">
+    {#if hasSeats}
+      <!-- Seat slope: dashed line, hollow circles. -->
+      <line
+        x1={x1}
+        y1={y(startSeatValue as number)}
+        x2={x2}
+        y2={y(endSeatValue as number)}
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="4 3"
+        opacity="0.85"
+      />
+      <circle
+        cx={x1}
+        cy={y(startSeatValue as number)}
+        r="4.5"
+        fill="var(--bg)"
+        stroke={color}
+        stroke-width="2"
+      >
+        <title>Seat share &mdash; {startYear}: {pct(startSeatValue as number, 1)}</title>
+      </circle>
+      <circle
+        cx={x2}
+        cy={y(endSeatValue as number)}
+        r="4.5"
+        fill="var(--bg)"
+        stroke={color}
+        stroke-width="2"
+      >
+        <title>Seat share &mdash; {endYear}: {pct(endSeatValue as number, 1)}</title>
+      </circle>
+    {/if}
+
+    <text
+      x={x1}
+      y={y(startValue) + labelOffset(startValue, startSeatValue ?? -1)}
+      text-anchor="middle"
+      font-size="11"
+      fill="var(--fg)"
+      font-weight="600"
+    >
       {pct(startValue, 0)}
     </text>
-    <text x={x2} y={y(endValue) - 10} text-anchor="middle" font-size="11" fill="var(--fg)" font-weight="600">
+    <text
+      x={x2}
+      y={y(endValue) + labelOffset(endValue, endSeatValue ?? -1)}
+      text-anchor="middle"
+      font-size="11"
+      fill="var(--fg)"
+      font-weight="600"
+    >
       {pct(endValue, 0)}
     </text>
+
+    {#if hasSeats}
+      <text
+        x={x1}
+        y={y(startSeatValue as number) + labelOffset(startSeatValue as number, startValue)}
+        text-anchor="middle"
+        font-size="10"
+        fill="var(--muted)"
+        font-weight="500"
+      >
+        {pct(startSeatValue as number, 0)}
+      </text>
+      <text
+        x={x2}
+        y={y(endSeatValue as number) + labelOffset(endSeatValue as number, endValue)}
+        text-anchor="middle"
+        font-size="10"
+        fill="var(--muted)"
+        font-weight="500"
+      >
+        {pct(endSeatValue as number, 0)}
+      </text>
+    {/if}
 
     <text x={x1} y={H - PAD.b + 14} text-anchor="middle" font-size="11" fill="var(--muted)">
       {startYear}
@@ -89,8 +202,60 @@
       {endYear}
     </text>
   </svg>
-  <p class="delta" class:up={trend === 'up'} class:down={trend === 'down'} class:flat={trend === 'flat'}>
-    {pts(delta, 0)}
+  <p class="delta-row">
+    <span
+      class="delta"
+      class:up={trend === 'up'}
+      class:down={trend === 'down'}
+      class:flat={trend === 'flat'}
+    >
+      <svg
+        class="glyph"
+        viewBox="0 0 22 10"
+        aria-hidden="true"
+      >
+        <line x1="2" y1="5" x2="20" y2="5" stroke={color} stroke-width="2" stroke-linecap="round" />
+        <circle cx="11" cy="5" r="3.2" fill={color} />
+      </svg>
+      <span class="kind">votes</span>
+      <span class="value">{pts(delta, 0)}</span>
+    </span>
+    {#if hasSeats}
+      <span
+        class="delta"
+        class:up={seatTrend === 'up'}
+        class:down={seatTrend === 'down'}
+        class:flat={seatTrend === 'flat'}
+      >
+        <svg
+          class="glyph"
+          viewBox="0 0 22 10"
+          aria-hidden="true"
+        >
+          <line
+            x1="2"
+            y1="5"
+            x2="20"
+            y2="5"
+            stroke={color}
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-dasharray="3 2"
+            opacity="0.85"
+          />
+          <circle
+            cx="11"
+            cy="5"
+            r="3"
+            fill="var(--bg)"
+            stroke={color}
+            stroke-width="1.6"
+          />
+        </svg>
+        <span class="kind">seats</span>
+        <span class="value">{pts(seatDelta, 0)}</span>
+      </span>
+    {/if}
   </p>
 </figure>
 
@@ -125,18 +290,41 @@
     height: auto;
     display: block;
   }
-  .delta {
+  .delta-row {
     margin: 0.1rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+  .delta {
     font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
-    text-align: center;
     color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
   }
-  .delta.up {
+  .delta .glyph {
+    width: 1.4rem;
+    height: 0.6rem;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .delta .kind {
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+  }
+  .delta .value {
+    font-weight: inherit;
+  }
+  .delta.up .value {
     color: #1c7a3a;
     font-weight: 600;
   }
-  .delta.down {
+  .delta.down .value {
     color: var(--warn);
     font-weight: 600;
   }

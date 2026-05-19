@@ -89,6 +89,10 @@
     startValue: number;
     endYear: number;
     endValue: number;
+    /** Seat-share endpoints paired with the vote-share endpoints
+     *  above. Same (party, year) row, so always present alongside. */
+    startSeatValue: number;
+    endSeatValue: number;
   };
   const slopes = $derived.by<Slope[]>(() => {
     const out: Slope[] = [];
@@ -109,7 +113,9 @@
         startYear: prior.year,
         startValue: prior.voteShare,
         endYear: last.year,
-        endValue: last.voteShare
+        endValue: last.voteShare,
+        startSeatValue: prior.seatShare,
+        endSeatValue: last.seatShare
       });
     }
     // Most-recent-cycle slopes lead, then by absolute movement so the
@@ -379,8 +385,9 @@
 
   <h2 id="four-year-movement">Four-year movement</h2>
   <p class="muted small">
-    Vote share, four years apart. Same councils, same cycle. One panel
-    per party with both ends of a comparable cycle in our data.
+    Vote share (solid) and seat share (dashed), four years apart.
+    Same councils, same cycle. One panel per party with both ends of
+    a comparable cycle in our data.
   </p>
 
   {#if slopes.length > 0}
@@ -394,6 +401,8 @@
           startValue={s.startValue}
           endYear={s.endYear}
           endValue={s.endValue}
+          startSeatValue={s.startSeatValue}
+          endSeatValue={s.endSeatValue}
           compact
         />
       {/each}
