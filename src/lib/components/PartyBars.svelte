@@ -19,21 +19,17 @@
     height = '1.4rem'
   }: { label?: string; segments: BarSegment[]; height?: string } = $props();
 
-  type Tooltip = { x: number; y: number; primary: string; secondary: string };
+  type Tooltip = {
+    x: number;
+    y: number;
+    party: string;
+    color: string;
+    share: number;
+    count: number | null;
+    total: number | null;
+    unit: string;
+  };
   let tooltip: Tooltip | null = $state(null);
-
-  function tooltipFor(seg: BarSegment): { primary: string; secondary: string } {
-    const pctStr = `${(seg.share * 100).toFixed(1)}%`;
-    let secondary = pctStr;
-    if (seg.count != null) {
-      const n = seg.count.toLocaleString('en-GB');
-      const unit = seg.unit ?? '';
-      secondary = seg.total != null
-        ? `${pctStr} · ${n} of ${seg.total.toLocaleString('en-GB')} ${unit}`.trim()
-        : `${pctStr} · ${n} ${unit}`.trim();
-    }
-    return { primary: seg.party, secondary };
-  }
 
   function findSegment(target: EventTarget | null): BarSegment | null {
     if (!(target instanceof Element)) return null;
@@ -49,13 +45,21 @@
       tooltip = null;
       return;
     }
-    const t = tooltipFor(seg);
     tooltip = {
       x: event.clientX + window.scrollX,
       y: event.clientY + window.scrollY,
-      primary: t.primary,
-      secondary: t.secondary
+      party: seg.party,
+      color: partyColor(seg.party),
+      share: seg.share,
+      count: seg.count ?? null,
+      total: seg.total ?? null,
+      unit: seg.unit ?? ''
     };
+  }
+
+  function unitLabel(unit: string): string {
+    if (!unit) return 'Count';
+    return unit.charAt(0).toUpperCase() + unit.slice(1);
   }
 
   function onLeave() {
@@ -89,8 +93,25 @@
     style:top={`${tooltip.y}px`}
     role="tooltip"
   >
-    <div class="primary">{tooltip.primary}</div>
-    <div class="secondary">{tooltip.secondary}</div>
+    <div class="primary">
+      <span class="swatch" style:background-color={tooltip.color}></span>
+      {tooltip.party}
+    </div>
+    <dl class="stats">
+      <dt>Share</dt>
+      <dd>{(tooltip.share * 100).toFixed(1)}%</dd>
+      {#if tooltip.count != null && tooltip.total != null}
+        <dt>{unitLabel(tooltip.unit)}</dt>
+        <dd>
+          {tooltip.count.toLocaleString('en-GB')}
+          <span class="of">of</span>
+          {tooltip.total.toLocaleString('en-GB')}
+        </dd>
+      {:else if tooltip.count != null}
+        <dt>{unitLabel(tooltip.unit)}</dt>
+        <dd>{tooltip.count.toLocaleString('en-GB')}</dd>
+      {/if}
+    </dl>
   </div>
 {/if}
 
@@ -130,21 +151,57 @@
     margin-top: -0.4rem;
     background: var(--fg);
     color: var(--bg);
-    padding: 0.4rem 0.6rem;
-    border-radius: 4px;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
     font-size: 0.85rem;
     line-height: 1.25;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
     z-index: 10;
+    min-width: 11rem;
     max-width: 18rem;
   }
   .bar-tooltip .primary {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     font-weight: 600;
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.35rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }
-  .bar-tooltip .secondary {
-    opacity: 0.85;
+  .bar-tooltip .swatch {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    flex-shrink: 0;
+  }
+  .bar-tooltip .stats {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.7rem;
+    row-gap: 0.15rem;
+    margin: 0;
     font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
+  }
+  .bar-tooltip .stats dt {
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.7rem;
+    align-self: center;
+  }
+  .bar-tooltip .stats dd {
+    margin: 0;
+    text-align: right;
+    font-weight: 500;
+  }
+  .bar-tooltip .stats .of {
+    opacity: 0.55;
+    font-weight: 400;
+    margin: 0 0.15rem;
   }
   @media (hover: none) {
     .bar-tooltip { display: none; }

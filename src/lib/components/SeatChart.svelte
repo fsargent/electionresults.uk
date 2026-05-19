@@ -27,7 +27,17 @@
   );
   const totalSeats = $derived(seats.length);
 
-  type Tooltip = { x: number; y: number; primary: string; secondary: string };
+  type Tooltip = {
+    x: number;
+    y: number;
+    party: string;
+    color: string;
+    partyPos: number;
+    partyTotal: number;
+    councilPos: number;
+    councilTotal: number;
+    partyShare: number;
+  };
   let tooltip: Tooltip | null = $state(null);
 
   function findSeat(target: EventTarget | null) {
@@ -35,7 +45,9 @@
     const el = target.closest('[data-seat-idx]');
     if (!el) return null;
     const idx = Number(el.getAttribute('data-seat-idx'));
-    return seats[idx] ?? null;
+    const seat = seats[idx];
+    if (!seat) return null;
+    return { ...seat, positionOverall: idx + 1 };
   }
 
   function onMove(event: PointerEvent) {
@@ -44,12 +56,16 @@
       tooltip = null;
       return;
     }
-    const partyShare = totalSeats > 0 ? seat.partyTotal / totalSeats : 0;
     tooltip = {
       x: event.clientX + window.scrollX,
       y: event.clientY + window.scrollY,
-      primary: seat.party,
-      secondary: `Seat ${seat.positionInParty} of ${seat.partyTotal} · ${(partyShare * 100).toFixed(1)}% of council`
+      party: seat.party,
+      color: partyColor(seat.party),
+      partyPos: seat.positionInParty,
+      partyTotal: seat.partyTotal,
+      councilPos: seat.positionOverall,
+      councilTotal: totalSeats,
+      partyShare: totalSeats > 0 ? seat.partyTotal / totalSeats : 0
     };
   }
 
@@ -93,8 +109,18 @@
     style:top={`${tooltip.y}px`}
     role="tooltip"
   >
-    <div class="primary">{tooltip.primary}</div>
-    <div class="secondary">{tooltip.secondary}</div>
+    <div class="primary">
+      <span class="swatch" style:background-color={tooltip.color}></span>
+      {tooltip.party}
+    </div>
+    <dl class="stats">
+      <dt>Council</dt>
+      <dd>{tooltip.councilPos} <span class="of">of</span> {tooltip.councilTotal}</dd>
+      <dt>Party</dt>
+      <dd>{tooltip.partyPos} <span class="of">of</span> {tooltip.partyTotal}</dd>
+      <dt>Share</dt>
+      <dd>{(tooltip.partyShare * 100).toFixed(1)}%</dd>
+    </dl>
   </div>
 {/if}
 
@@ -146,19 +172,57 @@
     margin-top: -0.4rem;
     background: var(--fg);
     color: var(--bg);
-    padding: 0.4rem 0.6rem;
-    border-radius: 4px;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
     font-size: 0.85rem;
     line-height: 1.25;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
     z-index: 10;
+    min-width: 11rem;
     max-width: 18rem;
   }
-  .seat-tooltip .primary { font-weight: 600; }
-  .seat-tooltip .secondary {
-    opacity: 0.85;
+  .seat-tooltip .primary {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.35rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .seat-tooltip .swatch {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    flex-shrink: 0;
+  }
+  .seat-tooltip .stats {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.7rem;
+    row-gap: 0.15rem;
+    margin: 0;
     font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
+  }
+  .seat-tooltip .stats dt {
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.7rem;
+    align-self: center;
+  }
+  .seat-tooltip .stats dd {
+    margin: 0;
+    text-align: right;
+    font-weight: 500;
+  }
+  .seat-tooltip .stats .of {
+    opacity: 0.55;
+    font-weight: 400;
+    margin: 0 0.15rem;
   }
   @media (hover: none) { .seat-tooltip { display: none; } }
 </style>

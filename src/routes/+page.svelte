@@ -65,6 +65,30 @@
     >All cycles (2016&ndash;2026)</button>
   </div>
 
+  <div class="kpi-grid" aria-label={isCycle ? '2026 cycle headline figures' : 'All-cycle headline figures'}>
+    <div class="kpi">
+      <span class="figure">{num(view.totals.seats)}</span>
+      <span class="label">
+        seats elected
+        ({num(view.totals.councils)} {isCycle ? 'councils' : 'council-cycles'},
+        {num(view.totals.races)} ward races)
+      </span>
+    </div>
+    <div class="kpi">
+      <span class="figure warn">{num(view.totals.belowQuotaSeats)}</span>
+      <span class="label">
+        winners <a href="/below-quota">below the proportional quota</a>
+        ({pct(view.totals.belowQuotaSeats / Math.max(1, view.totals.seats))} of seats)
+      </span>
+    </div>
+    <div class="kpi">
+      <span class="figure warn">{num(view.headline.unfairlyAwardedSeats)}</span>
+      <span class="label">
+        <a href="/distortion">unfairly awarded seats</a>
+      </span>
+    </div>
+  </div>
+
   {#if view.lowestWinner}
     {@const lw = view.lowestWinner}
     <p class="lede">
@@ -441,6 +465,29 @@
 <style>
   .lede {
     font-size: 1.15rem;
+  }
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 0.75rem;
+    margin: 0.5rem 0 1.25rem;
+  }
+  .kpi {
+    border: 1px solid var(--rule);
+    padding: 0.75rem 0.9rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+  }
+  .kpi .figure {
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .kpi .figure.warn { color: var(--warn); }
+  .kpi .label {
+    font-size: 0.85rem;
+    color: var(--muted);
   }
   .fn { font-size: 0.7em; }
   .fn a { text-decoration: none; color: var(--muted); }

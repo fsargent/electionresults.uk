@@ -111,6 +111,17 @@ function buildView(scopeYear: number | null) {
     };
   }
 
+  // Cohort-wide unfairly-awarded: sum of per-cycle reallocations across
+  // in-scope FPTP cycles.
+  const distortionInScope =
+    scopeYear === null
+      ? distortionRows
+      : distortionRows.filter((d) => d.year === scopeYear);
+  const unfairlyAwardedSeats = distortionInScope.reduce(
+    (s, r) => s + r.reallocated,
+    0
+  );
+
   // 2026 cohort councils with wards still being counted. Maps render
   // these with a dashed outline highlight (rather than overriding the
   // colour to black), so any flip we can already determine from the
@@ -137,6 +148,9 @@ function buildView(scopeYear: number | null) {
 
   return {
     totals: scopedTotals,
+    headline: {
+      unfairlyAwardedSeats
+    },
     lowestWinner,
     topLowestShares,
     topDistortedCycles,
