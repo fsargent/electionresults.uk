@@ -47,8 +47,6 @@
 <main class="wide">
   <h1>How many UK councillors won when most voters chose someone else?</h1>
 
-  <PostcodeLookup councilSlugs={data.allCouncils} />
-
   <div class="filter-bar filter-bar--top" role="group" aria-label="Cycle filter">
     <span class="filter-label">Showing:</span>
     <button
@@ -131,6 +129,8 @@
       fell short of that fair share.
     </p>
   {/if}
+
+  <PostcodeLookup councilSlugs={data.allCouncils} />
 
   <h2>Year-over-year flips</h2>
   <p class="muted">
