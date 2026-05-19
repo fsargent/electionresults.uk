@@ -350,54 +350,6 @@
     </div>
   </div>
 
-  <h2 id="pick-a-party">Pick a party</h2>
-  <p class="muted small">
-    Drill into any party for its full per-cycle history, the councils
-    it gained and lost, and where its footprint shifted.
-  </p>
-
-  <div class="cards">
-    {#each orderedCards as p (p.slug)}
-      {@const color = partyColor(p.name)}
-      {@const latest = p.latest}
-      {@const earliest = p.trend.filter((s) => s.chamberTotal > 0)[0]}
-      {@const swing = latest && earliest
-        ? latest.chamberShare - earliest.chamberShare
-        : null}
-      <a class="card" href="/councils/party/{p.slug}" style:--accent-color={color}>
-        <header>
-          <span class="swatch" style:background={color} aria-hidden="true"></span>
-          <h3>{p.name}</h3>
-          <span class="chev" aria-hidden="true">→</span>
-        </header>
-        {#if latest}
-          <p class="big">{pct(latest.chamberShare)}</p>
-          <p class="muted small">
-            {num(latest.chamberSeats)} of {num(latest.chamberTotal)} seats ({latest.year})
-          </p>
-          <p class="small">
-            Largest in <strong>{num(latest.councilsLargest)}</strong> of
-            {num(latest.councilsWithComposition)} councils.
-          </p>
-          {#if swing != null && earliest}
-            <p class="small">
-              Since {earliest.year}: <strong>{pts(swing)}</strong>
-              footprint share.
-            </p>
-          {/if}
-          <p class="small">
-            Council-control swing in window:
-            <strong class="pos">+{p.totalGained}</strong>
-            /
-            <strong class="neg">−{p.totalLost}</strong>
-          </p>
-        {:else}
-          <p class="muted">No chamber data.</p>
-        {/if}
-      </a>
-    {/each}
-  </div>
-
   <h2 id="votes-vs-seats">Votes vs seats, by cycle</h2>
   <p class="muted small">
     For each recent cycle, the bars show every party's share of valid
@@ -597,6 +549,54 @@
     directly comparable between elections four years apart (e.g. 2022
     vs 2026, or 2021 vs 2025).
   </p>
+
+  <h2 id="pick-a-party">Pick a party</h2>
+  <p class="muted small">
+    Drill into any party for its full per-cycle history, the councils
+    it gained and lost, and where its footprint shifted.
+  </p>
+
+  <div class="cards">
+    {#each orderedCards as p (p.slug)}
+      {@const color = partyColor(p.name)}
+      {@const latest = p.latest}
+      {@const earliest = p.trend.filter((s) => s.chamberTotal > 0)[0]}
+      {@const swing = latest && earliest
+        ? latest.chamberShare - earliest.chamberShare
+        : null}
+      <a class="card" href="/councils/party/{p.slug}" style:--accent-color={color}>
+        <header>
+          <span class="swatch" style:background={color} aria-hidden="true"></span>
+          <h3>{p.name}</h3>
+          <span class="chev" aria-hidden="true">→</span>
+        </header>
+        {#if latest}
+          <p class="big">{pct(latest.chamberShare)}</p>
+          <p class="muted small">
+            {num(latest.chamberSeats)} of {num(latest.chamberTotal)} seats ({latest.year})
+          </p>
+          <p class="small">
+            Largest in <strong>{num(latest.councilsLargest)}</strong> of
+            {num(latest.councilsWithComposition)} councils.
+          </p>
+          {#if swing != null && earliest}
+            <p class="small">
+              Since {earliest.year}: <strong>{pts(swing)}</strong>
+              footprint share.
+            </p>
+          {/if}
+          <p class="small">
+            Council-control swing in window:
+            <strong class="pos">+{p.totalGained}</strong>
+            /
+            <strong class="neg">−{p.totalLost}</strong>
+          </p>
+        {:else}
+          <p class="muted">No chamber data.</p>
+        {/if}
+      </a>
+    {/each}
+  </div>
 </main>
 
 <style>

@@ -10,6 +10,23 @@
     candidates: CandidateResult[];
     constituencyName: string;
   } = $props();
+
+  /**
+   * True when the source-data party label is just a shorter / longer
+   * form of the canonical display name and would only add visual noise
+   * if shown alongside it. We hide it in that case ("Labour Party
+   * (Labour)" reads as redundant) and keep it only when it carries
+   * genuinely distinct information (e.g. "Labour Party" vs source
+   * "Labour and Co-operative", where the co-op suffix is editorial
+   * signal worth preserving). Compare case-insensitively after
+   * collapsing whitespace; either-direction prefix counts as a match.
+   */
+  function isNoisyDuplicate(source: string, display: string): boolean {
+    const s = source.trim().toLowerCase();
+    const d = display.trim().toLowerCase();
+    if (!s || !d) return true;
+    return s === d || d.startsWith(s) || s.startsWith(d);
+  }
 </script>
 
 <table>
@@ -40,7 +57,7 @@
             aria-hidden="true"
           ></span>
           {c.partyDisplayName}
-          {#if c.partySourceLabel && c.partySourceLabel !== c.partyDisplayName}
+          {#if c.partySourceLabel && !isNoisyDuplicate(c.partySourceLabel, c.partyDisplayName)}
             <span class="muted source-label">({c.partySourceLabel})</span>
           {/if}
         </td>

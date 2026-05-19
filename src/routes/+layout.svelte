@@ -6,6 +6,32 @@
   const onParliament = $derived(
     (page.url?.pathname ?? '').startsWith('/parliament')
   );
+  // The homepage `/` IS the council audit — most recent local
+  // election cycle, council-product hero. Treating it as on-council
+  // for the brand suffix and nav-target logic means the section
+  // identity is editorial-truthful even when the URL is just `/`.
+  const onCouncils = $derived(
+    (page.url?.pathname ?? '') === '/' ||
+      (page.url?.pathname ?? '').startsWith('/councils')
+  );
+  const brandSection = $derived(
+    onParliament ? '/parliament' : onCouncils ? '/councils' : ''
+  );
+
+  // Nav items have a per-domain target — when the reader is browsing
+  // the parliament side of the site, the same labels jump to the
+  // parliament equivalent of each lens rather than the council one.
+  // Methodology and Data already have parliament siblings; the other
+  // four are queued but not yet built, so they 404 until those pages
+  // land.
+  const navItems = [
+    { label: 'Flips', councils: '/councils/flips', parliament: '/parliament/flips' },
+    { label: 'Distortion', councils: '/councils/distortion', parliament: '/parliament/distortion' },
+    { label: 'Below quota', councils: '/councils/below-quota', parliament: '/parliament/below-quota' },
+    { label: 'Parties', councils: '/councils/parties', parliament: '/parliament/parties' },
+    { label: 'Methodology', councils: '/councils/methodology', parliament: '/parliament/methodology' },
+    { label: 'Data', councils: '/councils/data', parliament: '/parliament/data' }
+  ];
 </script>
 
 <svelte:head>
@@ -21,16 +47,17 @@
 </svelte:head>
 
 <nav class="site" aria-label="Primary">
-  <a class="brand" href="/">electionresults.uk</a>
-  <a href="/councils/flips">Flips</a>
-  <a href="/councils/distortion">Distortion</a>
-  <a href="/councils/below-quota">Below quota</a>
-  <a href="/councils/parties">Parties</a>
-  <a href="/councils/methodology">Methodology</a>
-  <a href="/data">Data</a>
-  <a
-    href="/parliament"
-    aria-current={onParliament ? 'page' : undefined}>Parliament</a>
+  <a class="brand" href={onParliament ? '/parliament' : '/'}>
+    electionresults.uk{#if brandSection}<span class="brand-section">{brandSection}</span>{/if}
+  </a>
+  {#each navItems as item (item.label)}
+    <a href={onParliament ? item.parliament : item.councils}>{item.label}</a>
+  {/each}
+  {#if onParliament}
+    <a class="cross-domain" href="/">Council&nbsp;&rarr;</a>
+  {:else}
+    <a class="cross-domain" href="/parliament">Parliament&nbsp;&rarr;</a>
+  {/if}
 </nav>
 
 {@render children?.()}
@@ -53,7 +80,7 @@
       <a href="https://creativecommons.org/licenses/by/4.0/" rel="external noopener">CC&nbsp;BY&nbsp;4.0</a>;
       LEAP-derived data downloads under
       <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external noopener">CC&nbsp;BY-SA&nbsp;4.0</a>.
-      Methodology and raw data are <a href="/data">open for inspection</a>;
+      Methodology and raw data are <a href="/councils/data">open for inspection</a>;
       full source on
       <a href="https://github.com/fsargent/electionresults.uk">GitHub</a>.
       Errata:

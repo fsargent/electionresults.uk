@@ -36,7 +36,7 @@
     record names them; we make no claim about any individual candidate's
     conduct, fitness for office, or character. The factual claim — "won X% of
     valid ballots" — is verifiable from the source data linked on
-    <a href="/data">/data</a>.
+    <a href="/councils/data">/councils/data</a>.
   </p>
   <p>
     We deliberately don't call winners "majority" or "minority"
@@ -516,7 +516,7 @@
   <h2>Reproducibility</h2>
   <p>
     Every number on the published site is derivable from the SQLite database
-    on <a href="/data">/data</a> using standard SQL. The schema documentation
+    on <a href="/councils/data">/councils/data</a> using standard SQL. The schema documentation
     on that page lists every table and column. The site build is
     deterministic: the same git commit and the same source data produce the
     same published bytes.
