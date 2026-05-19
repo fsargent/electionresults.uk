@@ -1,8 +1,9 @@
 <script lang="ts">
   // Shared audit body for a single general-election year. Rendered by
-  // both /parliament (latest year) and /parliament/[year] so adding a
-  // section once updates every cycle's view. The H1 lives here so each
-  // page's <h1> exactly matches the year it's rendering.
+  // both /parliament (latest year) and /parliament/[year]. The year
+  // heading renders as H1 by default; pages that wrap this in their
+  // own editorial framing (e.g. /parliament's site-level title) pass
+  // `headingLevel="h2"` to demote it.
 
   import { num, pct } from '$lib/format';
   import { partyColor } from '$lib/party-colors';
@@ -32,7 +33,11 @@
     partyRows,
     constituencyFills,
     constituencies,
-    manifest
+    manifest,
+    /** Heading level for the "{year} UK general election" title.
+     *  Pages that supply their own H1 above this component should pass
+     *  "h2" so the document outline doesn't repeat at the top level. */
+    headingLevel = 'h1'
   }: {
     year: number;
     summary: NationalSummary;
@@ -41,6 +46,7 @@
     constituencyFills: Record<string, HexFill>;
     constituencies: { slug: string; name: string }[];
     manifest: SourceManifest;
+    headingLevel?: 'h1' | 'h2';
   } = $props();
 
   // Pick a one-sentence headline party-pair for the prologue. Both come
@@ -119,9 +125,11 @@
   );
 </script>
 
-<h1>{year} UK general election</h1>
-
-<ConstituencyLookup {constituencies} {year} />
+{#if headingLevel === 'h1'}
+  <h1>{year} UK general election</h1>
+{:else}
+  <h2>{year} UK general election</h2>
+{/if}
 
 <div class="kpi-grid" aria-label="{year} general election headline figures">
   <div class="kpi">
@@ -146,6 +154,34 @@
     </span>
   </div>
 </div>
+
+<p>
+  Under First Past the Post,
+  <strong>{num(summary.minorityWinnerCount)} of
+    {num(summary.totalSeats)}</strong>
+  seats in this election were won without majority support &mdash; the
+  candidate elected took less than half the valid votes in their
+  constituency.
+  {#if mostOver && mostOverTotals && mostOver.gap > 0}
+    The {mostOver.partyDisplayName} turned
+    <strong>{pct(mostOverTotals.voteShare, 1)}</strong>
+    of votes into
+    <strong>{pct(mostOverTotals.seatShare, 1)}</strong>
+    of seats.
+  {/if}
+  {#if mostUnder && mostUnderTotals && mostUnder.gap < 0}
+    The {mostUnder.partyDisplayName} took
+    <strong>{pct(mostUnderTotals.voteShare, 1)}</strong>
+    of votes but
+    <strong>{pct(mostUnderTotals.seatShare, 1)}</strong>
+    of seats.
+  {/if}
+  The Gallagher disproportionality index for this election was
+  <strong>{summary.gallagher.toFixed(1)}</strong>
+  (0 = perfectly proportional, higher = more distorted).
+</p>
+
+<ConstituencyLookup {constituencies} {year} />
 
 <h2 id="constituency-map">Constituencies, coloured by winning party</h2>
 <p class="muted">
@@ -176,32 +212,6 @@
     </ul>
   </div>
 </div>
-
-<p>
-  Under First Past the Post,
-  <strong>{num(summary.minorityWinnerCount)} of
-    {num(summary.totalSeats)}</strong>
-  seats in this election were won without majority support &mdash; the
-  candidate elected took less than half the valid votes in their
-  constituency.
-  {#if mostOver && mostOverTotals && mostOver.gap > 0}
-    The {mostOver.partyDisplayName} turned
-    <strong>{pct(mostOverTotals.voteShare, 1)}</strong>
-    of votes into
-    <strong>{pct(mostOverTotals.seatShare, 1)}</strong>
-    of seats.
-  {/if}
-  {#if mostUnder && mostUnderTotals && mostUnder.gap < 0}
-    The {mostUnder.partyDisplayName} took
-    <strong>{pct(mostUnderTotals.voteShare, 1)}</strong>
-    of votes but
-    <strong>{pct(mostUnderTotals.seatShare, 1)}</strong>
-    of seats.
-  {/if}
-  The Gallagher disproportionality index for this election was
-  <strong>{summary.gallagher.toFixed(1)}</strong>
-  (0 = perfectly proportional, higher = more distorted).
-</p>
 
 <NationalDistortionSummary {summary} />
 

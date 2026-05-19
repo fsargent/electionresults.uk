@@ -1,6 +1,14 @@
 <script lang="ts">
-  import { num, pct } from '$lib/format';
+  // Per-constituency candidate table. Same column shape as the
+  // council-ward table on /councils/[council]/[year]:
+  // Rank · Candidate · Party · Votes · Share of votes · Below quota ·
+  // Elected. Westminster contests are always single-member, so the
+  // proportional quota is fixed at 50% and the "Below quota" column
+  // is populated only for the winner's row (signed pts vs 50%).
+
+  import { num, pct, pts } from '$lib/format';
   import { partyColor } from '$lib/party-colors';
+  import Tooltip from '$lib/components/Tooltip.svelte';
   import type { CandidateResult } from '../types';
 
   let {
@@ -10,6 +18,14 @@
     candidates: CandidateResult[];
     constituencyName: string;
   } = $props();
+
+  /**
+   * Single-member quota = 1 / (seats + 1) = 0.5 for one seat. Hard-
+   * coded here because every Westminster contest is single-member;
+   * historical multi-member seats are filtered out of the audit
+   * upstream (caveat: multi-member-historical).
+   */
+  const QUOTA = 0.5;
 
   /**
    * True when the source-data party label is just a shorter / longer
@@ -32,17 +48,33 @@
 <table>
   <thead>
     <tr>
-      <th scope="col" class="num">Pos</th>
+      <th scope="col" class="num">Rank</th>
       <th scope="col">Candidate</th>
       <th scope="col">Party</th>
       <th scope="col" class="num">Votes</th>
-      <th scope="col" class="num">Share</th>
+      <th scope="col" class="num">
+        <Tooltip
+          icon
+          body="Candidate votes ÷ valid votes in this constituency. Matches the share the returning officer publishes."
+        >
+          Share of votes
+        </Tooltip>
+      </th>
+      <th scope="col" class="num">
+        <Tooltip
+          icon
+          body="Elected candidate's share of valid votes minus the proportional quota (50% for a single-member seat). Negative = won the seat below the quota; positive = cleared it."
+        >
+          Below quota
+        </Tooltip>
+      </th>
       <th scope="col">Elected</th>
     </tr>
   </thead>
   <tbody>
     {#each candidates as c (c.candidateName + c.partyId)}
-      <tr class:winner={c.isWinner}>
+      {@const drift = c.share == null ? null : c.share - QUOTA}
+      <tr class:elected={c.isWinner}>
         <td class="num">{c.position}</td>
         <th scope="row">
           {c.candidateName}
@@ -62,12 +94,17 @@
           {/if}
         </td>
         <td class="num">{num(c.votes)}</td>
-        <td class="num">{c.share == null ? '—' : pct(c.share, 1)}</td>
+        <td class="num pct">{c.share == null ? '—' : pct(c.share, 1)}</td>
+        <td class="num pct" class:warn={c.isWinner && drift != null && drift < 0}>
+          {#if c.isWinner && drift != null}
+            {pts(drift)}
+          {:else}
+            <span class="muted">—</span>
+          {/if}
+        </td>
         <td>
           {#if c.isWinner}
-            <strong>Yes</strong>
-          {:else}
-            <span class="muted">No</span>
+            <span aria-label="Elected to seat" title="Elected to seat">Elected</span>
           {/if}
         </td>
       </tr>
@@ -76,8 +113,9 @@
 </table>
 
 <style>
-  tr.winner {
-    background: rgba(11, 61, 46, 0.06);
+  tr.elected td,
+  tr.elected th {
+    font-weight: 600;
   }
 
   .swatch {
@@ -101,5 +139,9 @@
     color: var(--warn);
     border: 1px solid var(--warn);
     border-radius: 2px;
+  }
+
+  .warn {
+    color: var(--warn);
   }
 </style>

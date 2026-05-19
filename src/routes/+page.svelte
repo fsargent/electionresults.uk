@@ -93,7 +93,7 @@
     {@const lw = view.lowestWinner}
     <p class="lede">
       {#if isCycle}
-        The most extreme case in the 2026 cycle so far: a councillor elected on
+        The most extreme case in the 2026 cycle: a councillor elected on
       {:else}
         The most extreme case in our data: a councillor elected on
       {/if}

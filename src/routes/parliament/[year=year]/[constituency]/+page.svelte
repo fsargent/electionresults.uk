@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { num, pct } from '$lib/format';
-  import { partyColor } from '$lib/party-colors';
+  import { num, pct, pts } from '$lib/format';
+  import Tooltip from '$lib/components/Tooltip.svelte';
   import ConstituencyResultTable from '$lib/parliament/components/ConstituencyResultTable.svelte';
   import BoundaryCaveat from '$lib/parliament/components/BoundaryCaveat.svelte';
 
@@ -11,9 +11,14 @@
     data.contest.candidates.find((c) => c.position === 2) ?? null
   );
   const winningShare = $derived(winner?.share ?? null);
-  const isMinorityMandate = $derived(
-    winningShare != null && winningShare < 0.5
+  // Every Westminster contest is single-member, so the proportional
+  // quota is fixed at 50%. Hard-coded for clarity rather than computed
+  // — historical multi-member seats are excluded upstream.
+  const QUOTA = 0.5;
+  const underPar = $derived(
+    winningShare != null ? winningShare - QUOTA : null
   );
+  const isBelowQuota = $derived(underPar != null && underPar < 0);
   const hasBoundaryCaveat = $derived(
     data.contest.caveats.includes('boundary-comparability-limited')
   );
@@ -56,7 +61,7 @@
         &mdash;
         <strong>{pct(winningShare, 1)}</strong> of
         {num(data.contest.validVotes ?? 0)} valid votes{/if}.
-      {#if isMinorityMandate}
+      {#if isBelowQuota}
         Under First Past the Post, a plurality is enough; a majority is
         not required.
       {/if}
@@ -67,50 +72,71 @@
     <BoundaryCaveat {boundarySet} />
   {/if}
 
-  <h2>Result</h2>
-  <ConstituencyResultTable
-    candidates={data.contest.candidates}
-    constituencyName={data.contest.constituencyName}
-  />
+  <section class="race" id={data.contest.constituencySlug}>
+    <h2>
+      Result
+      <span class="muted ward-type">· single-seat</span>
+    </h2>
 
-  <table>
-    <tbody>
-      <tr>
-        <th scope="row">Electorate</th>
-        <td class="num">
-          {data.contest.electorate != null
-            ? num(data.contest.electorate)
-            : 'Not reported'}
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Valid votes</th>
-        <td class="num">
+    <p class="race-stats">
+      <span class="stat">
+        <span class="stat-label">
+          <Tooltip icon body="Winning candidate's share of valid votes.">
+            Marginal winner
+          </Tooltip>
+        </span>
+        <span class="stat-value pct" class:warn={isBelowQuota}>
+          {winningShare != null ? pct(winningShare, 1) : '—'}
+        </span>
+      </span>
+      <span class="stat">
+        <span class="stat-label">Proportional quota</span>
+        <span class="stat-value pct">{pct(QUOTA, 1)}</span>
+      </span>
+      <span class="stat">
+        <span class="stat-label">
+          <Tooltip
+            icon
+            body="Winning candidate's share minus the proportional quota (50% for a single-member seat). Negative = below; positive = above."
+          >
+            Below quota
+          </Tooltip>
+        </span>
+        <span class="stat-value pct" class:warn={isBelowQuota}>
+          {underPar != null ? pts(underPar) : '—'}
+        </span>
+      </span>
+      <span class="stat">
+        <span class="stat-label">
+          <Tooltip
+            icon
+            body="Voters who cast a valid ballot in this constituency, from the published source."
+          >
+            Valid ballots
+          </Tooltip>
+        </span>
+        <span class="stat-value">
           {data.contest.validVotes != null
             ? num(data.contest.validVotes)
-            : 'Not reported'}
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Turnout</th>
-        <td class="num">
-          {data.contest.turnout != null
-            ? pct(data.contest.turnout, 1)
-            : 'Not reported'}
-        </td>
-      </tr>
+            : '—'}
+        </span>
+      </span>
+    </p>
+
+    <ConstituencyResultTable
+      candidates={data.contest.candidates}
+      constituencyName={data.contest.constituencyName}
+    />
+
+    <p class="muted small race-meta">
+      {#if data.contest.electorate != null}Electorate {num(data.contest.electorate)} · {/if}
+      {#if data.contest.turnout != null}Turnout {pct(data.contest.turnout, 1)} · {/if}
       {#if winner && runnerUp && winner.votes != null && runnerUp.votes != null}
-        <tr>
-          <th scope="row">Majority</th>
-          <td class="num">{num(winner.votes - runnerUp.votes)}</td>
-        </tr>
+        Majority {num(winner.votes - runnerUp.votes)} ·
       {/if}
-      <tr>
-        <th scope="row">Contest type</th>
-        <td class="num">{data.contest.contestType.replace('-', ' ')}</td>
-      </tr>
-    </tbody>
-  </table>
+      <a href={`/parliament/${data.year}`}>Back to {data.year} overview</a>
+    </p>
+  </section>
 
   {#if data.contest.caveats.length > 0}
     <p class="muted">
@@ -138,5 +164,47 @@
   .crumbs {
     margin: 0 0 0.5rem;
     font-size: 0.9rem;
+  }
+  section.race {
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+  }
+  section.race h2 {
+    margin-top: 0;
+  }
+  .ward-type {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  .race-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.6rem;
+    margin: 0.5rem 0 0.8rem;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .stat-value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-value.warn {
+    color: var(--warn);
+  }
+  .race-meta {
+    margin: 0.6rem 0 0;
+  }
+  .small {
+    font-size: 0.82rem;
   }
 </style>

@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-  <title>Parliament parties — electionresults.uk</title>
+  <title>Parliamentary Parties — electionresults.uk</title>
   <meta
     name="description"
     content={`Westminster parties at UK general elections — vote share, seat share, and First Past the Post distortion. ${latestCycle.year}: Gallagher index ${latestCycle.gallagher.toFixed(1)} (${gallagherDescriptor(latestCycle.gallagher).toLowerCase()}).`}
@@ -38,7 +38,7 @@
 </svelte:head>
 
 <main class="wide">
-  <h1>Parliament parties</h1>
+  <h1>Parliamentary Parties</h1>
 
   <p>
     Every party that won at least 1% of valid votes at the
