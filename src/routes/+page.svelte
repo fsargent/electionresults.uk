@@ -77,14 +77,14 @@
     <div class="kpi">
       <span class="figure warn">{num(view.totals.belowQuotaSeats)}</span>
       <span class="label">
-        winners <a href="/below-quota">below the proportional quota</a>
+        winners <a href="/councils/below-quota">below the proportional quota</a>
         ({pct(view.totals.belowQuotaSeats / Math.max(1, view.totals.seats))} of seats)
       </span>
     </div>
     <div class="kpi">
       <span class="figure warn">{num(view.headline.unfairlyAwardedSeats)}</span>
       <span class="label">
-        <a href="/distortion">unfairly awarded seats</a>
+        <a href="/councils/distortion">unfairly awarded seats</a>
       </span>
     </div>
   </div>
