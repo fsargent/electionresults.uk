@@ -134,6 +134,8 @@ export interface LowWinningShareRow {
   constituencyId: string;
   constituencySlug: string;
   constituencyName: string;
+  /** Raw vote count for the winning candidate. */
+  winningVotes: number;
   /** Winner-share within [0, 1]. */
   winningShare: number;
   winningPartyId: string;

@@ -190,6 +190,7 @@ export function lowWinningShareLeaderboard(
       constituencyId: contest.constituencyId,
       constituencySlug: contest.constituencySlug,
       constituencyName: contest.constituencyName,
+      winningVotes: winner.votes,
       winningShare: winner.share,
       winningPartyId: winner.partyId,
       winningPartyDisplayName: winner.partyDisplayName,

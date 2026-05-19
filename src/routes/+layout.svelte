@@ -21,17 +21,23 @@
   // Nav items have a per-domain target — when the reader is browsing
   // the parliament side of the site, the same labels jump to the
   // parliament equivalent of each lens rather than the council one.
-  // Methodology and Data already have parliament siblings; the other
-  // four are queued but not yet built, so they 404 until those pages
-  // land.
-  const navItems = [
-    { label: 'Flips', councils: '/councils/flips', parliament: '/parliament/flips' },
-    { label: 'Distortion', councils: '/councils/distortion', parliament: '/parliament/distortion' },
-    { label: 'Below quota', councils: '/councils/below-quota', parliament: '/parliament/below-quota' },
+  // Items with parliament=null are council-only (no Westminster
+  // counterpart yet) and are hidden from the nav when onParliament.
+  const navItems: {
+    label: string;
+    councils: string | null;
+    parliament: string | null;
+  }[] = [
+    { label: 'Flips', councils: '/councils/flips', parliament: null },
+    { label: 'Distortion', councils: '/councils/distortion', parliament: null },
+    { label: 'Below quota', councils: '/councils/below-quota', parliament: null },
     { label: 'Parties', councils: '/councils/parties', parliament: '/parliament/parties' },
     { label: 'Methodology', councils: '/councils/methodology', parliament: '/parliament/methodology' },
     { label: 'Data', councils: '/councils/data', parliament: '/parliament/data' }
   ];
+  const visibleNav = $derived(
+    navItems.filter((i) => (onParliament ? i.parliament : i.councils) != null)
+  );
 </script>
 
 <svelte:head>
@@ -50,8 +56,8 @@
   <a class="brand" href={onParliament ? '/parliament' : '/'}>
     electionresults.uk{#if brandSection}<span class="brand-section">{brandSection}</span>{/if}
   </a>
-  {#each navItems as item (item.label)}
-    <a href={onParliament ? item.parliament : item.councils}>{item.label}</a>
+  {#each visibleNav as item (item.label)}
+    <a href={(onParliament ? item.parliament : item.councils) ?? '#'}>{item.label}</a>
   {/each}
   {#if onParliament}
     <a class="cross-domain" href="/">Council&nbsp;&rarr;</a>

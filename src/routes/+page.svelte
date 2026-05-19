@@ -126,7 +126,8 @@
       <strong>{num(view.totals.seats)}</strong> seats. Of those,
       <strong>{num(view.totals.belowQuotaSeats)}</strong>
       ({pct(view.totals.belowQuotaSeats / Math.max(1, view.totals.seats))})
-      fell short of that fair share.
+      fell short of that fair share &mdash;
+      <a href="/councils/methodology">methodology</a>.
     </p>
 
     <p class="call-to-action">
