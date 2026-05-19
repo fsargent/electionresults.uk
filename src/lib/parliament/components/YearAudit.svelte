@@ -20,6 +20,7 @@
   import ConstituencyLookup from './ConstituencyLookup.svelte';
   import LowWinningShareTable from './LowWinningShareTable.svelte';
   import NationalDistortionSummary from './NationalDistortionSummary.svelte';
+  import YearLede from './YearLede.svelte';
 
   export interface PartyRow {
     party: NationalPartyTotal;
@@ -33,11 +34,7 @@
     partyRows,
     constituencyFills,
     constituencies,
-    manifest,
-    /** Heading level for the "{year} UK general election" title.
-     *  Pages that supply their own H1 above this component should pass
-     *  "h2" so the document outline doesn't repeat at the top level. */
-    headingLevel = 'h1'
+    manifest
   }: {
     year: number;
     summary: NationalSummary;
@@ -46,25 +43,7 @@
     constituencyFills: Record<string, HexFill>;
     constituencies: { slug: string; name: string }[];
     manifest: SourceManifest;
-    headingLevel?: 'h1' | 'h2';
   } = $props();
-
-  // Pick a one-sentence headline party-pair for the prologue. Both come
-  // straight from the precomputed national-summary envelope; we just
-  // sort defensively in case the ETL's output order drifts.
-  const mostOver = $derived(
-    [...summary.voteVsSeatGap].sort((a, b) => b.gap - a.gap)[0] ?? null
-  );
-  const mostUnder = $derived(
-    [...summary.voteVsSeatGap].sort((a, b) => a.gap - b.gap)[0] ?? null
-  );
-
-  const mostOverTotals = $derived(
-    mostOver ? partyTotals.find((p) => p.partyId === mostOver.partyId) : null
-  );
-  const mostUnderTotals = $derived(
-    mostUnder ? partyTotals.find((p) => p.partyId === mostUnder.partyId) : null
-  );
 
   // Trim the long tail of micro-parties from the visual table — 96 rows
   // including parties on <0.001% of the vote drowns the FPTP story in
@@ -125,12 +104,6 @@
   );
 </script>
 
-{#if headingLevel === 'h1'}
-  <h1>{year} UK general election</h1>
-{:else}
-  <h2>{year} UK general election</h2>
-{/if}
-
 <div class="kpi-grid" aria-label="{year} general election headline figures">
   <div class="kpi">
     <span class="figure">{num(summary.totalSeats)}</span>
@@ -155,31 +128,7 @@
   </div>
 </div>
 
-<p>
-  Under First Past the Post,
-  <strong>{num(summary.minorityWinnerCount)} of
-    {num(summary.totalSeats)}</strong>
-  seats in this election were won without majority support &mdash; the
-  candidate elected took less than half the valid votes in their
-  constituency.
-  {#if mostOver && mostOverTotals && mostOver.gap > 0}
-    The {mostOver.partyDisplayName} turned
-    <strong>{pct(mostOverTotals.voteShare, 1)}</strong>
-    of votes into
-    <strong>{pct(mostOverTotals.seatShare, 1)}</strong>
-    of seats.
-  {/if}
-  {#if mostUnder && mostUnderTotals && mostUnder.gap < 0}
-    The {mostUnder.partyDisplayName} took
-    <strong>{pct(mostUnderTotals.voteShare, 1)}</strong>
-    of votes but
-    <strong>{pct(mostUnderTotals.seatShare, 1)}</strong>
-    of seats.
-  {/if}
-  The Gallagher disproportionality index for this election was
-  <strong>{summary.gallagher.toFixed(1)}</strong>
-  (0 = perfectly proportional, higher = more distorted).
-</p>
+<YearLede {year} {summary} {partyTotals} />
 
 <ConstituencyLookup {constituencies} {year} />
 

@@ -128,6 +128,15 @@
       ({pct(view.totals.belowQuotaSeats / Math.max(1, view.totals.seats))})
       fell short of that fair share.
     </p>
+
+    <p class="call-to-action">
+      Want a fix? Back the call for a
+      <a
+        href="https://www.open-britain.co.uk/ncer"
+        rel="external noopener"
+        >National Commission on Electoral Representation</a
+      >.
+    </p>
   {/if}
 
   <PostcodeLookup councilSlugs={data.allCouncils} />
@@ -465,6 +474,15 @@
 <style>
   .lede {
     font-size: 1.15rem;
+  }
+  .call-to-action {
+    max-width: 72ch;
+    margin: 0.6rem 0 1.5rem;
+    padding: 0.7rem 1rem;
+    background: rgba(11, 61, 46, 0.05);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    font-size: 1rem;
   }
   .fn { font-size: 0.7em; }
   .fn a { text-decoration: none; color: var(--muted); }

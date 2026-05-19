@@ -16,6 +16,8 @@
 </svelte:head>
 
 <main class="wide">
+  <h1>How many UK MPs won when most voters chose someone else?</h1>
+
   <YearSwitcher
     currentYear={data.year}
     years={data.allYears}
@@ -31,3 +33,9 @@
     manifest={data.manifest}
   />
 </main>
+
+<style>
+  h1 {
+    max-width: 72ch;
+  }
+</style>
