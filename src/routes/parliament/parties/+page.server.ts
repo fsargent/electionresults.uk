@@ -122,7 +122,14 @@ function cycleSummary(
   totals: NationalPartyTotal[],
   manifest: SourceManifest
 ): CycleSummary {
-  const sorted = [...totals].sort((a, b) => b.voteShare - a.voteShare);
+  // Sort by seats desc, tie-break on vote share — keeps the largest
+  // parliamentary force at the top of every section on the page
+  // (Labour 2024, Conservative 2019, etc.). Voted-share ties matter
+  // for parties that won zero seats but cleared the 1% visibility
+  // band (Brexit Party 2019, Reform 2024).
+  const sorted = [...totals].sort(
+    (a, b) => b.seats - a.seats || b.voteShare - a.voteShare
+  );
   const visible = sorted.filter((p) => p.voteShare >= PARTY_VISIBILITY_THRESHOLD);
   return {
     year,
@@ -233,12 +240,15 @@ export function load(): {
         endSeatValue: latestTotal.seatShare
       });
     }
-    // Largest absolute movement first so the biggest swings cluster
-    // for visual comparison.
+    // Preserve the latest-cycle order (seats desc, set by
+    // cycleSummary) so Labour leads the section in 2024, Conservatives
+    // would lead in 2019, etc. — same anchor used by the cycle bars
+    // and the card grid below.
+    const order = new Map(latestVisible.map((b, i) => [b.partyId, i]));
     slopes.sort(
       (a, b) =>
-        Math.abs(b.endValue - b.startValue) -
-        Math.abs(a.endValue - a.startValue)
+        (order.get(a.partyId) ?? Infinity) -
+        (order.get(b.partyId) ?? Infinity)
     );
   }
 
