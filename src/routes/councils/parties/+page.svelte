@@ -130,30 +130,30 @@
 
   // --- Section C: cumulative footprint chart ----------------------------
   //
-  // This section now shows cumulative vote share over time across the
-  // councils in our dataset. Unlike chamber footprint, this tracks how
-  // much of the total vote each party won in each election year.
+  // This is the existing chamber-share line chart, retained as-is but
+  // demoted to context. The metric is comparable across the full
+  // window because composition rolls forward year-on-year.
   const W = 760;
   const H = 320;
   const PAD = { l: 48, r: 16, t: 16, b: 36 };
   const innerW = W - PAD.l - PAD.r;
   const innerH = H - PAD.t - PAD.b;
 
-  const voteYears = $derived(
+  const chamberYears = $derived(
     data.years.filter((y) =>
       data.parties.some((p) =>
-        p.trend.some((s) => s.year === y && s.votes > 0)
+        p.trend.some((s) => s.year === y && s.chamberTotal > 0)
       )
     )
   );
   const minYear = $derived(
-    voteYears.length > 0
-      ? Math.min(...voteYears)
+    chamberYears.length > 0
+      ? Math.min(...chamberYears)
       : Math.min(...data.years)
   );
   const maxYear = $derived(
-    voteYears.length > 0
-      ? Math.max(...voteYears)
+    chamberYears.length > 0
+      ? Math.max(...chamberYears)
       : Math.max(...data.years)
   );
   const yearSpan = $derived(Math.max(1, maxYear - minYear));
@@ -171,8 +171,8 @@
     let raw = 0;
     for (const p of visibleParties) {
       for (const s of p.trend) {
-        if (s.votes === 0) continue;
-        if (s.voteShare > raw) raw = s.voteShare;
+        if (s.chamberTotal === 0) continue;
+        if (s.chamberShare > raw) raw = s.chamberShare;
       }
     }
     if (raw <= 0) return 0.1;
@@ -244,8 +244,8 @@
       party: party.name,
       color: partyColor(party.name),
       year: s.year,
-      primary: `${pct(s.voteShare)}`,
-      secondary: `${num(s.votes)} votes · ${num(s.seatsWon)} of ${num(s.contestedSeats)} seats won`
+      primary: `${pct(s.chamberShare)}`,
+      secondary: `${num(s.chamberSeats)} of ${num(s.chamberTotal)} seats — largest in ${num(s.councilsLargest)}/${num(s.councilsWithComposition)} councils`
     };
   }
   function clearTooltip() {
@@ -413,15 +413,15 @@
     </p>
   {/if}
 
-  <h2 id="cumulative-vote-share">Cumulative vote share</h2>
+  <h2 id="cumulative-footprint">Cumulative footprint</h2>
   <p class="muted">
-    <strong>Share of all votes cast in the councils we have results for that year.</strong>
-    This is election-year vote share, not chamber control, so it shows how much of the
-    vote each party actually won when voters went to the polls.
+    <strong>Share of all UK council seats held.</strong> Across all
+    councils in our dataset, including those not polling this year.
+    Weighted by chamber size — bigger councils count for more.
   </p>
 
   <div class="chartwrap">
-    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Cumulative vote share chart">
+    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Cumulative footprint chart">
       {#each yTicks as v (v)}
         <line
           x1={PAD.l}
@@ -458,12 +458,12 @@
       {#each visibleParties as party (party.slug)}
         {@const color = partyColor(party.name)}
         {@const points = party.trend
-          .filter((s) => s.votes > 0)
+          .filter((s) => s.chamberTotal > 0)
           .sort((a, b) => a.year - b.year)}
         {#if points.length >= 2}
           <polyline
             points={points
-              .map((s) => `${xFor(s.year)},${yFor(s.voteShare)}`)
+              .map((s) => `${xFor(s.year)},${yFor(s.chamberShare)}`)
               .join(' ')}
             fill="none"
             stroke={color}
@@ -474,7 +474,7 @@
         {/if}
         {#each points as s (s.year)}
           {@const cx = xFor(s.year)}
-          {@const cy = yFor(s.voteShare)}
+          {@const cy = yFor(s.chamberShare)}
           <a
             href={`/councils/party/${party.slug}`}
             aria-label={`${party.name} ${s.year}`}
@@ -550,6 +550,133 @@
       <button type="button" onclick={showAll}>Show all</button>
     </div>
   </fieldset>
+
+  <h2 id="cumulative-vote-share">Cumulative vote share</h2>
+  <p class="muted">
+    <strong>Share of all votes cast in the councils we have results for that year.</strong>
+    This is election-year vote share rather than rolled-forward chamber control, so it shows
+    how much of the vote each party actually won when those councils went to the polls.
+  </p>
+
+  <div class="chartwrap">
+    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Cumulative vote share chart">
+      {#each yTicks as v (v)}
+        <line
+          x1={PAD.l}
+          x2={W - PAD.r}
+          y1={yFor(v)}
+          y2={yFor(v)}
+          stroke="var(--rule)"
+          stroke-width="1"
+        />
+        <text
+          x={PAD.l - 6}
+          y={yFor(v) + 3}
+          text-anchor="end"
+          font-size="11"
+          fill="var(--muted)"
+        >
+          {Math.round(v * 100)}%
+        </text>
+      {/each}
+      {#each yearTicks as y (y)}
+        {#if yearSpan <= 8 || y % 2 === 0}
+          <text
+            x={xFor(y)}
+            y={H - PAD.b + 16}
+            text-anchor="middle"
+            font-size="11"
+            fill="var(--muted)"
+          >
+            {y}
+          </text>
+        {/if}
+      {/each}
+
+      {#each visibleParties as party (party.slug)}
+        {@const color = partyColor(party.name)}
+        {@const points = party.trend
+          .filter((s) => s.votes > 0)
+          .sort((a, b) => a.year - b.year)}
+        {#if points.length >= 2}
+          <polyline
+            points={points
+              .map((s) => `${xFor(s.year)},${yFor(s.voteShare)}`)
+              .join(' ')}
+            fill="none"
+            stroke={color}
+            stroke-width="2.4"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          />
+        {/if}
+        {#each points as s (s.year)}
+          {@const cx = xFor(s.year)}
+          {@const cy = yFor(s.voteShare)}
+          <a
+            href={`/councils/party/${party.slug}`}
+            aria-label={`${party.name} ${s.year}`}
+            onpointerenter={() =>
+              (tooltip = {
+                x: cx,
+                y: cy,
+                party: party.name,
+                color,
+                year: s.year,
+                primary: `${pct(s.voteShare)}`,
+                secondary: `${num(s.votes)} votes · ${num(s.seatsWon)} of ${num(s.contestedSeats)} seats won`
+              })}
+            onpointerleave={clearTooltip}
+            onfocus={() =>
+              (tooltip = {
+                x: cx,
+                y: cy,
+                party: party.name,
+                color,
+                year: s.year,
+                primary: `${pct(s.voteShare)}`,
+                secondary: `${num(s.votes)} votes · ${num(s.seatsWon)} of ${num(s.contestedSeats)} seats won`
+              })}
+            onblur={clearTooltip}
+          >
+            <circle
+              cx={cx}
+              cy={cy}
+              r="5"
+              fill={color}
+              stroke="var(--bg)"
+              stroke-width="1.5"
+              style="cursor:pointer"
+            />
+          </a>
+        {/each}
+      {/each}
+
+      {#if tooltip}
+        <g transform="translate({Math.min(tooltip.x + 10, W - 220)}, {Math.max(20, tooltip.y - 50)})">
+          <rect
+            x="0"
+            y="0"
+            width="210"
+            height="58"
+            rx="5"
+            fill="var(--bg)"
+            stroke={tooltip.color}
+            stroke-width="2"
+          />
+          <text x="10" y="18" font-size="12" font-weight="600" fill="var(--fg)">
+            {tooltip.party} · {tooltip.year}
+          </text>
+          <text x="10" y="34" font-size="13" fill={tooltip.color} font-weight="600">
+            {tooltip.primary}
+          </text>
+          <text x="10" y="50" font-size="11" fill="var(--muted)">
+            {tooltip.secondary.length > 36 ? tooltip.secondary.slice(0, 33) + '…' : tooltip.secondary}
+          </text>
+        </g>
+      {/if}
+    </svg>
+  </div>
 
   <p class="muted small">
     Definitions and caveats live in the <a href="/councils/methodology">methodology</a>
