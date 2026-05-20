@@ -361,7 +361,46 @@ export function compositionsForCouncil(
 export function reorganisationForCouncil(
   slug: string
 ): CouncilReorganisation | null {
-  return allReorganisations.find((r) => r.councilSlug === slug) ?? null;
+  const row = allReorganisations.find((r) => r.councilSlug === slug) ?? null;
+  if (!row) return null;
+
+  const surreySuccessors = new Set(['east-surrey', 'west-surrey']);
+  const surreyLegacy = new Set([
+    'surrey',
+    'elmbridge',
+    'epsom-and-ewell',
+    'guildford',
+    'mole-valley',
+    'reigate-and-banstead',
+    'runnymede',
+    'spelthorne',
+    'surrey-heath',
+    'tandridge',
+    'waverley',
+    'woking'
+  ]);
+
+  if (surreyLegacy.has(slug) && row.event === 'abolished' && row.date === '2026-04-01') {
+    return {
+      ...row,
+      date: '2027-04-01',
+      year: 2027,
+      note:
+        'The 2026 election was held in advance for the future successor authority, but this council and the other existing Surrey councils continue operating until 2027-04-01.'
+    };
+  }
+
+  if (surreySuccessors.has(slug) && row.event === 'created' && row.date === '2026-04-01') {
+    return {
+      ...row,
+      date: '2027-04-01',
+      year: 2027,
+      note:
+        'The 2026 election was held for this future unitary authority in shadow form. It formally takes over local services on 2027-04-01.'
+    };
+  }
+
+  return row;
 }
 
 export function flipsForCouncil(slug: string): CouncilFlip[] {

@@ -96,6 +96,7 @@ export interface CouncilReorganisation {
   date: string;
   year: number;
   counterparts: string[];
+  note?: string;
 }
 
 /**

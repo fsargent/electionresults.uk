@@ -133,10 +133,14 @@
         </p>
       {:else}
         <p>
-          <strong>{r.councilName}</strong> was abolished on {r.date}
-          and replaced by {r.counterparts.join(', ')}. Cycles up to and
-          including {r.year} on this page belong to this council; later
-          cycles, where they exist, belong to the successor authority.
+          <strong>{r.councilName}</strong> will be abolished on {r.date}
+          and replaced by {r.counterparts.join(', ')}.
+          {#if r.note}
+            {r.note}
+          {:else}
+            Cycles up to and including {r.year} on this page belong to this council; later
+            cycles, where they exist, belong to the successor authority.
+          {/if}
         </p>
       {/if}
     </aside>
