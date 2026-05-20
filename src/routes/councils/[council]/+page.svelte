@@ -123,13 +123,16 @@
       <h2 class="reorg-h">⚠ Council reorganisation in {r.year}</h2>
       {#if r.event === 'created'}
         <p>
-          <strong>{r.councilName}</strong> was created on {r.date} as a
+          <strong>{r.councilName}</strong> will take over on {r.date} as a
           new unitary authority, replacing the previous councils:
-          {r.counterparts.join(', ')}. Cycles before {r.year} on this
-          page belong to those predecessor councils where they polled
-          on the same date; the {r.year}+ cycles are this new
-          authority. Year-over-year comparisons across the boundary
-          should be read with that in mind.
+          {r.counterparts.join(', ')}.
+          {#if r.note}
+            {r.note}
+          {:else}
+            Cycles before {r.year} on this page belong to those predecessor councils where they polled
+            on the same date; the {r.year}+ cycles are this new authority. Year-over-year comparisons
+            across the boundary should be read with that in mind.
+          {/if}
         </p>
       {:else}
         <p>
