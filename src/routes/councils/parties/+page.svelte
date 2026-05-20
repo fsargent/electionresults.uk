@@ -130,30 +130,30 @@
 
   // --- Section C: cumulative footprint chart ----------------------------
   //
-  // This is the existing chamber-share line chart, retained as-is but
-  // demoted to context. The metric is comparable across the full
-  // window because composition rolls forward year-on-year.
+  // This section now shows cumulative vote share over time across the
+  // councils in our dataset. Unlike chamber footprint, this tracks how
+  // much of the total vote each party won in each election year.
   const W = 760;
   const H = 320;
   const PAD = { l: 48, r: 16, t: 16, b: 36 };
   const innerW = W - PAD.l - PAD.r;
   const innerH = H - PAD.t - PAD.b;
 
-  const chamberYears = $derived(
+  const voteYears = $derived(
     data.years.filter((y) =>
       data.parties.some((p) =>
-        p.trend.some((s) => s.year === y && s.chamberTotal > 0)
+        p.trend.some((s) => s.year === y && s.votes > 0)
       )
     )
   );
   const minYear = $derived(
-    chamberYears.length > 0
-      ? Math.min(...chamberYears)
+    voteYears.length > 0
+      ? Math.min(...voteYears)
       : Math.min(...data.years)
   );
   const maxYear = $derived(
-    chamberYears.length > 0
-      ? Math.max(...chamberYears)
+    voteYears.length > 0
+      ? Math.max(...voteYears)
       : Math.max(...data.years)
   );
   const yearSpan = $derived(Math.max(1, maxYear - minYear));
@@ -171,8 +171,8 @@
     let raw = 0;
     for (const p of visibleParties) {
       for (const s of p.trend) {
-        if (s.chamberTotal === 0) continue;
-        if (s.chamberShare > raw) raw = s.chamberShare;
+        if (s.votes === 0) continue;
+        if (s.voteShare > raw) raw = s.voteShare;
       }
     }
     if (raw <= 0) return 0.1;
@@ -244,8 +244,8 @@
       party: party.name,
       color: partyColor(party.name),
       year: s.year,
-      primary: `${pct(s.chamberShare)}`,
-      secondary: `${num(s.chamberSeats)} of ${num(s.chamberTotal)} seats — largest in ${num(s.councilsLargest)}/${num(s.councilsWithComposition)} councils`
+      primary: `${pct(s.voteShare)}`,
+      secondary: `${num(s.votes)} votes · ${num(s.seatsWon)} of ${num(s.contestedSeats)} seats won`
     };
   }
   function clearTooltip() {
@@ -413,15 +413,15 @@
     </p>
   {/if}
 
-  <h2 id="cumulative-footprint">Cumulative footprint</h2>
+  <h2 id="cumulative-vote-share">Cumulative vote share</h2>
   <p class="muted">
-    <strong>Share of all UK council seats held.</strong> Across all
-    councils in our dataset, including those not polling this year.
-    Weighted by chamber size — bigger councils count for more.
+    <strong>Share of all votes cast in the councils we have results for that year.</strong>
+    This is election-year vote share, not chamber control, so it shows how much of the
+    vote each party actually won when voters went to the polls.
   </p>
 
   <div class="chartwrap">
-    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Cumulative footprint chart">
+    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Cumulative vote share chart">
       {#each yTicks as v (v)}
         <line
           x1={PAD.l}
@@ -458,12 +458,12 @@
       {#each visibleParties as party (party.slug)}
         {@const color = partyColor(party.name)}
         {@const points = party.trend
-          .filter((s) => s.chamberTotal > 0)
+          .filter((s) => s.votes > 0)
           .sort((a, b) => a.year - b.year)}
         {#if points.length >= 2}
           <polyline
             points={points
-              .map((s) => `${xFor(s.year)},${yFor(s.chamberShare)}`)
+              .map((s) => `${xFor(s.year)},${yFor(s.voteShare)}`)
               .join(' ')}
             fill="none"
             stroke={color}
@@ -474,7 +474,7 @@
         {/if}
         {#each points as s (s.year)}
           {@const cx = xFor(s.year)}
-          {@const cy = yFor(s.chamberShare)}
+          {@const cy = yFor(s.voteShare)}
           <a
             href={`/councils/party/${party.slug}`}
             aria-label={`${party.name} ${s.year}`}
