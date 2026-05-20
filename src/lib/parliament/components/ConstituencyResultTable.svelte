@@ -45,6 +45,7 @@
   }
 </script>
 
+<div class="table-wrap">
 <table>
   <thead>
     <tr>
@@ -111,8 +112,16 @@
     {/each}
   </tbody>
 </table>
+</div>
 
 <style>
+
+  .table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   tr.elected td,
   tr.elected th {
     font-weight: 600;
