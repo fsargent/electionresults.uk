@@ -471,6 +471,18 @@ function writeIndex({ generatedAt, years }) {
   writeFileSync(INDEX_FILE, JSON.stringify({ generatedAt, years }, null, 2) + '\n');
 }
 
+// Read the years already enumerated in index.json so we can merge rather
+// than overwrite. Without this, running this ETL clobbers years written
+// by sibling ETLs (e.g. etl-parliament-psephology.mjs for 2010/2015/2017).
+function readExistingIndexYears() {
+  if (!existsSync(INDEX_FILE)) return [];
+  try {
+    return JSON.parse(readFileSync(INDEX_FILE, 'utf8')).years ?? [];
+  } catch {
+    return [];
+  }
+}
+
 // ── CSV emission ────────────────────────────────────────────────────────
 //
 // Story 4.2: analyst-facing CSV exports under static/data/parliament/.
@@ -800,11 +812,14 @@ function main() {
     ingestElection(election, generatedAt);
   }
   // Years index enumerates every ingested election so the overview
-  // page, downloads page, and sitemap fragment stay in lockstep.
-  writeIndex({
-    generatedAt,
-    years: ELECTIONS.map((e) => e.year).sort((a, b) => a - b)
-  });
+  // page, downloads page, and sitemap fragment stay in lockstep. Union
+  // with years already on disk so sibling ETLs (e.g. the psephology.db
+  // pipeline for 2010/2015/2017) aren't dropped from the index.
+  const existing = readExistingIndexYears();
+  const allYears = Array.from(
+    new Set([...existing, ...ELECTIONS.map((e) => e.year)])
+  ).sort((a, b) => a - b);
+  writeIndex({ generatedAt, years: allYears });
   emitBudgetWarnings(resolve(ROOT, 'src/lib/data/parliament'));
   console.log('parliament ETL: done.');
 }

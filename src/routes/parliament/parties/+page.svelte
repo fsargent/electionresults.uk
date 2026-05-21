@@ -3,7 +3,7 @@
   import PairedBarChart from '$lib/charts/PairedBarChart.svelte';
   import SlopeChart from '$lib/charts/SlopeChart.svelte';
   import ConstituencyHexMap from '$lib/parliament/components/ConstituencyHexMap.svelte';
-  import { gallagherDescriptor } from '$lib/parliament/gallagher-descriptor';
+  import { gallagherDescriptor } from '$lib/gallagher-descriptor';
 
   let { data } = $props();
 
@@ -32,7 +32,7 @@
   <title>Parliamentary Parties — electionresults.uk</title>
   <meta
     name="description"
-    content={`Westminster parties at UK general elections — vote share, seat share, and First Past the Post distortion. ${latestCycle.year}: Gallagher index ${latestCycle.gallagher.toFixed(1)} (${gallagherDescriptor(latestCycle.gallagher).toLowerCase()}).`}
+    content={`Westminster parties at UK general elections — vote share, seat share, and First Past the Post distortion. ${latestCycle.year}: ${gallagherDescriptor(latestCycle.gallagher).toLowerCase()} on the Gallagher index.`}
   />
   <link rel="canonical" href="https://electionresults.uk/parliament/parties" />
 </svelte:head>
@@ -65,11 +65,31 @@
     <div class="kpi">
       <span class="figure figure--text warn">{gallagherDescriptor(latestCycle.gallagher)}</span>
       <span class="label">
-        <a href="/parliament/methodology#gallagher">Gallagher index</a>
-        {latestCycle.gallagher.toFixed(1)}
+        overall vote-to-seat distortion
+        (<a href="/parliament/methodology#gallagher">Gallagher index</a>)
       </span>
     </div>
   </div>
+
+  {#if data.slopes.length > 0}
+    <h2 id="movement">Cycle-over-cycle movement</h2>
+    <p class="muted small">
+      Vote share (solid) and seat share (dashed) across every ingested
+      general election. Hover any marker for the year and share at
+      that cycle.
+    </p>
+
+    <div class="slope-grid">
+      {#each data.slopes as s (s.partyId)}
+        <SlopeChart
+          title={s.name}
+          color={s.color}
+          points={s.points}
+          compact
+        />
+      {/each}
+    </div>
+  {/if}
 
   <h2 id="who-won-what">Who won what now</h2>
   <p class="muted small">
@@ -115,7 +135,7 @@
           <h3>{cycle.electionDateLabel}</h3>
           <p class="muted small">
             {num(cycle.totalSeats)} seats · {num(cycle.totalVotes)} valid votes ·
-            Gallagher {cycle.gallagher.toFixed(1)} ·
+            {gallagherDescriptor(cycle.gallagher).toLowerCase()} ·
             {num(cycle.minorityWinnerCount)} minority winners.
           </p>
         </header>
@@ -144,31 +164,6 @@
     {/each}
   </div>
 
-  {#if data.slopes.length > 0}
-    <h2 id="movement">Cycle-over-cycle movement</h2>
-    <p class="muted small">
-      Vote share (solid) and seat share (dashed) between adjacent
-      ingested general elections. Same country, same voting system,
-      four-and-a-bit years apart.
-    </p>
-
-    <div class="slope-grid">
-      {#each data.slopes as s (s.partyId)}
-        <SlopeChart
-          title={s.name}
-          color={s.color}
-          startYear={s.startYear}
-          startValue={s.startValue}
-          endYear={s.endYear}
-          endValue={s.endValue}
-          startSeatValue={s.startSeatValue}
-          endSeatValue={s.endSeatValue}
-          compact
-        />
-      {/each}
-    </div>
-  {/if}
-
   <h2 id="pick-a-party">Pick a party</h2>
   <p class="muted small">
     Every party visible at the {latestCycle.year} general election,
@@ -179,35 +174,71 @@
 
   <div class="cards">
     {#each data.cards as p (p.partyId)}
-      <article class="card" style:--accent-color={p.color}>
-        <header>
-          <span class="swatch" style:background={p.color} aria-hidden="true"></span>
-          <h3>{p.name}</h3>
-        </header>
-        <p class="big">{pct(p.voteShare, 1)}</p>
-        <p class="muted small">
-          {num(p.seats)} of {num(p.totalSeats)} seats ({pct(p.seatShare, 1)})
-        </p>
-        <p class="small">
-          Seat vs vote gap:
-          <strong class:pos={p.seatDelta > 0.005} class:neg={p.seatDelta < -0.005}>
-            {pts(p.seatDelta, 0)}
-          </strong>
-        </p>
-        {#if p.voteShareDelta != null && p.priorYear}
+      {#if p.slug}
+        <a
+          class="card card-link"
+          style:--accent-color={p.color}
+          href="/parliament/parties/{p.slug}"
+        >
+          <header>
+            <span class="swatch" style:background={p.color} aria-hidden="true"></span>
+            <h3>{p.name}</h3>
+          </header>
+          <p class="big">{pct(p.voteShare, 1)}</p>
+          <p class="muted small">
+            {num(p.seats)} of {num(p.totalSeats)} seats ({pct(p.seatShare, 1)})
+          </p>
           <p class="small">
-            Since {p.priorYear}:
-            <strong class:pos={p.voteShareDelta > 0.005} class:neg={p.voteShareDelta < -0.005}>
-              {pts(p.voteShareDelta, 0)}
+            Seat vs vote gap:
+            <strong class:pos={p.seatDelta > 0.005} class:neg={p.seatDelta < -0.005}>
+              {pts(p.seatDelta, 0)}
             </strong>
-            vote share.
           </p>
-        {:else}
-          <p class="small muted">
-            No prior ingested cycle to compare against.
+          {#if p.voteShareDelta != null && p.priorYear}
+            <p class="small">
+              Since {p.priorYear}:
+              <strong class:pos={p.voteShareDelta > 0.005} class:neg={p.voteShareDelta < -0.005}>
+                {pts(p.voteShareDelta, 0)}
+              </strong>
+              vote share.
+            </p>
+          {:else}
+            <p class="small muted">
+              No prior ingested cycle to compare against.
+            </p>
+          {/if}
+        </a>
+      {:else}
+        <article class="card" style:--accent-color={p.color}>
+          <header>
+            <span class="swatch" style:background={p.color} aria-hidden="true"></span>
+            <h3>{p.name}</h3>
+          </header>
+          <p class="big">{pct(p.voteShare, 1)}</p>
+          <p class="muted small">
+            {num(p.seats)} of {num(p.totalSeats)} seats ({pct(p.seatShare, 1)})
           </p>
-        {/if}
-      </article>
+          <p class="small">
+            Seat vs vote gap:
+            <strong class:pos={p.seatDelta > 0.005} class:neg={p.seatDelta < -0.005}>
+              {pts(p.seatDelta, 0)}
+            </strong>
+          </p>
+          {#if p.voteShareDelta != null && p.priorYear}
+            <p class="small">
+              Since {p.priorYear}:
+              <strong class:pos={p.voteShareDelta > 0.005} class:neg={p.voteShareDelta < -0.005}>
+                {pts(p.voteShareDelta, 0)}
+              </strong>
+              vote share.
+            </p>
+          {:else}
+            <p class="small muted">
+              No prior ingested cycle to compare against.
+            </p>
+          {/if}
+        </article>
+      {/if}
     {/each}
   </div>
 
@@ -324,6 +355,16 @@
     border-radius: 4px;
     background: var(--bg);
     color: var(--fg);
+  }
+  a.card-link {
+    text-decoration: none;
+  }
+  a.card-link:hover {
+    border-color: var(--accent-color, var(--accent));
+  }
+  a.card-link:hover h3 {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color, var(--accent));
   }
   .card header {
     display: flex;

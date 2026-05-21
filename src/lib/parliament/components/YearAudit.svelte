@@ -15,7 +15,7 @@
     NationalSummary,
     SourceManifest
   } from '$lib/parliament/types';
-  import { gallagherDescriptor } from '../gallagher-descriptor';
+  import { gallagherDescriptor } from '$lib/gallagher-descriptor';
   import ConstituencyHexMap from './ConstituencyHexMap.svelte';
   import ConstituencyLookup from './ConstituencyLookup.svelte';
   import LowWinningShareTable from './LowWinningShareTable.svelte';
@@ -122,8 +122,8 @@
   <div class="kpi">
     <span class="figure figure--text warn">{gallagherLabel}</span>
     <span class="label">
-      <a href="/parliament/methodology#gallagher">Gallagher index</a>
-      {summary.gallagher.toFixed(1)}
+      overall vote-to-seat distortion
+      (<a href="/parliament/methodology#gallagher">Gallagher index</a>)
     </span>
   </div>
 </div>

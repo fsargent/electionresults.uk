@@ -95,53 +95,106 @@ export function load() {
   ]);
 
   // Current control map: take each council's most recent composition
-  // snapshot and assign it to its largest single party. Councils where
-  // the catch-all 'other' bucket (Independents + minor locals) exceeds
-  // every named party land in the 'no overall control' bucket — that
-  // matches oncd's NOC framing without us having to label specific
-  // local-party majorities by hand.
+  // snapshot and pick the single largest specific group. We prefer the
+  // per-councillor breakdown (`partiesDetailed`) so a council dominated
+  // by a named local slate (Ashfield Independents, Aspire, Havering
+  // Residents Association, etc.) is labelled by that slate rather than
+  // dumped into NOC just because oncd's summary CSV lumps it into
+  // "Other". Falls back to the summary fields when no per-councillor
+  // snapshot exists. NOC is reserved for genuine ties or missing data.
   const NO_CONTROL = '__noc__';
+  // Bucket key used for any independent/local-party leader. We collapse
+  // every specific slate into one legend entry to keep the legend
+  // readable; the specific slate name still surfaces in the tooltip.
+  const IND_LOCAL = '__ind_local__';
+  const namedPartySlugs = partySlugs();
+  const namedNameToSlug = new Map(
+    namedPartySlugs.map((s) => [partyForSlug(s)!, s])
+  );
   const latestPerCouncil = new Map<string, CompositionSnapshot>();
   for (const c of allCompositions) {
     const prev = latestPerCouncil.get(c.councilSlug);
     if (!prev || c.year > prev.year) latestPerCouncil.set(c.councilSlug, c);
   }
-  const controlByCouncil: Record<
-    string,
-    {
-      councilSlug: string;
-      council: string;
-      year: number;
-      bucket: string;
-      partyName: string | null;
-      seats: number;
-      totalSeats: number;
-    }
-  > = {};
-  const controlCounts: Record<string, number> = { [NO_CONTROL]: 0 };
-  for (const slug of partySlugs()) controlCounts[slug] = 0;
+
+  type ControlEntry = {
+    councilSlug: string;
+    council: string;
+    year: number;
+    /** Bucket key for legend grouping: a named-party slug, IND_LOCAL,
+     *  or NO_CONTROL. */
+    bucket: string;
+    /** Specific largest group display name (e.g. "Labour Party",
+     *  "Ashfield Independents", "Independent"); null for NOC. */
+    largestName: string | null;
+    /** Seats held by that specific group. */
+    largestSeats: number;
+    totalSeats: number;
+    /** True when largestSeats > totalSeats / 2. */
+    hasMajority: boolean;
+  };
+
+  const controlByCouncil: Record<string, ControlEntry> = {};
+  // Two parallel count maps so the legend can switch with the view.
+  const largestCounts: Record<string, number> = { [NO_CONTROL]: 0, [IND_LOCAL]: 0 };
+  const majorityCounts: Record<string, number> = { [NO_CONTROL]: 0, [IND_LOCAL]: 0 };
+  for (const slug of namedPartySlugs) {
+    largestCounts[slug] = 0;
+    majorityCounts[slug] = 0;
+  }
+
   for (const snap of latestPerCouncil.values()) {
-    const isNoc =
-      snap.largestIsOtherDominant ||
-      snap.largestParty === null ||
-      snap.largestPartySeats === 0;
-    let bucket = NO_CONTROL;
-    if (!isNoc && snap.largestParty) {
-      const partySlug = partySlugs().find(
-        (s) => partyForSlug(s) === snap.largestParty
-      );
-      bucket = partySlug ?? NO_CONTROL;
+    // Find the single largest specific group. Use partiesDetailed when
+    // available (it can name a specific local slate); otherwise fall
+    // back to the summary largestParty (may be the literal "Other").
+    let largestName: string | null = null;
+    let largestSeats = 0;
+    let tiedAtTop = false;
+    if (snap.partiesDetailed) {
+      for (const [name, seats] of Object.entries(snap.partiesDetailed)) {
+        if (seats <= 0) continue;
+        if (seats > largestSeats) {
+          largestName = name;
+          largestSeats = seats;
+          tiedAtTop = false;
+        } else if (seats === largestSeats) {
+          tiedAtTop = true;
+        }
+      }
+    } else if (snap.largestParty && snap.largestPartySeats > 0) {
+      largestName = snap.largestParty;
+      largestSeats = snap.largestPartySeats;
     }
+
+    const hasData = largestName !== null && largestSeats > 0;
+    const isNoc = !hasData || tiedAtTop;
+    let bucket: string;
+    if (isNoc) {
+      bucket = NO_CONTROL;
+    } else if (largestName && namedNameToSlug.has(largestName)) {
+      bucket = namedNameToSlug.get(largestName)!;
+    } else {
+      // "Independent", "Independent / Other", named local slates, the
+      // summary "Other" fallback — all collapse to one legend entry.
+      bucket = IND_LOCAL;
+    }
+    const hasMajority = !isNoc && largestSeats * 2 > snap.totalSeats;
     controlByCouncil[snap.councilSlug] = {
       councilSlug: snap.councilSlug,
       council: snap.council,
       year: snap.year,
       bucket,
-      partyName: bucket === NO_CONTROL ? null : snap.largestParty,
-      seats: snap.largestPartySeats,
-      totalSeats: snap.totalSeats
+      largestName: isNoc ? null : largestName,
+      largestSeats,
+      totalSeats: snap.totalSeats,
+      hasMajority
     };
-    controlCounts[bucket] = (controlCounts[bucket] ?? 0) + 1;
+    largestCounts[bucket] = (largestCounts[bucket] ?? 0) + 1;
+    if (hasMajority) {
+      majorityCounts[bucket] = (majorityCounts[bucket] ?? 0) + 1;
+    } else {
+      majorityCounts[NO_CONTROL] = (majorityCounts[NO_CONTROL] ?? 0) + 1;
+    }
   }
 
   return {
@@ -150,7 +203,9 @@ export function load() {
     recentCycles,
     defaultVisible: [...defaultVisible],
     controlByCouncil,
-    controlCounts,
-    NO_CONTROL
+    largestCounts,
+    majorityCounts,
+    NO_CONTROL,
+    IND_LOCAL
   };
 }

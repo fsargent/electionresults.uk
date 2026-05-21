@@ -1,6 +1,7 @@
 <script lang="ts">
   import { pct, num } from '$lib/format';
   import { gallagherIndex } from '$lib/distortion';
+  import { gallagherDescriptor } from '$lib/gallagher-descriptor';
   import Party from './Party.svelte';
   import PartyBars from './PartyBars.svelte';
   import SeatChart from './SeatChart.svelte';
@@ -9,8 +10,8 @@
   let { view }: { view: PartyView } = $props();
 
   const gallagher = $derived(gallagherIndex(view.rows));
-  // Gallagher's own rough thresholds (1991): <5 highly proportional,
-  // 5–10 moderate, 10–15 noticeable, 15+ severe.
+  // Band drives only the left-border colour; the descriptor itself
+  // does the editorial work.
   const gallagherBand = $derived(
     !Number.isFinite(gallagher)
       ? null
@@ -23,27 +24,23 @@
             : 'severe'
   );
   const gallagherLabel = $derived(
-    gallagherBand === 'low'
-      ? 'highly proportional'
-      : gallagherBand === 'moderate'
-        ? 'moderate distortion'
-        : gallagherBand === 'noticeable'
-          ? 'noticeable distortion'
-          : 'severe distortion'
+    Number.isFinite(gallagher) ? gallagherDescriptor(gallagher) : null
   );
 </script>
 
-{#if Number.isFinite(gallagher)}
+{#if Number.isFinite(gallagher) && gallagherLabel}
   <aside class="gallagher" class:low={gallagherBand === 'low'} class:moderate={gallagherBand === 'moderate'} class:noticeable={gallagherBand === 'noticeable'} class:severe={gallagherBand === 'severe'}>
     <div class="value">
-      <span class="num">{gallagher.toFixed(1)}</span>
-      <span class="label">Gallagher index</span>
+      <span class="num">{gallagherLabel}</span>
+      <span class="label">
+        overall vote-to-seat distortion
+      </span>
     </div>
     <p class="gloss">
-      {gallagherLabel} &mdash; one number summarising how far the seat
-      allocation diverged from the vote shares across all parties (0 =
-      perfectly proportional; 15+ is what most UK FPTP elections score).
-      <a href="/councils/methodology#gallagher">How it's calculated →</a>
+      How far the seat allocation diverged from the vote shares across
+      all parties &mdash; the
+      <a href="/councils/methodology#gallagher">Gallagher index</a>
+      summarises the gap as a single qualitative band.
     </p>
   </aside>
 {/if}
@@ -162,13 +159,13 @@
   aside.gallagher .value {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    line-height: 1.1;
+    align-items: flex-start;
+    line-height: 1.15;
+    min-width: 9rem;
   }
   aside.gallagher .value .num {
-    font-size: 2.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    font-variant-numeric: tabular-nums;
   }
   aside.gallagher.severe .value .num { color: var(--warn); }
   aside.gallagher .value .label {
@@ -176,7 +173,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--muted);
-    margin-top: 0.15rem;
+    margin-top: 0.2rem;
   }
   aside.gallagher .gloss {
     margin: 0;

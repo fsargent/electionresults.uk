@@ -1,5 +1,6 @@
 <script lang="ts">
   import { num } from '$lib/format';
+  import { gallagherDescriptor } from '$lib/gallagher-descriptor';
   import YearAudit from '$lib/parliament/components/YearAudit.svelte';
   import YearSwitcher from '$lib/parliament/components/YearSwitcher.svelte';
 
@@ -10,7 +11,7 @@
   <title>{data.year} UK general election &mdash; electionresults.uk</title>
   <meta
     name="description"
-    content={`The ${data.year} UK general election: ${num(data.summary.minorityWinnerCount)} of ${num(data.summary.totalSeats)} seats won without majority support, Gallagher disproportionality ${data.summary.gallagher.toFixed(1)}.`}
+    content={`The ${data.year} UK general election: ${num(data.summary.minorityWinnerCount)} of ${num(data.summary.totalSeats)} seats won without majority support — ${gallagherDescriptor(data.summary.gallagher).toLowerCase()} on the Gallagher index.`}
   />
   <link rel="canonical" href={`https://electionresults.uk/parliament/${data.year}`} />
 </svelte:head>

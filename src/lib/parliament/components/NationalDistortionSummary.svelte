@@ -1,6 +1,6 @@
 <script lang="ts">
   import { num, pct } from '$lib/format';
-  import { gallagherDescriptor } from '../gallagher-descriptor';
+  import { gallagherDescriptor } from '$lib/gallagher-descriptor';
   import type { NationalSummary } from '../types';
 
   let { summary }: { summary: NationalSummary } = $props();
@@ -33,7 +33,6 @@
       </th>
       <td class="num">
         {gallagherLabel}
-        <span class="muted">({summary.gallagher.toFixed(1)})</span>
       </td>
     </tr>
     {#if mostOver && mostOver.gap > 0}

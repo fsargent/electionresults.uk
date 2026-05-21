@@ -13,6 +13,7 @@
   // both get it without each page reassembling the prose.
 
   import { num, pct } from '$lib/format';
+  import { gallagherDescriptor } from '$lib/gallagher-descriptor';
   import type {
     NationalPartyTotal,
     NationalSummary
@@ -54,6 +55,8 @@
   const mostUnderTotals = $derived(
     mostUnder ? partyTotals.find((p) => p.partyId === mostUnder.partyId) : null
   );
+
+  const gallagherLabel = $derived(gallagherDescriptor(summary.gallagher).toLowerCase());
 </script>
 
 <p class="lede">
@@ -92,9 +95,11 @@
     <strong>{pct(mostUnderTotals.seatShare, 1)}</strong>
     of seats.
   {/if}
-  The Gallagher disproportionality index for this election was
-  <strong>{summary.gallagher.toFixed(1)}</strong>
-  &mdash; <a href="/parliament/methodology#gallagher">methodology</a>.
+  Across the whole result the vote-to-seat gap was
+  <strong>{gallagherLabel}</strong>
+  &mdash; see the
+  <a href="/parliament/methodology#gallagher">Gallagher index</a>
+  for how that's measured.
 </p>
 
 <p class="call-to-action">

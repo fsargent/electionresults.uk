@@ -20,6 +20,7 @@ import {
   nationalSummaryForYear,
   partyTotalsForYear
 } from '$lib/parliament/data';
+import { slugForParty } from '$lib/parties';
 import { partyColor } from '$lib/party-colors';
 import type { HexFill } from '$lib/components/HexCartogram.svelte';
 import type {
@@ -61,6 +62,11 @@ export interface PartyCard {
   partyId: string;
   name: string;
   color: string;
+  /** Short slug for /parliament/parties/[slug]. Present only for the
+   *  seven major parties that have a dedicated per-party page; null
+   *  otherwise (e.g. SDLP, DUP, Sinn Féin) so the UI knows whether to
+   *  render the card as a link. */
+  slug: string | null;
   /** Latest-cycle stats — what the card headline shows. */
   voteShare: number;
   seatShare: number;
@@ -78,16 +84,11 @@ export interface PartySlope {
   partyId: string;
   name: string;
   color: string;
-  startYear: number;
-  startValue: number;
-  endYear: number;
-  endValue: number;
-  /** Seat-share endpoints paired with the vote-share endpoints above.
-   *  Always set when the slope exists — the slope itself is keyed off
-   *  finding the same party in two ingested cycles, and party totals
-   *  carry both shares together. */
-  startSeatValue: number;
-  endSeatValue: number;
+  /** One entry per ingested cycle this party contested with a non-zero
+   *  vote share, sorted ascending by year. SlopeChart draws a polyline
+   *  through every point and surfaces year + share on each marker via
+   *  <title> tooltips. */
+  points: { year: number; voteShare: number; seatShare: number }[];
 }
 
 function buildConstituencyFills(
@@ -201,43 +202,36 @@ export function load(): {
     return cycleSummary(y, p.summary, p.totals, p.manifest);
   });
 
-  // Slopes: for each party visible in the latest cycle, find the
-  // newest prior ingested cycle the same party contested with a
-  // non-trivial vote share, and pair those two endpoints. Skip when
-  // we only have one cycle of data — a single point is not a slope,
-  // and 0% → X% is honest only when the 0% is real.
+  // Slopes: for each party visible in the latest cycle, collect every
+  // ingested cycle that party contested with a non-zero vote share and
+  // emit a year-ordered polyline of (voteShare, seatShare) points.
+  // Skip the party entirely when only one cycle has data — a single
+  // point is not a trend, and 0% padding for missing cycles would
+  // overstate the story.
   const slopes: PartySlope[] = [];
   if (years.length >= 2) {
     const latestVisible = cycles[0].bars;
-    const olderYears = years.slice(1); // already desc
-    const latestTotals = perYear.get(latestYear)!.totals;
+    const yearsAsc = [...years].sort((a, b) => a - b);
     for (const bar of latestVisible) {
-      let priorYear: number | null = null;
-      let priorVote = 0;
-      let priorSeat = 0;
-      for (const py of olderYears) {
+      const points: PartySlope['points'] = [];
+      for (const y of yearsAsc) {
         const match = perYear
-          .get(py)!
+          .get(y)!
           .totals.find((p) => p.partyId === bar.partyId);
         if (match && match.voteShare > 0) {
-          priorYear = py;
-          priorVote = match.voteShare;
-          priorSeat = match.seatShare;
-          break;
+          points.push({
+            year: y,
+            voteShare: match.voteShare,
+            seatShare: match.seatShare
+          });
         }
       }
-      if (priorYear == null) continue;
-      const latestTotal = latestTotals.find((p) => p.partyId === bar.partyId)!;
+      if (points.length < 2) continue;
       slopes.push({
         partyId: bar.partyId,
         name: bar.name,
         color: bar.color,
-        startYear: priorYear,
-        startValue: priorVote,
-        endYear: latestYear,
-        endValue: bar.voteShare,
-        startSeatValue: priorSeat,
-        endSeatValue: latestTotal.seatShare
+        points
       });
     }
     // Preserve the latest-cycle order (seats desc, set by
@@ -278,6 +272,7 @@ export function load(): {
       partyId: bar.partyId,
       name: bar.name,
       color: bar.color,
+      slug: slugForParty(bar.name),
       voteShare: latest.voteShare,
       seatShare: latest.seatShare,
       seats: latest.seats,

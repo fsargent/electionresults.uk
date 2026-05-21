@@ -9,6 +9,8 @@
   import type { PartyYearStats } from '$lib/types';
 
   const NOC_FILL = '#c7c4b3';
+  const IND_LOCAL_FILL = '#888888';
+  const IND_LOCAL_LABEL = 'Independent / local';
 
   let { data } = $props();
 
@@ -19,6 +21,13 @@
   // hydration; the SSR pass uses defaults so the prerendered HTML is
   // stable and uniform for all visitors.
   const STORAGE_KEY_VISIBILITY = 'er-uk:parties:visibility';
+  const STORAGE_KEY_VIEW = 'er-uk:parties:control-view';
+
+  // Map view: 'largest' colours every council by its single largest
+  // group (NOC only for ties / missing data); 'majority' only colours
+  // councils where one group holds > 50% of seats. Default 'largest'.
+  type ControlView = 'largest' | 'majority';
+  let viewMode = $state<ControlView>('largest');
 
   // Toggle state per party slug. Initialised from the server's
   // defaultVisible set (majors on, regionals off) but the user can
@@ -252,48 +261,107 @@
     tooltip = null;
   }
 
-  // Current-control map: every council coloured by its largest single
-  // party in the latest composition snapshot, with NOC councils
-  // (where the catch-all 'other' bucket exceeds every named party)
-  // dropped into a neutral muted grey so the named-party shares
-  // remain legible. Clicking any hex drills into that council.
+  // Current-control map: every council coloured per the active view.
+  // In 'largest' mode we colour by the single largest specific group
+  // (named parties + Ashfield Independents-style local slates +
+  // unaffiliated Independents). In 'majority' mode only councils where
+  // one group holds > 50% of seats are coloured; the rest go to NOC.
+  // Clicking any hex drills into that council.
+  function bucketColor(bucket: string, name: string | null): string {
+    if (bucket === data.NO_CONTROL) return NOC_FILL;
+    if (bucket === data.IND_LOCAL) return IND_LOCAL_FILL;
+    return name ? partyColor(name) : NOC_FILL;
+  }
   const controlFills = $derived.by<Record<string, CouncilFill>>(() => {
     const out: Record<string, CouncilFill> = {};
     const slugToName = Object.fromEntries(
       data.parties.map((p) => [p.slug, p.name])
     );
+    const majorityOnly = viewMode === 'majority';
     for (const [slug, info] of Object.entries(data.controlByCouncil)) {
-      const isNoc = info.bucket === data.NO_CONTROL;
-      const partyName = isNoc ? null : slugToName[info.bucket] ?? null;
-      const color = partyName ? partyColor(partyName) : NOC_FILL;
+      const inNoc =
+        info.bucket === data.NO_CONTROL ||
+        (majorityOnly && !info.hasMajority);
+      const effectiveBucket = inNoc ? data.NO_CONTROL : info.bucket;
+      const color = bucketColor(effectiveBucket, info.largestName);
+      const shareTxt = info.totalSeats > 0
+        ? ` (${pct(info.largestSeats / info.totalSeats, 0)})`
+        : '';
+      const sourceLabel =
+        info.largestName ?? null;
+      let secondary: string;
+      let title: string;
+      if (inNoc && majorityOnly && info.largestName) {
+        // Coloured-out under 'majority' view but we still know the
+        // plurality leader — surface it in the tooltip so the user sees
+        // why it's greyed.
+        secondary = `No majority — ${sourceLabel} largest with ${num(info.largestSeats)} of ${num(info.totalSeats)} seats${shareTxt} (${info.year})`;
+        title = `${info.council}: no majority — ${sourceLabel} plurality (${info.year})`;
+      } else if (inNoc) {
+        secondary = `Tied for largest (snapshot ${info.year})`;
+        title = `${info.council}: tied for largest (${info.year})`;
+      } else {
+        secondary = `${sourceLabel} largest — ${num(info.largestSeats)} of ${num(info.totalSeats)} seats${shareTxt} (${info.year})`;
+        title = `${info.council}: ${sourceLabel} ${info.hasMajority ? 'majority' : 'largest'} (${info.year})`;
+      }
       out[slug] = {
         color,
         href: `/${info.councilSlug}`,
         primary: info.council,
-        secondary: isNoc
-          ? `No overall control (snapshot ${info.year})`
-          : `${partyName} largest — ${num(info.seats)} of ${num(info.totalSeats)} seats (${info.year})`,
-        title: isNoc
-          ? `${info.council}: no overall control (${info.year})`
-          : `${info.council}: ${partyName} largest (${info.year})`
+        secondary,
+        title
       };
     }
     return out;
   });
 
-  // Sorted legend: parties whose count > 0, biggest control footprint
-  // first; NOC pinned to the end.
-  const controlLegend = $derived(
-    [...data.parties]
-      .map((p) => ({
-        slug: p.slug,
+  // Sorted legend: bucket footprint > 0 for the active view, biggest
+  // first. Ind/local sits among the named parties by count; NOC pinned
+  // to the end.
+  const controlLegend = $derived.by(() => {
+    const counts =
+      viewMode === 'majority' ? data.majorityCounts : data.largestCounts;
+    const slugToName = Object.fromEntries(
+      data.parties.map((p) => [p.slug, p.name])
+    );
+    const rows = [
+      ...data.parties.map((p) => ({
+        bucket: p.slug,
+        slug: p.slug as string | null,
         name: p.name,
         color: partyColor(p.name),
-        count: data.controlCounts[p.slug] ?? 0
-      }))
-      .filter((row) => row.count > 0)
-      .sort((a, b) => b.count - a.count)
+        count: counts[p.slug] ?? 0
+      })),
+      {
+        bucket: data.IND_LOCAL,
+        slug: null,
+        name: IND_LOCAL_LABEL,
+        color: IND_LOCAL_FILL,
+        count: counts[data.IND_LOCAL] ?? 0
+      }
+    ];
+    return rows.filter((r) => r.count > 0).sort((a, b) => b.count - a.count);
+  });
+  const nocCount = $derived(
+    (viewMode === 'majority' ? data.majorityCounts : data.largestCounts)[
+      data.NO_CONTROL
+    ] ?? 0
   );
+
+  // --- View-mode persistence ------------------------------------------
+  $effect(() => {
+    if (!hydrated) return;
+    try {
+      const v = localStorage.getItem(STORAGE_KEY_VIEW);
+      if (v === 'majority' || v === 'largest') viewMode = v;
+    } catch {}
+  });
+  $effect(() => {
+    if (!hydrated) return;
+    try {
+      localStorage.setItem(STORAGE_KEY_VIEW, viewMode);
+    } catch {}
+  });
 
   // Cards: latest snapshot per party, click to navigate. Sorted by
   // current chamber share descending so the leaders read first.
@@ -325,31 +393,62 @@
 
   <h2 id="who-controls-what">Who controls what now</h2>
   <p class="muted small">
-    Every UK council in our composition data, coloured by the largest
-    single party in its most recent snapshot. Hover any hex for the
-    council and seat split; click to drill in.
+    Every UK council in our composition data, from its most recent
+    snapshot. Toggle between the largest single group on the council
+    and councils where one group holds an outright majority of seats.
+    Hover any hex for the council and seat split; click to drill in.
   </p>
 
   <div class="map-and-scale">
     <CouncilHexMap
       fills={controlFills}
-      title="GB councils — current largest single party in the running composition"
+      title={viewMode === 'majority'
+        ? 'GB councils — single party holding an outright seat majority'
+        : 'GB councils — current largest single party in the running composition'}
     />
     <div class="map-legend">
-      <p class="legend-label">Largest party</p>
+      <div class="view-toggle" role="radiogroup" aria-label="Map view">
+        <button
+          type="button"
+          role="radio"
+          aria-checked={viewMode === 'largest'}
+          class:on={viewMode === 'largest'}
+          onclick={() => (viewMode = 'largest')}
+        >
+          Largest party
+        </button>
+        <button
+          type="button"
+          role="radio"
+          aria-checked={viewMode === 'majority'}
+          class:on={viewMode === 'majority'}
+          onclick={() => (viewMode = 'majority')}
+        >
+          Majorities only
+        </button>
+      </div>
+      <p class="legend-label">
+        {viewMode === 'majority' ? 'Majority control' : 'Largest party'}
+      </p>
       <ul class="party-legend">
-        {#each controlLegend as row (row.slug)}
+        {#each controlLegend as row (row.bucket)}
           <li>
             <span class="swatch" style:background={row.color}></span>
-            <a href={`/councils/party/${row.slug}`}>{row.name}</a>
+            {#if row.slug}
+              <a href={`/councils/party/${row.slug}`}>{row.name}</a>
+            {:else}
+              <span>{row.name}</span>
+            {/if}
             <span class="muted count">{num(row.count)}</span>
           </li>
         {/each}
-        {#if data.controlCounts[data.NO_CONTROL] > 0}
+        {#if nocCount > 0}
           <li>
             <span class="swatch noc"></span>
-            <span>No overall control</span>
-            <span class="muted count">{num(data.controlCounts[data.NO_CONTROL])}</span>
+            <span>
+              {viewMode === 'majority' ? 'No majority' : 'Tied'}
+            </span>
+            <span class="muted count">{num(nocCount)}</span>
           </li>
         {/if}
       </ul>
@@ -741,6 +840,31 @@
   }
   .small {
     font-size: 0.85rem;
+  }
+  .view-toggle {
+    display: inline-flex;
+    gap: 0;
+    margin: 0 0 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .view-toggle button {
+    background: var(--bg);
+    color: var(--fg);
+    border: 0;
+    padding: 0.3rem 0.55rem;
+    font-size: 0.78rem;
+    cursor: pointer;
+    border-right: 1px solid var(--rule);
+  }
+  .view-toggle button:last-child {
+    border-right: 0;
+  }
+  .view-toggle button.on {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
   }
   .map-and-scale {
     display: grid;
