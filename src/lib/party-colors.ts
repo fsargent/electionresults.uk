@@ -93,7 +93,9 @@ const PARTY_COLORS: Record<string, string> = {
 
   // Tower Hamlets-based party associated with Lutfur Rahman; often appears
   // in the source data under its shortcode "ASP" (see PARTY_DISPLAY_NAMES).
-  Aspire: '#7B2D8E'
+  Aspire: '#7B2D8E',
+  "People's Independent Party": '#A67C52',
+  'Canvey Island Independent Party': '#8C8C8C'
 };
 
 /**
@@ -107,7 +109,9 @@ const PARTY_COLORS: Record<string, string> = {
  * name in PARTY_COLORS.
  */
 const PARTY_DISPLAY_NAMES: Record<string, string> = {
-  ASP: 'Aspire'
+  ASP: 'Aspire',
+  PIP: "People's Independent Party",
+  CIIP: 'Canvey Island Independent Party'
 };
 
 /**
