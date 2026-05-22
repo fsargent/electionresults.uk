@@ -56,7 +56,66 @@ const ABBREV_TO_FULL = {
   CANDI: 'Chesterfield And North Derbyshire Independents (CANDI)',
   OWL: 'Our West Lancashire',
   ASH: 'Ashfield Independents',
-  'ASH IND': 'Ashfield Independents'
+  'ASH IND': 'Ashfield Independents',
+  // Additional abbreviations resolved against the LEH "Party names" sheets
+  // (2021/2022/2023/2024/2025). The candidate rows in those workbooks carry
+  // the upper-cased abbreviation rather than the long name, so without this
+  // map labels like "KNOW CMTY" or "CIIP" reach the UI unchanged.
+  AGS: 'Alliance for Green Socialism',
+  'ASHT IND': 'Ashtead Independents',
+  BDP: 'British Democratic Party',
+  BIG: 'Broxtowe Independent Group',
+  CCH: 'Community Campaign (Hart)',
+  CCP: 'Coventry Citizens Party',
+  CIIP: 'Canvey Island Independent Party',
+  CONFEL: 'Confelicity',
+  CPB: 'Communist Party of Britain',
+  EDEM: 'English Democrats',
+  FOUND: 'Foundation Party',
+  FRAG: 'Formby Residents Action Group',
+  FREE: 'Freedom Party',
+  'G & S IND': 'Garforth and Swillington Independents',
+  GGG: 'Guildford Greenbelt Group',
+  HALL: 'Harlow Alliance',
+  'HAMPS IND': 'Hampshire Independents',
+  IBIS: 'Ingleby Barwick Independent Society',
+  // Bristol Knowle split from the Lib Dems in late 2021. Source ships the
+  // truncated "Knowle Community"; the registered party name is
+  // "Knowle Community Party".
+  'KNOW CMTY': 'Knowle Community Party',
+  LIBER: 'Libertarian Party',
+  'LINCS IND': 'Lincolnshire Independents',
+  'MAN IND': 'Mansfield Independents',
+  MRLP: 'The Official Monster Raving Loony Party',
+  OMRL: 'The Official Monster Raving Loony Party',
+  NEP: 'North East Party',
+  'NEW IND': 'Newcastle Independents',
+  'NEWC IND': 'Newcastle Independents',
+  NF: 'National Front',
+  NH: 'Northern Heart',
+  NHP: 'National Housing Party United Kingdom',
+  NIP: 'Northern Independence Party',
+  OK: 'One Kearsley',
+  OSAC: 'Old Swan Against the Cuts',
+  PABAG: 'People Against Bureaucracy Action Group',
+  PATRIA: 'Patria',
+  PEACE: 'The Peace Party - Non-violence, Justice, Environment',
+  PIP: "People's Independent Party",
+  'PORT IND': 'Portsmouth Independent Party',
+  PSYCH: 'Psychedelic Movement',
+  SAVE: 'Save Us Now',
+  SUN: 'Save Us Now',
+  SGRA: "Swanscombe and Greenhithe Residents' Association",
+  'SHEV IND': 'Shevington Independents',
+  SPGB: 'The Socialist Party of Great Britain',
+  SWFCTA: 'South Woodham Ferrers Council Taxpayers Association',
+  'TH IND': 'Thurrock Independents',
+  WEP: "Women's Equality Party",
+  WFI: 'Westhoughton First Independents',
+  'WICK IND': 'Wickford Independents',
+  'WS IND': 'West Suffolk Independents',
+  'WYC IND': 'Wycombe Independents',
+  YESHUA: 'Yeshua'
 };
 
 // Long-form names some sources hand us that we collapse to a shorter
