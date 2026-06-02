@@ -1,5 +1,6 @@
 <script lang="ts">
   import { pct, pts } from '$lib/format';
+  import ShareButton from '$lib/share/ShareButton.svelte';
 
   export interface SlopePoint {
     year: number;
@@ -84,10 +85,14 @@
 
   const W = $derived(compact ? 220 : 320);
   const H = $derived(compact ? 140 : 180);
+  // Right padding intentionally larger than left to give the last-year
+  // axis label (text-anchor=middle at the right data point) room to sit
+  // without clipping the trailing digit. Same reason on the left, but
+  // labels there are shorter and clip less often in practice.
   const PAD = $derived(
     compact
-      ? { l: 12, r: 12, t: 26, b: 28 }
-      : { l: 18, r: 18, t: 28, b: 32 }
+      ? { l: 14, r: 22, t: 26, b: 28 }
+      : { l: 20, r: 30, t: 28, b: 32 }
   );
 
   const innerW = $derived(W - PAD.l - PAD.r);
@@ -175,9 +180,36 @@
       ? `${title} trend from ${first.year} to ${last.year}`
       : title
   );
+
+  // Export metadata for the share button. Subtitle states what the
+  // chart is measuring and the year span so the downloaded image makes
+  // sense out of context.
+  const shareSubtitle = $derived(
+    pts_.length >= 2
+      ? hasSeats
+        ? `Vote and seat share, ${first.year} → ${last.year}`
+        : `Vote share, ${first.year} → ${last.year}`
+      : ''
+  );
+  const shareFilename = $derived(() => {
+    const slug = title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    const span =
+      pts_.length >= 2 ? `-${first.year}-${last.year}` : '';
+    return `electionresults-uk-${slug}${span}`;
+  });
+
+  let figureRef: HTMLElement | undefined = $state();
 </script>
 
-<figure class="slope" class:compact class:dark-plate={needsDarkPlate}>
+<figure
+  class="slope share-host"
+  class:compact
+  class:dark-plate={needsDarkPlate}
+  bind:this={figureRef}
+>
   <figcaption class="title" style:--row-color={color}>
     {#if href}
       <a href={href}>{title}</a>
@@ -378,6 +410,12 @@
       </span>
     {/if}
   </p>
+  <ShareButton
+    source={figureRef}
+    title={title}
+    subtitle={shareSubtitle}
+    filename={shareFilename()}
+  />
 </figure>
 
 <style>
@@ -389,6 +427,7 @@
     background: var(--bg);
     display: flex;
     flex-direction: column;
+    position: relative;
   }
   .title {
     font-size: 0.85rem;
