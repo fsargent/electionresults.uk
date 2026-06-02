@@ -56,6 +56,7 @@
       <th scope="col" class="num">
         <Tooltip
           icon
+          placement="bottom"
           body="Candidate votes ÷ valid votes in this constituency. Matches the share the returning officer publishes."
         >
           Share of votes
@@ -64,6 +65,7 @@
       <th scope="col" class="num">
         <Tooltip
           icon
+          placement="bottom"
           body="Elected candidate's share of valid votes minus the proportional quota (50% for a single-member seat). Negative = won the seat below the quota; positive = cleared it."
         >
           Below quota
@@ -95,7 +97,13 @@
           {/if}
         </td>
         <td class="num">{num(c.votes)}</td>
-        <td class="num pct">{c.share == null ? '—' : pct(c.share, 1)}</td>
+        <td
+          class="num pct share-bar"
+          style:--share-fill={c.share == null ? '0%' : `${c.share * 100}%`}
+          style:--share-color={partyColor(c.partyDisplayName)}
+        >
+          <span class="share-value">{c.share == null ? '—' : pct(c.share, 1)}</span>
+        </td>
         <td class="num pct" class:warn={c.isWinner && drift != null && drift < 0}>
           {#if c.isWinner && drift != null}
             {pts(drift)}
@@ -152,5 +160,24 @@
 
   .warn {
     color: var(--warn);
+  }
+
+  /* Bar-in-row treatment for the "Share of votes" column: each cell's
+     background is a flat-colour fill in the candidate's party colour,
+     extending from the left edge to share% of the cell width. Tint is
+     held low so the right-aligned percentage label stays legible. */
+  .share-bar {
+    position: relative;
+    background-image: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--share-color, transparent) 22%, transparent) 0,
+      color-mix(in srgb, var(--share-color, transparent) 22%, transparent)
+        var(--share-fill, 0%),
+      transparent var(--share-fill, 0%)
+    );
+    background-repeat: no-repeat;
+  }
+  .share-bar .share-value {
+    position: relative;
   }
 </style>
