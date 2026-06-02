@@ -131,6 +131,21 @@
     (overview, year audit, methodology). For the 2024 general
     election the count was 554 of 649 seats.
   </p>
+  <p>
+    <strong>Relationship to the council &ldquo;below-quota&rdquo;
+    metric.</strong> The 50% threshold is not editorial &mdash; it is
+    the <em>proportional quota</em>
+    (<code>1 / (seats + 1)</code>) for a single-seat contest. The
+    council surface uses the general form of that quota on
+    <a href="/councils/below-quota">/councils/below-quota</a>, where
+    multi-member wards give thresholds of 33.3% (two seats), 25%
+    (three seats), and so on. &ldquo;Minority-winner&rdquo; on the
+    parliamentary side is therefore the single-member specialisation
+    of &ldquo;below quota&rdquo; on the council side &mdash; the same
+    metric, with the threshold collapsed to a simple majority. See
+    the <a href="/councils/methodology#quota">council methodology
+    &sect;&nbsp;Proportional quota</a> for the generalised formula.
+  </p>
 
   <h2 id="caveats">Data caveats &amp; tokens</h2>
   <p>

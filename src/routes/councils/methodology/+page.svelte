@@ -144,6 +144,16 @@
   </p>
 
   <h2 id="quota">Proportional quota and "below quota"</h2>
+  <p class="muted">
+    On <a href="/parliament">/parliament</a> we use the term
+    <em>minority-winner count</em> for the same idea, specialised to
+    single-member Westminster contests where the proportional quota
+    collapses to 50% (i.e. a simple majority). Both metrics measure
+    the same thing &mdash; how often the seat-holder won below the
+    share they would need under any common proportional method &mdash;
+    just under different denominators because Westminster contests are
+    always single-member.
+  </p>
   <p>
     The <strong>proportional quota</strong> is the share of valid
     ballots a candidate would need to be guaranteed a seat under any
@@ -168,6 +178,43 @@
     clean and pass without comment. The value is a signed gap:
     below-quota results read as a negative number, matching the
     <em>Drift from quota</em> column on per-council pages.
+  </p>
+  <h3 id="below-quota-two-counts">Two below-quota counts &mdash; per-seat vs per-ward</h3>
+  <p>
+    Multi-member wards mean &ldquo;below quota&rdquo; can be counted
+    two ways, and the site uses both depending on the question being
+    asked. Both are correct; they answer different questions and can
+    produce different totals for the same cycle.
+  </p>
+  <ul>
+    <li>
+      <strong>Per seat</strong> &mdash; how many elected councillors
+      individually won less than the proportional quota. The homepage
+      KPI (&ldquo;winners below the proportional quota&rdquo;) and
+      the council-overview totals use this denominator. A 3-seat ward
+      where every elected councillor cleared the 25% quota contributes
+      zero; one where all three fell below contributes three.
+    </li>
+    <li>
+      <strong>Per ward</strong> &mdash; how many ward races returned
+      <em>any</em> below-quota winner. The
+      <a href="/councils/below-quota">/councils/below-quota</a> lens
+      lists one row per ward, keyed on the
+      <em>marginal</em> elected councillor (the lowest-share seat-holder
+      in that ward). A 3-seat ward where two elected councillors cleared
+      the quota and one fell below contributes one row, headlined by
+      the below-quota seat-holder.
+    </li>
+  </ul>
+  <p>
+    The per-seat figure is the right one for &ldquo;what share of
+    councillors were elected below the bar?&rdquo; The per-ward
+    figure is the right one for &ldquo;how many ward contests have a
+    below-quota story to tell?&rdquo; Single-member wards collapse the
+    distinction &mdash; the marginal elected councillor is the only
+    elected councillor &mdash; so the gap between the two counts comes
+    entirely from multi-member wards where the seats split across the
+    threshold.
   </p>
 
   <h2>"If votes were counted by party"</h2>
