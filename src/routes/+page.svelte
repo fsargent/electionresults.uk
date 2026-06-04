@@ -35,13 +35,10 @@
 </svelte:head>
 
 <div class="banner">
-  Preliminary 2026-05-07 results from
+  2026-05-07 results from
   <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>,
   reused under
   <a href="https://creativecommons.org/licenses/by/4.0/" rel="external noopener">CC&nbsp;BY&nbsp;4.0</a>.
-  Wards still being counted are excluded until the full count is in;
-  the 2026 Local Election Handbook becomes the canonical source once
-  it ships.
 </div>
 
 <main class="wide">

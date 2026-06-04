@@ -79,7 +79,7 @@
       pre-2021 ward results from
       <a href="https://www.andrewteale.me.uk/leap/" rel="external noopener">Andrew Teale's
       Local Elections Archive Project</a>
-      (CC&nbsp;BY-SA&nbsp;3.0); preliminary 2026 results from
+      (CC&nbsp;BY-SA&nbsp;3.0); 2026 results from
       <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>
       (CC&nbsp;BY&nbsp;4.0).
       Site released under

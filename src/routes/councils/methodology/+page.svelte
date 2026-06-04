@@ -508,18 +508,17 @@
     in to STV from 2027; no Welsh council has yet adopted it.
   </p>
   <p>
-    <strong>Election results (2026, preliminary)</strong> &mdash; sourced
+    <strong>Election results (2026)</strong> &mdash; sourced
     from
     <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>'s
     candidates dataset, reused here under
     <a href="https://creativecommons.org/licenses/by/4.0/" rel="external noopener">CC&nbsp;BY&nbsp;4.0</a>
     (party logos and candidate photos, which Democracy Club excludes from
     that licence, are not used on this site &mdash; we only consume the
-    structured results data). Polling-night data is updated as wards
-    report; until a ward's full count is in we drop the race entirely
-    (rather than surface partial vote totals that would assign
-    &ldquo;elected&rdquo; to the wrong candidates). The 2026 LEH
-    replaces this feed as the canonical source when it ships.
+    structured results data). Where a ward's full count was not available
+    we dropped the race entirely (rather than surface partial vote totals
+    that would assign &ldquo;elected&rdquo; to the wrong candidates). The
+    2026 LEH replaces this feed as the canonical source when it ships.
   </p>
   <p>
     <strong>Council composition snapshots (2016&ndash;2025)</strong>
