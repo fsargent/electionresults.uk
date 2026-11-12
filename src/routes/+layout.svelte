@@ -31,6 +31,7 @@
     { label: 'Flips', councils: '/councils/flips', parliament: null },
     { label: 'Distortion', councils: '/councils/distortion', parliament: null },
     { label: 'Below quota', councils: '/councils/below-quota', parliament: null },
+    { label: 'By-elections', councils: '/councils/by-elections', parliament: null },
     { label: 'Parties', councils: '/councils/parties', parliament: '/parliament/parties' },
     { label: 'Methodology', councils: '/councils/methodology', parliament: '/parliament/methodology' },
     { label: 'Data', councils: '/councils/data', parliament: '/parliament/data' }

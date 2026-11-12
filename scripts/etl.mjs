@@ -1384,6 +1384,131 @@ let cycle2026Coverage = null;
   }
 }
 
+// --- By-elections after the 2026 polling day ------------------------------
+//
+// A by-election fills one seat partway through a term. It is not part of
+// any council's cycle, so these never enter allRaces, the cycle totals,
+// distortion or flips. They power /councils/by-elections only.
+//
+// Source: source-data/council/dc-by-elections-after-*.csv, written by
+// scripts/fetch-dc-by-elections.mjs (newest download stamp wins).
+//
+// Scotland elects councillors by STV. A one-seat STV by-election is an
+// instant-runoff count, and Democracy Club does not publish its vote
+// counts. Scottish by-elections are kept with status 'stv' and left out
+// of the vote analysis.
+const BY_ELECTIONS_AFTER = '2026-05-07';
+function ingestDcByElections() {
+  const file = listDcExports(/^dc-by-elections-after-.*\.csv$/i)[0]?.path ?? null;
+  if (!file) {
+    console.warn('[etl by-elections] no dc-by-elections-after-*.csv in source-data/council/');
+    return [];
+  }
+  console.log(`[etl by-elections] DC source: ${file.split('/').pop()}`);
+
+  // Nation by council slug, from the ONS code prefix (E / W / S) in the
+  // hex map. The hex map is district-level, so county councils are
+  // missing from it. Those are all in England, which is the default.
+  const nationByPrefix = { E: 'england', W: 'wales', S: 'scotland', N: 'northern-ireland' };
+  const nationBySlug = new Map();
+  const hexNameBySlug = new Map();
+  const hexPath = resolve(ROOT, 'src/lib/data/hexes.json');
+  if (existsSync(hexPath)) {
+    for (const h of JSON.parse(readFileSync(hexPath, 'utf8')).hexes ?? []) {
+      const nation = nationByPrefix[String(h.onsCode ?? '')[0]];
+      for (const s of [h.slug, ...(h.aliases ?? [])]) {
+        if (nation) nationBySlug.set(s, nation);
+        hexNameBySlug.set(s, h.name);
+      }
+    }
+  }
+  // Democracy Club slugs that differ from the hex map slugs.
+  const DC_NATION_OVERRIDES = { 'the-vale-of-glamorgan': 'wales', edinburgh: 'scotland' };
+
+  const byBallot = new Map();
+  for (const r of parseCsv(readFileSync(file, 'utf8'))) {
+    const ballot = r.ballot_paper_id ? String(r.ballot_paper_id).trim() : '';
+    const date = r.election_date ? String(r.election_date).trim() : '';
+    if (!/\.by\./i.test(ballot) || !(date > BY_ELECTIONS_AFTER)) continue;
+    if (truthy(r.cancelled_poll)) continue;
+    const councilSlug = councilSlugFromElectionId(r.election_id);
+    if (!councilSlug) continue;
+    let b = byBallot.get(ballot);
+    if (!b) {
+      const electorate = Number(r.total_electorate ?? 0);
+      const turnoutPct = Number(r.turnout_percentage ?? NaN);
+      b = {
+        ballotId: ballot,
+        electionDate: date,
+        councilSlug,
+        council:
+          councilNameBySlug.get(councilSlug) ??
+          hexNameBySlug.get(councilSlug) ??
+          titleCaseFromSlug(councilSlug),
+        nation: DC_NATION_OVERRIDES[councilSlug] ?? nationBySlug.get(councilSlug) ?? 'england',
+        wardName: normaliseWardName(String(r.post_label ?? '').trim()),
+        seats: Number(r.seats_contested ?? 1) || 1,
+        electorate: Number.isFinite(electorate) && electorate > 0 ? electorate : null,
+        turnout: Number.isFinite(turnoutPct) && turnoutPct > 0 ? turnoutPct / 100 : null,
+        resultsSource: r.results_source ? String(r.results_source).trim() : null,
+        candidates: []
+      };
+      byBallot.set(ballot, b);
+    }
+    const hasVotes = r.votes_cast !== null && r.votes_cast !== '';
+    b.candidates.push({
+      name: String(r.person_name ?? '').trim(),
+      party: normalizeParty(r.party_name) ?? '',
+      votes: hasVotes ? Number(r.votes_cast) || 0 : null,
+      elected: truthy(r.elected)
+    });
+  }
+
+  const out = [];
+  for (const b of byBallot.values()) {
+    const pending = b.candidates.some((c) => c.votes === null);
+    let status = 'result';
+    if (b.nation === 'scotland') status = 'stv';
+    else if (pending && b.candidates.length <= b.seats) status = 'uncontested';
+    else if (pending) status = 'awaiting';
+
+    const rec = {
+      ...b,
+      status,
+      validBallots: null,
+      winningPct: null,
+      quota: quotaForSeats(b.seats),
+      underPar: null,
+      isBelowQuota: null
+    };
+    if (status === 'result') {
+      // Same rule as the cycle adapters: top N by votes win, N = seats.
+      b.candidates.sort((x, y) => y.votes - x.votes);
+      b.candidates.forEach((c, i) => {
+        c.elected = i < b.seats;
+        c.rank = i + 1;
+      });
+      const votesSum = b.candidates.reduce((a, c) => a + c.votes, 0);
+      const validBallots = b.seats >= 1 ? votesSum / b.seats : votesSum;
+      const elected = b.candidates.filter((c) => c.elected);
+      const winningPct = validBallots > 0 ? Math.min(...elected.map((c) => c.votes / validBallots)) : 0;
+      Object.assign(rec, {
+        validBallots,
+        winningPct,
+        underPar: winningPct - rec.quota,
+        isBelowQuota: winningPct < rec.quota
+      });
+    }
+    out.push(rec);
+  }
+  out.sort((a, b) => b.electionDate.localeCompare(a.electionDate) || a.council.localeCompare(b.council));
+
+  const counts = out.reduce((a, r) => ({ ...a, [r.status]: (a[r.status] ?? 0) + 1 }), {});
+  console.log(`[etl by-elections] ${out.length} by-elections after ${BY_ELECTIONS_AFTER}: ${JSON.stringify(counts)}`);
+  return out;
+}
+const byElections = ingestDcByElections();
+
 // --- Council summaries (per (year, council)) ---------------------------------
 const councilMap = new Map(); // key: `${year}::${councilSlug}`
 for (const r of allRaces) {
@@ -2804,6 +2929,51 @@ writeSplit('parties.json', {
   partyControlChanges
 });
 writeSplit('flips-comp.json', { flips, compositions });
+writeSplit('by-elections.json', { after: BY_ELECTIONS_AFTER, byElections });
+
+// By-election downloads: one row per by-election, one row per candidacy.
+writeCsv(
+  resolve(OUT_DIR, 'by-elections.csv'),
+  byElections.map((b) => {
+    const winner = b.candidates.find((c) => c.elected);
+    return {
+      election_date: b.electionDate,
+      ballot_id: b.ballotId,
+      council_slug: b.councilSlug,
+      council: b.council,
+      nation: b.nation,
+      ward_name: b.wardName,
+      seats: b.seats,
+      status: b.status,
+      winner: winner?.name ?? '',
+      winner_party: winner?.party ?? '',
+      winning_pct: b.winningPct == null ? '' : b.winningPct.toFixed(6),
+      quota: b.quota.toFixed(6),
+      under_par: b.underPar == null ? '' : b.underPar.toFixed(6),
+      is_below_quota: b.isBelowQuota == null ? '' : b.isBelowQuota ? 1 : 0,
+      turnout: b.turnout == null ? '' : b.turnout.toFixed(4),
+      electorate: b.electorate ?? '',
+      results_source: b.resultsSource ?? ''
+    };
+  }),
+  ['election_date', 'ballot_id', 'council_slug', 'council', 'nation', 'ward_name', 'seats', 'status', 'winner', 'winner_party', 'winning_pct', 'quota', 'under_par', 'is_below_quota', 'turnout', 'electorate', 'results_source']
+);
+writeCsv(
+  resolve(OUT_DIR, 'by-election-candidates.csv'),
+  byElections.flatMap((b) =>
+    b.candidates.map((c) => ({
+      election_date: b.electionDate,
+      ballot_id: b.ballotId,
+      council_slug: b.councilSlug,
+      ward_name: b.wardName,
+      candidate_name: c.name,
+      party: c.party,
+      votes: c.votes ?? '',
+      elected: c.elected ? 1 : 0
+    }))
+  ),
+  ['election_date', 'ballot_id', 'council_slug', 'ward_name', 'candidate_name', 'party', 'votes', 'elected']
+);
 
 // Combined snapshot for build-og.mjs and the public /data download.
 // Same shape as before so external consumers don't break.
@@ -2820,7 +2990,8 @@ const snapshot = {
   partyYearStats,
   partyCouncilCycles,
   partyControlChanges,
-  cycle2026Coverage
+  cycle2026Coverage,
+  byElections
 };
 writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot));
 console.log(`[etl] wrote ${SNAPSHOT_PATH}`);

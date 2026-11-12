@@ -133,6 +133,8 @@ const LONG_FORM_REMAP = {
   'Scottish Conservative and Unionist Party': 'Conservative Party',
   'Scottish Liberal Democrats': 'Liberal Democrats',
   'Scottish Labour Party': 'Labour Party',
+  // Democracy Club's registered-name label for Plaid Cymru.
+  'Plaid Cymru - The Party of Wales': 'Plaid Cymru',
   // Commons Library parliamentary-data labels — the GE source uses
   // the bare nominal ("Labour", "Conservative") and singular forms
   // ("Liberal Democrat") that the council LEH workbooks don't.

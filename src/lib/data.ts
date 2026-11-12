@@ -89,11 +89,42 @@ interface FlipsCompSnapshot {
   compositions: CompositionSnapshot[];
 }
 
+/** One by-election held after the 2026 polling day. Kept out of every
+ *  cycle total: a by-election fills one seat partway through a term. */
+export interface ByElection {
+  ballotId: string;
+  electionDate: string;
+  councilSlug: string;
+  council: string;
+  nation: 'england' | 'wales' | 'scotland' | 'northern-ireland';
+  wardName: string;
+  seats: number;
+  electorate: number | null;
+  /** Share of the electorate that voted, 0–1. */
+  turnout: number | null;
+  resultsSource: string | null;
+  /** 'result' = votes counted; 'awaiting' = held, no result yet;
+   *  'uncontested' = returned unopposed; 'stv' = Scottish STV count,
+   *  no vote counts published. Only 'result' rows carry the vote fields. */
+  status: 'result' | 'awaiting' | 'uncontested' | 'stv';
+  candidates: { name: string; party: string; votes: number | null; elected: boolean; rank?: number }[];
+  validBallots: number | null;
+  winningPct: number | null;
+  quota: number;
+  underPar: number | null;
+  isBelowQuota: boolean | null;
+}
+interface ByElectionsSnapshot {
+  after: string;
+  byElections: ByElection[];
+}
+
 const coreData = loadSplit<CoreSnapshot>('core.json');
 const racesSnap = loadSplit<RacesSnapshot>('races.json');
 const marginalSnap = loadSplit<MarginalSnapshot>('marginal.json');
 const partiesSnap = loadSplit<PartiesSnapshot>('parties.json');
 const flipsCompSnap = loadSplit<FlipsCompSnapshot>('flips-comp.json');
+const byElectionsSnap = loadSplit<ByElectionsSnapshot>('by-elections.json');
 
 export const generatedAt = coreData.generatedAt;
 export const sourceLabel = coreData.source;
@@ -114,6 +145,8 @@ export const allPartyCouncilCycles: PartyCouncilCycle[] =
   partiesSnap.partyCouncilCycles ?? [];
 export const allPartyControlChanges: PartyControlChange[] =
   partiesSnap.partyControlChanges ?? [];
+export const byElectionsAfter: string = byElectionsSnap.after;
+export const allByElections: ByElection[] = byElectionsSnap.byElections;
 export const cycle2026Coverage: Record<string, Cycle2026CouncilCoverage> =
   coreData.cycle2026Coverage ?? {};
 
