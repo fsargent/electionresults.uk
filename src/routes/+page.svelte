@@ -21,9 +21,16 @@
   <title>electionresults.uk — auditing UK council seats won when most voters chose someone else</title>
   <meta
     name="description"
-    content="A volunteer audit of UK local-election results across ten cycles (2016–2026, no 2020). For every ward, we ask: did the winner clear the share of votes a fair, proportional system would require?"
+    content="1,593 UK council seats this May went to candidates below the proportional quota — almost one in three. A volunteer ward-by-ward audit of UK local-election results across ten cycles (2016–2026)."
   />
   <link rel="canonical" href="https://electionresults.uk/" />
+  <meta property="og:title" content="electionresults.uk — auditing UK council seats won when most voters chose someone else" />
+  <meta property="og:description" content="1,593 UK council seats this May went to candidates below the proportional quota — almost one in three. A volunteer ward-by-ward audit of UK local-election results across ten cycles (2016–2026)." />
+  <meta property="og:url" content="https://electionresults.uk/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="electionresults.uk — auditing UK council seats won when most voters chose someone else" />
+  <meta name="twitter:description" content="1,593 UK council seats this May went to candidates below the proportional quota — almost one in three. A volunteer ward-by-ward audit." />
   <meta property="og:image" content="https://electionresults.uk/og/flip-map.png" />
   <meta property="og:image:width" content="1016" />
   <meta property="og:image:height" content="841" />
