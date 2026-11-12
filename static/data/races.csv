@@ -29073,10 +29073,10 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.bexley.west-heath.2026-05-07,west-heath-local-bexley-west-heath-2026-05-07,West Heath,bexley,Bexley,,3,5820,0.365979,0.250000,0.115979,0
 2026,local.birmingham.acocks-green.2026-05-07,acocks-green-local-birmingham-acocks-green-2026-05-07,Acocks Green,birmingham,Birmingham,,2,4966.5,0.299205,0.333333,-0.034129,1
 2026,local.birmingham.allens-cross.2026-05-07,allens-cross-local-birmingham-allens-cross-2026-05-07,Allens Cross,birmingham,Birmingham,,1,2767,0.342971,0.500000,-0.157029,1
-2026,local.birmingham.alum-rock.2026-05-07,alum-rock-local-birmingham-alum-rock-2026-05-07,Alum Rock,birmingham,Birmingham,,2,6601,0.494774,0.333333,0.161440,0
+2026,local.birmingham.alum-rock.2026-05-07,alum-rock-local-birmingham-alum-rock-2026-05-07,Alum Rock,birmingham,Birmingham,,2,6599,0.494923,0.333333,0.161590,0
 2026,local.birmingham.aston.2026-05-07,aston-local-birmingham-aston-2026-05-07,Aston,birmingham,Birmingham,,2,5810.5,0.363996,0.333333,0.030663,0
 2026,local.birmingham.balsall-heath-west.2026-05-07,balsall-heath-west-local-birmingham-balsall-heath-west-2026-05-07,Balsall Heath West,birmingham,Birmingham,,1,2707,0.345031,0.500000,-0.154969,1
-2026,local.birmingham.bartley-green.2026-05-07,bartley-green-local-birmingham-bartley-green-2026-05-07,Bartley Green,birmingham,Birmingham,,2,5006.5,0.322581,0.333333,-0.010753,1
+2026,local.birmingham.bartley-green.2026-05-07,bartley-green-local-birmingham-bartley-green-2026-05-07,Bartley Green,birmingham,Birmingham,,2,5010.5,0.322323,0.333333,-0.011010,1
 2026,local.birmingham.billesley.2026-05-07,billesley-local-birmingham-billesley-2026-05-07,Billesley,birmingham,Birmingham,,2,6009.5,0.440802,0.333333,0.107469,0
 2026,local.birmingham.birchfield.2026-05-07,birchfield-local-birmingham-birchfield-2026-05-07,Birchfield,birmingham,Birmingham,,1,2487,0.346200,0.500000,-0.153800,1
 2026,local.birmingham.bordesley-green.2026-05-07,bordesley-green-local-birmingham-bordesley-green-2026-05-07,Bordesley Green,birmingham,Birmingham,,1,2512,0.307723,0.500000,-0.192277,1
@@ -29084,7 +29084,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.birmingham.bournbrook-selly-park.2026-05-07,bournbrook-and-selly-park-local-birmingham-bournbrook-selly-park-2026-05-07,Bournbrook and Selly Park,birmingham,Birmingham,,2,3878,0.637700,0.333333,0.304367,0
 2026,local.birmingham.bournville-cotteridge.2026-05-07,bournville-and-cotteridge-local-birmingham-bournville-cotteridge-2026-05-07,Bournville and Cotteridge,birmingham,Birmingham,,2,6815.5,0.255007,0.333333,-0.078326,1
 2026,local.birmingham.brandwood-kings-heath.2026-05-07,brandwood-and-king-s-heath-local-birmingham-brandwood-kings-heath-2026-05-07,Brandwood and King's Heath,birmingham,Birmingham,,2,6787.5,0.400442,0.333333,0.067109,0
-2026,local.birmingham.bromford-hodge-hill.2026-05-07,bromford-and-hodge-hill-local-birmingham-bromford-hodge-hill-2026-05-07,Bromford and Hodge Hill,birmingham,Birmingham,,2,4803.5,0.267097,0.333333,-0.066236,1
+2026,local.birmingham.bromford-hodge-hill.2026-05-07,bromford-and-hodge-hill-local-birmingham-bromford-hodge-hill-2026-05-07,Bromford and Hodge Hill,birmingham,Birmingham,,2,4753.5,0.269906,0.333333,-0.063427,1
 2026,local.birmingham.castle-vale.2026-05-07,castle-vale-local-birmingham-castle-vale-2026-05-07,Castle Vale,birmingham,Birmingham,,1,2026,0.443731,0.500000,-0.056269,1
 2026,local.birmingham.druids-heath-monyhull.2026-05-07,druids-heath-and-monyhull-local-birmingham-druids-heath-monyhull-2026-05-07,Druids Heath and Monyhull,birmingham,Birmingham,,1,2968,0.642520,0.500000,0.142520,0
 2026,local.birmingham.edgbaston.2026-05-07,edgbaston-local-birmingham-edgbaston-2026-05-07,Edgbaston,birmingham,Birmingham,,2,4218.5,0.417447,0.333333,0.084114,0
@@ -29103,7 +29103,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.birmingham.holyhead.2026-05-07,holyhead-local-birmingham-holyhead-2026-05-07,Holyhead,birmingham,Birmingham,,1,2225,0.348315,0.500000,-0.151685,1
 2026,local.birmingham.kings-norton-north.2026-05-07,king-s-norton-north-local-birmingham-kings-norton-north-2026-05-07,King's Norton North,birmingham,Birmingham,,1,3213,0.336757,0.500000,-0.163243,1
 2026,local.birmingham.kings-norton-south.2026-05-07,king-s-norton-south-local-birmingham-kings-norton-south-2026-05-07,King's Norton South,birmingham,Birmingham,,1,2861,0.602936,0.500000,0.102936,0
-2026,local.birmingham.kingstanding.2026-05-07,kingstanding-local-birmingham-kingstanding-2026-05-07,Kingstanding,birmingham,Birmingham,,2,4420.5,0.400633,0.333333,0.067300,0
+2026,local.birmingham.kingstanding.2026-05-07,kingstanding-local-birmingham-kingstanding-2026-05-07,Kingstanding,birmingham,Birmingham,,2,4423,0.400407,0.333333,0.067074,0
 2026,local.birmingham.ladywood.2026-05-07,ladywood-local-birmingham-ladywood-2026-05-07,Ladywood,birmingham,Birmingham,,2,3940.5,0.350717,0.333333,0.017384,0
 2026,local.birmingham.longbridge-west-heath.2026-05-07,longbridge-and-west-heath-local-birmingham-longbridge-west-heath-2026-05-07,Longbridge and West Heath,birmingham,Birmingham,,2,5740.5,0.377667,0.333333,0.044334,0
 2026,local.birmingham.lozells.2026-05-07,lozells-local-birmingham-lozells-2026-05-07,Lozells,birmingham,Birmingham,,1,3659,0.384258,0.500000,-0.115742,1
@@ -29133,7 +29133,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.birmingham.sutton-roughley.2026-05-07,sutton-roughley-local-birmingham-sutton-roughley-2026-05-07,Sutton Roughley,birmingham,Birmingham,,1,4104,0.403752,0.500000,-0.096248,1
 2026,local.birmingham.sutton-trinity.2026-05-07,sutton-trinity-local-birmingham-sutton-trinity-2026-05-07,Sutton Trinity,birmingham,Birmingham,,1,3712,0.365571,0.500000,-0.134429,1
 2026,local.birmingham.sutton-vesey.2026-05-07,sutton-vesey-local-birmingham-sutton-vesey-2026-05-07,Sutton Vesey,birmingham,Birmingham,,2,7342,0.326069,0.333333,-0.007264,1
-2026,local.birmingham.sutton-walmley-minworth.2026-05-07,sutton-walmley-and-minworth-local-birmingham-sutton-walmley-minworth-2026-05-07,Sutton Walmley and Minworth,birmingham,Birmingham,,2,5271,0.426105,0.333333,0.092772,0
+2026,local.birmingham.sutton-walmley-minworth.2026-05-07,sutton-walmley-and-minworth-local-birmingham-sutton-walmley-minworth-2026-05-07,Sutton Walmley and Minworth,birmingham,Birmingham,,2,5678,0.395562,0.333333,0.062228,0
 2026,local.birmingham.sutton-wylde-green.2026-05-07,sutton-wylde-green-local-birmingham-sutton-wylde-green-2026-05-07,Sutton Wylde Green,birmingham,Birmingham,,1,3782,0.523797,0.500000,0.023797,0
 2026,local.birmingham.tyseley-hay-mills.2026-05-07,tyseley-and-hay-mills-local-birmingham-tyseley-hay-mills-2026-05-07,Tyseley and Hay Mills,birmingham,Birmingham,,1,2684,0.204918,0.500000,-0.295082,1
 2026,local.birmingham.ward-end.2026-05-07,ward-end-local-birmingham-ward-end-2026-05-07,Ward End,birmingham,Birmingham,,1,3398,0.611536,0.500000,0.111536,0
@@ -29963,7 +29963,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.hampshire.hartley-wintney-yateley-west.2026-05-07,hartley-wintney-and-yateley-west-local-hampshire-hartley-wintney-yateley-west-2026-05-07,Hartley Wintney and Yateley West,hampshire,Hampshire,,1,6950,0.348489,0.500000,-0.151511,1
 2026,local.hampshire.hayling-island.2026-05-07,hayling-island-local-hampshire-hayling-island-2026-05-07,Hayling Island,hampshire,Hampshire,,1,6945,0.404176,0.500000,-0.095824,1
 2026,local.hampshire.hedge-end-west-end-south.2026-05-07,hedge-end-and-west-end-south-local-hampshire-hedge-end-west-end-south-2026-05-07,Hedge End and West End South,hampshire,Hampshire,,1,5311,0.388063,0.500000,-0.111937,1
-2026,local.hampshire.itchen-valley.2026-05-07,itchen-valley-local-hampshire-itchen-valley-2026-05-07,Itchen Valley,hampshire,Hampshire,,1,6835,0.583029,0.500000,0.083029,0
+2026,local.hampshire.itchen-valley.2026-05-07,itchen-valley-local-hampshire-itchen-valley-2026-05-07,Itchen Valley,hampshire,Hampshire,,1,7555,0.527465,0.500000,0.027465,0
 2026,local.hampshire.lee.2026-05-07,lee-local-hampshire-lee-2026-05-07,Lee,hampshire,Hampshire,,1,5859,0.449565,0.500000,-0.050435,1
 2026,local.hampshire.leesland-town.2026-05-07,leesland-and-town-local-hampshire-leesland-town-2026-05-07,Leesland and Town,hampshire,Hampshire,,2,10002.5,0.353312,0.333333,0.019978,0
 2026,local.hampshire.liphook-headley-grayshott.2026-05-07,liphook-headley-and-grayshott-local-hampshire-liphook-headley-grayshott-2026-05-07,"Liphook, Headley and Grayshott",hampshire,Hampshire,,1,6727,0.374461,0.500000,-0.125539,1
@@ -30043,6 +30043,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.harrow.north-harrow.2026-05-07,north-harrow-local-harrow-north-harrow-2026-05-07,North Harrow,harrow,Harrow,,2,3008.5,0.408842,0.333333,0.075508,0
 2026,local.harrow.pinner.2026-05-07,pinner-local-harrow-pinner-2026-05-07,Pinner,harrow,Harrow,,3,4364.333333333333,0.489422,0.250000,0.239422,0
 2026,local.harrow.pinner-south.2026-05-07,pinner-south-local-harrow-pinner-south-2026-05-07,Pinner South,harrow,Harrow,,3,5127,0.503998,0.250000,0.253998,0
+2026,local.harrow.rayners-lane.2026-05-07,rayners-lane-local-harrow-rayners-lane-2026-05-07,Rayners Lane,harrow,Harrow,,2,3104.5,0.304397,0.333333,-0.028936,1
 2026,local.harrow.roxbourne.2026-05-07,roxbourne-local-harrow-roxbourne-2026-05-07,Roxbourne,harrow,Harrow,,2,2503,0.378346,0.333333,0.045013,0
 2026,local.harrow.roxeth.2026-05-07,roxeth-local-harrow-roxeth-2026-05-07,Roxeth,harrow,Harrow,,3,4083.6666666666665,0.348216,0.250000,0.098216,0
 2026,local.harrow.stanmore.2026-05-07,stanmore-local-harrow-stanmore-2026-05-07,Stanmore,harrow,Harrow,,3,3857.6666666666665,0.588439,0.250000,0.338439,0
@@ -30915,6 +30916,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.richmond-upon-thames.heathfield.2026-05-07,heathfield-local-richmond-upon-thames-heathfield-2026-05-07,Heathfield,richmond-upon-thames,Richmond upon Thames,,3,3172.6666666666665,0.469006,0.250000,0.219006,0
 2026,local.richmond-upon-thames.kew.2026-05-07,kew-local-richmond-upon-thames-kew-2026-05-07,Kew,richmond-upon-thames,Richmond upon Thames,,3,4170,0.505516,0.250000,0.255516,0
 2026,local.richmond-upon-thames.mortlake-barnes-common.2026-05-07,mortlake-and-barnes-common-local-richmond-upon-thames-mortlake-barnes-common-2026-05-07,Mortlake and Barnes Common,richmond-upon-thames,Richmond upon Thames,,3,3875.6666666666665,0.372323,0.250000,0.122323,0
+2026,local.richmond-upon-thames.north-richmond.2026-05-07,north-richmond-local-richmond-upon-thames-north-richmond-2026-05-07,North Richmond,richmond-upon-thames,Richmond upon Thames,,3,3587,0.529969,0.250000,0.279969,0
 2026,local.richmond-upon-thames.south-richmond.2026-05-07,south-richmond-local-richmond-upon-thames-south-richmond-2026-05-07,South Richmond,richmond-upon-thames,Richmond upon Thames,,3,3815,0.439581,0.250000,0.189581,0
 2026,local.richmond-upon-thames.south-twickenham.2026-05-07,south-twickenham-local-richmond-upon-thames-south-twickenham-2026-05-07,South Twickenham,richmond-upon-thames,Richmond upon Thames,,3,4215.666666666667,0.468253,0.250000,0.218253,0
 2026,local.richmond-upon-thames.st-margarets-north-twickenham.2026-05-07,st-margarets-and-north-twickenham-local-richmond-upon-thames-st-margarets-north-twickenham-2026-05-07,St Margarets and North Twickenham,richmond-upon-thames,Richmond upon Thames,,3,4133.666666666667,0.547698,0.250000,0.297698,0
@@ -30988,7 +30990,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.salford.broughton.2026-05-07,broughton-local-salford-broughton-2026-05-07,Broughton,salford,Salford,,1,2453,0.327354,0.500000,-0.172646,1
 2026,local.salford.cadishead-lower-irlam.2026-05-07,cadishead-and-lower-irlam-local-salford-cadishead-lower-irlam-2026-05-07,Cadishead and Lower Irlam,salford,Salford,,2,3297,0.453139,0.333333,0.119806,0
 2026,local.salford.claremont.2026-05-07,claremont-local-salford-claremont-2026-05-07,Claremont,salford,Salford,,1,3934,0.380529,0.500000,-0.119471,1
-2026,local.salford.eccles.2026-05-07,eccles-local-salford-eccles-2026-05-07,Eccles,salford,Salford,,1,3764,0.441817,0.500000,-0.058183,1
+2026,local.salford.eccles.2026-05-07,eccles-local-salford-eccles-2026-05-07,Eccles,salford,Salford,,1,4301,0.386654,0.500000,-0.113346,1
 2026,local.salford.higher-irlam-peel-green.2026-05-07,higher-irlam-and-peel-green-local-salford-higher-irlam-peel-green-2026-05-07,Higher Irlam and Peel Green,salford,Salford,,1,3028,0.463342,0.500000,-0.036658,1
 2026,local.salford.kersal-broughton-park.2026-05-07,kersal-and-broughton-park-local-salford-kersal-broughton-park-2026-05-07,Kersal and Broughton Park,salford,Salford,,1,3036,0.334651,0.500000,-0.165349,1
 2026,local.salford.little-hulton.2026-05-07,little-hulton-local-salford-little-hulton-2026-05-07,Little Hulton,salford,Salford,,1,2580,0.434496,0.500000,-0.065504,1
@@ -31294,7 +31296,7 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.suffolk.gipping.2026-05-07,gipping-local-suffolk-gipping-2026-05-07,Gipping,suffolk,Suffolk,,1,2966,0.372218,0.500000,-0.127782,1
 2026,local.suffolk.gipping-valley.2026-05-07,gipping-valley-local-suffolk-gipping-valley-2026-05-07,Gipping Valley,suffolk,Suffolk,,1,3642,0.359143,0.500000,-0.140857,1
 2026,local.suffolk.gunton.2026-05-07,gunton-local-suffolk-gunton-2026-05-07,Gunton,suffolk,Suffolk,,1,2853,0.454609,0.500000,-0.045391,1
-2026,local.suffolk.hadleigh.2026-05-07,hadleigh-local-suffolk-hadleigh-2026-05-07,Hadleigh,suffolk,Suffolk,,1,3778,0.350715,0.500000,-0.149285,1
+2026,local.suffolk.hadleigh.2026-05-07,hadleigh-local-suffolk-hadleigh-2026-05-07,Hadleigh,suffolk,Suffolk,,1,3780,0.350529,0.500000,-0.149471,1
 2026,local.suffolk.halesworth.2026-05-07,halesworth-local-suffolk-halesworth-2026-05-07,Halesworth,suffolk,Suffolk,,1,3857,0.456572,0.500000,-0.043428,1
 2026,local.suffolk.harbour.2026-05-07,harbour-local-suffolk-harbour-2026-05-07,Harbour,suffolk,Suffolk,,1,2095,0.431504,0.500000,-0.068496,1
 2026,local.suffolk.hardwick.2026-05-07,hardwick-local-suffolk-hardwick-2026-05-07,Hardwick,suffolk,Suffolk,,1,3559,0.477943,0.500000,-0.022057,1
@@ -31887,3 +31889,9 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.worthing.salvington.2026-05-07,salvington-local-worthing-salvington-2026-05-07,Salvington,worthing,Worthing,,1,3495,0.371960,0.500000,-0.128040,1
 2026,local.worthing.selden.2026-05-07,selden-local-worthing-selden-2026-05-07,Selden,worthing,Worthing,,1,3045,0.316913,0.500000,-0.183087,1
 2026,local.worthing.tarring.2026-05-07,tarring-local-worthing-tarring-2026-05-07,Tarring,worthing,Worthing,,1,3243,0.273512,0.500000,-0.226488,1
+2026,local.st-helens.st-helens-town-centre.2026-06-25,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,st-helens,St Helens,,2,1038,0.420039,0.333333,0.086705,0
+2026,local.tamworth.wilnecote.2026-06-25,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,tamworth,Tamworth,,1,1331,0.464313,0.500000,-0.035687,1
+2026,local.bradford.idle-thackley.2026-06-18,idle-and-thackley-local-bradford-idle-thackley-2026-06-18,Idle and Thackley,bradford,Bradford,,3,4883.333333333333,0.555768,0.250000,0.305768,0
+2026,local.bury.moorside.2026-06-18,moorside-local-bury-moorside-2026-06-18,Moorside,bury,Bury,,1,3316,0.394451,0.500000,-0.105549,1
+2026,local.essex.chelmsford-springfield.2026-06-18,chelmsford-springfield-local-essex-chelmsford-springfield-2026-06-18,Chelmsford Springfield,essex,Essex,,1,5868,0.545842,0.500000,0.045842,0
+2026,local.hillingdon.hillingdon-west.2026-06-18,hillingdon-west-local-hillingdon-hillingdon-west-2026-06-18,Hillingdon West,hillingdon,Hillingdon,,2,2225.5,0.426421,0.333333,0.093088,0
