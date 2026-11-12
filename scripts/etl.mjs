@@ -314,11 +314,12 @@ function councilSlugify(name) {
   return aliasCouncilSlug(slugify(name));
 }
 
+// Democracy Club exports write booleans Postgres-style, as 't' / 'f'.
 function truthy(v) {
   if (v === true || v === 1) return true;
   if (typeof v === 'string') {
     const s = v.trim().toLowerCase();
-    return s === 'true' || s === 'y' || s === 'yes' || s === '1';
+    return s === 'true' || s === 't' || s === 'y' || s === 'yes' || s === '1';
   }
   return false;
 }
@@ -794,21 +795,46 @@ function ingestLeapCycle(cycle) {
 //   - Skip rows where votes_cast is empty (results not yet entered for
 //     that race; will get picked up on the next ETL run after DC publishes).
 
-// Latest DC candidates export under source-data/council/ — picks the most
-// recently modified `*dc-candidates-*results_true-*.csv`. Refresh by
-// dropping a new export into source-data/council/; no edit needed here.
-// Sorted by mtime rather than filename so `downloaded-...-` and bare
-// `dc-...-` prefixes are both ordered correctly.
-function findLatestDcExport() {
+// DC stamps every export filename with its download time
+// (`...-2026-06-04T14-16-41.csv`). Sort on that stamp, not on mtime:
+// a fresh git clone gives every file the same mtime, so an mtime sort
+// can pick an old export. Falls back to mtime for unstamped files.
+function dcExportStamp(name, path) {
+  const m = name.match(/(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2})\.csv$/i);
+  return m ? m[1] : new Date(statSync(path).mtimeMs).toISOString();
+}
+
+function listDcExports(pattern) {
   const sourceDir = resolve(ROOT, 'source-data/council');
-  const matches = readdirSync(sourceDir)
-    .filter((f) => /dc-candidates-.*results_true-.*\.csv$/i.test(f))
+  return readdirSync(sourceDir)
+    .filter((f) => pattern.test(f))
     .map((f) => {
       const path = resolve(sourceDir, f);
-      return { name: f, path, mtimeMs: statSync(path).mtimeMs };
+      return { name: f, path, stamp: dcExportStamp(f, path) };
     })
-    .sort((a, b) => b.mtimeMs - a.mtimeMs);
-  return matches[0]?.path ?? null;
+    .sort((a, b) => b.stamp.localeCompare(a.stamp));
+}
+
+// Latest DC candidates export under source-data/council/ — picks the
+// `*dc-candidates-*results_true-*.csv` with the newest download stamp.
+// Refresh by dropping a new export into source-data/council/; no edit
+// needed here.
+function findLatestDcExport() {
+  return listDcExports(/^(downloaded-.*-)?dc-candidates-.*results_true-.*\.csv$/i)[0]?.path ?? null;
+}
+
+// Postponed polls. A candidate death cancels a ward poll on polling
+// day, and the council re-runs it a few weeks later (2026: 18 and 25
+// June). DC files those under the new date, so the 7 May export shows
+// only the cancelled ballot. One `dc-postponed-candidates-*.csv` per
+// re-run date; the newest export per date wins.
+function findDcPostponedExports() {
+  const byDate = new Map();
+  for (const f of listDcExports(/^dc-postponed-candidates-.*\.csv$/i)) {
+    const date = f.name.match(/election_date_(\d{4}-\d{2}-\d{2})/)?.[1] ?? f.name;
+    if (!byDate.has(date)) byDate.set(date, f.path);
+  }
+  return [...byDate.values()];
 }
 
 const DC_2026_FILE = findLatestDcExport();
@@ -816,7 +842,8 @@ const DC_2026_CYCLE = {
   year: 2026,
   electionDate: '2026-05-07',
   electionDateLabel: '7 May 2026',
-  file: DC_2026_FILE
+  file: DC_2026_FILE,
+  postponedFiles: findDcPostponedExports()
 };
 
 // Council-name lookup so DC slugs render with the LEH-style display name
@@ -845,17 +872,24 @@ function parseCsv(text) {
   return XLSX.utils.sheet_to_json(ws, { defval: null, raw: false });
 }
 
-function councilSlugFromElectionId(electionId, electionDate) {
+function councilSlugFromElectionId(electionId) {
   // election_id format: "local.<slug>.<YYYY-MM-DD>". Strip the "local."
   // prefix and the trailing date, then run the slug through the global
   // alias map so DC's `bristol` / `kingston-upon-hull` / `city-of-lincoln`
   // align with the canonical (oncd-/hex-matching) slugs used elsewhere.
+  // Any date is stripped, not just polling day: postponed polls carry
+  // their re-run date ("local.bury.2026-06-18") but belong to the same
+  // council.
   if (!electionId) return null;
   let s = String(electionId).trim();
   if (s.startsWith('local.')) s = s.slice('local.'.length);
-  const dateSuffix = `.${electionDate}`;
-  if (s.endsWith(dateSuffix)) s = s.slice(0, -dateSuffix.length);
+  s = s.replace(/\.\d{4}-\d{2}-\d{2}$/, '');
   return s ? aliasCouncilSlug(s) : null;
+}
+
+/** `local.bury.moorside.2026-06-18` → `local.bury.moorside.2026-05-07`. */
+function ballotOnDate(ballot, date) {
+  return ballot.replace(/\.\d{4}-\d{2}-\d{2}$/, `.${date}`);
 }
 
 function ingestDcCycle(cycle) {
@@ -869,13 +903,43 @@ function ingestDcCycle(cycle) {
     return null;
   }
   console.log(`[etl ${cycle.year}] DC source: ${cycle.file.split('/').pop()}`);
-  const rows = parseCsv(readFileSync(file, 'utf8'));
+  const mainRows = parseCsv(readFileSync(file, 'utf8'));
+
+  // Postponed-poll rows. A re-run ballot replaces the polling-day
+  // ballot that DC marks as cancelled, so keep a re-run only when its
+  // polling-day twin was cancelled. That rule drops the unrelated
+  // by-elections and other councils' polls in the same date export.
+  const cancelledBallots = new Set(
+    mainRows
+      .filter((r) => truthy(r.cancelled_poll) && r.ballot_paper_id)
+      .map((r) => String(r.ballot_paper_id).trim())
+  );
+  const isPostponedPoll = (ballot) =>
+    !ballot.endsWith(`.${cycle.electionDate}`) &&
+    cancelledBallots.has(ballotOnDate(ballot, cycle.electionDate));
+  const postponedRows = [];
+  for (const p of cycle.postponedFiles ?? []) {
+    console.log(`[etl ${cycle.year}] DC postponed polls: ${p.split('/').pop()}`);
+    for (const r of parseCsv(readFileSync(p, 'utf8'))) {
+      const ballot = r.ballot_paper_id ? String(r.ballot_paper_id).trim() : '';
+      if (ballot && isPostponedPoll(ballot)) postponedRows.push(r);
+    }
+  }
+  // Older polling-day exports also listed the re-run ballots, before
+  // their results came in. The postponed export is the newer source,
+  // so it wins for any ballot that both files carry.
+  const postponedBallots = new Set(postponedRows.map((r) => String(r.ballot_paper_id).trim()));
+  const rows = [
+    ...mainRows.filter((r) => !postponedBallots.has(String(r.ballot_paper_id ?? '').trim())),
+    ...postponedRows
+  ];
 
   // Build wards keyed by ballot_paper_id (one race per ward).
   const wardsByKey = new Map();
   let skippedCancelled = 0;
   let skippedNoBallot = 0;
   let skippedByElection = 0;
+  let skippedOtherDate = 0;
   for (const r of rows) {
     if (truthy(r.cancelled_poll)) {
       skippedCancelled++;
@@ -884,6 +948,12 @@ function ingestDcCycle(cycle) {
     const ballot = r.ballot_paper_id ? String(r.ballot_paper_id).trim() : '';
     if (!ballot) {
       skippedNoBallot++;
+      continue;
+    }
+    // A ballot on another date that does not replace a cancelled
+    // polling-day ballot is not part of this cycle.
+    if (!ballot.endsWith(`.${cycle.electionDate}`) && !isPostponedPoll(ballot)) {
+      skippedOtherDate++;
       continue;
     }
     // By-elections held on the same day as the cohort vote (DC marks
@@ -897,7 +967,7 @@ function ingestDcCycle(cycle) {
       skippedByElection++;
       continue;
     }
-    const councilSlug = councilSlugFromElectionId(r.election_id, cycle.electionDate);
+    const councilSlug = councilSlugFromElectionId(r.election_id);
     if (!councilSlug) continue;
     const wardName = normaliseWardName(String(r.post_label ?? '').trim());
     const seats = Number(r.seats_contested ?? 1) || 1;
@@ -924,7 +994,8 @@ function ingestDcCycle(cycle) {
     if (!ward) {
       ward = {
         year: cycle.year,
-        electionDate: cycle.electionDate,
+        // Postponed polls keep their own re-run date.
+        electionDate: r.election_date ? String(r.election_date).trim() : cycle.electionDate,
         key: ballot,
         wardCode: ballot,
         wardName,
@@ -1046,7 +1117,8 @@ function ingestDcCycle(cycle) {
   console.log(
     `[etl ${cycle.year}] DC: read ${rows.length} candidacy rows ` +
       `(${skippedCancelled} cancelled, ${skippedNoBallot} no ballot id, ` +
-      `${skippedByElection} by-election rows); ` +
+      `${skippedByElection} by-election rows, ${skippedOtherDate} other-date rows); ` +
+      `${postponedBallots.size} postponed polls; ` +
       `dropped ${skippedPartialWards} wards still counting ` +
       `(${skippedPendingCands} pending candidacies); ` +
       `produced ${races.length} races, ` +

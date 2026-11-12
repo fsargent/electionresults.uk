@@ -67,15 +67,13 @@
     the quota framing is still the right benchmark for the system as a
     whole. We deliberately don't single out one preferred method on
     this site &mdash; the editorial argument is against the
-    distortion, not for one particular replacement. For comparisons
-    between proportional methods, see the sister site
-    <a href="https://proportional.uk" rel="external noopener">proportional.uk</a>.
+    distortion, not for one particular replacement.
   </p>
   <p>
-    Picking the right replacement is exactly what a
-    <a href="https://www.open-britain.co.uk/ncer" rel="external noopener">National
-    Commission on Electoral Representation</a> would be for. The data
-    on this site documents the case for one.
+    The data on this site documents the case for change. To compare
+    proportional methods and see what a replacement could look like,
+    visit the sister site
+    <a href="https://proportional.uk" rel="external noopener">proportional.uk</a>.
   </p>
 
   <h2>Winning percentage</h2>
@@ -235,12 +233,9 @@
   </p>
   <p>
     <strong>This site doesn't take a stand on which voting method is
-    best.</strong> Picking the right replacement for First-Past-the-Post
-    is exactly what a
-    <a href="https://www.open-britain.co.uk/ncer" rel="external noopener">National
-    Commission on Electoral Representation</a> would be for. For more
-    on the trade-offs between proportional methods (STV, list PR,
-    mixed-member, approval, and others), see the sister site
+    best.</strong> To compare the trade-offs between proportional
+    methods (STV, list PR, mixed-member, approval, and others) and see
+    what each could look like, visit the sister site
     <a href="https://proportional.uk" rel="external noopener">proportional.uk</a>.
   </p>
   <p>

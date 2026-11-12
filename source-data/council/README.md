@@ -21,6 +21,7 @@ source-data/council/
 ├── opencouncildata_councillors_{2016..2025}.csv    Open Council Data UK councillor rosters (CC BY-SA 4.0)
 ├── history2016-2025.csv                            Open Council Data UK council-control snapshot
 ├── dc-candidates-…csv                              Democracy Club 2026-05-07 cohort exports
+├── dc-postponed-candidates-…csv                    Democracy Club exports for postponed 2026 polls (18 and 25 June)
 ├── downloaded-…dc-candidates-…csv                  Earlier DC export (kept for diffing)
 ├── scotland-2022-stv-indylive.csv                  Scottish 2022 STV first-preferences (IndyLive, CC BY-SA 4.0)
 └── uk-lad-2025.hexjson                             ODI Leeds UK Local Authority District hexmap
@@ -33,7 +34,7 @@ source-data/council/
 | House of Commons Library — LEH series | `LEH-*`, `local-elections-*`, `local_elections_*`, `CBP9545-*`, `data_tables.xlsx` | [Open Parliament Licence v3.0](https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence/) | Annual Local Election Handbook + cohort briefings; canonical comparator for the 2026 cycle |
 | Andrew Teale — Local Elections Archive Project (LEAP) | `leap/{2016..2019}/leap-*.csv` | CC BY-SA 3.0 / GFDL — see [`docs/leap-source.md`](../../docs/leap-source.md) | Pre-LEH ward-level data; share-alike obligation rides on derived downloads |
 | Open Council Data UK | `opencouncildata_councillors_*.csv`, `history2016-2025.csv` | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Sitting-councillor rosters + council-control snapshots |
-| Democracy Club | `dc-candidates-*.csv`, `downloaded-*dc-candidates-*.csv` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Live 2026 cohort export; refresh by dropping a newer file into this directory (ETL picks the most recent by mtime) |
+| Democracy Club | `dc-candidates-*.csv`, `downloaded-*dc-candidates-*.csv`, `dc-postponed-candidates-*.csv` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | 2026 cohort export; refresh by dropping a newer file into this directory (the ETL picks the newest download stamp in the filename) |
 | IndyLive Scotland | `scotland-2022-stv-indylive.csv` | CC BY-SA 4.0 | 2022 Scottish council STV first-preferences only |
 | ODI Leeds | `uk-lad-2025.hexjson` | [ODC-BY](https://opendatacommons.org/licenses/by/) | UK Local Authority District hexmap geometry |
 
@@ -49,4 +50,16 @@ To refresh a single dataset:
 4. Review the diff under `src/lib/data/generated.json`, `static/data/*.csv`, and `static/data/results.sqlite`.
 5. Commit source + regenerated artefacts together.
 
-For Democracy Club refreshes, just drop the new CSV in alongside the previous one — the ETL picks the most recent `dc-candidates-*results_true-*.csv` by mtime; keeping older exports is useful for diffing.
+For Democracy Club refreshes, drop the new CSV in alongside the previous one. The ETL picks the `dc-candidates-*results_true-*.csv` with the newest download stamp in its filename (for example `-2026-11-12T15-18-07.csv`). It does not use file mtime, because a fresh clone gives every file the same mtime. Keep older exports for diffing.
+
+### Postponed polls
+
+A candidate death cancels a ward poll on polling day. The council then runs that poll again a few weeks later. Democracy Club files the re-run under its new date, so the 7 May export shows only the cancelled ballot.
+
+To add re-run results:
+
+1. Download the export for the re-run date, for example `https://candidates.democracyclub.org.uk/data/export_csv/?election_date=2026-06-18&election_id=local&field_group=results&format=csv`.
+2. Save it as `dc-postponed-candidates-election_date_<date>__election_id_local__field_group_results-<stamp>.csv`.
+3. Run `bun run etl`.
+
+The ETL keeps a re-run ballot only when the 7 May export marks its polling-day ballot as cancelled. That rule drops the by-elections and other polls in the same export.

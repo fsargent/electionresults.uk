@@ -103,12 +103,8 @@
 </p>
 
 <p class="call-to-action">
-  Want a fix? Back the call for a
-  <a
-    href="https://www.open-britain.co.uk/ncer"
-    rel="external noopener"
-    >National Commission on Electoral Representation</a
-  >.
+  Want a fix? See what a proportional Parliament could look like at
+  <a href="https://proportional.uk" rel="external noopener">proportional.uk</a>.
 </p>
 
 <style>
