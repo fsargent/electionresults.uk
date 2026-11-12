@@ -61,6 +61,8 @@
     <li><a href="/data/councils.csv" download>councils.csv</a> — one row per (year, council) pair</li>
     <li><a href="/data/races.csv" download>races.csv</a> — one row per ward race</li>
     <li><a href="/data/candidates.csv" download>candidates.csv</a> — one row per candidacy</li>
+    <li><a href="/data/by-elections.csv" download>by-elections.csv</a> — one row per <a href="/councils/by-elections">by-election</a> held after 7 May 2026 (not in the cycle tables above)</li>
+    <li><a href="/data/by-election-candidates.csv" download>by-election-candidates.csv</a> — one row per by-election candidacy</li>
   </ul>
 
   <h2>Browse in your browser</h2>

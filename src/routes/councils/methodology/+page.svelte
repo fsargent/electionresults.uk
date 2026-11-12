@@ -439,6 +439,24 @@
     Essex 2027/28) will be added when those cycles enter the dataset.
   </p>
 
+  <h2 id="by-elections">By-elections</h2>
+  <p>
+    A by-election fills one seat partway through a council's term. It
+    is not part of the council's full election, so by-elections are not
+    in any cycle total, distortion figure or flip on this site. They
+    have their own page at
+    <a href="/councils/by-elections">/councils/by-elections</a>.
+  </p>
+  <p>
+    The page covers every local by-election held after 7 May 2026, from
+    the <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>
+    results export. It uses the same quota rule as the ward races. For
+    one seat the proportional quota is half the vote, so a winner below
+    quota is a winner without a majority. Scottish by-elections use
+    STV, and Democracy Club does not publish their vote counts, so the
+    page lists the count but leaves them out of the figures.
+  </p>
+
   <h2>System anomalies</h2>
   <p>
     Three anomaly lenses are surfaced as their own pages:

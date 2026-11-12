@@ -26,6 +26,7 @@ export const staticCouncilUrls = [
   '/',
   '/councils/flips',
   '/councils/below-quota',
+  '/councils/by-elections',
   '/councils/methodology',
   '/councils/data',
   '/councils/parties'
