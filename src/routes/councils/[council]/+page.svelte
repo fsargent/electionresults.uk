@@ -159,10 +159,10 @@
             {num(c.raceCount)} race{c.raceCount === 1 ? '' : 's'} ·
             {num(c.totalSeatCount)} seat{c.totalSeatCount === 1 ? '' : 's'}
           </span>
-          <span class="cycle-quota">
+          {#if !data.isStv}<span class="cycle-quota">
             <span class="warn">{pct(c.belowQuotaShare)}</span>
             <span class="muted">below quota</span>
-          </span>
+          </span>{/if}
         </a>
       </li>
     {/each}

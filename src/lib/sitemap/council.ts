@@ -59,6 +59,7 @@ export function councilSitemapUrls(): string[] {
   return [
     ...staticCouncilUrls,
     ...cycleUrls,
+    ...allCycles.flatMap(c => ['england', 'scotland', 'wales', 'northern-ireland'].map(n => `/councils/${n}/${c.year}`)),
     ...councilOverviewUrls,
     ...councilCycleUrls,
     ...partyOverviewUrls,

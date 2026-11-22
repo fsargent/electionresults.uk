@@ -647,9 +647,12 @@ export function partyViewForYearAndCouncil(
  * which that council appears. Used by the homepage hex map to give every
  * council on the layout the freshest data point we have.
  */
+const stvCouncilCycles = new Set(allRaces.filter(r => r.system === 'STV').map(r => `${r.year}:${r.councilSlug}`));
+
 export function latestCouncilSummaries(): CouncilSummary[] {
   const byCanonicalSlug = new Map<string, CouncilSummary>();
   for (const c of allCouncils) {
+    if (stvCouncilCycles.has(`${c.year}:${c.councilSlug}`)) continue;
     const existing = byCanonicalSlug.get(c.councilSlug);
     if (!existing || c.year > existing.year) {
       byCanonicalSlug.set(c.councilSlug, c);
@@ -666,7 +669,7 @@ export function cycleByYear(year: number): CycleSummary | undefined {
 
 export function councilsForYear(year: number): CouncilSummary[] {
   return allCouncils
-    .filter((c) => c.year === year)
+    .filter((c) => c.year === year && !stvCouncilCycles.has(`${c.year}:${c.councilSlug}`))
     .sort((a, b) => a.council.localeCompare(b.council));
 }
 

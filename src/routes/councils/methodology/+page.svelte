@@ -50,24 +50,11 @@
     the gap.
   </p>
   <p>
-    Under proportional systems, results like the ones on this site
-    simply don't occur: the proportional quota is the floor that any
-    common proportional method requires. The contrast between
-    First-Past-the-Post / bloc vote and a proportional alternative is
-    the editorial frame throughout the site.
-  </p>
-  <p>
-    <strong>What counts as "proportional"?</strong> The quota threshold
-    applies to any method whose <em>overall</em> seat allocation tracks
-    the vote distribution &mdash; STV, list PR (D'Hondt, Sainte-Lagu&euml;,
-    and similar), proportional approval, and the regional-list portion
-    of mixed-member systems like AMS. Mixed-member systems are
-    partly First-Past-the-Post in their constituency component, but
-    their compensatory list seats restore overall proportionality, so
-    the quota framing is still the right benchmark for the system as a
-    whole. We deliberately don't single out one preferred method on
-    this site &mdash; the editorial argument is against the
-    distortion, not for one particular replacement.
+    The quota is a comparison benchmark, not a universal minimum for election under
+    proportional representation. Under Single Transferable Vote (STV), candidates
+    can win through later preferences or be elected below quota when only enough
+    candidates remain to fill the seats. First-preference shares alone do not
+    measure their support at election. We exclude STV results from below-quota rankings.
   </p>
   <p>
     The data on this site documents the case for change. To compare
@@ -153,16 +140,11 @@
     always single-member.
   </p>
   <p>
-    The <strong>proportional quota</strong> is the share of valid
-    ballots a candidate would need to be guaranteed a seat under any
-    common proportional voting method:
-    <code>quota</code> = <Frac num="1" denom="seats + 1" />. For a 1-seat
-    ward this collapses to 50% (a true majority); for 2 seats it is
-    33.3%; for 3 seats, 25%. (Technical name for the curious: the
-    <em>Droop quota</em>, after H.&nbsp;R.&nbsp;Droop's 1869 paper on
-    proportional election methods. The figure is used, in the same or
-    near-identical form, by every preferential and party-list system
-    we are aware of.)
+    We use <Frac num="1" denom="seats + 1" /> as a proportional-quota
+    benchmark for first-past-the-post and block-vote contests. The integer Droop
+    quota used in an STV count is floor(valid ballots / (seats + 1)) + 1.
+    Reaching it is sufficient for election under the relevant rules, but not
+    necessary in every case. Party-list methods have different allocation rules.
   </p>
   <p>
     For each race we compute the signed gap
