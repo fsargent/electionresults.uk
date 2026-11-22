@@ -24,6 +24,8 @@ import {
 
 export const staticCouncilUrls = [
   '/',
+  '/councils/scotland/2022',
+  '/councils/wales/2022',
   '/councils/flips',
   '/councils/below-quota',
   '/councils/by-elections',

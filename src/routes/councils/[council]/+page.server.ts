@@ -8,7 +8,8 @@ import {
   latestCompositionForCouncil,
   compositionsForCouncil,
   reorganisationForCouncil,
-  allPartyViews
+  allPartyViews,
+  allRaces
 } from '$lib/data';
 import { reallocatedSeats } from '$lib/distortion';
 
@@ -19,6 +20,7 @@ export function entries() {
 }
 
 export function load({ params }: { params: { council: string } }) {
+  const isStv = allRaces.some(r => r.councilSlug === params.council && r.system === 'STV');
   const history = councilHistory(params.council);
   if (!history) throw error(404, `Council not found: ${params.council}`);
   const wards = wardHistoryForCouncil(params.council);
@@ -91,15 +93,16 @@ export function load({ params }: { params: { council: string } }) {
     : null;
 
   return {
+    isStv,
     history,
     wards,
     composition,
     compositionApprox,
     reorganisation,
     latestCycle,
-    latestPartyView,
+    latestPartyView: isStv ? null : latestPartyView,
     compositionHistory,
     aggregateDistortion,
-    aggregateBelowQuota
+    aggregateBelowQuota: isStv ? null : aggregateBelowQuota
   };
 }

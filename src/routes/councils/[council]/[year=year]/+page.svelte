@@ -6,6 +6,7 @@
   import Tooltip from '$lib/components/Tooltip.svelte';
   import { reallocatedSeats } from '$lib/distortion';
   let { data } = $props();
+  const isStv = $derived(data.races.some(r => r.race.system === 'STV'));
   const council = $derived(data.council);
   const races = $derived(data.races);
   const cycle = $derived(data.cycle);
@@ -50,7 +51,7 @@
   <title>{council.council} {cycle.year} — election results audit | electionresults.uk</title>
   <meta
     name="description"
-    content={`${council.council}, ${cycle.electionDateLabel}: ${belowQuotaRaces} of ${council.raceCount} ward races elected councillors below the proportional quota.`}
+    content={isStv ? `${council.council} ${cycle.year}: recorded STV winners and first-preference votes.` : `${council.council}, ${cycle.electionDateLabel}: ${belowQuotaRaces} of ${council.raceCount} ward races elected councillors below the proportional quota.`}
   />
   <link
     rel="canonical"
@@ -64,6 +65,7 @@
     property="og:description"
     content={`${council.council}, ${cycle.electionDateLabel}: vote share vs seats won.`}
   />
+  {#if !isStv}
   <meta
     property="og:image"
     content={`https://electionresults.uk/og/${council.councilSlug}-${cycle.year}.png`}
@@ -75,6 +77,7 @@
     name="twitter:image"
     content={`https://electionresults.uk/og/${council.councilSlug}-${cycle.year}.png`}
   />
+  {/if}
 </svelte:head>
 
 <main class="wide">
@@ -87,6 +90,22 @@
     Local elections held <strong>{cycle.electionDateLabel}</strong>.
   </p>
 
+  {#if isStv}
+    <p>Single Transferable Vote (STV). These are recorded winners and first-preference votes.
+      Transfers can elect a candidate who was outside the leading places on first preferences.</p>
+    <p>This extract covers {council.raceCount} wards. Missing or uncontested wards are not zero-vote results.
+      <a href="/councils/scotland/2022">Scottish coverage and sources →</a></p>
+    {#each races as { race } (race.wardSlug)}
+      <section id={race.wardSlug}>
+        <h2>{race.wardName}</h2>
+        <p>{race.seats} seats · {num(race.validBallots)} valid ballots</p>
+        <table><thead><tr><th>Candidate</th><th>Party</th><th class="num">First preferences</th><th>Result</th></tr></thead>
+          <tbody>{#each race.candidates as c}<tr><td>{c.name}</td><td><Party name={c.party} /></td><td class="num">{num(c.votes)}</td><td>{c.elected ? 'Elected' : 'Not elected'}</td></tr>{/each}</tbody>
+        </table>
+      </section>
+    {/each}
+    <p>Compiled by <a href="https://election.indylive.radio/">Gerry Mulvenna / IndyLive</a>, including Democracy Club candidate data (CC BY-SA 4.0).</p>
+  {:else}
   <div class="summary">
     <div class="kpi">
       <span class="figure">{num(council.raceCount)}</span>
@@ -360,6 +379,7 @@
       </p>
     </section>
   {/each}
+  {/if}
 </main>
 
 <style>

@@ -67,7 +67,13 @@
   {/if}
 </nav>
 
+{#if onCouncils}
+<nav class="nation-nav" aria-label="Council results by nation">
+  <a href="/">All councils</a> · <a href="/councils/scotland/2022">Scotland 2022</a> · <a href="/councils/wales/2022">Wales 2022</a>
+</nav>
+{/if}
 {@render children?.()}
+<style>.nation-nav { max-width: 96ch; margin: 0 auto; padding: 0.75rem 1.25rem; }</style>
 
 <footer>
   <div class="inner">
