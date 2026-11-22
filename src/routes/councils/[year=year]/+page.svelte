@@ -1,221 +1,38 @@
 <script lang="ts">
-  import { pct, num, pts } from '$lib/format';
-  import Party from '$lib/components/Party.svelte';
   import CouncilHexMap from '$lib/components/CouncilHexMap.svelte';
-  import Tooltip from '$lib/components/Tooltip.svelte';
-  import { belowQuotaColor } from '$lib/below-quota-color';
+  import { num } from '$lib/format';
   let { data } = $props();
-
-  const fills = $derived(
-    Object.fromEntries(
-      data.councils.map((c) => [
-        c.councilSlug,
-        {
-          color: belowQuotaColor(c.belowQuotaShare),
-          href: `/councils/${c.councilSlug}/${c.year}`,
-          title: `${c.council} — ${pct(c.belowQuotaShare)} of seats below quota (${c.belowQuotaSeatCount} of ${c.totalSeatCount})`,
-          primary: `${c.council} (${c.year})`,
-          secondary: `${pct(c.belowQuotaShare)} of seats below quota — ${c.belowQuotaSeatCount} of ${c.totalSeatCount}`
-        }
-      ])
-    )
-  );
+  const fills = $derived(Object.fromEntries(data.groups.flatMap(g => g.councils.map(c => [c.mapSlug, {
+    color: '#0b3d2e', href: `/councils/${c.slug}/${data.year}`,
+    title: `${c.name}: ${c.wards} ward records, ${c.seats} recorded winners`
+  }]))));
 </script>
-
 <svelte:head>
-  <title>{data.cycle.electionDateLabel} — UK local elections | electionresults.uk</title>
-  <meta
-    name="description"
-    content={`The ${data.cycle.electionDateLabel} English local-elections cohort: ${data.cycle.councilCount} councils, ${data.cycle.raceCount} ward races, ${data.cycle.belowQuotaSeatCount} of ${data.cycle.seatCount} seats elected below the proportional quota.`}
-  />
-  <link
-    rel="canonical"
-    href={`https://electionresults.uk/councils/${data.cycle.year}`}
-  />
+  <title>All council results {data.year} | electionresults.uk</title>
+  <meta name="description" content={`All available council election results for ${data.year}, grouped by England, Scotland, Wales and Northern Ireland, with voting systems and coverage.`} />
+  <link rel="canonical" href={`https://electionresults.uk/councils/${data.year}`} />
 </svelte:head>
-
 <main>
-  <p class="muted"><a href="/">← All cycles</a></p>
-
-  <h1>{data.cycle.electionDateLabel} cohort</h1>
-
-  <div class="summary">
-    <div class="kpi">
-      <span class="figure">{num(data.cycle.councilCount)}</span>
-      <span class="label">councils polled</span>
-    </div>
-    <div class="kpi">
-      <span class="figure">{num(data.cycle.raceCount)}</span>
-      <span class="label">ward races</span>
-    </div>
-    <div class="kpi">
-      <span class="figure">{num(data.cycle.seatCount)}</span>
-      <span class="label">seats elected</span>
-    </div>
-    <div class="kpi">
-      <span class="figure warn">{pct(data.cycle.belowQuotaShare)}</span>
-      <span class="label">elected below the proportional quota</span>
-    </div>
-  </div>
-
-  <h2>Map</h2>
-  <p class="muted">
-    Every UK council as a single hexagon, geographically arranged. Councils
-    that polled in {data.cycle.electionDateLabel} are shaded by the share of
-    their seats elected below the proportional quota — darker is worse.
-    Councils not in this cohort are shown grey. Click a hex to drill in.
-  </p>
-  <div class="map-and-scale">
-    <CouncilHexMap {fills} title={`${data.cycle.electionDateLabel} cohort: % of seats elected below the proportional quota`} />
-    <div class="legend">
-      <span class="legend-label">% below quota</span>
-      <div class="legend-bar">
-        {#each [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] as t (t)}
-          <span class="legend-cell" style:background-color={belowQuotaColor(t)}></span>
-        {/each}
-      </div>
-      <div class="legend-ticks">
-        <span>0%</span><span>50%</span><span>100%</span>
-      </div>
-      <p class="muted small">
-        One hex = one council. Geographic position is approximate
-        (cartogram, not a literal map).
-      </p>
-    </div>
-  </div>
-
-  {#if data.topUnderPar.length > 0}
-    <h2>Ten seats furthest below the proportional quota in this cycle</h2>
-    <table aria-label="Ten seats furthest below the proportional quota">
-      <thead>
-        <tr>
-          <th>Ward / Council</th>
-          <th>Seat-holder (party, per public record)</th>
-          <th class="num">Seats</th>
-          <th class="num">Won at</th>
-          <th class="num">Quota</th>
-          <th class="num">
-            <Tooltip
-              icon
-              body="Marginal winner's share minus the proportional quota for this race. Negative = below; positive = above."
-            >
-              Below quota
-            </Tooltip>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {#each data.topUnderPar as r (r.councilSlug + r.wardSlug)}
-          <tr>
-            <td>
-              <a href={`/councils/${r.councilSlug}/${data.cycle.year}#${r.wardSlug}`}>
-                <strong>{r.wardName}</strong>
-              </a>
-              <br />
-              <span class="muted">{r.council}</span>
-            </td>
-            <td>
-              {r.marginalCandidate}
-              <br />
-              <span class="muted"><Party name={r.marginalParty} /></span>
-            </td>
-            <td class="num">{r.seats}</td>
-            <td class="num pct warn">{pct(r.winningPct)}</td>
-            <td class="num pct">{pct(r.quota)}</td>
-            <td class="num pct warn">{pts(r.underPar)}</td>
-          </tr>
-        {/each}
-      </tbody>
-    </table>
-  {/if}
-
-  <h2>All councils that polled in {data.cycle.electionDateLabel}</h2>
-  <p class="muted">{num(data.councils.length)} councils.</p>
-  <ul class="council-list">
-    {#each data.councils as c (c.councilSlug)}
-      <li>
-        <a href={`/councils/${c.councilSlug}/${c.year}`}>{c.council}</a>
-        <span class="muted">
-          · {c.raceCount} race{c.raceCount === 1 ? '' : 's'}
-          · {pct(c.belowQuotaShare)} of seats below quota
-        </span>
-      </li>
-    {/each}
-  </ul>
+  <h1>All council results {data.year}</h1>
+  <nav aria-label="Election year">{#each data.years as year}<a href={`/councils/${year}`} aria-current={year === data.year ? 'page' : undefined}>{year}</a>{' '}{/each}</nav>
+  <p><strong>{num(data.councils)} councils · {num(data.wards)} ward records · {num(data.seats)} recorded winners</strong></p>
+  <p>All council election results held in this dataset for {data.year}, grouped by nation.
+    Coverage is incomplete. Northern Ireland council results are not included.
+    These are council results, not parliamentary elections. By-elections are listed <a href="/councils/by-elections">separately</a>.</p>
+  <CouncilHexMap {fills} title={`Councils with result records for ${data.year}`} />
+  <p class="muted">Green means records are available, not necessarily complete. Grey means no records in this selection, not necessarily no election. Some historical authorities are absent from this map; the lists below include them.</p>
+  {#each data.groups as group (group.nation)}
+    <section aria-labelledby={group.nation}>
+      <h2 id={group.nation}><a href={`/councils/${group.nation}/${data.year}`}>{group.name}</a></h2>
+      {#if group.wards > 0}
+        <p>{group.dates.join(', ')} · {(group.nation === 'scotland' || group.nation === 'northern-ireland') ? 'Single Transferable Vote (STV)' : 'First-past-the-post and plurality block voting'}</p>
+        <p>{group.councils.length} councils · {num(group.wards)} ward records · {num(group.seats)} recorded winners. <a href={`/councils/${group.nation}/${data.year}`}>Votes, seats and coverage →</a></p>
+        <ul>{#each group.councils as c (c.slug)}<li><a href={`/councils/${c.slug}/${data.year}`}>{c.name}</a> · {c.wards} wards · {c.seats} recorded winners</li>{/each}</ul>
+      {:else}
+        <p>No results included for this nation in {data.year}. <a href={`/councils/${group.nation}/${data.year}`}>Browse available years →</a></p>
+      {/if}
+    </section>
+  {/each}
+  <p>Candidate votes in plurality elections and first preferences in STV elections measure different things. Vote totals are shown on the nation pages rather than combined.</p>
+  <p><a href="/councils/data">Data and sources</a> · <a href="/councils/methodology">Methodology</a></p>
 </main>
-
-<style>
-  .summary {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-    gap: 0.75rem;
-    margin: 1rem 0 1.5rem;
-  }
-  .kpi {
-    border: 1px solid var(--rule);
-    padding: 0.75rem 0.9rem;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-  }
-  .kpi .figure {
-    font-size: 1.6rem;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-  }
-  .kpi .figure.warn { color: var(--warn); }
-  .kpi .label {
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-  .warn { color: var(--warn); }
-  .map-and-scale {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(8rem, 12rem);
-    gap: 1.25rem;
-    align-items: start;
-    margin: 1rem 0 2rem;
-  }
-  @media (max-width: 640px) {
-    .map-and-scale { grid-template-columns: 1fr; }
-  }
-  .legend {
-    font-size: 0.85rem;
-  }
-  .legend-label {
-    display: block;
-    color: var(--muted);
-    text-transform: uppercase;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.4rem;
-  }
-  .legend-bar {
-    display: flex;
-    width: 100%;
-    height: 0.9rem;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .legend-cell { display: block; flex: 1; }
-  .legend-ticks {
-    display: flex;
-    justify-content: space-between;
-    color: var(--muted);
-    font-size: 0.78rem;
-    margin-top: 0.2rem;
-  }
-  .small { font-size: 0.78rem; }
-  .council-list {
-    columns: 18rem 2;
-    gap: 1.5rem;
-    padding-left: 1.2rem;
-    margin-top: 1rem;
-    font-size: 0.95rem;
-  }
-  .council-list li {
-    margin-bottom: 0.35rem;
-    break-inside: avoid;
-  }
-</style>

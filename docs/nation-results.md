@@ -23,3 +23,13 @@ Next stages:
 
 Validation: `bun run test`, `bun run check`, `bun run build` (includes route and
 sitemap checks). Existing SlopeChart accessibility warning is outside this change.
+
+## Year navigation
+
+`/councils/{year}` now lists every recorded council result for the selected
+year, grouped by England, Scotland, Wales and Northern Ireland. Nation links
+preserve the year. Every dataset year has a nation page, with explicit empty
+coverage where no records exist. England classification retains historical
+authorities absent from the contemporary map. Tests reconcile the partition
+against every source record for every year. NI currently has no imported
+records; its page links to EONI's official 2023 results.

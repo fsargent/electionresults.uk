@@ -24,8 +24,6 @@ import {
 
 export const staticCouncilUrls = [
   '/',
-  '/councils/scotland/2022',
-  '/councils/wales/2022',
   '/councils/flips',
   '/councils/below-quota',
   '/councils/by-elections',
@@ -61,6 +59,7 @@ export function councilSitemapUrls(): string[] {
   return [
     ...staticCouncilUrls,
     ...cycleUrls,
+    ...allCycles.flatMap(c => ['england', 'scotland', 'wales', 'northern-ireland'].map(n => `/councils/${n}/${c.year}`)),
     ...councilOverviewUrls,
     ...councilCycleUrls,
     ...partyOverviewUrls,

@@ -1,8 +1,24 @@
 import { describe, it, expect } from 'vitest';
-import { nationResults } from './nation-results';
+import { nationResults, yearResults, nationForRace } from './nation-results';
 import { allRaces, councilsForYear, latestCouncilSummaries } from '$lib/data';
 
 describe('nation result coverage', () => {
+  it('accounts for every record exactly once across nations for each year', () => {
+    for (const year of new Set(allRaces.map(r => r.year))) {
+      const result = yearResults(year);
+      expect(result.wards).toBe(allRaces.filter(r => r.year === year).length);
+      const keys = result.groups.flatMap(g => g.councils.map(c => c.slug));
+      expect(new Set(keys).size).toBe(keys.length);
+    }
+  });
+  it('keeps historic English authorities and reports missing NI coverage', () => {
+    const race = allRaces[0];
+    expect(nationForRace({ ...race, councilSlug: 'abolished-english-county', wardCode: 'E123', system: 'FPTP' })).toBe('england');
+    expect(nationForRace({ ...race, councilSlug: 'cardiff', wardCode: 'W123', system: 'STV' })).toBe('wales');
+    expect(nationForRace({ ...race, councilSlug: 'belfast', wardCode: 'N123', system: 'STV' })).toBe('northern-ireland');
+    expect(nationResults('northern-ireland', 2022).wards).toBe(0);
+    expect(nationResults('england', 2026).wards).toBe(2951);
+  });
   it('excludes STV council summaries from below-quota maps and year views', () => {
     const slugs = new Set(allRaces.filter(r => r.system === 'STV').map(r => r.councilSlug));
     expect(councilsForYear(2022).some(c => slugs.has(c.councilSlug))).toBe(false);

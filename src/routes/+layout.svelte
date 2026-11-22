@@ -3,6 +3,7 @@
   import { page } from '$app/state';
   let { children } = $props();
 
+  const selectedYear = $derived(page.params.year ?? '2026');
   const onParliament = $derived(
     (page.url?.pathname ?? '').startsWith('/parliament')
   );
@@ -69,7 +70,12 @@
 
 {#if onCouncils}
 <nav class="nation-nav" aria-label="Council results by nation">
-  <a href="/">All councils</a> · <a href="/councils/scotland/2022">Scotland 2022</a> · <a href="/councils/wales/2022">Wales 2022</a>
+  <a href={`/councils/${selectedYear}`}>All councils {selectedYear}</a> ·
+  <a href={`/councils/england/${selectedYear}`}>England</a> ·
+  <a href={`/councils/scotland/${selectedYear}`}>Scotland</a> ·
+  <a href={`/councils/wales/${selectedYear}`}>Wales</a> ·
+  <a href={`/councils/northern-ireland/${selectedYear}`}>Northern Ireland</a> ·
+  <a href="/">Council audit</a>
 </nav>
 {/if}
 {@render children?.()}
