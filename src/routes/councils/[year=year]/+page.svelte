@@ -14,6 +14,7 @@
 </svelte:head>
 <main>
   <h1>All council results {data.year}</h1>
+  <p><a href={`/elections/${data.year}`}>All elections in {data.year} →</a></p>
   <nav aria-label="Election year">{#each data.years as year}<a href={`/councils/${year}`} aria-current={year === data.year ? 'page' : undefined}>{year}</a>{' '}{/each}</nav>
   <p><strong>{num(data.councils)} councils · {num(data.wards)} ward records · {num(data.seats)} recorded winners</strong></p>
   <p>All council election results held in this dataset for {data.year}, grouped by nation.

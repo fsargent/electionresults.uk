@@ -1,9 +1,11 @@
 <script lang="ts">
   import '$lib/styles/global.css';
   import { page } from '$app/state';
+  import { councilYears, electionNavigation } from '$lib/election-navigation';
   let { children } = $props();
 
   const selectedYear = $derived(page.params.year ?? '2026');
+  const councilYear = $derived(councilYears.includes(Number(selectedYear)) ? selectedYear : String(councilYears[0]));
   const onParliament = $derived(
     (page.url?.pathname ?? '').startsWith('/parliament')
   );
@@ -38,7 +40,7 @@
     { label: 'Data', councils: '/councils/data', parliament: '/parliament/data' }
   ];
   const visibleNav = $derived(
-    navItems.filter((i) => (onParliament ? i.parliament : i.councils) != null)
+    navItems.filter((i) => (onParliament ? i.parliament : onCouncils ? i.councils : null) != null)
   );
 </script>
 
@@ -61,13 +63,12 @@
   {#each visibleNav as item (item.label)}
     <a href={(onParliament ? item.parliament : item.councils) ?? '#'}>{item.label}</a>
   {/each}
-  {#if onParliament}
-    <a class="cross-domain" href="/">Council&nbsp;&rarr;</a>
-  {:else}
-    <a class="cross-domain" href="/parliament">Parliament&nbsp;&rarr;</a>
-  {/if}
 </nav>
 
+<nav class="nation-nav" aria-label="Election sections">
+  <a href="/elections">All elections</a> · <a href={`/councils/${councilYear}`}>Councils {councilYear}</a> · <a href="/parliament">Westminster</a>
+  {#each electionNavigation as item} · <a href={item.href}>{item.label}</a>{/each}
+</nav>
 {#if onCouncils}
 <nav class="nation-nav" aria-label="Council results by nation">
   <a href={`/councils/${selectedYear}`}>All councils {selectedYear}</a> ·
@@ -87,7 +88,7 @@
       Built by <a href="https://felixsargent.com">Felix Sargent</a> in
       partnership with
       <a href="https://www.makevotesmatter.co.uk/">Make Votes Matter</a>.
-      Source data: House of Commons Library Local Election Handbooks
+      Council source data: House of Commons Library Local Election Handbooks
       (2021&ndash;2025), published under the Open Parliament Licence;
       pre-2021 ward results from
       <a href="https://www.andrewteale.me.uk/leap/" rel="external noopener">Andrew Teale's
@@ -95,6 +96,7 @@
       (CC&nbsp;BY-SA&nbsp;3.0); 2026 results from
       <a href="https://democracyclub.org.uk" rel="external noopener">Democracy Club</a>
       (CC&nbsp;BY&nbsp;4.0).
+      Parliamentary sources are documented on each election’s results page.
       Site released under
       <a href="https://creativecommons.org/licenses/by/4.0/" rel="external noopener">CC&nbsp;BY&nbsp;4.0</a>;
       LEAP-derived data downloads under
