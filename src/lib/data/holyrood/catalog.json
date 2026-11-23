@@ -1,0 +1,16 @@
+{
+  "elections": [
+    {
+      "id": "sp-2026",
+      "year": 2026,
+      "date": "2026-05-07",
+      "name": "Scottish Parliament election 2026",
+      "href": "/holyrood/2026",
+      "nation": "scotland",
+      "system": "Additional Member System (73 constituency MSPs by first past the post; 56 regional MSPs by compensatory D’Hondt list)",
+      "seats": 129,
+      "contests": 81,
+      "coverage": "Complete: all 73 constituency results and all 8 regional list results, 129 of 129 MSPs as declared."
+    }
+  ]
+}
