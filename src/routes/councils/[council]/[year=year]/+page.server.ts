@@ -7,6 +7,7 @@ import {
   partyViewForYearAndCouncil,
   compositionForCouncilYear
 } from '$lib/data';
+import { stvContestsFor, stvDomainForCouncil } from '$lib/server/council-stv';
 
 export const prerender = true;
 
@@ -33,7 +34,13 @@ export function load({ params }: { params: { year: string; council: string } }) 
     compositionForCouncilYear(params.council, year - 1) ?? null;
   const compositionAfter =
     compositionForCouncilYear(params.council, year) ?? null;
+  // STV elections (Scotland 2022, NI 2023): every ward/DEA including
+  // no-poll ones, official count stages and per-contest sources.
+  const stvContests = stvContestsFor(year, params.council);
+  const stvDomain = stvContests.length ? stvDomainForCouncil(year, params.council) : null;
   return {
+    stvContests,
+    stvElection: stvDomain ? { name: stvDomain.name, href: stvDomain.href, nation: stvDomain.nation, date: stvDomain.date } : null,
     council,
     races,
     cycle,

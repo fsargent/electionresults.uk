@@ -74,3 +74,13 @@ To refresh it:
 1. Run `bun run fetch:by-elections`. The script downloads the full Democracy Club local results export and keeps only the by-elections held after 7 May 2026, up to today.
 2. Run `bun run etl`.
 3. Commit the new CSV with the regenerated `src/lib/data/by-elections.json` and `static/data/by-election*.csv`.
+
+### Complete 2022 Scottish and 2023 Northern Ireland STV results
+
+`scotland-2022/` preserves the official Electoral Management Board workbook and
+candidate reconciliation. See its README for the two corrections to the IndyLive
+extract. `scotland-2022-profile-first-preferences.csv` preserves aggregate audit
+tallies from the Mollison compilation; no preference profiles are redistributed.
+`northern-ireland-2023/` preserves original EONI downloads, council declarations,
+checksums, normalization and source notes. Its README documents reuse terms,
+reproduction and published anomalies. These are recorded results, not simulations.

@@ -1,0 +1,28 @@
+{
+  "elections": [
+    {
+      "id": "scotland-council-2022",
+      "year": 2022,
+      "date": "2022-05-05",
+      "name": "Scottish council elections 2022",
+      "href": "/councils/scotland/2022",
+      "nation": "scotland",
+      "system": "STV",
+      "seats": 1226,
+      "contests": 355,
+      "coverage": "32 councils, 355 wards, 8 uncontested; 1223 of 1226 seats filled (3 left vacant)"
+    },
+    {
+      "id": "northern-ireland-council-2023",
+      "year": 2023,
+      "date": "2023-05-18",
+      "name": "Northern Ireland council elections 2023",
+      "href": "/councils/northern-ireland/2023",
+      "nation": "northern-ireland",
+      "system": "STV",
+      "seats": 462,
+      "contests": 80,
+      "coverage": "11 councils, 80 District Electoral Areas; 462 of 462 seats filled"
+    }
+  ]
+}

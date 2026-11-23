@@ -1,0 +1,2 @@
+# Archived publisher HTML: retain original line endings and whitespace.
+/source-data/council/northern-ireland-2023/*.html -text -whitespace

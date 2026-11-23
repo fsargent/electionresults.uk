@@ -266,6 +266,9 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2024,worcester,Worcester,SD,16,35,0,0.000000
 2024,worthing,Worthing,SD,13,13,5,0.384615
 2023,amber-valley,Amber Valley,SDA,18,42,1,0.023810
+2023,antrim-and-newtownabbey,Antrim and Newtownabbey,Northern Ireland district council,7,40,25,0.625000
+2023,ards-and-north-down,Ards and North Down,Northern Ireland district council,7,40,26,0.650000
+2023,armagh-city-banbridge-and-craigavon,"Armagh City, Banbridge and Craigavon",Northern Ireland district council,7,41,22,0.536585
 2023,arun,Arun,SDA,23,54,1,0.018519
 2023,ashfield,Ashfield,SDA,23,35,8,0.228571
 2023,ashford,Ashford,SDA,39,47,14,0.297872
@@ -276,6 +279,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2023,bassetlaw,Bassetlaw,SDA,25,48,0,0.000000
 2023,bath-and-north-east-somerset,Bath & North East Somerset,UAA,33,59,5,0.084746
 2023,bedford,Bedford,UAA,28,46,3,0.065217
+2023,belfast,Belfast,Northern Ireland district council,10,60,42,0.700000
 2023,blaby,Blaby,SDA,16,34,0,0.000000
 2023,blackburn-with-darwen,Blackburn with Darwen,UAT,17,17,1,0.058824
 2023,blackpool,Blackpool,UAA,21,42,0,0.000000
@@ -300,6 +304,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2023,cannock-chase,Cannock Chase,SDT,15,17,5,0.294118
 2023,canterbury,Canterbury,SDA,21,39,4,0.102564
 2023,castle-point,Castle Point,SDT,14,14,4,0.285714
+2023,causeway-coast-and-glens,Causeway Coast and Glens,Northern Ireland district council,7,40,29,0.725000
 2023,central-bedfordshire,Central Bedfordshire,UAA,31,63,6,0.095238
 2023,charnwood,Charnwood,SDA,24,52,3,0.057692
 2023,chelmsford,Chelmsford,SDA,24,57,0,0.000000
@@ -318,6 +323,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2023,dartford,Dartford,SDA,20,42,1,0.023810
 2023,derby,Derby,UAA,18,51,0,0.000000
 2023,derbyshire-dales,Derbyshire Dales,SDA,21,34,1,0.029412
+2023,derry-city-and-strabane,Derry City and Strabane,Northern Ireland district council,7,40,29,0.725000
 2023,dover,Dover,SDA,17,32,2,0.062500
 2023,dudley,Dudley,MB,24,25,6,0.240000
 2023,east-cambridgeshire,East Cambridgeshire,SDA,14,28,1,0.035714
@@ -336,6 +342,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2023,erewash,Erewash,SDA,19,47,0,0.000000
 2023,exeter,Exeter,SDT,13,13,6,0.461538
 2023,fenland,Fenland,SDA,18,43,0,0.000000
+2023,fermanagh-and-omagh,Fermanagh and Omagh,Northern Ireland district council,7,40,25,0.625000
 2023,folkestone-and-hythe,Folkestone & Hythe,SDA,13,30,2,0.066667
 2023,forest-of-dean,Forest Of Dean,SDA,21,38,0,0.000000
 2023,fylde,Fylde,SDA,17,37,0,0.000000
@@ -367,6 +374,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2023,lewes,Lewes,SDA,21,41,2,0.048780
 2023,lichfield,Lichfield,SDA,21,46,0,0.000000
 2023,lincoln,Lincoln,SDT,11,11,2,0.181818
+2023,lisburn-and-castlereagh,Lisburn and Castlereagh,Northern Ireland district council,7,40,28,0.700000
 2023,liverpool,Liverpool,MB,64,85,8,0.094118
 2023,luton,Luton,UAA,19,45,0,0.000000
 2023,maidstone,Maidstone,SDT,18,18,10,0.555556
@@ -376,15 +384,18 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2023,mansfield,Mansfield,SDA,36,36,19,0.527778
 2023,medway,Medway,UAA,24,59,3,0.050847
 2023,melton,Melton,SDA,16,28,0,0.000000
+2023,mid-and-east-antrim,Mid and East Antrim,Northern Ireland district council,7,40,17,0.425000
 2023,mid-devon,Mid Devon,SDA,22,42,1,0.023810
 2023,mid-suffolk,Mid Suffolk,SDA,26,34,1,0.029412
 2023,mid-sussex,Mid Sussex,SDA,27,48,4,0.083333
+2023,mid-ulster,Mid Ulster,Northern Ireland district council,7,40,25,0.625000
 2023,middlesbrough,Middlesbrough,UAA,20,46,0,0.000000
 2023,milton-keynes,Milton Keynes,UAT,19,20,11,0.550000
 2023,mole-valley,Mole Valley,SDT,13,39,0,0.000000
 2023,new-forest,New Forest,SDA,26,48,5,0.104167
 2023,newark-and-sherwood,Newark & Sherwood,SDA,21,39,2,0.051282
 2023,newcastle-upon-tyne,Newcastle Upon Tyne,MB,26,27,11,0.407407
+2023,newry-mourne-and-down,"Newry, Mourne and Down",Northern Ireland district council,7,41,29,0.707317
 2023,north-devon,North Devon,SDA,24,41,2,0.048780
 2023,north-east-derbyshire,North East Derbyshire,SDA,24,53,2,0.037736
 2023,north-east-lincolnshire,North East Lincolnshire,UAT,15,15,6,0.400000
@@ -534,6 +545,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,edinburgh,City of Edinburgh,Scottish council,17,63,38,0.603175
 2022,clackmannanshire,Clackmannanshire,Scottish council,5,18,8,0.444444
 2022,colchester,Colchester,SDT,17,18,3,0.166667
+2022,na-h-eileanan-an-iar,Comhairle nan Eilean Siar,Scottish council,8,23,15,0.652174
 2022,conwy,Conwy,UAA,30,55,5,0.090909
 2022,coventry,Coventry,MB,18,18,7,0.388889
 2022,crawley,Crawley,SDT,12,12,5,0.416667
@@ -606,6 +618,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,newcastle-under-lyme,Newcastle-under-Lyme,SDA,21,44,1,0.022727
 2022,newham,Newham,LB,24,66,0,0.000000
 2022,newport,Newport,UAA,21,51,0,0.000000
+2022,north-ayrshire,North Ayrshire,Scottish council,9,33,18,0.545455
 2022,north-east-lincolnshire,North East Lincolnshire,UAT,15,16,4,0.250000
 2022,north-hertfordshire,North Hertfordshire,SDT,18,18,7,0.388889
 2022,north-lanarkshire,North Lanarkshire,Scottish council,21,77,37,0.480519
@@ -614,6 +627,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,norwich,Norwich,SDT,13,13,1,0.076923
 2022,nuneaton-and-bedworth,Nuneaton and Bedworth,SDT,17,17,6,0.352941
 2022,oldham,Oldham,MB,20,21,9,0.428571
+2022,orkney-islands,Orkney Islands,Scottish council,6,21,12,0.571429
 2022,oxford,Oxford,SDT,24,24,14,0.583333
 2022,pembrokeshire,Pembrokeshire,UAA,40,41,9,0.219512
 2022,pendle,Pendle,SDT,10,12,2,0.166667
@@ -640,6 +654,7 @@ year,council_slug,council,authority_type,race_count,total_seats,below_quota_seat
 2022,sandwell,Sandwell,MB,24,24,4,0.166667
 2022,sefton,Sefton,MB,21,21,8,0.380952
 2022,sheffield,Sheffield,MB,28,28,17,0.607143
+2022,shetland-islands,Shetland Islands,Scottish council,5,17,9,0.529412
 2022,slough,Slough,UAT,14,14,3,0.214286
 2022,solihull,Solihull,MB,17,17,4,0.235294
 2022,somerset,Somerset,UAA,55,110,3,0.027273

@@ -17,7 +17,7 @@
   <nav aria-label="Election year">{#each data.years as year}<a href={`/councils/${year}`} aria-current={year === data.year ? 'page' : undefined}>{year}</a>{' '}{/each}</nav>
   <p><strong>{num(data.councils)} councils · {num(data.wards)} ward records · {num(data.seats)} recorded winners</strong></p>
   <p>All council election results held in this dataset for {data.year}, grouped by nation.
-    Coverage is incomplete. Northern Ireland council results are not included.
+    Coverage is incomplete for England and Wales{#if !data.groups.some(g => g.nation === 'northern-ireland' && g.wards > 0)}; no Northern Ireland council results are included for this year{/if}.
     These are council results, not parliamentary elections. By-elections are listed <a href="/councils/by-elections">separately</a>.</p>
   <CouncilHexMap {fills} title={`Councils with result records for ${data.year}`} />
   <p class="muted">Green means records are available, not necessarily complete. Grey means no records in this selection, not necessarily no election. Some historical authorities are absent from this map; the lists below include them.</p>
@@ -26,8 +26,8 @@
       <h2 id={group.nation}><a href={`/councils/${group.nation}/${data.year}`}>{group.name}</a></h2>
       {#if group.wards > 0}
         <p>{group.dates.join(', ')} · {(group.nation === 'scotland' || group.nation === 'northern-ireland') ? 'Single Transferable Vote (STV)' : 'First-past-the-post and plurality block voting'}</p>
-        <p>{group.councils.length} councils · {num(group.wards)} ward records · {num(group.seats)} recorded winners. <a href={`/councils/${group.nation}/${data.year}`}>Votes, seats and coverage →</a></p>
-        <ul>{#each group.councils as c (c.slug)}<li><a href={`/councils/${c.slug}/${data.year}`}>{c.name}</a> · {c.wards} wards · {c.seats} recorded winners</li>{/each}</ul>
+        <p>{#if group.stv}{group.councils.length} councils · {num(group.wards)} {group.stv.areaLabel}{#if group.stv.noPoll} ({group.stv.noPoll} uncontested){/if} · {num(group.stv.seatsFilled)} of {num(group.stv.seats)} seats filled.{:else}{group.councils.length} councils · {num(group.wards)} ward records · {num(group.seats)} recorded winners.{/if} <a href={`/councils/${group.nation}/${data.year}`}>Votes, seats and coverage →</a></p>
+        <ul>{#each group.councils as c (c.slug)}<li><a href={`/councils/${c.slug}/${data.year}`}>{c.name}</a> · {c.wards} {group.stv ? group.stv.areaLabel : 'wards'} · {c.seats} {group.stv ? 'seats filled' : 'recorded winners'}</li>{/each}</ul>
       {:else}
         <p>No results included for this nation in {data.year}. <a href={`/councils/${group.nation}/${data.year}`}>Browse available years →</a></p>
       {/if}
