@@ -6,7 +6,13 @@
   import Tooltip from '$lib/components/Tooltip.svelte';
   import { reallocatedSeats } from '$lib/distortion';
   let { data } = $props();
-  const isStv = $derived(data.races.some(r => r.race.system === 'STV'));
+  const isStv = $derived(data.stvContests.length > 0 || data.races.some(r => r.race.system === 'STV'));
+  const stv = $derived(data.stvContests);
+  const stvSeats = $derived(stv.reduce((n, c) => n + c.seats, 0));
+  const stvFilled = $derived(stv.reduce((n, c) => n + c.seatsFilled, 0));
+  const stvNoPoll = $derived(stv.filter((c) => !c.contested).length);
+  const areaWord = $derived(stv[0]?.areaType === 'DEA' ? 'District Electoral Areas' : 'wards');
+  const fmtStage = (v: number | null) => v == null ? '–' : Number.isInteger(v) ? num(v) : v.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const council = $derived(data.council);
   const races = $derived(data.races);
   const cycle = $derived(data.cycle);
@@ -51,7 +57,7 @@
   <title>{council.council} {cycle.year} — election results audit | electionresults.uk</title>
   <meta
     name="description"
-    content={isStv ? `${council.council} ${cycle.year}: recorded STV winners and first-preference votes.` : `${council.council}, ${cycle.electionDateLabel}: ${belowQuotaRaces} of ${council.raceCount} ward races elected councillors below the proportional quota.`}
+    content={isStv ? `${council.council} ${cycle.year}: recorded STV winners and first-preference votes.` : `${council.council}, ${data.stvElection ? new Date(`${data.stvElection.date}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : cycle.electionDateLabel}: ${belowQuotaRaces} of ${council.raceCount} ward races elected councillors below the proportional quota.`}
   />
   <link
     rel="canonical"
@@ -63,7 +69,7 @@
   <meta property="og:title" content={`${council.council} ${cycle.year} — election results audit`} />
   <meta
     property="og:description"
-    content={`${council.council}, ${cycle.electionDateLabel}: vote share vs seats won.`}
+    content={`${council.council}, ${data.stvElection ? new Date(`${data.stvElection.date}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : cycle.electionDateLabel}: vote share vs seats won.`}
   />
   {#if !isStv}
   <meta
@@ -83,18 +89,51 @@
 <main class="wide">
   <p class="muted">
     <a href="/councils/{council.councilSlug}">← {council.council} (all cycles)</a>
-    · <a href="/councils/{cycle.year}">{cycle.electionDateLabel} cohort</a>
+    · <a href="/councils/{cycle.year}">{data.stvElection ? new Date(`${data.stvElection.date}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : cycle.electionDateLabel} cohort</a>
   </p>
   <h1>{council.council} <span class="year-badge">{cycle.year}</span></h1>
   <p class="muted election-date">
-    Local elections held <strong>{cycle.electionDateLabel}</strong>.
+    Local elections held <strong>{data.stvElection ? new Date(`${data.stvElection.date}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : cycle.electionDateLabel}</strong>.
   </p>
 
-  {#if isStv}
+  {#if isStv && stv.length}
+    <p>Single Transferable Vote (STV). Winners are the officially declared ones; votes are first preferences.
+      Transfers can elect a candidate who was outside the leading places on first preferences.</p>
+    <p><strong>{stv.length} {areaWord} · {stvFilled} of {stvSeats} seats filled</strong>{#if stvNoPoll}. {stvNoPoll} had no poll because no more candidates stood than there were seats; those candidates were returned unopposed and have no vote totals.{/if}
+      {#if data.stvElection}<a href={data.stvElection.href}>{data.stvElection.name}: coverage and sources →</a>{/if}</p>
+    {#each stv as c (c.areaSlug)}
+      <section id={c.areaSlug}>
+        <h2>{c.area}</h2>
+        {#if c.contested}
+          <p>{c.seats} seats · {c.validBallots != null ? `${num(c.validBallots)} valid ballots` : 'valid ballots not published'}{#if c.quota != null} · quota {num(c.quota)}{/if}{#if c.electorate} · electorate {num(c.electorate)}{/if}</p>
+        {:else}
+          <p>{c.seats} seats · no poll (uncontested){#if c.vacancies} · {c.vacancies} {c.vacancies === 1 ? 'seat' : 'seats'} left vacant{/if}</p>
+        {/if}
+        <table><thead><tr><th>Candidate</th><th>Party</th><th class="num">First preferences</th><th>Result</th></tr></thead>
+          <tbody>{#each c.candidates as cand}<tr><td>{cand.name}</td><td><Party name={cand.party || 'Independent'} /></td><td class="num">{cand.firstPreferences == null ? 'No poll' : fmtStage(cand.firstPreferences)}</td><td>{cand.elected ? (c.contested ? 'Elected' : 'Elected unopposed') : 'Not elected'}</td></tr>{/each}</tbody>
+        </table>
+        {#if c.stages}
+          <details>
+            <summary>Official count: {c.stages.length} stages</summary>
+            <div class="stage-scroll">
+              <table class="stages">
+                <thead><tr><th>Candidate</th>{#each c.stages as st}<th class="num" title={st.action}>Stage {st.number}{st.incomplete ? ' (incomplete)' : ''}</th>{/each}</tr></thead>
+                <tbody>
+                  {#each c.candidates as cand, i}<tr><td>{cand.name}</td>{#each c.stages as st}<td class="num">{fmtStage(st.totals[i] ?? null)}</td>{/each}</tr>{/each}
+                  <tr><td>Non-transferable</td>{#each c.stages as st}<td class="num">{fmtStage(st.nonTransferable)}</td>{/each}</tr>
+                  <tr class="muted"><td>Action</td>{#each c.stages as st}<td>{st.action}</td>{/each}</tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        {/if}
+        {#if c.notes.length}<ul class="notes">{#each c.notes as n}<li>{n}</li>{/each}</ul>{/if}
+        <p class="muted">Source: {#each c.sources as src, i}{#if i}; {/if}<a href={src.url}>{src.label}</a>{#if src.sheet} (sheet “{src.sheet}”){/if}{/each}.</p>
+      </section>
+    {/each}
+  {:else if isStv}
     <p>Single Transferable Vote (STV). These are recorded winners and first-preference votes.
       Transfers can elect a candidate who was outside the leading places on first preferences.</p>
-    <p>This extract covers {council.raceCount} wards. Missing or uncontested wards are not zero-vote results.
-      <a href="/councils/scotland/2022">Scottish coverage and sources →</a></p>
     {#each races as { race } (race.wardSlug)}
       <section id={race.wardSlug}>
         <h2>{race.wardName}</h2>
@@ -104,7 +143,6 @@
         </table>
       </section>
     {/each}
-    <p>Compiled by <a href="https://election.indylive.radio/">Gerry Mulvenna / IndyLive</a>, including Democracy Club candidate data (CC BY-SA 4.0).</p>
   {:else}
   <div class="summary">
     <div class="kpi">
@@ -383,6 +421,10 @@
 </main>
 
 <style>
+  .stage-scroll { overflow-x: auto; }
+  table.stages td, table.stages th { white-space: nowrap; font-size: 0.85rem; }
+  table.stages tr.muted td { white-space: normal; min-width: 7rem; font-size: 0.75rem; }
+  ul.notes { font-size: 0.9rem; }
   .summary {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));

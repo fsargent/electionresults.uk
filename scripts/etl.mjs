@@ -12,6 +12,10 @@ import * as XLSX from 'xlsx';
 import { Database } from 'bun:sqlite';
 import { normalizeParty } from './party-normalize.mjs';
 import { reorganisationIndex } from './council-reorganisations.mjs';
+import {
+  ingestNi2023, buildStvDomain, catalogEntry,
+  SCOTLAND_SOURCES, NI_SOURCE
+} from './lib/council-stv.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -1160,6 +1164,9 @@ function ingestScottishStvCycle(cycle) {
     return null;
   }
   const rows = parseCsv(readFileSync(file, 'utf8'));
+  // Official council returns supply votes, winners and polling metadata.
+  const official = JSON.parse(readFileSync(resolve(ROOT, 'source-data/council/scotland-2022/official-reconciliation.json'), 'utf8'));
+  const officialById = new Map(official.candidates.map(c => [c.id, c]));
 
   // Build wards keyed by council + cand_ward_id.
   const wardsByKey = new Map();
@@ -1192,27 +1199,77 @@ function ingestScottishStvCycle(cycle) {
         ballots: totalPoll > 0 ? totalPoll : null,
         invalidVotes: rejected > 0 ? rejected : null,
         validBallots: validPoll > 0 ? validPoll : 0,
+        quotaVotes: Number(r.quota ?? 0) || null,
         candidates: []
       };
       wardsByKey.set(key, ward);
     }
     const partyRaw = r.party_name;
+    const declaration = officialById.get(String(r.id));
+    if (!declaration) throw new Error(`Missing official reconciliation for ${r.id}`);
+    ward.officialReports ??= new Set();
+    ward.officialReports.add(declaration.report);
+    ward.electorate = declaration.electorate;
+    ward.validBallots = declaration.validBallots ?? 0;
+    ward.invalidVotes = declaration.invalidBallots;
+    ward.ballots = declaration.ballots;
     ward.candidates.push({
       name: String(r.name ?? '').trim().replace(/^"|"$/g, ''),
       party: normalizeParty(partyRaw) ?? '',
-      votes: Number(r.first_prefs ?? 0) || 0,
+      votes: declaration.firstPreferences,
       electedSource: String(r.elected ?? '').trim() === '1',
       elected: String(r.elected ?? '').trim() === '1'
     });
+  }
+
+  // The official workbook includes a 43-vote candidate omitted from IndyLive.
+  // Attach only to the ward with the same explicit declaration report ID.
+  for (const c of official.unmatched) {
+    const ward = [...wardsByKey.values()].find(w => w.officialReports.has(c.ReportName));
+    if (!ward) throw new Error(`Unmapped official report ${c.ReportName}`);
+    ward.candidates.push({ name: c.CandidateName, party: normalizeParty(c.Affiliation) ?? c.AffiliationNational, votes: c.NumberOfFirstPreferenceVotes, elected: c.CandidateElected === 'Yes', electedSource: c.CandidateElected === 'Yes' });
   }
 
   // Materialise races. STV "winning_pct" reuses the same field so the
   // shape stays compatible, but it's the marginal elected candidate's
   // first-preference share — informational only; the editorial
   // distortion claim for STV lives at the council/party level.
+  // Every ward (including the 8 with no poll) also becomes a domain
+  // contest for src/lib/data/council-stv/scotland-2022.json.
   const races = [];
+  const contests = [];
   for (const w of wardsByKey.values()) {
     if (w.candidates.length === 0) continue;
+    const contested = w.candidates.length > w.seats;
+    const seatsFilled = w.candidates.filter((c) => c.elected).length;
+    const wardSlug = slugify(`${w.wardName}-${w.wardCode}`);
+    const domainValid = !contested ? null
+      : w.validBallots > 0 ? w.validBallots : null;
+    contests.push({
+      councilSlug: w.councilSlug, council: w.council, area: w.wardName, areaType: 'ward',
+      areaSlug: wardSlug, areaCode: w.wardCode.replace(/^gss-/, ''),
+      seats: w.seats, contested, seatsFilled, vacancies: Math.max(0, w.seats - seatsFilled),
+      electorate: contested ? w.electorate : null,
+      validBallots: domainValid ?? null,
+      invalidBallots: contested ? w.invalidVotes : null,
+      quota: contested && w.validBallots > 0 ? w.quotaVotes : (contested && domainValid ? Math.floor(domainValid / (w.seats + 1)) + 1 : null),
+      candidates: [...w.candidates]
+        .sort((a, b) => (b.votes ?? -1) - (a.votes ?? -1) || a.name.localeCompare(b.name))
+        .map((c) => ({ name: c.name, party: c.party, firstPreferences: contested ? c.votes : null, elected: c.elected })),
+      stages: null,
+      firstPreferenceSource: !contested ? null : 'official council declaration return',
+      sources: [official.source, SCOTLAND_SOURCES.indylive],
+      notes: [
+        ...(!contested ? [`No poll: ${w.candidates.length} candidate${w.candidates.length === 1 ? '' : 's'} for ${w.seats} seats, returned unopposed.`] : []),
+        ...(w.seats > seatsFilled ? [`${w.seats - seatsFilled} seat${w.seats - seatsFilled === 1 ? '' : 's'} left vacant at the election.`] : []),
+        ...(w.wardName === 'Ayr North' ? ['Official declaration records Laura Brennan-Whitefield with 1,913 first preferences; the compiled extract has 1,914. The official value agrees with the preference profile.'] : []),
+        ...(w.wardName === 'Fraserburgh and District' ? ['The official declaration includes John McColl (43 first preferences), omitted from the compiled extract.'] : [])
+      ]
+    });
+    if (!contested) continue;
+    if (w.candidates.some((c) => c.votes == null)) {
+      throw new Error(`[etl Scotland] contested ward ${w.key} has no first preferences`);
+    }
     const validBallots = w.validBallots > 0
       ? w.validBallots
       : w.candidates.reduce((a, c) => a + c.votes, 0);
@@ -1224,7 +1281,6 @@ function ingestScottishStvCycle(cycle) {
     const winningPct = electedPcts.length ? Math.min(...electedPcts) : 0;
     const quota = quotaForSeats(w.seats);
     const underPar = winningPct - quota;
-    const wardSlug = slugify(`${w.wardName}-${w.wardCode}`);
     races.push({
       year: w.year,
       electionDate: w.electionDate,
@@ -1252,9 +1308,10 @@ function ingestScottishStvCycle(cycle) {
 
   console.log(
     `[etl ${cycle.year}] Scotland STV: read ${rows.length} candidacy rows; ` +
-      `produced ${races.length} races across ${new Set(races.map((r) => r.councilSlug)).size} councils`
+      `produced ${races.length} contested races + ${contests.length - races.length} no-poll wards ` +
+      `across ${new Set(contests.map((r) => r.councilSlug)).size} councils, reconciled to official declarations`
   );
-  return { cycle, races };
+  return { cycle, races, contests };
 }
 
 // --- Run all cycles ----------------------------------------------------------
@@ -1330,9 +1387,11 @@ for (const cycle of CYCLES) {
 // don't share a denominator: distortion / below-quota framing makes
 // sense only for FPTP. Scottish councils get their own (year, councilSlug)
 // keys that don't collide with English ones.
+let scotlandStvContests = [];
 {
   const result = ingestScottishStvCycle(SCOTLAND_STV_CYCLE);
   if (result) {
+    scotlandStvContests = result.contests;
     for (const r of result.races) rememberCouncilName(r.councilSlug, r.council);
     allRaces.push(...result.races);
     // Don't push a separate cycleSummaries entry for Scotland — the
@@ -1340,6 +1399,17 @@ for (const cycle of CYCLES) {
     // groups by year. Scotland's contribution shows up via the
     // dedicated STV section.
   }
+}
+
+// Northern Ireland 2023 STV — 11 councils, 80 District Electoral Areas.
+// Reads the normalized EONI count files under source-data (see that
+// directory's README). Contested DEAs become STV races; every DEA, with
+// its official count stages, goes to the council-stv domain dataset.
+const niResult = ingestNi2023(ROOT, { slugify });
+if (niResult.contests.length) {
+  for (const r of niResult.races) rememberCouncilName(r.councilSlug, r.council);
+  allRaces.push(...niResult.races);
+  console.log(`[etl 2023] Northern Ireland STV: ${niResult.contests.length} DEAs, ${niResult.races.length} races`);
 }
 
 // 2026 cycle (Democracy Club preliminary results — runs after the LEH
@@ -2995,6 +3065,37 @@ const snapshot = {
 };
 writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot));
 console.log(`[etl] wrote ${SNAPSHOT_PATH}`);
+
+// --- Council STV domain datasets ----------------------------------------
+// src/lib/data/council-stv/{scotland-2022,northern-ireland-2023}.json carry
+// every ward/DEA (no-poll wards with null votes), seat reconciliation,
+// official count stages where available, and per-contest sources.
+// catalog.json follows the shared all-elections hub contract.
+{
+  const STV_DOMAIN_DIR = resolve(dirname(SNAPSHOT_PATH), 'council-stv');
+  mkdirSync(STV_DOMAIN_DIR, { recursive: true });
+  const domains = [];
+  if (scotlandStvContests.length) domains.push(buildStvDomain({
+    id: 'scotland-council-2022', nation: 'scotland', year: 2022, date: '2022-05-05',
+    name: 'Scottish council elections 2022', href: '/councils/scotland/2022',
+    contests: scotlandStvContests,
+    sources: [JSON.parse(readFileSync(resolve(ROOT, 'source-data/council/scotland-2022/official-reconciliation.json'), 'utf8')).source, SCOTLAND_SOURCES.indylive, SCOTLAND_SOURCES.profiles]
+  }));
+  if (niResult.contests.length) domains.push(buildStvDomain({
+    id: 'northern-ireland-council-2023', nation: 'northern-ireland', year: 2023, date: '2023-05-18',
+    name: 'Northern Ireland council elections 2023', href: '/councils/northern-ireland/2023',
+    contests: niResult.contests, sources: [NI_SOURCE]
+  }));
+  for (const d of domains) {
+    const p = resolve(STV_DOMAIN_DIR, `${d.nation}-${d.year}.json`);
+    writeFileSync(p, JSON.stringify(d));
+    const s = d.summary;
+    console.log(`[etl] wrote ${p}: ${s.councils} councils, ${s.contests} contests (${s.noPoll} no poll), ` +
+      `${s.seatsFilled}/${s.seats} seats filled, ${s.withStages} with count stages`);
+  }
+  writeFileSync(resolve(STV_DOMAIN_DIR, 'catalog.json'),
+    JSON.stringify({ elections: domains.map(catalogEntry) }, null, 2) + '\n');
+}
 
 // --- STV raw data mirror -----------------------------------------------
 // Mirror the indylive Scottish 2022 STV CSV under static/data/stv/ so

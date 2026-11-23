@@ -146250,6 +146250,7 @@ year,council_slug,ward_slug,ward_name,candidate_name,party,votes,elected,rank
 2022,aberdeenshire,fraserburgh-and-district-gss-s13002850,Fraserburgh and District,Brian Topping,Alba Party,274,0,4
 2022,aberdeenshire,fraserburgh-and-district-gss-s13002850,Fraserburgh and District,Ann Bell,Liberal Democrats,228,1,5
 2022,aberdeenshire,fraserburgh-and-district-gss-s13002850,Fraserburgh and District,Paul Greenall,Independent,182,0,6
+2022,aberdeenshire,fraserburgh-and-district-gss-s13002850,Fraserburgh and District,John MCCOLL,"Scottish Family Party: Pro-Family, Pro-Marriage, Pro-Life",43,0,7
 2022,highland,inverness-central-gss-s13003003,Inverness Central,Bet McAllister,Labour Party,793,1,1
 2022,highland,inverness-central-gss-s13003003,Inverness Central,Michael Cameron,Scottish National Party,769,1,2
 2022,highland,inverness-central-gss-s13003003,Inverness Central,Kate MacLean,Scottish National Party,589,1,3
@@ -146622,6 +146623,52 @@ year,council_slug,ward_slug,ward_name,candidate_name,party,votes,elected,rank
 2022,clackmannanshire,clackmannanshire-central-gss-s13002877,Clackmannanshire Central,Janine Rennie,Labour Party,288,1,5
 2022,clackmannanshire,clackmannanshire-central-gss-s13002877,Clackmannanshire Central,Huw Sherrard,Labour Party,225,0,6
 2022,clackmannanshire,clackmannanshire-central-gss-s13002877,Clackmannanshire Central,John Robert Hosie,Green Party,109,0,7
+2022,na-h-eileanan-an-iar,an-taobh-siar-agus-nis-gss-s13002608,An Taobh Siar agus Nis,John Norman Macleod,Independent,346,1,1
+2022,na-h-eileanan-an-iar,an-taobh-siar-agus-nis-gss-s13002608,An Taobh Siar agus Nis,Kenneth Macleod,Scottish National Party,302,1,2
+2022,na-h-eileanan-an-iar,an-taobh-siar-agus-nis-gss-s13002608,An Taobh Siar agus Nis,Donald Macsween,Independent,271,1,3
+2022,na-h-eileanan-an-iar,an-taobh-siar-agus-nis-gss-s13002608,An Taobh Siar agus Nis,Dorothy Morrison,Independent,233,0,4
+2022,na-h-eileanan-an-iar,an-taobh-siar-agus-nis-gss-s13002608,An Taobh Siar agus Nis,Donald John Macleod,Independent,131,0,5
+2022,na-h-eileanan-an-iar,an-taobh-siar-agus-nis-gss-s13002608,An Taobh Siar agus Nis,Finlay John Macleod,Scottish National Party,102,0,6
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,Gordon Murray,Scottish National Party,315,1,1
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,Duncan Macinnes,Independent,271,1,2
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,Iain MacLean Macaulay,Independent,242,1,3
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,Malcolm Kenneth Macdonald,Independent,201,1,4
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,Calum Barney Mackay,Independent,134,0,5
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,Tracey Dinner,Independent,57,0,6
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,Malcolm Ivor McTaggart,Independent,55,0,7
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,Willie Macrae,Independent,44,0,8
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,Maxi Macneill,Independent,23,0,9
+2022,na-h-eileanan-an-iar,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,John Murdo MacMillan,Independent,12,0,10
+2022,na-h-eileanan-an-iar,loch-a-tuath-gss-s13003136,Loch a Tuath,Donald Finlayson Crichton,Independent,461,1,1
+2022,na-h-eileanan-an-iar,loch-a-tuath-gss-s13003136,Loch a Tuath,Calum MacLean,Independent,249,1,2
+2022,na-h-eileanan-an-iar,loch-a-tuath-gss-s13003136,Loch a Tuath,John A MacIver,Scottish National Party,246,1,3
+2022,na-h-eileanan-an-iar,loch-a-tuath-gss-s13003136,Loch a Tuath,Catriona Murray,Independent,126,0,4
+2022,na-h-eileanan-an-iar,loch-a-tuath-gss-s13003136,Loch a Tuath,Hazel Mansfield,Independent,39,0,5
+2022,na-h-eileanan-an-iar,steornabhagh-a-deas-gss-s13003141,Steòrnabhagh a Deas,George Murray,Independent,367,1,1
+2022,na-h-eileanan-an-iar,steornabhagh-a-deas-gss-s13003141,Steòrnabhagh a Deas,Rae MacKenzie,Scottish National Party,287,1,2
+2022,na-h-eileanan-an-iar,steornabhagh-a-deas-gss-s13003141,Steòrnabhagh a Deas,Angus McCormack,Independent,283,1,3
+2022,na-h-eileanan-an-iar,steornabhagh-a-deas-gss-s13003141,Steòrnabhagh a Deas,Frances Murray,Scottish National Party,203,1,4
+2022,na-h-eileanan-an-iar,steornabhagh-a-deas-gss-s13003141,Steòrnabhagh a Deas,Archie Macdonald,Independent,111,0,5
+2022,na-h-eileanan-an-iar,steornabhagh-a-deas-gss-s13003141,Steòrnabhagh a Deas,Callum Ian MacMillan,Independent,101,0,6
+2022,na-h-eileanan-an-iar,steornabhagh-a-deas-gss-s13003141,Steòrnabhagh a Deas,Frank Stephen Burns,Independent,94,0,7
+2022,na-h-eileanan-an-iar,sgire-nan-loch-gss-s13003140,Sgìre nan Loch,Angus Morrison,Independent,425,1,1
+2022,na-h-eileanan-an-iar,sgire-nan-loch-gss-s13003140,Sgìre nan Loch,Robert Mackenzie,Independent,262,1,2
+2022,na-h-eileanan-an-iar,sgire-nan-loch-gss-s13003140,Sgìre nan Loch,Annie Macdonald,Independent,83,0,3
+2022,na-h-eileanan-an-iar,sgire-nan-loch-gss-s13003140,Sgìre nan Loch,Norman Smith,Scottish National Party,81,0,4
+2022,na-h-eileanan-an-iar,na-hearadh-gss-s13003137,Na Hearadh,Grant Fulton,Independent,372,1,1
+2022,na-h-eileanan-an-iar,na-hearadh-gss-s13003137,Na Hearadh,Paul Finnegan,Independent,233,1,2
+2022,na-h-eileanan-an-iar,na-hearadh-gss-s13003137,Na Hearadh,John Graham Mitchell,Scottish National Party,134,0,3
+2022,na-h-eileanan-an-iar,uibhist-a-deas-eirisgeigh-agus-beinn-na-faoghla-gss-s13003143,"Uibhist a Deas, Èirisgeigh agus Beinn na Faoghla",Paul Francis Steele,Independent,275,1,1
+2022,na-h-eileanan-an-iar,uibhist-a-deas-eirisgeigh-agus-beinn-na-faoghla-gss-s13003143,"Uibhist a Deas, Èirisgeigh agus Beinn na Faoghla",Susan Thomson,Scottish National Party,221,1,2
+2022,na-h-eileanan-an-iar,uibhist-a-deas-eirisgeigh-agus-beinn-na-faoghla-gss-s13003143,"Uibhist a Deas, Èirisgeigh agus Beinn na Faoghla",Iain Murdoch Macleod,Independent,177,1,3
+2022,na-h-eileanan-an-iar,uibhist-a-deas-eirisgeigh-agus-beinn-na-faoghla-gss-s13003143,"Uibhist a Deas, Èirisgeigh agus Beinn na Faoghla",Roddy MacKay,Green Party,176,0,4
+2022,na-h-eileanan-an-iar,uibhist-a-deas-eirisgeigh-agus-beinn-na-faoghla-gss-s13003143,"Uibhist a Deas, Èirisgeigh agus Beinn na Faoghla",Donnie Steele,Independent,155,0,5
+2022,na-h-eileanan-an-iar,uibhist-a-deas-eirisgeigh-agus-beinn-na-faoghla-gss-s13003143,"Uibhist a Deas, Èirisgeigh agus Beinn na Faoghla",Iain Archie MacNeil,Independent,138,0,6
+2022,na-h-eileanan-an-iar,uibhist-a-deas-eirisgeigh-agus-beinn-na-faoghla-gss-s13003143,"Uibhist a Deas, Èirisgeigh agus Beinn na Faoghla",Calum MacMillan,Alba Party,92,0,7
+2022,na-h-eileanan-an-iar,uibhist-a-deas-eirisgeigh-agus-beinn-na-faoghla-gss-s13003143,"Uibhist a Deas, Èirisgeigh agus Beinn na Faoghla",Andrew Walker,Independent,72,0,8
+2022,na-h-eileanan-an-iar,uibhist-a-tuath-gss-s13003144,Uibhist a Tuath,Mustapha Hocine,Independent,276,1,1
+2022,na-h-eileanan-an-iar,uibhist-a-tuath-gss-s13003144,Uibhist a Tuath,Uisdean Robertson,Independent,254,1,2
+2022,na-h-eileanan-an-iar,uibhist-a-tuath-gss-s13003144,Uibhist a Tuath,Kenny Barker,Conservative Party,131,0,3
 2022,dumfries-and-galloway,mid-and-upper-nithsdale-gss-s13002886,Mid and Upper Nithsdale,Tony Berretti,Scottish National Party,1161,1,1
 2022,dumfries-and-galloway,mid-and-upper-nithsdale-gss-s13002886,Mid and Upper Nithsdale,Jim Dempster,Independent,1087,1,2
 2022,dumfries-and-galloway,mid-and-upper-nithsdale-gss-s13002886,Mid and Upper Nithsdale,Andrew Wood,Conservative Party,629,1,3
@@ -147645,6 +147692,80 @@ year,council_slug,ward_slug,ward_name,candidate_name,party,votes,elected,rank
 2022,moray,elgin-city-north-gss-s13003029,Elgin City North,Graham Jarvis,Independent,170,0,4
 2022,moray,elgin-city-north-gss-s13003029,Elgin City North,Rebecca Jane Kail,Green Party,165,0,5
 2022,moray,elgin-city-north-gss-s13003029,Elgin City North,Neil Alexander,Liberal Democrats,144,0,6
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Eleanor Collier,Scottish National Party,1724,1,1
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Ian Murdoch,Independent,1718,1,2
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Todd Ferguson,Conservative Party,1633,1,3
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Tom Marshall,Conservative Party,1331,1,4
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Alan Hill,Scottish National Party,1325,1,5
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Valerie Reid,Labour Party,995,0,6
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,David John Nairn,Green Party,392,0,7
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Wendy Low-Thomson,Independent,234,0,8
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Margaret McLellan,Liberal Democrats,203,0,9
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,James McDaid,Socialist Labour Party,118,0,10
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Jane Fraser,Alba Party,100,0,11
+2022,north-ayrshire,north-coast-gss-s13003148,North Coast,Nick Hobson,Independence for Scotland Party,72,0,12
+2022,north-ayrshire,kilwinning-gss-s13003034,Kilwinning,Joe Cullinane,Labour Party,1714,1,1
+2022,north-ayrshire,kilwinning-gss-s13003034,Kilwinning,Scott Davidson,Scottish National Party,1225,1,2
+2022,north-ayrshire,kilwinning-gss-s13003034,Kilwinning,John Glover,Conservative Party,867,1,3
+2022,north-ayrshire,kilwinning-gss-s13003034,Kilwinning,Donald Reid,Labour Party,842,1,4
+2022,north-ayrshire,kilwinning-gss-s13003034,Kilwinning,Sheila Gibson,Scottish National Party,714,0,5
+2022,north-ayrshire,kilwinning-gss-s13003034,Kilwinning,Ruby Kirkwood,Liberal Democrats,191,0,6
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Shaun Macaulay,Scottish National Party,1274,1,1
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Scott Gallacher,Conservative Party,932,1,2
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Louise McPhater,Labour Party,729,1,3
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Sylvia Mallinson,Labour Party,660,0,4
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Chloe Robertson,Scottish National Party,623,1,5
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Bobby Cochrane,Socialist Labour Party,150,0,6
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Kevin T Blades,Independent,133,0,7
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Lewis Dominic Hutton,Liberal Democrats,72,0,8
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Tristan Lindsay,Independent,47,0,9
+2022,north-ayrshire,irvine-west-gss-s13003032,Irvine West,Colin Turbett,Scottish Socialist Party,46,0,10
+2022,north-ayrshire,irvine-south-gss-s13003041,Irvine South,Christina Larsen,Scottish National Party,871,1,1
+2022,north-ayrshire,irvine-south-gss-s13003041,Irvine South,Robert Foster,Labour Party,761,1,2
+2022,north-ayrshire,irvine-south-gss-s13003041,Irvine South,Matthew McLean,Conservative Party,651,1,3
+2022,north-ayrshire,irvine-south-gss-s13003041,Irvine South,Joseph Hopkins,Scottish National Party,625,0,4
+2022,north-ayrshire,irvine-south-gss-s13003041,Irvine South,David O'Neill,Labour Party,327,0,5
+2022,north-ayrshire,irvine-south-gss-s13003041,Irvine South,Robert John Craig,Scottish Family Party,81,0,6
+2022,north-ayrshire,irvine-south-gss-s13003041,Irvine South,Ian Kerr,Trade Unionist and Socialist Coalition,40,0,7
+2022,north-ayrshire,saltcoats-and-stevenston-gss-s13003149,Saltcoats and Stevenston,Jean McClung,Scottish National Party,1908,1,1
+2022,north-ayrshire,saltcoats-and-stevenston-gss-s13003149,Saltcoats and Stevenston,Jim Montgomerie,Labour Party,1822,1,2
+2022,north-ayrshire,saltcoats-and-stevenston-gss-s13003149,Saltcoats and Stevenston,John Sweeney,Labour Party,796,1,3
+2022,north-ayrshire,saltcoats-and-stevenston-gss-s13003149,Saltcoats and Stevenston,Cameron Inglis,Conservative Party,742,1,4
+2022,north-ayrshire,saltcoats-and-stevenston-gss-s13003149,Saltcoats and Stevenston,Davina McTiernan,Scottish National Party,666,1,5
+2022,north-ayrshire,saltcoats-and-stevenston-gss-s13003149,Saltcoats and Stevenston,Ronnie McNicol,Independent,366,0,6
+2022,north-ayrshire,saltcoats-and-stevenston-gss-s13003149,Saltcoats and Stevenston,David Higgins,Independence for Scotland Party,111,0,7
+2022,north-ayrshire,saltcoats-and-stevenston-gss-s13003149,Saltcoats and Stevenston,Jimmy Miller,Independent,95,0,8
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,Donald L Reid,Independent,1613,1,1
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,Ronnie Stalker,Conservative Party,1420,1,2
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,Anthea Dickson,Scottish National Party,1362,1,3
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,Margaret Johnson,Scottish National Party,844,1,4
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,John Bell,Labour Party,806,1,5
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,Robert Barr,Independent,388,0,6
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,Ted Nevill,Conservative Party,327,0,7
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,James Robson,Labour Party,190,0,8
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,Catherine Williamson,Liberal Democrats,55,0,9
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,Carol Ann Dobson,"Freedom Alliance- Integrity, Society, Economy",27,0,10
+2022,north-ayrshire,garnock-valley-gss-s13003147,Garnock Valley,John Willis,Independent,12,0,11
+2022,north-ayrshire,irvine-east-gss-s13003033,Irvine East,Marie Burns,Scottish National Party,1470,1,1
+2022,north-ayrshire,irvine-east-gss-s13003033,Irvine East,Nairn McDonald,Labour Party,1096,1,2
+2022,north-ayrshire,irvine-east-gss-s13003033,Irvine East,Angela Stephen,Conservative Party,795,1,3
+2022,north-ayrshire,irvine-east-gss-s13003033,Irvine East,Susan Johnson,Scottish National Party,323,0,4
+2022,north-ayrshire,irvine-east-gss-s13003033,Irvine East,Ross Collins,Green Party,171,0,5
+2022,north-ayrshire,irvine-east-gss-s13003033,Irvine East,Barry Keith Jackson,Liberal Democrats,106,0,6
+2022,north-ayrshire,irvine-east-gss-s13003033,Irvine East,Karin Craig,Scottish Family Party,64,0,7
+2022,north-ayrshire,arran-gss-s13003146,Arran,Timothy Billings,Conservative Party,788,1,1
+2022,north-ayrshire,arran-gss-s13003146,Arran,Steve Garraway,Scottish National Party,625,0,2
+2022,north-ayrshire,arran-gss-s13003146,Arran,Tom Young,Independent,305,0,3
+2022,north-ayrshire,arran-gss-s13003146,Arran,Aaran McDonald,Labour Party,243,0,4
+2022,north-ayrshire,arran-gss-s13003146,Arran,Ronna Park,Green Party,241,0,5
+2022,north-ayrshire,arran-gss-s13003146,Arran,Ellen McMaster,Independent,229,0,6
+2022,north-ayrshire,ardrossan-gss-s13003145,Ardrossan,Tony Gurney,Scottish National Party,1107,1,1
+2022,north-ayrshire,ardrossan-gss-s13003145,Ardrossan,Amanda Kerr,Labour Party,966,1,2
+2022,north-ayrshire,ardrossan-gss-s13003145,Ardrossan,Stewart Ferguson,Conservative Party,714,1,3
+2022,north-ayrshire,ardrossan-gss-s13003145,Ardrossan,Jim McHarg,Scottish National Party,366,0,4
+2022,north-ayrshire,ardrossan-gss-s13003145,Ardrossan,John Hunter,Independent,333,0,5
+2022,north-ayrshire,ardrossan-gss-s13003145,Ardrossan,Matthew Lynch,Scottish Family Party,47,0,6
+2022,north-ayrshire,ardrossan-gss-s13003145,Ardrossan,Stephen McQuistin,Liberal Democrats,44,0,7
 2022,north-lanarkshire,airdrie-north-gss-s13003049,Airdrie North,Sophia Coyle,Scottish National Party,1741,1,1
 2022,north-lanarkshire,airdrie-north-gss-s13003049,Airdrie North,Alan Beveridge,Independent,1223,1,2
 2022,north-lanarkshire,airdrie-north-gss-s13003049,Airdrie North,Henry Emerson Dunbar,Labour Party,1170,1,3
@@ -147788,6 +147909,41 @@ year,council_slug,ward_slug,ward_name,candidate_name,party,votes,elected,rank
 2022,north-lanarkshire,thorniewood-gss-s13003055,Thorniewood,Margaret Boyd,Labour Party,760,1,3
 2022,north-lanarkshire,thorniewood-gss-s13003055,Thorniewood,Joseph Budd,Independent,568,0,4
 2022,north-lanarkshire,thorniewood-gss-s13003055,Thorniewood,Jeanie Burgess,Conservative Party,318,0,5
+2022,orkney-islands,stromness-and-south-isles-gss-s13002734,Stromness and South Isles,James Stockan,Independent,353,1,1
+2022,orkney-islands,stromness-and-south-isles-gss-s13002734,Stromness and South Isles,Graham Bevan,Independent,281,1,2
+2022,orkney-islands,stromness-and-south-isles-gss-s13002734,Stromness and South Isles,Lindsay Hall,Independent,175,1,3
+2022,orkney-islands,stromness-and-south-isles-gss-s13002734,Stromness and South Isles,Maia Brodie,Green Party,157,0,4
+2022,orkney-islands,stromness-and-south-isles-gss-s13002734,Stromness and South Isles,Rob Crichton,Independent,115,0,5
+2022,orkney-islands,stromness-and-south-isles-gss-s13002734,Stromness and South Isles,Magnus Olaf Thomson,Independent,69,0,6
+2022,orkney-islands,west-mainland-gss-s13002735,West Mainland,Owen Tierney,Independent,554,1,1
+2022,orkney-islands,west-mainland-gss-s13002735,West Mainland,Rachael King,Independent,477,1,2
+2022,orkney-islands,west-mainland-gss-s13002735,West Mainland,Jean Stevenson,Independent,284,1,3
+2022,orkney-islands,west-mainland-gss-s13002735,West Mainland,Duncan Tullock,Independent,237,1,4
+2022,orkney-islands,west-mainland-gss-s13002735,West Mainland,Helen Woodsford-Dean,Green Party,217,0,5
+2022,orkney-islands,west-mainland-gss-s13002735,West Mainland,Sean Lewis,Independent,64,0,6
+2022,orkney-islands,north-isles-gss-s13002737,North Isles,Heather Woodbridge,Independent,443,1,1
+2022,orkney-islands,north-isles-gss-s13002737,North Isles,Stephen Clackson,Independent,256,1,2
+2022,orkney-islands,north-isles-gss-s13002737,North Isles,Mellissa Thomson,Independent,204,1,3
+2022,orkney-islands,north-isles-gss-s13002737,North Isles,Paul Rendall,Independent,76,0,4
+2022,orkney-islands,north-isles-gss-s13002737,North Isles,Sebastian Hadfield-Hyde,Independent,50,0,5
+2022,orkney-islands,kirkwall-east-gss-s13003151,Kirkwall East,John Ross Scott,Green Party,476,1,1
+2022,orkney-islands,kirkwall-east-gss-s13003151,Kirkwall East,Steven Heddle,Independent,428,1,2
+2022,orkney-islands,kirkwall-east-gss-s13003151,Kirkwall East,Gwenda Shearer,Independent,413,1,3
+2022,orkney-islands,kirkwall-east-gss-s13003151,Kirkwall East,David Dawson,Independent,285,1,4
+2022,orkney-islands,kirkwall-east-gss-s13003151,Kirkwall East,Graham Macdonald,Independent,92,0,5
+2022,orkney-islands,kirkwall-west-and-orphir-gss-s13003152,Kirkwall West and Orphir,Leslie Manson,Independent,320,1,1
+2022,orkney-islands,kirkwall-west-and-orphir-gss-s13003152,Kirkwall West and Orphir,Ivan Taylor,Independent,252,1,2
+2022,orkney-islands,kirkwall-west-and-orphir-gss-s13003152,Kirkwall West and Orphir,Sandy Cowie,Independent,250,1,3
+2022,orkney-islands,kirkwall-west-and-orphir-gss-s13003152,Kirkwall West and Orphir,Kristopher Leask,Green Party,211,1,4
+2022,orkney-islands,kirkwall-west-and-orphir-gss-s13003152,Kirkwall West and Orphir,Leslie Sinclair,Independent,175,0,5
+2022,orkney-islands,kirkwall-west-and-orphir-gss-s13003152,Kirkwall West and Orphir,Beverly Clubley,Independent,159,0,6
+2022,orkney-islands,kirkwall-west-and-orphir-gss-s13003152,Kirkwall West and Orphir,Barbara Foulkes,Independent,155,0,7
+2022,orkney-islands,kirkwall-west-and-orphir-gss-s13003152,Kirkwall West and Orphir,Cameron Whittle,Independent,21,0,8
+2022,orkney-islands,east-mainland-south-ronaldsay-and-burray-gss-s13003150,"East Mainland, South Ronaldsay and Burray",Raymie Peace,Independent,642,1,1
+2022,orkney-islands,east-mainland-south-ronaldsay-and-burray-gss-s13003150,"East Mainland, South Ronaldsay and Burray",Gillian Skuse,Independent,278,1,2
+2022,orkney-islands,east-mainland-south-ronaldsay-and-burray-gss-s13003150,"East Mainland, South Ronaldsay and Burray",Eric Page,Green Party,195,0,3
+2022,orkney-islands,east-mainland-south-ronaldsay-and-burray-gss-s13003150,"East Mainland, South Ronaldsay and Burray",Julie Rickards,Independent,118,0,4
+2022,orkney-islands,east-mainland-south-ronaldsay-and-burray-gss-s13003150,"East Mainland, South Ronaldsay and Burray",James Moar,Independent,111,1,5
 2022,perth-and-kinross,strathmore-gss-s13003064,Strathmore,Grant Stewart,Scottish National Party,1780,1,1
 2022,perth-and-kinross,strathmore-gss-s13003064,Strathmore,Colin Stewart,Independent,1174,1,2
 2022,perth-and-kinross,strathmore-gss-s13003064,Strathmore,Hugh Anderson,Conservative Party,1032,1,3
@@ -148031,6 +148187,37 @@ year,council_slug,ward_slug,ward_name,candidate_name,party,votes,elected,rank
 2022,scottish-borders,tweeddale-east-gss-s13002762,Tweeddale East,Ellie Clarke,Green Party,469,0,5
 2022,scottish-borders,tweeddale-east-gss-s13002762,Tweeddale East,Robert Bon,Labour Party,449,0,6
 2022,scottish-borders,tweeddale-east-gss-s13002762,Tweeddale East,Calum MacEwan Watt,Vanguard Party,11,0,7
+2022,shetland-islands,shetland-south-gss-s13003155,Shetland South,Allison George Leslie Duncan,Independent,805,1,1
+2022,shetland-islands,shetland-south-gss-s13003155,Shetland South,Bryan Peterson,Independent,500,1,2
+2022,shetland-islands,shetland-south-gss-s13003155,Shetland South,Alex Armitage,Green Party,274,1,3
+2022,shetland-islands,shetland-south-gss-s13003155,Shetland South,Robbie McGregor,Scottish National Party,217,1,4
+2022,shetland-islands,shetland-south-gss-s13003155,Shetland South,Stewart Douglas,Independent,46,0,5
+2022,shetland-islands,lerwick-south-gss-s13003153,Lerwick South,Dennis Leask,Independent,302,1,1
+2022,shetland-islands,lerwick-south-gss-s13003153,Lerwick South,John Finlay Sinclair Fraser,Independent,262,1,2
+2022,shetland-islands,lerwick-south-gss-s13003153,Lerwick South,Cecil Laing Smith,Independent,251,1,3
+2022,shetland-islands,lerwick-south-gss-s13003153,Lerwick South,Neil Pearson,Independent,171,1,4
+2022,shetland-islands,lerwick-south-gss-s13003153,Lerwick South,Amanda Hawick,Independent,153,0,5
+2022,shetland-islands,lerwick-south-gss-s13003153,Lerwick South,Peter Coleman,Independent,106,0,6
+2022,shetland-islands,lerwick-south-gss-s13003153,Lerwick South,Shayne Charles McLeod,Independent,99,0,7
+2022,shetland-islands,lerwick-north-and-bressay-gss-s13002777,Lerwick North and Bressay,Stephen Arthur Leask,Independent,310,1,1
+2022,shetland-islands,lerwick-north-and-bressay-gss-s13002777,Lerwick North and Bressay,Gary Robinson,Independent,301,1,2
+2022,shetland-islands,lerwick-north-and-bressay-gss-s13002777,Lerwick North and Bressay,Arwed Wenger,Independent,136,1,3
+2022,shetland-islands,lerwick-north-and-bressay-gss-s13002777,Lerwick North and Bressay,Marie Williamson,Independent,115,0,4
+2022,shetland-islands,lerwick-north-and-bressay-gss-s13002777,Lerwick North and Bressay,Stephen Ferguson,Independent,66,0,5
+2022,shetland-islands,shetland-central-gss-s13003154,Shetland Central,Moraig Lyall,Independent,414,1,1
+2022,shetland-islands,shetland-central-gss-s13003154,Shetland Central,Davie Sandison,Independent,322,1,2
+2022,shetland-islands,shetland-central-gss-s13003154,Shetland Central,Catherine Hughson,Independent,282,1,3
+2022,shetland-islands,shetland-central-gss-s13003154,Shetland Central,Ian Scott,Independent,271,1,4
+2022,shetland-islands,shetland-central-gss-s13003154,Shetland Central,Martin Trevor Randall,Green Party,99,0,5
+2022,shetland-islands,shetland-central-gss-s13003154,Shetland Central,Brian Nugent,Sovereignty,26,0,6
+2022,shetland-islands,shetland-west-gss-s13003156,Shetland West,Liz Boxwell,Independent,298,1,1
+2022,shetland-islands,shetland-west-gss-s13003156,Shetland West,John Robert Leask,Independent,135,1,2
+2022,shetland-islands,shetland-west-gss-s13003156,Shetland West,Mark Robinson,Independent,128,0,3
+2022,shetland-islands,shetland-west-gss-s13003156,Shetland West,Debra Jane Nicolson,Green Party,69,0,4
+2022,shetland-islands,shetland-west-gss-s13003156,Shetland West,Zara Pennington,Scottish National Party,59,0,5
+2022,shetland-islands,shetland-west-gss-s13003156,Shetland West,Andrew Holt,Independent,43,0,6
+2022,shetland-islands,shetland-west-gss-s13003156,Shetland West,Ian Tinkler,Independent,21,0,7
+2022,shetland-islands,shetland-west-gss-s13003156,Shetland West,Peter James Fraser,Independent,5,0,8
 2022,south-ayrshire,ayr-east-gss-s13003090,Ayr East,Chris Cullen,Scottish National Party,1377,1,1
 2022,south-ayrshire,ayr-east-gss-s13003090,Ayr East,Mary Kilpatrick,Conservative Party,959,1,2
 2022,south-ayrshire,ayr-east-gss-s13003090,Ayr East,Brian McGinley,Labour Party,814,1,3
@@ -148068,7 +148255,7 @@ year,council_slug,ward_slug,ward_name,candidate_name,party,votes,elected,rank
 2022,south-ayrshire,kyle-gss-s13003092,Kyle,Arthur Spurling,Conservative Party,814,0,4
 2022,south-ayrshire,kyle-gss-s13003092,Kyle,John Aitken,Liberal Democrats,235,0,5
 2022,south-ayrshire,kyle-gss-s13003092,Kyle,Geoff Bush,Alba Party,71,0,6
-2022,south-ayrshire,ayr-north-gss-s13003089,Ayr North,Laura Brennan-Whitefield,Scottish National Party,1914,1,1
+2022,south-ayrshire,ayr-north-gss-s13003089,Ayr North,Laura Brennan-Whitefield,Scottish National Party,1913,1,1
 2022,south-ayrshire,ayr-north-gss-s13003089,Ayr North,Ian Cavana,Labour Party,1185,1,2
 2022,south-ayrshire,ayr-north-gss-s13003089,Ayr North,Ian Davis,Conservative Party,675,1,3
 2022,south-ayrshire,ayr-north-gss-s13003089,Ayr North,Mark Dixon,Scottish National Party,344,1,4
@@ -148403,6 +148590,813 @@ year,council_slug,ward_slug,ward_name,candidate_name,party,votes,elected,rank
 2022,west-lothian,armadale-and-blackridge-gss-s13002828,Armadale and Blackridge,Sophie Brodie,Green Party,136,0,5
 2022,west-lothian,armadale-and-blackridge-gss-s13002828,Armadale and Blackridge,Helen Mackenzie,Liberal Democrats,50,0,6
 2022,west-lothian,armadale-and-blackridge-gss-s13002828,Armadale and Blackridge,John Hannah,Independence for Scotland Party,43,0,7
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"Donnelly, Fergal",Sinn Féin,2158,1,1
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"Armstrong, Scott",Democratic Unionist Party,1924,1,2
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"Mallon, Ashley",Sinn Féin,1661,1,3
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"O'Hanlon, Thomas",Social Democratic and Labour Party,1654,1,4
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"O'Kane, John Og",Sinn Féin,1508,1,5
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"Duffy, Sarah",Sinn Féin,1409,1,6
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"Nicholson, Sam",Ulster Unionist Party,1328,0,7
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"O'Neill, Grainne",Social Democratic and Labour Party,966,0,8
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"Winter, Hanagh",Alliance,619,0,9
+2023,armagh-city-banbridge-and-craigavon,armagh,Armagh,"Connelly, Daniel",Aontú,357,0,10
+2023,mid-and-east-antrim,ballymena,Ballymena,"Quigley, Rodney",Independent,1023,1,1
+2023,mid-and-east-antrim,ballymena,Ballymena,"Armstrong, Matthew",Traditional Unionist Voice,991,1,2
+2023,mid-and-east-antrim,ballymena,Ballymena,"Crawford, Colin",Ulster Unionist Party,969,1,3
+2023,mid-and-east-antrim,ballymena,Ballymena,"Lyness, Bréanainn",Sinn Féin,926,1,4
+2023,mid-and-east-antrim,ballymena,Ballymena,"Glover, Reuben",Democratic Unionist Party,913,1,5
+2023,mid-and-east-antrim,ballymena,Ballymena,"Hyland, John",Alliance,897,1,6
+2023,mid-and-east-antrim,ballymena,Ballymena,"Reid, Eugene",Social Democratic and Labour Party,805,0,7
+2023,mid-and-east-antrim,ballymena,Ballymena,"Philpott, Lawrie",Democratic Unionist Party,462,1,8
+2023,mid-and-east-antrim,ballymena,Ballymena,"Wright, Andrew",Democratic Unionist Party,310,0,9
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"Storey,Mervyn",Democratic Unionist Party,1779,1,1
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"McQuillan, Ciarán",Sinn Féin,1320,1,2
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"Wilson, Darryl",Ulster Unionist Party,1255,1,3
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"Peacock, Leanne",Sinn Féin,1194,1,4
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"McAuley, Jonathan",Traditional Unionist Voice,995,1,5
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"Kane,Lee",Alliance,880,1,6
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"McLean,Alan",Democratic Unionist Party,861,0,7
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"Wallace,Ivor",Democratic Unionist Party,808,1,8
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"McKeown, Tom",Ulster Unionist Party,438,0,9
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"Bond, Caitlin",Social Democratic and Labour Party,286,0,10
+2023,causeway-coast-and-glens,ballymoney,Ballymoney,"McLaughlin, Cathal",Independent,155,0,11
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"FERGUSON, Joy",Alliance,1961,1,1
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"BARR, Glenn",Ulster Unionist Party,1903,1,2
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"MCCARTAN, Chris",Sinn Féin,1750,1,3
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"GREENFIELD, Paul",Democratic Unionist Party,1747,1,4
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"SAVAGE, Kevin",Sinn Féin,1595,1,5
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"WILSON, Ian",Democratic Unionist Party,1296,1,6
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"MACAULEY, Jill",Ulster Unionist Party,1055,0,7
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"BURNS, Ian",Ulster Unionist Party,984,1,8
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"DOYLE, Seamus",Social Democratic and Labour Party,787,0,9
+2023,armagh-city-banbridge-and-craigavon,banbridge,Banbridge,"MOORHEAD, Brian",Traditional Unionist Voice,593,0,10
+2023,causeway-coast-and-glens,bann,Bann,"BATESON, Sean",Sinn Féin,1277,1,1
+2023,causeway-coast-and-glens,bann,Bann,"KNIGHT-McQUILLAN, Michelle",Democratic Unionist Party,1054,1,2
+2023,causeway-coast-and-glens,bann,Bann,"ARCHIBALD, Ciáran",Sinn Féin,862,1,3
+2023,causeway-coast-and-glens,bann,Bann,"HUGGINS, Dawn",Democratic Unionist Party,851,1,4
+2023,causeway-coast-and-glens,bann,Bann,"HOLMES, Richard John",Ulster Unionist Party,782,1,5
+2023,causeway-coast-and-glens,bann,Bann,"KERR, Andrew Thomas Glenn",Ulster Unionist Party,760,0,6
+2023,causeway-coast-and-glens,bann,Bann,"McQUILLAN, Adrian",Independent,701,0,7
+2023,causeway-coast-and-glens,bann,Bann,"HUTCHINSON, Joe",Alliance,573,0,8
+2023,causeway-coast-and-glens,bann,Bann,"CRAIG, William",Traditional Unionist Voice,456,0,9
+2023,causeway-coast-and-glens,bann,Bann,"BROLLY, Gemma",Aontú,336,0,10
+2023,causeway-coast-and-glens,bann,Bann,"BARKLEY, Ryan",Social Democratic and Labour Party,173,0,11
+2023,causeway-coast-and-glens,bann,Bann,"McCAHON, Jen",Green Party Northern Ireland,92,0,12
+2023,mid-and-east-antrim,bannside,Bannside,"Gaston, Timothy",Traditional Unionist Voice,1468,1,1
+2023,mid-and-east-antrim,bannside,Bannside,"McDonald, Stewart",Traditional Unionist Voice,1442,1,2
+2023,mid-and-east-antrim,bannside,Bannside,"Friary, Ian",Sinn Féin,1292,1,3
+2023,mid-and-east-antrim,bannside,Bannside,"Gordon, Thomas John",Democratic Unionist Party,1256,1,4
+2023,mid-and-east-antrim,bannside,Bannside,"Minford, Jackson Bolton",Ulster Unionist Party,943,1,5
+2023,mid-and-east-antrim,bannside,Bannside,"Hoey, Tyler Marcus Anthony",Democratic Unionist Party,838,1,6
+2023,mid-and-east-antrim,bannside,Bannside,"Gibson, Jack",Alliance,768,0,7
+2023,mid-and-east-antrim,bannside,Bannside,"Henry, Anna",Traditional Unionist Voice,562,0,8
+2023,mid-and-east-antrim,bannside,Bannside,"Murphy, Morgan",Social Democratic and Labour Party,211,0,9
+2023,causeway-coast-and-glens,benbradagh,Benbradagh,"McGLINCHEY, Sean",Sinn Féin,1888,1,1
+2023,causeway-coast-and-glens,benbradagh,Benbradagh,"NICHOLL, Dermot",Sinn Féin,1558,1,2
+2023,causeway-coast-and-glens,benbradagh,Benbradagh,"SCOTT, Edgar",Democratic Unionist Party,1231,1,3
+2023,causeway-coast-and-glens,benbradagh,Benbradagh,"McGURK, Kathleen",Sinn Féin,1172,1,4
+2023,causeway-coast-and-glens,benbradagh,Benbradagh,"CARMICHAEL, Robert Thomas",Ulster Unionist Party,600,0,5
+2023,causeway-coast-and-glens,benbradagh,Benbradagh,"McELHINNEY, Liam",Aontú,494,0,6
+2023,causeway-coast-and-glens,benbradagh,Benbradagh,"COYLE, Michael",Social Democratic and Labour Party,441,1,7
+2023,causeway-coast-and-glens,benbradagh,Benbradagh,"TURNER, Christine",Alliance,353,0,8
+2023,causeway-coast-and-glens,benbradagh,Benbradagh,"MURPHY, Niall",Independent,116,0,9
+2023,mid-and-east-antrim,braid,Braid,"Rae, Archie",Sinn Féin,1302,1,1
+2023,mid-and-east-antrim,braid,Braid,"Adger, Beth",Democratic Unionist Party,1246,1,2
+2023,mid-and-east-antrim,braid,Braid,"McCaughey, William",Democratic Unionist Party,1224,1,3
+2023,mid-and-east-antrim,braid,Braid,"Jamieson, Christopher",Traditional Unionist Voice,1195,1,4
+2023,mid-and-east-antrim,braid,Braid,"Barr, Alan",Ulster Unionist Party,1058,1,5
+2023,mid-and-east-antrim,braid,Braid,"Harwood, Chelsea",Alliance,1016,1,6
+2023,mid-and-east-antrim,braid,Braid,"Philpott, Julie",Democratic Unionist Party,872,0,7
+2023,mid-and-east-antrim,braid,Braid,"Warwick, Matthew",Traditional Unionist Voice,840,1,8
+2023,mid-and-east-antrim,braid,Braid,"Turner, Keith James",Ulster Unionist Party,710,0,9
+2023,mid-ulster,carntogher,Carntogher,"McGUIGAN, Brian",Sinn Féin,1909,1,1
+2023,mid-ulster,carntogher,Carntogher,"McPEAKE, Sean",Sinn Féin,1540,1,2
+2023,mid-ulster,carntogher,Carntogher,"CORRY, Córa",Sinn Féin,1283,1,3
+2023,mid-ulster,carntogher,Carntogher,"BLACK, Kyle",Democratic Unionist Party,1209,1,4
+2023,mid-ulster,carntogher,Carntogher,"KELLY, Paddy",Sinn Féin,1049,1,5
+2023,mid-ulster,carntogher,Carntogher,"KEARNEY, Martin Gerard",Social Democratic and Labour Party,829,0,6
+2023,mid-ulster,carntogher,Carntogher,"ARTT, James Alastair",Traditional Unionist Voice,530,0,7
+2023,mid-ulster,carntogher,Carntogher,"McELDOWNEY, Noreen",Aontú,481,0,8
+2023,mid-and-east-antrim,carrick-castle,Carrick Castle,"Gray, Lauren",Alliance,1607,1,1
+2023,mid-and-east-antrim,carrick-castle,Carrick Castle,"Brownlee, Cheryl",Democratic Unionist Party,1154,1,2
+2023,mid-and-east-antrim,carrick-castle,Carrick Castle,"Ashe, Billy",Democratic Unionist Party,1030,1,3
+2023,mid-and-east-antrim,carrick-castle,Carrick Castle,"Stewart, Robin",Ulster Unionist Party,751,1,4
+2023,mid-and-east-antrim,carrick-castle,Carrick Castle,"Ferris, Bethany",Ulster Unionist Party,706,1,5
+2023,mid-and-east-antrim,carrick-castle,Carrick Castle,"Henderson, Frances Margaret",Traditional Unionist Voice,437,0,6
+2023,mid-and-east-antrim,carrick-castle,Carrick Castle,"McDermott, John",Democratic Unionist Party,269,0,7
+2023,mid-and-east-antrim,carrick-castle,Carrick Castle,"McCaw, Jim",Progressive Unionist Party,164,0,8
+2023,mid-and-east-antrim,carrick-castle,Carrick Castle,"Hutchinson, Jenny",Green Party Northern Ireland,136,0,9
+2023,causeway-coast-and-glens,causeway,Causeway,Fielding Mark,Democratic Unionist Party,1305,1,1
+2023,causeway-coast-and-glens,causeway,Causeway,McCully Peter,Alliance,924,1,2
+2023,causeway-coast-and-glens,causeway,Causeway,McKillop Sharon,Democratic Unionist Party,878,1,3
+2023,causeway-coast-and-glens,causeway,Causeway,Kyle Allister,Traditional Unionist Voice,867,1,4
+2023,causeway-coast-and-glens,causeway,Causeway,McAuley John,Democratic Unionist Party,860,1,5
+2023,causeway-coast-and-glens,causeway,Causeway,Hunter Sandra,Ulster Unionist Party,793,1,6
+2023,causeway-coast-and-glens,causeway,Causeway,Thompson Emma,Sinn Féin,715,0,7
+2023,causeway-coast-and-glens,causeway,Causeway,Torrens Barry Ian,Ulster Unionist Party,608,0,8
+2023,causeway-coast-and-glens,causeway,Causeway,Stewart Richard,Alliance,468,1,9
+2023,causeway-coast-and-glens,causeway,Causeway,Shevlin Paul,Social Democratic and Labour Party,450,0,10
+2023,causeway-coast-and-glens,causeway,Causeway,Alexander David,Independent,354,0,11
+2023,causeway-coast-and-glens,causeway,Causeway,Mulholland Angela,Independent,327,0,12
+2023,causeway-coast-and-glens,causeway,Causeway,Coulson Mark,Green Party Northern Ireland,262,0,13
+2023,mid-ulster,clogher-valley,Clogher Valley,"BURTON, Frances Ann",Democratic Unionist Party,1656,1,1
+2023,mid-ulster,clogher-valley,Clogher Valley,"ROBINSON, Mark",Democratic Unionist Party,1568,1,2
+2023,mid-ulster,clogher-valley,Clogher Valley,"GILDERNEW, Gael",Sinn Féin,1475,1,3
+2023,mid-ulster,clogher-valley,Clogher Valley,"McELVOGUE, Kevin",Independent,1361,1,4
+2023,mid-ulster,clogher-valley,Clogher Valley,"GRAHAM, Meta",Ulster Unionist Party,1260,1,5
+2023,mid-ulster,clogher-valley,Clogher Valley,"McCONNELL, Eugene",Sinn Féin,1212,1,6
+2023,mid-ulster,clogher-valley,Clogher Valley,"McGUIGAN, Seán",Sinn Féin,1154,0,7
+2023,mid-ulster,clogher-valley,Clogher Valley,"McALEER, Sharon",Social Democratic and Labour Party,1045,0,8
+2023,mid-and-east-antrim,coast-road,Coast Road,"McKeown, James",Sinn Féin,1180,1,1
+2023,mid-and-east-antrim,coast-road,Coast Road,"Clarke, Andrew",Democratic Unionist Party,1111,1,2
+2023,mid-and-east-antrim,coast-road,Coast Road,"Mulvenna, Gerardine Marie",Alliance,1094,1,3
+2023,mid-and-east-antrim,coast-road,Coast Road,"Smyth, Angela",Democratic Unionist Party,808,1,4
+2023,mid-and-east-antrim,coast-road,Coast Road,"Morrow, Maureen",Ulster Unionist Party,457,1,5
+2023,mid-and-east-antrim,coast-road,Coast Road,"Spurle, Niamh",Alliance,448,0,6
+2023,mid-and-east-antrim,coast-road,Coast Road,"Stevenson, Wes",Traditional Unionist Voice,340,0,7
+2023,mid-and-east-antrim,coast-road,Coast Road,"Swan, Olivia",Ulster Unionist Party,326,0,8
+2023,mid-and-east-antrim,coast-road,Coast Road,"Alcorn, Eddie",Green Party Northern Ireland,113,0,9
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Anderson, Philip",Democratic Unionist Party,1389,1,1
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Watton, Russell",Progressive Unionist Party,1016,1,2
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Boyle, Yvonne",Alliance,947,1,3
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Archibald, Niamh",Sinn Féin,858,1,4
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Wisener, John",Ulster Unionist Party,721,1,5
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Tomb, Adele",Democratic Unionist Party,655,0,6
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Duddy, George",Independent,450,0,7
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Stirling, Tanya",Democratic Unionist Party,441,1,8
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Sweeney, Michael",Traditional Unionist Voice,339,0,9
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Maher, Helen",Social Democratic and Labour Party,329,0,10
+2023,causeway-coast-and-glens,coleraine,Coleraine,"Merron, Amy Louise",People Before Profit Alliance,247,0,11
+2023,mid-ulster,cookstown,Cookstown,"MALLAGHAN, Cathal",Sinn Féin,2157,1,1
+2023,mid-ulster,cookstown,Cookstown,"McNAMEE, John Fitzgerald",Sinn Féin,1771,1,2
+2023,mid-ulster,cookstown,Cookstown,"BUCHANAN, Wilbert",Democratic Unionist Party,1249,1,3
+2023,mid-ulster,cookstown,Cookstown,"BELL, Gavin",Sinn Féin,1215,1,4
+2023,mid-ulster,cookstown,Cookstown,"MARTIN, Kerri",Social Democratic and Labour Party,769,1,5
+2023,mid-ulster,cookstown,Cookstown,"CAHOON, Eva",Democratic Unionist Party,768,1,6
+2023,mid-ulster,cookstown,Cookstown,"WILSON, Trevor James",Ulster Unionist Party,702,1,7
+2023,mid-ulster,cookstown,Cookstown,"HAGAN, Timmy",Traditional Unionist Voice,663,0,8
+2023,mid-ulster,cookstown,Cookstown,"GLASGOW, Mark",Ulster Unionist Party,526,0,9
+2023,mid-ulster,cookstown,Cookstown,"HILLCOX, Chris",AP,424,0,10
+2023,mid-ulster,cookstown,Cookstown,"TAYLOR, Louise",Independent,44,0,11
+2023,armagh-city-banbridge-and-craigavon,craigavon,Craigavon,"MALLON, Jude",Sinn Féin,1964,1,1
+2023,armagh-city-banbridge-and-craigavon,craigavon,Craigavon,"NELSON, Catherine",Sinn Féin,1897,1,2
+2023,armagh-city-banbridge-and-craigavon,craigavon,Craigavon,"TINSLEY, Margaret",Democratic Unionist Party,1881,1,3
+2023,armagh-city-banbridge-and-craigavon,craigavon,Craigavon,"ALEXANDER, Robbie",Alliance,1392,1,4
+2023,armagh-city-banbridge-and-craigavon,craigavon,Craigavon,"PATTERSON, Ian",Democratic Unionist Party,1360,0,5
+2023,armagh-city-banbridge-and-craigavon,craigavon,Craigavon,"EVANS, Kate",Ulster Unionist Party,1305,1,6
+2023,armagh-city-banbridge-and-craigavon,craigavon,Craigavon,"MCALINDEN, Declan",Social Democratic and Labour Party,762,0,7
+2023,armagh-city-banbridge-and-craigavon,craigavon,Craigavon,"COADE, Jackie",Social Democratic and Labour Party,196,0,8
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"MURPHY, SELINA",Sinn Féin,1863,1,1
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"MURPHY, KATE",Sinn Féin,1397,1,2
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"RUANE, MICKEY",Sinn Féin,1387,1,3
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"O'HARE, GERRY",Sinn Féin,1345,0,4
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"MCATEER, DECLAN",Social Democratic and Labour Party,1233,1,5
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"GIBBONS, MARK",Independent,1111,1,6
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"TINNELLY, JARLATH",Independent,1043,1,7
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"MCKEVITT, KAREN",Social Democratic and Labour Party,911,0,8
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"BOYLAN, JIM",Independent,818,0,9
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"NEARY, DANIEL",Alliance,660,0,10
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"PARKE, KEITH",Democratic Unionist Party,600,0,11
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"MCGAFFIN, RICKY",Ulster Unionist Party,448,0,12
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"SHERIDAN, ANNE",Social Democratic and Labour Party,183,0,13
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"O'REILLY, HUGH",Green Party Northern Ireland,96,0,14
+2023,newry-mourne-and-down,crotlieve,Crotlieve,"LAMBE, FINBARR",Independent,23,0,15
+2023,armagh-city-banbridge-and-craigavon,cusher,Cusher,"HAUGHEY, Brona",Sinn Féin,2177,1,1
+2023,armagh-city-banbridge-and-craigavon,cusher,Cusher,"BERRY, Paul",Independent,2059,1,2
+2023,armagh-city-banbridge-and-craigavon,cusher,Cusher,"RATCLIFFE, Keith",Traditional Unionist Voice,2037,1,3
+2023,armagh-city-banbridge-and-craigavon,cusher,Cusher,"WILSON, Gareth",Democratic Unionist Party,1912,1,4
+2023,armagh-city-banbridge-and-craigavon,cusher,Cusher,"WEIR, Philip",Democratic Unionist Party,1380,0,5
+2023,armagh-city-banbridge-and-craigavon,cusher,Cusher,"KENNEDY, Gordon",Ulster Unionist Party,1099,1,6
+2023,armagh-city-banbridge-and-craigavon,cusher,Cusher,"SKILLEN, Mark",Alliance,594,0,7
+2023,armagh-city-banbridge-and-craigavon,cusher,Cusher,"MCKERNAN, Emma Jay",Social Democratic and Labour Party,578,0,8
+2023,armagh-city-banbridge-and-craigavon,cusher,Cusher,"MCNEILL, Ewan",Ulster Unionist Party,442,0,9
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"HANLON, OONAGH",Sinn Féin,1579,1,1
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"SHARVIN, GARETH",Social Democratic and Labour Party,1307,1,2
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"CAMPBELL, PHILLIP",Sinn Féin,1160,1,3
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"ENRIGHT, CADOGAN",Alliance,1124,1,4
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"ROONEY, LOUISE",Sinn Féin,812,0,5
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"KING, AURLA",Social Democratic and Labour Party,613,0,6
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"GALBRAITH, CONOR",Social Democratic and Labour Party,590,1,7
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"MAC CON MIDHE, ÉAMONN",Independent,404,0,8
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"HARVEY, SHARON",Democratic Unionist Party,267,0,9
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"BURGESS, ALEXANDER",Ulster Unionist Party,200,0,10
+2023,newry-mourne-and-down,downpatrick,Downpatrick,"WALSH, DECLAN",Green Party Northern Ireland,117,0,11
+2023,mid-ulster,dungannon,Dungannon,"CUTHBERTSON, Clement",Democratic Unionist Party,2096,1,1
+2023,mid-ulster,dungannon,Dungannon,"MOLLOY, Dominic",Sinn Féin,1519,1,2
+2023,mid-ulster,dungannon,Dungannon,"VARSANI, Deirdre",Sinn Féin,1219,1,3
+2023,mid-ulster,dungannon,Dungannon,"MONTEITH, Barry",Independent,1180,1,4
+2023,mid-ulster,dungannon,Dungannon,"BURTON, James",Democratic Unionist Party,656,1,5
+2023,mid-ulster,dungannon,Dungannon,"VINCENT, Marian",Independent,628,0,6
+2023,mid-ulster,dungannon,Dungannon,"McQUADE, Karol",Social Democratic and Labour Party,601,1,7
+2023,mid-ulster,dungannon,Dungannon,"IRWIN, Ian",Ulster Unionist Party,527,0,8
+2023,mid-ulster,dungannon,Dungannon,"HACKETT, Claire",AP,471,0,9
+2023,mid-ulster,dungannon,Dungannon,"TENER, Kinley",Traditional Unionist Voice,299,0,10
+2023,mid-ulster,dungannon,Dungannon,"CULLEN, Gerry",CCLA,268,0,11
+2023,mid-ulster,dungannon,Dungannon,"MULLEN, Denise",Aontú,146,0,12
+2023,mid-and-east-antrim,knockagh,Knockagh,"Hadden, Bobby",Independent,1182,1,1
+2023,mid-and-east-antrim,knockagh,Knockagh,"Johnston, Peter",Democratic Unionist Party,1144,1,2
+2023,mid-and-east-antrim,knockagh,Knockagh,"Collins, Marc Neill",Democratic Unionist Party,931,1,3
+2023,mid-and-east-antrim,knockagh,Knockagh,"Skinner, Aaron",Alliance,903,1,4
+2023,mid-and-east-antrim,knockagh,Knockagh,"Wilson, Andrew",Ulster Unionist Party,792,1,5
+2023,mid-and-east-antrim,knockagh,Knockagh,"Williams, Noel",Alliance,753,0,6
+2023,mid-and-east-antrim,knockagh,Knockagh,"McCabe, Gary William",Ulster Unionist Party,433,0,7
+2023,mid-and-east-antrim,knockagh,Knockagh,"Strange, James",Traditional Unionist Voice,348,0,8
+2023,armagh-city-banbridge-and-craigavon,lagan-river,Lagan River,"BAXTER, Mark",Democratic Unionist Party,2261,1,1
+2023,armagh-city-banbridge-and-craigavon,lagan-river,Lagan River,"JOHNSTON, Jessica",Alliance,1762,1,2
+2023,armagh-city-banbridge-and-craigavon,lagan-river,Lagan River,"RANKIN, Paul",Democratic Unionist Party,1505,1,3
+2023,armagh-city-banbridge-and-craigavon,lagan-river,Lagan River,"SAVAGE, Kyle",Ulster Unionist Party,1393,1,4
+2023,armagh-city-banbridge-and-craigavon,lagan-river,Lagan River,"MCCLELLAND, Tim",Democratic Unionist Party,1137,1,5
+2023,armagh-city-banbridge-and-craigavon,lagan-river,Lagan River,"MORRISON, Sammy",Traditional Unionist Voice,627,0,6
+2023,armagh-city-banbridge-and-craigavon,lagan-river,Lagan River,"OGLE, Sammy",Ulster Unionist Party,593,0,7
+2023,armagh-city-banbridge-and-craigavon,lagan-river,Lagan River,"MCALEENAN, Vincent",Sinn Féin,502,0,8
+2023,armagh-city-banbridge-and-craigavon,lagan-river,Lagan River,"EDWARDS, Oisin",Social Democratic and Labour Party,220,0,9
+2023,mid-and-east-antrim,larne-lough,Larne Lough,"Donnelly, Maeve",Alliance,1389,1,1
+2023,mid-and-east-antrim,larne-lough,Larne Lough,"McKeen, Gregg",Democratic Unionist Party,1197,1,2
+2023,mid-and-east-antrim,larne-lough,Larne Lough,"Beggs, Roy",Ulster Unionist Party,1139,1,3
+2023,mid-and-east-antrim,larne-lough,Larne Lough,"Reid, Paul",Democratic Unionist Party,862,1,4
+2023,mid-and-east-antrim,larne-lough,Larne Lough,"Logan, Robert",Alliance,696,1,5
+2023,mid-and-east-antrim,larne-lough,Larne Lough,"Carson, James",Ulster Unionist Party,480,0,6
+2023,mid-and-east-antrim,larne-lough,Larne Lough,"Donnell, Ronnie",Traditional Unionist Voice,427,0,7
+2023,mid-and-east-antrim,larne-lough,Larne Lough,"Randle, Philip George",Green Party Northern Ireland,215,0,8
+2023,causeway-coast-and-glens,limavady,Limavady,"Chivers, Brenda",Sinn Féin,1800,1,1
+2023,causeway-coast-and-glens,limavady,Limavady,"Callaghan, Steven Garth",Democratic Unionist Party,1010,1,2
+2023,causeway-coast-and-glens,limavady,Limavady,"McCorkell, James Alexander",Independent,562,0,3
+2023,causeway-coast-and-glens,limavady,Limavady,"Mairs, Amy",Alliance,547,1,4
+2023,causeway-coast-and-glens,limavady,Limavady,"Crawford, Barry",Ulster Unionist Party,511,0,5
+2023,causeway-coast-and-glens,limavady,Limavady,"Callan, Aaron Andrew",Democratic Unionist Party,496,1,6
+2023,causeway-coast-and-glens,limavady,Limavady,"Wallace, Jordan Mark",Democratic Unionist Party,478,0,7
+2023,causeway-coast-and-glens,limavady,Limavady,"Schenning, Ashleen",Social Democratic and Labour Party,443,1,8
+2023,causeway-coast-and-glens,limavady,Limavady,"Boyle, John",Aontú,153,0,9
+2023,causeway-coast-and-glens,limavady,Limavady,"Stewart, Billy",Independent,31,0,10
+2023,armagh-city-banbridge-and-craigavon,lurgan,Lurgan,"HAUGHIAN, Keith",Sinn Féin,2153,1,1
+2023,armagh-city-banbridge-and-craigavon,lurgan,Lurgan,"LAVERY, Peter",Alliance,1877,1,2
+2023,armagh-city-banbridge-and-craigavon,lurgan,Lurgan,"HAIRE, Peter",Democratic Unionist Party,1849,1,3
+2023,armagh-city-banbridge-and-craigavon,lurgan,Lurgan,"MACKLE, Liam",Sinn Féin,1835,1,4
+2023,armagh-city-banbridge-and-craigavon,lurgan,Lurgan,"O'DOWD, Mary",Sinn Féin,1554,1,5
+2023,armagh-city-banbridge-and-craigavon,lurgan,Lurgan,"MOUTRAY, Stephen",Democratic Unionist Party,1416,1,6
+2023,armagh-city-banbridge-and-craigavon,lurgan,Lurgan,"MCGEOWN, Sorcha",Sinn Féin,1299,1,7
+2023,armagh-city-banbridge-and-craigavon,lurgan,Lurgan,"MCKINSTREY, Louise",Ulster Unionist Party,1104,0,8
+2023,armagh-city-banbridge-and-craigavon,lurgan,Lurgan,"TOMAN, Ciaran",Social Democratic and Labour Party,991,0,9
+2023,mid-ulster,magherafelt,Magherafelt,"TOTTEN, Darren Oliver",Sinn Féin,2077,1,1
+2023,mid-ulster,magherafelt,Magherafelt,"CLARKE, Sean",Sinn Féin,1530,1,2
+2023,mid-ulster,magherafelt,Magherafelt,"McLEAN, Paul",Democratic Unionist Party,1143,1,3
+2023,mid-ulster,magherafelt,Magherafelt,"BROWN, Wesley",Democratic Unionist Party,967,1,4
+2023,mid-ulster,magherafelt,Magherafelt,"McFLYNN, Christine Josephine",Social Democratic and Labour Party,804,1,5
+2023,mid-ulster,magherafelt,Magherafelt,"LOVE, Raymond",Traditional Unionist Voice,671,0,6
+2023,mid-ulster,magherafelt,Magherafelt,"BROWN, Ian",Ulster Unionist Party,587,0,7
+2023,mid-ulster,magherafelt,Magherafelt,"FARRELL, Padraic David",AP,478,0,8
+2023,mid-ulster,moyola,Moyola,"MILNE, Ian",Sinn Féin,2219,1,1
+2023,mid-ulster,moyola,Moyola,"GROOGAN, Jolene",Sinn Féin,1874,1,2
+2023,mid-ulster,moyola,Moyola,"FORDE, Anne",Democratic Unionist Party,1563,1,3
+2023,mid-ulster,moyola,Moyola,"McPEAKE, Donal",Sinn Féin,1144,1,4
+2023,mid-ulster,moyola,Moyola,"JOHNSTON, Denise",Social Democratic and Labour Party,651,1,5
+2023,mid-ulster,moyola,Moyola,"McKINNEY, Derek Irwin",Ulster Unionist Party,592,0,6
+2023,mid-ulster,moyola,Moyola,"MOORE, Glenn",Traditional Unionist Voice,519,0,7
+2023,mid-ulster,moyola,Moyola,"FULLERTON, Sheila Maria",Aontú,347,0,8
+2023,mid-ulster,moyola,Moyola,"ROSS, Caleb",AP,247,0,9
+2023,newry-mourne-and-down,newry,Newry,"HARTE, VALERIE",Sinn Féin,2085,1,1
+2023,newry-mourne-and-down,newry,Newry,"KING, CATHAL",Sinn Féin,1982,1,2
+2023,newry-mourne-and-down,newry,Newry,"MATHERS, AIDAN",Sinn Féin,1483,1,3
+2023,newry-mourne-and-down,newry,Newry,"KEARNS, GERALDINE",Sinn Féin,1259,1,4
+2023,newry-mourne-and-down,newry,Newry,"FINN, DOIRE",Social Democratic and Labour Party,961,1,5
+2023,newry-mourne-and-down,newry,Newry,"SAVAGE, MICHAEL",Social Democratic and Labour Party,935,1,6
+2023,newry-mourne-and-down,newry,Newry,"YOUNG, HELENA",Alliance,830,0,7
+2023,newry-mourne-and-down,newry,Newry,"LOUGHRAN, SHARON",Aontú,318,0,8
+2023,newry-mourne-and-down,newry,Newry,"MCCRACKEN, ANDREW",Ulster Unionist Party,285,0,9
+2023,newry-mourne-and-down,newry,Newry,"KRUPSKA, MARIYA",Independent,209,0,10
+2023,newry-mourne-and-down,newry,Newry,"GRANT, NICOLA",Workers' Party,104,0,11
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"DUFFY, Paul",Sinn Féin,1986,1,1
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"MCILWRATH, Lavelle",Democratic Unionist Party,1826,1,2
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"MOUTRAY, Kyle",Democratic Unionist Party,1816,1,3
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"MULLHOLLAND, Alan",Democratic Unionist Party,1432,1,4
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"FLAHERTY, Julie",Ulster Unionist Party,1355,1,5
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"HUTCHINSON, Emma",Alliance,921,0,6
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"MCCONVILLE-WALKER, Clare",Sinn Féin,907,1,7
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"MCNEILL, Eamon",Social Democratic and Labour Party,842,0,8
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"OLIVER, Robert",Traditional Unionist Voice,795,0,9
+2023,armagh-city-banbridge-and-craigavon,portadown,Portadown,"MCCULLOUGH, Zoe",Ulster Unionist Party,322,0,10
+2023,newry-mourne-and-down,rowallane,Rowallane,"JACKSON, JONNY",Democratic Unionist Party,1414,1,1
+2023,newry-mourne-and-down,rowallane,Rowallane,"BOWSIE, CALLUM",Democratic Unionist Party,1331,1,2
+2023,newry-mourne-and-down,rowallane,Rowallane,"ANDREWS, TERRY",Social Democratic and Labour Party,1319,1,3
+2023,newry-mourne-and-down,rowallane,Rowallane,"LEE-SURGINOR, DAVID",Alliance,1011,1,4
+2023,newry-mourne-and-down,rowallane,Rowallane,"KELLY, TIERNA",Alliance,965,1,5
+2023,newry-mourne-and-down,rowallane,Rowallane,"BURGESS, ROBERT",Ulster Unionist Party,937,0,6
+2023,newry-mourne-and-down,rowallane,Rowallane,"KENNEDY, DERMOT",Sinn Féin,866,0,7
+2023,newry-mourne-and-down,rowallane,Rowallane,"GRACEY, RACHEL",Ulster Unionist Party,101,0,8
+2023,newry-mourne-and-down,rowallane,Rowallane,"MCCOLL, ALI",Green Party Northern Ireland,90,0,9
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"LEWIS, ALAN",Democratic Unionist Party,1723,1,1
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"BRENNAN, JIM",Sinn Féin,1569,1,2
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"HOWELL, ROISIN",Sinn Féin,1443,1,3
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"O'HARE, SIOBHÁN",Sinn Féin,1226,1,4
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"MCMURRAY, ANDREW",Alliance,1183,1,5
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"GALLAGHER, HUGH",Social Democratic and Labour Party,756,0,6
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"LYONS, WALTER",Ulster Unionist Party,383,0,7
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"POLLAND, WILL",Social Democratic and Labour Party,285,0,8
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"MCGLONE, ROSEMARY",Aontú,245,0,9
+2023,newry-mourne-and-down,slieve-croob,Slieve Croob,"PITT, SEANA",Green Party Northern Ireland,98,0,10
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"FINNEGAN, AOIFÉ",Sinn Féin,1934,1,1
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"QUINN, AINE",Sinn Féin,1932,1,2
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"MURPHY, DECLAN",Sinn Féin,1907,1,3
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"LARKIN, MICKEY",Sinn Féin,1558,1,4
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"BYRNE, PETE",Social Democratic and Labour Party,1447,1,5
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"Ó MUIRÍ, BARRA",Sinn Féin,1331,0,6
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"MAGENNIS, OONAGH",Sinn Féin,1316,1,7
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"TAYLOR, DAVID SAMUEL",Ulster Unionist Party,1197,1,8
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"FEEHAN, KILLIAN",Social Democratic and Labour Party,903,0,9
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"REICHENBERG, LIAM",Aontú,439,0,10
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"HENRY, LINDA",Democratic Unionist Party,360,0,11
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"GREGORY, CAOLAN",Alliance,298,0,12
+2023,newry-mourne-and-down,slieve-gullion,Slieve Gullion,"NI MHÁNAIS, MOLLY",Green Party Northern Ireland,69,0,13
+2023,causeway-coast-and-glens,the-glens,The Glens,"McShane, Cara",Sinn Féin,1913,1,1
+2023,causeway-coast-and-glens,the-glens,The Glens,"McMullan, Oliver",Sinn Féin,1462,1,2
+2023,causeway-coast-and-glens,the-glens,The Glens,"Watson, Maighréad",Sinn Féin,1142,1,3
+2023,causeway-coast-and-glens,the-glens,The Glens,"Kennedy, Bill",Democratic Unionist Party,945,1,4
+2023,causeway-coast-and-glens,the-glens,The Glens,"Morgan, Glenise",Alliance,733,0,5
+2023,causeway-coast-and-glens,the-glens,The Glens,"McKillop, Margaret Anne",Social Democratic and Labour Party,652,1,6
+2023,causeway-coast-and-glens,the-glens,The Glens,"Craig, Wesley",Ulster Unionist Party,587,0,7
+2023,causeway-coast-and-glens,the-glens,The Glens,"Robbin, John",Aontú,265,0,8
+2023,newry-mourne-and-down,the-mournes,The Mournes,"HANNA, GLYN",Democratic Unionist Party,2340,1,1
+2023,newry-mourne-and-down,the-mournes,The Mournes,"RICE, MICHAEL",Sinn Féin,2040,1,2
+2023,newry-mourne-and-down,the-mournes,The Mournes,"CLARKE, WILLIE",Sinn Féin,1915,1,3
+2023,newry-mourne-and-down,the-mournes,The Mournes,"MCCEVOY, LEEANNE",Sinn Féin,1643,1,4
+2023,newry-mourne-and-down,the-mournes,The Mournes,"DEVLIN, LAURA",Social Democratic and Labour Party,1370,1,5
+2023,newry-mourne-and-down,the-mournes,The Mournes,"TRUESDALE, JILL",Alliance,1105,1,6
+2023,newry-mourne-and-down,the-mournes,The Mournes,"REILLY, HENRY",Democratic Unionist Party,1089,1,7
+2023,newry-mourne-and-down,the-mournes,The Mournes,"MCKEE, HAROLD",Traditional Unionist Voice,880,0,8
+2023,newry-mourne-and-down,the-mournes,The Mournes,"DOUGLAS, LLOYD",Ulster Unionist Party,511,0,9
+2023,newry-mourne-and-down,the-mournes,The Mournes,"O'REILLY, DOMINIC VINCENT",Social Democratic and Labour Party,357,0,10
+2023,newry-mourne-and-down,the-mournes,The Mournes,"O BAOILL, SEAN",Green Party Northern Ireland,119,0,11
+2023,mid-ulster,torrent,Torrent,"CARNEY, Eimear",Sinn Féin,1678,1,1
+2023,mid-ulster,torrent,Torrent,"MCALEER, Niall",Sinn Féin,1666,1,2
+2023,mid-ulster,torrent,Torrent,"KERR, Dan",Independent,1395,1,3
+2023,mid-ulster,torrent,Torrent,"BUCHANAN, Jonathan",Democratic Unionist Party,1170,1,4
+2023,mid-ulster,torrent,Torrent,"MCLERNON, Nuala",Sinn Féin,1147,1,5
+2023,mid-ulster,torrent,Torrent,"KELLY, Paul",Sinn Féin,996,0,6
+2023,mid-ulster,torrent,Torrent,"QUINN, Malachy",Social Democratic and Labour Party,961,1,7
+2023,mid-ulster,torrent,Torrent,"COLVIN, Robert",Ulster Unionist Party,714,0,8
+2023,mid-ulster,torrent,Torrent,"QUINN, Teresa",Independent,622,0,9
+2023,mid-ulster,torrent,Torrent,"GRAHAM, Simon Fredrick",AP,284,0,10
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"Elliot, Keith",Democratic Unionist Party,1029,1,1
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"Maguire, Tommy",Sinn Féin,1024,1,2
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"Browne, Dermot",Sinn Féin,846,1,3
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"McManus, Andrea",Sinn Féin,780,0,4
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"Roofe, Eddie",Alliance,779,1,5
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"Crawford, Roy",Ulster Unionist Party,667,1,6
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"Irvine, Robert",Ulster Unionist Party,562,1,7
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"Blake, Paul",Social Democratic and Labour Party,539,0,8
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"Crawford, Donald",Traditional Unionist Voice,509,0,9
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"O’Cofaigh, Donal",Cross-Community Labour Alternative,504,0,10
+2023,fermanagh-and-omagh,enniskillen,Enniskillen,"Mahon, Jill",Democratic Unionist Party,437,0,11
+2023,fermanagh-and-omagh,erne-east,Erne East,"Greene, Sheamus",Sinn Féin,1753,1,1
+2023,fermanagh-and-omagh,erne-east,Erne East,"Robinson, Paul",Democratic Unionist Party,1410,1,2
+2023,fermanagh-and-omagh,erne-east,Erne East,O'Reilly Thomas,Sinn Féin,1387,1,3
+2023,fermanagh-and-omagh,erne-east,Erne East,"Hayes, Noeleen",Sinn Féin,1296,1,4
+2023,fermanagh-and-omagh,erne-east,Erne East,"Warrington, Victor",Ulster Unionist Party,1115,1,5
+2023,fermanagh-and-omagh,erne-east,Erne East,"Keenan, Eamon",Independent,560,0,6
+2023,fermanagh-and-omagh,erne-east,Erne East,"McPhillips, Garbhan",Social Democratic and Labour Party,498,1,7
+2023,fermanagh-and-omagh,erne-east,Erne East,"McDermott, Tina",Independent,238,0,8
+2023,fermanagh-and-omagh,erne-east,Erne East,"Bullick, Richard",Alliance,221,0,9
+2023,fermanagh-and-omagh,erne-north,Erne North,"Coyle, Debbie",Sinn Féin,1561,1,1
+2023,fermanagh-and-omagh,erne-north,Erne North,"Armstrong, Diana",Ulster Unionist Party,1392,1,2
+2023,fermanagh-and-omagh,erne-north,Erne North,"Mahon, David",Democratic Unionist Party,984,1,3
+2023,fermanagh-and-omagh,erne-north,Erne North,"Feely, John",Sinn Féin,852,1,4
+2023,fermanagh-and-omagh,erne-north,Erne North,"Coyle, John",Social Democratic and Labour Party,783,0,5
+2023,fermanagh-and-omagh,erne-north,Erne North,"McClaughry, John",Ulster Unionist Party,529,1,6
+2023,fermanagh-and-omagh,erne-north,Erne North,"Elliott, Alex",Traditional Unionist Voice,422,0,7
+2023,fermanagh-and-omagh,erne-north,Erne North,"Bullick, Eric",Alliance,358,0,8
+2023,fermanagh-and-omagh,erne-north,Erne North,"Stevenson, Paul",Democratic Unionist Party,219,0,9
+2023,fermanagh-and-omagh,erne-west,Erne West,"Feely, Anthony",Sinn Féin,1493,1,1
+2023,fermanagh-and-omagh,erne-west,Erne West,"Brough, Elaine",Sinn Féin,1362,1,2
+2023,fermanagh-and-omagh,erne-west,Erne West,"McArdle, Declan",Sinn Féin,1256,1,3
+2023,fermanagh-and-omagh,erne-west,Erne West,"Owens, Mark",Ulster Unionist Party,1197,1,4
+2023,fermanagh-and-omagh,erne-west,Erne West,"Gannon, Adam",Social Democratic and Labour Party,835,1,5
+2023,fermanagh-and-omagh,erne-west,Erne West,"Elliott, Aaron",Democratic Unionist Party,687,0,6
+2023,fermanagh-and-omagh,erne-west,Erne West,"McGoldrick, Paul",Independent,506,0,7
+2023,fermanagh-and-omagh,erne-west,Erne West,"McCusker, Gerard",Alliance,250,0,8
+2023,fermanagh-and-omagh,omagh,Omagh,"McElduff, Barry",Sinn Féin,1342,1,1
+2023,fermanagh-and-omagh,omagh,Omagh,"Thompson, Errol",Democratic Unionist Party,1138,1,2
+2023,fermanagh-and-omagh,omagh,Omagh,"Kelly, Catherine",Sinn Féin,1013,1,3
+2023,fermanagh-and-omagh,omagh,Omagh,"Donnelly, Stephen",Alliance,872,1,4
+2023,fermanagh-and-omagh,omagh,Omagh,"McColgan, Marty",Sinn Féin,773,1,5
+2023,fermanagh-and-omagh,omagh,Omagh,"Bell, Matthew",Ulster Unionist Party,489,0,6
+2023,fermanagh-and-omagh,omagh,Omagh,"Deehan, Josephine",Independent,469,1,7
+2023,fermanagh-and-omagh,omagh,Omagh,"Mellon, Brenda",Social Democratic and Labour Party,385,0,8
+2023,fermanagh-and-omagh,omagh,Omagh,"Dunphy, Kathy",Independent,80,0,9
+2023,fermanagh-and-omagh,omagh,Omagh,"Ferguson, Amy",Socialist Party,75,0,10
+2023,fermanagh-and-omagh,mid-tyrone,Mid Tyrone,"Kelly, Padraigin",Sinn Féin,1621,1,1
+2023,fermanagh-and-omagh,mid-tyrone,Mid Tyrone,"Devine Gallagher, Roisin",Sinn Féin,1464,1,2
+2023,fermanagh-and-omagh,mid-tyrone,Mid Tyrone,"Fitzgerald, Anne-Marie",Sinn Féin,1204,1,3
+2023,fermanagh-and-omagh,mid-tyrone,Mid Tyrone,"Withers, Patrick",Sinn Féin,1072,1,4
+2023,fermanagh-and-omagh,mid-tyrone,Mid Tyrone,"Hawkes, Shirley",Democratic Unionist Party,1057,1,5
+2023,fermanagh-and-omagh,mid-tyrone,Mid Tyrone,"Barton, Rosemary",Ulster Unionist Party,687,0,6
+2023,fermanagh-and-omagh,mid-tyrone,Mid Tyrone,"McAleer, Emmet",Independent,629,0,7
+2023,fermanagh-and-omagh,mid-tyrone,Mid Tyrone,"McGrath, Bernard",Social Democratic and Labour Party,497,1,8
+2023,fermanagh-and-omagh,mid-tyrone,Mid Tyrone,"Beaumont, Matthew",Alliance,311,0,9
+2023,fermanagh-and-omagh,west-tyrone,West Tyrone,"Buchanan, Mark",Democratic Unionist Party,1619,1,1
+2023,fermanagh-and-omagh,west-tyrone,West Tyrone,"Campbell, Glenn",Sinn Féin,1279,1,2
+2023,fermanagh-and-omagh,west-tyrone,West Tyrone,"McNulty, Colette",Sinn Féin,1149,1,3
+2023,fermanagh-and-omagh,west-tyrone,West Tyrone,"Donnelly, Ann-Marie",Sinn Féin,1129,1,4
+2023,fermanagh-and-omagh,west-tyrone,West Tyrone,"McCann, Stephen",Sinn Féin,1093,1,5
+2023,fermanagh-and-omagh,west-tyrone,West Tyrone,"Rainey, Allan",Ulster Unionist Party,829,1,6
+2023,fermanagh-and-omagh,west-tyrone,West Tyrone,"Garrity, Mary",Social Democratic and Labour Party,746,0,7
+2023,fermanagh-and-omagh,west-tyrone,West Tyrone,"Donnelly, Joyce",Alliance,457,0,8
+2023,antrim-and-newtownabbey,airport,Airport,"MAGILL, Matthew",Democratic Unionist Party,1827,1,1
+2023,antrim-and-newtownabbey,airport,Airport,"LOGUE, Anne-Marie",Sinn Féin,1574,1,2
+2023,antrim-and-newtownabbey,airport,Airport,"NÍ CHONGHAILE, Maighréad",Sinn Féin,1335,1,3
+2023,antrim-and-newtownabbey,airport,Airport,"McAULEY, Andrew",Alliance,1209,1,4
+2023,antrim-and-newtownabbey,airport,Airport,"MICHAEL, Paul",Ulster Unionist Party,1075,1,5
+2023,antrim-and-newtownabbey,airport,Airport,"BURNS, Thomas",Social Democratic and Labour Party,862,0,6
+2023,antrim-and-newtownabbey,airport,Airport,"JOHNSTON, Terri",Green Party Northern Ireland,134,0,7
+2023,antrim-and-newtownabbey,antrim,Antrim,"O'HAGAN, Lucille",Sinn Féin,1270,1,1
+2023,antrim-and-newtownabbey,antrim,Antrim,"KELLY, Neil",Alliance,1091,1,2
+2023,antrim-and-newtownabbey,antrim,Antrim,"DUNLOP, Paul",Democratic Unionist Party,986,1,3
+2023,antrim-and-newtownabbey,antrim,Antrim,"SMYTH, Leah",Ulster Unionist Party,744,1,4
+2023,antrim-and-newtownabbey,antrim,Antrim,"SMYTH, John",Democratic Unionist Party,721,1,5
+2023,antrim-and-newtownabbey,antrim,Antrim,"LYNCH, Roisin",Social Democratic and Labour Party,678,1,6
+2023,antrim-and-newtownabbey,antrim,Antrim,"SHIELDS, Richard",Traditional Unionist Voice,453,0,7
+2023,antrim-and-newtownabbey,antrim,Antrim,"MONTGOMERY, Jim",Ulster Unionist Party,442,0,8
+2023,antrim-and-newtownabbey,antrim,Antrim,"MONAHAN, Tommy",Alliance,396,0,9
+2023,antrim-and-newtownabbey,antrim,Antrim,"McMEEKIN, Karl",Democratic Unionist Party,257,0,10
+2023,antrim-and-newtownabbey,antrim,Antrim,"BAILEY, Eleanor",Green Party Northern Ireland,88,0,11
+2023,antrim-and-newtownabbey,ballyclare,Ballyclare,"ARCHIBALD, Jeannie",Democratic Unionist Party,1655,1,1
+2023,antrim-and-newtownabbey,ballyclare,Ballyclare,"MCWILLIAM, Vera",Ulster Unionist Party,1131,1,2
+2023,antrim-and-newtownabbey,ballyclare,Ballyclare,"BOYLE, Lewis",Alliance,977,1,3
+2023,antrim-and-newtownabbey,ballyclare,Ballyclare,"MAGILL, Helen",Democratic Unionist Party,947,1,4
+2023,antrim-and-newtownabbey,ballyclare,Ballyclare,"STEWART, Michael",Independent,928,1,5
+2023,antrim-and-newtownabbey,ballyclare,Ballyclare,"LUCAS, Mel",Traditional Unionist Voice,747,0,6
+2023,antrim-and-newtownabbey,ballyclare,Ballyclare,"RAMSAY, Norrie",Ulster Unionist Party,604,0,7
+2023,antrim-and-newtownabbey,ballyclare,Ballyclare,"ROBINSON, Robert",Green Party Northern Ireland,109,0,8
+2023,antrim-and-newtownabbey,ballyclare,Ballyclare,"MAGEE, Gerard",Sinn Féin,86,0,9
+2023,antrim-and-newtownabbey,dunsilly,Dunsilly,"CUSHINAN, Henry",Sinn Féin,1390,1,1
+2023,antrim-and-newtownabbey,dunsilly,Dunsilly,"O'LONE, Annie",Sinn Féin,1214,1,2
+2023,antrim-and-newtownabbey,dunsilly,Dunsilly,"CLARKE, Linda",Democratic Unionist Party,977,1,3
+2023,antrim-and-newtownabbey,dunsilly,Dunsilly,"BURBANK, Jay",Alliance,913,1,4
+2023,antrim-and-newtownabbey,dunsilly,Dunsilly,"WILSON, Stewart",Ulster Unionist Party,843,1,5
+2023,antrim-and-newtownabbey,dunsilly,Dunsilly,"WILSON, Ryan",Social Democratic and Labour Party,724,0,6
+2023,antrim-and-newtownabbey,dunsilly,Dunsilly,"CUNNINGHAM, Tom",Democratic Unionist Party,705,0,7
+2023,antrim-and-newtownabbey,dunsilly,Dunsilly,"CAMPBELL, Jonathan",Traditional Unionist Voice,445,0,8
+2023,antrim-and-newtownabbey,dunsilly,Dunsilly,"McERLEAN, Siobhán",Aontú,243,0,9
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"BENNINGTON, Alison",Democratic Unionist Party,1432,1,1
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"McLAUGHLIN, Eamonn",Sinn Féin,1280,1,2
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"McGRATH, Julian",Alliance,994,1,3
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"KINNEAR, Rosie",Sinn Féin,972,1,4
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"COSGROVE, Mark",Ulster Unionist Party,952,1,5
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"BRADLEY, Paula",Democratic Unionist Party,852,1,6
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"GOODMAN, Michael",Sinn Féin,841,1,7
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"McCLELLAND, Noreen",Social Democratic and Labour Party,565,0,8
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"PIATEK, Anita",Alliance,413,0,9
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"VERONICA, Lesley",Green Party Northern Ireland,313,0,10
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"MAGUIRE, Michael",Independent,102,0,11
+2023,antrim-and-newtownabbey,glengormley-urban,Glengormley Urban,"REID, Jason",Conservative Party,49,0,12
+2023,antrim-and-newtownabbey,macedon,Macedon,"McGRANN, Taylor",Sinn Féin,1326,1,1
+2023,antrim-and-newtownabbey,macedon,Macedon,"BRADY, Matthew",Democratic Unionist Party,1220,1,2
+2023,antrim-and-newtownabbey,macedon,Macedon,"FOSTER, Robert",Ulster Unionist Party,1138,1,3
+2023,antrim-and-newtownabbey,macedon,Macedon,"WEBB, Billy",Alliance,1085,1,4
+2023,antrim-and-newtownabbey,macedon,Macedon,"MALLON, Ben",Democratic Unionist Party,574,1,5
+2023,antrim-and-newtownabbey,macedon,Macedon,"ROBINSON, Victor",Democratic Unionist Party,553,0,6
+2023,antrim-and-newtownabbey,macedon,Macedon,"WARD, Stafford",Independent,487,1,7
+2023,antrim-and-newtownabbey,macedon,Macedon,"BOYD, Norman",Traditional Unionist Voice,333,0,8
+2023,antrim-and-newtownabbey,macedon,Macedon,"BELL-McCRACKEN, Rosemary",Progressive Unionist Party,244,0,9
+2023,antrim-and-newtownabbey,macedon,Macedon,"BYRNE, Ellie",Green Party Northern Ireland,158,0,10
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"COOPER, Mark",Democratic Unionist Party,1575,1,1
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"CAMPBELL, Tom",Alliance,1390,1,2
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"ROSS, Stephen",Democratic Unionist Party,1211,1,3
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"COSGROVE, Stephen",Ulster Unionist Party,899,1,4
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"GILMOUR, Julie",Alliance,711,1,5
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"FLANAGHAN, Sam",Democratic Unionist Party,574,1,6
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"KERR, Brian",Ulster Unionist Party,530,0,7
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"MAWHINNEY, Trevor",Traditional Unionist Voice,425,0,8
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"MULLEN, Emmanuel",Sinn Féin,325,0,9
+2023,antrim-and-newtownabbey,threemilewater,Threemilewater,"LOUGHLIN, Dylan",Green Party Northern Ireland,162,0,10
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"ADAIR, Robert Hugh",Democratic Unionist Party,1959,1,1
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"BOYLE, Joe",Social Democratic and Labour Party,1279,1,2
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"McALPINE, Lorna",Alliance,1266,1,3
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"SANDS, Noel",Sinn Féin,945,0,4
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"KERR, David",Democratic Unionist Party,827,1,5
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"WRAY, Pete",Ulster Unionist Party,739,1,6
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"THOMPSON, Eddie",Democratic Unionist Party,687,0,7
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"EDMUND, Nigel",Democratic Unionist Party,633,1,8
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"THOMPSON, Tom",Traditional Unionist Voice,592,0,9
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"McNAULL, Gillian",Green Party Northern Ireland,149,0,10
+2023,ards-and-north-down,ards-peninsula,Ards Peninsula,"IRELAND, Boyd",Independent,108,0,11
+2023,ards-and-north-down,bangor-central,Bangor Central,"DOUGLAS, Karen",Alliance,1378,1,1
+2023,ards-and-north-down,bangor-central,Bangor Central,"IRVINE, Wesley Graham",Independent,1369,1,2
+2023,ards-and-north-down,bangor-central,Bangor Central,"CATHCART, Alistair",Democratic Unionist Party,1053,1,3
+2023,ards-and-north-down,bangor-central,Bangor Central,"BLANEY, Craig",Ulster Unionist Party,917,1,4
+2023,ards-and-north-down,bangor-central,Bangor Central,"McKIMM, Ray",Independent,885,1,5
+2023,ards-and-north-down,bangor-central,Bangor Central,"McCRACKEN, Chris",Alliance,666,1,6
+2023,ards-and-north-down,bangor-central,Bangor Central,"DUNLOP, Stephen John",Green Party Northern Ireland,583,0,7
+2023,ards-and-north-down,bangor-central,Bangor Central,"WILSON, Peter",Traditional Unionist Voice,454,0,8
+2023,ards-and-north-down,bangor-central,Bangor Central,"HARBINSON, Alex",Alliance,385,0,9
+2023,ards-and-north-down,bangor-central,Bangor Central,"McSORLEY, Dean",Democratic Unionist Party,361,0,10
+2023,ards-and-north-down,bangor-central,Bangor Central,"McCORD, Rachel Deborah",Ulster Unionist Party,313,0,11
+2023,ards-and-north-down,bangor-central,Bangor Central,"MULLEN, Tim",Conservative Party,86,0,12
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"BROOKS, Mark Ronald",Ulster Unionist Party,1972,1,1
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"IRWIN, Hannah",Alliance,1445,1,2
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"COCHRANE, James",Democratic Unionist Party,1275,1,3
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"CHAMBERS, David Alan",Ulster Unionist Party,932,1,4
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"MacARTHUR, Janice",Democratic Unionist Party,712,1,5
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"KEERY, Bill",Independent,641,0,6
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"McCOLLUM, Gillian",Alliance,585,1,7
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"SMITH, Tom",Independent,460,0,8
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"HENRY, Ciara",Green Party Northern Ireland,355,0,9
+2023,ards-and-north-down,bangor-east-and-donaghadee,Bangor East & Donaghadee,"LEEMAN, Paul",Conservative Party,119,0,10
+2023,ards-and-north-down,bangor-west,Bangor West,"CREIGHTON, Christine",Alliance,1175,1,1
+2023,ards-and-north-down,bangor-west,Bangor West,"GILMOUR, Jennifer",Democratic Unionist Party,1033,1,2
+2023,ards-and-north-down,bangor-west,Bangor West,"HOLLYWOOD, Stephen",Ulster Unionist Party,867,1,3
+2023,ards-and-north-down,bangor-west,Bangor West,"McKEE, Barry",Green Party Northern Ireland,737,1,4
+2023,ards-and-north-down,bangor-west,Bangor West,"MARTIN, Peter James",Democratic Unionist Party,640,1,5
+2023,ards-and-north-down,bangor-west,Bangor West,"PRENTICE, Susan",Independent,510,0,6
+2023,ards-and-north-down,bangor-west,Bangor West,"STACEY, Huw",Alliance,395,0,7
+2023,ards-and-north-down,bangor-west,Bangor West,"McWHINNEY, Alison",Alliance,388,0,8
+2023,ards-and-north-down,bangor-west,Bangor West,"GORDON, John",Traditional Unionist Voice,331,0,9
+2023,ards-and-north-down,bangor-west,Bangor West,"McCANN, Tony",Social Democratic and Labour Party,297,0,10
+2023,ards-and-north-down,bangor-west,Bangor West,"BREEN, Colin",Conservative Party,132,0,11
+2023,ards-and-north-down,comber,Comber,"DOUGLAS, Libby",Democratic Unionist Party,1501,1,1
+2023,ards-and-north-down,comber,Comber,"SMITH, Philip",Ulster Unionist Party,1407,1,2
+2023,ards-and-north-down,comber,Comber,"CUMMINGS, Trevor",Democratic Unionist Party,1303,1,3
+2023,ards-and-north-down,comber,Comber,"MORGAN, Patricia",Alliance,1081,1,4
+2023,ards-and-north-down,comber,Comber,"ASHE, Rachel",Alliance,1019,1,5
+2023,ards-and-north-down,comber,Comber,"PATTERSON, Sam",Traditional Unionist Voice,409,0,6
+2023,ards-and-north-down,comber,Comber,"COOPER, Stephen James",Independent,322,0,7
+2023,ards-and-north-down,comber,Comber,"QUINN, Cory",Green Party Northern Ireland,197,0,8
+2023,ards-and-north-down,comber,Comber,"SLOAN, John",Independent,47,0,9
+2023,ards-and-north-down,holywood-and-clandeboye,Holywood & Clandeboye,"McRANDAL, Martin Joseph",Alliance,1222,1,1
+2023,ards-and-north-down,holywood-and-clandeboye,Holywood & Clandeboye,"WOODS, Rachel Elizabeth",Green Party Northern Ireland,1134,1,2
+2023,ards-and-north-down,holywood-and-clandeboye,Holywood & Clandeboye,"GRAHAM, Alan",Democratic Unionist Party,1112,1,3
+2023,ards-and-north-down,holywood-and-clandeboye,Holywood & Clandeboye,"ROSSITER, David",Alliance,1074,1,4
+2023,ards-and-north-down,holywood-and-clandeboye,Holywood & Clandeboye,"McLAREN, Linzi",Ulster Unionist Party,989,1,5
+2023,ards-and-north-down,holywood-and-clandeboye,Holywood & Clandeboye,"CORBETT, Helen",Alliance,875,0,6
+2023,ards-and-north-down,holywood-and-clandeboye,Holywood & Clandeboye,"VAUGHAN, Deirdre",Social Democratic and Labour Party,539,0,7
+2023,ards-and-north-down,holywood-and-clandeboye,Holywood & Clandeboye,"McCLEAN, Carl",Democratic Unionist Party,419,0,8
+2023,ards-and-north-down,holywood-and-clandeboye,Holywood & Clandeboye,"ADAMS, Diane",Traditional Unionist Voice,364,0,9
+2023,ards-and-north-down,newtownards,Newtownards,"IRVINE, Steven Gary",Independent,1463,1,1
+2023,ards-and-north-down,newtownards,Newtownards,"ARMSTRONG, Naomi Esther Hannah",Democratic Unionist Party,1370,1,2
+2023,ards-and-north-down,newtownards,Newtownards,"SMART, Richard",Ulster Unionist Party,1257,1,3
+2023,ards-and-north-down,newtownards,Newtownards,"McDOWELL, Alan Joseph",Alliance,1236,1,4
+2023,ards-and-north-down,newtownards,Newtownards,"McILVEEN, Stephen Harold",Democratic Unionist Party,1057,1,5
+2023,ards-and-north-down,newtownards,Newtownards,"MOORE, Vicky",Alliance,947,1,6
+2023,ards-and-north-down,newtownards,Newtownards,"ALLEN, Eddie",Traditional Unionist Voice,598,0,7
+2023,ards-and-north-down,newtownards,Newtownards,"KENNEDY, Colin George Dallas",Democratic Unionist Party,580,1,8
+2023,ards-and-north-down,newtownards,Newtownards,"COX, Ian",Independent,527,0,9
+2023,ards-and-north-down,newtownards,Newtownards,"MaCARTNEY, Maurice",Green Party Northern Ireland,226,0,10
+2023,ards-and-north-down,newtownards,Newtownards,"KING, Ben",Independent,24,0,11
+2023,belfast,balmoral,Balmoral,"McAteer, Geraldine",Sinn Féin,2037,1,1
+2023,belfast,balmoral,Balmoral,"Lyons, Dónal",Social Democratic and Labour Party,1616,1,2
+2023,belfast,balmoral,Balmoral,"Brooks, Tara",Alliance,1522,1,3
+2023,belfast,balmoral,Balmoral,"Bunting, Sarah",Democratic Unionist Party,1513,1,4
+2023,belfast,balmoral,Balmoral,"Murray, Micky",Alliance,1090,1,5
+2023,belfast,balmoral,Balmoral,"Spratt, Gareth",Democratic Unionist Party,817,0,6
+2023,belfast,balmoral,Balmoral,"Lowry, Joshua",Ulster Unionist Party,551,0,7
+2023,belfast,balmoral,Balmoral,"Napier, Sean Patrick",Sinn Féin,427,0,8
+2023,belfast,balmoral,Balmoral,"Kendall, Lauren",Green Party Northern Ireland,333,0,9
+2023,belfast,balmoral,Balmoral,"Mulgrew, Sarah",Social Democratic and Labour Party,323,0,10
+2023,belfast,black-mountain,Black Mountain,"Beattie, Ciaran",Sinn Féin,2336,1,1
+2023,belfast,black-mountain,Black Mountain,"Donnelly, Micheal",Sinn Féin,2158,1,2
+2023,belfast,black-mountain,Black Mountain,"Carson, Arder",Sinn Féin,2073,1,3
+2023,belfast,black-mountain,Black Mountain,"McCabe, Áine",Sinn Féin,1838,1,4
+2023,belfast,black-mountain,Black Mountain,"Doherty, Paul",Social Democratic and Labour Party,1685,1,5
+2023,belfast,black-mountain,Black Mountain,"McLaughlin, Ronan",Sinn Féin,1641,1,6
+2023,belfast,black-mountain,Black Mountain,"Donnelly, Róis-Máire",Sinn Féin,1536,1,7
+2023,belfast,black-mountain,Black Mountain,"Collins, Matt",People Before Profit Alliance,1316,0,8
+2023,belfast,black-mountain,Black Mountain,"Herdman, Gerard",Aontú,543,0,9
+2023,belfast,black-mountain,Black Mountain,"Murphy, Dan",Irish Republican Socialist Party,426,0,10
+2023,belfast,black-mountain,Black Mountain,"Meighan, Ursula",Workers' Party,185,0,11
+2023,belfast,black-mountain,Black Mountain,"Brown, Ryan",Alliance,166,0,12
+2023,belfast,black-mountain,Black Mountain,"Maginn, Stevie",Green Party Northern Ireland,68,0,13
+2023,belfast,botanic,Botanic,"McKeown, Gary",Social Democratic and Labour Party,1881,1,1
+2023,belfast,botanic,Botanic,"Gormley, John",Sinn Féin,1533,1,2
+2023,belfast,botanic,Botanic,"Kelly, Tracy",Democratic Unionist Party,1372,1,3
+2023,belfast,botanic,Botanic,"McDonough-Brown, Emmet",Alliance,1086,1,4
+2023,belfast,botanic,Botanic,"Faulkner, Emma-Jane",Sinn Féin,1048,0,5
+2023,belfast,botanic,Botanic,"Groogan, Áine",Green Party Northern Ireland,1006,1,6
+2023,belfast,botanic,Botanic,"Ogle, Chris",Alliance,728,0,7
+2023,belfast,botanic,Botanic,"Leighton, Darren",Democratic Unionist Party,649,0,8
+2023,belfast,botanic,Botanic,"Dudgeon, Jeffrey",Ulster Unionist Party,380,0,9
+2023,belfast,botanic,Botanic,"Dickson, Billy",Traditional Unionist Voice,312,0,10
+2023,belfast,botanic,Botanic,"Sibanda, Sipho",People Before Profit Alliance,308,0,11
+2023,belfast,botanic,Botanic,"Moore, Neil",Socialist Party,149,0,12
+2023,belfast,botanic,Botanic,"Lynn, Paddy",Workers' Party,89,0,13
+2023,belfast,botanic,Botanic,"Maiga, Idris",Conservative Party,52,0,14
+2023,belfast,castle,Castle,"Anglin, Brónach",Sinn Féin,2479,1,1
+2023,belfast,castle,Castle,"Maskey, Conor",Sinn Féin,2068,1,2
+2023,belfast,castle,Castle,"Cobain, Fred",Democratic Unionist Party,1775,1,3
+2023,belfast,castle,Castle,"McCullough, Dean",Democratic Unionist Party,1671,1,4
+2023,belfast,castle,Castle,"Nelson, Sam",Alliance,1392,1,5
+2023,belfast,castle,Castle,"Whyte, Carl",Social Democratic and Labour Party,1047,1,6
+2023,belfast,castle,Castle,"O'Hara, Mal",Green Party Northern Ireland,979,0,7
+2023,belfast,castle,Castle,"Corr-Johnston, Julie-Anne",Ulster Unionist Party,553,0,8
+2023,belfast,castle,Castle,"Doherty, Barney",People Before Profit Alliance,250,0,9
+2023,belfast,castle,Castle,"Kerr, Lily",Workers' Party,86,0,10
+2023,belfast,collin,Collin,"Duffy, Joe",Sinn Féin,2559,1,1
+2023,belfast,collin,Collin,"McCann, Caoimhín",Sinn Féin,2350,1,2
+2023,belfast,collin,Collin,"Garrett, Matt",Sinn Féin,1924,1,3
+2023,belfast,collin,Collin,"Nic Bhranair, Clíodhna",Sinn Féin,1649,1,4
+2023,belfast,collin,Collin,"Walsh, Séanna",Sinn Féin,1521,1,5
+2023,belfast,collin,Collin,"Collins, Michael",People Before Profit Alliance,1193,1,6
+2023,belfast,collin,Collin,"McDonald, Gerard",Social Democratic and Labour Party,903,0,7
+2023,belfast,collin,Collin,"McCann, Luke",Aontú,526,0,8
+2023,belfast,collin,Collin,"Millar, Eoin",Alliance,492,0,9
+2023,belfast,collin,Collin,"McNally, Julieann",Independent,368,0,10
+2023,belfast,collin,Collin,"Jones, Ash",Green Party Northern Ireland,228,0,11
+2023,belfast,collin,Collin,"Mallon, Tony",Independent,166,0,12
+2023,belfast,collin,Collin,"Crossan, Patrick",Workers' Party,83,0,13
+2023,belfast,court,Court,"McCoubrey, Frank",Democratic Unionist Party,2645,1,1
+2023,belfast,court,Court,"Black, Tina",Sinn Féin,1822,1,2
+2023,belfast,court,Court,"Verner, Nicola",Democratic Unionist Party,1783,1,3
+2023,belfast,court,Court,"Canavan, Claire",Sinn Féin,1616,1,4
+2023,belfast,court,Court,"McLaughlin, Ian",Democratic Unionist Party,993,1,5
+2023,belfast,court,Court,"McDowell, Ron",Traditional Unionist Voice,963,1,6
+2023,belfast,court,Court,"Hutchinson, Billy",Progressive Unionist Party,679,0,7
+2023,belfast,court,Court,"McCaffrey, Cailín",People Before Profit Alliance,408,0,8
+2023,belfast,court,Court,"Kelly, Michael",Irish Republican Socialist Party,399,0,9
+2023,belfast,court,Court,"Haydock, Ally",Alliance,329,0,10
+2023,belfast,court,Court,"McSparron, Olcan",Social Democratic and Labour Party,175,0,11
+2023,belfast,court,Court,"Haller, Sara",Green Party Northern Ireland,108,0,12
+2023,belfast,court,Court,"Walls, Tony",Workers' Party,85,0,13
+2023,belfast,court,Court,"Wilson, Geoffrey",Independent,18,0,14
+2023,belfast,lisnasharragh,Lisnasharragh,"Douglas, Davy",Democratic Unionist Party,2083,1,1
+2023,belfast,lisnasharragh,Lisnasharragh,"De Faoite, Séamas",Social Democratic and Labour Party,1580,1,2
+2023,belfast,lisnasharragh,Lisnasharragh,"Long, Michael",Alliance,1437,1,3
+2023,belfast,lisnasharragh,Lisnasharragh,"Jenkins, Stevie",Sinn Féin,1231,0,4
+2023,belfast,lisnasharragh,Lisnasharragh,"Smyth, Brian",Green Party Northern Ireland,1157,1,5
+2023,belfast,lisnasharragh,Lisnasharragh,"Hanvey, Eric",Alliance,1078,1,6
+2023,belfast,lisnasharragh,Lisnasharragh,"Ferguson, Bradley",Democratic Unionist Party,1060,1,7
+2023,belfast,lisnasharragh,Lisnasharragh,"McErlean, Anna",Alliance,961,0,8
+2023,belfast,lisnasharragh,Lisnasharragh,"Manwaring, Bill",Ulster Unionist Party,820,0,9
+2023,belfast,lisnasharragh,Lisnasharragh,"Ferguson, Stephen",Traditional Unionist Voice,368,0,10
+2023,belfast,lisnasharragh,Lisnasharragh,"Cropper, Nick",People Before Profit Alliance,200,0,11
+2023,belfast,oldpark,Oldpark,"Bradley, Nichola",Sinn Féin,1870,1,1
+2023,belfast,oldpark,Oldpark,"McCusker, Paul",Independent,1747,1,2
+2023,belfast,oldpark,Oldpark,"Magee, JJ",Sinn Féin,1619,1,3
+2023,belfast,oldpark,Oldpark,"Murphy, Ryan",Sinn Féin,1430,1,4
+2023,belfast,oldpark,Oldpark,"Ó Néill, Tomás",Sinn Féin,1330,1,5
+2023,belfast,oldpark,Oldpark,"Doran, Jordan",Democratic Unionist Party,1263,1,6
+2023,belfast,oldpark,Oldpark,"Simpson, Gillian",Democratic Unionist Party,919,0,7
+2023,belfast,oldpark,Oldpark,"Ferguson, Fiona",People Before Profit Alliance,700,0,8
+2023,belfast,oldpark,Oldpark,"McClure, Ann",Traditional Unionist Voice,595,0,9
+2023,belfast,oldpark,Oldpark,"Shannon, Chris",Alliance,453,0,10
+2023,belfast,oldpark,Oldpark,"Carson, Charlotte",Social Democratic and Labour Party,245,0,11
+2023,belfast,oldpark,Oldpark,"Cruz, Ange",Green Party Northern Ireland,149,0,12
+2023,belfast,oldpark,Oldpark,"McCarthy, Fiona",Workers' Party,46,0,13
+2023,belfast,ormiston,Ormiston,"Bower, Christine",Alliance,2661,1,1
+2023,belfast,ormiston,Ormiston,"Lawlor, James David Warnock",Democratic Unionist Party,2397,1,2
+2023,belfast,ormiston,Ormiston,"McCormick, Andrew William",Democratic Unionist Party,1642,1,3
+2023,belfast,ormiston,Ormiston,"McMullan, Ross",Alliance,1480,1,4
+2023,belfast,ormiston,Ormiston,"Maghie, Jenna",Alliance,1299,1,5
+2023,belfast,ormiston,Ormiston,"Rodgers, Jim",Ulster Unionist Party,1004,1,6
+2023,belfast,ormiston,Ormiston,"Flynn, Anthony",Green Party Northern Ireland,999,1,7
+2023,belfast,ormiston,Ormiston,"Sullivan, Caitlin",Alliance,889,0,8
+2023,belfast,ormiston,Ormiston,"Howard, Carole",Ulster Unionist Party,847,0,9
+2023,belfast,ormiston,Ormiston,"Hiddleston, John",Traditional Unionist Voice,680,0,10
+2023,belfast,ormiston,Ormiston,"Mallaghan, Caitríona",Sinn Féin,174,0,11
+2023,belfast,ormiston,Ormiston,"Doran, Fiona",People Before Profit Alliance,117,0,12
+2023,belfast,ormiston,Ormiston,"McGuirk, Lorcan",Social Democratic and Labour Party,106,0,13
+2023,belfast,titanic,Titanic,"Brooks, Ruth Susan",Democratic Unionist Party,1690,1,1
+2023,belfast,titanic,Titanic,"Bell, David",Alliance,1360,1,2
+2023,belfast,titanic,Titanic,"Donnelly, Pádraig",Sinn Féin,1284,1,3
+2023,belfast,titanic,Titanic,"Douglas, Sammy",Democratic Unionist Party,1214,1,4
+2023,belfast,titanic,Titanic,"McAteer, Fiona",Alliance,1149,1,5
+2023,belfast,titanic,Titanic,"Copeland, Sonia",Ulster Unionist Party,968,1,6
+2023,belfast,titanic,Titanic,"Hamilton, Gillian",Green Party Northern Ireland,938,0,7
+2023,belfast,titanic,Titanic,"Dorrian, George",Democratic Unionist Party,658,0,8
+2023,belfast,titanic,Titanic,"Smyth, Anne",Traditional Unionist Voice,564,0,9
+2023,belfast,titanic,Titanic,"Odhiambo, Elly",Social Democratic and Labour Party,129,0,10
+2023,derry-city-and-strabane,ballyarnett,Ballyarnett,"Duffy, Sandra",Sinn Féin,2164,1,1
+2023,derry-city-and-strabane,ballyarnett,Ballyarnett,"Farrell, Rory",Social Democratic and Labour Party,1405,1,2
+2023,derry-city-and-strabane,ballyarnett,Ballyarnett,"Mc Gowan, John",Sinn Féin,1299,1,3
+2023,derry-city-and-strabane,ballyarnett,Ballyarnett,"Tierney, Brian",Social Democratic and Labour Party,1006,1,4
+2023,derry-city-and-strabane,ballyarnett,Ballyarnett,"Murphy, Patrick James",Sinn Féin,960,1,5
+2023,derry-city-and-strabane,ballyarnett,Ballyarnett,"Doyle, Emmet",Aontú,887,0,6
+2023,derry-city-and-strabane,ballyarnett,Ballyarnett,"Mc Daid, Catherine",Social Democratic and Labour Party,856,1,7
+2023,derry-city-and-strabane,ballyarnett,Ballyarnett,"Doherty, Damien",People Before Profit Alliance,727,0,8
+2023,derry-city-and-strabane,ballyarnett,Ballyarnett,"Cavanagh, Colm",Alliance,436,0,9
+2023,derry-city-and-strabane,derg,Derg,"Kerrigan, Keith",Democratic Unionist Party,1669,1,1
+2023,derry-city-and-strabane,derg,Derg,"McHugh, Ruairí",Sinn Féin,1442,1,2
+2023,derry-city-and-strabane,derg,Derg,"Hussey, Derek R",Ulster Unionist Party,1377,1,3
+2023,derry-city-and-strabane,derg,Derg,"Devine, Caroline",Sinn Féin,1246,1,4
+2023,derry-city-and-strabane,derg,Derg,"Ó Fearghail, Antaine",Sinn Féin,1197,1,5
+2023,derry-city-and-strabane,derg,Derg,"Edwards, Steven",Social Democratic and Labour Party,723,0,6
+2023,derry-city-and-strabane,derg,Derg,"Patton, Andy",Independent,507,0,7
+2023,derry-city-and-strabane,derg,Derg,"Murray, Anne",Alliance,177,0,8
+2023,derry-city-and-strabane,derg,Derg,"Mc Ginley, Adam",People Before Profit Alliance,112,0,9
+2023,derry-city-and-strabane,derg,Derg,"Houston, Leza Marie",Aontú,99,0,10
+2023,derry-city-and-strabane,faughan,Faughan,"McCready, Ryan",Ulster Unionist Party,1282,1,1
+2023,derry-city-and-strabane,faughan,Faughan,"Duffy, Alex",Sinn Féin,1193,1,2
+2023,derry-city-and-strabane,faughan,Faughan,"Fleming, Sean",Sinn Féin,1162,1,3
+2023,derry-city-and-strabane,faughan,Faughan,"Middleton, Julie",Democratic Unionist Party,988,1,4
+2023,derry-city-and-strabane,faughan,Faughan,"Norris, Declan",Social Democratic and Labour Party,919,1,5
+2023,derry-city-and-strabane,faughan,Faughan,"Ferguson, Rachael",Alliance,695,0,6
+2023,derry-city-and-strabane,faughan,Faughan,"Wilkinson, Gary",Democratic Unionist Party,653,0,7
+2023,derry-city-and-strabane,faughan,Faughan,"Canning, Hayley",Social Democratic and Labour Party,614,0,8
+2023,derry-city-and-strabane,faughan,Faughan,"Gallagher, Damian Martin",People Before Profit Alliance,310,0,9
+2023,derry-city-and-strabane,faughan,Faughan,"Warke, Graham",Independent,279,0,10
+2023,derry-city-and-strabane,foyleside,Foyleside,"Heaney, Conor",Sinn Féin,1846,1,1
+2023,derry-city-and-strabane,foyleside,Foyleside,"Uí Niallais, Grace",Sinn Féin,1115,1,2
+2023,derry-city-and-strabane,foyleside,Foyleside,"Harkin, Shaun",People Before Profit Alliance,979,1,3
+2023,derry-city-and-strabane,foyleside,Foyleside,"Barr, Lilian Seenoi",Social Democratic and Labour Party,960,1,4
+2023,derry-city-and-strabane,foyleside,Foyleside,"Cusack, Shauna",Social Democratic and Labour Party,948,1,5
+2023,derry-city-and-strabane,foyleside,Foyleside,"Mc Callion, Stephen",Social Democratic and Labour Party,626,0,6
+2023,derry-city-and-strabane,foyleside,Foyleside,"Mac Cearáin, Seán",Aontú,423,0,7
+2023,derry-city-and-strabane,foyleside,Foyleside,"McCloskey, Danny",Alliance,266,0,8
+2023,derry-city-and-strabane,sperrin,Sperrin,"Boggs, Paul",Sinn Féin,1993,1,1
+2023,derry-city-and-strabane,sperrin,Sperrin,"Leonard, Fergal",Sinn Féin,1650,1,2
+2023,derry-city-and-strabane,sperrin,Sperrin,"Bresland, Allan",Democratic Unionist Party,1194,1,3
+2023,derry-city-and-strabane,sperrin,Sperrin,"Harte, Brian",Sinn Féin,1125,1,4
+2023,derry-city-and-strabane,sperrin,Sperrin,"Gallagher, Paul",,1042,1,5
+2023,derry-city-and-strabane,sperrin,Sperrin,"Barr, Raymond",,985,1,6
+2023,derry-city-and-strabane,sperrin,Sperrin,"Devenney, Maurice",Democratic Unionist Party,964,0,7
+2023,derry-city-and-strabane,sperrin,Sperrin,"Barr, Jason",Social Democratic and Labour Party,811,1,8
+2023,derry-city-and-strabane,sperrin,Sperrin,"Forbes, Tommy",Social Democratic and Labour Party,538,0,9
+2023,derry-city-and-strabane,sperrin,Sperrin,"Miller, Glen",Ulster Unionist Party,489,0,10
+2023,derry-city-and-strabane,sperrin,Sperrin,"Boyle, Mel",Alliance,381,0,11
+2023,derry-city-and-strabane,sperrin,Sperrin,"Kelly, Patsy",Independent,246,0,12
+2023,derry-city-and-strabane,sperrin,Sperrin,"Gallagher, Carol",People Before Profit Alliance,226,0,13
+2023,derry-city-and-strabane,sperrin,Sperrin,"Mac Meanman, Darán",Aontú,168,0,14
+2023,derry-city-and-strabane,the-moor,The Moor,"Donnelly, Gary",Independent,1868,1,1
+2023,derry-city-and-strabane,the-moor,The Moor,"Hutton, Aisling",Sinn Féin,1317,1,2
+2023,derry-city-and-strabane,the-moor,The Moor,"Logue, Patricia",Sinn Féin,1069,1,3
+2023,derry-city-and-strabane,the-moor,The Moor,"Mc Ginley, Emma",Sinn Féin,912,1,4
+2023,derry-city-and-strabane,the-moor,The Moor,"Boyle, John",Social Democratic and Labour Party,761,1,5
+2023,derry-city-and-strabane,the-moor,The Moor,"O'Neill, Maeve",People Before Profit Alliance,578,0,6
+2023,derry-city-and-strabane,the-moor,The Moor,"Henderson, Dermott Sean",Social Democratic and Labour Party,445,0,7
+2023,derry-city-and-strabane,the-moor,The Moor,"Christy, Darryl",Aontú,301,0,8
+2023,derry-city-and-strabane,the-moor,The Moor,"Downey, Michael",Alliance,146,0,9
+2023,derry-city-and-strabane,waterside,Waterside,"Deeney, Caitlin",Sinn Féin,1949,1,1
+2023,derry-city-and-strabane,waterside,Waterside,"Guy, Darren",Ulster Unionist Party,1797,1,2
+2023,derry-city-and-strabane,waterside,Waterside,"Cooke, Chelsea",Democratic Unionist Party,1262,1,3
+2023,derry-city-and-strabane,waterside,Waterside,"Mc Morris, Niree",Democratic Unionist Party,1225,1,4
+2023,derry-city-and-strabane,waterside,Waterside,"Mooney, Sean Dermott",Social Democratic and Labour Party,1071,1,5
+2023,derry-city-and-strabane,waterside,Waterside,"Jackson, Christopher",Sinn Féin,1019,1,6
+2023,derry-city-and-strabane,waterside,Waterside,"Reilly, Martin",Social Democratic and Labour Party,1006,1,7
+2023,derry-city-and-strabane,waterside,Waterside,"McKinney, Philip",Alliance,748,0,8
+2023,derry-city-and-strabane,waterside,Waterside,"Montgomery, Janice",Ulster Unionist Party,448,0,9
+2023,derry-city-and-strabane,waterside,Waterside,"Pulis, Davina",People Before Profit Alliance,388,0,10
+2023,lisburn-and-castlereagh,castlereagh-east,Castlereagh East,SKILLEN,Democratic Unionist Party,1655,1,1
+2023,lisburn-and-castlereagh,castlereagh-east,Castlereagh East,GREGG,Alliance,1377,1,2
+2023,lisburn-and-castlereagh,castlereagh-east,Castlereagh East,LOWRY,Alliance,1045,1,3
+2023,lisburn-and-castlereagh,castlereagh-east,Castlereagh East,LAVERTY,Democratic Unionist Party,890,1,4
+2023,lisburn-and-castlereagh,castlereagh-east,Castlereagh East,BURNS,Democratic Unionist Party,879,1,5
+2023,lisburn-and-castlereagh,castlereagh-east,Castlereagh East,LEGGE,Ulster Unionist Party,710,1,6
+2023,lisburn-and-castlereagh,castlereagh-east,Castlereagh East,DRYSDALE,Democratic Unionist Party,582,0,7
+2023,lisburn-and-castlereagh,castlereagh-east,Castlereagh East,GIRVIN,Traditional Unionist Voice,534,0,8
+2023,lisburn-and-castlereagh,castlereagh-east,Castlereagh East,WINCHCOMBE,Green Party Northern Ireland,195,0,9
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,GUY,Alliance,1452,1,1
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,CARLIN,Sinn Féin,1204,1,2
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,EATON,Alliance,1116,1,3
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,GALLEN,Social Democratic and Labour Party,1035,1,4
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,HIGGINSON,Democratic Unionist Party,1006,1,5
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,BASSETT,Sinn Féin,997,1,6
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,HENDERSON,Ulster Unionist Party,760,0,7
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,MCKEEVER,Alliance,727,1,8
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,HAMLEY,Green Party Northern Ireland,656,0,9
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,LEE,Social Democratic and Labour Party,656,0,10
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,TRAYNOR,Democratic Unionist Party,527,0,11
+2023,lisburn-and-castlereagh,castlereagh-south,Castlereagh South,MILLER,Independent,49,0,12
+2023,lisburn-and-castlereagh,downshire-east,Downshire East,GOWAN,Democratic Unionist Party,1798,1,1
+2023,lisburn-and-castlereagh,downshire-east,Downshire East,MCINTYRE,Alliance,1102,1,2
+2023,lisburn-and-castlereagh,downshire-east,Downshire East,MACKIN,Democratic Unionist Party,1060,1,3
+2023,lisburn-and-castlereagh,downshire-east,Downshire East,DICKSON,Alliance,976,1,4
+2023,lisburn-and-castlereagh,downshire-east,Downshire East,BAIRD,Ulster Unionist Party,726,1,5
+2023,lisburn-and-castlereagh,downshire-east,Downshire East,SWAN,Ulster Unionist Party,482,0,6
+2023,lisburn-and-castlereagh,downshire-east,Downshire East,FERRIS,Traditional Unionist Voice,396,0,7
+2023,lisburn-and-castlereagh,downshire-east,Downshire East,DRAKE,Social Democratic and Labour Party,312,0,8
+2023,lisburn-and-castlereagh,downshire-west,Downshire West,GAWITH,Alliance,1693,1,1
+2023,lisburn-and-castlereagh,downshire-west,Downshire West,MCCREADY,Democratic Unionist Party,996,1,2
+2023,lisburn-and-castlereagh,downshire-west,Downshire West,EWART,Democratic Unionist Party,971,1,3
+2023,lisburn-and-castlereagh,downshire-west,Downshire West,THOMPSON,Alliance,936,1,4
+2023,lisburn-and-castlereagh,downshire-west,Downshire West,LEATHEM,Democratic Unionist Party,918,0,5
+2023,lisburn-and-castlereagh,downshire-west,Downshire West,MARTIN,Ulster Unionist Party,624,1,6
+2023,lisburn-and-castlereagh,downshire-west,Downshire West,MCCORD,Ulster Unionist Party,615,0,7
+2023,lisburn-and-castlereagh,downshire-west,Downshire West,MURPHY,Sinn Féin,302,0,8
+2023,lisburn-and-castlereagh,downshire-west,Downshire West,ROBINSON,Green Party Northern Ireland,124,0,9
+2023,lisburn-and-castlereagh,killultagh,Killultagh,MCCLEAVE,Sinn Féin,1958,1,1
+2023,lisburn-and-castlereagh,killultagh,Killultagh,KEMP,Alliance,1862,1,2
+2023,lisburn-and-castlereagh,killultagh,Killultagh,BECKETT,Democratic Unionist Party,1509,1,3
+2023,lisburn-and-castlereagh,killultagh,Killultagh,TINSLEY,Democratic Unionist Party,1297,1,4
+2023,lisburn-and-castlereagh,killultagh,Killultagh,TURNER,Ulster Unionist Party,659,0,5
+2023,lisburn-and-castlereagh,killultagh,Killultagh,MCLERNON,Ulster Unionist Party,654,1,6
+2023,lisburn-and-castlereagh,killultagh,Killultagh,PATTON,Social Democratic and Labour Party,364,0,7
+2023,lisburn-and-castlereagh,killultagh,Killultagh,BROWN,Independent,78,0,8
+2023,lisburn-and-castlereagh,lisburn-north,Lisburn North,BURKE,Sinn Féin,1239,1,1
+2023,lisburn-and-castlereagh,lisburn-north,Lisburn North,CRAIG,Democratic Unionist Party,1220,1,2
+2023,lisburn-and-castlereagh,lisburn-north,Lisburn North,PARKER,Alliance,1137,1,3
+2023,lisburn-and-castlereagh,lisburn-north,Lisburn North,CARSON,Democratic Unionist Party,1015,0,4
+2023,lisburn-and-castlereagh,lisburn-north,Lisburn North,CATNEY,Social Democratic and Labour Party,935,1,5
+2023,lisburn-and-castlereagh,lisburn-north,Lisburn North,HYNDS,Independent,890,1,6
+2023,lisburn-and-castlereagh,lisburn-north,Lisburn North,MARTIN,Alliance,856,0,7
+2023,lisburn-and-castlereagh,lisburn-north,Lisburn North,TRIMBLE,Ulster Unionist Party,627,1,8
+2023,lisburn-and-castlereagh,lisburn-north,Lisburn North,GIBSON,Ulster Unionist Party,525,0,9
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,EWING,Democratic Unionist Party,1139,1,1
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,GREHAN,Alliance,1111,1,2
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,GIVAN,Democratic Unionist Party,1038,1,3
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,MITCHELL,Ulster Unionist Party,870,1,4
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,PORTER,Democratic Unionist Party,687,1,5
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,KENNEDY,Alliance,674,1,6
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,PALMER,Ulster Unionist Party,625,0,7
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,FLYNN,Sinn Féin,493,0,8
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,FRENCH,Social Democratic and Labour Party,472,0,9
+2023,lisburn-and-castlereagh,lisburn-south,Lisburn South,MCEVOY,Traditional Unionist Voice,387,0,10
 2026,adur,buckingham-local-adur-buckingham-2026-05-07,Buckingham,David Joseph Devoy,Labour Party,632,1,1
 2026,adur,buckingham-local-adur-buckingham-2026-05-07,Buckingham,David Stephen Cotton,Reform UK,393,0,2
 2026,adur,buckingham-local-adur-buckingham-2026-05-07,Buckingham,Kevin Boram,Conservative Party,364,0,3
@@ -173295,19 +174289,6 @@ year,council_slug,ward_slug,ward_name,candidate_name,party,votes,elected,rank
 2026,worthing,tarring-local-worthing-tarring-2026-05-07,Tarring,Rita Valerie Gladys Garner,Labour Party,783,0,3
 2026,worthing,tarring-local-worthing-tarring-2026-05-07,Tarring,Cloe Irene Grampa,Green Party,482,0,4
 2026,worthing,tarring-local-worthing-tarring-2026-05-07,Tarring,Keith Bickers,Conservative Party,305,0,5
-2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Jeremy Peter Axworthy,Reform UK,460,1,1
-2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Michael Angelo Fisher,Labour Party,436,1,2
-2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Chris Page,Reform UK,419,0,3
-2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Michelle Elaine Sweeney,Labour Party,391,0,4
-2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Chloe Graves,Green Party,146,0,5
-2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,James Mellors,Green Party,112,0,6
-2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Thomas Hughes,Independent,71,0,7
-2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Christine Huskie,Conservative Party,41,0,8
-2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,Tracey Dougherty,Reform UK,618,1,1
-2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,Tina Anne Clements,Independent,290,0,2
-2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,James Kent Trafford,Conservative Party,162,0,3
-2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,Jenny Khalfan,Labour Party,152,0,4
-2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,Kyle Brown,Green Party,109,0,5
 2026,bradford,idle-and-thackley-local-bradford-idle-thackley-2026-06-18,Idle and Thackley,Rachel Emma Sunderland,Liberal Democrats,2784,1,1
 2026,bradford,idle-and-thackley-local-bradford-idle-thackley-2026-06-18,Idle and Thackley,Alun Owen Griffiths,Liberal Democrats,2746,1,2
 2026,bradford,idle-and-thackley-local-bradford-idle-thackley-2026-06-18,Idle and Thackley,Aislin Naylor,Liberal Democrats,2714,1,3
@@ -173344,3 +174325,16 @@ year,council_slug,ward_slug,ward_name,candidate_name,party,votes,elected,rank
 2026,hillingdon,hillingdon-west-local-hillingdon-hillingdon-west-2026-06-18,Hillingdon West,Alicia Windsor,Green Party,341,0,8
 2026,hillingdon,hillingdon-west-local-hillingdon-hillingdon-west-2026-06-18,Hillingdon West,Muhammad Saqib Iqbal,Liberal Democrats,63,0,9
 2026,hillingdon,hillingdon-west-local-hillingdon-hillingdon-west-2026-06-18,Hillingdon West,Gautam Dilip Sabarwal,Liberal Democrats,49,0,10
+2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Jeremy Peter Axworthy,Reform UK,460,1,1
+2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Michael Angelo Fisher,Labour Party,436,1,2
+2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Chris Page,Reform UK,419,0,3
+2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Michelle Elaine Sweeney,Labour Party,391,0,4
+2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Chloe Graves,Green Party,146,0,5
+2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,James Mellors,Green Party,112,0,6
+2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Thomas Hughes,Independent,71,0,7
+2026,st-helens,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,Christine Huskie,Conservative Party,41,0,8
+2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,Tracey Dougherty,Reform UK,618,1,1
+2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,Tina Anne Clements,Independent,290,0,2
+2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,James Kent Trafford,Conservative Party,162,0,3
+2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,Jenny Khalfan,Labour Party,152,0,4
+2026,tamworth,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,Kyle Brown,Green Party,109,0,5

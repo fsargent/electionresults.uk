@@ -1,0 +1,1907 @@
+[
+  {
+    "dea": "Enniskillen",
+    "council": "Fermanagh and Omagh District Council",
+    "seats": 6,
+    "quota": 1097,
+    "validBallots": 7676,
+    "invalidBallots": 99,
+    "electorate": 13642,
+    "votesPolled": 7775,
+    "candidates": [
+      {
+        "name": "Blake, Paul",
+        "party": "SDLP (Social Democratic and Labour Party)",
+        "elected": false,
+        "firstPreferences": 539,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Browne, Dermot",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 846,
+        "sourceStatus": ""
+      },
+      {
+        "name": "Crawford, Donald",
+        "party": "TUV - No Sea Border",
+        "elected": false,
+        "firstPreferences": 509,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Crawford, Roy",
+        "party": "Ulster Unionist Party",
+        "elected": true,
+        "firstPreferences": 667,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Elliot, Keith",
+        "party": "Democratic Unionist Party",
+        "elected": true,
+        "firstPreferences": 1029,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Irvine, Robert",
+        "party": "Ulster Unionist Party",
+        "elected": true,
+        "firstPreferences": 562,
+        "sourceStatus": ""
+      },
+      {
+        "name": "Mahon, Jill",
+        "party": "Democratic Unionist Party",
+        "elected": false,
+        "firstPreferences": 437,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Maguire, Tommy",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1024,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "McManus, Andrea",
+        "party": "Sinn Féin",
+        "elected": false,
+        "firstPreferences": 780,
+        "sourceStatus": ""
+      },
+      {
+        "name": "O’Cofaigh, Donal",
+        "party": "Cross-Community Labour Alternative",
+        "elected": false,
+        "firstPreferences": 504,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Roofe, Eddie",
+        "party": "Alliance",
+        "elected": true,
+        "firstPreferences": 779,
+        "sourceStatus": "Elected"
+      }
+    ],
+    "stages": [
+      {
+        "number": 1,
+        "action": "First preferences",
+        "totals": [
+          539,
+          846,
+          509,
+          667,
+          1029,
+          562,
+          437,
+          1024,
+          780,
+          504,
+          779
+        ],
+        "nonTransferable": null,
+        "reportedTotal": 7676
+      },
+      {
+        "number": 2,
+        "action": "Exclude Mahon, Jill",
+        "totals": [
+          539,
+          846,
+          531,
+          674,
+          1412,
+          580,
+          null,
+          1024,
+          780,
+          506,
+          783
+        ],
+        "changes": [
+          null,
+          null,
+          22,
+          7,
+          383,
+          18,
+          -437,
+          null,
+          null,
+          2,
+          4
+        ],
+        "nonTransferable": 1,
+        "reportedTotal": 7676
+      },
+      {
+        "number": 3,
+        "action": "Transfer Elliot, Keith",
+        "totals": [
+          539,
+          846,
+          665.3,
+          752.2,
+          1097,
+          673.5,
+          null,
+          1024,
+          780,
+          507.7,
+          789.8
+        ],
+        "changes": [
+          null,
+          null,
+          134.3,
+          78.2,
+          -315,
+          93.5,
+          null,
+          null,
+          null,
+          1.7,
+          6.8
+        ],
+        "nonTransferable": 1.5,
+        "reportedTotal": 7676
+      },
+      {
+        "number": 4,
+        "action": "Exclude O’Cofaigh, Donal",
+        "totals": [
+          663,
+          879,
+          668.3,
+          766.2,
+          1097,
+          684.5,
+          null,
+          1091,
+          817,
+          null,
+          953.8
+        ],
+        "changes": [
+          124,
+          33,
+          3,
+          14,
+          null,
+          11,
+          null,
+          67,
+          37,
+          -507.7,
+          164
+        ],
+        "nonTransferable": 56.2,
+        "reportedTotal": 7676
+      },
+      {
+        "number": 5,
+        "action": "Exclude Blake, Paul",
+        "totals": [
+          null,
+          1003,
+          680.3,
+          784.2,
+          1097,
+          701.5,
+          null,
+          1135,
+          884,
+          null,
+          1257.8
+        ],
+        "changes": [
+          -663,
+          124,
+          12,
+          18,
+          null,
+          17,
+          null,
+          44,
+          67,
+          null,
+          304
+        ],
+        "nonTransferable": 133.2,
+        "reportedTotal": 7676
+      },
+      {
+        "number": 6,
+        "action": "Transfer Roofe, Eddie",
+        "totals": [
+          null,
+          1057.72,
+          683.18,
+          810.12,
+          1097,
+          720.7,
+          null,
+          1135,
+          941.6,
+          null,
+          1097
+        ],
+        "changes": [
+          null,
+          54.72,
+          2.88,
+          25.92,
+          null,
+          19.2,
+          null,
+          null,
+          57.6,
+          null,
+          -160.8
+        ],
+        "nonTransferable": 133.68,
+        "reportedTotal": 7676
+      },
+      {
+        "number": 7,
+        "action": "Transfer Maguire, Tommy",
+        "totals": [
+          null,
+          1074.21,
+          683.18,
+          810.12,
+          1097,
+          721.67,
+          null,
+          1097,
+          961.97,
+          null,
+          1097
+        ],
+        "changes": [
+          null,
+          16.49,
+          null,
+          null,
+          null,
+          0.97,
+          null,
+          -38,
+          20.37,
+          null,
+          null
+        ],
+        "nonTransferable": 133.85,
+        "reportedTotal": 7676
+      },
+      {
+        "number": 8,
+        "action": "Exclude Crawford, Donald",
+        "totals": [
+          null,
+          1077.17,
+          null,
+          1130.43,
+          1097,
+          995.32,
+          null,
+          1097,
+          963.97,
+          null,
+          1097
+        ],
+        "changes": [
+          null,
+          2.96,
+          -683.18,
+          320.31,
+          null,
+          273.65,
+          null,
+          null,
+          2,
+          null,
+          null
+        ],
+        "nonTransferable": 218.11,
+        "reportedTotal": 7676
+      },
+      {
+        "number": 9,
+        "action": "Transfer Crawford, Roy",
+        "totals": [
+          null,
+          1077.17,
+          null,
+          1097,
+          1097,
+          1028.47,
+          null,
+          1097,
+          963.97,
+          null,
+          1097
+        ],
+        "changes": [
+          null,
+          null,
+          null,
+          -33.43,
+          null,
+          33.15,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "nonTransferable": 218.39,
+        "reportedTotal": 7676
+      }
+    ],
+    "source": {
+      "url": "https://www.eoni.org.uk/media/1y5b3wou/local-council-elections-2023-result-sheet-enniskillen.pdf",
+      "filename": "local-council-elections-2023-result-sheet-enniskillen.pdf",
+      "sha256": "560900345cc9a798161b463fd8f7bf23bd5794b561958bdc8dca4a0245440d2c"
+    },
+    "notes": [
+      "Native EONI screenshot is headed Stage 9 and shows complete stages 1–9 only; the narrow right-edge fragment contains no readable later-stage data. No later count is reconstructed.",
+      "Only four Elected labels appear in this pre-declaration screenshot. The council declaration dated 19 May 2023 explicitly elects six candidates, including Dermot Browne and Robert Irvine. Final elected flags use that declaration; sourceStatus retains the screenshot labels.",
+      "Party descriptions are clipped by the narrow source cells; full party names are normalized. Blank numeric cells remain null, including totals for excluded candidates."
+    ],
+    "relatedSources": [
+      {
+        "title": "Council declaration of result, page 4 (19 May 2023)",
+        "url": "https://www.fermanaghomagh.com/app/uploads/2023/05/Website-Enniskillen.pdf",
+        "filename": "Website-Enniskillen.pdf",
+        "sha256": "1c47d5e7b5d6e7ad84f7c69b4f5d2ff72ec41e89bf51c693f587856e83d5bb9b"
+      }
+    ]
+  },
+  {
+    "dea": "Erne East",
+    "council": "Fermanagh and Omagh District Council",
+    "seats": 6,
+    "quota": 1212,
+    "validBallots": 8478,
+    "invalidBallots": 110,
+    "electorate": 12127,
+    "votesPolled": 8588,
+    "candidates": [
+      {
+        "name": "Bullick, Richard",
+        "party": "Alliance Party",
+        "elected": false,
+        "firstPreferences": 221,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Greene, Sheamus",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1753,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Hayes, Noeleen",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1296,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Keenan, Eamon",
+        "party": "Independent",
+        "elected": false,
+        "firstPreferences": 560,
+        "sourceStatus": ""
+      },
+      {
+        "name": "McDermott, Tina",
+        "party": "Independent",
+        "elected": false,
+        "firstPreferences": 238,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "McPhillips, Garbhan",
+        "party": "SDLP (Social Democratic & Labour Party)",
+        "elected": true,
+        "firstPreferences": 498,
+        "sourceStatus": ""
+      },
+      {
+        "name": "O'Reilly Thomas",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1387,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Robinson, Paul",
+        "party": "Democratic Unionist Party",
+        "elected": true,
+        "firstPreferences": 1410,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Warrington, Victor",
+        "party": "Ulster Unionist Party",
+        "elected": true,
+        "firstPreferences": 1115,
+        "sourceStatus": "Elected"
+      }
+    ],
+    "stages": [
+      {
+        "number": 1,
+        "action": "First preferences",
+        "totals": [
+          221,
+          1753,
+          1296,
+          560,
+          238,
+          498,
+          1387,
+          1410,
+          1115
+        ],
+        "nonTransferable": null,
+        "reportedTotal": 8478
+      },
+      {
+        "number": 2,
+        "action": "Transfer Greene, Sheamus",
+        "totals": [
+          277.98,
+          1212,
+          1296,
+          719.39,
+          307.3,
+          747.48,
+          1387,
+          1410,
+          1118.08
+        ],
+        "changes": [
+          56.98,
+          -541,
+          null,
+          159.39,
+          69.3,
+          249.48,
+          null,
+          null,
+          3.08
+        ],
+        "nonTransferable": 2.77,
+        "reportedTotal": 8478
+      },
+      {
+        "number": 3,
+        "action": "Transfer Robinson, Paul",
+        "totals": [
+          278.68,
+          1212,
+          1296,
+          719.81,
+          307.44,
+          748.46,
+          1387,
+          1212,
+          1309.46
+        ],
+        "changes": [
+          0.7,
+          null,
+          null,
+          0.42,
+          0.14,
+          0.98,
+          null,
+          -198,
+          191.38
+        ],
+        "nonTransferable": 7.15,
+        "reportedTotal": 8478
+      },
+      {
+        "number": 4,
+        "action": "Transfer O'Reilly Thomas",
+        "totals": [
+          298.78,
+          1212,
+          1296,
+          760.61,
+          345.24,
+          824.36,
+          1212,
+          1212,
+          1309.46
+        ],
+        "changes": [
+          20.1,
+          null,
+          null,
+          40.8,
+          37.8,
+          75.9,
+          -175,
+          null,
+          null
+        ],
+        "nonTransferable": 7.55,
+        "reportedTotal": 8478
+      },
+      {
+        "number": 5,
+        "action": "Transfer Warrington, Victor",
+        "totals": [
+          352.68,
+          1212,
+          1296,
+          764.81,
+          348.88,
+          855.02,
+          1212,
+          1212,
+          1212
+        ],
+        "changes": [
+          53.9,
+          null,
+          null,
+          4.2,
+          3.64,
+          30.66,
+          null,
+          null,
+          -97.46
+        ],
+        "nonTransferable": 12.61,
+        "reportedTotal": 8478
+      },
+      {
+        "number": 6,
+        "action": "Transfer Hayes, Noeleen",
+        "totals": [
+          363.18,
+          1212,
+          1212,
+          794.35,
+          351.82,
+          893.94,
+          1212,
+          1212,
+          1212
+        ],
+        "changes": [
+          10.5,
+          null,
+          -84,
+          29.54,
+          2.94,
+          38.92,
+          null,
+          null,
+          null
+        ],
+        "nonTransferable": 14.71,
+        "reportedTotal": 8478
+      },
+      {
+        "number": 7,
+        "action": "Exclude McDermott & Bullick",
+        "totals": [
+          null,
+          1212,
+          1212,
+          1068.17,
+          null,
+          1145.86,
+          1212,
+          1212,
+          1212
+        ],
+        "changes": [
+          -363.18,
+          null,
+          null,
+          273.82,
+          -351.82,
+          251.92,
+          null,
+          null,
+          null
+        ],
+        "nonTransferable": 203.97,
+        "reportedTotal": 8478
+      }
+    ],
+    "source": {
+      "url": "https://www.eoni.org.uk/media/eidbeih3/local-council-elections-2023-result-sheet-erne-east.pdf",
+      "filename": "local-council-elections-2023-result-sheet-erne-east.pdf",
+      "sha256": "f1185352679981c181179a135f2fbe15f8ca11799c3f7b7eb36257943e19328a"
+    },
+    "notes": [
+      "Transcribed and visually audited against the native raster embedded in the official one-page PDF. Blank numeric cells are null; excluded candidates are not assigned fabricated zero totals. Party descriptions clipped by their source cell borders have been normalized. Only the fully visible published count stages are included; the right edge contains a narrow sliver of the next template column.",
+      "The EONI screenshot is headed Stage 7 and marks only five of six seats Elected. The council's signed Declaration of Result dated 19 May 2023, page 4, explicitly declares Garbhan McPhillips elected as the sixth member. His elected flag follows that declaration; his sourceStatus remains the blank cell in the EONI scan. No unshown later count stages are reconstructed."
+    ],
+    "relatedSources": [
+      {
+        "title": "Council signed Declaration of Result, page 4",
+        "url": "https://www.fermanaghomagh.com/app/uploads/2023/05/Website-Erne-East.pdf",
+        "sha256": "e27656f5726da4f5b73ad92fc24b0e5a659007006b8d479e141e525ad5c5f56c",
+        "filename": "Website-Erne-East.pdf"
+      }
+    ]
+  },
+  {
+    "dea": "Erne North",
+    "council": "Fermanagh and Omagh District Council",
+    "seats": 5,
+    "quota": 1184,
+    "validBallots": 7100,
+    "invalidBallots": 93,
+    "electorate": 11509,
+    "votesPolled": 7193,
+    "candidates": [
+      {
+        "name": "Armstrong, Diana",
+        "party": "Ulster Unionist Party",
+        "elected": true,
+        "firstPreferences": 1392,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Bullick, Eric",
+        "party": "Alliance Party",
+        "elected": false,
+        "firstPreferences": 358,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Coyle, Debbie",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1561,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Coyle, John",
+        "party": "SDLP (Social Democratic & Labour Party)",
+        "elected": false,
+        "firstPreferences": 783,
+        "sourceStatus": ""
+      },
+      {
+        "name": "Elliott, Alex",
+        "party": "TUV - No Sea Border",
+        "elected": false,
+        "firstPreferences": 422,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Feely, John",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 852,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Mahon, David",
+        "party": "Democratic Unionist Party",
+        "elected": true,
+        "firstPreferences": 984,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "McClaughry, John",
+        "party": "Ulster Unionist Party",
+        "elected": true,
+        "firstPreferences": 529,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Stevenson, Paul",
+        "party": "Democratic Unionist Party",
+        "elected": false,
+        "firstPreferences": 219,
+        "sourceStatus": "Excluded"
+      }
+    ],
+    "stages": [
+      {
+        "number": 1,
+        "action": "First preferences",
+        "totals": [
+          1392,
+          358,
+          1561,
+          783,
+          422,
+          852,
+          984,
+          529,
+          219
+        ],
+        "nonTransferable": null,
+        "reportedTotal": 7100
+      },
+      {
+        "number": 2,
+        "action": "Transfer Coyle, Debbie",
+        "totals": [
+          1392,
+          366.16,
+          1184,
+          815.16,
+          422.24,
+          1181.76,
+          984.24,
+          529,
+          219.24
+        ],
+        "changes": [
+          null,
+          8.16,
+          -377,
+          32.16,
+          0.24,
+          329.76,
+          0.24,
+          null,
+          0.24
+        ],
+        "nonTransferable": 6.2,
+        "reportedTotal": 7100
+      },
+      {
+        "number": 3,
+        "action": "Transfer Armstrong, Diana",
+        "totals": [
+          1184,
+          370.36,
+          1184,
+          818.66,
+          433.72,
+          1181.76,
+          1009.44,
+          673.34,
+          224.7
+        ],
+        "changes": [
+          -208,
+          4.2,
+          null,
+          3.5,
+          11.48,
+          null,
+          25.2,
+          144.34,
+          5.46
+        ],
+        "nonTransferable": 20.02,
+        "reportedTotal": 7100
+      },
+      {
+        "number": 4,
+        "action": "Exclude Stevenson, Paul",
+        "totals": [
+          1184,
+          370.36,
+          1184,
+          818.66,
+          453.14,
+          1181.76,
+          1184.2,
+          699.58,
+          null
+        ],
+        "changes": [
+          null,
+          null,
+          null,
+          null,
+          19.42,
+          null,
+          174.76,
+          26.24,
+          -224.7
+        ],
+        "nonTransferable": 24.3,
+        "reportedTotal": 7100
+      },
+      {
+        "number": 5,
+        "action": "Exclude Bullick, Eric",
+        "totals": [
+          1184,
+          null,
+          1184,
+          1023.54,
+          461.42,
+          1220.76,
+          1184.2,
+          771.68,
+          null
+        ],
+        "changes": [
+          null,
+          -370.36,
+          null,
+          204.88,
+          8.28,
+          39,
+          null,
+          72.1,
+          null
+        ],
+        "nonTransferable": 70.4,
+        "reportedTotal": 7100
+      },
+      {
+        "number": 6,
+        "action": "Exclude Elliott, Alex",
+        "totals": [
+          1184,
+          null,
+          1184,
+          1034.48,
+          null,
+          1220.76,
+          1184.2,
+          1146.04,
+          null
+        ],
+        "changes": [
+          null,
+          null,
+          null,
+          10.94,
+          -461.42,
+          null,
+          null,
+          374.36,
+          null
+        ],
+        "nonTransferable": 146.52,
+        "reportedTotal": 7100
+      }
+    ],
+    "source": {
+      "url": "https://www.eoni.org.uk/media/wuxdzql2/local-council-elections-2023-result-sheet-erne-north.pdf",
+      "filename": "local-council-elections-2023-result-sheet-erne-north.pdf",
+      "sha256": "e6b5ce49b444466743498f1adb91b2882372752a55ca3f3319df570c1650127f"
+    },
+    "notes": [
+      "Transcribed and visually audited against the native raster embedded in the official one-page PDF. Blank numeric cells are null; excluded candidates are not assigned fabricated zero totals. Party descriptions clipped by their source cell borders have been normalized. Only the fully visible published count stages are included; the right edge contains a narrow sliver of the next template column.",
+      "All five elected flags also visually confirmed against the council signed Declaration of Result dated 20 May 2023, page 4."
+    ],
+    "relatedSources": [
+      {
+        "title": "Council signed Declaration of Result, page 4",
+        "url": "https://www.fermanaghomagh.com/app/uploads/2023/05/Website-Erne-North.pdf",
+        "sha256": "91a3fdda3b9b3c42fef3ddbdd98a7591c42c56f46f0aee60caf2da89ded2bc83",
+        "filename": "Website-Erne-North.pdf"
+      }
+    ]
+  },
+  {
+    "dea": "Erne West",
+    "council": "Fermanagh and Omagh District Council",
+    "seats": 5,
+    "quota": 1265,
+    "validBallots": 7586,
+    "invalidBallots": 66,
+    "electorate": 11196,
+    "votesPolled": 7652,
+    "candidates": [
+      {
+        "name": "Brough, Elaine",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1362,
+        "sourceStatus": "Elected No. 2"
+      },
+      {
+        "name": "Elliott, Aaron",
+        "party": "Democratic Unionist Party",
+        "elected": false,
+        "firstPreferences": 687,
+        "sourceStatus": ""
+      },
+      {
+        "name": "Feely, Anthony",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1493,
+        "sourceStatus": "Elected No. 1"
+      },
+      {
+        "name": "Gannon, Adam",
+        "party": "SDLP",
+        "elected": true,
+        "firstPreferences": 835,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "McArdle, Declan",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1256,
+        "sourceStatus": "Elected No. 3"
+      },
+      {
+        "name": "McCusker, Gerard",
+        "party": "Alliance Party",
+        "elected": false,
+        "firstPreferences": 250,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "McGoldrick, Paul",
+        "party": "Independent",
+        "elected": false,
+        "firstPreferences": 506,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Owens, Mark",
+        "party": "Ulster Unionist Party",
+        "elected": true,
+        "firstPreferences": 1197,
+        "sourceStatus": "Elected"
+      }
+    ],
+    "stages": [
+      {
+        "number": 1,
+        "action": "First preferences",
+        "totals": [
+          1362,
+          687,
+          1493,
+          835,
+          1256,
+          250,
+          506,
+          1197
+        ],
+        "nonTransferable": null,
+        "reportedTotal": 7586
+      },
+      {
+        "number": 2,
+        "action": "Transfer Feely, Anthony",
+        "totals": [
+          1362,
+          687.9,
+          1265,
+          869.35,
+          1426.4,
+          251.95,
+          517.85,
+          1198.35
+        ],
+        "changes": [
+          null,
+          0.9,
+          -228,
+          34.35,
+          170.4,
+          1.95,
+          11.85,
+          1.35
+        ],
+        "nonTransferable": 7.2,
+        "reportedTotal": 7586
+      },
+      {
+        "number": 3,
+        "action": "Exclude McCusker",
+        "totals": [
+          1362,
+          692.9,
+          1265,
+          1005.55,
+          1426.4,
+          null,
+          555.15,
+          1250.35
+        ],
+        "changes": [
+          null,
+          5,
+          null,
+          136.2,
+          null,
+          -251.95,
+          37.3,
+          52
+        ],
+        "nonTransferable": 28.65,
+        "reportedTotal": 7586
+      },
+      {
+        "number": 4,
+        "action": "Transfer McArdle, Declan",
+        "totals": [
+          1362,
+          693.05,
+          1265,
+          1053.4,
+          1265,
+          null,
+          580.65,
+          1250.95
+        ],
+        "changes": [
+          null,
+          0.15,
+          null,
+          47.85,
+          -161.4,
+          null,
+          25.5,
+          0.6
+        ],
+        "nonTransferable": 115.95,
+        "reportedTotal": 7586
+      },
+      {
+        "number": 5,
+        "action": "Exclude McGoldrick",
+        "totals": [
+          1362,
+          699.05,
+          1265,
+          1313.4,
+          1265,
+          null,
+          null,
+          1273.95
+        ],
+        "changes": [
+          null,
+          6,
+          null,
+          260,
+          null,
+          null,
+          -580.65,
+          23
+        ],
+        "nonTransferable": 407.6,
+        "reportedTotal": 7586
+      }
+    ],
+    "source": {
+      "url": "https://www.eoni.org.uk/media/qfvnrfbm/local-council-elections-2023-result-sheet-erne-west.pdf",
+      "filename": "local-council-elections-2023-result-sheet-erne-west.pdf",
+      "sha256": "6dd669120608474a417898b06a3a3acc275c6d9adb0cf1a32b38eff7b2679fd3"
+    },
+    "notes": [
+      "Transcribed and visually audited against the native embedded raster of the SHA-256-verified official PDF; blank numeric cells are null, including totals for excluded candidates.",
+      "The screenshot is clipped at the right edge beyond the final published stage; no off-image values or template columns are reconstructed.",
+      "Electorate and votes polled also independently verified in the official turnout workbook, Sheet1, row 50.",
+      "The final elected candidates and full winner names were independently visually verified against the council declaration of result (related source, page 4)."
+    ],
+    "relatedSources": [
+      {
+        "title": "Fermanagh and Omagh District Council: Erne West declaration of result, page 4",
+        "url": "https://www.fermanaghomagh.com/app/uploads/2023/05/Website-Erne-West.pdf",
+        "filename": "Website-Erne-West.pdf",
+        "sha256": "960ecce219adcca1d1ab3a153596e03f0d4988baeb9adc2871c9405729be8715"
+      }
+    ]
+  },
+  {
+    "dea": "Omagh",
+    "council": "Fermanagh and Omagh District Council",
+    "seats": 6,
+    "quota": 949,
+    "validBallots": 6636,
+    "invalidBallots": 103,
+    "electorate": 13279,
+    "votesPolled": 6739,
+    "candidates": [
+      {
+        "name": "Bell, Matthew",
+        "party": "Ulster Unionist Party",
+        "elected": false,
+        "firstPreferences": 489,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Deehan, Josephine",
+        "party": "Independent",
+        "elected": true,
+        "firstPreferences": 469,
+        "sourceStatus": "Elected No. 6"
+      },
+      {
+        "name": "Donnelly, Stephen",
+        "party": "Alliance Party",
+        "elected": true,
+        "firstPreferences": 872,
+        "sourceStatus": "Elected No. 5"
+      },
+      {
+        "name": "Dunphy, Kathy",
+        "party": "Independent",
+        "elected": false,
+        "firstPreferences": 80,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Ferguson, Amy",
+        "party": "Socialist Party (Northern Ireland)",
+        "elected": false,
+        "firstPreferences": 75,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Kelly, Catherine",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1013,
+        "sourceStatus": "Elected No. 3"
+      },
+      {
+        "name": "McColgan, Marty",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 773,
+        "sourceStatus": "Elected No. 4"
+      },
+      {
+        "name": "McElduff, Barry",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1342,
+        "sourceStatus": "Elected No. 1"
+      },
+      {
+        "name": "Mellon, Brenda",
+        "party": "SDLP (Social Democratic and Labour Party)",
+        "elected": false,
+        "firstPreferences": 385,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Thompson, Errol",
+        "party": "Democratic Unionist Party - D.U.P.",
+        "elected": true,
+        "firstPreferences": 1138,
+        "sourceStatus": "Elected No. 2"
+      }
+    ],
+    "stages": [
+      {
+        "number": 1,
+        "action": "First preferences",
+        "totals": [
+          489,
+          469,
+          872,
+          80,
+          75,
+          1013,
+          773,
+          1342,
+          385,
+          1138
+        ],
+        "nonTransferable": null,
+        "reportedTotal": 6636
+      },
+      {
+        "number": 2,
+        "action": "Transfer McElduff, Barry",
+        "totals": [
+          489.29,
+          492.2,
+          899.84,
+          85.22,
+          76.74,
+          1013,
+          1073.44,
+          949,
+          410.81,
+          1138
+        ],
+        "nonTransferable": 8.46,
+        "reportedTotal": 6636,
+        "changes": [
+          0.29,
+          23.2,
+          27.84,
+          5.22,
+          1.74,
+          null,
+          300.44,
+          -393,
+          25.81,
+          null
+        ]
+      },
+      {
+        "number": 3,
+        "action": "Transfer Thompson, Errol",
+        "totals": [
+          668.13,
+          494.58,
+          903.92,
+          85.9,
+          77.08,
+          1013,
+          1073.44,
+          949,
+          412.34,
+          949
+        ],
+        "nonTransferable": 9.61,
+        "reportedTotal": 6636,
+        "changes": [
+          178.84,
+          2.38,
+          4.08,
+          0.68,
+          0.34,
+          null,
+          null,
+          null,
+          1.53,
+          -189
+        ]
+      },
+      {
+        "number": 4,
+        "action": "Exclude Dunphy & Ferguson",
+        "totals": [
+          673.47,
+          545.49,
+          958.92,
+          null,
+          null,
+          1013,
+          1073.44,
+          949,
+          437.67,
+          949
+        ],
+        "nonTransferable": 36.01,
+        "reportedTotal": 6636,
+        "changes": [
+          5.34,
+          50.91,
+          55,
+          -85.9,
+          -77.08,
+          null,
+          null,
+          null,
+          25.33,
+          null
+        ]
+      },
+      {
+        "number": 5,
+        "action": "Transfer McColgan, Marty",
+        "totals": [
+          674.79,
+          582.01,
+          958.92,
+          null,
+          null,
+          1013,
+          949,
+          949,
+          520.61,
+          949
+        ],
+        "nonTransferable": 39.67,
+        "reportedTotal": 6636,
+        "changes": [
+          1.32,
+          36.52,
+          null,
+          null,
+          null,
+          null,
+          -124.44,
+          null,
+          82.94,
+          null
+        ]
+      },
+      {
+        "number": 6,
+        "action": "Transfer Kelly, Catherine",
+        "totals": [
+          675.23,
+          601.81,
+          958.92,
+          null,
+          null,
+          949,
+          949,
+          949,
+          561.97,
+          949
+        ],
+        "nonTransferable": 42.07,
+        "reportedTotal": 6636,
+        "changes": [
+          0.44,
+          19.8,
+          null,
+          null,
+          null,
+          -64,
+          null,
+          null,
+          41.36,
+          null
+        ]
+      },
+      {
+        "number": 7,
+        "action": "Exclude Mellon, Brenda",
+        "totals": [
+          695.14,
+          940.6,
+          958.92,
+          null,
+          null,
+          949,
+          949,
+          949,
+          null,
+          949
+        ],
+        "nonTransferable": 245.34,
+        "reportedTotal": 6636,
+        "changes": [
+          19.91,
+          338.79,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          -561.97,
+          null
+        ]
+      }
+    ],
+    "source": {
+      "url": "https://www.eoni.org.uk/media/ixwfplb4/local-council-elections-2023-result-sheet-omagh.pdf",
+      "filename": "local-council-elections-2023-result-sheet-omagh.pdf",
+      "sha256": "bad57702606b6967ec901350315636271cdefabdfa08ae1a049c5482cb0430f6"
+    },
+    "notes": [
+      "Visually audited against the native embedded raster: metadata, candidate names, explicit Elected/Excluded marks and election numbers, and every published stage cell. Blank cells remain null.",
+      "The image extends into a blank column pair after stage 7; only the seven populated published stages are recorded."
+    ]
+  },
+  {
+    "dea": "Mid Tyrone",
+    "council": "Fermanagh and Omagh District Council",
+    "seats": 6,
+    "quota": 1221,
+    "validBallots": 8542,
+    "invalidBallots": 119,
+    "electorate": 13083,
+    "votesPolled": 8661,
+    "candidates": [
+      {
+        "name": "Barton, Rosemary",
+        "party": "Ulster Unionist Party",
+        "elected": false,
+        "firstPreferences": 687,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Beaumont, Matthew",
+        "party": "Alliance Party",
+        "elected": false,
+        "firstPreferences": 311,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Devine Gallagher, Roisin",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1464,
+        "sourceStatus": "Elected No. 2"
+      },
+      {
+        "name": "Fitzgerald, Anne-Marie",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1204,
+        "sourceStatus": "Elected No. 3"
+      },
+      {
+        "name": "Hawkes, Shirley",
+        "party": "Democratic Unionist Party",
+        "elected": true,
+        "firstPreferences": 1057,
+        "sourceStatus": "Elected"
+      },
+      {
+        "name": "Kelly, Padraigin",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1621,
+        "sourceStatus": "Elected No. 1"
+      },
+      {
+        "name": "McAleer, Emmet",
+        "party": "Independent",
+        "elected": false,
+        "firstPreferences": 629,
+        "sourceStatus": ""
+      },
+      {
+        "name": "McGrath, Bernard",
+        "party": "SDLP",
+        "elected": true,
+        "firstPreferences": 497,
+        "sourceStatus": "Elected No. 6"
+      },
+      {
+        "name": "Withers, Patrick",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1072,
+        "sourceStatus": "Elected No. 4"
+      }
+    ],
+    "stages": [
+      {
+        "number": 1,
+        "action": "First preferences",
+        "totals": [
+          687,
+          311,
+          1464,
+          1204,
+          1057,
+          1621,
+          629,
+          497,
+          1072
+        ],
+        "nonTransferable": null,
+        "reportedTotal": 8542
+      },
+      {
+        "number": 2,
+        "action": "Transfer Kelly, Padraigin",
+        "totals": [
+          687,
+          313.88,
+          1464,
+          1535.68,
+          1057.48,
+          1221,
+          646.28,
+          505.88,
+          1097.2
+        ],
+        "changes": [
+          null,
+          2.88,
+          null,
+          331.68,
+          0.48,
+          -400,
+          17.28,
+          8.88,
+          25.2
+        ],
+        "nonTransferable": 13.6,
+        "reportedTotal": 8542
+      },
+      {
+        "number": 3,
+        "action": "Transfer Fitzgerald, Anne-Marie",
+        "totals": [
+          687.24,
+          319.4,
+          1464,
+          1221,
+          1057.48,
+          1221,
+          656.84,
+          517.4,
+          1359.52
+        ],
+        "changes": [
+          0.24,
+          5.52,
+          null,
+          -314.68,
+          null,
+          null,
+          10.56,
+          11.52,
+          262.32
+        ],
+        "nonTransferable": 38.12,
+        "reportedTotal": 8542
+      },
+      {
+        "number": 4,
+        "action": "Transfer Devine Gallagher, Roisin",
+        "totals": [
+          689,
+          371.76,
+          1221,
+          1221,
+          1061.44,
+          1221,
+          739.12,
+          619.92,
+          1359.52
+        ],
+        "changes": [
+          1.76,
+          52.36,
+          -243,
+          null,
+          3.96,
+          null,
+          82.28,
+          102.52,
+          null
+        ],
+        "nonTransferable": 38.24,
+        "reportedTotal": 8542
+      },
+      {
+        "number": 5,
+        "action": "Exclude Beaumont, Matthew",
+        "totals": [
+          735.24,
+          null,
+          1221,
+          1221,
+          1071.44,
+          1221,
+          812.76,
+          786.6,
+          1359.52
+        ],
+        "changes": [
+          46.24,
+          -371.76,
+          null,
+          null,
+          10,
+          null,
+          73.64,
+          166.68,
+          null
+        ],
+        "nonTransferable": 113.44,
+        "reportedTotal": 8542
+      },
+      {
+        "number": 6,
+        "action": "Transfer Withers, Patrick",
+        "totals": [
+          737.88,
+          null,
+          1221,
+          1221,
+          1071.44,
+          1221,
+          843,
+          825,
+          1221
+        ],
+        "changes": [
+          2.64,
+          null,
+          null,
+          null,
+          null,
+          null,
+          30.24,
+          38.4,
+          -138.52
+        ],
+        "nonTransferable": 180.68,
+        "reportedTotal": 8542
+      },
+      {
+        "number": 7,
+        "action": "Exclude Barton, Rosemary",
+        "totals": [
+          null,
+          null,
+          1221,
+          1221,
+          1667.44,
+          1221,
+          867.92,
+          891.24,
+          1221
+        ],
+        "changes": [
+          -737.88,
+          null,
+          null,
+          null,
+          596,
+          null,
+          24.92,
+          66.24,
+          null
+        ],
+        "nonTransferable": 231.4,
+        "reportedTotal": 8542
+      }
+    ],
+    "source": {
+      "url": "https://www.eoni.org.uk/media/i3hbwtbl/local-council-elections-2023-result-sheet-mid-tyrone.pdf",
+      "filename": "local-council-elections-2023-result-sheet-mid-tyrone.pdf",
+      "sha256": "931930a98c48b1e68255452c5e6f825b367414ca2fa9dd7001f0eac306c23a6a"
+    },
+    "notes": [
+      "Transcribed and visually audited against the native embedded raster of the SHA-256-verified official PDF; blank numeric cells are null, including totals for excluded candidates.",
+      "The screenshot is clipped at the right edge beyond the final published stage; no off-image values or template columns are reconstructed.",
+      "Electorate and votes polled also independently verified in the official turnout workbook, Sheet1, row 51.",
+      "The candidate name Devine Gallagher, Roisin is clipped in the scan candidate-name column and is transcribed in full from the council declaration of result, page 4.",
+      "The final elected candidates and full winner names were independently visually verified against the council declaration of result (related source, page 4)."
+    ],
+    "relatedSources": [
+      {
+        "title": "Fermanagh and Omagh District Council: Mid Tyrone declaration of result, page 4",
+        "url": "https://www.fermanaghomagh.com/app/uploads/2023/05/Website-Mid-Tyrone.pdf",
+        "filename": "Website-Mid-Tyrone.pdf",
+        "sha256": "d2f0222b5df9815568a08fd32fe8cc69969ecdf777bc8fe7810523763e66e692"
+      }
+    ]
+  },
+  {
+    "dea": "West Tyrone",
+    "council": "Fermanagh and Omagh District Council",
+    "seats": 6,
+    "quota": null,
+    "validBallots": 8301,
+    "invalidBallots": 112,
+    "electorate": 12652,
+    "votesPolled": 8413,
+    "candidates": [
+      {
+        "name": "Buchanan, Mark",
+        "party": "Democratic Unionist Party - D.U.P.",
+        "elected": true,
+        "firstPreferences": 1619,
+        "sourceStatus": "Elected No. 1"
+      },
+      {
+        "name": "Campbell, Glenn",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1279,
+        "sourceStatus": "Elected No. 2"
+      },
+      {
+        "name": "Donnelly, Ann-Marie",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1129,
+        "sourceStatus": "Elected No. 4"
+      },
+      {
+        "name": "Donnelly, Joyce",
+        "party": "Alliance Party",
+        "elected": false,
+        "firstPreferences": 457,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "Garrity, Mary",
+        "party": "SDLP",
+        "elected": false,
+        "firstPreferences": 746,
+        "sourceStatus": "Excluded"
+      },
+      {
+        "name": "McCann, Stephen",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1093,
+        "sourceStatus": "Elected No. 6"
+      },
+      {
+        "name": "McNulty, Colette",
+        "party": "Sinn Féin",
+        "elected": true,
+        "firstPreferences": 1149,
+        "sourceStatus": "Elected No. 5"
+      },
+      {
+        "name": "Rainey, Allan",
+        "party": "Ulster Unionist Party",
+        "elected": true,
+        "firstPreferences": 829,
+        "sourceStatus": "Elected No. 3"
+      }
+    ],
+    "stages": [
+      {
+        "number": 1,
+        "action": "First preferences",
+        "totals": [
+          1619,
+          1279,
+          1129,
+          457,
+          746,
+          1093,
+          1149,
+          829
+        ],
+        "nonTransferable": null,
+        "reportedTotal": 8301
+      },
+      {
+        "number": 2,
+        "action": "Transfer Buchanan, Mark",
+        "totals": [
+          1186,
+          1279,
+          1129.81,
+          465.91,
+          750.32,
+          1093,
+          1151.43,
+          1232.38
+        ],
+        "nonTransferable": 13.15,
+        "reportedTotal": 8301,
+        "changes": [
+          -433,
+          null,
+          0.81,
+          8.91,
+          4.32,
+          null,
+          2.43,
+          403.38
+        ]
+      },
+      {
+        "number": 3,
+        "action": "Exclude Donnelly, Joyce",
+        "totals": [
+          1186,
+          1279,
+          1174.81,
+          null,
+          1044.45,
+          1112,
+          1163.43,
+          1232.38
+        ],
+        "nonTransferable": 108.93,
+        "reportedTotal": 8301,
+        "changes": [
+          null,
+          null,
+          45,
+          -465.91,
+          294.13,
+          19,
+          12,
+          null
+        ]
+      },
+      {
+        "number": 4,
+        "action": "Transfer Campbell, Glenn",
+        "totals": [
+          1186,
+          1186,
+          1209.74,
+          null,
+          1049.77,
+          1153.16,
+          1171.2,
+          1232.38
+        ],
+        "nonTransferable": 112.75,
+        "reportedTotal": 8301,
+        "changes": [
+          null,
+          -93,
+          34.93,
+          null,
+          5.32,
+          41.16,
+          7.77,
+          null
+        ]
+      },
+      {
+        "number": 5,
+        "action": "Stage 5 (cropped off source image)",
+        "totals": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "nonTransferable": null,
+        "reportedTotal": null,
+        "changes": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "incomplete": true
+      }
+    ],
+    "source": {
+      "url": "https://www.eoni.org.uk/media/sceooqqd/local-council-elections-2023-result-sheet-west-tyrone.pdf",
+      "filename": "local-council-elections-2023-result-sheet-west-tyrone.pdf",
+      "sha256": "6a45da244b49f2cb5e36669613b32c9ac215bb4ebe8fff1a1209316b4b0373c2"
+    },
+    "notes": [
+      "Visually audited against the native embedded raster: metadata, all first preferences, explicit Elected/Excluded marks and election numbers, and all visible stage cells. Blank cells remain null.",
+      "The source image is clipped at the right edge after stage 4. The heading explicitly reads Stage 5, but the stage 5 header/action, totals, changes and non-transferable cells are outside the image; an incomplete null-valued stage records this published-stage gap. The quota is also outside the image and remains null.",
+      "The Description cells for Buchanan and Garrity are clipped by the first-preference column. Buchanan’s full party description is transcribed from the council declaration of result (relatedSources, page 4); Garrity’s visible SDLP affiliation is retained without expanding the clipped legal description."
+    ],
+    "relatedSources": [
+      {
+        "title": "Fermanagh and Omagh District Council West Tyrone declaration of result (page 4)",
+        "url": "https://www.fermanaghomagh.com/app/uploads/2023/05/Website-West-Tyrone-1.pdf",
+        "filename": "Website-West-Tyrone-1.pdf",
+        "sha256": "cb24cb2a6c72b4c9c56cb6af292e01683693fa21ff26f77a90ae8f099c0bb49e"
+      }
+    ]
+  }
+]

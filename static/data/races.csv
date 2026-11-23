@@ -28699,6 +28699,14 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,gss-S13002879,clackmannanshire-east-gss-s13002879,Clackmannanshire East,clackmannanshire,Clackmannanshire,Scottish council,3,3315,0.196078,0.250000,-0.053922,1
 2022,gss-S13002876,clackmannanshire-north-gss-s13002876,Clackmannanshire North,clackmannanshire,Clackmannanshire,Scottish council,4,4028,0.150199,0.200000,-0.049801,1
 2022,gss-S13002877,clackmannanshire-central-gss-s13002877,Clackmannanshire Central,clackmannanshire,Clackmannanshire,Scottish council,3,2402,0.119900,0.250000,-0.130100,1
+2022,gss-S13002608,an-taobh-siar-agus-nis-gss-s13002608,An Taobh Siar agus Nis,na-h-eileanan-an-iar,Comhairle nan Eilean Siar,Scottish council,3,1385,0.195668,0.250000,-0.054332,1
+2022,gss-S13003142,steornabhagh-a-tuath-gss-s13003142,Steòrnabhagh a Tuath,na-h-eileanan-an-iar,Comhairle nan Eilean Siar,Scottish council,4,1354,0.148449,0.200000,-0.051551,1
+2022,gss-S13003136,loch-a-tuath-gss-s13003136,Loch a Tuath,na-h-eileanan-an-iar,Comhairle nan Eilean Siar,Scottish council,3,1121,0.219447,0.250000,-0.030553,1
+2022,gss-S13003141,steornabhagh-a-deas-gss-s13003141,Steòrnabhagh a Deas,na-h-eileanan-an-iar,Comhairle nan Eilean Siar,Scottish council,4,1446,0.140387,0.200000,-0.059613,1
+2022,gss-S13003140,sgire-nan-loch-gss-s13003140,Sgìre nan Loch,na-h-eileanan-an-iar,Comhairle nan Eilean Siar,Scottish council,2,851,0.307873,0.333333,-0.025460,1
+2022,gss-S13003137,na-hearadh-gss-s13003137,Na Hearadh,na-h-eileanan-an-iar,Comhairle nan Eilean Siar,Scottish council,2,739,0.315291,0.333333,-0.018042,1
+2022,gss-S13003143,uibhist-a-deas-eirisgeigh-agus-beinn-na-faoghla-gss-s13003143,"Uibhist a Deas, Èirisgeigh agus Beinn na Faoghla",na-h-eileanan-an-iar,Comhairle nan Eilean Siar,Scottish council,3,1306,0.135528,0.250000,-0.114472,1
+2022,gss-S13003144,uibhist-a-tuath-gss-s13003144,Uibhist a Tuath,na-h-eileanan-an-iar,Comhairle nan Eilean Siar,Scottish council,2,661,0.384266,0.333333,0.050933,0
 2022,gss-S13002886,mid-and-upper-nithsdale-gss-s13002886,Mid and Upper Nithsdale,dumfries-and-galloway,Dumfries and Galloway,Scottish council,3,3972,0.158359,0.250000,-0.091641,1
 2022,gss-S13002889,annandale-south-gss-s13002889,Annandale South,dumfries-and-galloway,Dumfries and Galloway,Scottish council,4,5104,0.176724,0.200000,-0.023276,1
 2022,gss-S13002891,annandale-east-and-eskdale-gss-s13002891,Annandale East and Eskdale,dumfries-and-galloway,Dumfries and Galloway,Scottish council,3,4108,0.154090,0.250000,-0.095910,1
@@ -28838,6 +28846,15 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,gss-S13003030,elgin-city-south-gss-s13003030,Elgin City South,moray,Moray,Scottish council,3,4062,0.268341,0.250000,0.018341,0
 2022,gss-S13003031,forres-gss-s13003031,Forres,moray,Moray,Scottish council,4,6057,0.090804,0.200000,-0.109196,1
 2022,gss-S13003029,elgin-city-north-gss-s13003029,Elgin City North,moray,Moray,Scottish council,3,3678,0.258836,0.250000,0.008836,0
+2022,gss-S13003148,north-coast-gss-s13003148,North Coast,north-ayrshire,North Ayrshire,Scottish council,5,9845,0.134586,0.166667,-0.032081,1
+2022,gss-S13003034,kilwinning-gss-s13003034,Kilwinning,north-ayrshire,North Ayrshire,Scottish council,4,5553,0.151630,0.200000,-0.048370,1
+2022,gss-S13003032,irvine-west-gss-s13003032,Irvine West,north-ayrshire,North Ayrshire,Scottish council,4,4666,0.133519,0.200000,-0.066481,1
+2022,gss-S13003041,irvine-south-gss-s13003041,Irvine South,north-ayrshire,North Ayrshire,Scottish council,3,3356,0.193981,0.250000,-0.056019,1
+2022,gss-S13003149,saltcoats-and-stevenston-gss-s13003149,Saltcoats and Stevenston,north-ayrshire,North Ayrshire,Scottish council,5,6506,0.102367,0.166667,-0.064300,1
+2022,gss-S13003147,garnock-valley-gss-s13003147,Garnock Valley,north-ayrshire,North Ayrshire,Scottish council,5,7044,0.114424,0.166667,-0.052243,1
+2022,gss-S13003033,irvine-east-gss-s13003033,Irvine East,north-ayrshire,North Ayrshire,Scottish council,3,4025,0.197516,0.250000,-0.052484,1
+2022,gss-S13003146,arran-gss-s13003146,Arran,north-ayrshire,North Ayrshire,Scottish council,1,2431,0.324146,0.500000,-0.175854,1
+2022,gss-S13003145,ardrossan-gss-s13003145,Ardrossan,north-ayrshire,North Ayrshire,Scottish council,3,3577,0.199609,0.250000,-0.050391,1
 2022,gss-S13003049,airdrie-north-gss-s13003049,Airdrie North,north-lanarkshire,North Lanarkshire,Scottish council,4,5565,0.048338,0.200000,-0.151662,1
 2022,gss-S13003060,motherwell-south-east-and-ravenscraig-gss-s13003060,Motherwell South East and Ravenscraig,north-lanarkshire,North Lanarkshire,Scottish council,4,6063,0.107702,0.200000,-0.092298,1
 2022,gss-S13003047,gartcosh-glenboig-and-moodiesburn-gss-s13003047,"Gartcosh, Glenboig and Moodiesburn",north-lanarkshire,North Lanarkshire,Scottish council,3,4472,0.162791,0.250000,-0.087209,1
@@ -28859,6 +28876,12 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,gss-S13003059,motherwell-north-gss-s13003059,Motherwell North,north-lanarkshire,North Lanarkshire,Scottish council,4,5202,0.098616,0.200000,-0.101384,1
 2022,gss-S13003061,murdostoun-gss-s13003061,Murdostoun,north-lanarkshire,North Lanarkshire,Scottish council,4,5689,0.136755,0.200000,-0.063245,1
 2022,gss-S13003055,thorniewood-gss-s13003055,Thorniewood,north-lanarkshire,North Lanarkshire,Scottish council,3,4468,0.170098,0.250000,-0.079902,1
+2022,gss-S13002734,stromness-and-south-isles-gss-s13002734,Stromness and South Isles,orkney-islands,Orkney Islands,Scottish council,3,1150,0.152174,0.250000,-0.097826,1
+2022,gss-S13002735,west-mainland-gss-s13002735,West Mainland,orkney-islands,Orkney Islands,Scottish council,4,1833,0.129296,0.200000,-0.070704,1
+2022,gss-S13002737,north-isles-gss-s13002737,North Isles,orkney-islands,Orkney Islands,Scottish council,3,1029,0.198251,0.250000,-0.051749,1
+2022,gss-S13003151,kirkwall-east-gss-s13003151,Kirkwall East,orkney-islands,Orkney Islands,Scottish council,4,1694,0.168241,0.200000,-0.031759,1
+2022,gss-S13003152,kirkwall-west-and-orphir-gss-s13003152,Kirkwall West and Orphir,orkney-islands,Orkney Islands,Scottish council,4,1543,0.136747,0.200000,-0.063253,1
+2022,gss-S13003150,east-mainland-south-ronaldsay-and-burray-gss-s13003150,"East Mainland, South Ronaldsay and Burray",orkney-islands,Orkney Islands,Scottish council,3,1344,0.082589,0.250000,-0.167411,1
 2022,gss-S13003064,strathmore-gss-s13003064,Strathmore,perth-and-kinross,Perth and Kinross,Scottish council,4,6764,0.099202,0.200000,-0.100798,1
 2022,gss-S13003074,perth-city-centre-gss-s13003074,Perth City Centre,perth-and-kinross,Perth and Kinross,Scottish council,4,5257,0.124596,0.200000,-0.075404,1
 2022,gss-S13003065,blairgowrie-and-glens-gss-s13003065,Blairgowrie and Glens,perth-and-kinross,Perth and Kinross,Scottish council,3,4662,0.196911,0.250000,-0.053089,1
@@ -28894,12 +28917,17 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,gss-S13002764,selkirkshire-gss-s13002764,Selkirkshire,scottish-borders,The Scottish Borders,Scottish council,3,4007,0.217869,0.250000,-0.032131,1
 2022,gss-S13002771,hawick-and-hermitage-gss-s13002771,Hawick and Hermitage,scottish-borders,The Scottish Borders,Scottish council,3,3045,0.167159,0.250000,-0.082841,1
 2022,gss-S13002762,tweeddale-east-gss-s13002762,Tweeddale East,scottish-borders,The Scottish Borders,Scottish council,3,4895,0.183044,0.250000,-0.066956,1
+2022,gss-S13003155,shetland-south-gss-s13003155,Shetland South,shetland-islands,Shetland Islands,Scottish council,4,1842,0.117807,0.200000,-0.082193,1
+2022,gss-S13003153,lerwick-south-gss-s13003153,Lerwick South,shetland-islands,Shetland Islands,Scottish council,4,1344,0.127232,0.200000,-0.072768,1
+2022,gss-S13002777,lerwick-north-and-bressay-gss-s13002777,Lerwick North and Bressay,shetland-islands,Shetland Islands,Scottish council,3,928,0.146552,0.250000,-0.103448,1
+2022,gss-S13003154,shetland-central-gss-s13003154,Shetland Central,shetland-islands,Shetland Islands,Scottish council,4,1414,0.191655,0.200000,-0.008345,1
+2022,gss-S13003156,shetland-west-gss-s13003156,Shetland West,shetland-islands,Shetland Islands,Scottish council,2,758,0.178100,0.333333,-0.155233,1
 2022,gss-S13003090,ayr-east-gss-s13003090,Ayr East,south-ayrshire,South Ayrshire,Scottish council,3,4936,0.164911,0.250000,-0.085089,1
 2022,gss-S13003091,ayr-west-gss-s13003091,Ayr West,south-ayrshire,South Ayrshire,Scottish council,4,8369,0.083523,0.200000,-0.116477,1
 2022,gss-S13003094,girvan-and-south-carrick-gss-s13003094,Girvan and South Carrick,south-ayrshire,South Ayrshire,Scottish council,3,4056,0.141272,0.250000,-0.108728,1
 2022,gss-S13003093,maybole-north-carrick-and-coylton-gss-s13003093,"Maybole, North Carrick and Coylton",south-ayrshire,South Ayrshire,Scottish council,3,4282,0.176553,0.250000,-0.073447,1
 2022,gss-S13003092,kyle-gss-s13003092,Kyle,south-ayrshire,South Ayrshire,Scottish council,3,4820,0.198133,0.250000,-0.051867,1
-2022,gss-S13003089,ayr-north-gss-s13003089,Ayr North,south-ayrshire,South Ayrshire,Scottish council,4,4922,0.069890,0.200000,-0.130110,1
+2022,gss-S13003089,ayr-north-gss-s13003089,Ayr North,south-ayrshire,South Ayrshire,Scottish council,4,4921,0.069904,0.200000,-0.130096,1
 2022,gss-S13003087,troon-gss-s13003087,Troon,south-ayrshire,South Ayrshire,Scottish council,4,6979,0.145436,0.200000,-0.054564,1
 2022,gss-S13003088,prestwick-gss-s13003088,Prestwick,south-ayrshire,South Ayrshire,Scottish council,4,6642,0.153568,0.200000,-0.046432,1
 2022,gss-S13003104,east-kilbride-east-gss-s13003104,East Kilbride East,south-lanarkshire,South Lanarkshire,Scottish council,3,4921,0.127210,0.250000,-0.122790,1
@@ -28944,6 +28972,86 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2022,gss-S13002824,east-livingston-and-east-calder-gss-s13002824,East Livingston and East Calder,west-lothian,West Lothian,Scottish council,4,6587,0.094428,0.200000,-0.105572,1
 2022,gss-S13002826,whitburn-and-blackburn-gss-s13002826,Whitburn and Blackburn,west-lothian,West Lothian,Scottish council,4,6136,0.103651,0.200000,-0.096349,1
 2022,gss-S13002828,armadale-and-blackridge-gss-s13002828,Armadale and Blackridge,west-lothian,West Lothian,Scottish council,3,5256,0.141172,0.250000,-0.108828,1
+2023,NI-DEA-armagh,armagh,Armagh,armagh-city-banbridge-and-craigavon,"Armagh City, Banbridge and Craigavon",Northern Ireland district council,6,13584,0.103725,0.142857,-0.039132,1
+2023,NI-DEA-ballymena,ballymena,Ballymena,mid-and-east-antrim,Mid and East Antrim,Northern Ireland district council,7,7296,0.063322,0.125000,-0.061678,1
+2023,NI-DEA-ballymoney,ballymoney,Ballymoney,causeway-coast-and-glens,Causeway Coast and Glens,Northern Ireland district council,7,9971,0.081035,0.125000,-0.043965,1
+2023,NI-DEA-banbridge,banbridge,Banbridge,armagh-city-banbridge-and-craigavon,"Armagh City, Banbridge and Craigavon",Northern Ireland district council,7,13671,0.071977,0.125000,-0.053023,1
+2023,NI-DEA-bann,bann,Bann,causeway-coast-and-glens,Causeway Coast and Glens,Northern Ireland district council,5,7917,0.098775,0.166667,-0.067892,1
+2023,NI-DEA-bannside,bannside,Bannside,mid-and-east-antrim,Mid and East Antrim,Northern Ireland district council,6,8780,0.095444,0.142857,-0.047413,1
+2023,NI-DEA-benbradagh,benbradagh,Benbradagh,causeway-coast-and-glens,Causeway Coast and Glens,Northern Ireland district council,5,7853,0.056157,0.166667,-0.110510,1
+2023,NI-DEA-braid,braid,Braid,mid-and-east-antrim,Mid and East Antrim,Northern Ireland district council,7,9463,0.088767,0.125000,-0.036233,1
+2023,NI-DEA-carntogher,carntogher,Carntogher,mid-ulster,Mid Ulster,Northern Ireland district council,5,8830,0.118800,0.166667,-0.047867,1
+2023,NI-DEA-carrick-castle,carrick-castle,Carrick Castle,mid-and-east-antrim,Mid and East Antrim,Northern Ireland district council,5,6254,0.112888,0.166667,-0.053779,1
+2023,NI-DEA-causeway,causeway,Causeway,causeway-coast-and-glens,Causeway Coast and Glens,Northern Ireland district council,7,8811,0.053115,0.125000,-0.071885,1
+2023,NI-DEA-clogher-valley,clogher-valley,Clogher Valley,mid-ulster,Mid Ulster,Northern Ireland district council,6,10731,0.112944,0.142857,-0.029913,1
+2023,NI-DEA-coast-road,coast-road,Coast Road,mid-and-east-antrim,Mid and East Antrim,Northern Ireland district council,5,5877,0.077761,0.166667,-0.088906,1
+2023,NI-DEA-coleraine,coleraine,Coleraine,causeway-coast-and-glens,Causeway Coast and Glens,Northern Ireland district council,6,7392,0.059659,0.142857,-0.083198,1
+2023,NI-DEA-cookstown,cookstown,Cookstown,mid-ulster,Mid Ulster,Northern Ireland district council,7,10288,0.068235,0.125000,-0.056765,1
+2023,NI-DEA-craigavon,craigavon,Craigavon,armagh-city-banbridge-and-craigavon,"Armagh City, Banbridge and Craigavon",Northern Ireland district council,5,10757,0.121316,0.166667,-0.045350,1
+2023,NI-DEA-crotlieve,crotlieve,Crotlieve,newry-mourne-and-down,"Newry, Mourne and Down",Northern Ireland district council,6,13118,0.079509,0.142857,-0.063348,1
+2023,NI-DEA-cusher,cusher,Cusher,armagh-city-banbridge-and-craigavon,"Armagh City, Banbridge and Craigavon",Northern Ireland district council,5,12278,0.089510,0.166667,-0.077157,1
+2023,NI-DEA-downpatrick,downpatrick,Downpatrick,newry-mourne-and-down,"Newry, Mourne and Down",Northern Ireland district council,5,8173,0.072189,0.166667,-0.094478,1
+2023,NI-DEA-dungannon,dungannon,Dungannon,mid-ulster,Mid Ulster,Northern Ireland district council,6,9610,0.062539,0.142857,-0.080318,1
+2023,NI-DEA-knockagh,knockagh,Knockagh,mid-and-east-antrim,Mid and East Antrim,Northern Ireland district council,5,6486,0.122109,0.166667,-0.044558,1
+2023,NI-DEA-lagan-river,lagan-river,Lagan River,armagh-city-banbridge-and-craigavon,"Armagh City, Banbridge and Craigavon",Northern Ireland district council,5,10000,0.113700,0.166667,-0.052967,1
+2023,NI-DEA-larne-lough,larne-lough,Larne Lough,mid-and-east-antrim,Mid and East Antrim,Northern Ireland district council,5,6405,0.108665,0.166667,-0.058002,1
+2023,NI-DEA-limavady,limavady,Limavady,causeway-coast-and-glens,Causeway Coast and Glens,Northern Ireland district council,5,6031,0.073454,0.166667,-0.093213,1
+2023,NI-DEA-lurgan,lurgan,Lurgan,armagh-city-banbridge-and-craigavon,"Armagh City, Banbridge and Craigavon",Northern Ireland district council,7,14078,0.092272,0.125000,-0.032728,1
+2023,NI-DEA-magherafelt,magherafelt,Magherafelt,mid-ulster,Mid Ulster,Northern Ireland district council,5,8257,0.097372,0.166667,-0.069295,1
+2023,NI-DEA-moyola,moyola,Moyola,mid-ulster,Mid Ulster,Northern Ireland district council,5,9156,0.071101,0.166667,-0.095566,1
+2023,NI-DEA-newry,newry,Newry,newry-mourne-and-down,"Newry, Mourne and Down",Northern Ireland district council,6,10451,0.089465,0.142857,-0.053392,1
+2023,NI-DEA-portadown,portadown,Portadown,armagh-city-banbridge-and-craigavon,"Armagh City, Banbridge and Craigavon",Northern Ireland district council,6,12202,0.074332,0.142857,-0.068525,1
+2023,NI-DEA-rowallane,rowallane,Rowallane,newry-mourne-and-down,"Newry, Mourne and Down",Northern Ireland district council,5,8034,0.120115,0.166667,-0.046552,1
+2023,NI-DEA-slieve-croob,slieve-croob,Slieve Croob,newry-mourne-and-down,"Newry, Mourne and Down",Northern Ireland district council,5,8911,0.132757,0.166667,-0.033909,1
+2023,NI-DEA-slieve-gullion,slieve-gullion,Slieve Gullion,newry-mourne-and-down,"Newry, Mourne and Down",Northern Ireland district council,7,14691,0.081478,0.125000,-0.043522,1
+2023,NI-DEA-the-glens,the-glens,The Glens,causeway-coast-and-glens,Causeway Coast and Glens,Northern Ireland district council,5,7699,0.084686,0.166667,-0.081980,1
+2023,NI-DEA-the-mournes,the-mournes,The Mournes,newry-mourne-and-down,"Newry, Mourne and Down",Northern Ireland district council,7,13369,0.081457,0.125000,-0.043543,1
+2023,NI-DEA-torrent,torrent,Torrent,mid-ulster,Mid Ulster,Northern Ireland district council,6,10633,0.090379,0.142857,-0.052478,1
+2023,NI-DEA-enniskillen,enniskillen,Enniskillen,fermanagh-and-omagh,Fermanagh and Omagh,Northern Ireland district council,6,7676,0.073215,0.142857,-0.069642,1
+2023,NI-DEA-erne-east,erne-east,Erne East,fermanagh-and-omagh,Fermanagh and Omagh,Northern Ireland district council,6,8478,0.058740,0.142857,-0.084117,1
+2023,NI-DEA-erne-north,erne-north,Erne North,fermanagh-and-omagh,Fermanagh and Omagh,Northern Ireland district council,5,7100,0.074507,0.166667,-0.092160,1
+2023,NI-DEA-erne-west,erne-west,Erne West,fermanagh-and-omagh,Fermanagh and Omagh,Northern Ireland district council,5,7586,0.110071,0.166667,-0.056595,1
+2023,NI-DEA-omagh,omagh,Omagh,fermanagh-and-omagh,Fermanagh and Omagh,Northern Ireland district council,6,6636,0.070675,0.142857,-0.072182,1
+2023,NI-DEA-mid-tyrone,mid-tyrone,Mid Tyrone,fermanagh-and-omagh,Fermanagh and Omagh,Northern Ireland district council,6,8542,0.058183,0.142857,-0.084674,1
+2023,NI-DEA-west-tyrone,west-tyrone,West Tyrone,fermanagh-and-omagh,Fermanagh and Omagh,Northern Ireland district council,6,8301,0.099867,0.142857,-0.042990,1
+2023,NI-DEA-airport,airport,Airport,antrim-and-newtownabbey,Antrim and Newtownabbey,Northern Ireland district council,5,8016,0.134107,0.166667,-0.032560,1
+2023,NI-DEA-antrim,antrim,Antrim,antrim-and-newtownabbey,Antrim and Newtownabbey,Northern Ireland district council,6,7126,0.095145,0.142857,-0.047713,1
+2023,NI-DEA-ballyclare,ballyclare,Ballyclare,antrim-and-newtownabbey,Antrim and Newtownabbey,Northern Ireland district council,5,7184,0.129176,0.166667,-0.037491,1
+2023,NI-DEA-dunsilly,dunsilly,Dunsilly,antrim-and-newtownabbey,Antrim and Newtownabbey,Northern Ireland district council,5,7454,0.113094,0.166667,-0.053573,1
+2023,NI-DEA-glengormley-urban,glengormley-urban,Glengormley Urban,antrim-and-newtownabbey,Antrim and Newtownabbey,Northern Ireland district council,7,8765,0.095950,0.125000,-0.029050,1
+2023,NI-DEA-macedon,macedon,Macedon,antrim-and-newtownabbey,Antrim and Newtownabbey,Northern Ireland district council,6,7118,0.068418,0.142857,-0.074439,1
+2023,NI-DEA-threemilewater,threemilewater,Threemilewater,antrim-and-newtownabbey,Antrim and Newtownabbey,Northern Ireland district council,6,7802,0.073571,0.142857,-0.069286,1
+2023,NI-DEA-ards-peninsula,ards-peninsula,Ards Peninsula,ards-and-north-down,Ards and North Down,Northern Ireland district council,6,9184,0.068924,0.142857,-0.073933,1
+2023,NI-DEA-bangor-central,bangor-central,Bangor Central,ards-and-north-down,Ards and North Down,Northern Ireland district council,6,8450,0.078817,0.142857,-0.064041,1
+2023,NI-DEA-bangor-east-and-donaghadee,bangor-east-and-donaghadee,Bangor East & Donaghadee,ards-and-north-down,Ards and North Down,Northern Ireland district council,6,8496,0.068856,0.142857,-0.074001,1
+2023,NI-DEA-bangor-west,bangor-west,Bangor West,ards-and-north-down,Ards and North Down,Northern Ireland district council,5,6505,0.098386,0.166667,-0.068281,1
+2023,NI-DEA-comber,comber,Comber,ards-and-north-down,Ards and North Down,Northern Ireland district council,5,7286,0.139857,0.166667,-0.026809,1
+2023,NI-DEA-holywood-and-clandeboye,holywood-and-clandeboye,Holywood & Clandeboye,ards-and-north-down,Ards and North Down,Northern Ireland district council,5,7728,0.127976,0.166667,-0.038690,1
+2023,NI-DEA-newtownards,newtownards,Newtownards,ards-and-north-down,Ards and North Down,Northern Ireland district council,7,9285,0.062466,0.125000,-0.062534,1
+2023,NI-DEA-balmoral,balmoral,Balmoral,belfast,Belfast,Northern Ireland district council,5,10229,0.106560,0.166667,-0.060107,1
+2023,NI-DEA-black-mountain,black-mountain,Black Mountain,belfast,Belfast,Northern Ireland district council,7,15971,0.096174,0.125000,-0.028826,1
+2023,NI-DEA-botanic,botanic,Botanic,belfast,Belfast,Northern Ireland district council,5,10593,0.094968,0.166667,-0.071698,1
+2023,NI-DEA-castle,castle,Castle,belfast,Belfast,Northern Ireland district council,6,12300,0.085122,0.142857,-0.057735,1
+2023,NI-DEA-collin,collin,Collin,belfast,Belfast,Northern Ireland district council,6,13962,0.085446,0.142857,-0.057411,1
+2023,NI-DEA-court,court,Court,belfast,Belfast,Northern Ireland district council,6,12023,0.080096,0.142857,-0.062761,1
+2023,NI-DEA-lisnasharragh,lisnasharragh,Lisnasharragh,belfast,Belfast,Northern Ireland district council,6,11975,0.088518,0.142857,-0.054339,1
+2023,NI-DEA-oldpark,oldpark,Oldpark,belfast,Belfast,Northern Ireland district council,6,12366,0.102135,0.142857,-0.040722,1
+2023,NI-DEA-ormiston,ormiston,Ormiston,belfast,Belfast,Northern Ireland district council,7,14295,0.069885,0.125000,-0.055115,1
+2023,NI-DEA-titanic,titanic,Titanic,belfast,Belfast,Northern Ireland district council,6,9954,0.097247,0.142857,-0.045610,1
+2023,NI-DEA-ballyarnett,ballyarnett,Ballyarnett,derry-city-and-strabane,Derry City and Strabane,Northern Ireland district council,6,9740,0.087885,0.142857,-0.054972,1
+2023,NI-DEA-derg,derg,Derg,derry-city-and-strabane,Derry City and Strabane,Northern Ireland district council,5,8549,0.140016,0.166667,-0.026650,1
+2023,NI-DEA-faughan,faughan,Faughan,derry-city-and-strabane,Derry City and Strabane,Northern Ireland district council,5,8095,0.113527,0.166667,-0.053140,1
+2023,NI-DEA-foyleside,foyleside,Foyleside,derry-city-and-strabane,Derry City and Strabane,Northern Ireland district council,5,7163,0.132347,0.166667,-0.034320,1
+2023,NI-DEA-sperrin,sperrin,Sperrin,derry-city-and-strabane,Derry City and Strabane,Northern Ireland district council,7,11812,0.068659,0.125000,-0.056341,1
+2023,NI-DEA-the-moor,the-moor,The Moor,derry-city-and-strabane,Derry City and Strabane,Northern Ireland district council,5,7397,0.102880,0.166667,-0.063787,1
+2023,NI-DEA-waterside,waterside,Waterside,derry-city-and-strabane,Derry City and Strabane,Northern Ireland district council,7,10913,0.092184,0.125000,-0.032816,1
+2023,NI-DEA-castlereagh-east,castlereagh-east,Castlereagh East,lisburn-and-castlereagh,Lisburn and Castlereagh,Northern Ireland district council,6,7867,0.090250,0.142857,-0.052607,1
+2023,NI-DEA-castlereagh-south,castlereagh-south,Castlereagh South,lisburn-and-castlereagh,Lisburn and Castlereagh,Northern Ireland district council,7,10185,0.071379,0.125000,-0.053621,1
+2023,NI-DEA-downshire-east,downshire-east,Downshire East,lisburn-and-castlereagh,Lisburn and Castlereagh,Northern Ireland district council,5,6852,0.105954,0.166667,-0.060712,1
+2023,NI-DEA-downshire-west,downshire-west,Downshire West,lisburn-and-castlereagh,Lisburn and Castlereagh,Northern Ireland district council,5,7179,0.086920,0.166667,-0.079746,1
+2023,NI-DEA-killultagh,killultagh,Killultagh,lisburn-and-castlereagh,Lisburn and Castlereagh,Northern Ireland district council,5,8381,0.078034,0.166667,-0.088633,1
+2023,NI-DEA-lisburn-north,lisburn-north,Lisburn North,lisburn-and-castlereagh,Lisburn and Castlereagh,Northern Ireland district council,6,8444,0.074254,0.142857,-0.068603,1
+2023,NI-DEA-lisburn-south,lisburn-south,Lisburn South,lisburn-and-castlereagh,Lisburn and Castlereagh,Northern Ireland district council,6,7496,0.089915,0.142857,-0.052943,1
 2026,local.adur.buckingham.2026-05-07,buckingham-local-adur-buckingham-2026-05-07,Buckingham,adur,Adur,,1,1643,0.384662,0.500000,-0.115338,1
 2026,local.adur.churchill.2026-05-07,churchill-local-adur-churchill-2026-05-07,Churchill,adur,Adur,,1,1545,0.297087,0.500000,-0.202913,1
 2026,local.adur.cokeham.2026-05-07,cokeham-local-adur-cokeham-2026-05-07,Cokeham,adur,Adur,,1,1521,0.427350,0.500000,-0.072650,1
@@ -31889,9 +31997,9 @@ year,ec_code,ward_slug,ward_name,council_slug,council,authority_type,seats,valid
 2026,local.worthing.salvington.2026-05-07,salvington-local-worthing-salvington-2026-05-07,Salvington,worthing,Worthing,,1,3495,0.371960,0.500000,-0.128040,1
 2026,local.worthing.selden.2026-05-07,selden-local-worthing-selden-2026-05-07,Selden,worthing,Worthing,,1,3045,0.316913,0.500000,-0.183087,1
 2026,local.worthing.tarring.2026-05-07,tarring-local-worthing-tarring-2026-05-07,Tarring,worthing,Worthing,,1,3243,0.273512,0.500000,-0.226488,1
-2026,local.st-helens.st-helens-town-centre.2026-06-25,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,st-helens,St Helens,,2,1038,0.420039,0.333333,0.086705,0
-2026,local.tamworth.wilnecote.2026-06-25,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,tamworth,Tamworth,,1,1331,0.464313,0.500000,-0.035687,1
 2026,local.bradford.idle-thackley.2026-06-18,idle-and-thackley-local-bradford-idle-thackley-2026-06-18,Idle and Thackley,bradford,Bradford,,3,4883.333333333333,0.555768,0.250000,0.305768,0
 2026,local.bury.moorside.2026-06-18,moorside-local-bury-moorside-2026-06-18,Moorside,bury,Bury,,1,3316,0.394451,0.500000,-0.105549,1
 2026,local.essex.chelmsford-springfield.2026-06-18,chelmsford-springfield-local-essex-chelmsford-springfield-2026-06-18,Chelmsford Springfield,essex,Essex,,1,5868,0.545842,0.500000,0.045842,0
 2026,local.hillingdon.hillingdon-west.2026-06-18,hillingdon-west-local-hillingdon-hillingdon-west-2026-06-18,Hillingdon West,hillingdon,Hillingdon,,2,2225.5,0.426421,0.333333,0.093088,0
+2026,local.st-helens.st-helens-town-centre.2026-06-25,st-helens-town-centre-local-st-helens-st-helens-town-centre-2026-06-25,St Helens Town Centre,st-helens,St Helens,,2,1038,0.420039,0.333333,0.086705,0
+2026,local.tamworth.wilnecote.2026-06-25,wilnecote-local-tamworth-wilnecote-2026-06-25,Wilnecote,tamworth,Tamworth,,1,1331,0.464313,0.500000,-0.035687,1
