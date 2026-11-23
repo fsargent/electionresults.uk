@@ -1,0 +1,4 @@
+# vote.wales pages are fetched locally for parsing but not
+# redistributed: the EMB website terms restrict copying the site.
+# The facts we extract are committed in vote-wales-lists.csv.
+vote-wales-cache/

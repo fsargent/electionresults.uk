@@ -1,0 +1,2429 @@
+Welsh Parliament
+Senedd Research
+
+
+
+
+Senedd Election 2026
+Research Briefing
+
+September 2026
+
+
+
+
+                             Find out more:
+                    research.senedd.wales
+The Welsh Parliament is the
+democratically elected body that
+represents the interests of Wales and
+its people.
+Commonly known as the Senedd, it makes laws
+for Wales, agrees Welsh taxes and holds the Welsh
+Government to account.
+
+
+
+
+An electronic copy of this document can be found on the Senedd’s website:
+research.senedd.wales
+
+Copies of this document can also be obtained in accessible formats including Braille,
+large print, audio or hard copy from:
+
+Welsh Parliament
+Tŷ Hywel
+Cardiff Bay
+CF99 1SN
+
+X: @SeneddResearch
+Senedd Research: research.senedd.wales
+Subscription: Newsletter
+
+© Senedd Commission Copyright 2026
+The text of this document may be reproduced free of charge in any format or
+medium providing that it is reproduced accurately and not used in a misleading or
+derogatory context. The material must be acknowledged as copyright of the Senedd
+Commission and the title of the document specified.
+Welsh Parliament
+Senedd Research
+
+
+
+
+Senedd Election 2026
+Research Briefing
+
+September 2026
+
+
+
+
+Authors:
+Josh Hayman and Josh Jenkins
+
+This briefing provides a detailed overview of the results of the Senedd election held on
+7 May 2026.
+
+
+
+
+                                                                    Find out more:
+                                                            research.senedd.wales
+                                                                                              Senedd election 2026: Research Briefing
+
+
+
+
+Contents
+1.   Introduction.......................................................................................... 7
+     The Senedd and the 2026 election .............................................................................................. 7
+     Constituencies ............................................................................................................................................ 7
+     The electoral system ............................................................................................................................... 9
+     Data sources ................................................................................................................................................. 9
+
+2.   Summary of election results ........................................................... 11
+     Summary of results ................................................................................................................................. 11
+     Proportionality of the result ............................................................................................................. 15
+     New and returning Members of the Senedd.......................................................................16
+     Turnout........................................................................................................................................................... 18
+
+3.   Detailed election results ................................................................ 20
+     Overview of constituency results ............................................................................................... 20
+               Afan Ogwr Rhondda.................................................................................................................. 23
+               Bangor Conwy Môn .................................................................................................................. 24
+               Blaenau Gwent Caerffili Rhymni ...................................................................................... 25
+               Brycheiniog Tawe Nedd .........................................................................................................26
+               Caerdydd Ffynnon Taf .............................................................................................................. 27
+               Caerdydd Penarth ...................................................................................................................... 28
+               Casnewydd Islwyn ......................................................................................................................29
+               Ceredigion Penfro ...................................................................................................................... 30
+               Clwyd ..................................................................................................................................................... 31
+               Fflint Wrecsam .............................................................................................................................. 32
+               Gwynedd Maldwyn .................................................................................................................... 33
+               Gŵyr Abertawe ............................................................................................................................. 34
+               Pen-y-Bont Bro Morgannwg ............................................................................................... 35
+               Pontypridd Cynon Merthyr ...................................................................................................36
+               Sir Fynwy Torfaen ........................................................................................................................ 37
+               Sir Gaerfyrddin ...............................................................................................................................38
+     Results by political party....................................................................................................................39
+               Plaid Cymru .................................................................................................................................... 40
+
+                                                                                  5
+Senedd election 2026: Research Briefing
+
+
+
+               Reform UK ....................................................................................................................................... 42
+               Welsh Labour ................................................................................................................................ 44
+               Welsh Conservatives ................................................................................................................ 46
+               Wales Green Party ..................................................................................................................... 48
+               Welsh Liberal Democrats ..................................................................................................... 50
+               Other political parties ............................................................................................................... 52
+     Individual Candidates .......................................................................................................................... 55
+     Lost deposits ..............................................................................................................................................56
+     Turnout...........................................................................................................................................................58
+     Invalid votes ............................................................................................................................................... 60
+
+4.   Sources of previous election results .......................................... 63
+
+
+
+
+                                                                                6
+                                              Senedd election 2026: Research Briefing
+
+
+
+
+1. Introduction
+This briefing provides a detailed overview of the results of
+the Senedd general election held on 7 May 2026.
+
+The Senedd and the 2026 election
+
+The election of Members of the Senedd was held on Thursday 7 May 2026. The
+election followed the dissolution of the Sixth Senedd at midnight on 8 April
+2026. This was the seventh general election held for the Senedd and the first
+under the new closed list proportional representation voting system. It was also
+the first time that 96 Members were elected, rather than the 60 that had been
+elected at elections between 1999-2021.
+
+Counting of the votes took place on Friday 8 May, with the final declaration
+made at 18:05 in Gwynedd Maldwyn.
+
+Plaid Cymru won the largest share of the vote (35.4%) and the largest number of
+seats (43), with Reform UK coming second with 29.3% of the vote and 34 seats.
+Welsh Labour were in third place with 11.1% of the vote and 9 seats, followed by
+the Welsh Conservatives who won 10.7% of the vote and 7 seats. Wales Green
+Party were in fifth place with 6.7% of the vote and 2 seats. The Welsh Liberal
+Democrats won 4.5% of the vote and 1 seat.
+
+The turnout for the election was 51.7%, the highest there has ever been for a
+Senedd general election.
+
+Constituencies
+
+Members of the Senedd were elected to represent 16 new Senedd
+constituencies. Each was given a single Welsh language name by the
+Democracy and Boundary Commission Cymru. The constituencies are set out in
+the map below.
+
+
+
+
+                                        7
+Senedd election 2026: Research Briefing
+
+
+
+
+                                          8
+                                              Senedd election 2026: Research Briefing
+
+
+
+The electoral system
+
+A closed list proportional representation electoral system was used for the first
+time in Senedd elections. Under this system, registered political parties could
+put forward lists of up to eight candidates in each constituency. Individual
+candidates (independents) could also stand in a Senedd constituency.
+
+The election was conducted across 16 constituencies, each electing six Members
+of the Senedd. These constituencies were determined by the Democracy
+and Boundary Commission Cymru by combining the 32 UK Parliament
+constituencies into 16 Senedd constituencies.
+
+After the counting of votes, the six seats in each constituency were allocated to
+political parties and individual candidates using the D’Hondt method. More
+information about the allocation of seats can be found in this Senedd
+Research article.
+
+Initial findings from the Welsh Election Study, led by researchers from
+Aberystwyth University and Swansea University, showed that ahead of the
+election, public understanding of the new electoral system was low. In total,
+88% of respondents either answered incorrectly or did not know about the new
+electoral system.
+
+Data sources
+
+The election data in this briefing has been compiled from statistical returns
+from each Constituency Returning Officer and data published by the
+Electoral Management Board. Sources of data relating to previous Senedd
+elections (1999-2021) are referenced at the end of this briefing.
+
+This briefing uses the valid vote to calculate and report on turnout. The valid
+vote consists of all papers included in the count, including postal ballots but
+excluding ballot papers rejected at the count.
+
+Note on diversity information
+
+Data about the characteristics of Members of the Senedd and candidates at
+Senedd elections is not routinely collected and is therefore not included in this
+briefing.
+
+In March 2025, the previous Welsh Government published diversity and
+inclusion guidance for political parties, which included guidance about
+
+
+
+                                         9
+Senedd election 2026: Research Briefing
+
+
+
+collecting, collating and publishing diversity information relating to candidates
+and elected Members. This is a voluntary action that political parties can take.
+
+The guidance says that this information should be published by political parties
+within six weeks of the Senedd election. At the time of publication, there has
+not been any data published by political parties. This briefing will be updated if
+and when this information is made available.
+
+
+
+
+                                          10
+                                             Senedd election 2026: Research Briefing
+
+
+
+
+2. Summary of election results
+This section provides a high-level summary of the election
+results.
+Summary of results
+
+Figure 1 shows the number of seats won by each political party at the Senedd
+election. Plaid Cymru are the largest party with 43 seats, followed by Reform UK
+with 34 seats. In third place are Welsh Labour with 9 seats, the Welsh
+Conservatives came fourth with 7 seats, Wales Green Party came fifth with 2
+seats and the Welsh Liberal Democrats came sixth with 1 seat.
+
+New rules for the Seventh Senedd mean that a political party needs to have at
+least five Members of the Senedd to form a political group. Political groups have
+access to more opportunities for scrutiny (e.g. to ask questions in Plenary and
+hold opposition debates) and receive additional resources to support their work.
+In the Seventh Senedd, the following political parties were able form a political
+group: Plaid Cymru, Reform UK, Welsh Labour and the Welsh Conservatives.
+
+Figure 1: 2026 Senedd election results by party
+
+
+
+
+                                       11
+Senedd election 2026: Research Briefing
+
+
+
+Table 1: Summary of national election results by political party and
+individual candidates
+                     Votes       Vote          Seats   Constituencies Candidates
+                     won         share         won     contested
+
+ Plaid Cymru         444,665     35.41%        43      16            105
+
+ Reform UK           367,985     29.30%        34      16            96
+
+ Welsh Labour        139,203     11.08%        9       16            101
+
+ Welsh               134,926     10.74%        7       16            97
+ Conservatives
+
+ Wales Green         84,608      6.74%         2       16            96
+ Party
+
+ Welsh Liberal       56,012      4.46%         1       16            96
+ Democrats
+
+ Heritage Party      5,474       0.44%         0       16            17
+
+ Propel              4,032       0.32%         0       2             4
+
+ Gwlad               2,479       0.20%         0       6             6
+
+ Open Party          684         0.05%         0       3             5
+
+ Welsh Christian     456         0.04%         0       1             2
+ Party
+
+ Britain's           354         0.03%         0       2             2
+ Communist
+ Party
+
+ Socialist Labour    285         0.02%         0       1             1
+ Party
+
+ Official Monster    279         0.02%         0       1             1
+ Raving Looney
+ Party
+
+ Welsh Trade         244         0.02%         0       2             5
+ Unionist and
+ Socialist
+ Coalition
+
+
+
+
+                                          12
+                                                  Senedd election 2026: Research Briefing
+
+
+
+ Social             165         0.01%         0       1                   1
+ Democratic
+ Party
+
+ Individual         14,063      1.12%         0       -                   30
+ Candidates
+
+The distribution of seats by political party is set out in figure 2. Constituency
+areas are coloured by the political party with the largest vote share. Seats are
+coloured by political party in the order they were allocated.
+
+
+
+
+                                         13
+Senedd election 2026: Research Briefing
+
+
+
+Figure 2: Distribution of seats by political party
+
+
+
+
+                                          14
+                                               Senedd election 2026: Research Briefing
+
+
+
+Proportionality of the result
+
+This election used a new electoral system – closed list proportional
+representation – for the first time. One of the rationales for introducing this
+system was that it would produce a more proportional result than the
+previous mixed-member system that was used for elections between 1999-2021.
+Proportionality means how closely the percentage of the vote that a party
+receives is reflected in their share of seats won.
+
+Table 2 shows how each of the six largest political parties’ national share of the
+vote compares to their share of the seats in the Seventh Senedd.
+
+Table 2: Comparison of national vote share and national seat share by
+political party
+ Party                        National vote       National seat        Difference
+                              share               share
+
+ Plaid Cymru                  35.41%              44.79%               +9.39%
+
+ Reform UK                    29.30%              35.42%               +6.12%
+
+ Welsh Labour                 11.08%              9.38%                -1.71%
+
+ Welsh Conservatives          10.74%              7.29%                -3.45%
+
+ Wales Green Party            6.74%               2.08%                -4.65%
+
+ Welsh Liberal Democrats      4.46%               1.04%                -3.42%
+
+The Gallagher index of disproportionality is used in political science to
+measure the disproportionality of an electoral outcome. The lower the Gallagher
+figure, the more proportional the outcome. The index was used by the Expert
+Panel on Assembly to assess different possible electoral systems for the Senedd.
+The chart below shows how the 2026 Senedd election compares to previous
+elections.
+
+
+
+
+                                         15
+Senedd election 2026: Research Briefing
+
+
+
+Figure 3: Gallagher Index of Disproportionality at each Senedd election
+
+
+
+
+The 2026 Senedd election was slightly more proportional than the previous
+election in 2021. In fact, other than the first election in 1999, it was the most
+‘proportional’ election in Senedd history. However, the 2026 election’s score of
+9.5, compared to the 2021 election’s score of 10.1 does not suggest a substantial
+improvement on proportionality under the new electoral system. 1
+
+New and returning Members of the Senedd
+
+Fifteen Members of the Sixth Senedd did not stand for re-election. Of the 45
+who stood again, 29 were re-elected. There were 66 people elected to the
+Senedd for the first time. In addition to this, there is one Member (Nerys Evans
+MS between 2007-11) who served in a previous Senedd term.
+
+Elin Jones MS and Lynne Neagle MS are the longest serving Members re-
+elected. They have both been Members of the Senedd from the establishment
+of the institution in 1999. Table 3 shows the MSs elected in 2026 by the Senedd
+term they were first elected.
+
+
+
+
+1
+ Gallagher index figures for the 1999-2016 elections were taken from the report of the Expert
+Panel on Assembly Electoral Reform (2017) and were calculated by Cardiff University’s Wales
+Governance Centre. The figures for the 2021 and 2026 elections were calculated by Senedd
+Research. An average of the combined constituency and regional list vote percentages were
+used to calculate the 2021 figures.
+
+                                              16
+                                             Senedd election 2026: Research Briefing
+
+
+
+Table 3: MSs elected in 2026 by Senedd term they were first elected
+                  1999-    2003-    2007-    2011-    2016-     2021-     2026-
+                  2003     2007     2011     2016     2021      2026
+
+Plaid Cymru       1        0        1        3        3         5         30
+
+Reform UK         0        1        0        0        0         1         32
+
+Welsh Labour      1        0        0        2        3         1         2
+
+Welsh         0            0        3        1        0         3         0
+Conservatives
+
+Wales Green       0        0        0        0        0         0         2
+Party
+
+Welsh Liberal     0        0        0        0        0         1         0
+Democrats
+
+Total             2        1        4        6        6         11        66
+
+This table shows that there are only 19 MSs elected at the 2026 election who
+have served more than one previous term in the Senedd.
+
+Table 4 shows the percentage of new and returning Members for each political
+party.
+
+
+
+
+                                        17
+Senedd election 2026: Research Briefing
+
+
+
+Table 4: Percentage of new and returning Members by political party
+                             Seats        New Members            Returning Members
+                             won                                 (from any previous
+                                                                        term)
+
+                                       Number           %         Number           %
+
+    Plaid Cymru                43         30         69.77%          13         30.23%
+
+    Reform UK                  34         32         94.12%           2          5.88%
+
+    Welsh Labour                9          2         22.22%           7         77.78%
+
+    Welsh Conservatives         7          0          0.00%           7        100.00%
+
+    Wales Green Party           2          2         100.00%          0         0.00%
+
+    Welsh Liberal               1          0          0.00%           1        100.00%
+    Democrats
+
+    All Members                96         66         68.75%          302        31.25%
+
+
+Turnout
+
+Over 2.43 million people were registered to vote at the time of the 2026 Senedd
+election. Of these, over 1.25 million people turned out to vote. Based on valid
+votes, turnout at this election was 51.7%. This compares to 46.6% at the 2021
+election.
+
+The 2026 election saw the highest turnout since the Senedd was established,
+achieving over 50% for the first time. Since the 2021 election, a larger group of
+people are eligible to vote in Senedd elections, including those aged 16 and 17,
+as well as qualifying foreign and EU nationals. Figure 4 compares turnout in
+Senedd elections since 1999.
+
+
+
+
+2
+ This figure includes Nerys Evans MS, who served as the Assembly Member for Mid and West
+Wales between 2007-11
+
+                                            18
+                                           Senedd election 2026: Research Briefing
+
+
+
+Figure 4: Turnout in Senedd elections (1999-2026)
+
+
+
+
+Turnout was highest in Caerdydd Ffynnon Taf at 58.50% and lowest in Afan
+Ogwr Rhondda at 44.68%.
+
+
+
+
+                                     19
+Senedd election 2026: Research Briefing
+
+
+
+
+3. Detailed election results
+This section includes detailed election results data, including
+a breakdown of each constituency result and an overview of
+the performance of each of the six largest political parties
+who stood candidates at the election.
+
+Overview of constituency results
+
+Table 5 shows the results in each of the 16 Senedd constituencies, including the
+vote share for each of the six largest political parties (and other parties and
+candidates combined into ‘others’), the winners of the six seats in each
+constituency, and the turnout.
+
+The results of each of the constituencies are broken down on the following
+pages.
+
+
+
+
+                                          20
+                                                                                  Senedd election 2026: Research Briefing
+
+
+
+Table 5: Summary of election results in each constituency
+
+                          Vote share (%)                                                Seats won           Turnout
+Constituency
+                          Plaid Reform Welsh Welsh Green Welsh Others
+                                                                                                            (%)
+name                                                                  1 2 3 4 5 6
+                          Cymru UK     Labour Con  Party LD
+
+Afan Ogwr Rhondda
+                          36.93%   33.63%   16.7%   4.26%    3.85%    2.71%    1.88%
+                                                                                                              44.68%
+Bangor Conwy Môn
+                          44.93% 28.12%     6.4%    12.38%   4.49%    2.30%    1.36%
+                                                                                                              53.75%
+Blaenau Gwent Caerffili
+                          41.98%   34.30%   11.1%   4.80%    3.50%    1.84%    2.49%
+Rhymni                                                                                                        47.59%
+Brycheiniog Tawe
+                          28.70%   33.17%   8.7%    8.41%    6.66%    11.77%   2.54%
+Nedd                                                                                                          52.85%
+Caerdydd Ffynnon Taf
+                          36.97%   19.65%   12.8%   9.61%    10.24% 9.57%      1.19%
+                                                                                                              58.50%
+Caerdydd Penarth
+                          41.04%   17.63%   12.4%   7.74%    13.76%   2.57%    4.88%
+                                                                                                              56.70%
+Casnewydd Islwyn
+                          29.69%   32.91%   13.7%   11.39%   7.59%    3.45%    1.30%
+                                                                                                              48.05%
+Ceredigion Penfro
+                          35.83%   25.80%   7.3%    16.59%   7.09%    5.17%    2.23%
+                                                                                                              56.06%
+
+
+
+
+                                                       21
+Senedd election 2026: Research Briefing
+
+
+                             Vote share (%)                                                 Seats won   Turnout
+ Constituency
+                             Plaid Reform Welsh Welsh Green Welsh Others
+                                                                                                        (%)
+ name                                                                    1 2 3 4 5 6
+                             Cymru UK     Labour Con  Party LD
+
+ Clwyd
+                             28.31%       32.27%   10.4%   20.30% 5.29%     2.95%   0.44%
+                                                                                                         51.28%
+ Fflint Wrecsam
+                             26.34%       36.21%   12.2%   12.88%   7.34%   3.78%   1.21%
+                                                                                                         45.78%
+ Gwynedd Maldwyn
+                             44.18%       27.75%   5.5%    6.92%    5.01%   5.57%   5.11%
+                                                                                                         52.46%
+ Gŵyr Abertawe
+                             31.85%       27.49%   14.2%   9.56%    8.11%   7.95%   0.82%
+                                                                                                         50.88%
+ Pen-y-Bont Bro
+                             33.50%       30.08%   11.6%   15.24%   5.16%   2.66%   1.73%
+ Morgannwg                                                                                               53.73%
+ Pontypridd Cynon
+                             39.50%       30.59%   12.9%   5.97%    4.77%   1.92%   4.38%
+ Merthyr                                                                                                 47.22%
+ Sir Fynwy Torfaen
+                             23.52%       31.09%   15.0%   17.24%   8.20%   3.53%   1.41%
+                                                                                                         51.77%
+ Sir Gaerfyrddin
+                             43.06% 32.79%         7.7%    6.97%    4.56%   1.98%   2.95%
+                                                                                                         55.81%
+
+
+
+
+                                                              22
+                                                  Senedd election 2026: Research Briefing
+
+
+
+
+Afan Ogwr Rhondda
+
+
+Electorate:                         148,732
+Valid votes cast:                   66,449
+Total rejected ballot papers:           135
+Turnout:                            44.68%
+
+
+
+
+ Political Party / Individual       Votes        Vote       Members       Candidates
+         Candidate                  won          Share       elected
+
+Plaid Cymru                         24,538       36.93%          3               6
+Reform UK                           22,345       33.63%          2               6
+Welsh Labour                        11,123       16.74%          1               8
+Welsh Conservatives                 2,831        4.26%           0               6
+Wales Green Party                   2,561        3.85%           0               6
+Welsh Liberal Democrats             1,800        2.71%           0               6
+Heritage Party                        747        1.12%           0               2
+Captain Beany                         504        0.76%           0         Individual
+
+
+Elected Members
+Position            Member of the Senedd                        Political Party
+    1                      Sera Evans                             Plaid Cymru
+    2               Benjamin Hodge McKenna                           Reform UK
+    3                      Alun Cox                               Plaid Cymru
+    4                     Steve Bayliss                              Reform UK
+    5                  Huw Irranca-Davies                        Welsh Labour
+    6                    Elyn Stephens                            Plaid Cymru
+
+
+
+
+                                            23
+Senedd election 2026: Research Briefing
+
+
+
+Bangor Conwy Môn
+
+
+ Electorate:                       128,615
+ Valid votes cast:                 69,130
+ Total rejected ballot papers:     123
+ Turnout:                          53.75%
+
+
+
+
+  Political Party / Individual       Votes            Vote     Members     Candidates
+          Candidate                  won              Share     elected
+
+ Plaid Cymru                         31,057           44.93%      3               8
+ Reform UK                           19,440           28.12%      2               6
+ Welsh Conservatives                  8,555           12.38%      1               6
+ Welsh Labour                        4,448            6.43%       0               6
+ Wales Green Party                       3,101        4.49%       0               6
+ Welsh Liberal Democrats                 1,591        2.30%       0               6
+ Socialist Labour Party                  285          0.41%       0               1
+ Official Monster Raving                 279          0.40%       0               1
+ Loony Party
+ Heritage Party                           231         0.33%       0               1
+ Britain's Communist Party                143         0.21%       0               1
+
+
+Elected Members
+ Position            Member of the Senedd                        Political Party
+
+      1                 Rhun ap Iorwerth                          Plaid Cymru
+     2                     Helen Jenner                               Reform UK
+     3                    Mair Rowlands                           Plaid Cymru
+     4                    Elfed Williams                          Plaid Cymru
+     5                      John Clark                                Reform UK
+     6                Janet Finch-Saunders                     Welsh Conservatives
+
+
+
+
+                                                 24
+                                                 Senedd election 2026: Research Briefing
+
+
+
+Blaenau Gwent Caerffili Rhymni
+
+
+Electorate:                     146,732
+Valid votes cast:               69,832
+Total rejected ballot papers:   155
+Turnout:                        47.59%
+
+
+
+
+ Political Party / Individual     Votes          Vote      Members       Candidates
+         Candidate                won            Share      elected
+
+Plaid Cymru                       29,314         41.98%         3              7
+Reform UK                         23,955         34.30%         3              6
+Welsh Labour                      7,739          11.08%         0              6
+Welsh Conservatives               3,353          4.80%          0              6
+Wales Green Party                 2,447          3.50%          0              6
+Welsh Liberal Democrats           1,284          1.84%          0              6
+Jordan Brace                          931        1.33%          0         Individual
+Mike Whatley                          374        0.54%          0         Individual
+Heritage Party                        262        0.38%          0              1
+Open Party                            102        0.15%          0              1
+Steve Wright                          71         0.10%          0         Individual
+
+
+Elected Members
+ Position           Member of the Senedd                       Political Party
+
+    1                   Delyth Jewell                           Plaid Cymru
+    2                     Llŷr Powell                            Reform UK
+    3                  Lindsay Whittle                          Plaid Cymru
+    4                  Catherine Cullen                          Reform UK
+    5                   Niamh Salkeld                           Plaid Cymru
+    6                    Joshua Kim                              Reform UK
+
+
+
+                                            25
+Senedd election 2026: Research Briefing
+
+
+
+Brycheiniog Tawe Nedd
+
+
+ Electorate:                       153,435
+ Valid votes cast:                 81,096
+ Total rejected ballot papers:     189
+ Turnout:                          52.85%
+
+
+
+
+  Political Party / Individual       Votes           Vote      Members      Candidates
+          Candidate                  won             Share      elected
+
+ Reform UK                           26,897          33.17%        3               6
+ Plaid Cymru                         23,276          28.70%        2               6
+ Welsh Liberal Democrats             9,549           11.77%        1               6
+ Welsh Labour                        7,086           8.74%         0               7
+ Welsh Conservatives                  6,821          8.41%         0               6
+ Wales Green Party                   5,405           6.66%         0               6
+ Beverley Jane Baynham                   586         0.72%         0         Individual
+ Welsh Christian Party                   456         0.56%         0         Individual
+ Dai Richards                             316        0.39%         0         Individual
+ Heritage Party                          275         0.34%         0               1
+ Joe Hale                                225         0.28%         0         Individual
+ Gwlad                                   204         0.25%         0               1
+
+
+Elected Members
+ Position            Member of the Senedd                         Political Party
+
+      1                    James Evans                                 Reform UK
+     2                   Sioned Williams                           Plaid Cymru
+     3                     Iain McIntosh                               Reform UK
+     4                    Rebeca Phillips                          Plaid Cymru
+     5                      Jane Dodds                        Welsh Liberal Democrats
+     6                      David Mills                                Reform UK
+
+
+                                                26
+                                                 Senedd election 2026: Research Briefing
+
+
+
+Caerdydd Ffynnon Taf
+
+
+Electorate:                     150,796
+Valid votes cast:               88,220
+Total rejected ballot papers:   222
+Turnout:                        58.50%
+
+
+
+
+ Political Party / Individual    Votes           Vote      Members       Candidates
+         Candidate               won             Share      elected
+
+Plaid Cymru                       32,617         36.97%         3               6
+Reform UK                         17,335         19.65%         1               6
+Welsh Labour                      11,261         12.76%         1               8
+Wales Green Party                 9,036          10.24%         1               6
+Welsh Conservatives               8,479          9.61%          0               6
+Welsh Liberal Democrats           8,442          9.57%          0               6
+Propel                                561        0.64%          0               2
+Heritage Party                     208           0.24%          0               1
+Lawrence Douglas Gwynn                156        0.18%          0         Individual
+Welsh Trade Unionist and              125        0.14%          0               3
+Socialist Coalition
+
+
+Elected Members
+ Position           Member of the Senedd                       Political Party
+
+    1               Dafydd Trystan Davies                       Plaid Cymru
+    2                  Cai Parry-Jones                              Reform UK
+    3                   Zaynub Akbar                            Plaid Cymru
+    4                      Shav Taj                            Welsh Labour
+    5                    Nick Carter                            Plaid Cymru
+    6                     Paul Rock                          Wales Green Party
+
+
+
+
+                                            27
+Senedd election 2026: Research Briefing
+
+
+
+Caerdydd Penarth
+
+
+ Electorate:                       155,286
+ Valid votes cast:                 88,053
+ Total rejected ballot papers:     220
+ Turnout:                          56.70%
+
+
+
+
+  Political Party / Individual       Votes           Vote     Members     Candidates
+          Candidate                  won             Share     elected
+
+ Plaid Cymru                         36,136          41.04%      3               6
+ Reform UK                           15,525          17.63%      1               6
+ Wales Green Party                    12,113         13.76%      1               2
+ Welsh Labour                        10,907          12.39%      1               6
+ Welsh Conservatives                  6,818          7.74%       0               6
+ Propel                               3,471          3.94%       0               1
+ Welsh Liberal Democrats             2,260           2.57%       0               7
+ Rhys ab Owen                             414        0.47%       0         Individual
+ Britain's Communist Party                211        0.24%       0               1
+ Heritage Party                           198        0.22%       0               6
+
+
+Elected Members
+ Position            Member of the Senedd                       Political Party
+
+      1                   Anna Brychan                           Plaid Cymru
+     2                    Kiera Marshall                         Plaid Cymru
+     3                      Joe Martin                               Reform UK
+     4                  Anthony Slaughter                      Wales Green Party
+     5                   Leticia Gonzalez                        Plaid Cymru
+     6                     Huw Thomas                            Welsh Labour
+
+
+
+
+                                                28
+                                                 Senedd election 2026: Research Briefing
+
+
+
+Casnewydd Islwyn
+
+
+Electorate:                     161,697
+Valid votes cast:               77,698
+Total rejected ballot papers:   193
+Turnout:                        48.05%
+
+
+
+
+ Political Party / Individual     Votes          Vote      Members       Candidates
+         Candidate                won            Share      elected
+
+Reform UK                         25,571         32.91%         2               6
+Plaid Cymru                       23,069         29.69%         2               6
+Welsh Labour                      10,622         13.67%         1               7
+Welsh Conservatives               8,847          11.39%         1               6
+Wales Green Party                 5,898          7.59%          0               6
+Welsh Liberal Democrats           2,683          3.45%          0               6
+Open Party                            435        0.56%          0               2
+Heritage Party                        349        0.45%          0               1
+Taran Clayton                         224        0.29%          0         Individual
+
+
+Elected Members
+ Position           Member of the Senedd                       Political Party
+
+    1                    Dan Thomas                                 Reform UK
+    2               Peredur Owen Griffiths                      Plaid Cymru
+    3                     Art Wright                                Reform UK
+    4                   Lyn Ackerman                            Plaid Cymru
+    5                   Jayne Bryant                           Welsh Labour
+    6                  Natasha Asghar                       Welsh Conservatives
+
+
+
+
+                                            29
+Senedd election 2026: Research Briefing
+
+
+
+Ceredigion Penfro
+
+
+ Electorate:                       159,021
+ Valid votes cast:                 89,153
+ Total rejected ballot papers:     247
+ Turnout:                          56.06%
+
+
+
+
+  Political Party / Individual       Votes          Vote     Members     Candidates
+          Candidate                  won            Share     elected
+
+ Plaid Cymru                         31,943         35.83%      3               8
+ Reform UK                           23,003         25.80%      2               6
+ Welsh Conservatives                 14,789         16.59%      1               6
+ Welsh Labour                        6,495          7.29%       0               7
+ Wales Green Party                   6,324          7.09%       0               6
+ Welsh Liberal Democrats              4,613         5.17%       0               6
+ Gwlad                                802           0.90%       0               1
+ Heritage Party                       442           0.50%       0               1
+ Aaron Carey                          368           0.41%       0         Individual
+ George Alexander Chadzy              286           0.32%       0         Individual
+ Paul Hayward Dowson                      88        0.10%       0         Individual
+
+
+Elected Members
+ Position            Member of the Senedd                      Political Party
+
+      1                      Elin Jones                         Plaid Cymru
+     2                   Claire Archibald                           Reform UK
+     3                    Kerry Ferguson                        Plaid Cymru
+     4                      Paul Davies                      Welsh Conservatives
+     5                       Paul Marr                              Reform UK
+     6                     Anna Nicholl                         Plaid Cymru
+
+
+
+                                               30
+                                                  Senedd election 2026: Research Briefing
+
+
+
+Clwyd
+
+
+Electorate:                     155,536
+Valid votes cast:               79,757
+Total rejected ballot papers:   166
+Turnout:                        51.28%
+
+
+
+
+ Political Party / Individual     Votes          Vote       Members       Candidates
+         Candidate                won            Share       elected
+
+Reform UK                         25,741         32.27%          3               6
+Plaid Cymru                       22,583         28.31%          2               6
+Welsh Conservatives               16,193         20.30%          1               7
+Welsh Labour                      8,314          10.42%          0               8
+Wales Green Party                 4,219          5.29%           0               6
+Welsh Liberal Democrats           2,355          2.95%           0               6
+Heritage Party                        352        0.44%           0               1
+
+
+Elected Members
+ Position           Member of the Senedd                        Political Party
+
+    1                   Adrian Mason                                 Reform UK
+    2                   Llyr Gruffydd                            Plaid Cymru
+    3                   Darren Millar                        Welsh Conservatives
+    4                   Louise Emery                                 Reform UK
+    5                   Becca Martin                             Plaid Cymru
+    6                 Tom Montgomery                                 Reform UK
+
+
+
+
+                                            31
+Senedd election 2026: Research Briefing
+
+
+
+Fflint Wrecsam
+
+
+ Electorate:                       152,885
+ Valid votes cast:                 69,996
+ Total rejected ballot papers:     171
+ Turnout:                          45.78%
+
+
+
+
+  Political Party / Individual       Votes            Vote     Members     Candidates
+          Candidate                  won              Share     elected
+
+ Reform UK                           25,349           36.21%      2               6
+ Plaid Cymru                         18,440           26.34%      2               6
+ Welsh Conservatives                     9,017        12.88%      1               6
+ Welsh Labour                         8,555           12.22%      1               6
+ Wales Green Party                       5,138        7.34%       0               6
+ Welsh Liberal Democrats             2,647            3.78%       0               6
+ Andrew John Williams                    429          0.61%       0         Individual
+ Heritage Party                          256          0.37%       0               1
+ Social Democratic Party                  165         0.24%       0               1
+
+
+Elected Members
+ Position            Member of the Senedd                        Political Party
+
+      1                  Christina Emsley                             Reform UK
+     2                     Carrie Harper                          Plaid Cymru
+     3                    Nigel Williams                              Reform UK
+     4                      Marc Jones                            Plaid Cymru
+     5                    Sam Rowlands                         Welsh Conservatives
+     6                      Ken Skates                            Welsh Labour
+
+
+
+
+                                                 32
+                                                 Senedd election 2026: Research Briefing
+
+
+
+Gwynedd Maldwyn
+
+
+Electorate:                     155,719
+Valid votes cast:               81,690
+Total rejected ballot papers:   199
+Turnout:                        52.46%
+
+
+
+
+ Political Party / Individual     Votes          Vote      Members       Candidates
+         Candidate                won            Share      elected
+
+Plaid Cymru                       36,087         44.18%         4              8
+Reform UK                         22,667         27.75%         2              6
+Welsh Conservatives               5,650          6.92%          0              6
+Welsh Liberal Democrats           4,554          5.57%          0              6
+Welsh Labour                      4,466          5.47%          0              6
+Wales Green Party                 4,090          5.01%          0              6
+Russell George                    2,862          3.50%          0         Individual
+Gwlad                                 767        0.94%          0              1
+Monty Kennard                         307        0.38%          0         Individual
+Heritage Party                        240        0.29%          0              1
+
+
+Elected Members
+ Position           Member of the Senedd                       Political Party
+
+    1                   Sian Gwenllian                          Plaid Cymru
+    2                   Andrew Griffin                           Reform UK
+    3                 Mabon ap Gwynfor                          Plaid Cymru
+    4                    Beca Brown                             Plaid Cymru
+    5                Claire Johnson-Wood                         Reform UK
+    6                  Elwyn Vaughan                            Plaid Cymru
+
+
+
+
+                                            33
+Senedd election 2026: Research Briefing
+
+
+
+Gŵyr Abertawe
+
+
+ Electorate:                       155,120
+ Valid votes cast:                 78,722
+ Total rejected ballot papers:     187
+ Turnout:                          50.88%
+
+
+
+
+  Political Party / Individual       Votes           Vote     Members     Candidates
+          Candidate                  won             Share     elected
+
+ Plaid Cymru                         25,076          31.85%      3               6
+ Reform UK                           21,641          27.49%      2               6
+ Welsh Labour                         11,195         14.22%      1               6
+ Welsh Conservatives                  7,523          9.56%       0               6
+ Wales Green Party                   6,383           8.11%       0               6
+ Welsh Liberal Democrats             6,262           7.95%       0               6
+ Heritage Party                          227         0.29%       0               1
+ Welsh Trade Unionist and                 119        0.15%       0               1
+ Socialist Coalition
+ Katon Bouzalakos                         111        0.14%       0         Individual
+ Dan Brown                               104         0.13%       0         Individual
+ Emma McNamara                            81         0.10%       0         Individual
+
+
+Elected Members
+ Position            Member of the Senedd                       Political Party
+
+      1                   Gwyn Williams                          Plaid Cymru
+     2                  Francesca O'Brien                            Reform UK
+     3                     Safa Elhassan                         Plaid Cymru
+     4                     Mike Hedges                           Welsh Labour
+     5                   Steven Rodaway                              Reform UK
+     6                      John Davies                          Plaid Cymru
+
+
+                                                34
+                                                  Senedd election 2026: Research Briefing
+
+
+
+Pen-y-Bont Bro Morgannwg
+
+
+Electorate:                     152,519
+Valid votes cast:               81,801
+Total rejected ballot papers:   152
+Turnout:                        53.73%
+
+
+
+
+ Political Party / Individual     Votes          Vote       Members       Candidates
+         Candidate                won            Share       elected
+
+Plaid Cymru                       27,407         33.50%          2               6
+Reform UK                         24,602         30.08%          2               6
+Welsh Conservatives               12,464         15.24%          1               6
+Welsh Labour                      9,518          11.64%          1               7
+Wales Green Party                 4,220          5.16%           0               6
+Welsh Liberal Democrats            2,175         2.66%           0               8
+Caroline Jones                        651        0.80%           0         Individual
+Heritage Party                        429        0.52%           0               1
+William Jeffreys                      221        0.27%           0         Individual
+Lucia Wyatt                           114        0.14%           0         Individual
+
+
+Elected Members
+ Position           Member of the Senedd                        Political Party
+
+    1                   Mark Hooper                              Plaid Cymru
+    2                Sarah Cooper-Lesadd                             Reform UK
+    3                    Sarah Rees                              Plaid Cymru
+    4                 Andrew RT Davies                       Welsh Conservatives
+    5                  Gareth Thomas                                 Reform UK
+    6                   Sarah Murphy                            Welsh Labour
+
+
+
+
+                                            35
+Senedd election 2026: Research Briefing
+
+
+
+Pontypridd Cynon Merthyr
+
+
+ Electorate:                       153,815
+ Valid votes cast:                 72,628
+ Total rejected ballot papers:     219
+ Turnout:                          47.22%
+
+
+
+
+  Political Party / Individual       Votes           Vote     Members     Candidates
+          Candidate                  won             Share     elected
+
+ Plaid Cymru                         28,687          39.50%      3               6
+ Reform UK                           22,217          30.59%      2               6
+ Welsh Labour                        9,344           12.87%      1               7
+ Welsh Conservatives                 4,339           5.97%       0               6
+ Wales Green Party                   3,466           4.77%       0               6
+ Beth Winter                          2,297          3.16%       0         Individual
+ Welsh Liberal Democrats              1,393          1.92%       0               6
+ Heritage Party                           431        0.59%       0               1
+ Gwlad                                   202         0.28%       0               1
+ Dai Hedley Williams                      148        0.20%       0         Individual
+ Joseph Anthony Biddulph                 104         0.14%       0         Individual
+
+
+Elected Members
+ Position            Member of the Senedd                       Political Party
+
+      1                   Heledd Fychan                          Plaid Cymru
+     2                   Jason O'Connell                             Reform UK
+     3                      Lis McLean                           Plaid Cymru
+     4                    David Hughes                               Reform UK
+     5                     Sara Crowley                          Plaid Cymru
+     6                     Vikki Howells                         Welsh Labour
+
+
+
+                                                36
+                                                 Senedd election 2026: Research Briefing
+
+
+
+Sir Fynwy Torfaen
+
+
+Electorate:                     150,095
+Valid votes cast:               77,706
+Total rejected ballot papers:   170
+Turnout:                        51.77%
+
+
+
+
+ Political Party / Individual    Votes           Vote      Members       Candidates
+         Candidate               won             Share      elected
+
+Reform UK                         24,155         31.09%         2               6
+Plaid Cymru                       18,275         23.52%         2               6
+Welsh Conservatives               13,394         17.24%         1               6
+Welsh Labour                      11,672         15.02%         1               7
+Wales Green Party                 6,375          8.20%          0               6
+Welsh Liberal Democrats           2,742          3.53%          0               6
+Owen Lewis                            393        0.51%          0         Individual
+Heritage Party                        331        0.43%          0               1
+Gwlad                                 177        0.23%          0               1
+Open Party                            147        0.19%          0               2
+Welsh Pool                            45         0.06%          0         Individual
+
+
+Elected Members
+ Position           Member of the Senedd                       Political Party
+
+    1                 Laura Anne Jones                              Reform UK
+    2                  Matthew Jones                            Plaid Cymru
+    3                     Peter Fox                         Welsh Conservatives
+    4                  Stephen Senior                               Reform UK
+    5                   Lynne Neagle                           Welsh Labour
+    6                  Donna Cushing                            Plaid Cymru
+
+
+
+                                            37
+Senedd election 2026: Research Briefing
+
+
+
+Sir Gaerfyrddin
+
+
+ Electorate:                       150,485
+ Valid votes cast:                 83,983
+ Total rejected ballot papers:     238
+ Turnout:                          55.81%
+
+
+
+
+  Political Party / Individual       Votes           Vote     Members    Candidates
+          Candidate                  won             Share     elected
+
+ Plaid Cymru                         36,160          43.06%      3             8
+ Reform UK                           27,542          32.79%      3             6
+ Welsh Labour                        6,458           7.69%       0             6
+ Welsh Conservatives                  5,853          6.97%       0             6
+ Wales Green Party                    3,832          4.56%       0             6
+ Welsh Liberal Democrats              1,662          1.98%       0             6
+ Steve Williams                       1,298          1.55%       0        Individual
+ Heritage Party                       496            0.59%       0             1
+ Gwlad                                327            0.39%       0             1
+ Carl Peters-Bond                     254            0.30%       0        Individual
+ Jonathan Rose                            101        0.12%       0        Individual
+
+
+Elected Members
+ Position            Member of the Senedd                       Political Party
+
+      1                   Cefin Campbell                         Plaid Cymru
+     2                     Gareth Beer                            Reform UK
+     3                     Nerys Evans                           Plaid Cymru
+     4                  Carmelo Colasanto                         Reform UK
+     5                      Adam Price                           Plaid Cymru
+     6                    Sarah Edwards                           Reform UK
+
+
+
+                                                38
+                                                Senedd election 2026: Research Briefing
+
+
+
+Results by political party
+
+The following sections provide an overview of the results for each of the six
+largest political parties that stood candidates at the election. In addition, there is
+a summary of the results of the smaller political parties and an overview of the
+individual candidates who stood at the election.
+
+
+
+
+                                         39
+Senedd election 2026: Research Briefing
+
+
+
+Plaid Cymru
+
+
+                                                   Highest vote   Lowest vote
+ 444,665 35.41%                            43         share          share
+
+     votes          vote share                       Bangor           Sir Fynwy
+                                           Seats
+                                                   Conwy Môn           Torfaen
+
+Plaid Cymru won the most seats at the Senedd election, with 43 Members of
+the Senedd returned. The party’s vote share was highest in Bangor Conwy Môn
+(44.93%), Gwynedd Maldwyn (44.93%) and Sir Gaerfyrddin (43.06%). The party’s
+lowest share of the vote came in Sir Fynwy Torfaen (23.5%), Fflint Wrecsam
+(26.3%) and Clwyd (28.31%).
+
+Table 6: Plaid Cymru results in each constituency
+ Constituency                             Votes     Vote share    Seats won
+
+ Afan Ogwr Rhondda                        24,538    36.93%        3
+
+ Bangor Conwy Môn                         31,057    44.93%        3
+
+ Blaenau Gwent Caerffili Rhymni           29,314    41.98%        3
+
+ Brycheiniog Tawe Nedd                    23,276    28.70%        2
+
+ Caerdydd Ffynnon Taf                     32,617    36.97%        3
+
+ Caerdydd Penarth                         36,136    41.04%        3
+
+ Casnewydd Islwyn                         23,069    29.69%        2
+
+ Ceredigion Penfro                        31,943    35.83%        3
+
+ Clwyd                                    22,583    28.31%        2
+
+ Fflint Wrecsam                           18,440    26.34%        2
+
+ Gwynedd Maldwyn                          36,087    44.18%        4
+
+ Gŵyr Abertawe                            25,076    31.85%        3
+
+ Pen-y-Bont Bro Morgannwg                 27,407    33.50%        2
+
+ Pontypridd Cynon Merthyr                 28,687    39.50%        3
+
+ Sir Fynwy Torfaen                        18,275    23.52%        2
+
+ Sir Gaerfyrddin                          36,160    43.06%        3
+
+
+
+                                             40
+                                          Senedd election 2026: Research Briefing
+
+
+
+Figure 5: Plaid Cymru vote share % in each Senedd constituency
+
+
+
+
+Table 7: Plaid Cymru historic Senedd election results
+                      Constituency             Regional
+                                                                  Seats won
+                     Votes     % vote     Votes       % vote
+
+1999                290,572     28.4%     312,048       30.6%           17
+
+2003                180,183     21.2%     167,653       19.7%           12
+
+2007                 219,121    22.4%     204,757       21.0%           15
+
+2011                182,907     19.3%     169,799       17.9%           11
+
+2016                209,376     20.5%     211,548       20.8%           12
+
+2021                225,376     20.3%     230,161       20.7%           13
+
+
+
+
+                                     41
+Senedd election 2026: Research Briefing
+
+
+
+Reform UK
+
+
+                                                   Highest vote   Lowest vote
+ 367,985 29.30%                            34         share          share
+
+     votes          vote share                       Fflint           Caerdydd
+                                           Seats
+                                                    Wrecsam            Penarth
+
+Reform UK won the second most seats at the Senedd election, with 34
+Members of the Senedd returned. The party’s vote share was highest in Fflint
+Wrecsam (36.21%), Blaenau Gwent Caerffili Rhymni (34.30%) and Afan Ogwr
+Rhondda (33.63%). The party’s lowest share of the vote came in Caerdydd
+Penarth (17.63%), Caerdydd Ffynnon Taf (19.65%) and Ceredigion Penfro (25.80%).
+
+Table 8: Reform UK results in each constituency
+ Constituency                             Votes     Vote share    Seats won
+
+ Afan Ogwr Rhondda                        22,345    33.63%        2
+
+ Bangor Conwy Môn                         19,440    28.12%        2
+
+ Blaenau Gwent Caerffili Rhymni           23,955    34.30%        3
+
+ Brycheiniog Tawe Nedd                    26,897    33.17%        3
+
+ Caerdydd Ffynnon Taf                     17,335    19.65%        1
+
+ Caerdydd Penarth                         15,525    17.63%        1
+
+ Casnewydd Islwyn                         25,571    32.91%        2
+
+ Ceredigion Penfro                        23,003    25.80%        2
+
+ Clwyd                                    25,741    32.27%        3
+
+ Fflint Wrecsam                           25,349    36.21%        2
+
+ Gwynedd Maldwyn                          22,667    27.75%        2
+
+ Gŵyr Abertawe                            21,641    27.49%        2
+
+ Pen-y-Bont Bro Morgannwg                 24,602    30.08%        2
+
+ Pontypridd Cynon Merthyr                 22,217    30.59%        2
+
+ Sir Fynwy Torfaen                        24,155    31.09%        2
+
+ Sir Gaerfyrddin                          27,542    32.79%        3
+
+
+
+                                             42
+                                            Senedd election 2026: Research Briefing
+
+
+
+Figure 6: Reform UK vote share % in each Senedd constituency
+
+
+
+
+Table 9: Reform UK historic Senedd election results
+                      Constituency                  Regional
+                                                                    Seats won
+                   Votes     % vote        Votes        % vote
+
+2021               17,405    1.6%          11,730       1.1%        0
+
+
+
+
+                                      43
+Senedd election 2026: Research Briefing
+
+
+
+Welsh Labour
+
+
+                                                   Highest vote   Lowest vote
+ 139,203 11.08%                              9        share          share
+                                                    Afan Ogwr         Gwynedd
+     votes          vote share             Seats
+                                                     Rhondda          Maldwyn
+
+Welsh Labour won the third most seats at the Senedd election, with 9 Members
+of the Senedd elected. The party’s vote share was highest in Afan Ogwr
+Rhondda (16.74%), Sir Fynwy Torfaen (15.02%) and Gŵyr Abertawe (14.22%). The
+party’s lowest share of the vote came in Gwynedd Maldwyn (5.47%), Bangor
+Conwy Môn (6.43%) and Ceredigion Penfro (7.29%).
+
+Table 10: Welsh Labour results in each constituency
+ Constituency                             Votes     Vote share    Seats won
+
+ Afan Ogwr Rhondda                        11,123    16.74%        1
+
+ Bangor Conwy Môn                         4,448     6.43%         0
+
+ Blaenau Gwent Caerffili Rhymni           7,739     11.08%        0
+
+ Brycheiniog Tawe Nedd                    7,086     8.74%         0
+
+ Caerdydd Ffynnon Taf                     11,261    12.76%        1
+
+ Caerdydd Penarth                         10,907    12.39%        1
+
+ Casnewydd Islwyn                         10,622    13.67%        1
+
+ Ceredigion Penfro                        6,495     7.29%         0
+
+ Clwyd                                    8,314     10.42%        0
+
+ Fflint Wrecsam                           8,555     12.22%        1
+
+ Gwynedd Maldwyn                          4,466     5.47%         0
+
+ Gŵyr Abertawe                            11,195    14.22%        1
+
+ Pen-y-Bont Bro Morgannwg                 9,518     11.64%        1
+
+ Pontypridd Cynon Merthyr                 9,344     12.87%        1
+
+ Sir Fynwy Torfaen                        11,672    15.02%        1
+
+ Sir Gaerfyrddin                          6,458     7.69%         0
+
+
+
+                                             44
+                                          Senedd election 2026: Research Briefing
+
+
+
+Figure 7: Welsh Labour vote share % in each Senedd constituency
+
+
+
+
+Table 11: Welsh Labour historic Senedd election results
+                      Constituency             Regional           Seats won
+
+                     Votes     % vote      Votes       % vote
+
+1999                384,671     37.6%     361,657      35.5%           28
+
+2003                340,515    40.0%      310,658      36.6%           30
+
+2007                314,925     32.2%     288,954      29.6%           26
+
+2011                401,677     42.3%     349,935      37.0%           30
+
+2016                353,865     34.7%     319,196       31.5%          29
+
+2021                443,047     39.9%     401,770      36.2%           30
+
+
+
+
+                                     45
+Senedd election 2026: Research Briefing
+
+
+
+Welsh Conservatives
+
+
+                                                                  Lowest vote
+ 134,926 10.74%                             7      Highest vote
+                                                      share
+                                                                     share
+                                                                      Afan Ogwr
+     votes          vote share             Seats      Clwyd
+                                                                       Rhondda
+
+The Welsh Conservatives won 7 seats at the Senedd election. The party’s vote
+share was highest in in Clwyd (20.30%), Sir Fynwy Torfaen (17.24%) and
+Ceredigion Penfro (16.59%). The party’s lowest share of the vote came in Afan
+Ogwr Rhondda (4.26%), Blaenau Gwent Caerffili Rhymni (4.80%) and Pontypridd
+Cynon Merthyr (5.97%).
+
+Table 12: Welsh Conservatives results in each constituency
+ Constituency                             Votes     Vote share    Seats won
+
+ Afan Ogwr Rhondda                        2,831     4.26%         0
+
+ Bangor Conwy Môn                         8,555     12.38%        1
+
+ Blaenau Gwent Caerffili Rhymni           3,353     4.80%         0
+
+ Brycheiniog Tawe Nedd                    6,821     8.41%         0
+
+ Caerdydd Ffynnon Taf                     8,479     9.61%         0
+
+ Caerdydd Penarth                         6,818     7.74%         0
+
+ Casnewydd Islwyn                         8,847     11.39%        1
+
+ Ceredigion Penfro                        14,789    16.59%        1
+
+ Clwyd                                    16,193    20.30%        1
+
+ Fflint Wrecsam                           9,017     12.88%        1
+
+ Gwynedd Maldwyn                          5,650     6.92%         0
+
+ Gŵyr Abertawe                            7,523     9.56%         0
+
+ Pen-y-Bont Bro Morgannwg                 12,464    15.24%        1
+
+ Pontypridd Cynon Merthyr                 4,339     5.97%         0
+
+ Sir Fynwy Torfaen                        13,394    17.24%        1
+
+ Sir Gaerfyrddin                          5,853     6.97%         0
+
+
+
+                                             46
+                                          Senedd election 2026: Research Briefing
+
+
+
+Figure 8: Welsh Conservatives vote share % in each Senedd constituency
+
+
+
+
+Table 13: Welsh Conservatives historic Senedd election results
+                      Constituency             Regional
+                                                                  Seats won
+                     Votes     % vote      Votes       % vote
+
+1999                162,133     15.8%     168,206       16.5%           9
+
+2003                169,432     19.9%     162,725       19.2%           11
+
+2007                218,730    22.4%      209,154       21.5%           12
+
+2011                237,389    25.0%      213,773      22.6%            14
+
+2016                215,597     21.2%     190,846      18.8%            11
+
+2021                289,802     26.1%     278,560       25.1%           16
+
+
+
+
+                                     47
+Senedd election 2026: Research Briefing
+
+
+
+Wales Green Party
+
+
+                                                    Highest        Lowest vote
+ 84,608 6.74%                              2       vote share         share
+                                                   Caerdydd       Blaenau Gwent
+     votes         vote share             Seats
+                                                    Penarth       Caerffili Rhymni
+
+Wales Green Party won 2 seats in the Senedd election. The party’s vote share
+was highest in Caerdydd Penarth (13.76%), Caerdydd Ffynon Taf (10.24%) and Sir
+Fynwy Torfaen (8.20%). The party’s lowest share of the vote came in Blaenau
+Gwent Caerffili Rhymni (3.50%), Afan Ogwr Rhondda (3.85%) and Bangor Conwy
+Môn (4.49%).
+
+Table 14: Wales Green Party results in each constituency
+ Constituency                             Votes      Vote share      Seats won
+
+ Afan Ogwr Rhondda                        2,561      3.85%           0
+
+ Bangor Conwy Môn                         3,101      4.49%           0
+
+ Blaenau Gwent Caerffili Rhymni           2,447      3.50%           0
+
+ Brycheiniog Tawe Nedd                    5,405      6.66%           0
+
+ Caerdydd Ffynnon Taf                     9,036      10.24%          1
+
+ Caerdydd Penarth                         12,113     13.76%          1
+
+ Casnewydd Islwyn                         5,898      7.59%           0
+
+ Ceredigion Penfro                        6,324      7.09%           0
+
+ Clwyd                                    4,219      5.29%           0
+
+ Fflint Wrecsam                           5,138      7.34%           0
+
+ Gwynedd Maldwyn                          4,090      5.01%           0
+
+ Gŵyr Abertawe                            6,383      8.11%           0
+
+ Pen-y-Bont Bro Morgannwg                 4,220      5.16%           0
+
+ Pontypridd Cynon Merthyr                 3,466      4.77%           0
+
+ Sir Fynwy Torfaen                        6,375      8.20%           0
+
+ Sir Gaerfyrddin                          3,832      4.56%           0
+
+
+
+                                             48
+                                           Senedd election 2026: Research Briefing
+
+
+
+Figure 9: Wales Green Party vote share % in each Senedd constituency
+
+
+
+
+Table 15: Wales Green Party historic Senedd election results
+                      Constituency              Regional
+                                                                   Seats won
+                     Votes     % vote       Votes       % vote
+
+1999                 1,002      0.1%       25,858        2.5%            0
+
+2003                   -          -        30,028        3.5%            0
+
+2007                   -          -        33,803        3.5%            0
+
+2011                 1,514      0.2%       32,649        3.4%            0
+
+2016                 25,202     2.5%        30,211       3.0%            0
+
+2021                 17,817     1.6%       41,399        3.7%            0
+
+
+
+
+                                      49
+Senedd election 2026: Research Briefing
+
+
+
+Welsh Liberal Democrats
+
+
+                                                  Highest vote     Lowest vote
+ 56,012 4.46%                              1         share            share
+                                                  Brycheiniog     Blaenau Gwent
+     votes         vote share             Seat
+                                                  Tawe Nedd       Caerffili Rhymni
+
+The Welsh Liberal Democrats won 1 seat at the Senedd election. The party’s vote
+share was highest in Brycheiniog Tawe Nedd (11.77%), Caerdydd Ffynon Taf
+(9.57%) and Gŵyr Abertawe (7.95%) . The party’s lowest share of the vote came in
+Blaenau Gwent Caerffili Rhymni (1.84%), Pontypridd Cynon Merthyr (1.92%) and
+Sir Gaerfyrddin (1.98%).
+
+Table 16: Welsh Liberal Democrats results in each constituency
+ Constituency                             Votes      Vote share      Seats won
+
+ Afan Ogwr Rhondda                        1,800      2.71%           0
+
+ Bangor Conwy Môn                         1,591      2.30%           0
+
+ Blaenau Gwent Caerffili Rhymni           1,284      1.84%           0
+
+ Brycheiniog Tawe Nedd                    9,549      11.77%          1
+
+ Caerdydd Ffynnon Taf                     8,442      9.57%           0
+
+ Caerdydd Penarth                         2,260      2.57%           0
+
+ Casnewydd Islwyn                         2,683      3.45%           0
+
+ Ceredigion Penfro                        4,613      5.17%           0
+
+ Clwyd                                    2,355      2.95%           0
+
+ Fflint Wrecsam                           2,647      3.78%           0
+
+ Gwynedd Maldwyn                          4,554      5.57%           0
+
+ Gŵyr Abertawe                            6,262      7.95%           0
+
+ Pen-y-Bont Bro Morgannwg                 2,175      2.66%           0
+
+ Pontypridd Cynon Merthyr                 1,393      1.92%           0
+
+ Sir Fynwy Torfaen                        2,742      3.53%           0
+
+ Sir Gaerfyrddin                          1,662      1.98%           0
+
+
+
+                                             50
+                                          Senedd election 2026: Research Briefing
+
+
+
+Figure 10: Welsh Liberal Democrats vote share % in each Senedd
+constituency
+
+
+
+
+Table 17: Welsh Liberal Democrats historic Senedd election results
+                      Constituency             Regional
+                                                                  Seats won
+                     Votes     % vote      Votes       % vote
+
+1999                137,857     13.5%     128,008       12.5%           6
+
+2003                120,220     14.1%     108,013       12.7%           6
+
+2007                144,410    14.8%      114,500       11.7%           6
+
+2011                100,259    10.6%      76,349        8.1%            5
+
+2016                 78,165     7.7%      65,504        6.5%            1
+
+2021                54,202      4.9%      48,714        4.4%            1
+
+
+
+                                     51
+Senedd election 2026: Research Briefing
+
+
+
+Other political parties
+
+In addition to the six largest political parties, ten other political parties put
+forward lists of candidates in at least one constituency. Summaries of their
+election results are provided below. They are ordered based on their national
+vote share.
+
+Heritage Party
+The Heritage Party was the only political party, other than the six largest, to put
+forward a list of candidates in all 16 Senedd constituencies. The party stood only
+one candidate in all the Senedd constituencies, except Afan Ogwr Rhondda
+where it stood two.
+
+The party received a total of 5,474 votes, making up 0.44% of the national vote
+share.
+
+The party’s highest share of the vote came in Afan Ogwr Rhondda (1.12%) and its
+lowest in Caerdydd Penarth (0.22%) The party lost its deposit (receiving less than
+5% of the vote) in all 16 constituencies.
+
+Propel
+Propel stood in 2 of the 16 Senedd constituencies, putting forward two
+candidates in both Caerdydd Ffynnon Taf and Caerdydd Penarth.
+
+The party received a total of 4,032 votes, making up 0.32% of the national vote
+share.
+
+The party won 3.94% of the vote in Caerdydd Penarth and 0.64% in Caerdydd
+Ffynnon Taf, losing its deposit (receiving less than 5% of the vote) in both
+constituencies.
+
+Gwlad
+Gwlad stood in 6 of the 16 Senedd constituencies: Brycheiniog Tawe Nedd,
+Ceredigion Penfro, Gwynedd Maldwyn, Pontypridd Cynon Merthyr, Sir Fynwy
+Torfaen and Sir Gaerfyrddin. The party put forward one candidate in each of the
+six constituencies.
+
+The party received a total of 2,479 votes, making up 0.20% of the national vote
+share.
+
+
+
+
+                                          52
+                                               Senedd election 2026: Research Briefing
+
+
+
+The party’s highest share of the vote came in Gwynedd Maldwyn (0.94%) and its
+lowest in Sir Fynwy Torfaen (0.23%). The party lost its deposit (receiving less than
+5% of the vote) in all 6 constituencies in stood in.
+
+Open Party
+The Open Party stood in 3 of the 16 Senedd constituencies. The party put
+forward one candidate in Blaenau Gwent Caerffili Rhymni, two in Casnewydd
+Islwyn and two in Sir Fynwy Torfaen.
+
+The party received a total of 684 votes, making up 0.05% of the national vote
+share.
+
+The party’s highest share of the vote came in Casnewydd Islwyn (0.56%) and its
+lowest in Blaenau Gwent Caerffili Rhymni (0.15%). The party lost its deposit
+(receiving less than 5% of the vote) in all three constituencies.
+
+Welsh Christian Party
+The Welsh Christian Party stood a single candidate in Brycheiniog Tawe Nedd,
+where the party received 0.56% of the vote and lost its deposit (receiving less
+than 5% of the vote).
+
+The party received a total of 456 votes, making up 0.04% of the national vote
+share.
+
+Britain’s Communist Party
+Britain’s Community Party stood in 2 of the 16 constituencies, putting forward
+one candidate in both Bangor Conwy Môn and Caerdydd Penarth.
+
+The party received a total of 354 votes, making up 0.03% of the national vote
+share.
+
+The party won 0.24% of the vote in Caerdydd Penarth and 0.21% in Bangor
+Conwy Môn, losing its deposit (receiving less than 5% of the vote) in both
+constituencies.
+
+Socialist Labour Party
+The Socialist Labour Party stood a single candidate in Bangor Conwy Môn,
+where the party received 0.41% of the vote and lost its deposit (receiving less
+than 5% of the vote).
+
+The party received a total of 285 votes, making up 0.02% of the national vote
+share.
+
+
+                                         53
+Senedd election 2026: Research Briefing
+
+
+
+Official Monster Raving Looney Party
+The Official Monster Raving Looney Party stood a single candidate in Bangor
+Conwy Môn, where the party received 0.41% of the vote and lost its deposit
+(receiving less than 5% of the vote).
+
+The party received a total of 279 votes, making up 0.02% of the national vote
+share.
+
+Welsh Trade Unionist and Socialist Coalition
+The Welsh Trade Unionist and Socialist Coalition stood in 2 of the 16 Senedd
+constituencies, putting forward two candidates in both Caerdydd Ffynnon Taf
+and Gŵyr Abertawe.
+
+The party received a total of 244 votes, making up 0.02% of the national vote
+share.
+
+The party won 0.15% of the vote in Gŵyr Abertawe and 0.14% in Caerdydd
+Ffynnon Taf, losing its deposit (receiving less than 5% of the vote) in both
+constituencies.
+
+Social Democratic Party
+The Social Democratic Party stood a single candidate in Fflint Wrecsam, where
+the party received 0.24% of the vote and lost its deposit (receiving less than 5%
+of the vote).
+
+The party received a total of 165 votes, making up 0.01% of the national vote
+share.
+
+
+
+
+                                          54
+                                            Senedd election 2026: Research Briefing
+
+
+
+Individual Candidates
+
+This election saw 30 individual candidates put themselves forward for election
+across the 16 Senedd constituencies. None of the 30 candidates were elected to
+the Senedd. Table 18 shows the votes and vote share received by each individual
+candidate in the constituency they stood.
+
+Table 18: Results for Individual Candidates
+Name of candidate          Constituency                Votes         Vote
+                                                       received      share
+
+Captain Beany              Afan Ogwr Rhondda           504           0.8%
+
+                           Blaenau Gwent Caerffili
+Jordan Brace                                           931           0.5%
+                           Rhymni
+
+                           Blaenau Gwent Caerffili
+Mike Whatley                                           374           0.1%
+                           Rhymni
+
+                           Blaenau Gwent Caerffili
+Steve Wright                                           71            0.1%
+                           Rhymni
+
+Beverley Jane Baynham      Brycheiniog Tawe Nedd       586           0.7%
+
+Joe Hale                   Brycheiniog Tawe Nedd       225           0.3%
+
+Dai Richards               Brycheiniog Tawe Nedd       316           0.4%
+
+Lawrence Douglas
+                           Caerdydd Ffynnon Taf        156           0.2%
+Gwynn
+
+Rhys ab Owen               Caerdydd Penarth            414           0.5%
+
+Taran Clayton              Casnewydd Islwyn            224           0.3%
+
+Aaron Carey                Ceredigion Penfro           368           0.4%
+
+George Alexander
+                           Ceredigion Penfro           286           0.3%
+Chadzy
+
+Paul Hayward Dowson        Ceredigion Penfro           88            0.1%
+
+Andrew John Williams       Fflint Wrecsam              429           0.6%
+
+Russell George             Gwynedd Maldwyn             2,862         3.5%
+
+Monty Kennard              Gwynedd Maldwyn             307           0.4%
+
+Katon Bouzalakos           Gŵyr Abertawe               111           0.1%
+
+
+                                      55
+Senedd election 2026: Research Briefing
+
+
+
+ Dan Brown                     Gŵyr Abertawe            104          0.1%
+
+ Emma McNamara                 Gŵyr Abertawe            81           0.1%
+
+                               Pen-y-Bont Bro
+ William Jeffreys                                       221          0.3%
+                               Morgannwg
+
+                               Pen-y-Bont Bro
+ Caroline Jones                                         651          0.8%
+                               Morgannwg
+
+                               Pen-y-Bont Bro
+ Lucia Wyatt                                            114          0.1%
+                               Morgannwg
+
+ Joseph Anthony                Pontypridd Cynon
+                                                        104          0.1%
+ Biddulph                      Merthyr
+
+                               Pontypridd Cynon
+ Dai Hedley Williams                                    148          0.2%
+                               Merthyr
+
+                               Pontypridd Cynon
+ Beth Winter                                            2,297        3.2%
+                               Merthyr
+
+ Owen Lewis                    Sir Fynwy Torfaen        393          0.5%
+
+ Welsh Pool                    Sir Fynwy Torfaen        45           0.1%
+
+ Carl Peters-Bond              Sir Gaerfyrddin          254          0.3%
+
+ Jonathan Rose                 Sir Gaerfyrddin          101          0.1%
+
+ Steve Williams                Sir Gaerfyrddin          1,298        1.5%
+
+
+Lost deposits
+
+In order for a political party or an individual candidate to stand at the Senedd
+election, a deposit must be paid. Deposits were first introduced for UK
+Parliament elections in 1918 to combat concerns that there were “frivolous”
+candidates standing for election. The purpose of the deposit was to discourage
+candidates from standing who have little chance of winning.
+
+For the Senedd election the deposit for political parties was £500 for the first
+candidate appearing on their list in a constituency and £200 for each of the next
+five candidates appearing on the list. This means a maximum deposit of £1,500
+for political parties in each Senedd constituency. For individual candidates,
+the deposit was £500.
+
+
+
+
+                                          56
+                                               Senedd election 2026: Research Briefing
+
+
+
+Political parties and individual candidates that poll at least 5% in a constituency
+have their deposits returned to them.
+
+Table 19 shows the number and value of the deposits lost by each political party.
+
+Table 19: Deposits lost by political party
+                              Retained               Lost            Value of lost
+           Party
+                               Number         Number         %        deposits
+
+ Plaid Cymru                      16            0           0%             £0
+
+ Reform UK                        16            0           0%             £0
+
+ Welsh Labour                     16            0           0%             £0
+
+ Welsh Conservatives              14            2           13%          £3,000
+
+ Wales Green Party                 11           5           31%          £7,500
+
+ Welsh Liberal Democrats           5            11          69%         £16,500
+
+ Heritage Party                    0            16          100%         £8,200
+
+ Gwlad                             0            6           100%         £3,000
+
+ Propel                            0            2           100%         £1,400
+
+ Welsh Trade Unionist
+                                   0            2           100%         £1,600
+ and Socialist Coalition
+
+ Socialist Labour Party            0            1           100%          £500
+
+ Official Monster Raving
+                                   0            1           100%          £500
+ Looney Party
+
+ Open Party                        0            3           100%         £1,900
+
+ Welsh Christian Party             0            1           100%          £500
+
+ Social Democratic Party           0            1           100%          £500
+
+ Britain's Communist
+                                   0            2           100%         £1,000
+ Party
+
+ Individual Candidates                                              £15,000 (£500
+                                   0            30          100%
+                                                                    per candidate)
+
+
+
+
+                                         57
+Senedd election 2026: Research Briefing
+
+
+
+Turnout
+
+Over 2.43 million people were registered to vote at the time of the 2026 Senedd
+election. Of these, over 1.25 million people turned out to vote. Based on valid
+votes, turnout at this election was 51.7%. This compares to 46.6% at the 2021
+election. Figure 11 shows the turnout in each Senedd constituency.
+
+Figure 11: Turnout in each Senedd constituency
+
+
+
+
+The highest turnout was in Caerdydd Ffynnon Taf at 58.50%, while Afan Ogwr
+Rhondda had the lowest at 44.68%. Figure 12 and Table 20 show the turnout in
+each Senedd constituency, as well as the size of the electorate and the number
+of valid votes cast.
+
+
+
+                                          58
+                                         Senedd election 2026: Research Briefing
+
+
+
+Figure 12: Turnout in each Senedd constituency
+
+
+
+
+Table 20: Electorate, valid votes cast and turnout in each Senedd
+constituency
+Rank      Constituency             Electorate     Valid votes     Turnout
+                                                  cast
+
+1         Caerdydd Ffynnon Taf     150,796        88,441          58.50%
+
+2         Caerdydd Penarth         155,286        88,277          56.70%
+
+3         Ceredigion Penfro        159,021        89,155          56.06%
+
+4         Sir Gaerfyrddin          150,485        83,983          55.81%
+
+5         Bangor Conwy Môn         128,615        69,130          53.75%
+
+6         Pen-y-Bont Bro           152,519        81,953          53.73%
+          Morgannwg
+
+
+
+
+                                    59
+Senedd election 2026: Research Briefing
+
+
+
+ 7             Brycheiniog Tawe Nedd       153,435         81,096         52.85%
+
+ 8             Gwynedd Maldwyn             155,719         81,690         52.46%
+
+ 9             Sir Fynwy Torfaen           150,095         77,706         51.77%
+
+ 10            Clwyd                       155,536         79,757         51.28%
+
+ 11            Gŵyr Abertawe               155,120         78,924         50.88%
+
+ 12            Casnewydd Islwyn            161,697         77,698         48.05%
+
+ 13            Blaenau Gwent Caerffili     146,732         69,832         47.59%
+               Rhymni
+
+ 14            Pontypridd Cynon            153,815         72,628         47.22%
+               Merthyr
+
+ 15            Fflint Wrecsam              152,885         69,996         45.78%
+
+ 16            Afan Ogwr Rhondda           148,732         66,449         44.68%
+
+
+Invalid votes
+
+A ballot paper for the Senedd election must be rejected if:
+
+      •   it does not bear the official mark (not the unique identifying mark);
+
+      •   more than one vote is given;
+
+      •   anything is written or marked by which the voter can be identified
+          (except the printed ballot paper number or other unique identifying
+          mark); or
+
+      •   it is unmarked or void for uncertainty
+
+A total of 2,986 votes cast the Senedd election were rejected as invalid at the
+count. This breaks down to 98 for not bearing the official mark, 1,021 for more
+than one vote given, 135 for identification of the voter and 1,732 for unmarked or
+uncertainty.
+
+All 98 ballot papers rejected for not bearing the official mark were in the
+Gwynedd Maldwyn constituency.
+
+Ceredigion Penfro saw the highest number of invalid votes, recording 247 in
+total. Bangor Conwy Môn had the lowest number, recording 123 in total.
+
+
+
+                                            60
+                                               Senedd election 2026: Research Briefing
+
+
+
+Table 21 shows the number of rejected ballot papers in each constituency and
+the reasons why they were rejected.
+
+Table 21: Reasons for rejecting ballot papers and total number of rejected
+ballot papers in each constituency
+Constituency           Reasons for rejecting ballot papers                 Total
+                                                                           rejected
+                Does not     More than     Mark that       Unmarked
+                                                                           ballot
+                bear the     one vote is   could           or void for
+                                                                           papers
+                official     given         identify        uncertainty
+                mark                       the voter
+
+Afan Ogwr
+                0            35            1               99              135
+Rhondda
+
+Bangor
+                0            43            1               79              123
+Conwy Môn
+
+Blaenau
+Gwent
+                0            61            1               93              155
+Caerffili
+Rhymni
+
+Brycheiniog
+                0            54            18              117             189
+Tawe Nedd
+
+Caerdydd
+                0            57            5               160             222
+Ffynnon Taf
+
+Caerdydd
+                0            94            1               125             220
+Penarth
+
+Casnewydd
+                 0           60            3               130             193
+Islwyn
+
+Ceredigion
+                0            102           3               142             247
+Penfro
+
+Clwyd           0            39            0               127             166
+
+Fflint
+                 0           35            1               135             171
+Wrecsam
+
+Gwynedd
+                98           59            4               38              199
+Maldwyn
+
+
+
+                                      61
+Senedd election 2026: Research Briefing
+
+
+
+ Gŵyr
+                   0             116           0    71    187
+ Abertawe
+
+ Pen-y-Bont
+ Bro               0             54            0    98    152
+ Morgannwg
+
+ Pontypridd
+ Cynon             0             112           0    107   219
+ Merthyr
+
+ Sir Fynwy
+                   0             37            97   36    170
+ Torfaen
+
+ Sir
+                   0             63            0    175   238
+ Gaerfyrddin
+
+
+
+
+                                          62
+                                         Senedd election 2026: Research Briefing
+
+
+
+
+4. Sources of previous election results
+1999   House of Commons Library (1999) Welsh Assembly Elections: 6 May
+       1999
+
+2003   House of Commons Library (2003) Welsh Assembly Elections: 1 May
+       2003
+       Electoral Commission (2003) Etholiadau Cynulliad Cenedlaethol
+       Cymru 2003: Yr adroddiad swyddogol a’r canlyniadau [Wales Green
+       Party figures] (Welsh language only)
+
+
+2007   National Assembly for Wales Members’ Research Service (2007) 2007
+       Assembly Election Results (updated) (English language only)
+
+2011   National Assembly for Wales Research Service (2011) 2011 Assembly
+       Election Results
+
+2016   National Assembly for Wales Research Service (2011) 2016 Assembly
+       Election Results
+
+2021   Senedd Research (2021) Senedd Election 2021: Research Briefing
+       BBC News (2021) Wales Election 2021 [Reform UK constituency
+       figure]
+
+
+
+
+                                   63
+

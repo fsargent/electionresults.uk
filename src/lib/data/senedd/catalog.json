@@ -1,0 +1,16 @@
+{
+  "elections": [
+    {
+      "id": "senedd-2026",
+      "year": 2026,
+      "date": "2026-05-07",
+      "name": "Senedd Cymru general election 2026",
+      "href": "/senedd/2026",
+      "nation": "Wales",
+      "system": "Closed-list proportional representation (D'Hondt), six seats per constituency",
+      "seats": 96,
+      "contests": 16,
+      "coverage": "Official results for all 16 constituencies and all 96 seats: ordered party lists, list votes, electorate, rejected ballots and the seat-by-seat D'Hondt allocation, reconciled across vote.wales, Senedd Research and Democracy Club."
+    }
+  ]
+}
