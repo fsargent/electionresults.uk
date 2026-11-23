@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "file": "emb-sp-2026-votes-and-seats.xlsx",
+      "url": "https://www.emb.scot/downloads/file/1201/full-analysis-of-2026-results",
+      "landingPage": "https://www.emb.scot/news/article/70/scottish-parliament-2026-results",
+      "publisher": "Electoral Management Board for Scotland",
+      "title": "Scottish Parliament Election 7 May 2026: Votes and Seats by Party/Individual Candidate (SP_2026___Votes_and_Seats.xlsx)",
+      "role": "Canonical constituency votes, regional list votes, rejected ballots, seats by party and region.",
+      "licence": "Official election results published by the Electoral Management Board for Scotland. No licence is stated on the download page; reused here as public election results with attribution.",
+      "retrievedAt": "2026-11-22T22:57:19.368Z",
+      "bytes": 53056,
+      "sha256": "f11365d7c4c2669f7f608ffad2ed72e8303697344b79a2c819965cac8564b536"
+    },
+    {
+      "file": "spice-election-2026-tools-data.xlsx",
+      "url": "https://spice-spotlight.scot/wp-content/uploads/2026/05/Election-2026-tools-data-2.xlsx",
+      "landingPage": "https://spice-spotlight.scot/2026/05/28/election-2026-results-in-full/",
+      "publisher": "Scottish Parliament Information Centre (SPICe)",
+      "title": "Election 2026 – tools data (updated 14 July 2026)",
+      "role": "Constituency-to-region lookup on the 2026 boundaries, corrected electorates, and regional list votes counted by constituency.",
+      "licence": "Contains information licensed under the Scottish Parliament Copyright Licence. Scottish Parliamentary Corporate Body copyright. https://www.parliament.scot/about/copyright",
+      "retrievedAt": "2026-11-22T22:57:19.368Z",
+      "bytes": 116984,
+      "sha256": "034ea58917e4e720544ef62caf0917243bacd3f504a057fdbd09bc2f689753db"
+    },
+    {
+      "file": "dc-sp.c.2026-05-07-results.csv",
+      "url": "https://candidates.democracyclub.org.uk/data/export_csv/?election_id=sp.c.2026-05-07&field_group=results&format=csv",
+      "landingPage": "https://candidates.democracyclub.org.uk/elections/sp.c.2026-05-07/",
+      "publisher": "Democracy Club",
+      "title": "Scottish Parliament constituency candidates and results, 7 May 2026",
+      "role": "Constituency candidate names and party labels. Votes are cross-checked against EMB.",
+      "licence": "CC BY 4.0",
+      "retrievedAt": "2026-11-22T22:57:19.368Z",
+      "bytes": 121334,
+      "sha256": "eb8762a2da216dffdc1f12bc44333317d7485c601e56530bf7e10dc376d32784"
+    },
+    {
+      "file": "dc-sp.r.2026-05-07-results.csv",
+      "url": "https://candidates.democracyclub.org.uk/data/export_csv/?election_id=sp.r.2026-05-07&field_group=results&extra_fields=party_list_position&format=csv",
+      "landingPage": "https://candidates.democracyclub.org.uk/elections/sp.r.2026-05-07/",
+      "publisher": "Democracy Club",
+      "title": "Scottish Parliament regional list candidates, list positions and elected members, 7 May 2026",
+      "role": "Regional list candidates in party list order, independent regional candidates, and which list candidates were elected.",
+      "licence": "CC BY 4.0",
+      "retrievedAt": "2026-11-22T22:57:19.368Z",
+      "bytes": 171915,
+      "sha256": "f2789159e5830436dfcf1e42a1bbdccfb340ca11ce615ad1bbbe061d58f4e757"
+    }
+  ]
+}
