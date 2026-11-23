@@ -1,0 +1,676 @@
+constituency_slug,entry_order,list_position,candidate_name,elected_source
+afan-ogwr-rhondda,1,1,Abigail Mainon,false
+afan-ogwr-rhondda,1,2,Peter Crocker-Jaques,false
+afan-ogwr-rhondda,1,3,Anthony John Kear,false
+afan-ogwr-rhondda,1,4,William Robert Martin,false
+afan-ogwr-rhondda,1,5,Rachael Astle,false
+afan-ogwr-rhondda,1,6,Barbara Elizabeth Jones,false
+afan-ogwr-rhondda,2,1,Kimberley Isherwood,false
+afan-ogwr-rhondda,2,2,Logan Jenkins,false
+afan-ogwr-rhondda,3,1,Sera Evans,true
+afan-ogwr-rhondda,3,2,Alun Cox,true
+afan-ogwr-rhondda,3,3,Elyn Stephens,true
+afan-ogwr-rhondda,3,4,Danny Grehan,false
+afan-ogwr-rhondda,3,5,Luned-Mair Barratt,false
+afan-ogwr-rhondda,3,6,Wendy Allsop,false
+afan-ogwr-rhondda,4,1,Benjamin Hodge McKenna,true
+afan-ogwr-rhondda,4,2,Steve Bayliss,true
+afan-ogwr-rhondda,4,3,Darren James,false
+afan-ogwr-rhondda,4,4,Louise Musgrave,false
+afan-ogwr-rhondda,4,5,Catrin Thomas,false
+afan-ogwr-rhondda,4,6,Zak Weaver,false
+afan-ogwr-rhondda,5,1,Nigel Pugh,false
+afan-ogwr-rhondda,5,2,Anna Tuhey,false
+afan-ogwr-rhondda,5,3,Stephanie Woodhouse,false
+afan-ogwr-rhondda,5,4,David Wade,false
+afan-ogwr-rhondda,5,5,Abby Rees,false
+afan-ogwr-rhondda,5,6,Ellis Thomas,false
+afan-ogwr-rhondda,6,1,Huw Irranca-Davies,true
+afan-ogwr-rhondda,6,2,Buffy Williams,false
+afan-ogwr-rhondda,6,3,David Rees,false
+afan-ogwr-rhondda,6,4,Stephanie Grimshaw,false
+afan-ogwr-rhondda,6,5,Lisa Marie Pritchard,false
+afan-ogwr-rhondda,6,6,Elaine Denise Winstanley,false
+afan-ogwr-rhondda,6,7,Dilwar Ali,false
+afan-ogwr-rhondda,6,8,Tamasree Mukhopadhyay,false
+afan-ogwr-rhondda,7,1,Dean Luke Ronan,false
+afan-ogwr-rhondda,7,2,Cen Phillips,false
+afan-ogwr-rhondda,7,3,Gerald Leslie Francis,false
+afan-ogwr-rhondda,7,4,Helen Lorraine Thomas,false
+afan-ogwr-rhondda,7,5,Jim Hehir,false
+afan-ogwr-rhondda,7,6,James Douglas McGettrick,false
+afan-ogwr-rhondda,8,1,Captain Beany,false
+bangor-conwy-mon,1,1,Jaime Fitter,false
+bangor-conwy-mon,2,1,Janet Elizabeth Finch-Saunders,true
+bangor-conwy-mon,2,2,Harry Saville,false
+bangor-conwy-mon,2,3,Martin Anthony Peet,false
+bangor-conwy-mon,2,4,Samantha Cotton,false
+bangor-conwy-mon,2,5,David Ashworth,false
+bangor-conwy-mon,2,6,Lucy Samuel,false
+bangor-conwy-mon,3,1,Mark Edwards,false
+bangor-conwy-mon,4,1,Rhun Ap Iorwerth,true
+bangor-conwy-mon,4,2,Mair Rowlands,true
+bangor-conwy-mon,4,3,Elfed Williams,true
+bangor-conwy-mon,4,4,Dyfed Jones,false
+bangor-conwy-mon,4,5,Nia Clwyd Owen,false
+bangor-conwy-mon,4,6,Vivek Thuppil,false
+bangor-conwy-mon,4,7,Lisa Elfyn Butler,false
+bangor-conwy-mon,4,8,Beca Roberts,false
+bangor-conwy-mon,5,1,Tomos Iwan Barlow,false
+bangor-conwy-mon,5,2,Linda Rogers,false
+bangor-conwy-mon,5,3,Nick Bounds,false
+bangor-conwy-mon,5,4,Francis Cookson,false
+bangor-conwy-mon,5,5,Vanessa Hall,false
+bangor-conwy-mon,5,6,David Bunker,false
+bangor-conwy-mon,6,1,Helen Jenner,true
+bangor-conwy-mon,6,2,John Clark,true
+bangor-conwy-mon,6,3,Richard John Jones,false
+bangor-conwy-mon,6,4,Andrew Winston-Jones,false
+bangor-conwy-mon,6,5,Craig Jones,false
+bangor-conwy-mon,6,6,Dafydd Wyn Thomas,false
+bangor-conwy-mon,7,1,Kathrine Jones,false
+bangor-conwy-mon,8,1,Sir Grumpus L Shorticus,false
+bangor-conwy-mon,9,1,Joanna Stallard,false
+bangor-conwy-mon,9,2,Emily Hannah Owen,false
+bangor-conwy-mon,9,3,Margaret Casilda Lewis,false
+bangor-conwy-mon,9,4,Rebecca Jayne Gibbons,false
+bangor-conwy-mon,9,5,Huw Jones,false
+bangor-conwy-mon,9,6,Natasha Jayne Jose,false
+bangor-conwy-mon,10,1,Leena Sarah Farhat,false
+bangor-conwy-mon,10,2,David Ian McBride,false
+bangor-conwy-mon,10,3,Mark Geoffrey Thomas Rosenthal,false
+bangor-conwy-mon,10,4,Rob Atenstaedt,false
+bangor-conwy-mon,10,5,Sarah May Jackson,false
+bangor-conwy-mon,10,6,Preben Vangberg,false
+blaenau-gwent-caerffili-rhymni,1,1,Gareth John Potter,false
+blaenau-gwent-caerffili-rhymni,1,2,Janet Elizabeth Butler,false
+blaenau-gwent-caerffili-rhymni,1,3,John Child,false
+blaenau-gwent-caerffili-rhymni,1,4,David John West,false
+blaenau-gwent-caerffili-rhymni,1,5,Martin Jason Newell,false
+blaenau-gwent-caerffili-rhymni,1,6,Fay Bromfield,false
+blaenau-gwent-caerffili-rhymni,2,1,Anne Baker,false
+blaenau-gwent-caerffili-rhymni,2,2,Alexis Celnik,false
+blaenau-gwent-caerffili-rhymni,2,3,Rachel Roberts,false
+blaenau-gwent-caerffili-rhymni,2,4,Hannah Garcia,false
+blaenau-gwent-caerffili-rhymni,2,5,Aidan Dempsey,false
+blaenau-gwent-caerffili-rhymni,2,6,Jamie Payne,false
+blaenau-gwent-caerffili-rhymni,3,1,Jared Burgess,false
+blaenau-gwent-caerffili-rhymni,4,1,Karen Horan,false
+blaenau-gwent-caerffili-rhymni,5,1,Delyth Non Jewell,true
+blaenau-gwent-caerffili-rhymni,5,2,Lindsay Geoffrey Whittle,true
+blaenau-gwent-caerffili-rhymni,5,3,Niamh ffion Mai Salkeld,true
+blaenau-gwent-caerffili-rhymni,5,4,Catrin Sara Moss,false
+blaenau-gwent-caerffili-rhymni,5,5,Charlotte Jane Bishop,false
+blaenau-gwent-caerffili-rhymni,5,6,Steven John Skivens,false
+blaenau-gwent-caerffili-rhymni,6,1,Llyr Tomos Powell,true
+blaenau-gwent-caerffili-rhymni,6,2,Catherine Cullen,true
+blaenau-gwent-caerffili-rhymni,6,3,Joshua Seungkyun Kim,true
+blaenau-gwent-caerffili-rhymni,6,4,Johnathan Parker,false
+blaenau-gwent-caerffili-rhymni,6,5,Glenda Marie Davies,false
+blaenau-gwent-caerffili-rhymni,6,6,Barclay Nickels,false
+blaenau-gwent-caerffili-rhymni,7,1,Alun Davies,false
+blaenau-gwent-caerffili-rhymni,7,2,Richard Tunnicliffe,false
+blaenau-gwent-caerffili-rhymni,7,3,Keiran Russell,false
+blaenau-gwent-caerffili-rhymni,7,4,Sara Victoria Beard,false
+blaenau-gwent-caerffili-rhymni,7,5,Simon Thomas Dancey,false
+blaenau-gwent-caerffili-rhymni,7,6,John Pettit,false
+blaenau-gwent-caerffili-rhymni,7,7,Hero Marsden,false
+blaenau-gwent-caerffili-rhymni,8,1,Steve Aicheler,false
+blaenau-gwent-caerffili-rhymni,8,2,David John Scullin,false
+blaenau-gwent-caerffili-rhymni,8,3,Catherine Dowden-King,false
+blaenau-gwent-caerffili-rhymni,8,4,Steve LLoyd,false
+blaenau-gwent-caerffili-rhymni,8,5,Ivan William Westley,false
+blaenau-gwent-caerffili-rhymni,8,6,Juliet Price,false
+blaenau-gwent-caerffili-rhymni,9,1,Jordan Brace,false
+blaenau-gwent-caerffili-rhymni,10,1,Mike Whatley,false
+blaenau-gwent-caerffili-rhymni,11,1,Steve Wright,false
+brycheiniog-tawe-nedd,1,1,Tyler John Chambers,false
+brycheiniog-tawe-nedd,1,2,Liz Hill O'Shea,false
+brycheiniog-tawe-nedd,1,3,Jane Barbara Lyons,false
+brycheiniog-tawe-nedd,1,4,Matthew Peter Gilbert,false
+brycheiniog-tawe-nedd,1,5,Hannah Elizabeth Jarvis,false
+brycheiniog-tawe-nedd,1,6,Amanda Jane Davies,false
+brycheiniog-tawe-nedd,2,1,Philip Owen,false
+brycheiniog-tawe-nedd,3,1,Jennifer Roberts,false
+brycheiniog-tawe-nedd,4,1,Sioned Ann Williams,true
+brycheiniog-tawe-nedd,4,2,Rebeca Phillips,true
+brycheiniog-tawe-nedd,4,3,Andrew John Jenkins,false
+brycheiniog-tawe-nedd,4,4,Justin David Horrell,false
+brycheiniog-tawe-nedd,4,5,Kate Heneghan,false
+brycheiniog-tawe-nedd,4,6,Chris Williams,false
+brycheiniog-tawe-nedd,5,1,James Oswald David Evans,true
+brycheiniog-tawe-nedd,5,2,Iain Charles McIntosh,true
+brycheiniog-tawe-nedd,5,3,David Terence Mills,true
+brycheiniog-tawe-nedd,5,4,Moira Charles,false
+brycheiniog-tawe-nedd,5,5,Dewi Matthew Thomas,false
+brycheiniog-tawe-nedd,5,6,Celfyn Wyn Furlong,false
+brycheiniog-tawe-nedd,6,1,Nathan Goldup-John,false
+brycheiniog-tawe-nedd,6,2,Charlotte Ajomale-Evans,false
+brycheiniog-tawe-nedd,6,3,Amerjit Rosie Kaur-Dhaliwal,false
+brycheiniog-tawe-nedd,6,4,Eric Rosoman-Matthews,false
+brycheiniog-tawe-nedd,6,5,Kathy Oakwood,false
+brycheiniog-tawe-nedd,6,6,Imogen Elisabeth da Silva,false
+brycheiniog-tawe-nedd,7,1,Jeff Green,false
+brycheiniog-tawe-nedd,7,2,Sue Green,false
+brycheiniog-tawe-nedd,8,1,Dr Mahaboob Basha,false
+brycheiniog-tawe-nedd,8,2,Alex Sims,false
+brycheiniog-tawe-nedd,8,3,Sarah Amber Thomas,false
+brycheiniog-tawe-nedd,8,4,Elliot Wigfall,false
+brycheiniog-tawe-nedd,8,5,Cyriac George,false
+brycheiniog-tawe-nedd,8,6,Chelsea Charlene Edwards,false
+brycheiniog-tawe-nedd,8,7,Morgan James Pritchard,false
+brycheiniog-tawe-nedd,9,1,Jane Dodds,true
+brycheiniog-tawe-nedd,9,2,Jackie Charlton,false
+brycheiniog-tawe-nedd,9,3,Phoebe Clare Rose Jenkins,false
+brycheiniog-tawe-nedd,9,4,Will Lloyd,false
+brycheiniog-tawe-nedd,9,5,Peter Jeffrey Chapman,false
+brycheiniog-tawe-nedd,9,6,Dylan Paul Calved,false
+brycheiniog-tawe-nedd,10,1,Beverley Jane Baynham,false
+brycheiniog-tawe-nedd,11,1,Joe Hale,false
+brycheiniog-tawe-nedd,12,1,Dai Richards,false
+caerdydd-ffynnon-taf,1,1,Joel Stephen James,false
+caerdydd-ffynnon-taf,1,2,Samantha Nida Chohan,false
+caerdydd-ffynnon-taf,1,3,Joe William Roberts,false
+caerdydd-ffynnon-taf,1,4,Ffin Elliott,false
+caerdydd-ffynnon-taf,1,5,Lyn Hudson,false
+caerdydd-ffynnon-taf,1,6,Jane Lesley Lucas,false
+caerdydd-ffynnon-taf,2,1,Nikki Brooke,false
+caerdydd-ffynnon-taf,3,1,Dafydd Trystan Davies,true
+caerdydd-ffynnon-taf,3,2,Zaynub Akbar,true
+caerdydd-ffynnon-taf,3,3,Nick Carter,true
+caerdydd-ffynnon-taf,3,4,Andrea Gibson,false
+caerdydd-ffynnon-taf,3,5,Joseph Oscar Gnagbo,false
+caerdydd-ffynnon-taf,3,6,Morgan Rogers,false
+caerdydd-ffynnon-taf,4,1,Keith Parry,false
+caerdydd-ffynnon-taf,4,2,Roy Leyshon,false
+caerdydd-ffynnon-taf,5,1,Cai Tomos Parry-Jones,true
+caerdydd-ffynnon-taf,5,2,David Huw Parsons,false
+caerdydd-ffynnon-taf,5,3,Aaeron Giboney,false
+caerdydd-ffynnon-taf,5,4,Kenzie Luke Robert Hollingsworth,false
+caerdydd-ffynnon-taf,5,5,Jeffrey Thomas Armstrong,false
+caerdydd-ffynnon-taf,5,6,Valerie Ann Cousins,false
+caerdydd-ffynnon-taf,6,1,Paul Rock,true
+caerdydd-ffynnon-taf,6,2,Charlotte Husnjak,false
+caerdydd-ffynnon-taf,6,3,Laurie Gray,false
+caerdydd-ffynnon-taf,6,4,Jenny Mears,false
+caerdydd-ffynnon-taf,6,5,Robyn Thomas,false
+caerdydd-ffynnon-taf,6,6,David Fitzpatrick,false
+caerdydd-ffynnon-taf,7,1,Shav Taj,true
+caerdydd-ffynnon-taf,7,2,Jackie Jones,false
+caerdydd-ffynnon-taf,7,3,Dan De`ath,false
+caerdydd-ffynnon-taf,7,4,Sarah Elizabeth Merry,false
+caerdydd-ffynnon-taf,7,5,Jen Burke,false
+caerdydd-ffynnon-taf,7,6,Lee Edward Bridgeman,false
+caerdydd-ffynnon-taf,7,7,Matthew Rhys Hexter,false
+caerdydd-ffynnon-taf,7,8,Bernie Bowen-Thomson,false
+caerdydd-ffynnon-taf,8,1,Rodney Simon Berman,false
+caerdydd-ffynnon-taf,8,2,Joseph William Carter,false
+caerdydd-ffynnon-taf,8,3,Julie Ann Goodfellow,false
+caerdydd-ffynnon-taf,8,4,Jon Shimmin,false
+caerdydd-ffynnon-taf,8,5,Imran Latif,false
+caerdydd-ffynnon-taf,8,6,Rosemary Chaloner,false
+caerdydd-ffynnon-taf,9,1,John Aaron Williams,false
+caerdydd-ffynnon-taf,9,2,Helen Gwendoline May Perriam,false
+caerdydd-ffynnon-taf,9,3,David Charles Bartlett,false
+caerdydd-ffynnon-taf,10,1,Lawrence Douglas Gwynn,false
+caerdydd-penarth,1,1,Robert David Griffiths,false
+caerdydd-penarth,2,1,Calum Davies,false
+caerdydd-penarth,2,2,James Robert Hamblin,false
+caerdydd-penarth,2,3,Dominic Owen Davies,false
+caerdydd-penarth,2,4,Judith Elizabeth Child,false
+caerdydd-penarth,2,5,Archie Draycott,false
+caerdydd-penarth,2,6,Eddy Oko-Jaja,false
+caerdydd-penarth,3,1,Rhiannon Morrissey,false
+caerdydd-penarth,4,1,Anna Heledd Brychan,true
+caerdydd-penarth,4,2,Kiera Duncan Marshall,true
+caerdydd-penarth,4,3,Leticia Andrea Gonzalez Estigarribia,true
+caerdydd-penarth,4,4,Malcolm Phillips,false
+caerdydd-penarth,4,5,Matthew James Kenneth Hawkins,false
+caerdydd-penarth,4,6,Tomos James Scott Stokes,false
+caerdydd-penarth,5,1,Neil McEvoy,false
+caerdydd-penarth,5,2,Ceri McEvoy,false
+caerdydd-penarth,6,1,Joe Martin,true
+caerdydd-penarth,6,2,Mark John Reckless,false
+caerdydd-penarth,6,3,Robert Ian Thomas,false
+caerdydd-penarth,6,4,Rachel Nugent Finn,false
+caerdydd-penarth,6,5,Paul Campbell,false
+caerdydd-penarth,6,6,Ruth Elizabeth Hancock,false
+caerdydd-penarth,7,1,Anthony Slaughter,true
+caerdydd-penarth,7,2,Tessa Marshall,false
+caerdydd-penarth,7,3,Rowan Stanger,false
+caerdydd-penarth,7,4,Tavgar Bulbas,false
+caerdydd-penarth,7,5,Max O`Hara,false
+caerdydd-penarth,7,6,Iwan Sinclair,false
+caerdydd-penarth,8,1,Huw Thomas,true
+caerdydd-penarth,8,2,Ruba Sivagnanam,false
+caerdydd-penarth,8,3,Peter Evan Bradbury,false
+caerdydd-penarth,8,4,Steve Brooks,false
+caerdydd-penarth,8,5,Mutale Merrill,false
+caerdydd-penarth,8,6,Kanaya Singh,false
+caerdydd-penarth,8,7,Laura Rochefort,false
+caerdydd-penarth,9,1,Cadan Dyfynnog Hedd ap Tomos,false
+caerdydd-penarth,9,2,Irfan Latif,false
+caerdydd-penarth,9,3,Elinor Claire Dixon,false
+caerdydd-penarth,9,4,Barry Charles Southwell,false
+caerdydd-penarth,9,5,Chris Cogger,false
+caerdydd-penarth,9,6,Ashley Kalum Wood,false
+caerdydd-penarth,10,1,Rhys ab Owen,false
+casnewydd-islwyn,1,1,Natasha Batool Asghar,true
+casnewydd-islwyn,1,2,Toby Jones,false
+casnewydd-islwyn,1,3,Jake Christopher Enea,false
+casnewydd-islwyn,1,4,Georgie Webb,false
+casnewydd-islwyn,1,5,Adam Stanley Morris,false
+casnewydd-islwyn,1,6,Rebecca Nyasha Mamhende,false
+casnewydd-islwyn,2,1,Lauren James,false
+casnewydd-islwyn,2,2,Philip Davies,false
+casnewydd-islwyn,2,3,Zaynab Alimah Helen Greengrass,false
+casnewydd-islwyn,2,4,Kerry Ann Vosper,false
+casnewydd-islwyn,2,5,David Julian Mayer,false
+casnewydd-islwyn,2,6,Andrew Ryan Were,false
+casnewydd-islwyn,3,1,Mike Ford,false
+casnewydd-islwyn,4,1,Justna Muhith,false
+casnewydd-islwyn,4,2,John Horan,false
+casnewydd-islwyn,5,1,Peredur Owen Griffiths,true
+casnewydd-islwyn,5,2,Lyn Ackerman,true
+casnewydd-islwyn,5,3,Rhys Mills,false
+casnewydd-islwyn,5,4,Joshua James Rawcliffe,false
+casnewydd-islwyn,5,5,Jonathan Thomas Clark,false
+casnewydd-islwyn,5,6,Sarah Jane Henton,false
+casnewydd-islwyn,6,1,Dan Thomas,true
+casnewydd-islwyn,6,2,Art Wright,true
+casnewydd-islwyn,6,3,Marie-Claire Lea,false
+casnewydd-islwyn,6,4,Nick Jones,false
+casnewydd-islwyn,6,5,Rebecca Elizabeth Senior,false
+casnewydd-islwyn,6,6,Tomos Rhys Llewelyn,false
+casnewydd-islwyn,7,1,Jayne Bryant,true
+casnewydd-islwyn,7,2,Rhianon Passmore,false
+casnewydd-islwyn,7,3,Chris Carter,false
+casnewydd-islwyn,7,4,Rhian Howells,false
+casnewydd-islwyn,7,5,Julie Sangani,false
+casnewydd-islwyn,7,6,Stephen Marshall,false
+casnewydd-islwyn,7,7,David Martin Chinnick,false
+casnewydd-islwyn,8,1,Mike Hamilton,false
+casnewydd-islwyn,8,2,John Edmunds Miller,false
+casnewydd-islwyn,8,3,Nurul Islam,false
+casnewydd-islwyn,8,4,Harun Rashid,false
+casnewydd-islwyn,8,5,Mary Elizabeth Lloyd,false
+casnewydd-islwyn,8,6,Jeff Evans,false
+casnewydd-islwyn,9,1,Taran Clayton,false
+ceredigion-penfro,1,1,Paul Windsor DAVIES,true
+ceredigion-penfro,1,2,Samuel Deri KURTZ,false
+ceredigion-penfro,1,3,Claire Victoria GEORGE,false
+ceredigion-penfro,1,4,Brian Andrew MURPHY,false
+ceredigion-penfro,1,5,Gill EVANS,false
+ceredigion-penfro,1,6,Claire Malaina JONES,false
+ceredigion-penfro,2,1,Gwyn Wigley EVANS,false
+ceredigion-penfro,3,1,Elizabeth DAVIES,false
+ceredigion-penfro,4,1,Elin JONES,true
+ceredigion-penfro,4,2,Kerry FERGUSON,true
+ceredigion-penfro,4,3,Anna NICHOLL,true
+ceredigion-penfro,4,4,Cris TOMOS,false
+ceredigion-penfro,4,5,Colin NOSWORTHY,false
+ceredigion-penfro,4,6,Clive DAVIES,false
+ceredigion-penfro,4,7,Owain JONES,false
+ceredigion-penfro,4,8,Matt ADAMS,false
+ceredigion-penfro,5,1,Amy NICHOLASS,false
+ceredigion-penfro,5,2,Tomass JEREMINOVICS,false
+ceredigion-penfro,5,3,James Henry PURCHASE,false
+ceredigion-penfro,5,4,Morgan Hope PHILLIPS,false
+ceredigion-penfro,5,5,Rosie O'TOOLE,false
+ceredigion-penfro,5,6,Kezia Autumn HINE,false
+ceredigion-penfro,6,1,Susan Claire ARCHIBALD,true
+ceredigion-penfro,6,2,Paul MARR,true
+ceredigion-penfro,6,3,Michael TIMOTHY ALLEN,false
+ceredigion-penfro,6,4,Elisa Bessie GONZALEZ RANDALL,false
+ceredigion-penfro,6,5,Peter Martin JOHN,false
+ceredigion-penfro,6,6,Bernard HOLTON,false
+ceredigion-penfro,7,1,Eluned MORGAN,false
+ceredigion-penfro,7,2,Marc TIERNEY,false
+ceredigion-penfro,7,3,Joshua PHILLIPS,false
+ceredigion-penfro,7,4,Margaret GREENAWAY,false
+ceredigion-penfro,7,5,Tansaim HUSSAIN-GUL,false
+ceredigion-penfro,7,6,Luke DAVIES-JONES,false
+ceredigion-penfro,7,7,Peter Huw JENKINS,false
+ceredigion-penfro,8,1,Sandra Louise JERVIS,false
+ceredigion-penfro,8,2,Alistair Ronald CAMERON,false
+ceredigion-penfro,8,3,Tom HUGHES,false
+ceredigion-penfro,8,4,Lee Dennis Thomas John HERRING,false
+ceredigion-penfro,8,5,Andrew Christopher LYE,false
+ceredigion-penfro,8,6,Maggie ROBINSON,false
+ceredigion-penfro,9,1,Aaron CAREY,false
+ceredigion-penfro,10,1,George Alexander CHADZY,false
+ceredigion-penfro,11,1,Paul Haywood DOWSON,false
+clwyd,1,1,Darren David Millar,true
+clwyd,1,2,Gareth Lloyd Davies,false
+clwyd,1,3,Gareth Idris Ffowcs Williams,false
+clwyd,1,4,Justine Marie Evans,false
+clwyd,1,5,Sylvia Clough-Hughes,false
+clwyd,1,6,Damon Richards-Gwilliam,false
+clwyd,1,7,Mike Hailu Gebreyohanes,false
+clwyd,2,1,Martyn James Hogg,false
+clwyd,2,2,Carly Murdoch-Dyson,false
+clwyd,2,3,Lucy Jennifer Sutton,false
+clwyd,2,4,Karl Raymond Macnaughton,false
+clwyd,2,5,David Anthony Blainey,false
+clwyd,2,6,Cheryl Ann Buxton-Sait,false
+clwyd,3,1,Rob Redhead,false
+clwyd,4,1,Llyr Gruffydd,true
+clwyd,4,2,Becca Martin,true
+clwyd,4,3,Oli Bradley-Hughes,false
+clwyd,4,4,Paul Penlington,false
+clwyd,4,5,Delyth Jones,false
+clwyd,4,6,Abdul Khan,false
+clwyd,5,1,Adrian Gwyn Mason,true
+clwyd,5,2,Louise Gail Emery,true
+clwyd,5,3,Thomas Brian Montgomery,true
+clwyd,5,4,David Smith,false
+clwyd,5,5,Kristian Salkeld,false
+clwyd,5,6,Anthony Christopher Thomas,false
+clwyd,6,1,Hannah Blythyn,false
+clwyd,6,2,Carolyn Ann Thomas,false
+clwyd,6,3,Crispin Jones,false
+clwyd,6,4,Ellen Rose Jones,false
+clwyd,6,5,Raj Metri,false
+clwyd,6,6,Catherine Frances Claydon,false
+clwyd,6,7,Arran Fearn,false
+clwyd,6,8,Cheryl Lynne Williams,false
+clwyd,7,1,David James Compton Wilkins,false
+clwyd,7,2,Bobby Feeley,false
+clwyd,7,3,Nanette Yvonne Davies,false
+clwyd,7,4,Simon Philip Croft,false
+clwyd,7,5,Jason Kynaston Higgins,false
+clwyd,7,6,Keith Richard Kirwan,false
+fflint-wrecsam,1,1,Sam Rowlands,true
+fflint-wrecsam,1,2,Jeremy Richard Kent,false
+fflint-wrecsam,1,3,James Clive Ecroyd,false
+fflint-wrecsam,1,4,Kathryn Patricia Bonnell Cracknell,false
+fflint-wrecsam,1,5,Alexander Martin Peter Rooney,false
+fflint-wrecsam,1,6,Lewis Rhys David Norton,false
+fflint-wrecsam,2,1,Lee Lavery,false
+fflint-wrecsam,2,2,Sekki Tabasuares,false
+fflint-wrecsam,2,3,Graham Bannister-Kelly,false
+fflint-wrecsam,2,4,Suzanne Marie Glascott,false
+fflint-wrecsam,2,5,Kathryn Price,false
+fflint-wrecsam,2,6,Helen Lucy Mitchell,false
+fflint-wrecsam,3,1,Kristina Maria Renshaw,false
+fflint-wrecsam,4,1,Carrie Harper,true
+fflint-wrecsam,4,2,Marc Jones,true
+fflint-wrecsam,4,3,Kayleigh Unitt,false
+fflint-wrecsam,4,4,Dean Davies,false
+fflint-wrecsam,4,5,Annette Davies,false
+fflint-wrecsam,4,6,Andy Gallanders,false
+fflint-wrecsam,5,1,Cristiana Emsley,true
+fflint-wrecsam,5,2,Nigel Williams,true
+fflint-wrecsam,5,3,Paul Ashton,false
+fflint-wrecsam,5,4,Helen Brown,false
+fflint-wrecsam,5,5,Michael Budden,false
+fflint-wrecsam,5,6,Dave Vernon,false
+fflint-wrecsam,6,1,Daniel Thomas McNay,false
+fflint-wrecsam,7,1,Ken Skates,true
+fflint-wrecsam,7,2,Jack Sargeant,false
+fflint-wrecsam,7,3,Corin Jarvis,false
+fflint-wrecsam,7,4,Norma Ann Davies,false
+fflint-wrecsam,7,5,George Thomas,false
+fflint-wrecsam,7,6,Tracey Jane Sutton-Postlethwaite,false
+fflint-wrecsam,8,1,Tim Sly,false
+fflint-wrecsam,8,2,Richard David Marbrow,false
+fflint-wrecsam,8,3,Heather Alison Prydderch,false
+fflint-wrecsam,8,4,Lionel Prouve,false
+fflint-wrecsam,8,5,Carole Georgina Tetley O`Toole,false
+fflint-wrecsam,8,6,Graham Kelly,false
+fflint-wrecsam,9,1,Andrew John Williams,false
+gwynedd-maldwyn,1,1,Aled Wyn Davies,false
+gwynedd-maldwyn,1,2,Henrietta Elizabeth Hensher,false
+gwynedd-maldwyn,1,3,Pete Lewington,false
+gwynedd-maldwyn,1,4,Hedd Vaughan Thomas,false
+gwynedd-maldwyn,1,5,Daniel Lewis Spilsbury,false
+gwynedd-maldwyn,1,6,Roger Francis Cracknell,false
+gwynedd-maldwyn,2,1,Jeremy Davies,false
+gwynedd-maldwyn,3,1,Mattie Ginsberg,false
+gwynedd-maldwyn,4,1,Sian Gwenllian,true
+gwynedd-maldwyn,4,2,Mabon ap Gwynfor,true
+gwynedd-maldwyn,4,3,Beca Brown,true
+gwynedd-maldwyn,4,4,Elwyn Vaughan,true
+gwynedd-maldwyn,4,5,Elin Hywel,false
+gwynedd-maldwyn,4,6,Donna O'Brien,false
+gwynedd-maldwyn,4,7,Victoria Evans,false
+gwynedd-maldwyn,4,8,Elfed Wyn ap Elwyn,false
+gwynedd-maldwyn,5,1,Nathan Jarvis,false
+gwynedd-maldwyn,5,2,Nicole Wait,false
+gwynedd-maldwyn,5,3,Sue MacFarlane,false
+gwynedd-maldwyn,5,4,Sian Thomas,false
+gwynedd-maldwyn,5,5,Curtis Wilford,false
+gwynedd-maldwyn,5,6,Ed Mason,false
+gwynedd-maldwyn,6,1,Andrew Charles Griffin,true
+gwynedd-maldwyn,6,2,Claire Victoria Johnson-Wood,true
+gwynedd-maldwyn,6,3,Robert Karl Lewis,false
+gwynedd-maldwyn,6,4,Peter Phillip Robinson,false
+gwynedd-maldwyn,6,5,Mark Phillip Blake,false
+gwynedd-maldwyn,6,6,Richard Charles Pendry,false
+gwynedd-maldwyn,7,1,Ian Pryce Parry,false
+gwynedd-maldwyn,7,2,Dawn McGuinness,false
+gwynedd-maldwyn,7,3,Steffan William Chambers,false
+gwynedd-maldwyn,7,4,Dana Davies,false
+gwynedd-maldwyn,7,5,Mathew James Norman,false
+gwynedd-maldwyn,7,6,Morgan Peters,false
+gwynedd-maldwyn,8,1,Glyn Preston,false
+gwynedd-maldwyn,8,2,Steve Churchman,false
+gwynedd-maldwyn,8,3,Richard Wilfrid Church,false
+gwynedd-maldwyn,8,4,Pete Roberts,false
+gwynedd-maldwyn,8,5,Carol Elaine Robinson,false
+gwynedd-maldwyn,8,6,Manny Akpoteni,false
+gwynedd-maldwyn,9,1,Russell George,false
+gwynedd-maldwyn,10,1,Monty Kennard,false
+gwyr-abertawe,1,1,Tom Giffard,false
+gwyr-abertawe,1,2,Tara-Jane Sutcliffe,false
+gwyr-abertawe,1,3,Jake Lloyd Thomas Harry,false
+gwyr-abertawe,1,4,Carley Morgan,false
+gwyr-abertawe,1,5,Laura Gilbert,false
+gwyr-abertawe,1,6,Idin Ghotbi,false
+gwyr-abertawe,2,1,Christy Galt,false
+gwyr-abertawe,3,1,Gwyn Williams,true
+gwyr-abertawe,3,2,Safa Elhassan,true
+gwyr-abertawe,3,3,John Davies,true
+gwyr-abertawe,3,4,Rhiannon Barrar,false
+gwyr-abertawe,3,5,Dafydd Williams,false
+gwyr-abertawe,3,6,Harri Roberts,false
+gwyr-abertawe,4,1,Chris Evans,false
+gwyr-abertawe,4,2,Lilian Yuet Ling Martin,false
+gwyr-abertawe,4,3,Nigel Francis Bartolotti Hill,false
+gwyr-abertawe,4,4,Cari Bishop-Jones,false
+gwyr-abertawe,4,5,Will Beasley,false
+gwyr-abertawe,4,6,David Halfacree,false
+gwyr-abertawe,5,1,Francesca O'Brien,true
+gwyr-abertawe,5,2,Steven Rodaway,true
+gwyr-abertawe,5,3,Wayne Parsons,false
+gwyr-abertawe,5,4,Gareth Turner,false
+gwyr-abertawe,5,5,Scott Thorley,false
+gwyr-abertawe,5,6,Nicola Clarke,false
+gwyr-abertawe,6,1,Mike Hedges,true
+gwyr-abertawe,6,2,Rob Stewart,false
+gwyr-abertawe,6,3,Rebecca Angharad Fogarty,false
+gwyr-abertawe,6,4,Rebecca Francis-Davies,false
+gwyr-abertawe,6,5,Dr Kemba Hadaway-Morgan,false
+gwyr-abertawe,6,6,Patience Nansat Bentu,false
+gwyr-abertawe,7,1,Sam Bennett,false
+gwyr-abertawe,7,2,Helen Ceri Clarke,false
+gwyr-abertawe,7,3,Mike O'Carroll,false
+gwyr-abertawe,7,4,Christopher Ashleigh Holley,false
+gwyr-abertawe,7,5,Mary Helen Jones,false
+gwyr-abertawe,7,6,Howard William Evans,false
+gwyr-abertawe,8,1,Ben Golightly,false
+gwyr-abertawe,8,2,Mark Evans,false
+gwyr-abertawe,9,1,Katon Bouzalakos,false
+gwyr-abertawe,10,1,Dan Brown,false
+gwyr-abertawe,11,1,Emma McNamara,false
+pen-y-bont-bro-morgannwg,1,1,ANDREW RT DAVIES,true
+pen-y-bont-bro-morgannwg,1,2,ALTAF HUSSAIN,false
+pen-y-bont-bro-morgannwg,1,3,JONATHAN PRATT,false
+pen-y-bont-bro-morgannwg,1,4,KATE THOMAS,false
+pen-y-bont-bro-morgannwg,1,5,REBEKAH FUDGE,false
+pen-y-bont-bro-morgannwg,1,6,MICHAEL BRYAN,false
+pen-y-bont-bro-morgannwg,2,1,GILLIAN WHITE,false
+pen-y-bont-bro-morgannwg,3,1,MARK JONATHAN HOOPER,true
+pen-y-bont-bro-morgannwg,3,2,SARAH REES,true
+pen-y-bont-bro-morgannwg,3,3,LUKE FLETCHER,false
+pen-y-bont-bro-morgannwg,3,4,MARIANNE COWPE,false
+pen-y-bont-bro-morgannwg,3,5,IAN JAMES JOHNSON,false
+pen-y-bont-bro-morgannwg,3,6,IOLO CAUDY,false
+pen-y-bont-bro-morgannwg,3,7,DENNIS ALAN CLARKE,false
+pen-y-bont-bro-morgannwg,4,1,SARAH COOPER-LESADD,true
+pen-y-bont-bro-morgannwg,4,2,GARETH THOMAS,true
+pen-y-bont-bro-morgannwg,4,3,PAUL YOUNG,false
+pen-y-bont-bro-morgannwg,4,4,EMMA KATE CLATWORTHY,false
+pen-y-bont-bro-morgannwg,4,5,VALERIE LYNN ELLIS,false
+pen-y-bont-bro-morgannwg,4,6,DENNIS ANTHONY COUGHLIN,false
+pen-y-bont-bro-morgannwg,5,1,AMY GREENFIELD,false
+pen-y-bont-bro-morgannwg,5,2,SAAR LENAERTS,false
+pen-y-bont-bro-morgannwg,5,3,ROBERT SAGE,false
+pen-y-bont-bro-morgannwg,5,4,AARON STEER,false
+pen-y-bont-bro-morgannwg,5,5,TODD BAILEY,false
+pen-y-bont-bro-morgannwg,5,6,ANDY ROBERTS,false
+pen-y-bont-bro-morgannwg,6,1,SARAH MURPHY,true
+pen-y-bont-bro-morgannwg,6,2,HUW JOHN DAVID,false
+pen-y-bont-bro-morgannwg,6,3,CARYS STALLARD,false
+pen-y-bont-bro-morgannwg,6,4,JONATHAN COX,false
+pen-y-bont-bro-morgannwg,6,5,JON-PAUL BLUNDELL,false
+pen-y-bont-bro-morgannwg,6,6,HELEN MARY PAYNE,false
+pen-y-bont-bro-morgannwg,6,7,NEELO FARR,false
+pen-y-bont-bro-morgannwg,6,8,RHYS GOODE,false
+pen-y-bont-bro-morgannwg,7,1,STEVEN ROHAN MICHAEL RAJAM,false
+pen-y-bont-bro-morgannwg,7,2,GABRIELA FERGUSON,false
+pen-y-bont-bro-morgannwg,7,3,PAULA GULEN YATES,false
+pen-y-bont-bro-morgannwg,7,4,WAYNE STREET,false
+pen-y-bont-bro-morgannwg,7,5,JOE BOYLE,false
+pen-y-bont-bro-morgannwg,7,6,MATTHEW THOMAS DIXON,false
+pen-y-bont-bro-morgannwg,8,1,WILLIAM JEFFREYS,false
+pen-y-bont-bro-morgannwg,9,1,CAROLINE JONES,false
+pen-y-bont-bro-morgannwg,10,1,LUCIA WYATT,false
+pontypridd-cynon-merthyr,1,1,Adam Robinson,false
+pontypridd-cynon-merthyr,1,2,David Jones,false
+pontypridd-cynon-merthyr,1,3,Roxanne Rees,false
+pontypridd-cynon-merthyr,1,4,Lee Davies,false
+pontypridd-cynon-merthyr,1,5,Oliver Morgan,false
+pontypridd-cynon-merthyr,1,6,Jayne McKenna,false
+pontypridd-cynon-merthyr,2,1,Stefan Morgan,false
+pontypridd-cynon-merthyr,3,1,Julie Lloyd,false
+pontypridd-cynon-merthyr,4,1,Heledd Fychan,true
+pontypridd-cynon-merthyr,4,2,Lis McLean,true
+pontypridd-cynon-merthyr,4,3,Sara Crowley,true
+pontypridd-cynon-merthyr,4,4,Ian Gwynne,false
+pontypridd-cynon-merthyr,4,5,Farrell Perks,false
+pontypridd-cynon-merthyr,4,6,Ioan Bellin,false
+pontypridd-cynon-merthyr,5,1,Jason O'Connell,true
+pontypridd-cynon-merthyr,5,2,David Hughes,true
+pontypridd-cynon-merthyr,5,3,Mark Lawrence,false
+pontypridd-cynon-merthyr,5,4,Martin Roberts,false
+pontypridd-cynon-merthyr,5,5,John Ball,false
+pontypridd-cynon-merthyr,5,6,Jamie Loftus,false
+pontypridd-cynon-merthyr,6,1,Angela Karadog,false
+pontypridd-cynon-merthyr,6,2,James Bennett,false
+pontypridd-cynon-merthyr,6,3,John Dane,false
+pontypridd-cynon-merthyr,6,4,Georgina Budd,false
+pontypridd-cynon-merthyr,6,5,Zara Siddique,false
+pontypridd-cynon-merthyr,6,6,Jeffrey Baxter,false
+pontypridd-cynon-merthyr,7,1,Vikki Howells,true
+pontypridd-cynon-merthyr,7,2,Lloyd Watkins,false
+pontypridd-cynon-merthyr,7,3,Chris Binding,false
+pontypridd-cynon-merthyr,7,4,Mitch Theaker,false
+pontypridd-cynon-merthyr,7,5,Mustapha Maohoub,false
+pontypridd-cynon-merthyr,7,6,Anna Nadine Williams-Price,false
+pontypridd-cynon-merthyr,7,7,Jane Gebbie,false
+pontypridd-cynon-merthyr,8,1,Neil Anthony Feist,false
+pontypridd-cynon-merthyr,8,2,David Vernon Charles Seale,false
+pontypridd-cynon-merthyr,8,3,Alec Dauncey,false
+pontypridd-cynon-merthyr,8,4,Nick Beckett,false
+pontypridd-cynon-merthyr,8,5,Chris Passmore,false
+pontypridd-cynon-merthyr,8,6,Hayden Stephen Mathew Lewis,false
+pontypridd-cynon-merthyr,9,1,Joseph Anthony Biddulph,false
+pontypridd-cynon-merthyr,10,1,Dai Hedley Williams,false
+pontypridd-cynon-merthyr,11,1,Beth Winter,false
+sir-fynwy-torfaen,1,1,Peter Fox,true
+sir-fynwy-torfaen,1,2,Richard John,false
+sir-fynwy-torfaen,1,3,Lisa Dymock,false
+sir-fynwy-torfaen,1,4,Nathan Edmunds,false
+sir-fynwy-torfaen,1,5,Rachel Buckler,false
+sir-fynwy-torfaen,1,6,Chase Blount,false
+sir-fynwy-torfaen,2,1,Ian Chandler,false
+sir-fynwy-torfaen,2,2,Emily Williams,false
+sir-fynwy-torfaen,2,3,Charlie Aldous,false
+sir-fynwy-torfaen,2,4,Lauren Sellers,false
+sir-fynwy-torfaen,2,5,Darren Share,false
+sir-fynwy-torfaen,2,6,Angus Ilmari Paget,false
+sir-fynwy-torfaen,3,1,Brad Williams,false
+sir-fynwy-torfaen,4,1,Emma Meredith,false
+sir-fynwy-torfaen,5,1,Joseph John Nicholson,false
+sir-fynwy-torfaen,5,2,David Carl Atkins,false
+sir-fynwy-torfaen,6,1,Matthew Jones,true
+sir-fynwy-torfaen,6,2,Donna Cushing,true
+sir-fynwy-torfaen,6,3,Jayne Louise Israel,false
+sir-fynwy-torfaen,6,4,David Johnson,false
+sir-fynwy-torfaen,6,5,Gwen Loti Glyn,false
+sir-fynwy-torfaen,6,6,Huw David Evans,false
+sir-fynwy-torfaen,7,1,Laura Anne Jones,true
+sir-fynwy-torfaen,7,2,Stephen John Senior,true
+sir-fynwy-torfaen,7,3,Bob Blacker,false
+sir-fynwy-torfaen,7,4,David John Rowlands,false
+sir-fynwy-torfaen,7,5,Mark Morgan Urrutia,false
+sir-fynwy-torfaen,7,6,Gerard Majella Hancock,false
+sir-fynwy-torfaen,8,1,Lynne Neagle,true
+sir-fynwy-torfaen,8,2,Anthony Hunt,false
+sir-fynwy-torfaen,8,3,Laura Elizabeth Wright,false
+sir-fynwy-torfaen,8,4,Catrin Maby,false
+sir-fynwy-torfaen,8,5,Ben Callard,false
+sir-fynwy-torfaen,8,6,Nick Byrne,false
+sir-fynwy-torfaen,8,7,Su McConnel,false
+sir-fynwy-torfaen,9,1,Kevin Wilkins,false
+sir-fynwy-torfaen,9,2,Brendan Carl Jeff Roberts,false
+sir-fynwy-torfaen,9,3,Vicky Hepburn-John,false
+sir-fynwy-torfaen,9,4,Anthea Madeline Dewhurst,false
+sir-fynwy-torfaen,9,5,Martin Sutherland,false
+sir-fynwy-torfaen,9,6,Iwan Elliot Thomas,false
+sir-fynwy-torfaen,10,1,Owen Lewis,false
+sir-fynwy-torfaen,11,1,Welsh Pool,false
+sir-gaerfyrddin,1,1,Richard Christopher Williams,false
+sir-gaerfyrddin,1,2,Lee Ross Stabbins,false
+sir-gaerfyrddin,1,3,Oliver Martin Wilson,false
+sir-gaerfyrddin,1,4,Bradley Richard Williams,false
+sir-gaerfyrddin,1,5,Natasha Lesley Rowlands,false
+sir-gaerfyrddin,1,6,Ben Sansome,false
+sir-gaerfyrddin,2,1,Wayne Erasmus,false
+sir-gaerfyrddin,3,1,Jason Barker,false
+sir-gaerfyrddin,4,1,Cefin Campbell,true
+sir-gaerfyrddin,4,2,Nerys Evans,true
+sir-gaerfyrddin,4,3,Adam Price,true
+sir-gaerfyrddin,4,4,Mari Arthur,false
+sir-gaerfyrddin,4,5,Iwan Griffiths,false
+sir-gaerfyrddin,4,6,Abi Thomas,false
+sir-gaerfyrddin,4,7,Taylor Reynolds,false
+sir-gaerfyrddin,4,8,Jordan Griffiths,false
+sir-gaerfyrddin,5,1,Gareth David Beer,true
+sir-gaerfyrddin,5,2,Carmelo Colasanto,true
+sir-gaerfyrddin,5,3,Sarah Elizabeth Edwards,true
+sir-gaerfyrddin,5,4,Christopher Brooke,false
+sir-gaerfyrddin,5,5,Alan John Cole,false
+sir-gaerfyrddin,5,6,Michelle Beer,false
+sir-gaerfyrddin,6,1,Rob James,false
+sir-gaerfyrddin,6,2,Nicholas Pearce,false
+sir-gaerfyrddin,6,3,Steven Craig Davies,false
+sir-gaerfyrddin,6,4,David Christopher Lishman,false
+sir-gaerfyrddin,6,5,Helen Rose Draper,false
+sir-gaerfyrddin,6,6,Michael Hugh Willis,false
+sir-gaerfyrddin,7,1,Calum Paul Higgins,false
+sir-gaerfyrddin,7,2,Dawn Caroline Evans,false
+sir-gaerfyrddin,7,3,Martyn James Palfreman,false
+sir-gaerfyrddin,7,4,David Llewelyn Darkin,false
+sir-gaerfyrddin,7,5,Lewis Eldred Davies,false
+sir-gaerfyrddin,7,6,Andre McPherson,false
+sir-gaerfyrddin,8,1,Justin Mark Griffiths,false
+sir-gaerfyrddin,8,2,Julian William Tandy,false
+sir-gaerfyrddin,8,3,Jonathan Edward Burree,false
+sir-gaerfyrddin,8,4,Lynne Susan Wilkins,false
+sir-gaerfyrddin,8,5,Monica French,false
+sir-gaerfyrddin,8,6,Caryl Evelyn Tandy,false
+sir-gaerfyrddin,9,1,Carl Peters-Bond,false
+sir-gaerfyrddin,10,1,Jonathan Rose,false
+sir-gaerfyrddin,11,1,Steve Williams,false
