@@ -1,3 +1,4 @@
+import { assemblySitemapUrls } from '$lib/assembly/data.server';
 import { generatedAt } from '$lib/data';
 import { councilSitemapUrls } from '$lib/sitemap/council';
 import { parliamentSitemapUrls } from '$lib/sitemap/parliament';
@@ -26,7 +27,7 @@ ${body}
 
 export function GET() {
   const today = generatedAt.slice(0, 10);
-  const merged = [...councilSitemapUrls(), ...parliamentSitemapUrls()];
+  const merged = [...councilSitemapUrls(), ...parliamentSitemapUrls(), ...assemblySitemapUrls()];
   const urls = [...new Set(merged)];
   return new Response(serialise(urls, today), {
     headers: { 'content-type': 'application/xml; charset=utf-8' }
