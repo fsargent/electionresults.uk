@@ -1,9 +1,15 @@
+import { electionSitemapUrls } from '$lib/server/election-catalog';
 import { assemblySitemapUrls } from '$lib/assembly/data.server';
 import { generatedAt } from '$lib/data';
 import { councilSitemapUrls } from '$lib/sitemap/council';
 import { parliamentSitemapUrls } from '$lib/sitemap/parliament';
 
 export const prerender = true;
+
+const additionalFragments = import.meta.glob('/src/lib/sitemap/{senedd,holyrood}.ts', {eager:true}) as Record<string, Record<string, unknown>>;
+const additionalUrls = () => Object.values(additionalFragments).flatMap(module =>
+  Object.entries(module).filter(([name, fn]) => name.endsWith('SitemapUrls') && typeof fn === 'function')
+    .flatMap(([, fn]) => (fn as () => string[])()));
 
 const ORIGIN = 'https://electionresults.uk';
 
@@ -27,7 +33,7 @@ ${body}
 
 export function GET() {
   const today = generatedAt.slice(0, 10);
-  const merged = [...councilSitemapUrls(), ...parliamentSitemapUrls(), ...assemblySitemapUrls()];
+  const merged = [...councilSitemapUrls(), ...parliamentSitemapUrls(), ...assemblySitemapUrls(), ...electionSitemapUrls(), ...additionalUrls()];
   const urls = [...new Set(merged)];
   return new Response(serialise(urls, today), {
     headers: { 'content-type': 'application/xml; charset=utf-8' }
