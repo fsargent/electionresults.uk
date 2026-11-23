@@ -1,0 +1,16 @@
+{
+  "elections": [
+    {
+      "id": "assembly-2022",
+      "year": 2022,
+      "date": "2022-05-05",
+      "name": "Northern Ireland Assembly",
+      "nation": "northern-ireland",
+      "system": "Single Transferable Vote",
+      "href": "/assembly/2022",
+      "seats": 90,
+      "contests": 18,
+      "coverage": "All 18 constituencies; recorded results and count stages, no ballot-level rankings."
+    }
+  ]
+}
